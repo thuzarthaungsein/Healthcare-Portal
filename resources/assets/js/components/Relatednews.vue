@@ -2,10 +2,10 @@
          <div class="col-md-auto">
                                         <div class="row m-b-10">
                                                 <div class="col-6">
-                                                        <a href="../pages/news/search_news_result.html" class="btn all-btn secondary-bg-color float-right" style="width:100%">Cus search</a> 
+                                                        <a href="../pages/news/search_news_result.html" class="btn all-btn secondary-bg-color float-right" style="width:100%"> <i class="fas fa-search"></i> Cus search</a> 
                                                 </div>
                                                 <div class="col-6">
-                                                        <a href="../pages/news/search_news_result.html" class="btn all-btn btn-success float-right" style="width:100%">Job search</a>
+                                                        <a href="../pages/news/search_news_result.html" class="btn all-btn btn-success float-right" style="width:100%"><i class="fas fa-search"></i> Job search</a>
                                                    
                                                 </div>
                                         </div>

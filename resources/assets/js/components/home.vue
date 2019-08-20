@@ -261,8 +261,9 @@
                                                                 </div>
                                                         </div>
                                                 </div>
+                                               
                                                 <div class="row m-lr-0">
-                                                                        <div class="row col-md-12 text-center"><h4 class="h_4">関連ニュース</h4></div>
+                                                                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
                                                                         <div class="col-sm-3  col-md-3 mt-2">
                                                                                 <div class="hovereffect fit-image">
                                                                                         <img class="img-responsive fit-image" src="images/j5.jpg" alt="">
