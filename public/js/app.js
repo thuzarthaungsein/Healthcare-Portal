@@ -52152,12 +52152,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobSearchListComponent_vue__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_JobSearchListComponent_vue__);
+
 
 
 var routes = [{
   name: 'home',
   path: '/home',
   component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+}, {
+  name: 'job',
+  path: '/jobsearchlist',
+  component: __WEBPACK_IMPORTED_MODULE_1__components_JobSearchListComponent_vue___default.a
 }];
 
 /***/ }),
@@ -54735,6 +54742,919 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(61)
+}
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(59)
+/* template */
+var __vue_template__ = __webpack_require__(63)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-456c7431"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/JobSearchListComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-456c7431", Component.options)
+  } else {
+    hotAPI.reload("data-v-456c7431", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        console.log('Component mounted.');
+        $(document).ready(function () {
+            jssor_1_slider_init();
+        });
+    }
+});
+
+/***/ }),
+/* 60 */,
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(62);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(50)("3b3e34d2", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-456c7431\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./JobSearchListComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-456c7431\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./JobSearchListComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(49)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-456c7431] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-456c7431;\r\n                    animation-name: jssorl-009-spin-data-v-456c7431;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-456c7431 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-456c7431 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-456c7431] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-456c7431] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-456c7431] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-456c7431] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-456c7431] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-456c7431] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-456c7431] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-456c7431]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-456c7431] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-456c7431] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n \r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("section", { staticClass: "main-content" }, [
+      _c("div", { staticClass: "container-fluid main-wrapper" }, [
+        _c(
+          "div",
+          {
+            staticStyle: {
+              position: "relative",
+              margin: "0 auto",
+              top: "0px",
+              left: "0px",
+              width: "980px",
+              height: "160px",
+              overflow: "hidden",
+              visibility: "hidden"
+            },
+            attrs: { id: "jssor_1" }
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "jssorb057",
+                staticStyle: {
+                  position: "absolute",
+                  bottom: "12px",
+                  right: "12px"
+                },
+                attrs: {
+                  "data-u": "navigator",
+                  "data-autocenter": "1",
+                  "data-scale": "0.5",
+                  "data-scale-bottom": "0.75"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "i",
+                    staticStyle: { width: "16px", height: "16px" },
+                    attrs: { "data-u": "prototype" }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticStyle: {
+                          position: "absolute",
+                          top: "0",
+                          left: "0",
+                          width: "100%",
+                          height: "100%"
+                        },
+                        attrs: { viewbox: "0 0 16000 16000" }
+                      },
+                      [
+                        _c("circle", {
+                          staticClass: "b",
+                          attrs: { cx: "8000", cy: "8000", r: "5000" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "jssora073",
+                staticStyle: {
+                  width: "50px",
+                  height: "50px",
+                  top: "0px",
+                  left: "30px"
+                },
+                attrs: {
+                  "data-u": "arrowleft",
+                  "data-autocenter": "2",
+                  "data-scale": "0.75",
+                  "data-scale-left": "0.75"
+                }
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticStyle: {
+                      position: "absolute",
+                      top: "0",
+                      left: "0",
+                      width: "100%",
+                      height: "100%"
+                    },
+                    attrs: { viewbox: "0 0 16000 16000" }
+                  },
+                  [
+                    _c("path", {
+                      staticClass: "a",
+                      attrs: {
+                        d:
+                          "M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "jssora073",
+                staticStyle: {
+                  width: "50px",
+                  height: "50px",
+                  top: "0px",
+                  right: "30px"
+                },
+                attrs: {
+                  "data-u": "arrowright",
+                  "data-autocenter": "2",
+                  "data-scale": "0.75",
+                  "data-scale-right": "0.75"
+                }
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticStyle: {
+                      position: "absolute",
+                      top: "0",
+                      left: "0",
+                      width: "100%",
+                      height: "100%"
+                    },
+                    attrs: { viewbox: "0 0 16000 16000" }
+                  },
+                  [
+                    _c("path", {
+                      staticClass: "a",
+                      attrs: {
+                        d:
+                          "M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z"
+                      }
+                    })
+                  ]
+                )
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(2)
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "jssorl-009-spin",
+        staticStyle: {
+          position: "absolute",
+          top: "0px",
+          left: "0px",
+          width: "100%",
+          height: "100%",
+          "text-align": "center",
+          "background-color": "rgba(0,0,0,0.7)"
+        },
+        attrs: { "data-u": "loading" }
+      },
+      [
+        _c("img", {
+          staticStyle: {
+            "margin-top": "-19px",
+            position: "relative",
+            top: "50%",
+            width: "38px",
+            height: "38px"
+          },
+          attrs: { src: "img/spin.svg" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticStyle: {
+          cursor: "default",
+          position: "relative",
+          top: "0px",
+          left: "0px",
+          width: "980px",
+          height: "150px",
+          overflow: "hidden"
+        },
+        attrs: { "data-u": "slides" }
+      },
+      [
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c("div", { staticClass: "col-md container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+              _c("ol", { staticClass: "breadcrumb" }, [
+                _c("li", { staticClass: "breadcrumb-item" }, [
+                  _c("a", { attrs: { href: "../index.html" } }, [
+                    _vm._v("ホーム")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "breadcrumb-item" }, [
+                  _c("a", { attrs: { href: "../news/news_details.html" } }, [
+                    _vm._v(" 新しい詳細")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass: "breadcrumb-item active",
+                    attrs: { "aria-current": "page" }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n                                                        就職活動リスト"
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "scroll" }, [
+              _c("div", { staticClass: "card card-default m-b-20" }, [
+                _c("div", { staticClass: "card-body news-post" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-2" }, [
+                      _c("img", {
+                        staticClass: "col-md-12",
+                        attrs: { src: "images/home1.jpg", alt: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-10" }, [
+                      _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                        _c("b", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "mr-auto",
+                              attrs: { href: "../jobs/job_search_details.html" }
+                            },
+                            [_vm._v("これは役職です")]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Lorem Ipsumは、紀元前45年に書かれたCiceroの（善と悪の極限）のセクション1.10.32と1.10.33から来ています。 この本は、ルネサンス時代に非常に人気のある、倫理理論に関する論文です。"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "btn btn all-btn secondary-bg-color white",
+                              attrs: { href: "../jobs/job_search_details.html" }
+                            },
+                            [_vm._v("詳細を見る")]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card card-default m-b-20" }, [
+                _c("div", { staticClass: "card-body news-post" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-2" }, [
+                      _c("img", {
+                        staticClass: "col-md-12",
+                        attrs: { src: "images/hospital1.jpg", alt: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-10" }, [
+                      _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                        _c("b", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "mr-auto",
+                              attrs: { href: "../jobs/job_search_details.html" }
+                            },
+                            [_vm._v("これは役職です ")]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Lorem Ipsumは、紀元前45年に書かれたCiceroの（善と悪の極限）のセクション1.10.32と1.10.33から来ています。 この本は、ルネサンス時代に非常に人気のある、倫理理論に関する論文です。"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "btn btn all-btn secondary-bg-color white",
+                              attrs: { href: "../jobs/job_search_details.html" }
+                            },
+                            [_vm._v("詳細を見る")]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card card-default m-b-20" }, [
+                _c("div", { staticClass: "card-body news-post" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-2" }, [
+                      _c("img", {
+                        staticClass: "col-md-12",
+                        attrs: { src: "images/day4.jpg", alt: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-10" }, [
+                      _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                        _c("b", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "mr-auto",
+                              attrs: { href: "../jobs/job_search_details.html" }
+                            },
+                            [_vm._v("これは役職です ")]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Lorem Ipsumは、紀元前45年に書かれたCiceroの（善と悪の極限）のセクション1.10.32と1.10.33から来ています。 この本は、ルネサンス時代に非常に人気のある、倫理理論に関する論文です。"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "btn btn all-btn secondary-bg-color white",
+                              attrs: { href: "../jobs/job_search_details.html" }
+                            },
+                            [_vm._v("詳細を見る")]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card card-default m-b-20" }, [
+                _c("div", { staticClass: "card-body news-post" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-2" }, [
+                      _c("img", {
+                        staticClass: "col-md-12",
+                        attrs: { src: "images/hospital4.jpg", alt: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-10" }, [
+                      _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                        _c("b", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "mr-auto",
+                              attrs: { href: "../jobs/job_search_details.html" }
+                            },
+                            [_vm._v("これは役職です ")]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Lorem Ipsumは、紀元前45年に書かれたCiceroの（善と悪の極限）のセクション1.10.32と1.10.33から来ています。 この本は、ルネサンス時代に非常に人気のある、倫理理論に関する論文です。"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "btn btn all-btn secondary-bg-color white",
+                              attrs: { href: "../jobs/job_search_details.html" }
+                            },
+                            [_vm._v("詳細を見る")]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-auto" }, [
+        _c("div", { staticClass: "row m-b-10" }, [
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn all-btn secondary-bg-color float-right",
+                staticStyle: { width: "100%" },
+                attrs: { href: "../pages/news/search_news_result.html" }
+              },
+              [_vm._v("Cus search")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn all-btn main-bg-color float-right",
+                staticStyle: { width: "100%" },
+                attrs: { href: "../pages/news/search_news_result.html" }
+              },
+              [_vm._v("Job search")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card m-b-10 ads-card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title text-center" }, [
+              _vm._v("一つ目の広告")
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "img-responsivie",
+              staticStyle: { width: "100%" },
+              attrs: { src: "/images/company-profile1.png", alt: "" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card m-b-10 ads-card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title text-center" }, [
+              _vm._v("二つ目の広告")
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "img-responsivie",
+              staticStyle: { width: "100%" },
+              attrs: { src: "/images/logo_japanese_horizontal.png", alt: "" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card m-b-10 ads-card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title text-center" }, [
+              _vm._v("三つ目の広告")
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "img-responsivie",
+              staticStyle: { width: "100%" },
+              attrs: { src: "/images/company-profile1.png", alt: "" }
+            })
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-456c7431", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
