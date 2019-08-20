@@ -19,7 +19,7 @@ class CreateCustomersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('logo');
-            $table->integer('category_id');
+            $table->integer('type_id');
             $table->string('phone');
             $table->text('address');
             $table->integer('user_id');
