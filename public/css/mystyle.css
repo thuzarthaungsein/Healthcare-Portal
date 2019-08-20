@@ -1,0 +1,783 @@
+ /* style for individual page and overall */
+
+ body {
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    /* background: #dfdfde; */
+    background: #f5f5f5 !important;
+}
+.form1{
+    /* border:1px solid#118063; */
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+.txt
+{
+    text-align:center;
+    background-color:#118063;
+    padding: 20px;
+    margin-bottom:2%;
+    letter-spacing: 5px;
+    color:white;
+    border-radius: 5px;
+}
+.txt2
+{
+    letter-spacing: 3px;
+}
+
+.txt3
+{
+    text-align:center;
+    background-color:#118063;
+    padding: 15px;
+    letter-spacing: 5px;
+    color:white;
+    border-radius: 5px;
+    margin-top: 10%;
+}
+.box
+{
+    padding: 10px;
+    /* border-bottom: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 0px; */
+}
+
+.con
+{
+    padding-top: 38px;
+   
+}
+.img1
+{
+    margin-top: 21px;
+}
+
+#wrapper {
+    /* background:  */
+    height: 100%;    
+}
+.wrapper {
+    background: #fff;
+    padding: 0px;
+    box-shadow: 0px 1px 5px 0px #ccc!important;
+    height: 100%;
+}
+
+.admin-sidebar, .user-sidebar {
+    display: none;
+}
+
+/* News List */
+#content {
+    /* height: 800px; */
+    overflow: auto;
+}
+#content .news-post p {
+    font-size: 14px;
+}
+/* End News List */
+
+/* Profile */
+.btn-editProfile{
+    background: #0f6064;
+    color: white;
+}
+/* End Profile */
+
+/* Login */
+		body,
+		html {
+			height: 100%;
+		}
+		.user_card {
+			height: 400px;
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #118063;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+		.brand_logo_container {
+			position: absolute;
+			height: 170px;
+			width: 170px;
+			top: -75px;
+			border-radius: 50%;
+			background: #4db197;
+			padding: 10px;
+			text-align: center;
+		}
+		.brand_logo {
+			height: 150px;
+			width: 150px;
+			border-radius: 50%;
+			border: 2px solid white;
+		}
+		.form_container {
+			margin-top: 100px;
+		}
+		.login_btn {
+			width: 100%;
+			background: #4db197 !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+            padding: 0 2.5rem;
+            
+        }
+        .width{
+            width: 280px;
+        }
+        .d-margin{
+            font-size: 12px;
+            margin-bottom: 70px;
+        }
+		.input-group-text {
+			background: #4db197 !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+			background-color: #2ba7c0 !important;
+        }
+        .links a{
+            color:#d2cfcf !important;
+        }
+
+
+        .text{
+            color:#fff !important;
+            /* padding: 0px 0px 0px 240px; */
+            position: relative;
+            float: right;
+           
+
+
+
+
+        }
+/* End Login */
+
+/* Search News List */
+.hovereffect {
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    }
+
+.hovereffect .overlay {
+    position: absolute;
+    overflow: hidden;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    border-bottom: 1px solid #FFF;
+    border-top: 1px solid #FFF;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale(0,1);
+    -ms-transform: scale(0,1);
+    transform: scale(0,1);
+    }
+
+
+.hovereffect:hover .overlay {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    }
+
+.hovereffect img {
+    display: block;
+    position: relative;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    }
+
+.hovereffect:hover img {
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+    filter: brightness(0.6);
+    -webkit-filter: brightness(0.6);
+    }
+
+.hovereffect h2 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    background-color: transparent;
+    color: #FFF;
+    padding: 1em 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0,-100%,0);
+    transform: translate3d(0,-100%,0);
+    }
+
+
+
+.hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2 {
+    opacity: 1;
+    filter: alpha(opacity=100); 
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    }
+
+.fit-image{
+    width: 100%;
+    object-fit: cover;
+    height: 300px; /* only if you want fixed height */
+    }
+    .info{
+        width: 100%;
+        height: 120px;
+        position: absolute;
+        top: 180px;
+        background-color: #2a2d2cb0;
+        color: #fff;
+        text-align: justify !important;
+    
+    }
+    .info div{
+        padding: 10px 10px 0px 10px;
+        font-size: 12px;
+        text-align: justify;
+        border-right: 1px solid #fff;
+    }
+    div.scroll2{
+        height:700px;
+        float: left;
+        overflow-y:auto;
+        scrollbar-width: thin;
+        }
+    div.scroll, .home-scroll{
+        height:765px;
+        float: left;
+        overflow-y:auto;
+        scrollbar-width: thin;
+        }
+   
+
+   
+/* End Search News List */
+
+/*new_details*/
+
+
+        .img_2
+        {
+            margin-left: 10%;
+            /* border:1px solid black; */
+        }
+
+        .p_2
+        {
+            padding:22px;
+            margin-top:22px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-align: justify;
+        }
+        p.p_2 > a {
+            color: #fff !important;
+        }
+        .p_3
+        {
+            /* padding: 22px; */
+            /* margin-top: 22px; */
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-align: justify;
+            color: white;
+           
+        }
+
+        .h_4
+        {
+            width: 100%;
+            text-align: center;
+            padding:12px;
+            font-weight:bold;
+            letter-spacing: 3px;
+        }
+        .m-l-14
+        {
+            margin-left: -12px;
+        }
+        .fit-image2{
+            width: 350px;
+            object-fit: cover;
+            height: 300px; /* only if you want fixed height */
+        }
+        .displaytext{
+            display: none;
+        }
+        hr.hr-line {
+            width: 100%;
+            height: 5px;
+            float: left;
+            color: black;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+          
+        .search1
+        {
+            margin-left:85%;
+            margin-top:-30px;
+        }
+        .input_height
+        {
+            height:38px;
+        }
+        .input_p
+        {
+            position: absolute;
+            margin-left:10px;
+            height:38px;
+        }
+/*end_new_details*/
+
+p {
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #000;
+}
+.main-header{
+    background-color: #b7dad2;
+    /* margin-left: 100px;
+    margin-right: 100px; */
+}
+.main-content{    
+   /* padding: 0px;*/
+    box-shadow: 0px 1px 5px 0px #ccc!important; 
+    min-height: 100vh;
+}
+.main-wrapper{
+    padding: 10px 20px 20px 20px;
+    background-color: #f5f5f5;
+    height:100%;
+}
+/* Create News */
+.error {
+    color: #FF0000;
+}
+
+
+/* body {
+    background-color: #f5f5f5;
+} */
+
+.imagePreview {
+    width: 300%;
+    height: 200px;
+    background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+    background-color: #fff;
+    background-size: cover;
+    position: relative;
+    right: 15px;
+    background-position: center;
+}
+
+.btn-primary {
+    display: block;
+    border-radius: 0px;
+    box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.2);
+    margin-top: -5px;
+}
+
+.imgUp {
+    margin-bottom: 15px;
+}
+
+.del {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+
+.uploadFile {
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.imgAdd {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #4bd7ef;
+    color: #fff;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    line-height: 30px;
+    margin-top: 0px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.bg-color {
+    background-color: #118063 !important;
+    width: 170px;
+    color: white !important;
+    position: relative;
+    right: 15px;
+}
+.menu-pos{
+    position: relative;
+    right: 15px;
+}
+
+.caret {
+    margin-left: 15px;
+}
+.news-post-btn {
+    background-color: #118063 !important;
+    color: white !important;
+    position: relative;
+    left: 15px;
+}
+/* End Create News */
+
+
+/*Job Apply Form*/
+
+/* End Job Apply Form*/
+/* News Tab */
+.news-wrapper{
+    height: 310px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.news-wrapper a:hover{
+    text-decoration: none;
+}
+/* .news-wrapper >a:first-child{
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 2.1rem;
+    padding: 0;
+    vertical-align: top;
+    width: 30rem;
+} */
+.news-wrapper >a:first-child>img {
+    height: 19.4rem;
+}
+.source-title{
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.538;
+    text-transform: uppercase;
+    color: #000;
+    margin: 12px 0;
+}
+.source-subtitle{
+    font-size: 12px;
+    color: #969798;
+    font-weight: 300;
+}
+.source-subtitle img{
+    margin-right: 11px;
+    vertical-align: bottom;
+}
+.source-img{
+    width: 25.6px;
+    height: 25.6px;
+}
+.source-img-small{
+    font-size: 14px;
+    color: #000000;
+}
+/*End News Tab*/
+/* Jobs Offer Detail */
+.btns{
+    display:block;
+    zoom: 1;
+    margin:59% 3% 0 3%;
+}
+.job-no{
+    float: right;
+}
+.btn-width{
+    width: 140px;
+}
+div.scroll2
+    .img_6{
+        margin-left: 26%;
+    }
+    .bold_h5{
+        font-weight: bold;
+    }
+div.cont-pad{
+    background: white;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+/* End Job Offer Detail */
+/*For Ads */
+.ads-card {
+    width: 18rem;
+}
+/*End Ad*/
+/* Media Queries*/
+@media (max-width: 600px) and (min-width: 400px)  {
+    .source-img-small{
+        width: 300px;
+    }
+    .ads-card{
+        width: 120px;
+   }
+ }
+ @media screen and (min-width: 320px) {
+    .source-img-small{
+       width: 500px;
+    }
+    .ads-card{
+         width: 18rem;
+    }
+ }
+/*for search for,*/
+.toggle-input{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+
+/*/////////////////////////// setup////////////////////// */
+/* setup class */
+
+.p-lr-0 {
+    padding-left:0px !important;
+    padding-right:0px !important;
+}
+
+.pad-free {
+    padding: 0px;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+.m-t-8 {
+    margin-top:13px;
+}
+.m-lr-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.m-t-10{
+    margin-top: 10px !important;
+}
+.m-t-30 {
+    margin-top:32px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+.m-t-22{
+    margin-top: 22px;
+}
+.m-b-30{
+    margin-bottom: 30px;
+}
+/* .m-r-2per{
+    margin-right: 2% !important;
+} */
+.p-t-0 {
+    padding-top: 0px;
+}
+.p-t-5{
+    padding-top: 5px !important;
+}
+.p-b-5{
+    padding-bottom: 5px ;
+}
+
+.main-color {
+    color: #333;
+}
+
+.white {
+    color: #fff;
+}
+
+.main-bg-color {
+    background-color: #118063 !important;
+}
+.m-b-10{
+    margin-bottom: 10px;
+}
+.secondary-bg-color{
+    background-color: #f5a750 !important;
+}
+.all-btn{
+    color: #fff !important;
+    border:none !important;
+    min-width: 100px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+}
+.login-register-btn{
+    background-color: transparent;
+    color: #000 !important;
+    border: none;
+    font-weight: bold;
+    width: 82px;
+    font-size: 12px;
+}
+.login-register-btn:hover, .login-register-btn:active, .login-register-btn:focus{
+    background-color: transparent;
+    color: #000;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.btn.focus, .btn:focus{
+    box-shadow: none !important;
+}
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding-top: 0px !important;
+    padding-left: 9px !important;
+}
+.box-searchmap{
+    position: relative;
+    padding: 16px;
+    border: 1px solid rgba(0,0,0,.125);
+    background: #fff;
+    margin: 10px 0px 0px 0px;
+    border-radius: .25rem;
+    /* min-height: 350px !important; */
+    /* max-height: 252px;
+    min-height: 252px; */
+    /* width: 49%; */
+}
+.tab-card{
+    min-height: 400px;
+       
+}
+.tab-content{
+    padding: .25rem !important;
+}
+.tab-card-header{
+    background-color: #118063 !important;
+}
+.nav-link{
+    color: #fff !important;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+    border-color:transparent !important;
+}
+a:hover{
+    color: #000;
+}
+.nav-tabs .nav-item{
+    margin-bottom: -3px !important;
+    border-left: 1px solid #fff !important;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {   
+    background-color: rgba(0,0,0,0.5) !important;
+    border: none !important;
+    color: #fff !important;
+    /* background-color: #2a9a7d;
+    border: 1px solid #fff;
+    overflow: #fff;
+    border-top-color: transparent;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px; */
+}
+
+.nav-item:hover{
+    background-color: transparent !important;
+}
+/*for breadcrumb*/
+.breadcrumb{
+    padding: 0px 1rem !important;
+    margin-bottom: 8px !important;
+    background-color: transparent !important;
+}
+.breadcrumb-item > a{
+     color: #6c757d;
+     font-weight: bold;
+}
+.breadcrumb-item.active {
+    color: #f16c00;
+    font-weight: bold;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    color: #118063 !important;
+    content: ">" !important;
+}
+/*end for breadcrumb*/
+/*footer*/
+.footer{
+    font-size: 12px;
+    /* padding-top: 15px;
+    padding-bottom: 15px; */
+    background: transparent;
+    text-align: center; 
+    line-height: 20px; 
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  
+   
+}
+
