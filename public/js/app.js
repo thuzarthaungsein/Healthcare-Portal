@@ -52234,7 +52234,7 @@ exports = module.exports = __webpack_require__(49)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-6ebcac14] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-6ebcac14;\r\n                    animation-name: jssorl-009-spin-data-v-6ebcac14;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-6ebcac14 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-6ebcac14 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-6ebcac14] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-6ebcac14] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-6ebcac14] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-6ebcac14] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-6ebcac14] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-6ebcac14] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-6ebcac14] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-6ebcac14]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-6ebcac14] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-6ebcac14] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n \r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-6ebcac14] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-6ebcac14;\r\n                    animation-name: jssorl-009-spin-data-v-6ebcac14;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-6ebcac14 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-6ebcac14 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-6ebcac14] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-6ebcac14] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-6ebcac14] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-6ebcac14] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-6ebcac14] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-6ebcac14] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-6ebcac14] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-6ebcac14]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-6ebcac14] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-6ebcac14] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n \r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -52975,50 +52975,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log('Component mounted.');
         $(document).ready(function () {
             jssor_1_slider_init();
-            jssor_1_slider_init = function jssor_1_slider_init() {
-
-                var jssor_1_options = {
-                    $AutoPlay: 1,
-                    $AutoPlaySteps: 5,
-                    $SlideDuration: 160,
-                    $SlideWidth: 200,
-                    $SlideSpacing: 3,
-                    $ArrowNavigatorOptions: {
-                        $Class: $JssorArrowNavigator$,
-                        $Steps: 5
-                    },
-                    $BulletNavigatorOptions: {
-                        $Class: $JssorBulletNavigator$
-                    }
-                };
-
-                var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
-                /*#region responsive code begin*/
-
-                var MAX_WIDTH = 980;
-
-                function ScaleSlider() {
-                    var containerElement = jssor_1_slider.$Elmt.parentNode;
-                    var containerWidth = containerElement.clientWidth;
-
-                    if (containerWidth) {
-
-                        var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
-
-                        jssor_1_slider.$ScaleWidth(expectedWidth);
-                    } else {
-                        window.setTimeout(ScaleSlider, 30);
-                    }
-                }
-
-                ScaleSlider();
-
-                $Jssor$.$AddEvent(window, "load", ScaleSlider);
-                $Jssor$.$AddEvent(window, "resize", ScaleSlider);
-                $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-                /*#endregion responsive code end*/
-            };
         });
     }
 });
