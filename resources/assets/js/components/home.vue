@@ -1,6 +1,6 @@
 <template>
 <div>
-   
+
                         <div class="row justify-content-md-center">
                                 <div class="col-md container">
                                         <div class="row">
@@ -115,7 +115,7 @@
                                                                                         </div>
                                                                                         <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper">
                                                                                                 <ul class="list-group list-group-flush">
-                                                                                                       
+
                                                                                                         <li class="list-group-item p-t-5 p-b-5">
                                                                                                                 <a href="./news/news_details.html">
                                                                                                                         <img src="/images/3.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
@@ -162,7 +162,7 @@
                                                                                                 </ul>
                                                                                         </div>
                                                                                 </div>
-                                                                               
+
                                                                         </div>
                                                                         <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
                                                                                 <div class="row">
@@ -176,7 +176,7 @@
                                                                                                                 <img alt="" src="/images/5.png" class="source-img">日刊スポーツ
                                                                                                         </p>
                                                                                                 </a>
-                                                                                        </div> 
+                                                                                        </div>
                                                                                         <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper">
                                                                                                 <ul class="list-group list-group-flush">
                                                                                                         <li class="list-group-item p-t-5 p-b-5">
@@ -255,7 +255,7 @@
                                                                                                 </ul>
                                                                                         </div>
                                                                                 </div>
-                                                                               
+
                                                                         </div>
 
                                                                 </div>
@@ -341,14 +341,14 @@
                                                                         </div>
                                                                 </div>
                                         </div>
-                                      
-                                </div>
-                                
 
-                             
+                                </div>
+
+
+
 
                         </div>
-              
+
 </div>
 </template>
 
