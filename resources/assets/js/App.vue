@@ -17,6 +17,8 @@
       </li>
       <li class="nav-item btn login-register-btn col-lg-6">
          <router-link to="/" class="nav-item nav-link p-lr-0">Register</router-link>
+         <router-link to="/" class="nav-item nav-link p-lr-0">Register</router-link>
+
       </li>
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,6 +39,7 @@
   </div>
 </nav>
   <router-view></router-view>
+
 <div class="container-fluid footer">               
   <span>Copyright©Management Partners Corp.All Rights Reserved. </span>                
 </div>
