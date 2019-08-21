@@ -6,18 +6,11 @@ import JobSearchListComponent from './components/JobSearchListComponent.vue';
 import JobOfferComponent from './components/JobOfferComponent.vue';
 import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
-<<<<<<< HEAD
-
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
 
 
 
-=======
-import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
-import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
-
->>>>>>> 0bedcd6903c3c4303888c96281abdff0bdb4a144
 export const routes = [
        {
         name: 'home',

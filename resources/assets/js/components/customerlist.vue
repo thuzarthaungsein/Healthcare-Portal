@@ -1,5 +1,5 @@
 <template>
-<div class="content">
+<div class="row">
      <!-- <div class="container">
         <div class="card card-default m-b-20">
 
@@ -84,8 +84,34 @@
 
         </div>
     </div> -->
-    <div class="scroll col-12">
-        <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
+                            <li class="breadcrumb-item"><a href="../news/news_details.html"> 新しい詳細</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                            就職活動リスト</li>
+                    </ol>
+            </nav>
+            <div class="card card-default m-b-20">
+
+            <div class="card-body">
+                    <h4 class="main-color">ニュース記事を検索</h4>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="検索">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn secondary-bg-color all-btn white">検索</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="card-header text-center">
+            <h4 style="padding-top:20px;">ユーザーリストテーブル</h4>
+        </div>
+        <div class="scroll col-12">
+            <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
             <div class="card-body news-post">
                 <div class="row">
                     <div class="col-md-2" >
@@ -109,6 +135,8 @@
                 </div>
             </div>
         </div>
+
+    </div>
     </div>
 </div>
 </template>

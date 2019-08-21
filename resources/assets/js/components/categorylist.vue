@@ -1,6 +1,6 @@
 <template>
-    <div class="content">
-        <div class="container">
+    <div class="row">
+        <div class="col-12">
             <div class="card card-default m-b-20">
 
               <div class="card-body">
@@ -22,7 +22,7 @@
           <div class="card-header text-center">
               <h4 style="padding-top:20px;">ユーザーリストテーブル</h4>
           </div>
-        <div class="scroll col-12">
+          <div class="scroll col-12">
         <div v-for="category in categories" :key="category.id" class="card card-default m-b-20">
             <div class="card-body news-post">
                 <div class="row">
