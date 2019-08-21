@@ -491,6 +491,9 @@ p {
 .news-wrapper a:hover{
     text-decoration: none;
 }
+.news-wrapper > ul > li.list-group-item {
+   /* background-color: red !important; */
+}
 /* .news-wrapper >a:first-child{
     display: inline-block;
     margin-left: 0;
@@ -557,7 +560,7 @@ div.cont-pad{
 /* End Job Offer Detail */
 /*For Ads */
 .ads-card, .ads-card2 {
-    width: 18rem;
+    /* width: 18rem; */
 }
 .ads-card2 .card-body{
     padding: 5px 0px !important;
@@ -568,11 +571,12 @@ div.cont-pad{
 .ads-title{
     font-size: 12px;
     line-height: 1.357;
-    margin-top: 12.8px;
+    /* margin-top: 12.8px; */
 }
 .ads-img{
     float:left;
-    width: 128px;
+    /* width: 128px; */
+    width: 80px;
     margin-right: 19.2px;
 }
 .source-img{
@@ -582,26 +586,27 @@ div.cont-pad{
     vertical-align:middle;
 }
 .source-wrapper{
-    bottom: 17.6px;
+    /* bottom: 17.6px; */
+    bottom: 4px;
     position: absolute;    
 }
 /*End Ad*/
 /* Media Queries*/
 @media (max-width: 600px) and (min-width: 400px)  {
     .source-img-small{
-        width: 300px;
+        width: 500px;
     }
     .ads-card{
         width: 120px;
    }
  }
- @media screen and (min-width: 320px) {
+ @media (min-width: 320px) {
     .source-img-small{
-       width: 500px;
+       width: 300px;
     }
-    .ads-card{
+    /* .ads-card{
          width: 18rem;
-    }
+    } */
  }
 /*for search for,*/
 .toggle-input{

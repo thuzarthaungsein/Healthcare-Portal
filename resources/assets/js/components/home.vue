@@ -2,8 +2,7 @@
 <div>
    
                         <div class="row justify-content-md-center">
-                                <div class="col-md container">
-                                        <div class="row">
+                                
                                                 <div class="col-12">
                                                         <div class="card tab-card">
                                                                 <div class="card-header tab-card-header">
@@ -341,9 +340,7 @@
                                                                                 </div>
                                                                         </div>
                                                                 </div>
-                                        </div>
-                                      
-                                </div>
+                                     
                                 
 
                              

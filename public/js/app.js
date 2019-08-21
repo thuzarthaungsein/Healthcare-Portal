@@ -50076,9 +50076,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-auto" }, [
-      _c("div", { staticClass: "row m-b-10" }, [
-        _c("div", { staticClass: "col-6" }, [
+    return _c("div", [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12 m-b-10" }, [
           _c(
             "a",
             {
@@ -50086,11 +50086,14 @@ var staticRenderFns = [
               staticStyle: { width: "100%" },
               attrs: { href: "../pages/news/search_news_result.html" }
             },
-            [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Cus search")]
+            [
+              _c("i", { staticClass: "fas fa-search" }),
+              _vm._v(" Customer search")
+            ]
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-6" }, [
+        _c("div", { staticClass: "col-12 m-b-10" }, [
           _c(
             "a",
             {
@@ -50332,15 +50335,10 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row row justify-content-md-center" }, [
-            _c(
-              "div",
-              { staticClass: "col-md container" },
-              [_c("router-view")],
-              1
-            ),
+          _c("div", { staticClass: "row justify-content-md-center" }, [
+            _c("div", { staticClass: "col-10" }, [_c("router-view")], 1),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-auto" }, [_c("relatedNews")], 1)
+            _c("div", { staticClass: "col-2" }, [_c("relatedNews")], 1)
           ])
         ],
         1
@@ -53364,494 +53362,761 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("div", { staticClass: "row justify-content-md-center" }, [
-        _c("div", { staticClass: "col-md container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "card tab-card" }, [
-                _c("div", { staticClass: "card-header tab-card-header" }, [
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "nav nav-tabs card-header-tabs",
-                      attrs: { id: "myTab", role: "tablist" }
-                    },
-                    [
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link active",
-                            attrs: {
-                              id: "one-tab",
-                              "data-toggle": "tab",
-                              href: "#one",
-                              role: "tab",
-                              "aria-controls": "One",
-                              "aria-selected": "true"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                                                                                ニュース 1"
-                            )
-                          ]
+        _c("div", { staticClass: "col-12" }, [
+          _c("div", { staticClass: "card tab-card" }, [
+            _c("div", { staticClass: "card-header tab-card-header" }, [
+              _c(
+                "ul",
+                {
+                  staticClass: "nav nav-tabs card-header-tabs",
+                  attrs: { id: "myTab", role: "tablist" }
+                },
+                [
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link active",
+                        attrs: {
+                          id: "one-tab",
+                          "data-toggle": "tab",
+                          href: "#one",
+                          role: "tab",
+                          "aria-controls": "One",
+                          "aria-selected": "true"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n                                                                                                ニュース 1"
                         )
-                      ]),
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        attrs: {
+                          id: "two-tab",
+                          "data-toggle": "tab",
+                          href: "#two",
+                          role: "tab",
+                          "aria-controls": "Two",
+                          "aria-selected": "false"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n                                                                                                ニュース 2"
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        attrs: {
+                          id: "three-tab",
+                          "data-toggle": "tab",
+                          href: "#three",
+                          role: "tab",
+                          "aria-controls": "Three",
+                          "aria-selected": "false"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n                                                                                                ニュース 3"
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane fade show active p-3",
+                    attrs: {
+                      id: "one",
+                      role: "tabpanel",
+                      "aria-labelledby": "one-tab"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-xl-4 col-sm-12 col-md-3 col-lg-3 col-12"
+                        },
+                        [
+                          _c(
+                            "a",
+                            { attrs: { href: "./news/news_details.html" } },
+                            [
+                              _c("img", {
+                                staticClass: "img-responsive",
+                                staticStyle: { width: "100%" },
+                                attrs: { src: "/images/h4.jpg", alt: "" }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                {
+                                  staticClass: "source-title",
+                                  attrs: { "aria-label": "" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "source-subtitle" }, [
+                                _c("img", {
+                                  staticClass: "source-img",
+                                  attrs: { alt: "", src: "/images/5.png" }
+                                }),
+                                _vm._v(
+                                  "日刊スポーツ\r\n                                                                                                        "
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
                       _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "two-tab",
-                              "data-toggle": "tab",
-                              href: "#two",
-                              role: "tab",
-                              "aria-controls": "Two",
-                              "aria-selected": "false"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                                                                                ニュース 2"
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "three-tab",
-                              "data-toggle": "tab",
-                              href: "#three",
-                              role: "tab",
-                              "aria-controls": "Three",
-                              "aria-selected": "false"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                                                                                ニュース 3"
-                            )
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ]),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
+                        },
+                        [
+                          _c(
+                            "ul",
+                            { staticClass: "list-group list-group-flush" },
+                            [
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/1.jpg", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "source-img-small d-inline-block text-truncate"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/2.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/3.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/4.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/5.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: {
+                                          src: "/images/h2.jpg",
+                                          alt: ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: {
+                                          src: "/images/news_search.png",
+                                          alt: ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: {
+                                          src: "/images/h1.jpg",
+                                          alt: ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/2.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                ),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+                  {
+                    staticClass: "tab-pane fade p-3",
+                    attrs: {
+                      id: "two",
+                      role: "tabpanel",
+                      "aria-labelledby": "two-tab"
+                    }
+                  },
                   [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade show active p-3",
-                        attrs: {
-                          id: "one",
-                          role: "tabpanel",
-                          "aria-labelledby": "one-tab"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12"
+                        },
+                        [
                           _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-4 col-sm-12 col-md-3 col-lg-3 col-12"
-                            },
+                            "a",
+                            { attrs: { href: "./news/news_details.html" } },
                             [
+                              _c("img", {
+                                staticClass: "img-responsive",
+                                staticStyle: { width: "100%" },
+                                attrs: { src: "/images/h9.jpg", alt: "" }
+                              }),
+                              _vm._v(" "),
                               _c(
-                                "a",
-                                { attrs: { href: "./news/news_details.html" } },
+                                "p",
+                                {
+                                  staticClass: "source-title",
+                                  attrs: { "aria-label": "" }
+                                },
                                 [
-                                  _c("img", {
-                                    staticClass: "img-responsive",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { src: "/images/h4.jpg", alt: "" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "source-title",
-                                      attrs: { "aria-label": "" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "source-subtitle" }, [
-                                    _c("img", {
-                                      staticClass: "source-img",
-                                      attrs: { alt: "", src: "/images/5.png" }
-                                    }),
-                                    _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
-                                    )
-                                  ])
+                                  _vm._v(
+                                    "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                  )
                                 ]
-                              )
+                              ),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "source-subtitle" }, [
+                                _c("img", {
+                                  staticClass: "source-img",
+                                  attrs: { alt: "", src: "/images/5.png" }
+                                }),
+                                _vm._v(
+                                  "日刊スポーツ\r\n                                                                                                        "
+                                )
+                              ])
                             ]
-                          ),
-                          _vm._v(" "),
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
+                        },
+                        [
                           _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                            },
+                            "ul",
+                            { staticClass: "list-group list-group-flush" },
                             [
                               _c(
-                                "ul",
-                                { staticClass: "list-group list-group-flush" },
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
                                 [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                              )
-                                            ]
-                                          )
-                                        ]
+                                        attrs: { src: "/images/3.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        attrs: { src: "/images/4.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/3.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        attrs: { src: "/images/5.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/4.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        attrs: {
+                                          src: "/images/h2.jpg",
+                                          alt: ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/5.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        attrs: {
+                                          src: "/images/news_search.png",
+                                          alt: ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h2.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        attrs: {
+                                          src: "/images/h1.jpg",
+                                          alt: ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/news_search.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
+                                        attrs: { src: "/images/2.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
                                       _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
                                   )
@@ -53859,332 +54124,487 @@ var staticRenderFns = [
                               )
                             ]
                           )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade p-3",
-                        attrs: {
-                          id: "two",
-                          role: "tabpanel",
-                          "aria-labelledby": "two-tab"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "row" }, [
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane fade p-3",
+                    attrs: {
+                      id: "three",
+                      role: "tabpanel",
+                      "aria-labelledby": "three-tab"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12"
+                        },
+                        [
                           _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12"
-                            },
+                            "a",
+                            { attrs: { href: "./news/news_details.html" } },
                             [
+                              _c("img", {
+                                staticClass: "img-responsive",
+                                staticStyle: { width: "100%" },
+                                attrs: { src: "/images/h4.jpg", alt: "" }
+                              }),
+                              _vm._v(" "),
                               _c(
-                                "a",
-                                { attrs: { href: "./news/news_details.html" } },
+                                "p",
+                                {
+                                  staticClass: "source-title",
+                                  attrs: { "aria-label": "" }
+                                },
                                 [
-                                  _c("img", {
-                                    staticClass: "img-responsive",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { src: "/images/h9.jpg", alt: "" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "source-title",
-                                      attrs: { "aria-label": "" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "source-subtitle" }, [
-                                    _c("img", {
-                                      staticClass: "source-img",
-                                      attrs: { alt: "", src: "/images/5.png" }
-                                    }),
-                                    _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
-                                    )
-                                  ])
+                                  _vm._v(
+                                    "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                  )
                                 ]
-                              )
+                              ),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "source-subtitle" }, [
+                                _c("img", {
+                                  staticClass: "source-img",
+                                  attrs: { alt: "", src: "/images/5.png" }
+                                }),
+                                _vm._v(
+                                  "日刊スポーツ\r\n                                                                                                        "
+                                )
+                              ])
                             ]
-                          ),
-                          _vm._v(" "),
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
+                        },
+                        [
                           _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                            },
+                            "ul",
+                            { staticClass: "list-group list-group-flush" },
                             [
                               _c(
-                                "ul",
-                                { staticClass: "list-group list-group-flush" },
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
                                 [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/1.jpg", alt: "" }
+                                      }),
+                                      _vm._v(" "),
                                       _c(
-                                        "a",
+                                        "span",
                                         {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                          staticClass:
+                                            "source-img-small d-inline-block text-truncate"
                                         },
                                         [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/3.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
+                                          _vm._v(
+                                            "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
                                           )
                                         ]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/1.jpg", alt: "" }
+                                      }),
+                                      _vm._v(" "),
                                       _c(
-                                        "a",
+                                        "span",
                                         {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                          staticClass:
+                                            "source-img-small d-inline-block text-truncate"
                                         },
                                         [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/4.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
+                                          _vm._v(
+                                            "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
                                           )
                                         ]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/1.jpg", alt: "" }
+                                      }),
+                                      _vm._v(" "),
                                       _c(
-                                        "a",
+                                        "span",
                                         {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                          staticClass:
+                                            "source-img-small d-inline-block text-truncate"
                                         },
                                         [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/5.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
+                                          _vm._v(
+                                            "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
                                           )
                                         ]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h2.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        attrs: { src: "/images/2.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/news_search.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        attrs: { src: "/images/3.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        attrs: { src: "/images/4.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
                                   _c(
-                                    "li",
+                                    "a",
                                     {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
                                     },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
                                         },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
+                                        attrs: { src: "/images/5.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/5.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: {
+                                          src: "/images/h2.jpg",
+                                          alt: ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: {
+                                          src: "/images/news_search.png",
+                                          alt: ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: {
+                                          src: "/images/h1.jpg",
+                                          alt: ""
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "./news/news_details.html"
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/2.png", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "source-img-small" },
+                                        [_vm._v("日刊スポーツ")]
                                       )
                                     ]
                                   )
@@ -54192,691 +54612,152 @@ var staticRenderFns = [
                               )
                             ]
                           )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade p-3",
-                        attrs: {
-                          id: "three",
-                          role: "tabpanel",
-                          "aria-labelledby": "three-tab"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12"
-                            },
-                            [
-                              _c(
-                                "a",
-                                { attrs: { href: "./news/news_details.html" } },
-                                [
-                                  _c("img", {
-                                    staticClass: "img-responsive",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { src: "/images/h4.jpg", alt: "" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "source-title",
-                                      attrs: { "aria-label": "" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "source-subtitle" }, [
-                                    _c("img", {
-                                      staticClass: "source-img",
-                                      attrs: { alt: "", src: "/images/5.png" }
-                                    }),
-                                    _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
-                                    )
-                                  ])
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                            },
-                            [
-                              _c(
-                                "ul",
-                                { staticClass: "list-group list-group-flush" },
-                                [
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/3.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/4.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/5.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/5.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h2.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/news_search.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    )
+                        ]
+                      )
+                    ])
                   ]
                 )
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row m-lr-0" }, [
+          _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
+            _c("h4", { staticClass: "h_4 next-title" }, [
+              _vm._v("関連ニュース")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+            _c("div", { staticClass: "hovereffect fit-image" }, [
+              _c("img", {
+                staticClass: "img-responsive fit-image",
+                attrs: { src: "images/j5.jpg", alt: "" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "overlay" }, [
+                _c("h2"),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-sm all-btn secondary-bg-color",
+                    attrs: { href: "news_details.html" }
+                  },
+                  [_vm._v("詳細を見る")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "info" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-12" }, [
+                    _c("p", { staticClass: " p_3" }, [
+                      _vm._v(
+                        "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                      )
+                    ])
+                  ])
+                ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row m-lr-0" }, [
-              _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
-                _c("h4", { staticClass: "h_4 next-title" }, [
-                  _vm._v("関連ニュース")
-                ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+            _c("div", { staticClass: "hovereffect fit-image" }, [
+              _c("img", {
+                staticClass: "img-responsive fit-image",
+                attrs: { src: "images/day1.jpg", alt: "" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "overlay" }, [
+                _c("h2"),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-sm all-btn secondary-bg-color",
+                    attrs: { href: "news_details.html" }
+                  },
+                  [_vm._v("詳細を見る")]
+                )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/j5.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
-                          )
-                        ])
-                      ])
+              _c("div", { staticClass: "info" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-12" }, [
+                    _c("p", { staticClass: " p_3" }, [
+                      _vm._v(
+                        "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                      )
                     ])
                   ])
                 ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+            _c("div", { staticClass: "hovereffect fit-image" }, [
+              _c("img", {
+                staticClass: "img-responsive fit-image",
+                attrs: { src: "images/hhh.jpg", alt: "" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "overlay" }, [
+                _c("h2"),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-sm all-btn secondary-bg-color",
+                    attrs: { href: "news_details.html" }
+                  },
+                  [_vm._v("詳細を見る")]
+                )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/day1.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
-                          )
-                        ])
-                      ])
+              _c("div", { staticClass: "info" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-12" }, [
+                    _c("p", { staticClass: " p_3" }, [
+                      _vm._v(
+                        "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                      )
                     ])
                   ])
                 ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+            _c("div", { staticClass: "hovereffect fit-image" }, [
+              _c("img", {
+                staticClass: "img-responsive fit-image",
+                attrs: { src: "images/home2.jpg", alt: "" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "overlay" }, [
+                _c("h2"),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-sm all-btn secondary-bg-color",
+                    attrs: { href: "news_details.html" }
+                  },
+                  [_vm._v("詳細を見る")]
+                )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/hhh.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/home2.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
-                          )
-                        ])
-                      ])
+              _c("div", { staticClass: "info" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-12" }, [
+                    _c("p", { staticClass: " p_3" }, [
+                      _vm._v(
+                        "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                      )
                     ])
                   ])
                 ])

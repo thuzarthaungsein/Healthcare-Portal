@@ -35,11 +35,11 @@
                                         
                                 </ol>
                         </nav>
-          <div class="row row justify-content-md-center">
-            <div class="col-md container">
+          <div class="row justify-content-md-center">
+            <div class="col-10">
                        <router-view></router-view>
             </div>
-            <div class="col-md-auto">
+            <div class="col-2">
                        <relatedNews></relatedNews>
             </div>
           </div>
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-   import ads from './components/Ads.vue'
+  import ads from './components/Ads.vue'
   import relatedNews from './components/Relatednews.vue'
    export default {
     components: {
