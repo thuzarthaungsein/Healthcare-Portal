@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             $post = new Post();
             $post->title = $faker->sentence();
             $post->body = $faker->paragraph();
+            $post->main_point = $faker->sentence();
             $post->category_id = rand(1, 5);
             $post->user_id = rand(1, 2);
             $post->save();
@@ -34,7 +35,7 @@ class DatabaseSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             $cus = new Customer();
             $cus->name = $faker->sentence();
-            $cus->email = $faker->paragraph();
+            $cus->email = "customer@gmail.com";
             $cus->password = bcrypt("123123");
             $cus->logo = $faker->sentence();
             $cus->type_id = rand(1, 3);
@@ -44,25 +45,25 @@ class DatabaseSeeder extends Seeder
             $cus->save();
         }
 
-        $faker = Faker::create();
-        for ($i=0; $i < 10; $i++) { 
-            $job = new Job();
-            $job->title = $faker->sentence();
-            $job->customer_id = rand(1, 10);
-            $job->photo = $faker->sentence();
-            $job->user_id = rand(1, 2);
-            $job->save();
-        }
+        // $faker = Faker::create();
+        // for ($i=0; $i < 10; $i++) { 
+        //     $job = new Job();
+        //     $job->title = $faker->sentence();
+        //     $job->customer_id = rand(1, 10);
+        //     // $job->photo = $faker->sentence();
+        //     $job->user_id = rand(1, 2);
+        //     $job->save();
+        // }
         
-        $faker = Faker::create();
-        for ($i=0; $i < 10; $i++) { 
-            $jobdetail = new JobDetail();
-            $jobdetail->job_id = rand(1, 10);
-            $jobdetail->header = $faker->sentence();
-            $jobdetail->body = $faker->paragraph();
-            $jobdetail->user_id = rand(1, 2);
-            $jobdetail->save();
-        }
+        // $faker = Faker::create();
+        // for ($i=0; $i < 10; $i++) { 
+        //     $jobdetail = new JobDetail();
+        //     $jobdetail->job_id = rand(1, 10);
+        //     $jobdetail->header = $faker->sentence();
+        //     $jobdetail->body = $faker->paragraph();
+        //     $jobdetail->user_id = rand(1, 2);
+        //     $jobdetail->save();
+        // }
 
         $category = new Category();
         $category->name = "特養";
