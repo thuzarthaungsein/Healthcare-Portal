@@ -1,13 +1,11 @@
 import home from './components/home.vue';
-<<<<<<< HEAD
 import JobApply from './components/JobApply.vue';
 import customerlist from './components/customerlist.vue';
-=======
 import JobSearchListComponent from './components/JobSearchListComponent.vue';
 import JobOfferComponent from './components/JobOfferComponent.vue';
+import categorylist from './components/categorylist.vue';
+import createcategory from './components/createcategory.vue';
 
-
->>>>>>> 0f70641de5461bdb4869bd1fc8a7c11f2f7c4ee8
 export const routes = [
        {
         name: 'home',
@@ -15,7 +13,6 @@ export const routes = [
         component: home
     },
     {
-<<<<<<< HEAD
         name: 'jobapply',
         path: '/jobapply',
         component: JobApply
@@ -24,10 +21,8 @@ export const routes = [
         name: 'customerlist',
         path: '/customerlist',
         component: customerlist
-    }
-];
-
-=======
+    },
+    {
       name: 'jobsearchlist',
       path: '/jobsearchlist',
       component: JobSearchListComponent
@@ -37,5 +32,14 @@ export const routes = [
       path: '/joboffer',
       component: JobOfferComponent
     },
+    {
+        name: 'categorylist',
+        path: '/categorylist',
+        component: categorylist
+      },
+      {
+        name: 'createcategory',
+        path: '/createcategory',
+        component: createcategory
+      }
 ];
->>>>>>> 0f70641de5461bdb4869bd1fc8a7c11f2f7c4ee8
