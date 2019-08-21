@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-
+        $this->call(PermissionTableSeeder::class);
         $faker = Faker::create();
         for ($i=0; $i < 10; $i++) { 
             $post = new Post();
@@ -89,4 +89,7 @@ class DatabaseSeeder extends Seeder
         $category->save();
         
     }
+  
+    
+    
 }

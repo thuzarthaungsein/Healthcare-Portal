@@ -556,8 +556,34 @@ div.cont-pad{
 
 /* End Job Offer Detail */
 /*For Ads */
-.ads-card {
+.ads-card, .ads-card2 {
     width: 18rem;
+}
+.ads-card2 .card-body{
+    padding: 5px 0px !important;
+}
+.ads-card2 .card-body > ul .list-group-item{
+    padding: 5px !important;
+}
+.ads-title{
+    font-size: 12px;
+    line-height: 1.357;
+    margin-top: 12.8px;
+}
+.ads-img{
+    float:left;
+    width: 128px;
+    margin-right: 19.2px;
+}
+.source-img{
+    width:1.6rem;
+    height:1.6rem;
+    margin-right:.6rem;
+    vertical-align:middle;
+}
+.source-wrapper{
+    bottom: 17.6px;
+    position: absolute;    
 }
 /*End Ad*/
 /* Media Queries*/
@@ -719,7 +745,7 @@ div.cont-pad{
     background-color: #118063 !important;
 }
 .nav-link{
-    color: #fff !important;
+    color: #000 !important;
 }
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
     border-color:transparent !important;
