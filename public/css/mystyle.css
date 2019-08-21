@@ -276,7 +276,7 @@
         border-right: 1px solid #fff;
     }
     div.scroll2{
-        height:700px;
+        height:900px;
         float: left;
         overflow-y:auto;
         scrollbar-width: thin;
@@ -316,7 +316,7 @@
         {
             /* padding: 22px; */
             /* margin-top: 22px; */
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 2px;
             text-align: justify;
             color: white;

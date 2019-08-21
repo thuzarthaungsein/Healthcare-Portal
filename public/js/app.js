@@ -377,33 +377,6 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
 /* globals __VUE_SSR_CONTEXT__ */
 
 // IMPORTANT: Do NOT use ES2015 features in this file.
@@ -507,6 +480,33 @@ module.exports = function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 
 /***/ }),
@@ -3224,7 +3224,7 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
 /* 5 */
@@ -14592,7 +14592,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(60);
+module.exports = __webpack_require__(64);
 
 
 /***/ }),
@@ -31820,7 +31820,7 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(19)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(19)(module)))
 
 /***/ }),
 /* 19 */
@@ -49075,7 +49075,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(40).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(40).setImmediate))
 
 /***/ }),
 /* 40 */
@@ -49145,7 +49145,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 41 */
@@ -49338,7 +49338,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(8)))
 
 /***/ }),
 /* 42 */
@@ -49349,7 +49349,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(43)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(46)
 /* template */
@@ -49558,7 +49558,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(48)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(50)
 /* template */
@@ -50019,7 +50019,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -50316,21 +50316,7 @@ var render = function() {
         [
           _c("ads"),
           _vm._v(" "),
-          _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-            _c("ol", { staticClass: "breadcrumb" }, [
-              _c(
-                "li",
-                { staticClass: "breadcrumb-item active" },
-                [
-                  _c("router-link", { attrs: { to: "/home" } }, [
-                    _c("i", { staticClass: "fas fa-home" }),
-                    _vm._v("   ホーム")
-                  ])
-                ],
-                1
-              )
-            ])
-          ]),
+          _vm._m(3),
           _vm._v(" "),
           _c("div", { staticClass: "row row justify-content-md-center" }, [
             _c(
@@ -50346,7 +50332,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm._m(3)
+      _vm._m(4)
     ])
   ])
 }
@@ -50410,6 +50396,14 @@ var staticRenderFns = [
         )
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+      _c("ol", { staticClass: "breadcrumb" })
+    ])
   },
   function() {
     var _vm = this
@@ -53292,12 +53286,26 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__);
+
+
 
 
 var routes = [{
-  name: 'home',
-  path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+    name: 'home',
+    path: '/home',
+    component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+}, {
+    name: 'newsdetails',
+    path: '/newsdetails',
+    component: __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default.a
+}, {
+    name: 'categorieslist',
+    path: '/categorieslist',
+    component: __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue___default.a
 }];
 
 /***/ }),
@@ -53305,7 +53313,7 @@ var routes = [{
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -53392,7 +53400,7 @@ var staticRenderFns = [
                           },
                           [
                             _vm._v(
-                              "\r\n                                                                                                ニュース 1"
+                              "\r\n                                                                                ニュース 1"
                             )
                           ]
                         )
@@ -53414,7 +53422,7 @@ var staticRenderFns = [
                           },
                           [
                             _vm._v(
-                              "\r\n                                                                                                ニュース 2"
+                              "\r\n                                                                                ニュース 2"
                             )
                           ]
                         )
@@ -53436,7 +53444,7 @@ var staticRenderFns = [
                           },
                           [
                             _vm._v(
-                              "\r\n                                                                                                ニュース 3"
+                              "\r\n                                                                                ニュース 3"
                             )
                           ]
                         )
@@ -53486,7 +53494,7 @@ var staticRenderFns = [
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                        "\r\n                                                                                                ニュースタイトル\r\n                                                                                        "
                                       )
                                     ]
                                   ),
@@ -53497,7 +53505,7 @@ var staticRenderFns = [
                                       attrs: { alt: "", src: "/images/5.png" }
                                     }),
                                     _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
+                                      "日刊スポーツ\r\n                                                                                        "
                                     )
                                   ])
                                 ]
@@ -53900,7 +53908,7 @@ var staticRenderFns = [
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                        "\r\n                                                                                                ニュースタイトル\r\n                                                                                        "
                                       )
                                     ]
                                   ),
@@ -53911,7 +53919,7 @@ var staticRenderFns = [
                                       attrs: { alt: "", src: "/images/5.png" }
                                     }),
                                     _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
+                                      "日刊スポーツ\r\n                                                                                        "
                                     )
                                   ])
                                 ]
@@ -54233,7 +54241,7 @@ var staticRenderFns = [
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                        "\r\n                                                                                                ニュースタイトル\r\n                                                                                        "
                                       )
                                     ]
                                   ),
@@ -54244,7 +54252,7 @@ var staticRenderFns = [
                                       attrs: { alt: "", src: "/images/5.png" }
                                     }),
                                     _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
+                                      "日刊スポーツ\r\n                                                                                        "
                                     )
                                   ])
                                 ]
@@ -54771,7 +54779,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
                           )
                         ])
                       ])
@@ -54805,7 +54813,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
                           )
                         ])
                       ])
@@ -54839,7 +54847,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
                           )
                         ])
                       ])
@@ -54873,7 +54881,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
                           )
                         ])
                       ])
@@ -54899,9 +54907,611 @@ if (false) {
 
 /***/ }),
 /* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(68)
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Newsdetails.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1fdaf828", Component.options)
+  } else {
+    hotAPI.reload("data-v-1fdaf828", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", {}, [
+      _c("div", { staticClass: "container-fluid main-wrapper" }, [
+        _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+          _c("ol", { staticClass: "breadcrumb" }, [
+            _c("li", { staticClass: "breadcrumb-item" }, [
+              _c("a", { attrs: { href: "/home" } }, [_vm._v("ホーム")])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "breadcrumb-item" }, [
+              _c("a", { attrs: { href: "./search_news_result.html" } }, [
+                _vm._v("新しい結果を検索")
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass: "breadcrumb-item active",
+                attrs: { "aria-current": "page" }
+              },
+              [_vm._v(" 新しい詳細")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row justify-content-md-center" }, [
+          _c("div", { staticClass: "col-md container" }, [
+            _c("div", { staticClass: "scroll2" }, [
+              _c("div", { staticClass: "row m-lr-0" }, [
+                _c("div", { staticClass: "row m-lr-0" }, [
+                  _c("div", { staticClass: "row m-lr-0" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c("h4", { staticClass: "h_4" }, [
+                        _vm._v("ニュースタイトル")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c("img", {
+                        staticClass: "img-responsive img_2",
+                        attrs: {
+                          src: "images/h3.jpg",
+                          height: "490px",
+                          width: "80%"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-12  mt-2" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row col-md-12 m-lr-0" }, [
+                    _c("p", { staticClass: "card p_2 " }, [
+                      _vm._v(
+                        "\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2000年以上の歴史があります。\n                                                                        バージニア州のハンプデン・シドニー大学のラテン語教授であるリチャード・マクリントックは、ロレム・イプサムの一節から、より曖昧なラテン語の1つであるconsecteturを調べ、古典文学の単語の引用を調べて、疑う余地のない情報源を発見しました。\n                                                                        紀元前45年に書かれたCiceroの「de Finibus\n                                                                        Bonorum et\n                                                                        Malorum」（善と悪の極限）のセクション1.10.32と1.10.33から来ています。\n                                                                        この本は、ルネサンス時代に非常に人気のある、倫理理論に関する論文です。\n                                                                        "
+                      ),
+                      _c("span", { staticClass: "displaytext" }, [
+                        _vm._v(
+                          "\n                                                                                いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせ. いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせすいろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす.\n                                                                                いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせ. いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせすいろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす.\n                                                                                いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせ. いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせすいろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす.\n                                                                                いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせ. いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせすいろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす.\n                                                                                いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせ. いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせすいろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす.\n                                                                                いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせ. いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす いろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせすいろはにほへと　ちりぬるを うゐのおくやま　けふこえて あさきゆめみし　ゑひもせす\n                                                                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "mt-2 readMore btn btn all-btn main-bg-color white",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "collapse",
+                            "data-target": "#collapseExample",
+                            "aria-expanded": "false",
+                            "aria-controls": "collapseExample"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                                                                続きを読む\n                                                                        "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("hr", { staticClass: "hr-line" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "row m-lr-0" }, [
+                  _c("div", { staticClass: "row col-md-12 text-center" }, [
+                    _c("h4", { staticClass: "h_4" }, [_vm._v("関連ニュース")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+                    _c("div", { staticClass: "hovereffect fit-image" }, [
+                      _c("img", {
+                        staticClass: "img-responsive fit-image",
+                        attrs: { src: "images/j5.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "overlay" }, [
+                        _c("h2"),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "btn btn-sm all-btn secondary-bg-color",
+                            attrs: { href: "news_details.html" }
+                          },
+                          [_vm._v("詳細を見る")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "info" }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-12" }, [
+                            _c("p", { staticClass: " p_3" }, [
+                              _vm._v(
+                                "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+                    _c("div", { staticClass: "hovereffect fit-image" }, [
+                      _c("img", {
+                        staticClass: "img-responsive fit-image",
+                        attrs: { src: "images/j5.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "overlay" }, [
+                        _c("h2"),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "btn btn-sm all-btn secondary-bg-color",
+                            attrs: { href: "news_details.html" }
+                          },
+                          [_vm._v("詳細を見る")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "info" }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-12" }, [
+                            _c("p", { staticClass: " p_3" }, [
+                              _vm._v(
+                                "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+                    _c("div", { staticClass: "hovereffect fit-image" }, [
+                      _c("img", {
+                        staticClass: "img-responsive fit-image",
+                        attrs: { src: "images/hhh.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "overlay" }, [
+                        _c("h2"),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "btn btn-sm all-btn secondary-bg-color",
+                            attrs: { href: "news_details.html" }
+                          },
+                          [_vm._v("詳細を見る")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "info" }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-12" }, [
+                            _c("p", { staticClass: " p_3" }, [
+                              _vm._v(
+                                "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+                    _c("div", { staticClass: "hovereffect fit-image" }, [
+                      _c("img", {
+                        staticClass: "img-responsive fit-image",
+                        attrs: { src: "images/j5.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "overlay" }, [
+                        _c("h2"),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "btn btn-sm all-btn secondary-bg-color",
+                            attrs: { href: "news_details.html" }
+                          },
+                          [_vm._v("詳細を見る")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "info" }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-12" }, [
+                            _c("p", { staticClass: " p_3" }, [
+                              _vm._v(
+                                "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1fdaf828", module.exports)
+  }
+}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(63)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/categorieslist.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7925a591", Component.options)
+  } else {
+    hotAPI.reload("data-v-7925a591", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n       cat_list\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7925a591", module.exports)
+  }
+}
+
+/***/ }),
+/* 64 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	mounted: function mounted() {
+		console.log('Component mounted.');
+	}
+});
+$(document).ready(function () {
+
+	$(".readMore").on('click', function (event) {
+		if ($(this).hasClass('opened')) {
+			$(this).removeClass('opened');
+			$(this).parent().find('.displaytext').slideToggle('fast');
+		} else {
+			$(this).addClass('opened');
+			$('.readMore').css("display", "none");
+			$(this).parent().find('.displaytext').slideToggle('fast');
+		}
+	});
+});
 
 /***/ })
 /******/ ]);

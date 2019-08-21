@@ -29,8 +29,8 @@
           <ads></ads>
            <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active"><router-link to="/home" ><i class="fas fa-home"></i>   ホーム</router-link>
-                                        </li>
+                                        <!-- <li class="breadcrumb-item active"><router-link to="/home" ><i class="fas fa-home"></i>   ホーム</router-link>
+                                        </li> -->
                                        
                                         
                                 </ol>
