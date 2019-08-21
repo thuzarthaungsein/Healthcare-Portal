@@ -55213,8 +55213,209 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("ニュース記事を検索")])
+    return _c("div", { staticClass: "content" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "card card-default m-b-20" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "main-color" }, [
+              _vm._v("ニュース記事を検索")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "検索" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn secondary-bg-color all-btn white" },
+                  [_vm._v("検索")]
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "m-b-30" }, [
+          _c(
+            "h4",
+            {
+              staticClass: "page-header",
+              staticStyle: { "text-align": "center" }
+            },
+            [_vm._v("ユーザーリストテーブル")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
+          _c("div", { staticClass: "card-body news-post" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-2 pad-free" }, [
+                _c("img", {
+                  staticClass: "col-md-12 ",
+                  staticStyle: { height: "150px" },
+                  attrs: { src: "/images/hospital6.jpg", alt: " " }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("h4", { staticClass: "txt2 bold_h5" }, [
+                  _vm._v("Fukuoka Kinen Hospital")
+                ]),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Type   :")]),
+                _vm._v(" General Hospital"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Address:")]),
+                _vm._v(
+                  " 1-1-35 Nishijin, Sawara-ku, Fukuoka-shi, Fukuoka, 814-8525"
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Contact:")]),
+                _vm._v(" info@kinen.jp English, Japanese, Chinese"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Train  :")]),
+                _vm._v(
+                  " 3 minutes walk from Nishijin Station, Fukuoka City Subway Airport Line "
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Airplane:")]),
+                _vm._v(
+                  " 20 minutes by car from Fukuoka Airport\n                                                  18 minutes by subway from Fukuoka Airport"
+                ),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn main-bg-color all-btn white" },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-danger all-btn" }, [
+                  _vm._v("Delete")
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
+          _c("div", { staticClass: "card-body news-post" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-2 pad-free " }, [
+                _c("img", {
+                  staticClass: "col-md-12 ",
+                  staticStyle: { height: "150px" },
+                  attrs: { src: "/images/eye.jpg", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("h4", { staticClass: "txt2 bold_h5" }, [
+                  _vm._v("Sinjuku-Higashiguchi")
+                ]),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Type   :")]),
+                _vm._v(" Eye Clinic"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Address:")]),
+                _vm._v(
+                  " 9th floor of Hulic Shinjuku Building,3-25-1, Shinjuku, Shinjuku-ku, Tokyo, 160-0022"
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Contact:")]),
+                _vm._v(" 03-5363-0507"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Train  :")]),
+                _vm._v(" 1-minute walk from Tokyo Metro Shinjuku Station"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Airplane:")]),
+                _vm._v(" 25 minutes by car from  Airport"),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn main-bg-color all-btn white" },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-danger all-btn" }, [
+                  _vm._v("Delete")
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
+          _c("div", { staticClass: "card-body news-post" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-2 pad-free " }, [
+                _c("img", {
+                  staticClass: "col-md-12 ",
+                  staticStyle: { height: "150px" },
+                  attrs: { src: "/images/grandparent.jpg", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("h4", { staticClass: "txt2 bold_h5" }, [
+                  _vm._v("Care Center")
+                ]),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Type   :")]),
+                _vm._v(" grandparents and grandchildren"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Address:")]),
+                _vm._v(
+                  "  International Child Development Initiatives - ICDI. "
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Contact:")]),
+                _vm._v(
+                  " Margaret Kernan and Giulia Cortellesi, info@toyproject.net "
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Train  :")]),
+                _vm._v(" 1-minute walk from Tokyo Metro Shinjuku Station"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Airplane:")]),
+                _vm._v(" 25 minutes by car from  Airport"),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn main-bg-color all-btn white" },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-danger all-btn" }, [
+                  _vm._v("Delete")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
     ])
   }
 ]
