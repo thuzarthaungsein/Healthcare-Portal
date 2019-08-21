@@ -54,6 +54,7 @@ export default {
                     .then((response) => {
                     alert('Successfully Created')
                     console.log(response);
+                     this.$router.push({name: 'facilitieslist'});
                     })
             }
            

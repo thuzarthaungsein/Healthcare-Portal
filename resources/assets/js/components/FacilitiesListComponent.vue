@@ -32,7 +32,7 @@
                                 <p> {{facility.description}} </p>
                             </div>
                             <div class="col-md-3" style="margin-top: 8px;">
-                                 <router-link :to="{name: 'edit', params: { id: facility.id }}" class="btn main-bg-color white all-btn">Edit </router-link>
+                                 <router-link :to="{name: 'editfacility', params: { id: facility.id }}" class="btn main-bg-color white all-btn">Edit </router-link>
                                
                                 <button class="btn btn-danger all-btn"   @click="deleteFacility(facility.id)" >Delete</button>
                             </div>

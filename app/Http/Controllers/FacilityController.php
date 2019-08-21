@@ -49,9 +49,12 @@ class FacilityController extends Controller
     }
 
    
-    public function update(Request $request, Facility $facility)
+    public function update($id, Request $request)
     {
+        $facility = Facility::find($id);
+        $facility->update($request->all());
         
+        return response()->json('The Facility successfully updated');
     }
 
   

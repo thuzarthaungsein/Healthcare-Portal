@@ -23,8 +23,8 @@ Route::get('facilities', 'FacilityController@index');
 
 
 Route::group(['prefix' => 'facility'], function () {
-
     Route::post('add', 'FacilityController@add');  
     Route::get('edit/{id}', 'FacilityController@edit');
+    Route::post('update/{id}', 'FacilityController@update');
     Route::delete('delete/{id}', 'FacilityController@destroy');
 });
