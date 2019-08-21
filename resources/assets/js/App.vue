@@ -14,11 +14,11 @@
           </form>
           <ul class="navbar-nav mr-auto col-lg-2">
             <li class="nav-item active btn login-register-btn col-lg-6">
-              <router-link to="/" class="nav-item nav-link p-lr-0">サインイン</router-link>
+              <a href="/login" class="nav-item nav-link p-lr-0">サインイン</a>     
             </li>
             <li class="nav-item btn login-register-btn col-lg-6">
-              <router-link to="/" class="nav-item nav-link p-lr-0">Register</router-link>
-            </li>
+              <a href="/register" class="nav-item nav-link p-lr-0">Register</a> 
+            </li>      
           </ul>
 
         </div>

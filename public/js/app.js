@@ -50274,13 +50274,59 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-10 offset-md-1" }, [
-    _c(
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "main-content" }, [
+      _c(
+        "div",
+        { staticClass: "container-fluid main-wrapper" },
+        [
+          _c("ads"),
+          _vm._v(" "),
+          _c("div", { staticClass: "row row justify-content-md-center" }, [
+            _c(
+              "div",
+              { staticClass: "col-md container" },
+              [_c("router-view")],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-auto" }, [_c("relatedNews")], 1)
+          ])
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
       "nav",
       { staticClass: "navbar navbar-expand-lg navbar-dark main-header" },
       [
-        _vm._m(0),
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+          _c("img", { attrs: { src: "images/trust_growth.png", alt: "" } })
+        ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c(
+          "button",
+          {
+            staticClass: "navbar-toggler",
+            attrs: {
+              type: "button",
+              "data-toggle": "collapse",
+              "data-target": "#navbarSupportedContent",
+              "aria-controls": "navbarSupportedContent",
+              "aria-expanded": "false",
+              "aria-label": "Toggle navigation"
+            }
+          },
+          [_c("span", { staticClass: "navbar-toggler-icon" })]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -50289,7 +50335,34 @@ var render = function() {
             attrs: { id: "navbarSupportedContent" }
           },
           [
-            _vm._m(2),
+            _c(
+              "form",
+              {
+                staticClass:
+                  "form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline"
+              },
+              [
+                _c("input", {
+                  staticClass:
+                    "form-control col-lg mr-sm-3 d-flex p-2 form-control",
+                  attrs: {
+                    type: "search",
+                    placeholder: "Search",
+                    "aria-label": "Search"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("Search")]
+                )
+              ]
+            ),
             _vm._v(" "),
             _c("ul", { staticClass: "navbar-nav mr-auto col-lg-2" }, [
               _c(
@@ -50299,15 +50372,14 @@ var render = function() {
                 },
                 [
                   _c(
-                    "router-link",
+                    "a",
                     {
                       staticClass: "nav-item nav-link p-lr-0",
-                      attrs: { to: "/" }
+                      attrs: { href: "/login" }
                     },
                     [_vm._v("サインイン")]
                   )
-                ],
-                1
+                ]
               ),
               _vm._v(" "),
               _c(
@@ -50315,20 +50387,20 @@ var render = function() {
                 { staticClass: "nav-item btn login-register-btn col-lg-6" },
                 [
                   _c(
-                    "router-link",
+                    "a",
                     {
                       staticClass: "nav-item nav-link p-lr-0",
-                      attrs: { to: "/" }
+                      attrs: { href: "/register" }
                     },
                     [_vm._v("Register")]
                   )
-                ],
-                1
+                ]
               )
             ])
           ]
         )
       ]
+<<<<<<< HEAD
     ),
     _vm._v(" "),
     _c("section", { staticClass: "main-content" }, [
@@ -50468,6 +50540,8 @@ var staticRenderFns = [
           [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Search")]
         )
       ]
+=======
+>>>>>>> e2fed9d02866ad86be9350f7e6899fdd2c29c4a5
     )
   },
   function() {
@@ -53466,6 +53540,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 
 
 var routes = [{
+<<<<<<< HEAD
   name: 'home',
   path: '/home',
   component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
@@ -53505,6 +53580,11 @@ var routes = [{
   name: 'createfacility',
   path: '/createfacility',
   component: __WEBPACK_IMPORTED_MODULE_9__components_CreateFacilityComponent_vue___default.a
+=======
+    name: 'home',
+    path: '/home',
+    component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+>>>>>>> e2fed9d02866ad86be9350f7e6899fdd2c29c4a5
 }];
 
 /***/ }),

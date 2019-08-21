@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\JobDetail;
 use Illuminate\Http\Request;
-
+use App\job_detail_view;
 class JobDetailController extends Controller
 {
     /**
@@ -14,7 +14,7 @@ class JobDetailController extends Controller
      */
     public function index()
     {
-        //
+       //
     }
 
     /**
