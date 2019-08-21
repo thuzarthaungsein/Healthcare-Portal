@@ -1,4 +1,4 @@
-<template>  
+<template>
 
     <div class="col-md-10 offset-md-1">
        <nav class="navbar navbar-expand-lg navbar-dark main-header">
@@ -14,13 +14,13 @@
           </form>
           <ul class="navbar-nav mr-auto col-lg-2">
             <li class="nav-item active btn login-register-btn col-lg-6">
-              <router-link to="/" class="nav-item nav-link p-lr-0">サインイン</router-link>      
+              <a href="/login" class="nav-item nav-link p-lr-0">サインイン</a>     
             </li>
             <li class="nav-item btn login-register-btn col-lg-6">
-              <router-link to="/" class="nav-item nav-link p-lr-0">Register</router-link>
+              <a href="/register" class="nav-item nav-link p-lr-0">Register</a> 
             </li>      
           </ul>
-    
+
         </div>
       </nav>
       <section class="main-content">
@@ -38,37 +38,75 @@
           <div class="row row justify-content-md-center">
             <div class="col-md container">
                        <router-view></router-view>
+          <ads></ads>        
+           
+          <div class="row justify-content-md-center">
+            <div class="col-10 tab">
+               <!--menu tabs-->
+          
+           <ul class="nav nav-tabs card-head-tabs" role="tablist">
+            <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i> Tab Number 1</a></li>
+            <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> Tab Number 2</a></li>
+            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-clinic-medical"></i> Tab Number 3</a></li>
+            <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> Tab Number 5</a></li>
+          </ul>
+          <!--end menu tabs-->
+         
+          
+               <!-- Tab panes -->
+              <div class="tab-content tabs">
+                
+                <div role="tabpanel" class="tab-pane in active" id="tab1"> 
+                   <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active"><router-link to="/hospitalSearch" ><i class="fas fa-home"></i>   ホーム</router-link>
+                      </li>
+                    </ol>
+                  </nav>
+                  <router-view></router-view>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
+              </div>
+            <!--end Tab panes-->                      
             </div>
-            <div class="col-md-auto">
+            <div class="col-2">
                        <relatedNews></relatedNews>
             </div>
           </div>
-                     
-        </div>       
-         <div class="container-fluid footer">               
-                                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>                
+
+        </div>
+         <div class="container-fluid footer">
+                                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
                         </div>
       </section>
-     
-  
-    
     </div>
-    
+
 
 </template>
 
 <script>
-   import ads from './components/Ads.vue'
+  import ads from './components/Ads.vue'
   import relatedNews from './components/Relatednews.vue'
+  import hospitalSearch from './components/hospitalSearch.vue'
+  import nursingSearch from './components/nursingSearch.vue'
+  import jobSearch from './components/jobSearch.vue'
    export default {
     components: {
       relatedNews,
+      hospitalSearch,
+      nursingSearch,
+      jobSearch,
       ads
     },
      mounted() {
             console.log('Component mounted.')
             $(document).ready(function() {
-                    jssor_1_slider_init();                      
+                   // jssor_1_slider_init();   
+                  //   $('.nav-tabs').scrollingTabs({
+                  //   bootstrapVersion: 4  
+                  // });                   
 
                 });
         }
@@ -104,7 +142,7 @@
         .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
 
 /*end for jssor*/
- 
+
 
 
 

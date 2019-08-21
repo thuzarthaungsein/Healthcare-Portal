@@ -15,8 +15,10 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 import {routes} from './route';
 
+
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+
 
 const router = new VueRouter({
     mode: 'history',
@@ -28,9 +30,3 @@ const app = new Vue({
     router: router,
     render: h => h(App),
 });
-
-
-
-
-
-
