@@ -55280,6 +55280,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -55396,7 +55404,7 @@ var staticRenderFns = [
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
+                _c("div", { staticClass: "form- group row" }, [
                   _c("div", { staticClass: "col-sm-2" })
                 ]),
                 _vm._v(" "),
@@ -55448,6 +55456,27 @@ var staticRenderFns = [
                 ])
               ]
             )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-1" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-10" }, [
+              _c("div", { staticClass: "mb-1 row" }, [
+                _c("div", { staticClass: "col-sm-2" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-10" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-md main-bg-color  all-btn white",
+                      attrs: { type: "button", id: "submit" }
+                    },
+                    [_vm._v(" Submit ")]
+                  )
+                ])
+              ])
+            ])
           ])
         ])
       ])

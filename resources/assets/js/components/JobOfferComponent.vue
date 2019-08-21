@@ -22,14 +22,14 @@
                                                 <div class="col-sm-2 text-right">
                                                         <label for ="category" ><strong> Category :</strong>  </label>
                                                 </div>
-                                                 <div class="col-sm-10">
-                                                        <select class="form-control" id="sel1">
-                                                                <option>Hospital</option>
-                                                                <option>Home Special</option>
-                                                                <option>Day Service</option>
-                                                        </select>
-                                                 </div>
-                                            </div>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" id="sel1">
+                                                            <option>Hospital</option>
+                                                            <option>Home Special</option>
+                                                            <option>Day Service</option>
+                                                    </select>
+                                                </div>
+                                        </div>
                                             
                                         <div class="mb-1 row">
                                             <div class = "col-sm-2"></div>
@@ -54,7 +54,7 @@
                                                <div class="summernote" name = "body"></div>
                                             </div>                                                                            
                                         </div>    
-                                        <div class="form-group row">
+                                        <div class="form- group row">
                                             <div class="col-sm-2"></div>
                                         </div>
                                          <div id="newlink"></div>    
@@ -81,13 +81,21 @@
                                     </div>    
                             </div>     
                        </div>
-                       
-                        
-                        
-                       </div>
-                    </div>
+                       <div class="row">
+                           <div class = "col-sm-1"></div>
+                           <div class="col-sm-10">
+                                    <div class="mb-1 row">
+                                            <div class = "col-sm-2"></div>
+                                            <div class = "col-sm-10">
+                                               <button type = "button" class="btn btn-md main-bg-color  all-btn white" id = "submit"> Submit </button>
+                                            </div>       
+                                   </div>
+                           </div> 
+                     </div>
+                </div>
+            </div>
       </div> 
- </div>
+
 
 </template>
 
