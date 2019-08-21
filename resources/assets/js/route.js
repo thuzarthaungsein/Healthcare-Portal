@@ -12,7 +12,7 @@ import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
 export const routes = [
        {
         name: 'home',
-        path: '/home',
+        path: '/',
         component: home
     },
        {

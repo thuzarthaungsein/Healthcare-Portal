@@ -21,10 +21,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('categories','CategoryController');
-    Route::get('/home', 'HomeController@index')->name('home');
+    // Route::get('/home', 'HomeController@index')->name('home');
 });
 
-Route::get('/', function () {return view('app');})->where('any', '.*');
 Auth::routes();
 
-
+Route::get('{any}', function () {return view('app');})->where('any', '.*');

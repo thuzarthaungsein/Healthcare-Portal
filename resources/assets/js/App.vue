@@ -44,16 +44,18 @@
                <!-- Tab panes -->
               <div class="tab-content tabs">
                 
-                <div role="tabpanel" class="tab-pane fade in active" id="tab1"> 
+                <div role="tabpanel" class="tab-pane in active" id="tab1"> 
                    <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><router-link to="/home" ><i class="fas fa-home"></i>   ホーム</router-link>
-                </li>
-              </ol>
-            </nav><router-view></router-view></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab2"> 2</div>
-                <div role="tabpanel" class="tab-pane fade" id="tab3">3 </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4">5</div>
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active"><router-link to="/hospitalSearch" ><i class="fas fa-home"></i>   ホーム</router-link>
+                      </li>
+                    </ol>
+                  </nav>
+                  <router-view></router-view>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
               </div>
             <!--end Tab panes-->                      
             </div>
@@ -75,9 +77,15 @@
 <script>
   import ads from './components/Ads.vue'
   import relatedNews from './components/Relatednews.vue'
+  import hospitalSearch from './components/hospitalSearch.vue'
+  import nursingSearch from './components/nursingSearch.vue'
+  import jobSearch from './components/jobSearch.vue'
    export default {
     components: {
       relatedNews,
+      hospitalSearch,
+      nursingSearch,
+      jobSearch,
       ads
     },
      mounted() {
