@@ -824,7 +824,26 @@ a:hover{
 }
 
 /* Hospital Search */
+.search-map {
+    background: white;
+    padding: 15px !important;
+}
 .divisions span {
     margin-right: 10px;
+}
+
+.divisions {
+    padding: 20px 0px 0px 20px;
+}
+
+.divisions .card-header {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 5px !important;
+}
+
+.divisions .card-body {
+    padding: 10px !important;
 }
 /* End Hospital Search */

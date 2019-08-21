@@ -54898,242 +54898,269 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-7 divisions" }, [
-        _c("div", { staticClass: "row m-b-30" }, [
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\r\n                                        中国\r\n                                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("span", [_vm._v("広島")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("岡山")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("山口")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("鳥取")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("島根")])
-              ])
+    return _c("div", { staticClass: "search-map" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-7 divisions" }, [
+          _c("div", { staticClass: "row m-b-30" }, [
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#c296c5" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                中国・東海\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { padding: "10px" }
+                    },
+                    [
+                      _c("span", [_vm._v("広島")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岡山")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("山口")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("鳥取")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("島根")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("愛知")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("静岡")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岐阜")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("三重")])
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#fab755" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                近畿\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("大阪")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("兵庫")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("京都")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("奈良")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("滋賀")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("和歌山")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#ec9a9c" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                甲信越・北陸\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("石川")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("新潟")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("富山")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("福井")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("長野")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("山梨")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#9ac1d6" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                北海道・東北\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { padding: "10px" }
+                    },
+                    [
+                      _c("span", [_vm._v("宮城")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("北海道")]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("青森")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岩手")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("山形")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("福島")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("秋田")])
+                    ]
+                  )
+                ]
+              )
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\r\n                                        近畿\r\n                                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("span", [_vm._v("大阪")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("兵庫")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("京都")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("奈良")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("滋賀")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("和歌山")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\r\n                                        甲信越・北陸\r\n                                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("span", [_vm._v("石川")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("新潟")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("富山")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("福井")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("長野")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("山梨")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\r\n                                        四国\r\n                                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("span", [_vm._v("愛媛")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("香川")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("高知 ")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("徳島")])
-              ])
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#f26d6d" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                九州・沖縄\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("福岡")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("熊本")]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("長崎")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("鹿児島")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("宮崎")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("大分")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("佐賀")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("沖縄")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#a2ce4b" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                関東\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("東京")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("神奈川")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("千葉")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("埼玉")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("群馬")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("茨城")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("栃木")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#9cd9e0" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                四国\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("愛媛")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("香川")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("高知 ")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("徳島")])
+                  ])
+                ]
+              )
             ])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\r\n                                        九州・沖縄\r\n                                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("span", [_vm._v("福岡")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("熊本")]),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("長崎")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("鹿児島")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("宮崎")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("大分")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("佐賀")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("沖縄")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\r\n                                        北海道・東北\r\n                                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("span", [_vm._v("北海道")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("宮城")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("青森")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("岩手")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("山形")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("福島")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("秋田")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\r\n                                        関東\r\n                                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("span", [_vm._v("東京")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("神奈川")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("千葉")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("埼玉")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("群馬")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("茨城")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("栃木")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\r\n                                        東海\r\n                                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("span", [_vm._v("愛知")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("静岡")]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("岐阜")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("三重")])
-              ])
-            ])
-          ])
+        _c("div", { staticClass: "col-md-5" }, [
+          _c("img", {
+            staticClass: "img-responsive",
+            staticStyle: { width: "100%" },
+            attrs: { src: "/images/map.png", alt: "" }
+          })
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-5" }, [
-        _c("img", {
-          staticClass: "img-responsive",
-          staticStyle: { width: "100%" },
-          attrs: { src: "/images/map.png", alt: "" }
-        })
       ])
     ])
   }
