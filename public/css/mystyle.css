@@ -744,7 +744,8 @@ div.cont-pad{
        
 }
 .tab-content{
-    padding: .25rem !important;
+    padding: 10px !important;
+    background: #fff;
 }
 .tab-card-header{
     background-color: #118063 !important;
@@ -759,7 +760,7 @@ a:hover{
     color: #000;
 }
 .nav-tabs .nav-item{
-    margin-bottom: -3px !important;
+    /* margin-bottom: -3px !important; */
     border-left: 1px solid #fff !important;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {   
@@ -775,8 +776,163 @@ a:hover{
 }
 
 .nav-item:hover{
-    background-color: transparent !important;
+    background-color: rgba(0,0,0,0.5) !important;
 }
+
+/*for main tab*/
+.main-tab{
+    margin: 0 auto;
+}
+ul.main-tab li.subtab{
+    margin-right: 1px;
+    padding: 15px;
+    border-top: 1px solid #000;
+    color: #fff;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    margin: 10px;
+    margin-bottom: 0px;
+}
+ul.main-tab li:before{
+    content: "";
+    display: block;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+ul.main-tab li:after{
+    content: "";
+    display: block;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+.tablink{
+    color: #fff !important;
+}
+.subtab1{
+    background: #00b09b;  /* fallback for old browsers */
+
+
+}
+.subtab2{
+    background: #ffdde1;  /* fallback for old browsers */
+    
+}
+.subtab3{
+    background: #4eb3de ;  /* fallback for old browsers */
+  
+
+}
+.subtab4{
+    background: #7586c6 ;  /* fallback for old browsers */
+   
+
+}
+.subtab5{
+    background: #ff9b53;  /* fallback for old browsers */
+   
+
+}
+.card-head-tabs {
+    margin-bottom: 0rem !important;
+    /* margin-left: 0.625rem !important; */
+    border-bottom: 0;
+  }
+/* .card-head-tabs > .nav-item {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+} */
+/* a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+.tab .nav-tabs{
+    border: none;
+    border-bottom: 2px solid #079fc9;
+    margin: 0;
+}
+.tab .nav-tabs>li {
+        float: left;
+        margin-bottom: -1px;
+    
+}
+.tab .nav-tabs li a{
+    padding: 5px 20px;
+    margin: 0 10px -1px 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: #293241;
+    text-transform: uppercase;
+    border: 2px solid #e6e5e1;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+.tab .nav-tabs li a:hover,
+.tab .nav-tabs li.active a{
+    background: #19a984;
+    color: #079fc9;
+    border: 2px solid #079fc9;
+    border-bottom-color: transparent;
+}
+.tab .nav-tabs li a:before{
+    content: "";
+    display: block;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+.tab .nav-tabs li.active a:before,
+.tab .nav-tabs li a:hover:before{ transform: scaleX(1); }
+.tab .tab-content{
+    padding: 10px;
+    font-size: 17px;
+    color: #6f6f6f;
+    line-height: 30px;
+    letter-spacing: 1px;
+    position: relative;
+}
+@media only screen and (max-width: 479px){
+    .tab .nav-tabs{ border: none; }
+    .tab .nav-tabs li{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .tab .nav-tabs li a{
+        margin: 0;
+        border-bottom: 2px solid transparent;
+    }
+    .tab .nav-tabs li a:before{
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #079fc9;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+    }
+} */
+/* end for main tab*/
+
 /*for breadcrumb*/
 .breadcrumb{
     padding: 0px 1rem !important;

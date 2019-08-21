@@ -19,6 +19,8 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+<link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
+
     <style>
         .bg-light {
             background-color: #eae9e9 !important;
@@ -32,6 +34,7 @@
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
         jssor_1_slider_init = function() {
 

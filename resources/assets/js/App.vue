@@ -26,18 +26,36 @@
       <section class="main-content">
         <div class="container-fluid main-wrapper">
          
-          <ads></ads>
-           <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active"><router-link to="/home" ><i class="fas fa-home"></i>   ホーム</router-link>
-                                        </li>
-                                       
-                                        
-                                </ol>
-                        </nav>
+          <ads></ads>        
+           
           <div class="row justify-content-md-center">
-            <div class="col-10">
-                       <router-view></router-view>
+            <div class="col-10 tab">
+               <!--menu tabs-->
+          
+           <ul class="nav nav-tabs card-head-tabs" role="tablist">
+            <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i> Tab Number 1</a></li>
+            <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> Tab Number 2</a></li>
+            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-clinic-medical"></i> Tab Number 3</a></li>
+            <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> Tab Number 5</a></li>
+          </ul>
+          <!--end menu tabs-->
+         
+          
+               <!-- Tab panes -->
+              <div class="tab-content tabs">
+                
+                <div role="tabpanel" class="tab-pane fade in active" id="tab1"> 
+                   <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><router-link to="/home" ><i class="fas fa-home"></i>   ホーム</router-link>
+                </li>
+              </ol>
+            </nav><router-view></router-view></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab2"> 2</div>
+                <div role="tabpanel" class="tab-pane fade" id="tab3">3 </div>
+                <div role="tabpanel" class="tab-pane fade" id="tab4">5</div>
+              </div>
+            <!--end Tab panes-->                      
             </div>
             <div class="col-2">
                        <relatedNews></relatedNews>
@@ -68,7 +86,10 @@
      mounted() {
             console.log('Component mounted.')
             $(document).ready(function() {
-                    jssor_1_slider_init();                      
+                   // jssor_1_slider_init();   
+                  //   $('.nav-tabs').scrollingTabs({
+                  //   bootstrapVersion: 4  
+                  // });                   
 
                 });
         }
