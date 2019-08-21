@@ -1,4 +1,5 @@
 import home from './components/home.vue';
+import hospitalSearch from './components/hospitalSearch.vue';
 import JobApply from './components/JobApply.vue';
 import customerlist from './components/customerlist.vue';
 import JobSearchListComponent from './components/JobSearchListComponent.vue';
@@ -7,13 +8,22 @@ import job_details from './components/job_details.vue';
 import news_list from './components/news_list.vue';
 import create_news from './components/create_news.vue';
 
+import categorylist from './components/categorylist.vue';
+import createcategory from './components/createcategory.vue';
+import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
+import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
 
 export const routes = [
        {
         name: 'home',
-        path: '/home',
+        path: '/',
         component: home
     },
+       {
+        name: 'hospital_search',
+        path: '/hospitalsearch',
+        component: hospitalSearch
+       },
     {
         name: 'jobapply',
         path: '/jobapply',
@@ -48,5 +58,25 @@ export const routes = [
         name: 'create_news',
         path: '/create_news',
         component: create_news
-      }
+      },
+      {
+        name: 'categorylist',
+        path: '/categorylist',
+        component: categorylist
+      },
+      {
+        name: 'createcategory',
+        path: '/createcategory',
+        component: createcategory
+      },
+      {
+      name: 'facilitieslist',
+      path: '/facilitieslist',
+      component: FacilitiesListComponent
+    },
+    {
+      name: 'createfacility',
+      path: '/createfacility',
+      component: CreateFacilityComponent
+    }
 ];

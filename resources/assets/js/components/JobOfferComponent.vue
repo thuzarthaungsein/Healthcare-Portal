@@ -1,6 +1,7 @@
 <template>    
  <div class="row">
       <div class="col-12">
+          <div class="card ">
                     <div class="card-header text-center">
                         <h4 style="padding-top: 20px;"> Job Create </h4>
                     </div>
@@ -93,8 +94,9 @@
                            </div> 
                      </div>
                 </div>
-            </div>
-      </div> 
+             </div>
+         </div>
+     </div> 
 
 
 </template>
