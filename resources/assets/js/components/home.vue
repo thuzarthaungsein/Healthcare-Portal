@@ -4,7 +4,7 @@
                 <div class="col-12">
                         <div class="card tab-card">
                                 <div class="card-header tab-card-header">
-                                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                        <ul class="nav nav-tabs card-head-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item">
                                                         <a class="nav-link active" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">
                                                                 ニュース 1</a>
