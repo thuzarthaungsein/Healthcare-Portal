@@ -659,7 +659,7 @@ div.cont-pad{
     margin-top: 22px;
 }
 .m-b-30{
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
 }
 /* .m-r-2per{
     margin-right: 2% !important;
@@ -818,3 +818,8 @@ a:hover{
    
 }
 
+/* Hospital Search */
+.divisions span {
+    margin-right: 10px;
+}
+/* End Hospital Search */

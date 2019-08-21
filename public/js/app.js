@@ -14592,7 +14592,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(60);
+module.exports = __webpack_require__(62);
 
 
 /***/ }),
@@ -49426,7 +49426,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n \r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n \r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -49474,8 +49474,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Ads_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Ads_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__);
-//
-//
 //
 //
 //
@@ -53292,12 +53290,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_hospitalSearch_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_hospitalSearch_vue__);
+
 
 
 var routes = [{
-  name: 'home',
-  path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+   name: 'home',
+   path: '/home',
+   component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+}, {
+   name: 'hospital_search',
+   path: '/hospitalsearch',
+   component: __WEBPACK_IMPORTED_MODULE_1__components_hospitalSearch_vue___default.a
 }];
 
 /***/ }),
@@ -53392,7 +53397,7 @@ var staticRenderFns = [
                           },
                           [
                             _vm._v(
-                              "\r\n                                                                                                ニュース 1"
+                              "\r\n                                                                                ニュース 1"
                             )
                           ]
                         )
@@ -53414,7 +53419,7 @@ var staticRenderFns = [
                           },
                           [
                             _vm._v(
-                              "\r\n                                                                                                ニュース 2"
+                              "\r\n                                                                                ニュース 2"
                             )
                           ]
                         )
@@ -53436,7 +53441,7 @@ var staticRenderFns = [
                           },
                           [
                             _vm._v(
-                              "\r\n                                                                                                ニュース 3"
+                              "\r\n                                                                                ニュース 3"
                             )
                           ]
                         )
@@ -53486,7 +53491,7 @@ var staticRenderFns = [
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                        "\r\n                                                                                                ニュースタイトル\r\n                                                                                        "
                                       )
                                     ]
                                   ),
@@ -53497,7 +53502,7 @@ var staticRenderFns = [
                                       attrs: { alt: "", src: "/images/5.png" }
                                     }),
                                     _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
+                                      "日刊スポーツ\r\n                                                                                        "
                                     )
                                   ])
                                 ]
@@ -53900,7 +53905,7 @@ var staticRenderFns = [
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                        "\r\n                                                                                                ニュースタイトル\r\n                                                                                        "
                                       )
                                     ]
                                   ),
@@ -53911,7 +53916,7 @@ var staticRenderFns = [
                                       attrs: { alt: "", src: "/images/5.png" }
                                     }),
                                     _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
+                                      "日刊スポーツ\r\n                                                                                        "
                                     )
                                   ])
                                 ]
@@ -54233,7 +54238,7 @@ var staticRenderFns = [
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                        "\r\n                                                                                                ニュースタイトル\r\n                                                                                        "
                                       )
                                     ]
                                   ),
@@ -54244,7 +54249,7 @@ var staticRenderFns = [
                                       attrs: { alt: "", src: "/images/5.png" }
                                     }),
                                     _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
+                                      "日刊スポーツ\r\n                                                                                        "
                                     )
                                   ])
                                 ]
@@ -54771,7 +54776,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
                           )
                         ])
                       ])
@@ -54805,7 +54810,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
                           )
                         ])
                       ])
@@ -54839,7 +54844,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
                           )
                         ])
                       ])
@@ -54873,7 +54878,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
                           )
                         ])
                       ])
@@ -54899,6 +54904,317 @@ if (false) {
 
 /***/ }),
 /* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/hospitalSearch.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5cde3559", Component.options)
+  } else {
+    hotAPI.reload("data-v-5cde3559", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-7 divisions" }, [
+        _c("div", { staticClass: "row m-b-30" }, [
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\r\n                                        中国\r\n                                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("span", [_vm._v("広島")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("岡山")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("山口")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("鳥取")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("島根")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\r\n                                        近畿\r\n                                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("span", [_vm._v("大阪")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("兵庫")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("京都")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("奈良")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("滋賀")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("和歌山")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\r\n                                        甲信越・北陸\r\n                                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("span", [_vm._v("石川")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("新潟")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("富山")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("福井")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("長野")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("山梨")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\r\n                                        四国\r\n                                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("span", [_vm._v("愛媛")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("香川")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("高知 ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("徳島")])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\r\n                                        九州・沖縄\r\n                                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("span", [_vm._v("福岡")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("熊本")]),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("長崎")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("鹿児島")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("宮崎")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("大分")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("佐賀")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("沖縄")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\r\n                                        北海道・東北\r\n                                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("span", [_vm._v("北海道")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("宮城")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("青森")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("岩手")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("山形")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("福島")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("秋田")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\r\n                                        関東\r\n                                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("span", [_vm._v("東京")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("神奈川")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("千葉")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("埼玉")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("群馬")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("茨城")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("栃木")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\r\n                                        東海\r\n                                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("span", [_vm._v("愛知")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("静岡")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("岐阜")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("三重")])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-5" }, [
+        _c("img", {
+          staticClass: "img-responsive",
+          staticStyle: { width: "100%" },
+          attrs: { src: "/images/map.png", alt: "" }
+        })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5cde3559", module.exports)
+  }
+}
+
+/***/ }),
+/* 62 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

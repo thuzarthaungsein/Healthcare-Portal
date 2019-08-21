@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         $faker = Faker::create();
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 20; $i++) { 
             $post = new Post();
             $post->title = $faker->sentence();
             $post->body = $faker->paragraph();
-            $post->category_id = rand(1, 3);
+            $post->category_id = rand(1, 5);
             $post->user_id = rand(1, 2);
             $post->save();
         }
