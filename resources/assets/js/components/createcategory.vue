@@ -28,8 +28,6 @@
                                                         <router-link to="/categorylist" class="btn btn-warning">Cancel</router-link>
                                                     </div>
                                                 </div>
-
-
                                         </div>
                                     <!-- </div> -->
 
@@ -40,5 +38,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
