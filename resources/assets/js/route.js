@@ -3,17 +3,14 @@ import JobApply from './components/JobApply.vue';
 import customerlist from './components/customerlist.vue';
 import JobSearchListComponent from './components/JobSearchListComponent.vue';
 import JobOfferComponent from './components/JobOfferComponent.vue';
-<<<<<<< HEAD
 import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 
-=======
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
 
 
 
->>>>>>> f268153f7663065069252955563820696f58fff8
 export const routes = [
        {
         name: 'home',
@@ -49,7 +46,9 @@ export const routes = [
         name: 'createcategory',
         path: '/createcategory',
         component: createcategory
-      }
+      },{
+
+
       name: 'facilitieslist',
       path: '/facilitieslist',
       component: FacilitiesListComponent

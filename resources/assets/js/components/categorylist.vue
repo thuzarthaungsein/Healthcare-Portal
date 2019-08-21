@@ -22,71 +22,38 @@
           <div class="card-header text-center">
               <h4 style="padding-top:20px;">ユーザーリストテーブル</h4>
           </div>
-            <!--card-->
-            <div class="container-fuid">
-                <div class="card card-default m-b-20 m-t-22">
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-9 m-t-8">
-                                <strong>Category Name:</strong> General Hospital
-                            </div>
-                            <div class="col-md-3" style="margin-top: 8px;">
-                                <button class="btn main-bg-color white all-btn">Edit</button>
-                                <button class="btn btn-danger all-btn">Delete</button>
-                            </div>
+        <div class="scroll col-12">
+        <div v-for="category in categories" :key="category.id" class="card card-default m-b-20">
+            <div class="card-body news-post">
+                <div class="row">
+                        <div class="col-md-9 m-t-8">
+                            <a>{{category.name}}</a><br/>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end card-->
-            <div class="container-fuid">
-                <div class="card card-default m-b-20 m-t-22">
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-9 m-t-8">
-                                <strong>Category Name:</strong>Obihiro-Adachi Eye Clinic
+                             <div class="col-md-3" style="margin-top: 8px;">
+                                    <button class="btn main-bg-color all-btn white">Edit</button>
+                                    <button class="btn btn-danger all-btn">Delete</button>
                             </div>
-                            <div class="col-md-3" style="margin-top: 8px;">
-                                <button class="btn main-bg-color white all-btn">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fuid">
-                <div class="card card-default m-b-20 m-t-22">
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-9 m-t-8">
-                                <strong>Category Name:</strong>Aichi Cancer Center Hospital
-                            </div>
-                            <div class="col-md-3" style="margin-top: 8px;">
-                                <button class="btn main-bg-color white all-btn">Edit</button>
-                                <button class="btn btn-danger all-btn">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fuid">
-                <div class="card card-default m-b-20 m-t-22">
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-9 m-t-8">
-                                <strong>Category Name:</strong>Grandparents and Grandchildren
-                            </div>
-                            <div class="col-md-3" style="margin-top: 8px;">
-                                <button class="btn main-bg-color white all-btn">Edit</button>
-                                <button class="btn btn-danger all-btn">Delete</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
 </template>
+<script>
+export default {
+    data(){
+        return {
+            categories:[]
+        }
+    },
+    created(){
+        this.axios
+                .get('http://localhost:8000/api/categories')
+                .then(response => {
+                    this.categories = response.data;
+                });
+    }
+}
+</script>
+

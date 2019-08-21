@@ -1,4 +1,4 @@
-<template>    
+<template>
  <div class="row">
       <div class="col-12">
             <nav aria-label="breadcrumb">
@@ -6,11 +6,11 @@
                             <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
                             <li class="breadcrumb-item"><a href="../news/news_details.html"> 新しい詳細</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                            就職活動リスト</li>   
+                                            就職活動リスト</li>
                     </ol>
-            </nav>    
+            </nav>
 
-            <div class="scroll col-12">    
+            <div class="scroll col-12">
                     <div v-for="job in jobs" :key="job.id" class="card card-default m-b-20">
                             <div class="card-body news-post">
                             <div class="row">
@@ -23,13 +23,13 @@
                                             <div class="row">
                                                     <div class="col-sm-4">
                                                             <a href="../jobs/job_search_details.html"  class="btn btn all-btn secondary-bg-color white">詳細を見る</a>
-                                                    </div>                                 
+                                                    </div>
                                             </div>
                                     </div>
-                            </div>                        
+                            </div>
                             </div>
                     </div>
-        </div> 
+        </div>
       </div>
  </div>
 </template>
