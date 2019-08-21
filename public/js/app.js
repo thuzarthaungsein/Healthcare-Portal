@@ -14592,7 +14592,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(73);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
@@ -53299,7 +53299,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_FacilitiesListComponent_vue__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_FacilitiesListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_FacilitiesListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_CreateFacilityComponent_vue__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_CreateFacilityComponent_vue__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_CreateFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_CreateFacilityComponent_vue__);
 
 
@@ -56145,51 +56145,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            facilities: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/facilities').then(function (response) {
+            _this.facilities = response.data;
+        });
+    },
+
+    methods: {
+        deleteFacility: function deleteFacility(id) {
+            var _this2 = this;
+
+            this.axios.delete('http://localhost:8000/api/facility/delete/' + id).then(function (response) {
+                alert('Delete Successfully!');
+                var i = _this2.facilities.map(function (item) {
+                    return item.id;
+                }).indexOf(id); // find index of your object
+                _this2.facilities.splice(i, 1);
+            });
+        }
+    }
+});
 
 /***/ }),
 /* 72 */
@@ -56200,30 +56184,87 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "m-b-30" },
-        [
-          _c(
-            "router-link",
-            {
-              staticClass: "float-right",
-              staticStyle: { color: "blue" },
-              attrs: { to: "/createfacility" }
-            },
-            [_vm._v("  Create New Facility")]
+    _c(
+      "div",
+      { staticClass: "col-12" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "m-b-30" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "float-right",
+                staticStyle: { color: "blue" },
+                attrs: { to: "/createfacility" }
+              },
+              [_vm._v("  Create New Facility")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._l(_vm.facilities, function(facility) {
+          return _c(
+            "div",
+            { key: facility.id, staticClass: "container-fuid" },
+            [
+              _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-9 m-t-8" }, [
+                      _c("p", [
+                        _vm._v(" " + _vm._s(facility.description) + " ")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-md-3",
+                        staticStyle: { "margin-top": "8px" }
+                      },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "btn main-bg-color white all-btn",
+                            attrs: {
+                              to: { name: "edit", params: { id: facility.id } }
+                            }
+                          },
+                          [_vm._v("Edit ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger all-btn",
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteFacility(facility.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
+            ]
           )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm._m(2)
-    ])
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = [
@@ -56263,96 +56304,6 @@ var staticRenderFns = [
       { staticClass: "page-header", staticStyle: { "text-align": "center" } },
       [_c("strong", [_vm._v("  Facility List")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fuid" }, [
-      _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-9 m-t-8" }, [
-              _c("p", [_vm._v("Facility Name : Sample ")])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-md-3", staticStyle: { "margin-top": "8px" } },
-              [
-                _c(
-                  "button",
-                  { staticClass: "btn main-bg-color white all-btn" },
-                  [_vm._v("Edit")]
-                ),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-danger all-btn" }, [
-                  _vm._v("Delete")
-                ])
-              ]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container-fuid" }, [
-        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-9 m-t-8" }, [
-                _c("p", [_vm._v(" Facility Name : Sample ")])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-md-3",
-                  staticStyle: { "margin-top": "8px" }
-                },
-                [
-                  _c(
-                    "button",
-                    { staticClass: "btn main-bg-color white all-btn" },
-                    [_vm._v("Edit")]
-                  )
-                ]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container-fuid" }, [
-          _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-9 m-t-8" }, [
-                  _c("p", [_vm._v(" Facility Name : Sample ")])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-3",
-                    staticStyle: { "margin-top": "8px" }
-                  },
-                  [
-                    _c(
-                      "button",
-                      { staticClass: "btn main-bg-color all-btn white" },
-                      [_vm._v("Edit")]
-                    ),
-                    _vm._v(" "),
-                    _c("button", { staticClass: "btn btn-danger all-btn" }, [
-                      _vm._v("Delete")
-                    ])
-                  ]
-                )
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -56366,23 +56317,14 @@ if (false) {
 
 /***/ }),
 /* 73 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(78)
+var __vue_script__ = __webpack_require__(74)
 /* template */
-var __vue_template__ = __webpack_require__(79)
+var __vue_template__ = __webpack_require__(75)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -56421,7 +56363,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 78 */
+/* 74 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56466,10 +56408,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            errors: [],
+            facility: {
+                description: ''
+            }
+        };
+    },
+
+
+    methods: {
+        add: function add() {
+            axios.post('http://localhost:8000/api/facility/add', this.facility).then(function (response) {
+                alert('Successfully Created');
+                console.log(response);
+            });
+        }
+    }
+
+});
 
 /***/ }),
-/* 79 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56484,28 +56446,75 @@ var render = function() {
             _c("div", { staticClass: "row" }, [
               _vm._m(0),
               _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
               _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "form-group row" }, [
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-3 pad-free" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-warning",
-                          attrs: { to: "/facilitieslist" }
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.add($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.facility.description,
+                            expression: "facility.description"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Facility Name",
+                          required: ""
                         },
-                        [_vm._v("  Cancel ")]
-                      )
-                    ],
-                    1
-                  )
-                ])
+                        domProps: { value: _vm.facility.description },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.facility,
+                              "description",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group " }, [
+                      _c("div", { staticClass: "form-group row" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-1 pad-free" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-warning",
+                                attrs: { to: "/facilitieslist" }
+                              },
+                              [_vm._v("  Cancel ")]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ])
+                  ]
+                )
               ])
             ])
           ])
@@ -56529,18 +56538,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", [
-          _vm._v("Facility Name :"),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", name: "title", placeholder: "Facility Name" }
-        })
-      ])
+    return _c("label", [
+      _vm._v("Facility Name :"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
   function() {
@@ -56560,6 +56560,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-50e19717", module.exports)
   }
 }
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

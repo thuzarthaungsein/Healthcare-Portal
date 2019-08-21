@@ -18,3 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('jobs', 'JobController@index');
+Route::get('facilities', 'FacilityController@index');
+
+
+
+Route::group(['prefix' => 'facility'], function () {
+
+    Route::post('add', 'FacilityController@add');  
+    Route::get('edit/{id}', 'FacilityController@edit');
+    Route::delete('delete/{id}', 'FacilityController@destroy');
+});
