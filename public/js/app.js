@@ -14592,7 +14592,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(66);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
@@ -53289,16 +53289,22 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_job_details_vue__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_job_details_vue__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_job_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_job_details_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_news_list_vue__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_news_list_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_news_list_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_create_news_vue__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_create_news_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_create_news_vue__);
+
+
 
 
 
@@ -53307,29 +53313,37 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 
 
 var routes = [{
-    name: 'home',
-    path: '/home',
-    component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+  name: 'home',
+  path: '/home',
+  component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
 }, {
-    name: 'jobapply',
-    path: '/jobapply',
-    component: __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue___default.a
+  name: 'jobapply',
+  path: '/jobapply',
+  component: __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue___default.a
 }, {
-    name: 'customerlist',
-    path: '/customerlist',
-    component: __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue___default.a
+  name: 'customerlist',
+  path: '/customerlist',
+  component: __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue___default.a
 }, {
-    name: 'jobsearchlist',
-    path: '/jobsearchlist',
-    component: __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue___default.a
+  name: 'jobsearchlist',
+  path: '/jobsearchlist',
+  component: __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue___default.a
 }, {
-    name: 'joboffer',
-    path: '/joboffer',
-    component: __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue___default.a
+  name: 'joboffer',
+  path: '/joboffer',
+  component: __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue___default.a
 }, {
-    name: 'job_details',
-    path: '/job_details',
-    component: __WEBPACK_IMPORTED_MODULE_5__components_job_details_vue___default.a
+  name: 'job_details',
+  path: '/job_details',
+  component: __WEBPACK_IMPORTED_MODULE_5__components_job_details_vue___default.a
+}, {
+  name: 'news_list',
+  path: '/news_list',
+  component: __WEBPACK_IMPORTED_MODULE_6__components_news_list_vue___default.a
+}, {
+  name: 'create_news',
+  path: '/create_news',
+  component: __WEBPACK_IMPORTED_MODULE_7__components_create_news_vue___default.a
 }];
 
 /***/ }),
@@ -54936,475 +54950,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(61)
-/* template */
-var __vue_template__ = __webpack_require__(62)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/JobSearchListComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-456c7431", Component.options)
-  } else {
-    hotAPI.reload("data-v-456c7431", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 61 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            jobs: []
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        this.axios.get('http://localhost:8000/api/jobs').then(function (response) {
-            _this.jobs = response.data;
-        });
-    }
-});
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "scroll col-12" },
-        _vm._l(_vm.jobs, function(job) {
-          return _c(
-            "div",
-            { key: job.id, staticClass: "card card-default m-b-20" },
-            [
-              _c("div", { staticClass: "card-body news-post" }, [
-                _c("div", { staticClass: "row" }, [
-                  _vm._m(1, true),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-10" }, [
-                    _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                      _c("b", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "mr-auto",
-                            attrs: { href: "../jobs/job_search_details.html" }
-                          },
-                          [_vm._v(_vm._s(job.title) + " ")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(job.photo))]),
-                    _vm._v(" "),
-                    _vm._m(2, true)
-                  ])
-                ])
-              ])
-            ]
-          )
-        }),
-        0
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-      _c("ol", { staticClass: "breadcrumb" }, [
-        _c("li", { staticClass: "breadcrumb-item" }, [
-          _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "breadcrumb-item" }, [
-          _c("a", { attrs: { href: "../news/news_details.html" } }, [
-            _vm._v(" 新しい詳細")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            staticClass: "breadcrumb-item active",
-            attrs: { "aria-current": "page" }
-          },
-          [
-            _vm._v(
-              "\n                                           就職活動リスト"
-            )
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "col-md-12",
-        attrs: { src: "images/hospital1.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn all-btn secondary-bg-color white",
-            attrs: { href: "../jobs/job_search_details.html" }
-          },
-          [_vm._v("詳細を見る")]
-        )
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-456c7431", module.exports)
-  }
-}
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(64)
-/* template */
-var __vue_template__ = __webpack_require__(65)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/job_details.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-c837f90e", Component.options)
-  } else {
-    hotAPI.reload("data-v-c837f90e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 64 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            job_details: []
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        this.axios.get('http://localhost:8000/api/job_details').then(function (response) {
-            _this.job_details = response.data;
-        });
-    }
-});
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "row justify-content-md-center" }, [
-      _c(
-        "div",
-        { staticClass: "col-md container cont-pad" },
-        [
-          _vm._l(_vm.job_details, function(jobDetail) {
-            return _c(
-              "div",
-              { key: jobDetail.job_id, staticClass: "row m-b-20" },
-              [
-                jobDetail.job_id == 1
-                  ? _c("div", { staticClass: "col-md-12 scroll2" }, [
-                      _c("h4", { staticClass: "h_4" }, [
-                        _vm._v(_vm._s(jobDetail.jobs_title))
-                      ]),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "img-responsive img_6",
-                        attrs: {
-                          src: "/images/img1.jpg",
-                          height: "",
-                          width: "15%"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-12" }, [
-                        _c("div", { staticClass: "topic b" }, [
-                          _c("h4", { staticClass: "item text-center" }, [
-                            _vm._v(_vm._s(jobDetail.jobs_detail_header))
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              staticClass: "data",
-                              staticStyle: { width: "50%" }
-                            },
-                            [_vm._v(_vm._s(jobDetail.jobs_detail_body))]
-                          )
-                        ])
-                      ])
-                    ])
-                  : _vm._e()
-              ]
-            )
-          }),
-          _vm._v(" "),
-          _vm._m(0)
-        ],
-        2
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12 text-center" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn main-bg-color white all-btn",
-            attrs: { href: "job_apply_form.html" }
-          },
-          [_vm._v("この案件に応募")]
-        )
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-c837f90e", module.exports)
-  }
-}
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(71)
+var __vue_template__ = __webpack_require__(61)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55443,7 +54991,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 71 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -55637,7 +55185,7 @@ if (false) {
 }
 
 /***/ }),
-/* 72 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -55645,7 +55193,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(73)
+var __vue_template__ = __webpack_require__(63)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55684,7 +55232,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 73 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -55914,15 +55462,241 @@ if (false) {
 }
 
 /***/ }),
-/* 74 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(75)
+var __vue_script__ = __webpack_require__(65)
 /* template */
-var __vue_template__ = __webpack_require__(76)
+var __vue_template__ = __webpack_require__(66)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/JobSearchListComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-456c7431", Component.options)
+  } else {
+    hotAPI.reload("data-v-456c7431", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            jobs: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/jobs').then(function (response) {
+            _this.jobs = response.data;
+        });
+    }
+});
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "scroll col-12" },
+        _vm._l(_vm.jobs, function(job) {
+          return _c(
+            "div",
+            { key: job.id, staticClass: "card card-default m-b-20" },
+            [
+              _c("div", { staticClass: "card-body news-post" }, [
+                _c("div", { staticClass: "row" }, [
+                  _vm._m(1, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-10" }, [
+                    _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                      _c("b", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-auto",
+                            attrs: { href: "../jobs/job_search_details.html" }
+                          },
+                          [_vm._v(_vm._s(job.title) + " ")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(job.photo))]),
+                    _vm._v(" "),
+                    _vm._m(2, true)
+                  ])
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+      _c("ol", { staticClass: "breadcrumb" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "../news/news_details.html" } }, [
+            _vm._v(" 新しい詳細")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            staticClass: "breadcrumb-item active",
+            attrs: { "aria-current": "page" }
+          },
+          [
+            _vm._v(
+              "\n                                           就職活動リスト"
+            )
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2" }, [
+      _c("img", {
+        staticClass: "col-md-12",
+        attrs: { src: "images/hospital1.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c(
+          "a",
+          {
+            staticClass: "btn btn all-btn secondary-bg-color white",
+            attrs: { href: "../jobs/job_search_details.html" }
+          },
+          [_vm._v("詳細を見る")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-456c7431", module.exports)
+  }
+}
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(68)
+/* template */
+var __vue_template__ = __webpack_require__(69)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55961,7 +55735,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 75 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56071,7 +55845,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 76 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56268,6 +56042,954 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-414bd2f7", module.exports)
+  }
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(71)
+/* template */
+var __vue_template__ = __webpack_require__(72)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/job_details.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c837f90e", Component.options)
+  } else {
+    hotAPI.reload("data-v-c837f90e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            job_details: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/job_details').then(function (response) {
+            _this.job_details = response.data;
+        });
+    }
+});
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c(
+        "div",
+        { staticClass: "col-md container cont-pad" },
+        [
+          _vm._l(_vm.job_details, function(jobDetail) {
+            return _c(
+              "div",
+              { key: jobDetail.job_id, staticClass: "row m-b-20" },
+              [
+                jobDetail.job_id == 1
+                  ? _c("div", { staticClass: "col-md-12 scroll2" }, [
+                      _c("h4", { staticClass: "h_4" }, [
+                        _vm._v(_vm._s(jobDetail.jobs_title))
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-responsive img_6",
+                        attrs: {
+                          src: "/images/img1.jpg",
+                          height: "",
+                          width: "15%"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "topic b" }, [
+                          _c("h4", { staticClass: "item text-center" }, [
+                            _vm._v(_vm._s(jobDetail.jobs_detail_header))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              staticClass: "data",
+                              staticStyle: { width: "50%" }
+                            },
+                            [_vm._v(_vm._s(jobDetail.jobs_detail_body))]
+                          )
+                        ])
+                      ])
+                    ])
+                  : _vm._e()
+              ]
+            )
+          }),
+          _vm._v(" "),
+          _vm._m(0)
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12 text-center" }, [
+        _c(
+          "a",
+          {
+            staticClass: "btn main-bg-color white all-btn",
+            attrs: { href: "job_apply_form.html" }
+          },
+          [_vm._v("この案件に応募")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-c837f90e", module.exports)
+  }
+}
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(75)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/news_list.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-308634fa", Component.options)
+  } else {
+    hotAPI.reload("data-v-308634fa", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "content" } }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "card card-default m-b-20" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "main-color" }, [
+              _vm._v("ニュース役職の検索")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "検索" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn secondary-bg-color all-btn white" },
+                  [_vm._v("検索")]
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-12 scroll2" }, [
+          _c("div", { staticClass: "card card-default m-b-20" }, [
+            _c("div", { staticClass: "card-body news-post" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-2" }, [
+                  _c("img", {
+                    staticClass: "col-md-12",
+                    attrs: { src: "/images/nursing1.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-10" }, [
+                  _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                    _c("b", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "mr-auto",
+                          attrs: { href: "../news/news_details.html" }
+                        },
+                        [
+                          _vm._v(
+                            "平成30年度「介護労働実態調査」の結果（8／9）《介護労働安定センター》 "
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "今回のポイント ●介護労働安定センターが8月9日に公表した、2018年度の「介護労働実態調査」の結果によると、介護サービス事業所に所属する介護労働者の21.6％が60歳以上であることが、わかった。65歳以上は12.2％。 ○訪問介護員、介護職員の採用率は前年度に比べて上昇し、離職率は低下。センターは雇用管理改善の取り組みが進んだ結果と推測している。 ○正規職員と管理者の所定内賃金の平均額は、前年度に比べてともに増加。正規職員に賞与を定期的に支給している事業所は約7割を占めた。\n                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("small", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-auto text-warning",
+                            attrs: { href: "" }
+                          },
+                          [_vm._v("編集")]
+                        )
+                      ]),
+                      _vm._v("  \n                                    "),
+                      _c("small", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-auto text-danger",
+                            attrs: { href: "" }
+                          },
+                          [_vm._v("削除")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card card-default m-b-20" }, [
+            _c("div", { staticClass: "card-body news-post" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-2" }, [
+                  _c("img", {
+                    staticClass: "col-md-12",
+                    attrs: { src: "/images/day1.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-10" }, [
+                  _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                    _c("b", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "mr-auto",
+                          attrs: { href: "../news/news_details.html" }
+                        },
+                        [
+                          _vm._v(
+                            "介護事業所、67%が「人手不足」と回答　悪化止まらず　ヘルパーは8割超 "
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "「介護職員が足りない…」。そう感じている事業所が近年で最悪の67.2%にのぼっていることが、介護労働安定センターによる最新の実態調査で明らかにされた。 内訳は「大いに不足」が10.5%、「不足」が23.1%、「やや不足」が33.6%。「大いに不足」と「不足」の2つで3分の1を上回った。足りない要因では「採用が困難」が大多数を占めている。\n\n                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("small", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-auto text-warning",
+                            attrs: { href: "" }
+                          },
+                          [_vm._v("編集")]
+                        )
+                      ]),
+                      _vm._v("  \n                                    "),
+                      _c("small", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-auto text-danger",
+                            attrs: { href: "" }
+                          },
+                          [_vm._v("削除")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card card-default m-b-20" }, [
+            _c("div", { staticClass: "card-body news-post" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-2" }, [
+                  _c("img", {
+                    staticClass: "col-md-12",
+                    attrs: { src: "/images/day2.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-10" }, [
+                  _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                    _c("b", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "mr-auto",
+                          attrs: { href: "../news/news_details.html" }
+                        },
+                        [
+                          _vm._v(
+                            "『介護用おむつセンサー』8月20日開催の第２回介護事業者向け最新介護機器等展示交流・情報交換会に出展 "
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "Lorem Ipsumは、紀元前45年に書かれたCiceroの（善と悪の極限）のセクション1.10.32と1.10.33から来ています。 この本は、ルネサンス時代に非常に人気のある、倫理理論に関する論文です。"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("small", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-auto text-warning",
+                            attrs: { href: "" }
+                          },
+                          [_vm._v("編集")]
+                        )
+                      ]),
+                      _vm._v("  \n                                    "),
+                      _c("small", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-auto text-danger",
+                            attrs: { href: "" }
+                          },
+                          [_vm._v("削除")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card card-default m-b-20" }, [
+            _c("div", { staticClass: "card-body news-post" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-2" }, [
+                  _c("img", {
+                    staticClass: "col-md-12",
+                    attrs: { src: "/images/day3.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-10" }, [
+                  _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                    _c("b", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "mr-auto",
+                          attrs: { href: "../news/news_details.html" }
+                        },
+                        [_vm._v("[介護] ベトナムから12人の介護実習生が来日")]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "医療事務、介護、保育サービスを提供する株式会社ソラストは4月24日、外国人技能実習制度に基づき、介護職種のベトナム人技能実習生（12人）の受け入れをスタートした。ベトナム人の実習生は、20歳代前半の女性9人、男性3人で、介護の仕事に就くことはもちろん、来日も初めてだという。"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-4" }, [
+                      _c("small", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-auto text-warning",
+                            attrs: { href: "" }
+                          },
+                          [_vm._v("編集")]
+                        )
+                      ]),
+                      _vm._v("  \n                                    "),
+                      _c("small", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "mr-auto text-danger",
+                            attrs: { href: "" }
+                          },
+                          [_vm._v("削除")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-308634fa", module.exports)
+  }
+}
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(81)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/create_news.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-51b390ef", Component.options)
+  } else {
+    hotAPI.reload("data-v-51b390ef", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "content" } }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "card  text-dark" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("h4", { staticClass: "page-header" }, [
+                      _vm._v("ニュース投稿を作成")
+                    ]),
+                    _vm._v(" "),
+                    _c("br")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [
+                        _vm._v("題名:"),
+                        _c("span", { staticClass: "error" }, [_vm._v("*")])
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          name: "title",
+                          placeholder: "題名を入力してください。"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [
+                        _vm._v("主な情報:"),
+                        _c("span", { staticClass: "error" }, [_vm._v("*")])
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          name: "title",
+                          placeholder: "ニュースの主な情報を入力してください。"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "btn-group" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "btn main-bg-color white dropdown-toggle all-btn",
+                          attrs: { type: "button", "data-toggle": "dropdown" }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n                                                    種類\r\n                                                "
+                          ),
+                          _c("span", { staticClass: "caret" })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "dropdown-menu" }, [
+                        _c("li", [
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Doctor")])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Nurse")])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Pharmacist")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Administrative Staff")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Therapists")
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [
+                        _vm._v("内容:"),
+                        _c("span", { staticClass: "error" }, [_vm._v("*")])
+                      ]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        staticClass: "form-control rounded-0",
+                        attrs: {
+                          id: "exampleFormControlTextarea1",
+                          rows: "10",
+                          placeholder: "内容を入力してください。"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "col-sm-2 imgUp" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "menu-pos" }, [
+                        _vm._v("メディア:"),
+                        _c("span", { staticClass: "error" }, [_vm._v("*")])
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "btn bg-color all-btn" }, [
+                        _vm._v(
+                          "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+                        ),
+                        _c("input", {
+                          staticClass: "uploadFile img",
+                          attrs: { type: "file", value: "Upload Photo" }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "imagePreview" })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn news-post-btn all-btn",
+                          attrs: { href: "news_list.html" }
+                        },
+                        [_vm._v("ニュースを投稿する")]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-51b390ef", module.exports)
   }
 }
 
