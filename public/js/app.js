@@ -53367,83 +53367,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("div", { staticClass: "row justify-content-md-center" }, [
-<<<<<<< HEAD
-        _c("div", { staticClass: "col-md container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "card tab-card" }, [
-                _c("div", { staticClass: "card-header tab-card-header" }, [
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "nav nav-tabs card-header-tabs",
-                      attrs: { id: "myTab", role: "tablist" }
-                    },
-                    [
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link active",
-                            attrs: {
-                              id: "one-tab",
-                              "data-toggle": "tab",
-                              href: "#one",
-                              role: "tab",
-                              "aria-controls": "One",
-                              "aria-selected": "true"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                                                                ニュース 1"
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "two-tab",
-                              "data-toggle": "tab",
-                              href: "#two",
-                              role: "tab",
-                              "aria-controls": "Two",
-                              "aria-selected": "false"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                                                                ニュース 2"
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "three-tab",
-                              "data-toggle": "tab",
-                              href: "#three",
-                              role: "tab",
-                              "aria-controls": "Three",
-                              "aria-selected": "false"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                                                                ニュース 3"
-                            )
-                          ]
-=======
         _c("div", { staticClass: "col-12" }, [
           _c("div", { staticClass: "card tab-card" }, [
             _c("div", { staticClass: "card-header tab-card-header" }, [
@@ -53470,7 +53393,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "\r\n                                                                                                ニュース 1"
+                          "\r\n                                                                ニュース 1"
                         )
                       ]
                     )
@@ -53492,8 +53415,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "\r\n                                                                                                ニュース 2"
->>>>>>> 7b2c184f4907a5a4ae9919bdc537392c63d7c827
+                          "\r\n                                                                ニュース 2"
                         )
                       ]
                     )
@@ -53515,7 +53437,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "\r\n                                                                                                ニュース 3"
+                          "\r\n                                                                ニュース 3"
                         )
                       ]
                     )
@@ -53564,40 +53486,9 @@ var staticRenderFns = [
                                   attrs: { "aria-label": "" }
                                 },
                                 [
-<<<<<<< HEAD
-                                  _c("img", {
-                                    staticClass: "img-responsive",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { src: "/images/h4.jpg", alt: "" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "source-title",
-                                      attrs: { "aria-label": "" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\r\n                                                                                                ニュースタイトル\r\n                                                                                        "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "source-subtitle" }, [
-                                    _c("img", {
-                                      staticClass: "source-img",
-                                      attrs: { alt: "", src: "/images/5.png" }
-                                    }),
-                                    _vm._v(
-                                      "日刊スポーツ\r\n                                                                                        "
-                                    )
-                                  ])
-=======
                                   _vm._v(
-                                    "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                    "\r\n                                                                                ニュースタイトル\r\n                                                                        "
                                   )
->>>>>>> 7b2c184f4907a5a4ae9919bdc537392c63d7c827
                                 ]
                               ),
                               _vm._v(" "),
@@ -53607,7 +53498,7 @@ var staticRenderFns = [
                                   attrs: { alt: "", src: "/images/5.png" }
                                 }),
                                 _vm._v(
-                                  "日刊スポーツ\r\n                                                                                                        "
+                                  "日刊スポーツ\r\n                                                                        "
                                 )
                               ])
                             ]
@@ -53973,40 +53864,9 @@ var staticRenderFns = [
                                   attrs: { "aria-label": "" }
                                 },
                                 [
-<<<<<<< HEAD
-                                  _c("img", {
-                                    staticClass: "img-responsive",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { src: "/images/h9.jpg", alt: "" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "source-title",
-                                      attrs: { "aria-label": "" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\r\n                                                                                                ニュースタイトル\r\n                                                                                        "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "source-subtitle" }, [
-                                    _c("img", {
-                                      staticClass: "source-img",
-                                      attrs: { alt: "", src: "/images/5.png" }
-                                    }),
-                                    _vm._v(
-                                      "日刊スポーツ\r\n                                                                                        "
-                                    )
-                                  ])
-=======
                                   _vm._v(
-                                    "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                    "\r\n                                                                                ニュースタイトル\r\n                                                                        "
                                   )
->>>>>>> 7b2c184f4907a5a4ae9919bdc537392c63d7c827
                                 ]
                               ),
                               _vm._v(" "),
@@ -54016,7 +53876,7 @@ var staticRenderFns = [
                                   attrs: { alt: "", src: "/images/5.png" }
                                 }),
                                 _vm._v(
-                                  "日刊スポーツ\r\n                                                                                                        "
+                                  "日刊スポーツ\r\n                                                                        "
                                 )
                               ])
                             ]
@@ -54312,7 +54172,7 @@ var staticRenderFns = [
                                 },
                                 [
                                   _vm._v(
-                                    "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                    "\r\n                                                                                ニュースタイトル\r\n                                                                        "
                                   )
                                 ]
                               ),
@@ -54323,7 +54183,7 @@ var staticRenderFns = [
                                   attrs: { alt: "", src: "/images/5.png" }
                                 }),
                                 _vm._v(
-                                  "日刊スポーツ\r\n                                                                                                        "
+                                  "日刊スポーツ\r\n                                                                        "
                                 )
                               ])
                             ]
@@ -54794,45 +54654,13 @@ var staticRenderFns = [
                 )
               ]),
               _vm._v(" "),
-<<<<<<< HEAD
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/j5.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
-                          )
-                        ])
-                      ])
-=======
               _c("div", { staticClass: "info" }, [
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-12" }, [
                     _c("p", { staticClass: " p_3" }, [
                       _vm._v(
-                        "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                        "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
                       )
->>>>>>> 7b2c184f4907a5a4ae9919bdc537392c63d7c827
                     ])
                   ])
                 ])
@@ -54860,45 +54688,13 @@ var staticRenderFns = [
                 )
               ]),
               _vm._v(" "),
-<<<<<<< HEAD
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/day1.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
-                          )
-                        ])
-                      ])
-=======
               _c("div", { staticClass: "info" }, [
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-12" }, [
                     _c("p", { staticClass: " p_3" }, [
                       _vm._v(
-                        "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                        "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
                       )
->>>>>>> 7b2c184f4907a5a4ae9919bdc537392c63d7c827
                     ])
                   ])
                 ])
@@ -54926,45 +54722,13 @@ var staticRenderFns = [
                 )
               ]),
               _vm._v(" "),
-<<<<<<< HEAD
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/hhh.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
-                          )
-                        ])
-                      ])
-=======
               _c("div", { staticClass: "info" }, [
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-12" }, [
                     _c("p", { staticClass: " p_3" }, [
                       _vm._v(
-                        "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                        "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
                       )
->>>>>>> 7b2c184f4907a5a4ae9919bdc537392c63d7c827
                     ])
                   ])
                 ])
@@ -54992,45 +54756,13 @@ var staticRenderFns = [
                 )
               ]),
               _vm._v(" "),
-<<<<<<< HEAD
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/home2.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\r\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                "
-                          )
-                        ])
-                      ])
-=======
               _c("div", { staticClass: "info" }, [
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-12" }, [
                     _c("p", { staticClass: " p_3" }, [
                       _vm._v(
-                        "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                        "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
                       )
->>>>>>> 7b2c184f4907a5a4ae9919bdc537392c63d7c827
                     ])
                   ])
                 ])
