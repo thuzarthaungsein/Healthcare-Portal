@@ -1,4 +1,4 @@
-<template>  
+<template>
 
     <div class="col-md-10 offset-md-1">
        <nav class="navbar navbar-expand-lg navbar-dark main-header">
@@ -14,25 +14,25 @@
           </form>
           <ul class="navbar-nav mr-auto col-lg-2">
             <li class="nav-item active btn login-register-btn col-lg-6">
-              <router-link to="/" class="nav-item nav-link p-lr-0">サインイン</router-link>      
+              <router-link to="/" class="nav-item nav-link p-lr-0">サインイン</router-link>
             </li>
             <li class="nav-item btn login-register-btn col-lg-6">
               <router-link to="/" class="nav-item nav-link p-lr-0">Register</router-link>
-            </li>      
+            </li>
           </ul>
-    
+
         </div>
       </nav>
       <section class="main-content">
         <div class="container-fluid main-wrapper">
-         
+
           <ads></ads>
            <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                         <li class="breadcrumb-item active"><router-link to="/home" ><i class="fas fa-home"></i>   ホーム</router-link>
                                         </li>
-                                       
-                                        
+
+
                                 </ol>
                         </nav>
           <div class="row row justify-content-md-center">
@@ -43,14 +43,14 @@
                        <relatedNews></relatedNews>
             </div>
           </div>
-                     
-        </div>       
-         <div class="container-fluid footer">               
-                                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>                
+
+        </div>
+         <div class="container-fluid footer">
+                                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
                         </div>
       </section>
     </div>
-    
+
 
 </template>
 
@@ -65,7 +65,7 @@
      mounted() {
             console.log('Component mounted.')
             $(document).ready(function() {
-                    jssor_1_slider_init();                      
+                    jssor_1_slider_init();
 
                 });
         }
@@ -101,7 +101,7 @@
         .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
 
 /*end for jssor*/
- 
+
 
 
 
