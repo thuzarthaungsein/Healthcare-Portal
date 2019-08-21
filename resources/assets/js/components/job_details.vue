@@ -8,12 +8,12 @@
                                         【京都】ヘルスケア製品の評価＊オムロングループ＊残業少なめ</h4>
                         <img src="/images/img1.jpg" class="img-responsive img_6" height="" width="15%">
                         <div v-for="jobDetail in jobs" :key="jobDetail.id" class="col-md-12">
-                            <dl class="topic">
-                                <h4 class="item text-center">{{jobDetail.header}}</h4>
-                                <dd  class="data">
-                                    {{jobDetail.body}}
-                                </dd>
-                            </dl>
+                             <div class="topic b"> 
+                                 <h4 class="item text-center">{{jobDetail.header}}</h4> 
+                                <!-- <dd  class="data"> -->
+                                    <p class="data" style="width:50%">{{jobDetail.body}}</p>
+                                <!-- </dd> -->
+                             </div> 
                             <!-- <dl class="topic">
                                 <h5 class="item text-center">時給</h5>
                                 <dd class="data">■モデル月収

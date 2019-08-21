@@ -562,12 +562,15 @@ div.cont-pad{
      width:100%;
 }
 .data{
-    padding:40px 30px; 
-    line-height:1.8; 
+    padding:20px 10px; 
+    line-height:1.5; 
     font-size: 15px; 
     display: block; 
     width:100%; 
     letter-spacing: 0.15em;
+}
+div.b{
+    word-wrap: break-word;
 }
 
 /* End Job Offer Detail */

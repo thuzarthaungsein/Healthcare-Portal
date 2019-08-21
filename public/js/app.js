@@ -53251,8 +53251,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_job_search_details_vue__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_job_search_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_job_search_details_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_job_details_vue__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_job_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_job_details_vue__);
 
 
 
@@ -53261,9 +53261,9 @@ var routes = [{
     path: '/home',
     component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
 }, {
-    name: 'job_search_details',
-    path: '/job_search_details',
-    component: __WEBPACK_IMPORTED_MODULE_1__components_job_search_details_vue___default.a
+    name: 'job_details',
+    path: '/job_details',
+    component: __WEBPACK_IMPORTED_MODULE_1__components_job_details_vue___default.a
 }];
 
 /***/ }),
@@ -54862,15 +54862,27 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(61)
+var __vue_script__ = __webpack_require__(68)
 /* template */
-var __vue_template__ = __webpack_require__(62)
+var __vue_template__ = __webpack_require__(69)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -54887,7 +54899,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/job_search_details.vue"
+Component.options.__file = "resources/assets/js/components/job_details.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -54896,9 +54908,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4474eb44", Component.options)
+    hotAPI.createRecord("data-v-c837f90e", Component.options)
   } else {
-    hotAPI.reload("data-v-4474eb44", Component.options)
+    hotAPI.reload("data-v-c837f90e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -54909,7 +54921,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 61 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55003,7 +55015,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 62 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -55034,18 +55046,16 @@ var render = function() {
                   "div",
                   { key: jobDetail.id, staticClass: "col-md-12" },
                   [
-                    _c("dl", { staticClass: "topic" }, [
+                    _c("div", { staticClass: "topic b" }, [
                       _c("h4", { staticClass: "item text-center" }, [
                         _vm._v(_vm._s(jobDetail.header))
                       ]),
                       _vm._v(" "),
-                      _c("dd", { staticClass: "data" }, [
-                        _vm._v(
-                          "\n                                " +
-                            _vm._s(jobDetail.body) +
-                            "\n                            "
-                        )
-                      ])
+                      _c(
+                        "p",
+                        { staticClass: "data", staticStyle: { width: "50%" } },
+                        [_vm._v(_vm._s(jobDetail.body))]
+                      )
                     ])
                   ]
                 )
@@ -55084,15 +55094,9 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4474eb44", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-c837f90e", module.exports)
   }
 }
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
