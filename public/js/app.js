@@ -14592,7 +14592,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(60);
+module.exports = __webpack_require__(63);
 
 
 /***/ }),
@@ -53251,12 +53251,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_job_search_details_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_job_search_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_job_search_details_vue__);
+
 
 
 var routes = [{
-  name: 'home',
-  path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+    name: 'home',
+    path: '/home',
+    component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+}, {
+    name: 'job_search_details',
+    path: '/job_search_details',
+    component: __WEBPACK_IMPORTED_MODULE_1__components_job_search_details_vue___default.a
 }];
 
 /***/ }),
@@ -54856,6 +54863,233 @@ if (false) {
 
 /***/ }),
 /* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/job_search_details.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4474eb44", Component.options)
+  } else {
+    hotAPI.reload("data-v-4474eb44", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            jobs: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/jobs').then(function (response) {
+            _this.jobs = response.data;
+        });
+    }
+});
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c("div", { staticClass: "col-md container cont-pad" }, [
+        _c("div", { staticClass: "row m-b-20" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-12 scroll2" },
+            [
+              _c("h4", { staticClass: "h_4" }, [
+                _vm._v(
+                  "\t\n                                    【京都】ヘルスケア製品の評価＊オムロングループ＊残業少なめ"
+                )
+              ]),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "img-responsive img_6",
+                attrs: { src: "/images/img1.jpg", height: "", width: "15%" }
+              }),
+              _vm._v(" "),
+              _vm._l(_vm.jobs, function(jobDetail) {
+                return _c(
+                  "div",
+                  { key: jobDetail.id, staticClass: "col-md-12" },
+                  [
+                    _c("dl", { staticClass: "topic" }, [
+                      _c("h4", { staticClass: "item text-center" }, [
+                        _vm._v(_vm._s(jobDetail.header))
+                      ]),
+                      _vm._v(" "),
+                      _c("dd", { staticClass: "data" }, [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(jobDetail.body) +
+                            "\n                            "
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              })
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12 text-center" }, [
+        _c(
+          "a",
+          {
+            staticClass: "btn main-bg-color white all-btn",
+            attrs: { href: "job_apply_form.html" }
+          },
+          [_vm._v("この案件に応募")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4474eb44", module.exports)
+  }
+}
+
+/***/ }),
+/* 63 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
