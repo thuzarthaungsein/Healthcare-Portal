@@ -14609,6 +14609,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__route__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__route___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__route__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -14630,7 +14631,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_axios___default.a, __WEBPACK_IMPORTED_MO
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
-    routes: __WEBPACK_IMPORTED_MODULE_4__route__["a" /* routes */]
+    routes: __WEBPACK_IMPORTED_MODULE_4__route__["routes"]
 });
 
 var app = new Vue({
@@ -49426,7 +49427,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*for jssor*/\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\n            -webkit-animation-duration: 1.6s;\n                    animation-duration: 1.6s;\n            -webkit-animation-iteration-count: infinite;\n                    animation-iteration-count: infinite;\n            -webkit-animation-timing-function: linear;\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\n\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\n\n/*end for jssor*/\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -49474,6 +49475,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Ads_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Ads_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__);
 //
 //
 //
@@ -49530,18 +49537,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     relatedNews: __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue___default.a,
+    hospitalSearch: __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default.a,
+    nursingSearch: __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue___default.a,
+    jobSearch: __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue___default.a,
     ads: __WEBPACK_IMPORTED_MODULE_0__components_Ads_vue___default.a
   },
   mounted: function mounted() {
     console.log('Component mounted.');
     $(document).ready(function () {
-      jssor_1_slider_init();
+      // jssor_1_slider_init();   
+      //   $('.nav-tabs').scrollingTabs({
+      //   bootstrapVersion: 4  
+      // });                   
+
     });
   }
 });
@@ -50073,9 +50110,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-auto" }, [
-      _c("div", { staticClass: "row m-b-10" }, [
-        _c("div", { staticClass: "col-6" }, [
+    return _c("div", [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12 m-b-10" }, [
           _c(
             "a",
             {
@@ -50083,11 +50120,14 @@ var staticRenderFns = [
               staticStyle: { width: "100%" },
               attrs: { href: "../pages/news/search_news_result.html" }
             },
-            [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Cus search")]
+            [
+              _c("i", { staticClass: "fas fa-search" }),
+              _vm._v(" Customer search")
+            ]
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-6" }, [
+        _c("div", { staticClass: "col-12 m-b-10" }, [
           _c(
             "a",
             {
@@ -50249,13 +50289,122 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-10 offset-md-1" }, [
-    _c(
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "main-content" }, [
+      _c(
+        "div",
+        { staticClass: "container-fluid main-wrapper" },
+        [
+          _c("ads"),
+          _vm._v(" "),
+          _c("div", { staticClass: "row justify-content-md-center" }, [
+            _c("div", { staticClass: "col-10 tab" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "tab-content tabs" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane in active",
+                    attrs: { role: "tabpanel", id: "tab1" }
+                  },
+                  [
+                    _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+                      _c("ol", { staticClass: "breadcrumb" }, [
+                        _c(
+                          "li",
+                          { staticClass: "breadcrumb-item active" },
+                          [
+                            _c(
+                              "router-link",
+                              { attrs: { to: "/hospitalSearch" } },
+                              [
+                                _c("i", { staticClass: "fas fa-home" }),
+                                _vm._v("   ホーム")
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("router-view")
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane fade",
+                    attrs: { role: "tabpanel", id: "tab2" }
+                  },
+                  [_c("hospitalSearch")],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane fade",
+                    attrs: { role: "tabpanel", id: "tab3" }
+                  },
+                  [_c("nursingSearch")],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane fade",
+                    attrs: { role: "tabpanel", id: "tab4" }
+                  },
+                  [_c("jobSearch")],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-2" }, [_c("relatedNews")], 1)
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(2)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
       "nav",
       { staticClass: "navbar navbar-expand-lg navbar-dark main-header" },
       [
-        _vm._m(0),
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+          _c("img", { attrs: { src: "images/trust_growth.png", alt: "" } })
+        ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c(
+          "button",
+          {
+            staticClass: "navbar-toggler",
+            attrs: {
+              type: "button",
+              "data-toggle": "collapse",
+              "data-target": "#navbarSupportedContent",
+              "aria-controls": "navbarSupportedContent",
+              "aria-expanded": "false",
+              "aria-label": "Toggle navigation"
+            }
+          },
+          [_c("span", { staticClass: "navbar-toggler-icon" })]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -50264,7 +50413,34 @@ var render = function() {
             attrs: { id: "navbarSupportedContent" }
           },
           [
-            _vm._m(2),
+            _c(
+              "form",
+              {
+                staticClass:
+                  "form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline"
+              },
+              [
+                _c("input", {
+                  staticClass:
+                    "form-control col-lg mr-sm-3 d-flex p-2 form-control",
+                  attrs: {
+                    type: "search",
+                    placeholder: "Search",
+                    "aria-label": "Search"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
+                    attrs: { type: "submit" }
+                  },
+                  [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Search")]
+                )
+              ]
+            ),
             _vm._v(" "),
             _c("ul", { staticClass: "navbar-nav mr-auto col-lg-2" }, [
               _c(
@@ -50274,15 +50450,14 @@ var render = function() {
                 },
                 [
                   _c(
-                    "router-link",
+                    "a",
                     {
                       staticClass: "nav-item nav-link p-lr-0",
-                      attrs: { to: "/" }
+                      attrs: { href: "/login" }
                     },
                     [_vm._v("サインイン")]
                   )
-                ],
-                1
+                ]
               ),
               _vm._v(" "),
               _c(
@@ -50290,90 +50465,19 @@ var render = function() {
                 { staticClass: "nav-item btn login-register-btn col-lg-6" },
                 [
                   _c(
-                    "router-link",
+                    "a",
                     {
                       staticClass: "nav-item nav-link p-lr-0",
-                      attrs: { to: "/" }
+                      attrs: { href: "/register" }
                     },
                     [_vm._v("Register")]
                   )
-                ],
-                1
+                ]
               )
             ])
           ]
         )
       ]
-    ),
-    _vm._v(" "),
-    _c("section", { staticClass: "main-content" }, [
-      _c(
-        "div",
-        { staticClass: "container-fluid main-wrapper" },
-        [
-          _c("ads"),
-          _vm._v(" "),
-          _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-            _c("ol", { staticClass: "breadcrumb" }, [
-              _c(
-                "li",
-                { staticClass: "breadcrumb-item active" },
-                [
-                  _c("router-link", { attrs: { to: "/home" } }, [
-                    _c("i", { staticClass: "fas fa-home" }),
-                    _vm._v("   ホーム")
-                  ])
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row row justify-content-md-center" }, [
-            _c(
-              "div",
-              { staticClass: "col-md container" },
-              [_c("router-view")],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-auto" }, [_c("relatedNews")], 1)
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(3)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-      _c("img", { attrs: { src: "images/trust_growth.png", alt: "" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
   },
   function() {
@@ -50381,29 +50485,82 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "form",
+      "ul",
       {
-        staticClass:
-          "form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline"
+        staticClass: "nav nav-tabs card-head-tabs",
+        attrs: { role: "tablist" }
       },
       [
-        _c("input", {
-          staticClass: "form-control col-lg mr-sm-3 d-flex p-2 form-control",
-          attrs: {
-            type: "search",
-            placeholder: "Search",
-            "aria-label": "Search"
-          }
-        }),
+        _c(
+          "li",
+          {
+            staticClass: "active subtab1 nav-item",
+            attrs: { role: "presentation" }
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active",
+                attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
+              },
+              [_c("i", { staticClass: "fas fa-home" }), _vm._v(" Tab Number 1")]
+            )
+          ]
+        ),
         _vm._v(" "),
         _c(
-          "button",
-          {
-            staticClass:
-              "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
-            attrs: { type: "submit" }
-          },
-          [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Search")]
+          "li",
+          { staticClass: "subtab2 nav-item", attrs: { role: "presentation" } },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#tab2", role: "tab", "data-toggle": "tab" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-user-md" }),
+                _vm._v(" Tab Number 2")
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "subtab3 nav-item", attrs: { role: "presentation" } },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#tab3", role: "tab", "data-toggle": "tab" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-clinic-medical" }),
+                _vm._v(" Tab Number 3")
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "subtab5 nav-item", attrs: { role: "presentation" } },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#tab4", role: "tab", "data-toggle": "tab" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-newspaper" }),
+                _vm._v(" Tab Number 5")
+              ]
+            )
+          ]
         )
       ]
     )
@@ -53283,3616 +53440,34 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 
 /***/ }),
 /* 57 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_categorylist_vue__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_categorylist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_categorylist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_createcategory_vue__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_createcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_createcategory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_FacilitiesListComponent_vue__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_FacilitiesListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_FacilitiesListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_CreateFacilityComponent_vue__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_CreateFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_CreateFacilityComponent_vue__);
-
-
-
-
-
-
-
-
-
-
-
-var routes = [{
-  name: 'home',
-  path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
-}, {
-  name: 'jobapply',
-  path: '/jobapply',
-  component: __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue___default.a
-}, {
-  name: 'customerlist',
-  path: '/customerlist',
-  component: __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue___default.a
-}, {
-  name: 'jobsearchlist',
-  path: '/jobsearchlist',
-  component: __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue___default.a
-}, {
-  name: 'joboffer',
-  path: '/joboffer',
-  component: __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue___default.a
-}, {
-  name: 'categorylist',
-  path: '/categorylist',
-  component: __WEBPACK_IMPORTED_MODULE_5__components_categorylist_vue___default.a
-}, {
-  name: 'createcategory',
-  path: '/createcategory',
-  component: __WEBPACK_IMPORTED_MODULE_6__components_createcategory_vue___default.a
-}, {
-
-  name: 'facilitieslist',
-  path: '/facilitieslist',
-  component: __WEBPACK_IMPORTED_MODULE_7__components_FacilitiesListComponent_vue___default.a
-}, {
-  name: 'createfacility',
-  path: '/createfacility',
-  component: __WEBPACK_IMPORTED_MODULE_8__components_CreateFacilityComponent_vue___default.a
-}];
+throw new Error("Module build failed: SyntaxError: C:/xampp/htdocs/Healthcare-Portal/resources/assets/js/route.js: Unexpected token (9:0)\n\n\u001b[0m \u001b[90m  7 | \u001b[39m\u001b[36mimport\u001b[39m categorylist from \u001b[32m'./components/categorylist.vue'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m  8 | \u001b[39m\u001b[36mimport\u001b[39m createcategory from \u001b[32m'./components/createcategory.vue'\u001b[39m\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 | \u001b[39m\n \u001b[90m 11 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mFacilitiesListComponent\u001b[39m from \u001b[32m'./components/FacilitiesListComponent.vue'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 12 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mCreateFacilityComponent\u001b[39m  from \u001b[32m'./components/CreateFacilityComponent.vue'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n");
 
 /***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(59)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/home.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6ebcac14", Component.options)
-  } else {
-    hotAPI.reload("data-v-6ebcac14", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "row justify-content-md-center" }, [
-        _c("div", { staticClass: "col-md container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "card tab-card" }, [
-                _c("div", { staticClass: "card-header tab-card-header" }, [
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "nav nav-tabs card-header-tabs",
-                      attrs: { id: "myTab", role: "tablist" }
-                    },
-                    [
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link active",
-                            attrs: {
-                              id: "one-tab",
-                              "data-toggle": "tab",
-                              href: "#one",
-                              role: "tab",
-                              "aria-controls": "One",
-                              "aria-selected": "true"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                                                            ニュース 1"
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "two-tab",
-                              "data-toggle": "tab",
-                              href: "#two",
-                              role: "tab",
-                              "aria-controls": "Two",
-                              "aria-selected": "false"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                                                            ニュース 2"
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "three-tab",
-                              "data-toggle": "tab",
-                              href: "#three",
-                              role: "tab",
-                              "aria-controls": "Three",
-                              "aria-selected": "false"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                                                            ニュース 3"
-                            )
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "tab-content", attrs: { id: "myTabContent" } },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade show active p-3",
-                        attrs: {
-                          id: "one",
-                          role: "tabpanel",
-                          "aria-labelledby": "one-tab"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-4 col-sm-12 col-md-3 col-lg-3 col-12"
-                            },
-                            [
-                              _c(
-                                "a",
-                                { attrs: { href: "./news/news_details.html" } },
-                                [
-                                  _c("img", {
-                                    staticClass: "img-responsive",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { src: "/images/h4.jpg", alt: "" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "source-title",
-                                      attrs: { "aria-label": "" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                                                                            ニュースタイトル\n                                                                                    "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "source-subtitle" }, [
-                                    _c("img", {
-                                      staticClass: "source-img",
-                                      attrs: { alt: "", src: "/images/5.png" }
-                                    }),
-                                    _vm._v(
-                                      "日刊スポーツ\n                                                                                    "
-                                    )
-                                  ])
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                            },
-                            [
-                              _c(
-                                "ul",
-                                { staticClass: "list-group list-group-flush" },
-                                [
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/3.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/4.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/5.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h2.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/news_search.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade p-3",
-                        attrs: {
-                          id: "two",
-                          role: "tabpanel",
-                          "aria-labelledby": "two-tab"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12"
-                            },
-                            [
-                              _c(
-                                "a",
-                                { attrs: { href: "./news/news_details.html" } },
-                                [
-                                  _c("img", {
-                                    staticClass: "img-responsive",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { src: "/images/h9.jpg", alt: "" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "source-title",
-                                      attrs: { "aria-label": "" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                                                                            ニュースタイトル\n                                                                                    "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "source-subtitle" }, [
-                                    _c("img", {
-                                      staticClass: "source-img",
-                                      attrs: { alt: "", src: "/images/5.png" }
-                                    }),
-                                    _vm._v(
-                                      "日刊スポーツ\n                                                                                    "
-                                    )
-                                  ])
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                            },
-                            [
-                              _c(
-                                "ul",
-                                { staticClass: "list-group list-group-flush" },
-                                [
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/3.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/4.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/5.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h2.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/news_search.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade p-3",
-                        attrs: {
-                          id: "three",
-                          role: "tabpanel",
-                          "aria-labelledby": "three-tab"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12"
-                            },
-                            [
-                              _c(
-                                "a",
-                                { attrs: { href: "./news/news_details.html" } },
-                                [
-                                  _c("img", {
-                                    staticClass: "img-responsive",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { src: "/images/h4.jpg", alt: "" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "source-title",
-                                      attrs: { "aria-label": "" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                                                                            ニュースタイトル\n                                                                                    "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "source-subtitle" }, [
-                                    _c("img", {
-                                      staticClass: "source-img",
-                                      attrs: { alt: "", src: "/images/5.png" }
-                                    }),
-                                    _vm._v(
-                                      "日刊スポーツ\n                                                                                    "
-                                    )
-                                  ])
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                            },
-                            [
-                              _c(
-                                "ul",
-                                { staticClass: "list-group list-group-flush" },
-                                [
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/3.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/4.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/5.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/5.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h2.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/news_search.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/h1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "li",
-                                    {
-                                      staticClass: "list-group-item p-t-5 p-b-5"
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "./news/news_details.html"
-                                          }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/2.png",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "source-img-small" },
-                                            [_vm._v("日刊スポーツ")]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row m-lr-0" }, [
-              _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
-                _c("h4", { staticClass: "h_4 next-title" }, [
-                  _vm._v("関連ニュース")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/j5.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\n                                                                                                    一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                    紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                            "
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/day1.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\n                                                                                                    一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                    紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                            "
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/hhh.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\n                                                                                                    一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                    紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                            "
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: { src: "images/home2.jpg", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overlay" }, [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { href: "news_details.html" }
-                      },
-                      [_vm._v("詳細を見る")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\n                                                                                                    一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                    紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                            "
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6ebcac14", module.exports)
-  }
-}
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(61)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/JobApply.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2813fe68", Component.options)
-  } else {
-    hotAPI.reload("data-v-2813fe68", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "h_4" }, [_vm._v("求人応募フォーム")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-7 offset-md-3" }, [
-        _c("form", [
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              staticClass: "form-control box",
-              attrs: {
-                type: "text",
-                id: "jobid",
-                placeholder: " ジョブID",
-                name: "jobid"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              staticClass: "form-control box",
-              attrs: {
-                type: "text",
-                id: "email",
-                placeholder: "名",
-                name: "name"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: {
-                id: "form_email",
-                type: "email",
-                name: "email",
-                placeholder: "電子メールアドレス"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              staticClass: "form-control box",
-              attrs: {
-                type: "text",
-                id: "phone",
-                placeholder: "電話番号",
-                name: "phone"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              staticClass: "form-control box",
-              attrs: {
-                type: "text",
-                id: "address",
-                placeholder: "アドレッ",
-                name: "address"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("textarea", {
-              staticStyle: { width: "100%", padding: "5px" },
-              attrs: { rows: "8", cols: "30", placeholder: "コンテンツ" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              staticClass: "form-control box",
-              attrs: {
-                type: "text",
-                id: "comp",
-                placeholder: "会社名",
-                name: "comp"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "select",
-              {
-                staticClass: "form-control",
-                attrs: {
-                  id: "form_need",
-                  name: "need",
-                  "data-error": "Please specify your need."
-                }
-              },
-              [
-                _c("option", { attrs: { value: "" } }, [_vm._v("必要職業")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Doctor" } }, [
-                  _vm._v("Doctor")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Nurse" } }, [_vm._v("Nurse")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "pharmacists" } }, [
-                  _vm._v("Pharmacists")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "health professionals" } }, [
-                  _vm._v("Health Professionals")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Other" } }, [
-                  _vm._v("Other Hospital Staff")
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("textarea", {
-              staticClass: "form-control",
-              attrs: { name: "message", id: "message", rows: "5" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-3" }, [
-            _c("div", { staticClass: "input-group-prepend" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "input-group-text",
-                  attrs: { id: "inputGroupFileAddon01" }
-                },
-                [_vm._v("アップロード")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "custom-file" }, [
-              _c("input", {
-                staticClass: "custom-file-input",
-                attrs: { type: "file", id: "inputGroupFile01" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-file-label",
-                  attrs: { for: "inputGroupFile01" }
-                },
-                [_vm._v("ファイルを選ぶ")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-center" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn main-bg-color white all-btn",
-                attrs: { href: "home" }
-              },
-              [_vm._v("募集")]
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2813fe68", module.exports)
-  }
-}
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(63)
-/* template */
-var __vue_template__ = __webpack_require__(64)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/customerlist.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-fc247dda", Component.options)
-  } else {
-    hotAPI.reload("data-v-fc247dda", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            customers: []
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        this.axios.get('http://localhost:8000/api/customers').then(function (response) {
-            _this.customers = response.data;
-        });
-    }
-});
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content" }, [
-    _c(
-      "div",
-      { staticClass: "scroll col-12" },
-      _vm._l(_vm.customers, function(customer) {
-        return _c(
-          "div",
-          { key: customer.id, staticClass: "card card-default m-b-20" },
-          [
-            _c("div", { staticClass: "card-body news-post" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(0, true),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-10" }, [
-                  _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                    _c("a", [
-                      _c("strong", [_vm._v("Name     :")]),
-                      _vm._v(_vm._s(customer.name))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Email    :")]),
-                      _vm._v(_vm._s(customer.email))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Logo     :")]),
-                      _vm._v(_vm._s(customer.logo))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Phone    :")]),
-                      _vm._v(_vm._s(customer.phone))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Address  :")]),
-                      _vm._v(_vm._s(customer.address))
-                    ]),
-                    _c("br")
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1, true)
-                ])
-              ])
-            ])
-          ]
-        )
-      }),
-      0
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "col-md-12 ",
-        staticStyle: { height: "150px" },
-        attrs: { src: "/images/hospitalpage.jpg", alt: " " }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-4 text-center" }, [
-        _c("button", { staticClass: "btn main-bg-color all-btn white" }, [
-          _vm._v("Edit")
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn btn-danger all-btn" }, [
-          _vm._v("Delete")
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-fc247dda", module.exports)
-  }
-}
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(66)
-/* template */
-var __vue_template__ = __webpack_require__(67)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/JobSearchListComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-456c7431", Component.options)
-  } else {
-    hotAPI.reload("data-v-456c7431", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 66 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            jobs: []
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        this.axios.get('http://localhost:8000/api/jobs').then(function (response) {
-            _this.jobs = response.data;
-        });
-    }
-});
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "scroll col-12" },
-        _vm._l(_vm.jobs, function(job) {
-          return _c(
-            "div",
-            { key: job.id, staticClass: "card card-default m-b-20" },
-            [
-              _c("div", { staticClass: "card-body news-post" }, [
-                _c("div", { staticClass: "row" }, [
-                  _vm._m(1, true),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-10" }, [
-                    _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                      _c("b", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "mr-auto",
-                            attrs: { href: "../jobs/job_search_details.html" }
-                          },
-                          [_vm._v(_vm._s(job.title) + " ")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(job.photo))]),
-                    _vm._v(" "),
-                    _vm._m(2, true)
-                  ])
-                ])
-              ])
-            ]
-          )
-        }),
-        0
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-      _c("ol", { staticClass: "breadcrumb" }, [
-        _c("li", { staticClass: "breadcrumb-item" }, [
-          _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "breadcrumb-item" }, [
-          _c("a", { attrs: { href: "../news/news_details.html" } }, [
-            _vm._v(" 新しい詳細")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            staticClass: "breadcrumb-item active",
-            attrs: { "aria-current": "page" }
-          },
-          [
-            _vm._v(
-              "\n                                           就職活動リスト"
-            )
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "col-md-12",
-        attrs: { src: "images/hospital1.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn all-btn secondary-bg-color white",
-            attrs: { href: "../jobs/job_search_details.html" }
-          },
-          [_vm._v("詳細を見る")]
-        )
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-456c7431", module.exports)
-  }
-}
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(69)
-/* template */
-var __vue_template__ = __webpack_require__(70)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/JobOfferComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-414bd2f7", Component.options)
-  } else {
-    hotAPI.reload("data-v-414bd2f7", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 69 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "card " }, [
-          _c("div", { staticClass: "card-header text-center" }, [
-            _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-              _vm._v(" Job Create ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body " }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-1" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-10" }, [
-                _c("form", { staticClass: "m-t-16", attrs: { action: "#" } }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-sm-2 text-right" }, [
-                      _c("label", { attrs: { for: "title" } }, [
-                        _c("strong", [_vm._v(" Title :")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("input", {
-                        staticClass: "form-control box",
-                        attrs: { type: "title", id: "title", name: "title" }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-sm-2 text-right" }, [
-                      _c("label", { attrs: { for: "category" } }, [
-                        _c("strong", [_vm._v(" Category :")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c(
-                        "select",
-                        { staticClass: "form-control", attrs: { id: "sel1" } },
-                        [
-                          _c("option", [_vm._v("Hospital")]),
-                          _vm._v(" "),
-                          _c("option", [_vm._v("Home Special")]),
-                          _vm._v(" "),
-                          _c("option", [_vm._v("Day Service")])
-                        ]
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "mb-1 row" }, [
-                    _c("div", { staticClass: "col-sm-2" }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("span", { attrs: { id: "addnew" } }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "btn btn-sm main-bg-color all-btn white",
-                            attrs: { href: "javascript:new_link()" }
-                          },
-                          [_vm._v("  Add New Item  ")]
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-sm-2 text-right" }, [
-                      _c("label", { attrs: { for: "header" } }, [
-                        _c("strong", [_vm._v(" Header : ")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text", id: "header", name: "header" }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-sm-2 text-right" }, [
-                      _c("label", { attrs: { for: "body" } }, [
-                        _c("strong", [_vm._v(" Body :")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("div", {
-                        staticClass: "summernote",
-                        attrs: { name: "body" }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form- group row" }, [
-                    _c("div", { staticClass: "col-sm-2" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { attrs: { id: "newlink" } })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-2" }),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticStyle: { display: "none" },
-                  attrs: { id: "newlinktpl" }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "form-group row",
-                      staticStyle: { "margin-top": "30px" }
-                    },
-                    [
-                      _c("div", { staticClass: "col-sm-2 text-right" }, [
-                        _c("label", { attrs: { for: "header" } }, [
-                          _c("strong", [_vm._v(" Header : ")])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10 " }, [
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "header", name: "header" }
-                        })
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-sm-2 text-right" }, [
-                      _c("label", { attrs: { for: "body" } }, [
-                        _c("strong", [_vm._v(" Body : ")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("div", {
-                        staticClass: "summernote",
-                        attrs: { name: "body" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-1" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-10" }, [
-                _c("div", { staticClass: "mb-1 row" }, [
-                  _c("div", { staticClass: "col-sm-2" }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-10" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-md main-bg-color  all-btn white",
-                        attrs: { type: "button", id: "submit" }
-                      },
-                      [_vm._v(" Submit ")]
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-414bd2f7", module.exports)
-  }
-}
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(85)
-/* template */
-var __vue_template__ = __webpack_require__(72)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/categorylist.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7260439a", Component.options)
-  } else {
-    hotAPI.reload("data-v-7260439a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 72 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content" }, [
-    _c("div", { staticClass: "container" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "m-b-30" },
-        [
-          _c(
-            "router-link",
-            {
-              staticClass: "float-right",
-              staticStyle: { color: "blue" },
-              attrs: { to: "/createcategory" }
-            },
-            [_vm._v("Create New Category")]
-          )
-        ],
-        1
-      ),
-      _c("br"),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "scroll col-12" },
-        _vm._l(_vm.categories, function(category) {
-          return _c(
-            "div",
-            { key: category.id, staticClass: "card card-default m-b-20" },
-            [
-              _c("div", { staticClass: "card-body news-post" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-9 m-t-8" }, [
-                    _c("a", [_vm._v(_vm._s(category.name))]),
-                    _c("br")
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(2, true)
-                ])
-              ])
-            ]
-          )
-        }),
-        0
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-default m-b-20" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-10" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "検索" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-2" }, [
-            _c(
-              "button",
-              { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-center" }, [
-      _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-        _vm._v("ユーザーリストテーブル")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-3", staticStyle: { "margin-top": "8px" } },
-      [
-        _c("button", { staticClass: "btn main-bg-color all-btn white" }, [
-          _vm._v("Edit")
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn btn-danger all-btn" }, [
-          _vm._v("Delete")
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7260439a", module.exports)
-  }
-}
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(74)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/createcategory.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-a9a9c25e", Component.options)
-  } else {
-    hotAPI.reload("data-v-a9a9c25e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "content" } }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card  text-dark" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-3 pad-free" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "btn btn-warning",
-                            attrs: { to: "/categorylist" }
-                          },
-                          [_vm._v("Cancel")]
-                        )
-                      ],
-                      1
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header" }, [_vm._v("Create Category")]),
-      _vm._v(" "),
-      _c("br")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", [
-          _vm._v("Category Name :"),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", name: "title", placeholder: "Hospital" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1 pad-free" }, [
-      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Create")])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-a9a9c25e", module.exports)
-  }
-}
-
-/***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(76)
-/* template */
-var __vue_template__ = __webpack_require__(77)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/FacilitiesListComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6ec29017", Component.options)
-  } else {
-    hotAPI.reload("data-v-6ec29017", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 76 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "m-b-30" },
-        [
-          _c(
-            "router-link",
-            {
-              staticClass: "float-right",
-              staticStyle: { color: "blue" },
-              attrs: { to: "/createfacility" }
-            },
-            [_vm._v("  Create New Facility")]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm._m(2)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-10" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "検索" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-2" }, [
-            _c(
-              "button",
-              { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "h4",
-      { staticClass: "page-header", staticStyle: { "text-align": "center" } },
-      [_c("strong", [_vm._v("  Facility List")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fuid" }, [
-      _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-9 m-t-8" }, [
-              _c("p", [_vm._v("Facility Name : Sample ")])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-md-3", staticStyle: { "margin-top": "8px" } },
-              [
-                _c(
-                  "button",
-                  { staticClass: "btn main-bg-color white all-btn" },
-                  [_vm._v("Edit")]
-                ),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-danger all-btn" }, [
-                  _vm._v("Delete")
-                ])
-              ]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container-fuid" }, [
-        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-9 m-t-8" }, [
-                _c("p", [_vm._v(" Facility Name : Sample ")])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-md-3",
-                  staticStyle: { "margin-top": "8px" }
-                },
-                [
-                  _c(
-                    "button",
-                    { staticClass: "btn main-bg-color white all-btn" },
-                    [_vm._v("Edit")]
-                  )
-                ]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container-fuid" }, [
-          _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-9 m-t-8" }, [
-                  _c("p", [_vm._v(" Facility Name : Sample ")])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-3",
-                    staticStyle: { "margin-top": "8px" }
-                  },
-                  [
-                    _c(
-                      "button",
-                      { staticClass: "btn main-bg-color all-btn white" },
-                      [_vm._v("Edit")]
-                    ),
-                    _vm._v(" "),
-                    _c("button", { staticClass: "btn btn-danger all-btn" }, [
-                      _vm._v("Delete")
-                    ])
-                  ]
-                )
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6ec29017", module.exports)
-  }
-}
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(79)
-/* template */
-var __vue_template__ = __webpack_require__(80)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/CreateFacilityComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-50e19717", Component.options)
-  } else {
-    hotAPI.reload("data-v-50e19717", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 79 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "row" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "form-group row" }, [
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-3 pad-free" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-warning",
-                          attrs: { to: "/facilitieslist" }
-                        },
-                        [_vm._v("  Cancel ")]
-                      )
-                    ],
-                    1
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header" }, [_vm._v("Create Facility")]),
-      _vm._v(" "),
-      _c("br")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", [
-          _vm._v("Facility Name :"),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", name: "title", placeholder: "Facility Name" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1 pad-free" }, [
-      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Create")])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-50e19717", module.exports)
-  }
-}
-
-/***/ }),
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
 /* 81 */
 /***/ (function(module, exports) {
 
@@ -56902,68 +53477,1019 @@ if (false) {
 /* 82 */,
 /* 83 */,
 /* 84 */,
-/* 85 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 85 */,
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(87)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/hospitalSearch.vue"
 
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            categories: []
-        };
-    },
-    created: function created() {
-        var _this = this;
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5cde3559", Component.options)
+  } else {
+    hotAPI.reload("data-v-5cde3559", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
 
-        this.axios.get('http://localhost:8000/api/categories').then(function (response) {
-            _this.categories = response.data;
-        });
-    }
-});
+module.exports = Component.exports
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "search-map" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-7 divisions" }, [
+          _c("div", { staticClass: "row m-b-30" }, [
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#c296c5" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                中国・東海\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { padding: "10px" }
+                    },
+                    [
+                      _c("span", [_vm._v("広島")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岡山")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("山口")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("鳥取")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("島根")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("愛知")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("静岡")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岐阜")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("三重")])
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#fab755" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                近畿\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("大阪")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("兵庫")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("京都")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("奈良")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("滋賀")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("和歌山")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#ec9a9c" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                甲信越・北陸\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("石川")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("新潟")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("富山")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("福井")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("長野")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("山梨")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#9ac1d6" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                北海道・東北\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { padding: "10px" }
+                    },
+                    [
+                      _c("span", [_vm._v("宮城")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("北海道")]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("青森")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岩手")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("山形")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("福島")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("秋田")])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#f26d6d" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                九州・沖縄\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("福岡")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("熊本")]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("長崎")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("鹿児島")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("宮崎")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("大分")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("佐賀")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("沖縄")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#a2ce4b" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                関東\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("東京")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("神奈川")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("千葉")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("埼玉")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("群馬")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("茨城")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("栃木")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#9cd9e0" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                四国\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("愛媛")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("香川")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("高知 ")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("徳島")])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-5" }, [
+          _c("img", {
+            staticClass: "img-responsive",
+            staticStyle: { width: "100%" },
+            attrs: { src: "/images/map.png", alt: "" }
+          })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5cde3559", module.exports)
+  }
+}
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(89)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/nursingSearch.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6121795b", Component.options)
+  } else {
+    hotAPI.reload("data-v-6121795b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "search-map" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-7 divisions" }, [
+          _c("div", { staticClass: "row m-b-30" }, [
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#c296c5" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                中国・東海\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { padding: "10px" }
+                    },
+                    [
+                      _c("span", [_vm._v("広島")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岡山")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("山口")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("鳥取")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("島根")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("愛知")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("静岡")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岐阜")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("三重")])
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#fab755" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                近畿\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("大阪")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("兵庫")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("京都")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("奈良")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("滋賀")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("和歌山")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#ec9a9c" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                甲信越・北陸\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("石川")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("新潟")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("富山")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("福井")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("長野")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("山梨")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#9ac1d6" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                北海道・東北\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { padding: "10px" }
+                    },
+                    [
+                      _c("span", [_vm._v("宮城")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("北海道")]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("青森")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岩手")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("山形")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("福島")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("秋田")])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#f26d6d" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                九州・沖縄\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("福岡")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("熊本")]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("長崎")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("鹿児島")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("宮崎")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("大分")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("佐賀")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("沖縄")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#a2ce4b" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                関東\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("東京")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("神奈川")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("千葉")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("埼玉")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("群馬")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("茨城")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("栃木")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#9cd9e0" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                四国\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("愛媛")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("香川")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("高知 ")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("徳島")])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-5" }, [
+          _c("img", {
+            staticClass: "img-responsive",
+            staticStyle: { width: "100%" },
+            attrs: { src: "/images/map.png", alt: "" }
+          })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6121795b", module.exports)
+  }
+}
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(91)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/jobSearch.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7dbf913e", Component.options)
+  } else {
+    hotAPI.reload("data-v-7dbf913e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "search-map" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-7 divisions" }, [
+          _c("div", { staticClass: "row m-b-30" }, [
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#c296c5" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                中国・東海\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { padding: "10px" }
+                    },
+                    [
+                      _c("span", [_vm._v("広島")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岡山")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("山口")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("鳥取")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("島根")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("愛知")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("静岡")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岐阜")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("三重")])
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#fab755" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                近畿\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("大阪")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("兵庫")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("京都")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("奈良")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("滋賀")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("和歌山")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#ec9a9c" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                甲信越・北陸\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("石川")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("新潟")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("富山")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("福井")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("長野")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("山梨")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#9ac1d6" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                北海道・東北\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { padding: "10px" }
+                    },
+                    [
+                      _c("span", [_vm._v("宮城")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("北海道")]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("青森")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("岩手")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("山形")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("福島")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("秋田")])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#f26d6d" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                九州・沖縄\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("福岡")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("熊本")]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("長崎")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("鹿児島")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("宮崎")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("大分")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("佐賀")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("沖縄")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#a2ce4b" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                関東\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("東京")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("神奈川")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("千葉")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("埼玉")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("群馬")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("茨城")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("栃木")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { background: "#9cd9e0" } },
+                [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(
+                      "\r\n                                                四国\r\n                                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("span", [_vm._v("愛媛")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("香川")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("高知 ")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("徳島")])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-5" }, [
+          _c("img", {
+            staticClass: "img-responsive",
+            staticStyle: { width: "100%" },
+            attrs: { src: "/images/map.png", alt: "" }
+          })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7dbf913e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

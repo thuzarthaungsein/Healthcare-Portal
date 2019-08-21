@@ -4,7 +4,12 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use App\Http\Controllers\HomePageController;
+use Session;
+use Request;
+use Illuminate\Auth\AuthenticationException;
+use Response;
 class Handler extends ExceptionHandler
 {
     /**
@@ -45,7 +50,23 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
-    {
-        return parent::render($request, $exception);
-    }
+
+        {
+
+            if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+
+                return response()->json(['User have not permission for this page access.']);
+            }
+
+            // if ($this->isHttpException($exception)) {
+            //     if ($exception->getStatusCode() == 404) {
+            //         return response()->view('errors.404' . '404', [], 404);
+            //     }
+            // }
+             return parent::render($request, $exception);
+
+        }
+     
+       
 }
+
