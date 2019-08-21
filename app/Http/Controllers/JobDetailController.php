@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\JobDetail;
+use App\JobDetailView;
 use Illuminate\Http\Request;
 
 class JobDetailController extends Controller
@@ -14,8 +15,8 @@ class JobDetailController extends Controller
      */
     public function index()
     {
-        $job_details = JobDetail::all()->toArray();
-       return array_reverse($job_details);
+        $job_details = JobDetailView::all();
+       return $job_details;
     }
 
     /**

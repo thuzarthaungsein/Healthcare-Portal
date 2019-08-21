@@ -55218,7 +55218,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -55245,49 +55244,56 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "row justify-content-md-center" }, [
-      _c("div", { staticClass: "col-md container cont-pad" }, [
-        _c("div", { staticClass: "row m-b-20" }, [
-          _c(
-            "div",
-            { staticClass: "col-md-12 scroll2" },
-            [
-              _c("h4", { staticClass: "h_4" }, [
-                _vm._v(
-                  "\t\n                                    【京都】ヘルスケア製品の評価＊オムロングループ＊残業少なめ"
-                )
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                staticClass: "img-responsive img_6",
-                attrs: { src: "/images/img1.jpg", height: "", width: "15%" }
-              }),
-              _vm._v(" "),
-              _vm._l(_vm.job_details, function(jobDetail) {
-                return _c(
-                  "div",
-                  { key: jobDetail.id, staticClass: "col-md-12" },
-                  [
-                    _c("div", { staticClass: "topic b" }, [
-                      _c("h4", { staticClass: "item text-center" }, [
-                        _vm._v(_vm._s(jobDetail.header))
+      _c(
+        "div",
+        { staticClass: "col-md container cont-pad" },
+        [
+          _vm._l(_vm.job_details, function(jobDetail) {
+            return _c(
+              "div",
+              { key: jobDetail.job_id, staticClass: "row m-b-20" },
+              [
+                jobDetail.job_id == 1
+                  ? _c("div", { staticClass: "col-md-12 scroll2" }, [
+                      _c("h4", { staticClass: "h_4" }, [
+                        _vm._v(_vm._s(jobDetail.jobs_title))
                       ]),
                       _vm._v(" "),
-                      _c(
-                        "p",
-                        { staticClass: "data", staticStyle: { width: "50%" } },
-                        [_vm._v(_vm._s(jobDetail.body))]
-                      )
+                      _c("img", {
+                        staticClass: "img-responsive img_6",
+                        attrs: {
+                          src: "/images/img1.jpg",
+                          height: "",
+                          width: "15%"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "topic b" }, [
+                          _c("h4", { staticClass: "item text-center" }, [
+                            _vm._v(_vm._s(jobDetail.jobs_detail_header))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              staticClass: "data",
+                              staticStyle: { width: "50%" }
+                            },
+                            [_vm._v(_vm._s(jobDetail.jobs_detail_body))]
+                          )
+                        ])
+                      ])
                     ])
-                  ]
-                )
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ])
+                  : _vm._e()
+              ]
+            )
+          }),
+          _vm._v(" "),
+          _vm._m(0)
+        ],
+        2
+      )
     ])
   ])
 }

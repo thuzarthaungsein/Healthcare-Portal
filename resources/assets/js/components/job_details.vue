@@ -2,16 +2,15 @@
     <div>
         <div class="row justify-content-md-center">
             <div class="col-md container cont-pad">
-                <div class="row m-b-20">
-                    <div class="col-md-12 scroll2">
-                        <h4 class="h_4">	
-                                        【京都】ヘルスケア製品の評価＊オムロングループ＊残業少なめ</h4>
+                <div class="row m-b-20" v-for="jobDetail in job_details" :key="jobDetail.job_id">
+                    <div class="col-md-12 scroll2" v-if="jobDetail.job_id==1">
+                        <h4 class="h_4">{{jobDetail.jobs_title}}</h4>
                         <img src="/images/img1.jpg" class="img-responsive img_6" height="" width="15%">
-                        <div v-for="jobDetail in job_details" :key="jobDetail.id" class="col-md-12">
+                        <div class="col-md-12">
                              <div class="topic b"> 
-                                 <h4 class="item text-center">{{jobDetail.header}}</h4> 
+                                 <h4 class="item text-center">{{jobDetail.jobs_detail_header}}</h4> 
                                 <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.body}}</p>
+                                    <p class="data" style="width:50%">{{jobDetail.jobs_detail_body}}</p>
                                 <!-- </dd> -->
                              </div> 
                             <!-- <dl class="topic">
@@ -83,7 +82,7 @@
                  .get('http://localhost:8000/api/job_details')
                  .then(response=>{
                      this.job_details = response.data;
-                 })
+                 });
         }
 
     }
