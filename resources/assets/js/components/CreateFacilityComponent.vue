@@ -20,12 +20,10 @@
                             <div class="col-md-12">
                                     <div class="form-group row">
                                         <div class="col-1 pad-free">
-                                            <button class="btn news-post-btn">Search</button>
+                                            <button class="btn news-post-btn">Create</button>
                                         </div>
                                         <div class="col-3 pad-free">
-                                          
                                                  <router-link class="btn btn-warning" to="/facilitieslist" >  Cancel </router-link>
-                                          
                                         </div>
                                     </div>       
                             </div>
