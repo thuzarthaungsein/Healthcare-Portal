@@ -1,5 +1,6 @@
 import home from './components/home.vue';
 import JobSearchListComponent from './components/JobSearchListComponent.vue';
+import JobOfferComponent from './components/JobOfferComponent.vue';
 
 
 export const routes = [
@@ -9,8 +10,13 @@ export const routes = [
         component: home
     },
     {
-        name: 'job',
-        path: '/jobsearchlist',
-        component: JobSearchListComponent
-      },
+      name: 'jobsearchlist',
+      path: '/jobsearchlist',
+      component: JobSearchListComponent
+    },
+    {
+      name: 'joboffer',
+      path: '/joboffer',
+      component: JobOfferComponent
+    },
 ];

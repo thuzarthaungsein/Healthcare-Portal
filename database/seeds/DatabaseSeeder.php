@@ -7,6 +7,7 @@ use App\Category;
 use App\Customer;
 use App\Job;
 use App\JobDetail;
+use App\Type;
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,7 +37,7 @@ class DatabaseSeeder extends Seeder
             $cus->email = $faker->paragraph();
             $cus->password = bcrypt("123123");
             $cus->logo = $faker->sentence();
-            $cus->category_id = rand(1, 5);
+            $cus->type_id = rand(1, 3);
             $cus->phone = "09-20102010";
             $cus->address = $faker->sentence();
             $cus->user_id = rand(1, 2);
@@ -87,6 +88,21 @@ class DatabaseSeeder extends Seeder
         $category->name = "デイサービス等";
         $category->user_id = 1;
         $category->save();
+
+        $type = new Type();
+        $type->name = "特養";
+        $type->user_id = 1;
+        $type->save();
+
+        $type = new Type();
+        $type->name = "有料老人ホーム";
+        $type->user_id = 1;
+        $type->save();
+
+        $type = new Type();
+        $type->name = "病院";
+        $type->user_id = 1;
+        $type->save();
         
     }
 }
