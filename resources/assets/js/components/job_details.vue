@@ -7,7 +7,7 @@
                         <h4 class="h_4">	
                                         【京都】ヘルスケア製品の評価＊オムロングループ＊残業少なめ</h4>
                         <img src="/images/img1.jpg" class="img-responsive img_6" height="" width="15%">
-                        <div v-for="jobDetail in jobs" :key="jobDetail.id" class="col-md-12">
+                        <div v-for="jobDetail in job_details" :key="jobDetail.id" class="col-md-12">
                              <div class="topic b"> 
                                  <h4 class="item text-center">{{jobDetail.header}}</h4> 
                                 <!-- <dd  class="data"> -->
@@ -75,14 +75,14 @@
        
         data() {
             return {
-                jobs:[]
+                job_details:[]
             }
         },
         created(){
             this.axios
-                 .get('http://localhost:8000/api/jobs')
+                 .get('http://localhost:8000/api/job_details')
                  .then(response=>{
-                     this.jobs = response.data;
+                     this.job_details = response.data;
                  })
         }
 

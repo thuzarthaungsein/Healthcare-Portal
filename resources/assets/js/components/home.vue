@@ -1,6 +1,5 @@
 <template>
 <div>
-   
                         <div class="row justify-content-md-center">
                                 <div class="col-md container">
                                         <div class="row">

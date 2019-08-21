@@ -14,7 +14,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        $job = Job::all()->toArray();
+        return array_reverse($jobs);
     }
 
     /**
