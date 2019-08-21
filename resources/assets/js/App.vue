@@ -49,9 +49,6 @@
                                 <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
                         </div>
       </section>
-
-
-
     </div>
 
 
