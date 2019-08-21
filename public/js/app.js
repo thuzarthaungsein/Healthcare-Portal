@@ -49426,7 +49426,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n \r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -49474,6 +49474,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Ads_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Ads_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50073,7 +50083,7 @@ var staticRenderFns = [
               staticStyle: { width: "100%" },
               attrs: { href: "../pages/news/search_news_result.html" }
             },
-            [_vm._v("Cus search")]
+            [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Cus search")]
           )
         ]),
         _vm._v(" "),
@@ -50085,7 +50095,7 @@ var staticRenderFns = [
               staticStyle: { width: "100%" },
               attrs: { href: "../pages/news/search_news_result.html" }
             },
-            [_vm._v("Job search")]
+            [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Job search")]
           )
         ])
       ]),
@@ -50303,6 +50313,22 @@ var render = function() {
         [
           _c("ads"),
           _vm._v(" "),
+          _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+            _c("ol", { staticClass: "breadcrumb" }, [
+              _c(
+                "li",
+                { staticClass: "breadcrumb-item active" },
+                [
+                  _c("router-link", { attrs: { to: "/home" } }, [
+                    _c("i", { staticClass: "fas fa-home" }),
+                    _vm._v("   ホーム")
+                  ])
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "row row justify-content-md-center" }, [
             _c(
               "div",
@@ -50315,7 +50341,9 @@ var render = function() {
           ])
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _vm._m(3)
     ])
   ])
 }
@@ -50375,10 +50403,20 @@ var staticRenderFns = [
               "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
             attrs: { type: "submit" }
           },
-          [_vm._v("Search")]
+          [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Search")]
         )
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-fluid footer" }, [
+      _c("span", [
+        _vm._v("Copyright©Management Partners Corp.All Rights Reserved. ")
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -53251,26 +53289,47 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobSearchListComponent_vue__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_JobSearchListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_job_details_vue__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_job_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_job_details_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_job_details_vue__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_job_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_job_details_vue__);
+
+
+
 
 
 
 
 var routes = [{
-  name: 'home',
-  path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+    name: 'home',
+    path: '/home',
+    component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
 }, {
-  name: 'job',
-  path: '/jobsearchlist',
-  component: __WEBPACK_IMPORTED_MODULE_1__components_JobSearchListComponent_vue___default.a
+    name: 'jobapply',
+    path: '/jobapply',
+    component: __WEBPACK_IMPORTED_MODULE_1__components_JobApply_vue___default.a
 }, {
-  name: 'job_details',
-  path: '/job_details',
-  component: __WEBPACK_IMPORTED_MODULE_2__components_job_details_vue___default.a
+    name: 'customerlist',
+    path: '/customerlist',
+    component: __WEBPACK_IMPORTED_MODULE_2__components_customerlist_vue___default.a
+}, {
+    name: 'jobsearchlist',
+    path: '/jobsearchlist',
+    component: __WEBPACK_IMPORTED_MODULE_3__components_JobSearchListComponent_vue___default.a
+}, {
+    name: 'joboffer',
+    path: '/joboffer',
+    component: __WEBPACK_IMPORTED_MODULE_4__components_JobOfferComponent_vue___default.a
+}, {
+    name: 'job_details',
+    path: '/job_details',
+    component: __WEBPACK_IMPORTED_MODULE_5__components_job_details_vue___default.a
 }];
 
 /***/ }),
@@ -53365,7 +53424,7 @@ var staticRenderFns = [
                           },
                           [
                             _vm._v(
-                              "\r\n                                                                                                ニュース 1"
+                              "\r\n                                                                            ニュース 1"
                             )
                           ]
                         )
@@ -53387,7 +53446,7 @@ var staticRenderFns = [
                           },
                           [
                             _vm._v(
-                              "\r\n                                                                                                ニュース 2"
+                              "\r\n                                                                            ニュース 2"
                             )
                           ]
                         )
@@ -53409,7 +53468,7 @@ var staticRenderFns = [
                           },
                           [
                             _vm._v(
-                              "\r\n                                                                                                ニュース 3"
+                              "\r\n                                                                            ニュース 3"
                             )
                           ]
                         )
@@ -53459,7 +53518,7 @@ var staticRenderFns = [
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                        "\r\n                                                                                            ニュースタイトル\r\n                                                                                    "
                                       )
                                     ]
                                   ),
@@ -53470,7 +53529,7 @@ var staticRenderFns = [
                                       attrs: { alt: "", src: "/images/5.png" }
                                     }),
                                     _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
+                                      "日刊スポーツ\r\n                                                                                    "
                                     )
                                   ])
                                 ]
@@ -53873,7 +53932,7 @@ var staticRenderFns = [
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                        "\r\n                                                                                            ニュースタイトル\r\n                                                                                    "
                                       )
                                     ]
                                   ),
@@ -53884,7 +53943,7 @@ var staticRenderFns = [
                                       attrs: { alt: "", src: "/images/5.png" }
                                     }),
                                     _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
+                                      "日刊スポーツ\r\n                                                                                    "
                                     )
                                   ])
                                 ]
@@ -54206,7 +54265,7 @@ var staticRenderFns = [
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                                                                                                ニュースタイトル\r\n                                                                                                        "
+                                        "\r\n                                                                                            ニュースタイトル\r\n                                                                                    "
                                       )
                                     ]
                                   ),
@@ -54217,7 +54276,7 @@ var staticRenderFns = [
                                       attrs: { alt: "", src: "/images/5.png" }
                                     }),
                                     _vm._v(
-                                      "日刊スポーツ\r\n                                                                                                        "
+                                      "日刊スポーツ\r\n                                                                                    "
                                     )
                                   ])
                                 ]
@@ -54713,8 +54772,10 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "row m-lr-0" }, [
-              _c("div", { staticClass: "row col-md-12 text-center" }, [
-                _c("h4", { staticClass: "h_4" }, [_vm._v("関連ニュース")])
+              _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
+                _c("h4", { staticClass: "h_4 next-title" }, [
+                  _vm._v("関連ニュース")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
@@ -54742,7 +54803,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                    一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                    紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                            "
                           )
                         ])
                       ])
@@ -54776,7 +54837,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                    一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                    紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                            "
                           )
                         ])
                       ])
@@ -54810,7 +54871,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                    一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                    紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                            "
                           )
                         ])
                       ])
@@ -54844,7 +54905,7 @@ var staticRenderFns = [
                       _c("div", { staticClass: "col-12" }, [
                         _c("p", { staticClass: " p_3" }, [
                           _vm._v(
-                            "\r\n                                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                                                "
+                            "\r\n                                                                                                    一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                    紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                            "
                           )
                         ])
                       ])
@@ -55330,6 +55391,885 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(71)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/JobApply.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2813fe68", Component.options)
+  } else {
+    hotAPI.reload("data-v-2813fe68", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h4", { staticClass: "h_4" }, [_vm._v("求人応募フォーム")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-7 offset-md-3" }, [
+        _c("form", [
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              staticClass: "form-control box",
+              attrs: {
+                type: "text",
+                id: "jobid",
+                placeholder: " ジョブID",
+                name: "jobid"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              staticClass: "form-control box",
+              attrs: {
+                type: "text",
+                id: "email",
+                placeholder: "名",
+                name: "name"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                id: "form_email",
+                type: "email",
+                name: "email",
+                placeholder: "電子メールアドレス"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              staticClass: "form-control box",
+              attrs: {
+                type: "text",
+                id: "phone",
+                placeholder: "電話番号",
+                name: "phone"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              staticClass: "form-control box",
+              attrs: {
+                type: "text",
+                id: "address",
+                placeholder: "アドレッ",
+                name: "address"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("textarea", {
+              staticStyle: { width: "100%", padding: "5px" },
+              attrs: { rows: "8", cols: "30", placeholder: "コンテンツ" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              staticClass: "form-control box",
+              attrs: {
+                type: "text",
+                id: "comp",
+                placeholder: "会社名",
+                name: "comp"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "select",
+              {
+                staticClass: "form-control",
+                attrs: {
+                  id: "form_need",
+                  name: "need",
+                  "data-error": "Please specify your need."
+                }
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [_vm._v("必要職業")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Doctor" } }, [
+                  _vm._v("Doctor")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Nurse" } }, [_vm._v("Nurse")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "pharmacists" } }, [
+                  _vm._v("Pharmacists")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "health professionals" } }, [
+                  _vm._v("Health Professionals")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Other" } }, [
+                  _vm._v("Other Hospital Staff")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("textarea", {
+              staticClass: "form-control",
+              attrs: { name: "message", id: "message", rows: "5" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group mb-3" }, [
+            _c("div", { staticClass: "input-group-prepend" }, [
+              _c(
+                "span",
+                {
+                  staticClass: "input-group-text",
+                  attrs: { id: "inputGroupFileAddon01" }
+                },
+                [_vm._v("アップロード")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-file" }, [
+              _c("input", {
+                staticClass: "custom-file-input",
+                attrs: { type: "file", id: "inputGroupFile01" }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-file-label",
+                  attrs: { for: "inputGroupFile01" }
+                },
+                [_vm._v("ファイルを選ぶ")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-center" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn main-bg-color white all-btn",
+                attrs: { href: "home" }
+              },
+              [_vm._v("募集")]
+            )
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2813fe68", module.exports)
+  }
+}
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(73)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/customerlist.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-fc247dda", Component.options)
+  } else {
+    hotAPI.reload("data-v-fc247dda", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "card card-default m-b-20" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "main-color" }, [
+              _vm._v("ニュース記事を検索")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "検索" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn secondary-bg-color all-btn white" },
+                  [_vm._v("検索")]
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "m-b-30" }, [
+          _c(
+            "h4",
+            {
+              staticClass: "page-header",
+              staticStyle: { "text-align": "center" }
+            },
+            [_vm._v("ユーザーリストテーブル")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
+          _c("div", { staticClass: "card-body news-post" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-2 pad-free" }, [
+                _c("img", {
+                  staticClass: "col-md-12 ",
+                  staticStyle: { height: "150px" },
+                  attrs: { src: "/images/hospital6.jpg", alt: " " }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("h4", { staticClass: "txt2 bold_h5" }, [
+                  _vm._v("Fukuoka Kinen Hospital")
+                ]),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Type   :")]),
+                _vm._v(" General Hospital"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Address:")]),
+                _vm._v(
+                  " 1-1-35 Nishijin, Sawara-ku, Fukuoka-shi, Fukuoka, 814-8525"
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Contact:")]),
+                _vm._v(" info@kinen.jp English, Japanese, Chinese"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Train  :")]),
+                _vm._v(
+                  " 3 minutes walk from Nishijin Station, Fukuoka City Subway Airport Line "
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Airplane:")]),
+                _vm._v(
+                  " 20 minutes by car from Fukuoka Airport\n                                                  18 minutes by subway from Fukuoka Airport"
+                ),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn main-bg-color all-btn white" },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-danger all-btn" }, [
+                  _vm._v("Delete")
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
+          _c("div", { staticClass: "card-body news-post" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-2 pad-free " }, [
+                _c("img", {
+                  staticClass: "col-md-12 ",
+                  staticStyle: { height: "150px" },
+                  attrs: { src: "/images/eye.jpg", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("h4", { staticClass: "txt2 bold_h5" }, [
+                  _vm._v("Sinjuku-Higashiguchi")
+                ]),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Type   :")]),
+                _vm._v(" Eye Clinic"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Address:")]),
+                _vm._v(
+                  " 9th floor of Hulic Shinjuku Building,3-25-1, Shinjuku, Shinjuku-ku, Tokyo, 160-0022"
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Contact:")]),
+                _vm._v(" 03-5363-0507"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Train  :")]),
+                _vm._v(" 1-minute walk from Tokyo Metro Shinjuku Station"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Airplane:")]),
+                _vm._v(" 25 minutes by car from  Airport"),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn main-bg-color all-btn white" },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-danger all-btn" }, [
+                  _vm._v("Delete")
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
+          _c("div", { staticClass: "card-body news-post" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-2 pad-free " }, [
+                _c("img", {
+                  staticClass: "col-md-12 ",
+                  staticStyle: { height: "150px" },
+                  attrs: { src: "/images/grandparent.jpg", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-10" }, [
+                _c("h4", { staticClass: "txt2 bold_h5" }, [
+                  _vm._v("Care Center")
+                ]),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Type   :")]),
+                _vm._v(" grandparents and grandchildren"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Address:")]),
+                _vm._v(
+                  "  International Child Development Initiatives - ICDI. "
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Contact:")]),
+                _vm._v(
+                  " Margaret Kernan and Giulia Cortellesi, info@toyproject.net "
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Train  :")]),
+                _vm._v(" 1-minute walk from Tokyo Metro Shinjuku Station"),
+                _c("br"),
+                _vm._v(" "),
+                _c("strong", [_vm._v("Airplane:")]),
+                _vm._v(" 25 minutes by car from  Airport"),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn main-bg-color all-btn white" },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-danger all-btn" }, [
+                  _vm._v("Delete")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-fc247dda", module.exports)
+  }
+}
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(75)
+/* template */
+var __vue_template__ = __webpack_require__(76)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/JobOfferComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-414bd2f7", Component.options)
+  } else {
+    hotAPI.reload("data-v-414bd2f7", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 75 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "card-header text-center" }, [
+          _c("h4", { staticStyle: { "padding-top": "20px" } }, [
+            _vm._v(" Job Create ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body " }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-1" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-10" }, [
+              _c("form", { staticClass: "m-t-16", attrs: { action: "#" } }, [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-sm-2 text-right" }, [
+                    _c("label", { attrs: { for: "title" } }, [
+                      _c("strong", [_vm._v(" Title :")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      staticClass: "form-control box",
+                      attrs: { type: "title", id: "title", name: "title" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-sm-2 text-right" }, [
+                    _c("label", { attrs: { for: "category" } }, [
+                      _c("strong", [_vm._v(" Category :")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c(
+                      "select",
+                      { staticClass: "form-control", attrs: { id: "sel1" } },
+                      [
+                        _c("option", [_vm._v("Hospital")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("Home Special")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("Day Service")])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mb-1 row" }, [
+                  _c("div", { staticClass: "col-sm-2" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("span", { attrs: { id: "addnew" } }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-sm main-bg-color all-btn white",
+                          attrs: { href: "javascript:new_link()" }
+                        },
+                        [_vm._v("  Add New Item  ")]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-sm-2 text-right" }, [
+                    _c("label", { attrs: { for: "header" } }, [
+                      _c("strong", [_vm._v(" Header : ")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "header", name: "header" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-sm-2 text-right" }, [
+                    _c("label", { attrs: { for: "body" } }, [
+                      _c("strong", [_vm._v(" Body :")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("div", {
+                      staticClass: "summernote",
+                      attrs: { name: "body" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form- group row" }, [
+                  _c("div", { staticClass: "col-sm-2" })
+                ]),
+                _vm._v(" "),
+                _c("div", { attrs: { id: "newlink" } })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2" }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticStyle: { display: "none" }, attrs: { id: "newlinktpl" } },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group row",
+                    staticStyle: { "margin-top": "30px" }
+                  },
+                  [
+                    _c("div", { staticClass: "col-sm-2 text-right" }, [
+                      _c("label", { attrs: { for: "header" } }, [
+                        _c("strong", [_vm._v(" Header : ")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-10 " }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "text", id: "header", name: "header" }
+                      })
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-sm-2 text-right" }, [
+                    _c("label", { attrs: { for: "body" } }, [
+                      _c("strong", [_vm._v(" Body : ")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("div", {
+                      staticClass: "summernote",
+                      attrs: { name: "body" }
+                    })
+                  ])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-1" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-10" }, [
+              _c("div", { staticClass: "mb-1 row" }, [
+                _c("div", { staticClass: "col-sm-2" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-10" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-md main-bg-color  all-btn white",
+                      attrs: { type: "button", id: "submit" }
+                    },
+                    [_vm._v(" Submit ")]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-414bd2f7", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

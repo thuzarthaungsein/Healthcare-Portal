@@ -708,7 +708,7 @@ div.b{
     margin-bottom: 10px;
 }
 .secondary-bg-color{
-    background-color: #f5a750 !important;
+    background-color: #f27a24 !important;
 }
 .all-btn{
     color: #fff !important;
@@ -805,11 +805,24 @@ a:hover{
     color: #f16c00;
     font-weight: bold;
 }
+.breadcrumb-item.active > a {
+    color: #f16c00;
+    font-weight: bold;
+}
 .breadcrumb-item+.breadcrumb-item::before {
     color: #118063 !important;
     content: ">" !important;
 }
 /*end for breadcrumb*/
+/*related news*/
+.next-title{
+    border-top: 1px solid #118063 ;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    clear: both;
+    margin-top: 20px;
+}
 /*footer*/
 .footer{
     font-size: 12px;
@@ -818,8 +831,6 @@ a:hover{
     background: transparent;
     text-align: center; 
     line-height: 20px; 
-    position: fixed;
-    left: 0;
     bottom: 0;
     width: 100%;
   
