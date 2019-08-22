@@ -116,6 +116,7 @@
                 <div class="row">
                     <div class="col-md-2" >
                         <img src="/images/hospitalpage.jpg" class="col-md-12 " alt=" " style="height:150px;" >
+                        <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
                     </div>
                     <div class="col-md-10">
                         <div class="col-sm-8 pad-free mb-2">
