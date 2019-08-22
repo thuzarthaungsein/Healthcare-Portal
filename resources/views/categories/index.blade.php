@@ -54,16 +54,16 @@
 
         </tr>
 
-	    @foreach ($categories as $categories)
+        @foreach ($data as $key => $category)
 
 	    <tr>
 
 	        <td>{{ ++$i }}</td>
 
-	        <td>{{ $categories->name }}</td>
+	        <td>{{ $category->name }}</td>
           
-	        <td>{{ $categories->user_id }}</td>
-            <td>{{ $categories->recordstatus }}</td>
+	        <td>{{ $category->user_id }}</td>
+            <td>{{ $category->recordstatus }}</td>
           
 	        <td>
 
@@ -97,9 +97,6 @@
 	    @endforeach
 
     </table>
-
-
-
 
 
 @endsection

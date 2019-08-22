@@ -17,10 +17,10 @@
           </div>
            <div class="m-b-30">
                <!-- <a href="createcategory" class="float-right" style="color: blue;">Create New Category</a> -->
-               <router-link to="/createcategory" class="float-right" style="color: blue;">Create New Category</router-link>
+               <router-link to="/createcategory" class="float-right" style="color: blue;">新しいカテゴリを作成</router-link>
            </div><br/>
           <div class="card-header text-center">
-              <h4 style="padding-top:20px;">ユーザーリストテーブル</h4>
+              <h4 style="padding-top:20px;"> カテゴリーリスト   </h4>
           </div>
             <!--card-->
             <div class="container-fuid" v-for="category in categories" :key="category.id">
@@ -35,7 +35,7 @@
                                 
                                 <router-link :to ="{name:'editcategory', params:{id : category.id}}" class="btn main-bg-color white all-btn">Edit </router-link>
                                
-                                <button class="btn btn-danger all-btn">Delete</button>
+                                <button class="btn btn-danger all-btn" @click="deleteCategory(category.id)">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -58,10 +58,25 @@ export default {
     },
      created() {
             this.axios
-                .get('http://localhost:8000/api/categories')
+                .get('http://localhost:8000/api/category/categories')
                 .then(response => {
                     this.categories = response.data;
                 });
         },
+        methods: {
+            deleteCategory(id) {
+                if(confirm("Are you sure you want to delete?"))
+                {
+                     this.axios
+                    .delete(`http://localhost:8000/api/category/delete/${id}`)
+                    .then(response => {
+                        alert('Delete Successfully!');
+                        let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
+                        this.categories.splice(i, 1)
+                    });
+                }
+               
+            }
+        }
 }
 </script>
