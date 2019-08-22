@@ -73,7 +73,7 @@
 						@endcan
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('images/user.png')}}" class="img-circle"> <span>{{ Auth::user()->name }}</span> </a>
-							<ul class="dropdown-menu">
+							<!-- <ul class="dropdown-menu">
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								<li>
 									<a href="{{ route('logout') }}"  onclick="event.preventDefault();
@@ -84,7 +84,7 @@
                                         @csrf
                                     </form>
 								</li>
-							</ul>
+							</ul> -->
 						</li>
 						<!-- login view -->
 						@endguest
