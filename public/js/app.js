@@ -56632,24 +56632,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	mounted: function mounted() {
-		console.log('Component mounted.');
-	}
-});
-$(document).ready(function () {
+    data: function data() {
+        return {
+            newdetails: []
+        };
+    },
+    created: function created() {
+        var _this = this;
 
-	$(".readMore").on('click', function (event) {
-		if ($(this).hasClass('opened')) {
-			$(this).removeClass('opened');
-			$(this).parent().find('.displaytext').slideToggle('fast');
-		} else {
-			$(this).addClass('opened');
-			$('.readMore').css("display", "none");
-			$(this).parent().find('.displaytext').slideToggle('fast');
-		}
-	});
+        this.axios.get('http://localhost:8000/api/newdetails').then(function (response) {
+            _this.newdetails = response.data;
+        });
+    }
 });
 
 /***/ }),
@@ -56660,303 +56669,288 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("section", {}, [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row justify-content-md-center" }, [
+        _c("div", { staticClass: "col-md container" }, [
+          _c("div", { staticClass: "scroll2" }, [
+            _c("div", { staticClass: "row m-lr-0" }, [
+              _c(
+                "div",
+                { staticClass: "row m-lr-0" },
+                _vm._l(_vm.newdetails, function(news) {
+                  return _c("div", { key: news.id, staticClass: "container" }, [
+                    news.id == 1
+                      ? _c("div", { staticClass: "row m-lr-0" }, [
+                          _c("div", { staticClass: "col-md-12" }, [
+                            _c("h4", { staticClass: "h_4" }, [
+                              _vm._v(_vm._s(news.title))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c("p", { staticClass: "p5" }, [
+                              _vm._v(_vm._s(news.body))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-md-6  mt-2 related-area" },
+                            [
+                              _c("img", {
+                                staticClass: "img-responsive img_2 news_photo",
+                                attrs: { src: news.photo }
+                              }),
+                              _vm._v(" "),
+                              _vm._m(0, true),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                {
+                                  staticClass: "img_2",
+                                  staticStyle: { "font-size": "22px" }
+                                },
+                                [_vm._v("関連ニュース")]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(1, true),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "m-l-10p" }, [
+                                _vm._v("21/08/2019")
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(2, true),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "m-l-10p" }, [
+                                _vm._v("21/08/2019")
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(3, true),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "m-l-10p" }, [
+                                _vm._v("21/08/2019")
+                              ])
+                            ]
+                          )
+                        ])
+                      : _vm._e()
+                  ])
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c("hr", { staticClass: "hr-line" }),
+              _vm._v(" "),
+              _vm._m(4)
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", {}, [
-      _c("div", { staticClass: "container-fluid main-wrapper" }, [
-        _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-          _c("ol", { staticClass: "breadcrumb" }, [
-            _c("li", { staticClass: "breadcrumb-item" }, [
-              _c("a", { attrs: { href: "/home" } }, [_vm._v("ホーム")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "breadcrumb-item" }, [
-              _c("a", { attrs: { href: "./search_news_result.html" } }, [
-                _vm._v("新しい結果を検索")
-              ])
-            ]),
+    return _c("p", { staticClass: "img_2" }, [
+      _vm._v("東京五輪開幕まで1年　メダルお披露目 "),
+      _c("br"),
+      _vm._v(" "),
+      _c("span", [_vm._v("21/08/2019")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticStyle: { "text-decoration": "underline", color: "black" },
+        attrs: { href: "#" }
+      },
+      [
+        _c("p", { staticClass: "img_2" }, [
+          _vm._v("韓国人男女が日本総領事館に侵入し抗議　身柄を拘束")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticStyle: { "text-decoration": "underline", color: "black" },
+        attrs: { href: "#" }
+      },
+      [
+        _c("p", { staticClass: "img_2" }, [
+          _vm._v("動く美術館」都大路進む 京都・祇園祭の山鉾巡行")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticStyle: { "text-decoration": "underline", color: "black" },
+        attrs: { href: "#" }
+      },
+      [
+        _c("p", { staticClass: "img_2" }, [
+          _vm._v("警察学校教官がナイフで巡査刺す　犯人確保訓練中に")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row m-lr-0" }, [
+      _c("div", { staticClass: "row col-md-12 text-center" }, [
+        _c("h4", { staticClass: "h_4" }, [_vm._v("関連ニュース")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "images/j5.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
             _vm._v(" "),
             _c(
-              "li",
+              "a",
               {
-                staticClass: "breadcrumb-item active",
-                attrs: { "aria-current": "page" }
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
               },
-              [_vm._v(" 新しい詳細")]
+              [_vm._v("詳細を見る")]
             )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
+                  )
+                ])
+              ])
+            ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row justify-content-md-center" }, [
-          _c("div", { staticClass: "col-md container" }, [
-            _c("div", { staticClass: "scroll2" }, [
-              _c("div", { staticClass: "row m-lr-0" }, [
-                _c("div", { staticClass: "row m-lr-0" }, [
-                  _c("div", { staticClass: "container" }, [
-                    _c("div", { staticClass: "row m-lr-0" }, [
-                      _c("div", { staticClass: "col-md-12" }, [
-                        _c("h4", { staticClass: "h_4" }, [
-                          _vm._v("ニュースタイトル")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-6" }, [
-                        _c("p", { staticClass: "p5" }, [
-                          _vm._v(
-                            "東京五輪の開会式までちょうど1年。様々な記念イベントなどが開かれ、大会のメダルも初披露された。金メダルは、夏季の大会では最も重い約556グラム。今回は初めて、使用済みの携帯電話などから抽出された金属だけで作られたという。準備報告会に出席したIOC＝国際オリンピック委員会のバッハ会長は「大会1年前にして、東京ほど準備が整っている開催都市を見たことがない」と話した。\n                                                                                準備が着々と進むなか、課題も残されている。大会期間中は都心の混雑が懸念されていて、24日は首都高の交通量を規制する実証実験が行われた。選手や関係者は主に首都高で移動するため、大会期間中は4つの入り口が終日封鎖され、\n                                                                                交通状況に応じて最大50の入り口が閉鎖される可能性がある。こうしたなか、会社に出社せずに離れた場所で仕事をする『テレワーク』が注目されている。去年、五輪を想定して行われた調査では、テレワークによって東京23区への通勤者が41万人減ったという。今年は約2300団体、延べ64万人がテレワークを実施する見通しとなっている。"
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-6  mt-2" }, [
-                        _c("img", {
-                          staticClass: "img-responsive img_2",
-                          staticStyle: { "margin-bottom": "24px" },
-                          attrs: {
-                            src: "images/oly.jpg",
-                            height: "300px",
-                            width: "80%"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "img_2" }, [
-                          _vm._v("東京五輪開幕まで1年　メダルお披露目 "),
-                          _c("br"),
-                          _vm._v(
-                            "\n                                                                           21/08/2019\n                                                                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "img_2",
-                            staticStyle: { "font-size": "22px" }
-                          },
-                          [_vm._v("関連ニュース")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticStyle: {
-                              "text-decoration": "underline",
-                              color: "black"
-                            },
-                            attrs: { href: "#" }
-                          },
-                          [
-                            _c("p", { staticClass: "img_2" }, [
-                              _vm._v(
-                                "韓国人男女が日本総領事館に侵入し抗議　身柄を拘束"
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "img_2" }, [
-                          _vm._v(" 21/08/2019")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticStyle: {
-                              "text-decoration": "underline",
-                              color: "black"
-                            },
-                            attrs: { href: "#" }
-                          },
-                          [
-                            _c("p", { staticClass: "img_2" }, [
-                              _vm._v(
-                                "動く美術館」都大路進む 京都・祇園祭の山鉾巡行"
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "img_2" }, [
-                          _vm._v(" 21/08/2019")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticStyle: {
-                              "text-decoration": "underline",
-                              color: "black"
-                            },
-                            attrs: { href: "#" }
-                          },
-                          [
-                            _c("p", { staticClass: "img_2" }, [
-                              _vm._v(
-                                "警察学校教官がナイフで巡査刺す　犯人確保訓練中に"
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "img_2" }, [
-                          _vm._v(" 21/08/2019")
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("hr", { staticClass: "hr-line" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "row m-lr-0" }, [
-                  _c("div", { staticClass: "row col-md-12 text-center" }, [
-                    _c("h4", { staticClass: "h_4" }, [_vm._v("関連ニュース")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                    _c("div", { staticClass: "hovereffect fit-image" }, [
-                      _c("img", {
-                        staticClass: "img-responsive fit-image",
-                        attrs: { src: "images/j5.jpg", alt: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "overlay" }, [
-                        _c("h2"),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "btn btn-sm all-btn secondary-bg-color",
-                            attrs: { href: "news_details.html" }
-                          },
-                          [_vm._v("詳細を見る")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "info" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("p", { staticClass: " p_3" }, [
-                              _vm._v(
-                                "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                              )
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                    _c("div", { staticClass: "hovereffect fit-image" }, [
-                      _c("img", {
-                        staticClass: "img-responsive fit-image",
-                        attrs: { src: "images/j5.jpg", alt: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "overlay" }, [
-                        _c("h2"),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "btn btn-sm all-btn secondary-bg-color",
-                            attrs: { href: "news_details.html" }
-                          },
-                          [_vm._v("詳細を見る")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "info" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("p", { staticClass: " p_3" }, [
-                              _vm._v(
-                                "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                              )
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                    _c("div", { staticClass: "hovereffect fit-image" }, [
-                      _c("img", {
-                        staticClass: "img-responsive fit-image",
-                        attrs: { src: "images/hhh.jpg", alt: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "overlay" }, [
-                        _c("h2"),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "btn btn-sm all-btn secondary-bg-color",
-                            attrs: { href: "news_details.html" }
-                          },
-                          [_vm._v("詳細を見る")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "info" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("p", { staticClass: " p_3" }, [
-                              _vm._v(
-                                "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                              )
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-                    _c("div", { staticClass: "hovereffect fit-image" }, [
-                      _c("img", {
-                        staticClass: "img-responsive fit-image",
-                        attrs: { src: "images/j5.jpg", alt: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "overlay" }, [
-                        _c("h2"),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "btn btn-sm all-btn secondary-bg-color",
-                            attrs: { href: "news_details.html" }
-                          },
-                          [_vm._v("詳細を見る")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "info" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("p", { staticClass: " p_3" }, [
-                              _vm._v(
-                                "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                              )
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "images/j5.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "images/hhh.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "images/j5.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
+                  )
                 ])
               ])
             ])
