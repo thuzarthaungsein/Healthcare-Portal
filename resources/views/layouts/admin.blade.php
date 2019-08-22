@@ -116,8 +116,7 @@
 									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
 								</ul>
 							</div>
-						</li>
-						
+						</li>	
 					</ul>
 				</nav>
 			</div>

@@ -48,13 +48,10 @@ class CategoryController extends Controller
      */
 
     public function index()
-
     {
-   
-        $categories = Category::latest()->paginate(5);
-        return view('categories.index',compact('categories'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-
+        // return response(Category::all()->jsonSerialize(), Response::HTTP_OK);
+        // $categories = Category::all()->toArray();
+        // return array_reverse($categories);
     }
 
 
