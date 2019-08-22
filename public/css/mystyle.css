@@ -992,7 +992,8 @@ ul.main-tab li:after{
 /* Hospital Search */
 .search-map {
     background: white;
-    padding: 15px !important;
+    padding: 0px 15px 15px 15px !important;
+
 }
 .divisions span {
     margin-right: 10px;

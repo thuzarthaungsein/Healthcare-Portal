@@ -9,15 +9,34 @@
                                                 中国・東海
                                                 </div>
                                                 <div class="card-body" style="padding: 10px;">
-                                                <span>広島</span> 
-                                                <span>岡山</span> 
-                                                <span>山口</span> <br>
-                                                <span>鳥取</span> 
-                                                <span>島根</span> 
-                                                <span>愛知</span> <br>
-                                                <span>静岡</span> 
-                                                <span>岐阜</span> 
-                                                <span>三重</span>                                         
+
+                                                <input type="checkbox" id="hiroshima" v-model="checked">
+                                                <label for="hiroshima"><span>広島</span> </label>
+
+                                                <input type="checkbox" id="okayama" v-model="checked">
+                                                <label for="okayama"><span>岡山</span> </label><br>
+
+                                                <input type="checkbox" id="yamaguchi" v-model="checked">
+                                                <label for="yamaguchi"><span>山口</span> </label>
+
+                                                <input type="checkbox" id="tottori" v-model="checked">
+                                                <label for="tottori"><span>鳥取</span> </label><br>
+
+                                                <input type="checkbox" id="shimane" v-model="checked">
+                                                <label for="shimane"><span>島根</span></label>
+
+                                                <input type="checkbox" id="aichi" v-model="checked">
+                                                <label for="aichi"><span>愛知</span></label><br>
+
+                                                <input type="checkbox" id="shizuoka" v-model="checked">
+                                                <label for="shizuoka"><span>静岡</span> </label>
+
+                                                <input type="checkbox" id="gifu" v-model="checked">
+                                                <label for="gifu"><span>岐阜</span> </label><br>
+                                                
+                                                <input type="checkbox" id="triple" v-model="checked">
+                                                <label for="triple"><span>三重</span></label>
+                                                                                      
                                                 </div>
                                         </div>
                                 </div>
@@ -27,12 +46,25 @@
                                                 近畿
                                                 </div>
                                                 <div class="card-body">
-                                                <span>大阪</span> 
-                                                <span>兵庫</span> <br>
-                                                <span>京都</span> 
-                                                <span>奈良</span> <br>
-                                                <span>滋賀</span> 
-                                                <span>和歌山</span>                                                                                    
+
+                                                <input type="checkbox" id="osaka" v-model="checked">
+                                                <label for="osaka"><span>大阪</span></label>
+
+                                                <input type="checkbox" id="hyogo" v-model="checked">
+                                                <label for="hyogo"><span>兵庫</span></label><br>
+
+                                                <input type="checkbox" id="kyoto" v-model="checked">
+                                                <label for="kyoto"><span>京都</span> </label>
+
+                                                <input type="checkbox" id="nara" v-model="checked">
+                                                <label for="nara"><span>奈良</span></label><br>
+
+                                                <input type="checkbox" id="shiga" v-model="checked">
+                                                <label for="shiga"><span>滋賀</span></label><br>
+
+                                                <input type="checkbox" id="wakayama" v-model="checked">
+                                                <label for="wakayama"><span>和歌山</span></label>
+                                                                                 
                                                 </div>
                                         </div>
                                 </div>
@@ -42,12 +74,25 @@
                                                 甲信越・北陸
                                                 </div>
                                                 <div class="card-body">
-                                                <span>石川</span> 
-                                                <span>新潟</span> <br>
-                                                <span>富山</span> 
-                                                <span>福井</span> <br>
-                                                <span>長野</span> 
-                                                <span>山梨</span> 
+                                                
+                                                <input type="checkbox" id="ishikawa" v-model="checked">
+                                                <label for="ishikawa"><span>石川</span></label>
+
+                                                <input type="checkbox" id="niigata" v-model="checked">
+                                                <label for="niigata"><span>新潟</span></label><br>
+
+                                                <input type="checkbox" id="fukui" v-model="checked">
+                                                <label for="fukui"><span>福井</span></label>
+
+                                                <input type="checkbox" id="toyama" v-model="checked">
+                                                <label for="toyama"><span>富山</span></label><br>
+
+                                                <input type="checkbox" id="nagano" v-model="checked">
+                                                <label for="nagano"><span>長野</span> </label>
+
+                                                <input type="checkbox" id="yamanashi" v-model="checked">
+                                                <label for="yamanashi"><span>山梨</span></label><br>
+
                                                 </div>
                                         </div>
                                 </div>
