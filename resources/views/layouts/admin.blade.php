@@ -73,7 +73,7 @@
 						@endcan
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('images/user.png')}}" class="img-circle"> <span>{{ Auth::user()->name }}</span> </a>
-							<!-- <ul class="dropdown-menu">
+							<ul class="dropdown-menu">
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								<li>
 									<a href="{{ route('logout') }}"  onclick="event.preventDefault();
@@ -84,7 +84,7 @@
                                         @csrf
                                     </form>
 								</li>
-							</ul> -->
+							</ul>
 						</li>
 						<!-- login view -->
 						@endguest
@@ -104,14 +104,20 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="fa fa-dashboard"></i> <span>自分のニュースの検索
+						<li><a href="/home" class="active"><i class="fa fa-dashboard"></i> <span>自分のニュースの検索
                     </span></a></li>
 						@can('role-list')
 						<li><a href="roles" class=""><i class="fa fa-paper-plane "></i> <span>ニュース作成</span></a></li>
 						<li><a href="users" class=""><i class="fa fa-user"></i> <span>プロフィール</span></a></li>
 						@endcan
 						<li><a href="categories" class=""><i class="fa fa-briefcase "></i> <span>ジョブ</span></a></li>
-						<li><a href="/" class=""><i class="fa fa-sign-out"></i> <span>ログアウト</span></a></li>
+						<li>
+							<a href="{{ route('logout') }}"  onclick="event.preventDefault();
+										document.getElementById('logout-form').submit();" class=""><i class="fa fa-sign-out"></i> <span>ログアウト</span></a>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								@csrf
+							</form>
+						</li>
 						<!-- <li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
