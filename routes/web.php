@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+
+
+
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
+    Route::resource('categories','CategoryController');
+    // admin home page
+    Route::get('/home', 'HomeController@index')->name('home');
 });
+
+Auth::routes();
+
+Route::get('{any}', function () {return view('app');})->where('any', '.*');
