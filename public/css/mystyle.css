@@ -763,11 +763,13 @@ div.b{
        
 }
 .tab-content{
-    padding: 10px !important;
+    padding: 15px !important;
     background: #fff;
+    /* background: #fff;
+    border: 1px solid #f27a24; */
 }
 .tab-card-header{
-    background-color: #118063 !important;
+    background-color: #b7dad2 !important;
 }
 .nav-link{
     color: #000 !important;
@@ -782,21 +784,24 @@ a:hover{
     /* margin-bottom: -3px !important; */
     border-left: 1px solid #fff !important;
 }
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {   
-    background-color: rgba(0,0,0,0.5) !important;
-    border: none !important;
-    color: #fff !important;
-    /* background-color: #2a9a7d;
-    border: 1px solid #fff;
-    overflow: #fff;
-    border-top-color: transparent;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px; */
+div.tab > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {   
+    color: #f27a24 !important;
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 1px solid #f27a24;
+    border-color: #f27a24 #fff #fff #fff !important;
+   
+}
+.nav-tabs .nav-link{
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
 }
 
-.nav-item:hover{
-    background-color: rgba(0,0,0,0.5) !important;
-}
+.card-head-tabs {
+    margin-bottom: 0rem !important;
+    background-color: #ecede1 !important;
+    border-bottom: 0;
+  }
 
 /*for main tab*/
 .main-tab{
@@ -836,120 +841,33 @@ ul.main-tab li:after{
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
 }
-.tablink{
+/* .tablink{
     color: #fff !important;
-}
-.subtab1{
-    background: #00b09b;  /* fallback for old browsers */
+} */
+/* .subtab1{
+    background: #00b09b;  
 
 
 }
 .subtab2{
-    background: #ffdde1;  /* fallback for old browsers */
-    
+    background: #ffdde1; 
 }
 .subtab3{
-    background: #4eb3de ;  /* fallback for old browsers */
+    background: #4eb3de ; 
   
 
 }
 .subtab4{
-    background: #7586c6 ;  /* fallback for old browsers */
+    background: #7586c6 ;  
    
 
 }
 .subtab5{
-    background: #ff9b53;  /* fallback for old browsers */
+    background: #ff9b53;  /
    
 
-}
-.card-head-tabs {
-    margin-bottom: 0rem !important;
-    /* margin-left: 0.625rem !important; */
-    border-bottom: 0;
-  }
-/* .card-head-tabs > .nav-item {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
 } */
-/* a:hover,a:focus{
-    text-decoration: none;
-    outline: none;
-}
-.tab .nav-tabs{
-    border: none;
-    border-bottom: 2px solid #079fc9;
-    margin: 0;
-}
-.tab .nav-tabs>li {
-        float: left;
-        margin-bottom: -1px;
-    
-}
-.tab .nav-tabs li a{
-    padding: 5px 20px;
-    margin: 0 10px -1px 0;
-    font-size: 17px;
-    font-weight: 600;
-    color: #293241;
-    text-transform: uppercase;
-    border: 2px solid #e6e5e1;
-    border-bottom: none;
-    border-radius: 5px 5px 0 0;
-    z-index: 1;
-    position: relative;
-    transition: all 0.3s ease 0s;
-}
-.tab .nav-tabs li a:hover,
-.tab .nav-tabs li.active a{
-    background: #19a984;
-    color: #079fc9;
-    border: 2px solid #079fc9;
-    border-bottom-color: transparent;
-}
-.tab .nav-tabs li a:before{
-    content: "";
-    display: block;
-    height: 2px;
-    background: #fff;
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out 0s;
-}
-.tab .nav-tabs li.active a:before,
-.tab .nav-tabs li a:hover:before{ transform: scaleX(1); }
-.tab .tab-content{
-    padding: 10px;
-    font-size: 17px;
-    color: #6f6f6f;
-    line-height: 30px;
-    letter-spacing: 1px;
-    position: relative;
-}
-@media only screen and (max-width: 479px){
-    .tab .nav-tabs{ border: none; }
-    .tab .nav-tabs li{
-        width: 100%;
-        text-align: center;
-        margin-bottom: 15px;
-    }
-    .tab .nav-tabs li a{
-        margin: 0;
-        border-bottom: 2px solid transparent;
-    }
-    .tab .nav-tabs li a:before{
-        content: "";
-        width: 100%;
-        height: 2px;
-        background: #079fc9;
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-    }
-} */
+
 /* end for main tab*/
 
 /*for breadcrumb*/
@@ -977,7 +895,7 @@ ul.main-tab li:after{
 /*end for breadcrumb*/
 /*related news*/
 .next-title{
-    border-top: 1px solid #118063 ;
+    border-top: 2px dotted #118063;
     padding: 20px;
     font-size: 20px;
     font-weight: bold;
@@ -1001,14 +919,15 @@ ul.main-tab li:after{
 /* Hospital Search */
 .search-map {
     background: white;
-    padding: 15px !important;
+    padding: 0px 15px 15px 15px !important;
+
 }
 .divisions span {
     margin-right: 10px;
 }
 
 .divisions {
-    padding: 20px 0px 0px 20px;
+    /* padding: 20px 0px 0px 20px; */
 }
 
 .divisions .card-header {
@@ -1022,3 +941,24 @@ ul.main-tab li:after{
     padding: 10px !important;
 }
 /* End Hospital Search */
+
+/* Scrollbar */
+    .news-wrapper::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+    width: 6px!important;
+    background: #f7f7f7 !important;
+  }
+   
+  .news-wrapper::-webkit-scrollbar-track,
+   body::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)!important;     
+    border-radius: 0px!important;
+  }
+  
+  .news-wrapper::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {    
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)!important; 
+    background-color: #d7d7d7!important;
+    border-radius: 0px!important;
+  }
+/* End Scrollbar */

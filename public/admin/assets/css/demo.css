@@ -16,3 +16,79 @@
   margin-left: 5px; }
 
 /*# sourceMappingURL=demo.css.map */
+/*for navigation bar*/
+.main-header{
+  background-color: #b7dad2;
+}
+.navbar-default .brand{
+  background: transparent !important;
+
+}
+#wrapper .sidebar{
+  background-color: #b7dad2;
+  position: relative;
+  height: 100vh;;
+}
+.sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
+  background-color: rgba(0,0,0,.1);
+  border-left-color: #f27a24;
+  font-weight: bold;
+}
+.sidebar .nav > li > a:hover i, .sidebar .nav > li > a:focus i, .sidebar .nav > li > a.active i {
+  color: #f27a24;
+  
+}
+.sidebar .nav > li > a:hover, .sidebar .nav > li > a:focus {
+  background-color: rgba(0,0,0,.2);
+  border-left-color: #f27a24;
+}
+.sidebar .nav > li > a{
+  color: #000;
+}
+.navbar-fixed-bottom, .navbar-fixed-top{
+  position: relative;
+}
+#wrapper #sidebar-nav, #wrapper .main{
+  padding-top: 0px;
+}
+.main-wrapper {
+  box-shadow: 0px 1px 5px 0px #ccc!important;
+  min-height: 100vh;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.navbar-btn{
+  display: none;
+}
+footer {
+   right: 35% !important;
+  
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: transparent;
+}
+
+.sidebar .nav > li > a{
+  border-bottom: 1px dashed #dedddd;
+}
+@media (min-width:320px) and (max-width: 1024px){
+.navbar-fixed-bottom, .navbar-fixed-top{
+  position: absolute;
+}
+.main-wrapper {
+  box-shadow: 0px 1px 5px 0px #ccc!important;
+  min-height: 100vh;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#wrapper #sidebar-nav, #wrapper .main{
+  padding-top: 80px;
+}
+#wrapper .sidebar {
+  position: fixed; 
+  height: 100vh;
+}
+.navbar-btn{
+  display: block;
+}
+}
