@@ -53,20 +53,24 @@ export default {
         },
         created() {
             this.axios
-                .get('http://localhost:8000/api/facilities')
+                .get('http://localhost:8000/api/facility/facilities')
                 .then(response => {
                     this.facilities = response.data;
                 });
         },
          methods: {
             deleteFacility(id) {
-                this.axios
+                if(confirm("Are you sure you want to delete?"))
+                {
+                     this.axios
                     .delete(`http://localhost:8000/api/facility/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
                         let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
                         this.facilities.splice(i, 1)
                     });
+                }
+               
             }
         }
 }

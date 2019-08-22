@@ -15,6 +15,7 @@ import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
 import custedit from './components/custedit.vue';
 
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
+import editcategory from './components/editcategory.vue';
 
 export const routes = [
        {
@@ -71,6 +72,11 @@ export const routes = [
       name: 'createcategory',
       path: '/createcategory',
       component: createcategory
+    },
+    {
+      name: 'editcategory',
+      path: '/editcategory',
+      component: editcategory
     },
     {
     name: 'facilitieslist',
