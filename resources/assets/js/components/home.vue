@@ -354,5 +354,18 @@
         }
 }
 </script>
+<style scoped>
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {   
+    color: #fff !important;
+    font-weight: bold;
+    background-color: #1aa985  !important;
+    border-top: 1px solid #1aa985  ;
+    border-color: #1aa985   #1aa985  #1aa985   #1aa985  !important;
+   
+}
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
+    border: 1px solid #1aa985  !important;
+}
+</style>
 
 
