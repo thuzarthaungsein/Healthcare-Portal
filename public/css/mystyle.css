@@ -327,10 +327,28 @@
         {
             width: 100%;
             text-align: center;
-            padding:12px;
+            padding:10px;
             font-weight:bold;
             letter-spacing: 3px;
         }
+        .header {
+            font-weight: bold;
+            display: inline-block;
+            position: relative;
+            background: #fff;
+            color: #f27a24;
+            border-radius: 1px;
+            border: 1px dashed #25ac8a;
+          }
+          .header:before{
+              content: "";
+              position: absolute;
+              width: 16%;
+              height: 1px;
+              bottom: 0;
+              left: 42%;
+              /* border-bottom: 1px solid #42b698; */
+          }
         .m-l-14
         {
             margin-left: -12px;
@@ -480,7 +498,12 @@ p {
 
 
 /*Job Apply Form*/
-
+textarea.form-control, textarea{
+    height: 100px !important;
+}
+.form-control{
+    background-color: #f5f5f5 !important;
+}
 /* End Job Apply Form*/
 /* News Tab */
 .news-wrapper{
@@ -544,9 +567,7 @@ p {
     width: 140px;
 }
 div.scroll2
-    .img_6{
-        margin-left: 26%;
-    }
+
     .bold_h5{
         font-weight: bold;
     }
@@ -555,7 +576,28 @@ div.cont-pad{
     margin-left: 15px;
     margin-right: 15px;
 }
-
+.item{
+    padding: 18px 20px;
+     white-space: nowrap; 
+     font-weight: bold; 
+     color:#333; 
+     letter-spacing: 0.3em; 
+     background: #e0e4e6;
+     border-bottom: 1px solid #efefef;
+      display:bolck;
+     width:100%;
+}
+.data{
+    padding:20px 10px; 
+    line-height:1.5; 
+    font-size: 15px; 
+    display: block; 
+    width:100%; 
+    letter-spacing: 0.15em;
+}
+div.b{
+    word-wrap: break-word;
+}
 
 /* End Job Offer Detail */
 /*For Ads */

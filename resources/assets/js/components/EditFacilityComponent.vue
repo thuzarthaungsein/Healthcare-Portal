@@ -7,20 +7,20 @@
                     <div class="row">
                          
                         <div class="col-md-12">
-                            <h4 class="page-header">Create Facility</h4>
+                            <h4 class="page-header">Edit Facility</h4>
                             <br>
                         </div>
                         <div class="col-md-12">
-                             <form @submit.prevent="add">
+                             <form @submit.prevent="updateFacility">
                             <div class="form-group">
                                 <label>Facility Name :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="facility.description"  placeholder="Facility Name" required>
+                                <input type="text" class="form-control"  v-model="facility.description"  required>
                             </div>
                         
                             <div class="form-group ">
                                 <div class="form-group row">
                                     <div class="col-1 pad-free">
-                                        <button class="btn news-post-btn">Create</button>
+                                        <button class="btn news-post-btn">Edit</button>
                                     </div>
                                     <div class="col-1 pad-free">
                                         <router-link class="btn btn-warning" to="/facilitieslist" >  Cancel </router-link>
@@ -35,6 +35,7 @@
             </div>
           </div>   
       </div>
+ 
 </template>
 <script>
 export default {
@@ -46,15 +47,23 @@ export default {
                     }
             }
         },
+        created() {
+            this.axios
+                .get(`http://localhost:8000/api/facility/edit/${this.$route.params.id}`)
+                .then((response) => {
+                    this.facility = response.data;
+                   
+                });
+        },
        
          methods: {
-            add() {
-                axios.post('http://localhost:8000/api/facility/add', this.facility)
+            updateFacility() {
+                this.axios
+                    .post(`http://localhost:8000/api/facility/update/${this.$route.params.id}`, this.facility)
                     .then((response) => {
-                    alert('Successfully Created')
-                    console.log(response);
-                     this.$router.push({name: 'facilitieslist'});
-                    })
+                          alert('Successfully Updated!')
+                        this.$router.push({name: 'facilitieslist'});
+                    });
             }
            
         }

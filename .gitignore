@@ -13,4 +13,9 @@ npm-debug.log
 yarn-error.log
 .env
 .phpunit.result.cache
+<<<<<<< HEAD
+/public/js
+/public/js/*
+=======
 public/js/app.js
+>>>>>>> 5951f7bd1f02b57f58626737b9c69fcea7cdf6c4

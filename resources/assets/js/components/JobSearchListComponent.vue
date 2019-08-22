@@ -19,7 +19,7 @@
                                     </div>
                                     <div class="col-md-10">
                                             <div class="col-sm-8 pad-free mb-2"><b><a href="../jobs/job_search_details.html" class="mr-auto">{{job.title}} </a></b></div>
-                                            <p>{{job.photo}}</p>
+                                            <p>{{job.description}}</p>
                                             <div class="row">
                                                     <div class="col-sm-4">
                                                             <a href="../jobs/job_search_details.html"  class="btn btn all-btn secondary-bg-color white">詳細を見る</a>
