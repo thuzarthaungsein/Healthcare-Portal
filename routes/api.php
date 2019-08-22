@@ -18,10 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('jobs', 'JobController@index');
-<<<<<<< HEAD
 Route::get('facilities', 'FacilityController@index');
-
-
 
 Route::group(['prefix' => 'facility'], function () {
     Route::post('add', 'FacilityController@add');  
@@ -29,6 +26,5 @@ Route::group(['prefix' => 'facility'], function () {
     Route::post('update/{id}', 'FacilityController@update');
     Route::delete('delete/{id}', 'FacilityController@destroy');
 });
-=======
+
 Route::get('job_details', 'JobDetailController@index');
->>>>>>> e27209ac48d25d023f4519d1da169645c65ddb85

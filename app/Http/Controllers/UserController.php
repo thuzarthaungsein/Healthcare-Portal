@@ -25,7 +25,6 @@ class UserController extends Controller
      */
 
     function __construct()
-
     {
          $this->middleware('permission:role-list');
          $this->middleware('permission:role-create', ['only' => ['create','store']]);
