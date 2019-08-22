@@ -22,7 +22,6 @@ Route::get('jobs', 'JobController@index');
 Route::get('customers','CustomerController@index');
 Route::get('categories','CategoryController@index');
 Route::get('custedit','custedit@edit');
-
 Route::get('facilities', 'FacilityController@index');
 Route::group(['prefix' => 'facility'], function () {
     Route::post('add', 'FacilityController@add');
@@ -32,3 +31,8 @@ Route::group(['prefix' => 'facility'], function () {
 });
 Route::get('job_details', 'JobDetailController@index');
 
+Route::group(['prefix' => 'customer'], function () {
+    Route::get('edit/{id}', 'CustomerController@edit');
+    Route::post('update/{id}','CustomerController@update');
+    Route::delete('delete/{id}','CustomerController@destroy');
+});

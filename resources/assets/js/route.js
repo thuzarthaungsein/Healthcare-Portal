@@ -84,7 +84,7 @@ export const routes = [
     },
     {
         name: 'custedit',
-        path: '/custedit/:id',
+        path: '/custedit',
         component: custedit
       },
     {

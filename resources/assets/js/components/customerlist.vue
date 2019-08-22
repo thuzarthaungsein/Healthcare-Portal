@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="text-center">
-            <h4 style="padding-top:20px;">ユーザーリストテーブル</h4>
+            <h4 style="padding-top:20px;">Customer List </h4>
         </div><br/>
         <div class="scroll col-12">
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
@@ -127,8 +127,8 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-4 text-center">
-                                 <router-link :to="{name:'edit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link>
-                                <button class="btn btn-danger all-btn">Delete</button>
+                                 <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link>
+                                <button class="btn btn-danger all-btn" @click="deleteCustomer(customer.id)">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -154,6 +154,17 @@ export default {
                 .then(response => {
                     this.customers = response.data;
                 });
-    }
+    },
+    methods: {
+            deleteCustomer(id) {
+                this.axios
+                    .delete(`http://localhost:8000/api/customer/delete/${id}`)
+                    .then(response => {
+                        alert('Delete Successfully!');
+                        let a = this.customers.map(item => item.id).indexOf(id);
+                        this.customers.splice(a, 1)
+                    });
+            }
+        }
 }
 </script>
