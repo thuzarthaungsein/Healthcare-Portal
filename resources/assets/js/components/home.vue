@@ -38,22 +38,22 @@
                                                         <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper">
                                                                 <ul class="list-group list-group-flush">
                                                                         <li class="list-group-item p-t-5 p-b-5">
-                                                                                <a href="./news/news_details.html">
+                                                                                <a><router-link to="/job_details">
                                                                                         <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                                 <span class="source-img-small d-inline-block text-truncate">Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。</span>
-                                                                                </a>
+                                                                                </router-link></a>
                                                                         </li>
                                                                         <li class="list-group-item p-t-5 p-b-5">
-                                                                                <a href="./news/news_details.html">
+                                                                                <a><router-link to="/newsdetails">
                                                                                         <img src="/images/2.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                         <span class="source-img-small">日刊スポーツ</span>
-                                                                                </a>
+                                                                                </router-link></a>
                                                                         </li>
                                                                         <li class="list-group-item p-t-5 p-b-5">
-                                                                                <a href="./news/news_details.html">
+                                                                                <a ><router-link to="/facilitieslist">
                                                                                         <img src="/images/3.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                         <span class="source-img-small">日刊スポーツ</span>
-                                                                                </a>
+                                                                                </router-link></a>
                                                                         </li>
 
                                                                         <li class="list-group-item p-t-5 p-b-5">

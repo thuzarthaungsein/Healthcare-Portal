@@ -34,6 +34,7 @@ Route::group(['prefix' => 'category'], function () {
 });
 
 Route::get('job_details', 'JobDetailController@index');
+Route::get('newdetails', 'PostController@index');
 Route::get('jobs', 'JobController@index');
 Route::get('news_list', 'PostController@index');
 
