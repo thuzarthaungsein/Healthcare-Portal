@@ -15,7 +15,6 @@ class JobDetailController extends Controller
     {
         $job_details = Job::all();
        return $job_details;
-       //
     }
 
     /**
