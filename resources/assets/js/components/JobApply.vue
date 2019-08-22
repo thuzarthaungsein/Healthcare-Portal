@@ -50,7 +50,7 @@
                 </div>
         </div>
         <div class="text-center">
-                <a href="#" class="btn main-bg-color white all-btn"><router-link to="/">募集</router-link></a>
+                <router-link to="/" class="btn secondary-bg-color white all-btn">募集</router-link>
                 <!-- <button type="submit" class="btn btn-primary">募集</button> -->
         </div>
     </form>

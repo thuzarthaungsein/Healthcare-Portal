@@ -55991,17 +55991,21 @@ var render = function() {
         _vm._v(" "),
         _vm._m(9),
         _vm._v(" "),
-        _c("div", { staticClass: "text-center" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn main-bg-color white all-btn",
-              attrs: { href: "#" }
-            },
-            [_c("router-link", { attrs: { to: "/" } }, [_vm._v("募集")])],
-            1
-          )
-        ])
+        _c(
+          "div",
+          { staticClass: "text-center" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "btn secondary-bg-color white all-btn",
+                attrs: { to: "/" }
+              },
+              [_vm._v("募集")]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
