@@ -2,17 +2,18 @@
     <div>
         <div class="row justify-content-md-center">
             <div class="col-md container cont-pad">
-                <div class="row m-b-20" v-for="jobDetail in job_details" :key="jobDetail.job_id">
-                    <div class="col-md-12 scroll2" v-if="jobDetail.job_id==1">
-                        <h4 class="h_4">{{jobDetail.jobs_title}}</h4>
+                <div class="row m-b-20" v-for="jobDetail in job_details" :key="jobDetail.id">
+                    <div class="col-md-12 scroll2" v-if="jobDetail.id==1">
+                        <h4 class="h_4">{{jobDetail.title}}</h4>
                         <img src="/images/img1.jpg" class="img-responsive img_6" height="" width="15%">
                         <div class="col-md-12">
                              <div class="topic b"> 
-                                 <h4 class="item text-center">{{jobDetail.jobs_detail_header}}</h4> 
+                                 <h4 class="item text-center">仕事内容</h4> 
                                 <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.jobs_detail_body}}</p>
+                                    <p class="data" style="width:50%">{{jobDetail.description}}</p>
                                 <!-- </dd> -->
                              </div> 
+                             
                             <!-- <dl class="topic">
                                 <h5 class="item text-center">時給</h5>
                                 <dd class="data">■モデル月収
