@@ -12,8 +12,7 @@
                                 <button class="btn secondary-bg-color all-btn white">検索</button>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div>  
                 </div>
                 <div class="m-b-30">
                     <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
@@ -25,63 +24,21 @@
                <strong>  Facility List</strong>
         </h4> 
         <!--card-->
-        <div class="container-fuid">
-                <div class="card card-default m-b-20 m-t-22">
-                    
+        <div class="container-fuid" v-for="facility in facilities" :key="facility.id" >
+                <div class="card card-default m-b-20 m-t-22">                    
                     <div class="card-body">
-                        
                         <div class="row">
                             <div class="col-md-9 m-t-8">
-                                <p>Facility Name : Sample </p>
+                                <p> {{facility.description}} </p>
                             </div>
                             <div class="col-md-3" style="margin-top: 8px;">
-                                <button class="btn main-bg-color white all-btn">Edit</button>
-                                <button class="btn btn-danger all-btn">Delete</button>
+                                 <router-link :to="{name: 'editfacility', params: { id: facility.id }}" class="btn main-bg-color white all-btn">Edit </router-link>
+                               
+                                <button class="btn btn-danger all-btn"   @click="deleteFacility(facility.id)" >Delete</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                    <!--card_end-->
-
-                      <!--card-->
-        <div class="container-fuid">
-                <div class="card card-default m-b-20 m-t-22">
-                    
-                    <div class="card-body">
-                        
-                        <div class="row">
-                            <div class="col-md-9 m-t-8">
-                                <p> Facility Name : Sample </p>
-                            </div>
-                            <div class="col-md-3" style="margin-top: 8px;">
-                                <button class="btn main-bg-color white all-btn">Edit</button>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    <!--card_end-->
-
-                      <!--card-->
-        <div class="container-fuid">
-                <div class="card card-default m-b-20 m-t-22">
-                    
-                    <div class="card-body">
-                        
-                        <div class="row">
-                            <div class="col-md-9 m-t-8">
-                                <p> Facility Name : Sample </p>
-                            </div>
-                            <div class="col-md-3" style="margin-top: 8px;">
-                                <button class="btn main-bg-color all-btn white">Edit</button>
-                                <button class="btn btn-danger all-btn">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    <!--card_end-->               
-            </div>           
-        </div>
     </div>
 
       </div>
@@ -89,6 +46,28 @@
 </template>
 <script>
 export default {
-          
+          data() {
+            return {
+                facilities: []
+            }
+        },
+        created() {
+            this.axios
+                .get('http://localhost:8000/api/facilities')
+                .then(response => {
+                    this.facilities = response.data;
+                });
+        },
+         methods: {
+            deleteFacility(id) {
+                this.axios
+                    .delete(`http://localhost:8000/api/facility/delete/${id}`)
+                    .then(response => {
+                        alert('Delete Successfully!');
+                        let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
+                        this.facilities.splice(i, 1)
+                    });
+            }
+        }
 }
 </script>
