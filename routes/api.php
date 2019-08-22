@@ -28,3 +28,12 @@ Route::group(['prefix' => 'facility'], function () {
 });
 
 Route::get('job_details', 'JobDetailController@index');
+Route::get('news_list', 'PostController@index');
+
+
+Route::group(['prefix' => 'new'], function () {
+    Route::post('add', 'PostController@add');
+    Route::get('edit/{id}', 'PostController@edit');
+    Route::post('update/{id}', 'PostController@update');
+    Route::delete('delete/{id}', 'PostController@delete');
+});
