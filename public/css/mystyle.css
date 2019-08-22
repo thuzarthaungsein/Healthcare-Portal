@@ -299,6 +299,7 @@
         {
             margin-left: 10%;
             /* border:1px solid black; */
+            font-size:17px;
         }
 
         .p_2
@@ -1003,3 +1004,11 @@ ul.main-tab li:after{
     padding: 10px !important;
 }
 /* End Hospital Search */
+
+/* Newdetails */
+    .p5
+    {
+        font-size:20px;
+        letter-spacing:2px;
+    }
+/*End Newdetails */

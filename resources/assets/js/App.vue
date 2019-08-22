@@ -26,18 +26,6 @@
       <section class="main-content">
         <div class="container-fluid main-wrapper">
          
-          <ads></ads>
-           <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                        <!-- <li class="breadcrumb-item active"><router-link to="/home" ><i class="fas fa-home"></i>   ホーム</router-link>
-                                        </li> -->
-                                       
-                                        
-                                </ol>
-                        </nav>
-          <div class="row row justify-content-md-center">
-            <div class="col-md container">
-                       <router-view></router-view>
           <ads></ads>        
            
           <div class="row justify-content-md-center">
