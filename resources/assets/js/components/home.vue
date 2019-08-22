@@ -25,7 +25,7 @@
 
                                                 <div class="row">
                                                         <div class="col-xl-4 col-sm-12 col-md-3 col-lg-3 col-12">
-                                                                <a href="./news/news_details.html">
+                                                                <a href="/newsdetails">
                                                                         <img src="/images/h4.jpg" alt="" style="width:100%" class="img-responsive">
                                                                         <p class="source-title" aria-label="">
                                                                                 ニュースタイトル
@@ -265,7 +265,7 @@
                                         <img class="img-responsive fit-image" src="images/j5.jpg" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="news_details.html">詳細を見る</a>
+                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">詳細を見る</a>
                                         </div>
                                         <div class="info">
                                                 <div class="row">
@@ -284,7 +284,7 @@
                                         <img class="img-responsive fit-image" src="images/day1.jpg" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="news_details.html">詳細を見る</a>
+                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">詳細を見る</a>
                                         </div>
                                         <div class="info">
                                                 <div class="row">
@@ -303,7 +303,7 @@
                                         <img class="img-responsive fit-image" src="images/hhh.jpg" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="news_details.html">詳細を見る</a>
+                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">詳細を見る</a>
                                         </div>
                                         <div class="info">
                                                 <div class="row">
@@ -322,7 +322,7 @@
                                         <img class="img-responsive fit-image" src="images/home2.jpg" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="news_details.html">詳細を見る</a>
+                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">詳細を見る</a>
                                         </div>
                                         <div class="info">
                                                 <div class="row">
