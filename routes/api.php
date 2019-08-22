@@ -18,3 +18,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('jobs', 'JobController@index');
+
+
+Route::group(['prefix' => 'facility'], function () {
+    Route::get('facilities', 'FacilityController@index');
+    Route::post('add', 'FacilityController@add');  
+    Route::get('edit/{id}', 'FacilityController@edit');
+    Route::post('update/{id}', 'FacilityController@update');
+    Route::delete('delete/{id}', 'FacilityController@destroy');
+});
+
+Route::group(['prefix' => 'category'], function () {
+    Route::get('categories', 'CategoryController@index');
+    Route::post('add', 'CategoryController@add');  
+    Route::get('edit/{id}', 'CategoryController@edit');
+    Route::post('update/{id}', 'CategoryController@update');
+    Route::delete('delete/{id}', 'CategoryController@destroy');
+});
+
+Route::get('job_details', 'JobDetailController@index');
