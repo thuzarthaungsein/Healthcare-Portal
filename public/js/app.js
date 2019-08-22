@@ -54477,6 +54477,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_FacilitiesListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_FacilitiesListComponent_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_CreateFacilityComponent_vue__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_CreateFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_CreateFacilityComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_custedit_vue__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_custedit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_custedit_vue__);
+
 
 
 
@@ -54528,6 +54531,10 @@ var routes = [{
   name: 'createfacility',
   path: '/createfacility',
   component: __WEBPACK_IMPORTED_MODULE_9__components_CreateFacilityComponent_vue___default.a
+}, {
+  name: 'custedit',
+  path: '/custedit/:id',
+  component: __WEBPACK_IMPORTED_MODULE_10__components_custedit_vue___default.a
 }];
 
 /***/ }),
@@ -56840,6 +56847,7 @@ var render = function() {
       _vm._m(1),
       _vm._v(" "),
       _vm._m(2),
+      _c("br"),
       _vm._v(" "),
       _c(
         "div",
@@ -56886,7 +56894,34 @@ var render = function() {
                       _c("br")
                     ]),
                     _vm._v(" "),
-                    _vm._m(4, true)
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-4 text-center" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "btn main-bg-color all-btn white",
+                              attrs: {
+                                to: {
+                                  name: "edit",
+                                  params: { id: customer.id }
+                                }
+                              }
+                            },
+                            [_vm._v("Edit")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            { staticClass: "btn btn-danger all-btn" },
+                            [_vm._v("Delete")]
+                          )
+                        ],
+                        1
+                      )
+                    ])
                   ])
                 ])
               ])
@@ -56961,7 +56996,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-center" }, [
+    return _c("div", { staticClass: "text-center" }, [
       _c("h4", { staticStyle: { "padding-top": "20px" } }, [
         _vm._v("ユーザーリストテーブル")
       ])
@@ -56977,22 +57012,6 @@ var staticRenderFns = [
         staticStyle: { height: "150px" },
         attrs: { src: "/images/hospitalpage.jpg", alt: " " }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-4 text-center" }, [
-        _c("button", { staticClass: "btn main-bg-color all-btn white" }, [
-          _vm._v("Edit")
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn btn-danger all-btn" }, [
-          _vm._v("Delete")
-        ])
-      ])
     ])
   }
 ]
@@ -57739,6 +57758,7 @@ var render = function() {
       _c("br"),
       _vm._v(" "),
       _vm._m(1),
+      _c("br"),
       _vm._v(" "),
       _c(
         "div",
@@ -57798,7 +57818,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-center" }, [
+    return _c("div", { staticClass: "text-center" }, [
       _c("h4", { staticStyle: { "padding-top": "20px" } }, [
         _vm._v("ユーザーリストテーブル")
       ])
@@ -58485,6 +58505,87 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(94)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/custedit.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-316f4174", Component.options)
+  } else {
+    hotAPI.reload("data-v-316f4174", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h1", [_vm._v("Customer Edit")]),
+      _vm._v(" "),
+      _vm._v('="CustomerUpdate>\n\n    ')
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-316f4174", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

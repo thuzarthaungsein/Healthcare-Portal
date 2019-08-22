@@ -19,9 +19,9 @@
                <!-- <a href="createcategory" class="float-right" style="color: blue;">Create New Category</a> -->
                <router-link to="/createcategory" class="float-right" style="color: blue;">Create New Category</router-link>
            </div><br/>
-          <div class="card-header text-center">
+          <div class="text-center">
               <h4 style="padding-top:20px;">ユーザーリストテーブル</h4>
-          </div>
+          </div><br/>
           <div class="scroll col-12">
         <div v-for="category in categories" :key="category.id" class="card card-default m-b-20">
             <div class="card-body news-post">

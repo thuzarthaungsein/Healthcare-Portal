@@ -8,7 +8,7 @@ import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
-
+import custedit from './components/custedit.vue';
 
 
 export const routes = [
@@ -61,5 +61,11 @@ export const routes = [
       name: 'createfacility',
       path: '/createfacility',
       component: CreateFacilityComponent
-    }
+    },
+    {
+        name: 'custedit',
+        path: '/custedit/:id',
+        component: custedit
+      }
+
 ];

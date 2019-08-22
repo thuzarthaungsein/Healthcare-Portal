@@ -107,9 +107,9 @@
                     </div>
             </div>
         </div>
-        <div class="card-header text-center">
+        <div class="text-center">
             <h4 style="padding-top:20px;">ユーザーリストテーブル</h4>
-        </div>
+        </div><br/>
         <div class="scroll col-12">
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
             <div class="card-body news-post">
@@ -127,8 +127,8 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-4 text-center">
-                                    <button class="btn main-bg-color all-btn white">Edit</button>
-                                    <button class="btn btn-danger all-btn">Delete</button>
+                                 <router-link :to="{name:'edit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link>
+                                <button class="btn btn-danger all-btn">Delete</button>
                             </div>
                         </div>
                     </div>
