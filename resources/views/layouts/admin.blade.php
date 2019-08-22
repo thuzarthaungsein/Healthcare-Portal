@@ -24,11 +24,15 @@
 
 <body>
 	<!-- WRAPPER -->
-	<div id="wrapper">
+	<div id="wrapper" class="main-wrapper">
+	
+		<!--wmo-->
+		
+		<!--end wmo-->			
 		<!-- NAVBAR -->
-		<nav class="navbar navbar-default navbar-fixed-top">
+		<nav class="navbar navbar-default navbar-fixed-top main-header">
 			<div class="brand">
-				<a href="index.html"><img src="{{asset('images/news_search.png')}}" alt="Klorofil Logo" class="img-responsive logo"></a>
+				<a href="#"><img src="{{asset('images/news_search.png')}}" alt="Klorofil Logo" class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
@@ -37,7 +41,7 @@
 				
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/">Home</a></li>
+						<!-- <li><a href="/">Home</a></li> -->
 						@guest
 						<!-- public view -->
                             <li>
@@ -51,7 +55,7 @@
 						<!-- login view -->
 						@can('role-list')
 						<!-- admin view -->
-						<li class="dropdown">
+						<!-- <li class="dropdown">
 							<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
 								<i class="lnr lnr-alarm"></i>
 								<span class="badge bg-danger">5</span>
@@ -64,11 +68,11 @@
 								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
 								<li><a href="#" class="more">See all notifications</a></li>
 							</ul>
-						</li>
+						</li> -->
 						<!-- admin view -->
 						@endcan
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('images/user.png')}}" class="img-circle"> <span>{{ Auth::user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('images/user.png')}}" class="img-circle"> <span>{{ Auth::user()->name }}</span> </a>
 							<ul class="dropdown-menu">
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								<li>
@@ -100,13 +104,21 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="/home" class="active"><i class="fa fa-dashboard"></i> <span>自分のニュースの検索
+                    </span></a></li>
 						@can('role-list')
-						<li><a href="roles" class=""><i class="lnr lnr-chart-bars"></i> <span>Role</span></a></li>
-						<li><a href="users" class=""><i class="lnr lnr-cog"></i> <span>User</span></a></li>
+						<li><a href="roles" class=""><i class="fa fa-paper-plane "></i> <span>ニュース作成</span></a></li>
+						<li><a href="users" class=""><i class="fa fa-user"></i> <span>プロフィール</span></a></li>
 						@endcan
-						<li><a href="categories" class=""><i class="lnr lnr-alarm"></i> <span>Categories</span></a></li>
+						<li><a href="categories" class=""><i class="fa fa-briefcase "></i> <span>ジョブ</span></a></li>
 						<li>
+							<a href="{{ route('logout') }}"  onclick="event.preventDefault();
+										document.getElementById('logout-form').submit();" class=""><i class="fa fa-sign-out"></i> <span>ログアウト</span></a>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								@csrf
+							</form>
+						</li>
+						<!-- <li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
@@ -116,13 +128,12 @@
 									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
 								</ul>
 							</div>
-						</li>
-						
+						</li>	
 					</ul>
 				</nav>
 			</div>
 		</div>
-		<!-- login view -->
+		 login view -->
 		<!-- END LEFT SIDEBAR -->
 		@endguest
 		<!-- MAIN -->
@@ -142,7 +153,8 @@
 				<p class="copyright">&copy; 2019 <a href="!#" target="_blank">Management Partners</a>. All Rights Reserved.</p>
 			</div>
 		</footer>
-	</div>
+		</div>
+	
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
 	<script src="{{asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
