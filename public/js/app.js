@@ -51517,7 +51517,10 @@ var staticRenderFns = [
                 staticClass: "nav-link active",
                 attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
               },
-              [_c("i", { staticClass: "fas fa-home" }), _vm._v(" Tab Number 1")]
+              [
+                _c("i", { staticClass: "fas fa-clinic-medical" }),
+                _vm._v(" Tab Number 1")
+              ]
             )
           ]
         ),
@@ -51551,7 +51554,7 @@ var staticRenderFns = [
                 attrs: { href: "#tab3", role: "tab", "data-toggle": "tab" }
               },
               [
-                _c("i", { staticClass: "fas fa-clinic-medical" }),
+                _c("i", { staticClass: "fas fa-capsules" }),
                 _vm._v(" Tab Number 3")
               ]
             )

@@ -33,9 +33,9 @@
                <!--menu tabs-->
           
            <ul class="nav nav-tabs card-head-tabs" role="tablist">
-            <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i> Tab Number 1</a></li>
+            <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-clinic-medical"></i> Tab Number 1</a></li>
             <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> Tab Number 2</a></li>
-            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-clinic-medical"></i> Tab Number 3</a></li>
+            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-capsules"></i> Tab Number 3</a></li>
             <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> Tab Number 5</a></li>
           </ul>
           <!--end menu tabs-->
