@@ -50157,35 +50157,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 m-b-10" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn all-btn secondary-bg-color float-right",
-              staticStyle: { width: "100%" },
-              attrs: { href: "../pages/news/search_news_result.html" }
-            },
-            [
-              _c("i", { staticClass: "fas fa-search" }),
-              _vm._v(" Customer search")
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 m-b-10" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn all-btn btn-success float-right",
-              staticStyle: { width: "100%" },
-              attrs: { href: "../pages/news/search_news_result.html" }
-            },
-            [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Job search")]
-          )
-        ])
-      ]),
-      _vm._v(" "),
       _c("div", { staticClass: "card m-b-10 ads-card" }, [
         _c("div", {}, [
           _c("img", {
@@ -52501,7 +52472,7 @@ var staticRenderFns = [
                 staticClass: "nav-link",
                 attrs: { href: "#tab3", role: "tab", "data-toggle": "tab" }
               },
-              [_c("i", { staticClass: "fas fa-user-md" }), _vm._v(" 看護")]
+              [_c("i", { staticClass: "fas fa-user-md" }), _vm._v(" 介護検索")]
             )
           ]
         ),
@@ -52516,7 +52487,7 @@ var staticRenderFns = [
                 staticClass: "nav-link",
                 attrs: { href: "#tab4", role: "tab", "data-toggle": "tab" }
               },
-              [_c("i", { staticClass: "fas fa-users" }), _vm._v(" 仕事")]
+              [_c("i", { staticClass: "fas fa-users" }), _vm._v(" 求人検索")]
             )
           ]
         )
