@@ -8,7 +8,7 @@ use App\Customer;
 use App\Job;
 use App\JobDetail;
 use App\Type;
-
+use Carbon\Carbon;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -20,6 +20,104 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         $this->call(PermissionTableSeeder::class);
+        DB::table('users')->insert([
+            [
+                'name' => 'Administrator',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('admin'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => 'Customer',
+                'email' => 'customer@gmail.com',
+                'password' => bcrypt('customer'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]
+        ]);
+        DB::table('roles')->insert([
+            [
+                'name' => 'Administrator',
+                'guard_name' => 'web',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => 'Customer',
+                'guard_name' => 'web',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]
+        ]);
+        DB::table('role_has_permissions')->insert([
+            [
+                'permission_id' => 1,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 2,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 3,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 4,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 5,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 6,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 7,
+                'role_id' => 1,
+            ],[
+                'permission_id' => 8,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 5,
+                'role_id' => 2,
+            ],
+            [
+                'permission_id' => 6,
+                'role_id' => 2,
+            ],
+            [
+                'permission_id' => 7,
+                'role_id' => 2,
+            ],
+            [
+                'permission_id' => 8,
+                'role_id' => 2,
+            ],
+ 
+        ]);
+        DB::table('model_has_roles')->insert([
+            [
+                'role_id' => 1,
+                'model_type' => 'App\User',
+                'model_id' => 1,
+            ],
+            [
+                'role_id' => 2,
+                'model_type' => 'App\User',
+                'model_id' => 2,
+            ]
+        ]);
+        
+
+        
+
+       
+        
         $faker = Faker::create();
         for ($i=0; $i < 20; $i++) { 
             $post = new Post();
