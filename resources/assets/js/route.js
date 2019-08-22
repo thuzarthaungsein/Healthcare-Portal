@@ -12,6 +12,7 @@ import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
+import EditFacilityComponent from './components/EditFacilityComponent.vue';
 
 export const routes = [
        {
@@ -63,20 +64,25 @@ export const routes = [
         name: 'categorylist',
         path: '/categorylist',
         component: categorylist
-      },
-      {
-        name: 'createcategory',
-        path: '/createcategory',
-        component: createcategory
-      },
-      {
-      name: 'facilitieslist',
-      path: '/facilitieslist',
-      component: FacilitiesListComponent
+    },
+    {
+      name: 'createcategory',
+      path: '/createcategory',
+      component: createcategory
+    },
+    {
+    name: 'facilitieslist',
+    path: '/facilitieslist',
+    component: FacilitiesListComponent
     },
     {
       name: 'createfacility',
       path: '/createfacility',
       component: CreateFacilityComponent
+    },
+    {
+      name: 'editfacility',
+      path: '/editfacility',
+      component: EditFacilityComponent
     }
 ];
