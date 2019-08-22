@@ -908,7 +908,7 @@ ul.main-tab li:after{
 }
 
 .divisions {
-    padding: 20px 0px 0px 20px;
+    /* padding: 20px 0px 0px 20px; */
 }
 
 .divisions .card-header {
