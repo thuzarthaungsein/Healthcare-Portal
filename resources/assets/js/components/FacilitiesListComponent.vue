@@ -53,7 +53,7 @@ export default {
         },
         created() {
             this.axios
-                .get('http://localhost:8000/api/facilities')
+                .get('http://localhost:8000/api/facility/facilities')
                 .then(response => {
                     this.facilities = response.data;
                 });
