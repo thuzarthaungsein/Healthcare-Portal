@@ -14,15 +14,11 @@ class PostController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        $news_list = Post::all()->toArray();        
-       return response()->json(array_reverse($news_list));
-=======
+       
         $news_list = Post::all()->toArray();
         return response()->json(array_reverse($news_list));
     //     $data = array("news_list" => $news_list);
     //    return response()->json($data);
->>>>>>> 9f9ba695b534ad97745a66823f71503c1e8d4c8f
     }
     // add news
     public function add(Request $request)
@@ -69,6 +65,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
+      
         return Post::findOrFail($id);
     }
 

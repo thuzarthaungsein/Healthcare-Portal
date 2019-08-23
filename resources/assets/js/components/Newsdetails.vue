@@ -66,7 +66,7 @@
                                                 <div class="col-sm-3  col-md-3 mt-2">
                                                         <div class="hovereffect fit-image">
                                                                 <img class="img-responsive fit-image"
-                                                                        :src="'/images/'+ newdetails.photo"
+                                                                        src="/images/day1.jpg"
                                                                         alt="">
                                                                 <div class="overlay">
                                                                         <h2></h2>
@@ -90,7 +90,7 @@
                                                 <div class="col-sm-3  col-md-3 mt-2">
                                                         <div class="hovereffect fit-image">
                                                                 <img class="img-responsive fit-image"
-                                                                        :src="'/images/'+ newdetails.photo"
+                                                                        src="/images/day1.jpg"
                                                                         alt="">
                                                                 <div class="overlay">
                                                                         <h2></h2>
@@ -114,7 +114,7 @@
                                                 <div class="col-sm-3  col-md-3 mt-2">
                                                         <div class="hovereffect fit-image">
                                                                 <img class="img-responsive fit-image"
-                                                                        :src="'/images/'+ newdetails.photo"
+                                                                        src="/images/day1.jpg"
                                                                         alt="">
                                                                 <div class="overlay">
                                                                         <h2></h2>
@@ -138,7 +138,7 @@
                                                 <div class="col-sm-3  col-md-3 mt-2">
                                                         <div class="hovereffect fit-image">
                                                                 <img class="img-responsive fit-image"
-                                                                        :src="'/images/'+ newdetails.photo"
+                                                                        src="/images/day1.jpg"
                                                                         alt="">
                                                                 <div class="overlay">
                                                                         <h2></h2>
@@ -182,7 +182,7 @@
                  .then(response=>{
                        
                      this.newdetails = response.data;
-                       console.log(response.data.newdetails);
+                       console.log(response.data);
                  });
         }
 

@@ -56199,7 +56199,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.axios.get("http://localhost:8000/api/newdetails/" + this.$route.params.id).then(function (response) {
 
             _this.newdetails = response.data;
-            console.log(response.data.newdetails);
+            console.log(response.data);
         });
     }
 });
@@ -56258,61 +56258,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row m-lr-0" }, [
-            _vm._m(5),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-              _c("div", { staticClass: "hovereffect fit-image" }, [
-                _c("img", {
-                  staticClass: "img-responsive fit-image",
-                  attrs: { src: "/images/" + _vm.newdetails.photo, alt: "" }
-                }),
-                _vm._v(" "),
-                _vm._m(6),
-                _vm._v(" "),
-                _vm._m(7)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-              _c("div", { staticClass: "hovereffect fit-image" }, [
-                _c("img", {
-                  staticClass: "img-responsive fit-image",
-                  attrs: { src: "/images/" + _vm.newdetails.photo, alt: "" }
-                }),
-                _vm._v(" "),
-                _vm._m(8),
-                _vm._v(" "),
-                _vm._m(9)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-              _c("div", { staticClass: "hovereffect fit-image" }, [
-                _c("img", {
-                  staticClass: "img-responsive fit-image",
-                  attrs: { src: "/images/" + _vm.newdetails.photo, alt: "" }
-                }),
-                _vm._v(" "),
-                _vm._m(10),
-                _vm._v(" "),
-                _vm._m(11)
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-              _c("div", { staticClass: "hovereffect fit-image" }, [
-                _c("img", {
-                  staticClass: "img-responsive fit-image",
-                  attrs: { src: "/images/" + _vm.newdetails.photo, alt: "" }
-                }),
-                _vm._v(" "),
-                _vm._m(12),
-                _vm._v(" "),
-                _vm._m(13)
-              ])
-            ])
-          ])
+          _vm._m(5)
         ])
       ])
     ])
@@ -56399,137 +56345,143 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row col-md-12 text-center" }, [
-      _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2"),
+    return _c("div", { staticClass: "row m-lr-0" }, [
+      _c("div", { staticClass: "row col-md-12 text-center" }, [
+        _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
+      ]),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-sm all-btn secondary-bg-color",
-          attrs: { href: "news_details.html" }
-        },
-        [_vm._v("詳細を見る")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("p", { staticClass: " p_3" }, [
-            _vm._v(
-              "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "/images/day1.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
             )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                  )
+                ])
+              ])
+            ])
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2"),
+      ]),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-sm all-btn secondary-bg-color",
-          attrs: { href: "news_details.html" }
-        },
-        [_vm._v("詳細を見る")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("p", { staticClass: " p_3" }, [
-            _vm._v(
-              "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "/images/day1.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
             )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                  )
+                ])
+              ])
+            ])
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2"),
+      ]),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-sm all-btn secondary-bg-color",
-          attrs: { href: "news_details.html" }
-        },
-        [_vm._v("詳細を見る")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("p", { staticClass: " p_3" }, [
-            _vm._v(
-              "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "/images/day1.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
             )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                  )
+                ])
+              ])
+            ])
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2"),
+      ]),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-sm all-btn secondary-bg-color",
-          attrs: { href: "news_details.html" }
-        },
-        [_vm._v("詳細を見る")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("p", { staticClass: " p_3" }, [
-            _vm._v(
-              "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "/images/day1.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
             )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                  )
+                ])
+              ])
+            ])
           ])
         ])
       ])
