@@ -14,13 +14,19 @@ class PostController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $news_list = Post::all()->toArray();        
        return response()->json(array_reverse($news_list));
+=======
+        $news_list = Post::all()->toArray();
+        return response()->json(array_reverse($news_list));
+    //     $data = array("news_list" => $news_list);
+    //    return response()->json($data);
+>>>>>>> 9f9ba695b534ad97745a66823f71503c1e8d4c8f
     }
     // add news
     public function add(Request $request)
     {
-       
         $post = new Post([
             'title' => $request->input('title'),
             'main_point' => $request->input('main_point'),
@@ -72,9 +78,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        //
+        $posts = Post::find($id);
+        return response()->json($posts);
     }
 
     /**
@@ -84,9 +91,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update($id, Request $request)
     {
-        //
+        $post = Post::find($id);
+        $post->update($request->all());
+        return response()->json('The book successfully updated');
     }
 
     /**
@@ -95,8 +104,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function delete($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return response()->json('The news post successfully deleted');
     }
 }

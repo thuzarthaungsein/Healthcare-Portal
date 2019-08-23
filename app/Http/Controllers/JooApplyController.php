@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Job;
 use Illuminate\Http\Request;
-class JobDetailController extends Controller
+
+class JooApplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class JobDetailController extends Controller
      */
     public function index()
     {
-        $job_details = Job::all()->toArray();
-        return array_reverse($job_details);
+        //
     }
 
     /**
@@ -41,22 +40,21 @@ class JobDetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\JobDetail  $jobDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        
-        return Job::findOrFail($id);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\JobDetail  $jobDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(JobDetail $jobDetail)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +63,10 @@ class JobDetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\JobDetail  $jobDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JobDetail $jobDetail)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +74,10 @@ class JobDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\JobDetail  $jobDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JobDetail $jobDetail)
+    public function destroy($id)
     {
         //
     }
