@@ -49473,7 +49473,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -49527,6 +49527,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__);
+//
 //
 //
 //
@@ -52499,12 +52500,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container-fluid footer" }, [
-      _c("span", { staticClass: "copyright" }, [
-        _vm._v("© 2019 "),
-        _c("a", { attrs: { href: "#", target: "_blank" } }, [
-          _vm._v("Management Partners Corp")
-        ]),
-        _vm._v(". All Rights Reserved.")
+      _c("span", [
+        _vm._v("Copyright©Management Partners Corp.All Rights Reserved. ")
       ])
     ])
   }
@@ -55411,6 +55408,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue__);
 
 
 
@@ -55465,7 +55464,7 @@ var routes = [{
   component: __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue___default.a
 }, {
   name: 'job_details',
-  path: '/job_details',
+  path: '/job_details/:id',
   component: __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue___default.a
 }, {
   name: 'news_list',
@@ -55475,6 +55474,10 @@ var routes = [{
   name: 'create_news',
   path: '/create_news',
   component: __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue___default.a
+}, {
+  name: 'editPost',
+  path: '/editPost',
+  component: __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue___default.a
 }, {
   name: 'categorylist',
   path: '/categorylist',
@@ -58235,6 +58238,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58277,21 +58284,52 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-10" }, [
                     _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                      _c("b", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "mr-auto",
-                            attrs: { href: "../jobs/job_search_details.html" }
-                          },
-                          [_vm._v(_vm._s(job.title) + " ")]
-                        )
-                      ])
+                      _c(
+                        "b",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "mr-auto",
+                              attrs: {
+                                to: {
+                                  name: "job_details",
+                                  params: { id: job.id }
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(job.title))]
+                          )
+                        ],
+                        1
+                      )
                     ]),
                     _vm._v(" "),
                     _c("p", [_vm._v(_vm._s(job.description))]),
                     _vm._v(" "),
-                    _vm._m(2, true)
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-4" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass:
+                                "btn btn all-btn secondary-bg-color white",
+                              attrs: {
+                                to: {
+                                  name: "job_details",
+                                  params: { id: job.id }
+                                }
+                              }
+                            },
+                            [_vm._v("詳細を見る")]
+                          )
+                        ],
+                        1
+                      )
+                    ])
                   ])
                 ])
               ])
@@ -58344,23 +58382,6 @@ var staticRenderFns = [
         staticClass: "col-md-12",
         attrs: { src: "images/hospital1.jpg", alt: "" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn all-btn secondary-bg-color white",
-            attrs: { href: "../jobs/job_search_details.html" }
-          },
-          [_vm._v("詳細を見る")]
-        )
-      ])
     ])
   }
 ]
@@ -58885,7 +58906,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        this.axios.get('http://localhost:8000/api/job_details').then(function (response) {
+        this.axios.get("http://localhost:8000/api/job_details/" + this.$route.params.id).then(function (response) {
             console.log(response.data);
             _this.job_details = response.data;
         });
@@ -58901,167 +58922,134 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-md-center" }, [
-    _c(
-      "div",
-      { staticClass: "col-md container cont-pad" },
-      [
-        _vm._l(_vm.job_details, function(jobDetail) {
-          return _c("div", { key: jobDetail.id, staticClass: "row m-b-20" }, [
-            _c("div", { staticClass: "col-md-12 scroll2" }, [
-              _c("h4", { staticClass: "h_4" }, [
-                _vm._v(_vm._s(jobDetail.title))
+    _c("div", { staticClass: "col-md container cont-pad" }, [
+      _c("div", { staticClass: "row m-b-20" }, [
+        _c("div", { staticClass: "col-md-12 scroll2" }, [
+          _c("h4", { staticClass: "h_4" }, [
+            _vm._v(_vm._s(_vm.job_details.title))
+          ]),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "img-responsive img_6",
+            attrs: { src: "/images/img1.jpg", height: "", width: "15%" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("仕事内容")
               ]),
               _vm._v(" "),
-              _c("img", {
-                staticClass: "img-responsive img_6",
-                attrs: { src: "/images/img1.jpg", height: "", width: "15%" }
-              }),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.description))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("経験・スキル")
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("仕事内容")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.description))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("経験・スキル")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.skills))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("勤務地")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.location))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("最寄り駅")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.nearest_station))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("雇用形態")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.employment_status))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("給与")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.salary))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("諸手当")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.allowances))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("各種保険")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.insurance))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("就業時間")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.working_hours))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("休日休暇")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.holidays))]
-                  )
-                ])
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.skills))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [_vm._v("勤務地")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.location))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("最寄り駅")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.nearest_station))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("雇用形態")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.employment_status))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [_vm._v("給与")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.salary))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [_vm._v("諸手当")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.allowances))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("各種保険")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.insurance))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("就業時間")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.working_hours))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("休日休暇")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.holidays))
               ])
             ])
           ])
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-12 text-center" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn main-bg-color white all-btn",
-                attrs: { href: "#" }
-              },
-              [
-                _c("router-link", { attrs: { to: "/jobapply" } }, [
-                  _vm._v("この案件に応募")
-                ])
-              ],
-              1
-            )
-          ])
         ])
-      ],
-      2
-    )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12 text-center" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn main-bg-color white all-btn",
+              attrs: { href: "#" }
+            },
+            [
+              _c("router-link", { attrs: { to: "/jobapply" } }, [
+                _vm._v("この案件に応募")
+              ])
+            ],
+            1
+          )
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -59250,7 +59238,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.axios.get('http://localhost:8000/api/news_list').then(function (response) {
             _this.news_list = response.data;
         });
+    },
+
+    methods: {
+        deletePost: function deletePost(id) {
+            var _this2 = this;
+
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.delete('http://localhost:8000/api/new/delete/' + id).then(function (response) {
+                    alert('Delete Successfully!');
+                    var i = _this2.news_list.map(function (item) {
+                        return item.id;
+                    }).indexOf(id); // find index of your object
+                    _this2.news_list.splice(i, 1);
+                });
+            }
+        }
     }
+
 });
 
 /***/ }),
@@ -59293,7 +59298,44 @@ var render = function() {
                     _vm._v(" "),
                     _c("p", [_vm._v(_vm._s(newsList.main_point))]),
                     _vm._v(" "),
-                    _vm._m(2, true)
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "small",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "mr-auto text-warning",
+                                attrs: {
+                                  to: {
+                                    name: "editPost",
+                                    params: { id: newsList.id }
+                                  }
+                                }
+                              },
+                              [_vm._v("編集")]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v("  \n                                    "),
+                        _c("small", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "mr-auto text-danger",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deletePost(newsList.id)
+                                }
+                              }
+                            },
+                            [_vm._v("削除")]
+                          )
+                        ])
+                      ])
+                    ])
                   ])
                 ])
               ])
@@ -59342,28 +59384,6 @@ var staticRenderFns = [
         staticClass: "col-md-12",
         attrs: { src: "/images/nursing1.jpg", alt: "" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c("small", [
-          _c(
-            "a",
-            { staticClass: "mr-auto text-warning", attrs: { href: "" } },
-            [_vm._v("編集")]
-          )
-        ]),
-        _vm._v("  \n                                    "),
-        _c("small", [
-          _c("a", { staticClass: "mr-auto text-danger", attrs: { href: "" } }, [
-            _vm._v("削除")
-          ])
-        ])
-      ])
     ])
   }
 ]
@@ -59491,20 +59511,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59516,21 +59522,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 body: '',
                 category_id: '',
                 user_id: '',
-                recordstatus: '',
-                photo: ''
+                recordstatus: ''
             }
         };
     },
 
     methods: {
-        onImageChange: function onImageChange(e) {
-            this.image = e.target.files[0];
-        },
         add: function add() {
             var _this = this;
 
-            var formData = new FormData();
-            formData.append('image', this.image);
             this.axios.post('http://localhost:8000/api/new/add', this.news).then(function (response) {
 
                 _this.$router.push({ name: 'news_list' });
@@ -59558,150 +59558,118 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card  text-dark" }, [
           _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "form",
-                  {
-                    attrs: { enctype: "multipart/form-data" },
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.add($event)
-                      }
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  staticClass: "col-md-12",
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.add($event)
                     }
-                  },
-                  [
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.news.title,
-                              expression: "news.title"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder: "題名を入力してください。"
-                          },
-                          domProps: { value: _vm.news.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.news, "title", $event.target.value)
-                            }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.title,
+                          expression: "news.title"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "題名を入力してください。"
+                      },
+                      domProps: { value: _vm.news.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        })
-                      ])
-                    ]),
+                          _vm.$set(_vm.news, "title", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(2),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.news.main_point,
-                              expression: "news.main_point"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder:
-                              "ニュースの主な情報を入力してください。"
-                          },
-                          domProps: { value: _vm.news.main_point },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.news,
-                                "main_point",
-                                $event.target.value
-                              )
-                            }
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.main_point,
+                          expression: "news.main_point"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "ニュースの主な情報を入力してください。"
+                      },
+                      domProps: { value: _vm.news.main_point },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        })
-                      ])
-                    ]),
+                          _vm.$set(_vm.news, "main_point", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("br"),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("br"),
-                        _vm._v(" "),
-                        _vm._m(3),
-                        _vm._v(" "),
-                        _c("textarea", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.news.body,
-                              expression: "news.body"
-                            }
-                          ],
-                          staticClass: "form-control rounded-0",
-                          attrs: {
-                            id: "exampleFormControlTextarea1",
-                            rows: "10",
-                            placeholder: "内容を入力してください。"
-                          },
-                          domProps: { value: _vm.news.body },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.news, "body", $event.target.value)
-                            }
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.body,
+                          expression: "news.body"
+                        }
+                      ],
+                      staticClass: "form-control rounded-0",
+                      attrs: {
+                        id: "exampleFormControlTextarea1",
+                        rows: "10",
+                        placeholder: "内容を入力してください。"
+                      },
+                      domProps: { value: _vm.news.body },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "col-sm-2 imgUp" }, [
-                        _c("br"),
-                        _vm._v(" "),
-                        _vm._m(4),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("label", { staticClass: "btn bg-color all-btn" }, [
-                          _vm._v(
-                            "\r\n                                                    写真/画像を投稿する\r\n                                                 "
-                          ),
-                          _c("input", {
-                            staticClass: "uploadFile img",
-                            attrs: { type: "file" },
-                            on: { change: _vm.onImageChange }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "imagePreview" })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(5)
-                  ]
-                )
-              ])
+                          _vm.$set(_vm.news, "body", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _vm._m(6)
+                ]
+              )
             ])
           ])
         ])
@@ -59742,6 +59710,40 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btn-group" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn main-bg-color white dropdown-toggle all-btn",
+          attrs: { type: "button", "data-toggle": "dropdown" }
+        },
+        [
+          _vm._v(
+            "\r\n                                                    種類\r\n                                                "
+          ),
+          _c("span", { staticClass: "caret" })
+        ]
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "dropdown-menu" }, [
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Doctor")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Nurse")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Pharmacist")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Administrative Staff")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Therapists")])])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("内容:"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
@@ -59751,9 +59753,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "menu-pos" }, [
-      _vm._v("メディア:"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    return _c("div", { staticClass: "col-sm-2 imgUp" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("label", { staticClass: "menu-pos" }, [
+        _vm._v("メディア:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("label", { staticClass: "btn bg-color all-btn" }, [
+        _vm._v(
+          "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+        ),
+        _c("input", {
+          staticClass: "uploadFile img",
+          attrs: { type: "file", value: "Upload Photo" }
+        })
+      ])
     ])
   },
   function() {
@@ -59761,12 +59779,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("br"),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn news-post-btn all-btn" }, [
-          _vm._v(" ニュースを投稿する")
-        ])
+      _c("br"),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn news-post-btn all-btn" }, [
+        _vm._v(" ニュースを投稿する")
       ])
     ])
   }
@@ -61341,6 +61357,409 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(116)
+/* template */
+var __vue_template__ = __webpack_require__(117)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/editNewsPost.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-77fc8554", Component.options)
+  } else {
+    hotAPI.reload("data-v-77fc8554", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 116 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            errors: [],
+            news: {
+                title: '',
+                main_point: '',
+                body: '',
+                category_id: '',
+                user_id: '',
+                recordstatus: ''
+            }
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/new/editPost/' + this.$route.params.id).then(function (response) {
+            _this.news = response.data;
+        });
+    },
+
+    methods: {
+        updatePost: function updatePost() {
+            var _this2 = this;
+
+            this.axios.post('http://localhost:8000/api/new/update/' + this.$route.params.id, this.news).then(function (response) {
+                alert('Successfully Updated!');
+                _this2.$router.push({ name: 'news_list' });
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "content" } }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card  text-dark" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  staticClass: "col-md-12",
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.updatePost($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.title,
+                          expression: "news.title"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "題名を入力してください。"
+                      },
+                      domProps: { value: _vm.news.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.news, "title", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.main_point,
+                          expression: "news.main_point"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "ニュースの主な情報を入力してください。"
+                      },
+                      domProps: { value: _vm.news.main_point },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.news, "main_point", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.body,
+                          expression: "news.body"
+                        }
+                      ],
+                      staticClass: "form-control rounded-0",
+                      attrs: {
+                        id: "exampleFormControlTextarea1",
+                        rows: "10",
+                        placeholder: "内容を入力してください。"
+                      },
+                      domProps: { value: _vm.news.body },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.news, "body", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _vm._m(6)
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h4", { staticClass: "page-header" }, [_vm._v("ニュース投稿を作成")]),
+      _vm._v(" "),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("題名:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("主な情報:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btn-group" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn main-bg-color white dropdown-toggle all-btn",
+          attrs: { type: "button", "data-toggle": "dropdown" }
+        },
+        [
+          _vm._v(
+            "\r\n                                                    種類\r\n                                                "
+          ),
+          _c("span", { staticClass: "caret" })
+        ]
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "dropdown-menu" }, [
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Doctor")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Nurse")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Pharmacist")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Administrative Staff")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Therapists")])])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("内容:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2 imgUp" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("label", { staticClass: "menu-pos" }, [
+        _vm._v("メディア:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("label", { staticClass: "btn bg-color all-btn" }, [
+        _vm._v(
+          "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+        ),
+        _c("input", {
+          staticClass: "uploadFile img",
+          attrs: { type: "file", value: "Upload Photo" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn news-post-btn all-btn" }, [
+        _vm._v(" ニュースを更新する")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-77fc8554", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
