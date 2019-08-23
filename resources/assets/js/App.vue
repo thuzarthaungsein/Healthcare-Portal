@@ -66,7 +66,7 @@
 
         </div>
          <div class="container-fluid footer">
-                                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
+                                <span class="copyright">&copy; 2019 <a href="#" target="_blank">Management Partners Corp</a>. All Rights Reserved.</span>
                         </div>
       </section>
     </div>

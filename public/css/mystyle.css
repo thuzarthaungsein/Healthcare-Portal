@@ -297,7 +297,7 @@
 
         .img_2
         {
-            margin-left: 10%;
+            /* margin-left: 10%; */
             /* border:1px solid black; */
             font-size:17px;
         }
@@ -510,6 +510,7 @@ textarea.form-control, textarea{
 .form-control{
     background-color: #f5f5f5 !important;
 }
+
 /* End Job Apply Form*/
 /* News Tab */
 .news-wrapper{
@@ -615,6 +616,9 @@ div.b{
 }
 .ads-card2 .card-body > ul .list-group-item{
     padding: 5px !important;
+}
+.ads-card2 .card-body > ul .list-group-item a {
+    color: #000;
 }
 .ads-title{
     font-size: 12px;
@@ -907,18 +911,19 @@ ul.main-tab li:after{
     padding: 0px 1rem !important;
     margin-bottom: 8px !important;
     background-color: transparent !important;
+    font-size: 12px;
 }
 .breadcrumb-item > a{
      color: #6c757d;
-     font-weight: bold;
+     /* font-weight: bold; */
 }
 .breadcrumb-item.active {
-    color: #f16c00;
-    font-weight: bold;
+    color: #19a984;
+    /* font-weight: bold; */
 }
 .breadcrumb-item.active > a {
     color: #f16c00;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 .breadcrumb-item+.breadcrumb-item::before {
     color: #118063 !important;
@@ -1002,14 +1007,18 @@ ul.main-tab li:after{
     }
 
     .news_photo {
-        height: 250px;
-        width: 80%;
+        width: 100%;
         margin-bottom: 24px;
         border-radius: 3px;
     }
 
     .related-area span {
-        color: rgb(255, 72, 0);
+        color: #6c757d;
         font-size: 14px;
+    }
+    .set-date{
+        float: right;
+        text-indent: 2em;
+        margin-bottom: 2px;
     }
 /*End Newdetails */
