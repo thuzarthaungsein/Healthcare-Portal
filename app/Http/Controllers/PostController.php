@@ -18,13 +18,13 @@ class PostController extends Controller
         // return $newdetails;
         $news_list = Post::all()->toArray();
         $data = array("news_list" => $news_list, "newdetails" => $newdetails);
-        
+
        return response()->json($data);
     }
     // add news
     public function add(Request $request)
     {
-       
+
         $post = new Post([
             'title' => $request->input('title'),
             'main_point' => $request->input('main_point'),

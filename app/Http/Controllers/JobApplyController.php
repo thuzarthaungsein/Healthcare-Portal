@@ -16,6 +16,19 @@ class JobApplyController extends Controller
     {
         //
     }
+    // public function apply(Request $request){
+    //     $jobapply = new JobApply([
+    //         'name' => $request->input('name'),
+    //         'birthday' => 1,
+    //         'address' => 2,
+    //         'phone' => 3,
+    //         'email'=>4,
+    //         'work-time'=>5,
+    //         'skill'=>6
+    //     ]);
+    //     $jobapply->save();
+    //     return $jobapply;
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -25,6 +38,7 @@ class JobApplyController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -35,7 +49,25 @@ class JobApplyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+            $jobapply = new JobApply([
+                'name' => $request->input('name'),
+                'birthday' =>  $request->input('birthday'),
+                'address' =>  $request->input('address'),
+                'phone' =>  $request->input('phone'),
+                'email'=> $request->input('email'),
+                'work_time'=>$request->input('work_time'),
+                //  'skill'=>$request->input('skill')
+                'skill' =>'ffffff'
+
+
+            ]);
+            $jobapply->save();
+
+            return response()->json('Apply successfully ');
+
+
+
     }
 
     /**
