@@ -14639,7 +14639,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(111);
+module.exports = __webpack_require__(114);
 
 
 /***/ }),
@@ -55408,7 +55408,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue__);
 
 
@@ -58893,9 +58893,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58925,134 +58922,310 @@ var render = function() {
     _c("div", { staticClass: "col-md container cont-pad" }, [
       _c("div", { staticClass: "row m-b-20" }, [
         _c("div", { staticClass: "col-md-12 scroll2" }, [
-          _c("h4", { staticClass: "h_4" }, [
+          _c("h4", { staticClass: "h_4 header" }, [
             _vm._v(_vm._s(_vm.job_details.title))
           ]),
           _vm._v(" "),
           _c("img", {
-            staticClass: "img-responsive img_6",
-            attrs: { src: "/images/img1.jpg", height: "", width: "15%" }
+            staticClass: "img-responsive",
+            staticStyle: { width: "150px" },
+            attrs: { src: "/images/img1.jpg" }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("仕事内容")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.description))
-              ])
+          _c("div", { staticClass: "maintable_wrapper" }, [
+            _c("h4", { staticClass: "h_4" }, [
+              _vm._v(
+                "お仕事  No.04058  平日のみ月10日程度の仕事！富裕層向け通販会社での電話受注スタッフ"
+              )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("経験・スキル")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.skills))
-              ])
-            ]),
+            _c(
+              "div",
+              { staticClass: "table_wrapper", staticStyle: { clear: "both" } },
+              [
+                _c(
+                  "table",
+                  {
+                    staticClass: "table",
+                    staticStyle: {
+                      margin: "0 auto",
+                      "border-collapse": "separate"
+                    }
+                  },
+                  [
+                    _c("tbody", [
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("仕事内容")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.description))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("経験・スキル")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.skills))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("勤務地")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.location))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("最寄り駅")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.nearest_station))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("雇用形態")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.employment_status))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("給与")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.salary))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("諸手当")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.allowances))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("各種保険")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.insurance))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("就業時間")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.working_hours))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(8),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("休日休暇")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.holidays))
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [_vm._v("勤務地")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.location))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("最寄り駅")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.nearest_station))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("雇用形態")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.employment_status))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [_vm._v("給与")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.salary))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [_vm._v("諸手当")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.allowances))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("各種保険")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.insurance))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("就業時間")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.working_hours))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("休日休暇")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.holidays))
-              ])
-            ])
+            _c("h4", { staticStyle: { padding: "3px" } })
           ])
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12 text-center" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn main-bg-color white all-btn",
-              attrs: { href: "#" }
-            },
-            [
-              _c("router-link", { attrs: { to: "/jobapply" } }, [
-                _vm._v("この案件に応募")
-              ])
-            ],
-            1
-          )
-        ])
+        _c(
+          "div",
+          { staticClass: "col-md-12 text-center" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "btn secondary-bg-color white all-btn",
+                attrs: { to: "/jobapply" }
+              },
+              [_vm._v("この案件に応募")]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -61354,23 +61527,14 @@ if (false) {
 
 /***/ }),
 /* 111 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(116)
+var __vue_script__ = __webpack_require__(112)
 /* template */
-var __vue_template__ = __webpack_require__(117)
+var __vue_template__ = __webpack_require__(113)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61409,7 +61573,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 116 */
+/* 112 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61511,7 +61675,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 117 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61760,6 +61924,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-77fc8554", module.exports)
   }
 }
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

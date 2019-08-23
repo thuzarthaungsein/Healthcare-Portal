@@ -592,7 +592,7 @@ div.cont-pad{
      background: #e0e4e6;
      border-bottom: 1px solid #efefef;
       display:bolck;
-     width:100%;
+     width:20%;
 }
 .data{
     padding:20px 10px; 
@@ -605,7 +605,44 @@ div.cont-pad{
 div.b{
     word-wrap: break-word;
 }
+.maintable_wrapper{
+    margin: 0 auto;
+    background-color: #ecede1;
+    border-radius: 10px;
+    width: 100%;
+}
+.table_wrapper{
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 99%;
+    padding: 10px;
+}
+.ds_cellline{
+    background-color: transparent;
+    height: 1px;
+    padding: 0px !important;
 
+}
+.ds_detail_2{    
+    width: 85%;
+    padding: 0px 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    border: none !important;
+}
+.ds_detail_1{
+    width: 15%;
+    background-color: #eeeeee;
+}
+.ds_detail_1, .ds_detail_osusume {
+    height: 30px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    text-align: left;
+    padding: 0px 10px;
+}
 /* End Job Offer Detail */
 /*For Ads */
 .ads-card, .ads-card2 {
