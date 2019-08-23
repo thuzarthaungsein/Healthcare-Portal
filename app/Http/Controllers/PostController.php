@@ -14,7 +14,28 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $newdetails = Post::all()->toArray();
+        // return $newdetails;
+        $news_list = Post::all()->toArray();
+        $data = array("news_list" => $news_list, "newdetails" => $newdetails);
+        
+       return response()->json($data);
+    }
+    // add news
+    public function add(Request $request)
+    {
+       
+        $post = new Post([
+            'title' => $request->input('title'),
+            'main_point' => $request->input('main_point'),
+            'body' => $request->input('body'),
+            'category_id' =>1,
+            'user_id' => 1,
+            'recordstatus' => 1
+        ]);
+        $post->save();
+            return $post;
+        return response()->json('The New successfully added');
     }
 
     /**

@@ -25,7 +25,7 @@
 
                                                 <div class="row">
                                                         <div class="col-xl-4 col-sm-12 col-md-3 col-lg-3 col-12">
-                                                                <a href="./news/news_details.html">
+                                                                <a href="/newsdetails">
                                                                         <img src="/images/h4.jpg" alt="" style="width:100%" class="img-responsive">
                                                                         <p class="source-title" aria-label="">
                                                                                 ニュースタイトル
@@ -38,22 +38,22 @@
                                                         <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper">
                                                                 <ul class="list-group list-group-flush">
                                                                         <li class="list-group-item p-t-5 p-b-5">
-                                                                                <a href="./news/news_details.html">
+                                                                                <a><router-link to="/job_details">
                                                                                         <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                                 <span class="source-img-small d-inline-block text-truncate">Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。</span>
-                                                                                </a>
+                                                                                </router-link></a>
                                                                         </li>
                                                                         <li class="list-group-item p-t-5 p-b-5">
-                                                                                <a href="./news/news_details.html">
+                                                                                <a><router-link to="/newsdetails">
                                                                                         <img src="/images/2.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                         <span class="source-img-small">日刊スポーツ</span>
-                                                                                </a>
+                                                                                </router-link></a>
                                                                         </li>
                                                                         <li class="list-group-item p-t-5 p-b-5">
-                                                                                <a href="./news/news_details.html">
+                                                                                <a ><router-link to="/facilitieslist">
                                                                                         <img src="/images/3.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                         <span class="source-img-small">日刊スポーツ</span>
-                                                                                </a>
+                                                                                </router-link></a>
                                                                         </li>
 
                                                                         <li class="list-group-item p-t-5 p-b-5">
@@ -265,7 +265,7 @@
                                         <img class="img-responsive fit-image" src="images/j5.jpg" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="news_details.html">詳細を見る</a>
+                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">詳細を見る</a>
                                         </div>
                                         <div class="info">
                                                 <div class="row">
@@ -284,7 +284,7 @@
                                         <img class="img-responsive fit-image" src="images/day1.jpg" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="news_details.html">詳細を見る</a>
+                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">詳細を見る</a>
                                         </div>
                                         <div class="info">
                                                 <div class="row">
@@ -303,7 +303,7 @@
                                         <img class="img-responsive fit-image" src="images/hhh.jpg" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="news_details.html">詳細を見る</a>
+                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">詳細を見る</a>
                                         </div>
                                         <div class="info">
                                                 <div class="row">
@@ -322,7 +322,7 @@
                                         <img class="img-responsive fit-image" src="images/home2.jpg" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="news_details.html">詳細を見る</a>
+                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">詳細を見る</a>
                                         </div>
                                         <div class="info">
                                                 <div class="row">
