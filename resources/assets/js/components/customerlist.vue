@@ -1,6 +1,6 @@
 <template>
-<div class="content">
-    <div class="container">
+<div class="row">
+     <!-- <div class="container">
         <div class="card card-default m-b-20">
 
             <div class="card-body">
@@ -83,6 +83,89 @@
         </div>
 
         </div>
+    </div> -->
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
+                            <li class="breadcrumb-item"><a href="../news/news_details.html"> 新しい詳細</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                            就職活動リスト</li>
+                    </ol>
+            </nav>
+            <div class="card card-default m-b-20">
+
+            <div class="card-body">
+                    <h4 class="main-color">ニュース記事を検索</h4>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="検索">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn secondary-bg-color all-btn white">検索</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <h4 style="padding-top:20px;">Customer List </h4>
+        </div><br/>
+        <div class="scroll col-12">
+            <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
+            <div class="card-body news-post">
+                <div class="row">
+                    <div class="col-md-2" >
+                        <img src="/images/hospitalpage.jpg" class="col-md-12 " alt=" " style="height:150px;" >
+                        <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
+                    </div>
+                    <div class="col-md-10">
+                        <div class="col-sm-8 pad-free mb-2">
+                            <a><strong>Name     :</strong>{{customer.name}}</a><br/>
+                            <a><strong>Email    :</strong>{{customer.email}}</a><br/>
+                            <a><strong>Logo     :</strong>{{customer.logo}}</a><br/>
+                            <a><strong>Phone    :</strong>{{customer.phone}}</a><br/>
+                            <a><strong>Address  :</strong>{{customer.address}}</a><br/>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 text-center">
+                                 <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link>
+                                <button class="btn btn-danger all-btn" @click="deleteCustomer(customer.id)">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
     </div>
 </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return {
+            customers:[]
+        }
+    },
+    created(){
+        this.axios
+                .get('http://localhost:8000/api/customers')
+                .then(response => {
+                    this.customers = response.data;
+                });
+    },
+    methods: {
+            deleteCustomer(id) {
+                this.axios
+                    .delete(`http://localhost:8000/api/customer/delete/${id}`)
+                    .then(response => {
+                        alert('Delete Successfully!');
+                        let a = this.customers.map(item => item.id).indexOf(id);
+                        this.customers.splice(a, 1)
+                    });
+            }
+        }
+}
+</script>

@@ -17,17 +17,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('jobs', 'JobController@index');
+
+Route::get('customers','CustomerController@index');
+Route::get('categories','CategoryController@index');
+Route::get('custedit','custedit@edit');
+Route::get('facilities', 'FacilityController@index');
 Route::group(['prefix' => 'facility'], function () {
+    Route::post('add', 'FacilityController@add');
     Route::get('facilities', 'FacilityController@index');
-    Route::post('add', 'FacilityController@add');  
+    Route::post('add', 'FacilityController@add');
     Route::get('edit/{id}', 'FacilityController@edit');
     Route::post('update/{id}', 'FacilityController@update');
     Route::delete('delete/{id}', 'FacilityController@destroy');
 });
+Route::get('job_details', 'JobDetailController@index');
+
+Route::group(['prefix' => 'customer'], function () {
+    Route::get('edit/{id}', 'CustomerController@edit');
+    Route::post('update/{id}','CustomerController@update');
+    Route::delete('delete/{id}','CustomerController@destroy');
+});
 
 Route::group(['prefix' => 'category'], function () {
     Route::get('categories', 'CategoryController@index');
-    Route::post('add', 'CategoryController@add');  
+    Route::post('add', 'CategoryController@add');
     Route::get('edit/{id}', 'CategoryController@edit');
     Route::post('update/{id}', 'CategoryController@update');
     Route::delete('delete/{id}', 'CategoryController@destroy');
