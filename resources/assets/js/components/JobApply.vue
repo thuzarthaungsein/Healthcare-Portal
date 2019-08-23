@@ -1,6 +1,6 @@
 <template>
 <div class="col-md-12">
-    <h4 class="h_4">求人応募フォーム</h4>
+    <h4 class="h_4 header">求人応募フォーム</h4>
     <div class="col-md-7 offset-md-3">
         <form>
         <div class="form-group">
@@ -20,7 +20,7 @@
             <input type="text" class="form-control box" id="address" placeholder="アドレッ" name="address">
         </div>
         <div class="form-group">
-            <textarea rows="8" cols="30" style="width: 100%;padding:5px;" placeholder="コンテンツ"></textarea>
+            <textarea class="form-control" rows="8" cols="30" style="width: 100%;padding:5px;" placeholder="コンテンツ"></textarea>
         </div>
         <div class="form-group">
         <input type="text" class="form-control box" id="comp" placeholder="会社名" name="comp">
@@ -38,7 +38,7 @@
          </div>
         <div class="form-group">
             <!--<label for="message">Message</label>-->
-            <textarea class="form-control" name="message" id="message" rows="5"></textarea>
+            <textarea class="form-control" name="message" id="message" rows="8" style="width: 100%;padding:5px;" ></textarea>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -50,7 +50,7 @@
                 </div>
         </div>
         <div class="text-center">
-                <a href="#" class="btn main-bg-color white all-btn"><router-link to="/">募集</router-link></a>
+                <router-link to="/" class="btn secondary-bg-color white all-btn">募集</router-link>
                 <!-- <button type="submit" class="btn btn-primary">募集</button> -->
         </div>
     </form>
