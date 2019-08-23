@@ -14,8 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $news_list = Post::all()->toArray();
-       return array_reverse($news_list);
+        //
     }
     // add news
     public function add(Request $request)
@@ -72,9 +71,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        //
+        $posts = Post::find($id);
+        return response()->json($posts);
     }
 
     /**
@@ -84,9 +84,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update($id, Request $request)
     {
-        //
+        $post = Post::find($id);
+        $post->update($request->all());
+        return response()->json('The book successfully updated');
     }
 
     /**
@@ -95,8 +97,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function delete($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return response()->json('The news post successfully deleted');
     }
 }

@@ -7,13 +7,13 @@ import JobOfferComponent from './components/JobOfferComponent.vue';
 import job_details from './components/job_details.vue';
 import news_list from './components/news_list.vue';
 import create_news from './components/create_news.vue';
-
 import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
+import editPost from './components/editNewsPost.vue';
 
 export const routes = [
        {
@@ -60,6 +60,11 @@ export const routes = [
         name: 'create_news',
         path: '/create_news',
         component: create_news
+      },
+      {
+        name: 'editPost',
+        path: '/editPost',
+        component: editPost
       },
       {
         name: 'categorylist',

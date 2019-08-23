@@ -13,8 +13,7 @@ class JobDetailController extends Controller
      */
     public function index()
     {
-        $job_details = Job::all();
-       return $job_details;
+        //
     }
 
     /**
@@ -44,9 +43,10 @@ class JobDetailController extends Controller
      * @param  \App\JobDetail  $jobDetail
      * @return \Illuminate\Http\Response
      */
-    public function show(JobDetail $jobDetail)
+    public function show()
     {
-        //
+        $job_details = Job::all();
+       return $job_details;
     }
 
     /**
