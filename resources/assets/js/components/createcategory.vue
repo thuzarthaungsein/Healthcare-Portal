@@ -48,13 +48,9 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-=======
           </div>
       </div>
 
->>>>>>> 28bd47386420519b3dda7589fab574db4355a8f3
 </template>
 <script>
 export default {

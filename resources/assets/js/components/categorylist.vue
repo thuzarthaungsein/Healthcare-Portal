@@ -42,11 +42,6 @@
                 </div>
             </div>
             <!--end card-->
-
-
-
-        </div>
-    </div>
         </div>
     </div>
 </template>
