@@ -62,7 +62,7 @@ export const routes = [
     },
     {
         name: 'job_details',
-        path: '/job_details',
+        path: '/job_details/:id',
         component: job_details
       },
       {

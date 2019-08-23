@@ -44,10 +44,10 @@ class JobDetailController extends Controller
      * @param  \App\JobDetail  $jobDetail
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $job_details = Job::all();
-       return $job_details;
+        
+        return Job::findOrFail($id);
     }
 
     /**

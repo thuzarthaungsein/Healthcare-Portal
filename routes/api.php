@@ -33,9 +33,8 @@ Route::group(['prefix' => 'category'], function () {
     Route::delete('delete/{id}', 'CategoryController@destroy');
 });
 
-Route::get('job_details', 'JobDetailController@show');
-Route::get('news_list', 'PostController@show');
-Route::get('job_details', 'JobDetailController@index');
+Route::get('job_details/{id}', 'JobDetailController@show');
+Route::get('news_list', 'PostController@index');
 Route::get('newdetails', 'PostController@index');
 Route::get('jobs', 'JobController@index');
 Route::get('news_list', 'PostController@index');
