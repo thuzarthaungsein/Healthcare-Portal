@@ -122,6 +122,7 @@ class DatabaseSeeder extends Seeder
         for ($i=0; $i < 20; $i++) { 
             $post = new Post();
             $post->title = $faker->sentence();
+            $post->photo = "day1.jpg";
             $post->body = $faker->paragraph();
             $post->main_point = $faker->sentence();
             $post->category_id = rand(1, 5);

@@ -14,7 +14,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+
+        $customers = Customer::all()->toArray();
+        return array_reverse($customers);
     }
 
     /**
@@ -55,9 +57,11 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit($id)
     {
-        //
+        $customer = Customer::find($id);
+
+        return response()->json($customer);
     }
 
     /**
@@ -67,9 +71,11 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update($id,Request $request)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->update($request->all());
+        return response()->json('Customer successfully updated');
     }
 
     /**
@@ -78,8 +84,11 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy($id)
     {
         //
+        $customer = Customer::find($id);
+        $customer->delete();
+        return response()->json('Customer successfully deleted');
     }
 }

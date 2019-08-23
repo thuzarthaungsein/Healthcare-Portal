@@ -1,6 +1,6 @@
 <template>
-    <div class="content">
-        <div class="container">
+    <div class="row">
+        <div class="col-12">
             <div class="card card-default m-b-20">
 
               <div class="card-body">
@@ -32,9 +32,9 @@
                                 {{category.name}}
                             </div>
                             <div class="col-md-3" style="margin-top: 8px;">
-                                
+
                                 <router-link :to ="{name:'editcategory', params:{id : category.id}}" class="btn main-bg-color white all-btn">Edit </router-link>
-                               
+
                                 <button class="btn btn-danger all-btn" @click="deleteCategory(category.id)">Delete</button>
                             </div>
                         </div>
@@ -42,9 +42,6 @@
                 </div>
             </div>
             <!--end card-->
-            
-            
-            
         </div>
     </div>
 </template>
@@ -75,7 +72,7 @@ export default {
                         this.categories.splice(i, 1)
                     });
                 }
-               
+
             }
         }
 }

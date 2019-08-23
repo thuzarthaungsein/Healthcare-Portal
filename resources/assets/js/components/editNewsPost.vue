@@ -10,7 +10,7 @@
                                         <h4 class="page-header">ニュース投稿を作成</h4>
                                         <br>
                                     </div>
-                                    <form @submit.prevent="add" class="col-md-12">
+                                    <form @submit.prevent="updatePost" class="col-md-12">
                                         <div class="form-group">
                                             <label>題名:<span class="error">*</span></label>
                                             <input type="text" class="form-control" placeholder="題名を入力してください。" v-model="news.title">
@@ -45,11 +45,10 @@
                                                     写真/画像を投稿する
                                                  <input type="file" class="uploadFile img" value="Upload Photo">
                                             </label>
-                                            <!-- <div class="imagePreview"></div> -->
                                         </div>
                                     <div class="row">
                                             <br>
-                                            <button class="btn news-post-btn all-btn"> ニュースを投稿する</button>
+                                            <button class="btn news-post-btn all-btn"> ニュースを更新する</button>
                                             <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
                                     </div>
                                     </form>
@@ -75,20 +74,23 @@ export default {
             }
         }
     },
+    created() {
+            this.axios
+                .get(`http://localhost:8000/api/new/editPost/${this.$route.params.id}`)
+                .then((response) => {
+                    this.news = response.data;
+                   
+                });
+        },
     methods: {
-    add(){
-      
-        this.axios
-                    .post('http://localhost:8000/api/new/add', this.news)
-                    .then(response => {
-                        
-                        this.$router.push({name: 'news_list'})
-                         console.log(response);
-                        // console.log(response.data)
-                    })
-                    .catch(error => console.log(error))
-                    .finally(() => this.loading = false)
-    }
+    updatePost() {
+                this.axios
+                    .post(`http://localhost:8000/api/new/update/${this.$route.params.id}`, this.news)
+                    .then((response) => {
+                          alert('Successfully Updated!')
+                        this.$router.push({name: 'news_list'});
+                    });
+            }
 }
 }
 

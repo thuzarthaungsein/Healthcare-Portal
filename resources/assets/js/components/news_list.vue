@@ -18,20 +18,19 @@
 
             </div>
             <div class="col-md-12 scroll2">
-                <div class="card card-default m-b-20">
+                <div v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2">
                                 <img src="/images/nursing1.jpg" class="col-md-12" alt="">
                             </div>
                             <div class="col-md-10">
-                                <div class="col-sm-8 pad-free mb-2"><b><a href="../news/news_details.html" class="mr-auto">平成30年度「介護労働実態調査」の結果（8／9）《介護労働安定センター》 </a></b></div>
-                                <p>今回のポイント ●介護労働安定センターが8月9日に公表した、2018年度の「介護労働実態調査」の結果によると、介護サービス事業所に所属する介護労働者の21.6％が60歳以上であることが、わかった。65歳以上は12.2％。 ○訪問介護員、介護職員の採用率は前年度に比べて上昇し、離職率は低下。センターは雇用管理改善の取り組みが進んだ結果と推測している。 ○正規職員と管理者の所定内賃金の平均額は、前年度に比べてともに増加。正規職員に賞与を定期的に支給している事業所は約7割を占めた。
-                                </p>
+                                <div class="col-sm-8 pad-free mb-2"><b><a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a></b></div>
+                                <p>{{newsList.main_point}}</p>
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <small><a href="" class="mr-auto text-warning">編集</a></small> &nbsp;
-                                        <small><a href="" class="mr-auto text-danger">削除</a></small>
+                                        <small><router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="mr-auto text-warning">編集</router-link></small> &nbsp;
+                                        <small><a class="mr-auto text-danger" @click="deletePost(newsList.id)">削除</a></small>
                                     </div>
 
                                 </div>
@@ -40,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card card-default m-b-20">
+                <!-- <div class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2">
@@ -61,9 +60,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="card card-default m-b-20">
+                <!-- <div class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2">
@@ -82,8 +81,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card card-default m-b-20">
+                </div> -->
+                <!-- <div class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2">
@@ -102,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -110,4 +109,35 @@
 </template>
 
 <script>
+export default {
+       
+        data() {
+            return {
+                news_list:[]
+            }
+        },
+        created(){
+            this.axios
+                 .get('http://localhost:8000/api/news_list')
+                 .then(response=>{
+                     this.news_list = response.data;
+                 });
+        },
+         methods: {
+            deletePost(id) {
+                if(confirm("Are you sure you want to delete?"))
+                {
+                     this.axios
+                    .delete(`http://localhost:8000/api/new/delete/${id}`)
+                    .then(response => {
+                        alert('Delete Successfully!');
+                        let i = this.news_list.map(item => item.id).indexOf(id); // find index of your object
+                        this.news_list.splice(i, 1)
+                    });
+                }
+               
+            }
+        }
+
+    }
 </script>
