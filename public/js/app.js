@@ -49473,7 +49473,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -49527,6 +49527,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__);
+//
 //
 //
 //
@@ -57649,7 +57650,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-12" }, [
-    _c("h4", { staticClass: "h_4" }, [_vm._v("求人応募フォーム")]),
+    _c("h4", { staticClass: "h_4 header" }, [_vm._v("求人応募フォーム")]),
     _vm._v(" "),
     _c("div", { staticClass: "col-md-7 offset-md-3" }, [
       _c("form", [
@@ -57673,17 +57674,21 @@ var render = function() {
         _vm._v(" "),
         _vm._m(9),
         _vm._v(" "),
-        _c("div", { staticClass: "text-center" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn main-bg-color white all-btn",
-              attrs: { href: "#" }
-            },
-            [_c("router-link", { attrs: { to: "/" } }, [_vm._v("募集")])],
-            1
-          )
-        ])
+        _c(
+          "div",
+          { staticClass: "text-center" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "btn secondary-bg-color white all-btn",
+                attrs: { to: "/" }
+              },
+              [_vm._v("募集")]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
@@ -57770,6 +57775,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
       _c("textarea", {
+        staticClass: "form-control",
         staticStyle: { width: "100%", padding: "5px" },
         attrs: { rows: "8", cols: "30", placeholder: "コンテンツ" }
       })
@@ -57830,7 +57836,8 @@ var staticRenderFns = [
     return _c("div", { staticClass: "form-group" }, [
       _c("textarea", {
         staticClass: "form-control",
-        attrs: { name: "message", id: "message", rows: "5" }
+        staticStyle: { width: "100%", padding: "5px" },
+        attrs: { name: "message", id: "message", rows: "8" }
       })
     ])
   },
