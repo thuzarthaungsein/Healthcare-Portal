@@ -219,7 +219,8 @@
             this.axios
                  .get('http://localhost:8000/api/newdetails')
                  .then(response=>{
-                     this.newdetails = response.data;
+                         console.log(response.data.newdetails);
+                     this.newdetails = response.data.newdetails;
                  });
         }
 
