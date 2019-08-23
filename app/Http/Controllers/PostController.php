@@ -17,7 +17,7 @@ class PostController extends Controller
         $newdetails = Post::all()->toArray();
         // return $newdetails;
         $news_list = Post::all()->toArray();
-        $data = array("news_list" => $news_list, "newdetails" => $newdetails);
+        $data = array("news_list" => $news_list);
         
        return response()->json($data);
     }
@@ -65,9 +65,9 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        return Post::findOrFail($id);
     }
 
     /**
