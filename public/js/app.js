@@ -50102,7 +50102,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(118)
 /* template */
 var __vue_template__ = __webpack_require__(54)
 /* template functional */
@@ -50150,141 +50150,84 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "card m-b-10 ads-card2" }, [
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
+          return _c(
+            "ul",
+            {
+              key: latest_post_all_cat.id,
+              staticClass: "list-group list-group-flush"
+            },
+            [
+              _c("li", { staticClass: "list-group-item" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("img", {
+                    staticClass: "img-responsivie ads-img",
+                    attrs: {
+                      src: "/images/" + latest_post_all_cat.photo,
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "h3",
+                    { staticClass: "ads-title text-truncate", staticStyle: {} },
+                    [_vm._v(" " + _vm._s(latest_post_all_cat.title) + " ")]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "source-wrapper" }, [
+                    _c("span", { staticClass: "subtitle" }, [
+                      _vm._v(" " + _vm._s(latest_post_all_cat.created_at))
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card m-b-10 ads-card" }, [
-        _c("div", {}, [
-          _c("img", {
-            staticClass: "img-responsivie",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/ad_1.jpg", alt: "" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card m-b-10 ads-card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title text-center" }, [
-            _vm._v("二つ目の広告")
-          ]),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "img-responsivie",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/logo_japanese_horizontal.png", alt: "" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card m-b-10 ads-card2" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("ul", { staticClass: "list-group list-group-flush" }, [
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/home1.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: { src: "/images/company-profile1.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/h8.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: { src: "/images/company-profile1.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/day1.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: {
-                      src: "/images/logo_japanese_horizontal.png",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/h11.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: { src: "/images/company-profile1.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "card m-b-10 ads-card" }, [
+      _c("div", {}, [
+        _c("img", {
+          staticClass: "img-responsivie",
+          staticStyle: { width: "100%" },
+          attrs: { src: "/images/ad_1.jpg", alt: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card m-b-10 ads-card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title text-center" }, [
+          _vm._v("二つ目の広告")
+        ]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "img-responsivie",
+          staticStyle: { width: "100%" },
+          attrs: { src: "/images/logo_japanese_horizontal.png", alt: "" }
+        })
       ])
     ])
   }
@@ -55404,12 +55347,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_custedit_vue__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_custedit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_custedit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue__);
+
+
 
 
 
@@ -55477,7 +55424,7 @@ var routes = [{
 }, {
   name: 'editPost',
   path: '/editPost',
-  component: __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue___default.a
 }, {
   name: 'categorylist',
   path: '/categorylist',
@@ -55489,7 +55436,7 @@ var routes = [{
 }, {
   name: 'editcategory',
   path: '/editcategory',
-  component: __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue___default.a
 }, {
   name: 'facilitieslist',
   path: '/facilitieslist',
@@ -55499,9 +55446,13 @@ var routes = [{
   path: '/createfacility',
   component: __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue___default.a
 }, {
+  name: 'custedit',
+  path: '/custedit',
+  component: __WEBPACK_IMPORTED_MODULE_15__components_custedit_vue___default.a
+}, {
   name: 'editfacility',
   path: '/editfacility',
-  component: __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue___default.a
 }];
 
 /***/ }),
@@ -55673,288 +55624,69 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        mounted: function mounted() {
-                console.log('Component mounted.');
-                //     $(document).ready(function() {
-                //            // jssor_1_slider_init();   
-                //             $('.nav-tabs').scrollingTabs({
-                //             bootstrapVersion: 4  
-                //           });                   
+        data: function data() {
+                return {
+                        cats: [],
+                        posts: [],
+                        latest_post: [],
+                        latest_post_all_cats: []
+                };
+        },
+        created: function created() {
+                this.getAllCat();
+                this.getPostByFirstCat();
+                this.getLatestPostByFirstCatID();
+                this.getLatestPostFromAllCat();
+        },
 
-                //         });
+        methods: {
+                getAllCat: function getAllCat() {
+                        var _this = this;
+
+                        this.axios.get('http://localhost:8000/api/home').then(function (response) {
+                                _this.cats = response.data;
+                        });
+                },
+                getPostByFirstCat: function getPostByFirstCat() {
+                        var _this2 = this;
+
+                        axios.get("http://localhost:8000/api/posts/1").then(function (response) {
+                                _this2.posts = response.data;
+                        });
+                },
+                getPostByCatID: function getPostByCatID(cat_id) {
+                        var _this3 = this;
+
+                        axios.get("http://localhost:8000/api/posts/" + cat_id).then(function (response) {
+                                _this3.posts = response.data;
+                        });
+                },
+                getLatestPostByFirstCatID: function getLatestPostByFirstCatID() {
+                        var _this4 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/1").then(function (response) {
+                                _this4.latest_post = response.data;
+                        });
+                },
+                getLatestPostByCatID: function getLatestPostByCatID(cat_id) {
+                        var _this5 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/" + cat_id).then(function (response) {
+                                _this5.latest_post = response.data;
+                        });
+                },
+                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
+                        var _this6 = this;
+
+                        this.axios.get('http://localhost:8000/api/get_latest_post_all_cat').then(function (response) {
+                                _this6.latest_post_all_cats = response.data;
+                        });
+                }
         }
+        // alert(cats[0]);
+
 });
 
 /***/ }),
@@ -55969,7 +55701,78 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-md-center" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("div", { staticClass: "card tab-card" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "card-header tab-card-header" }, [
+            _c(
+              "ul",
+              {
+                staticClass: "nav nav-tabs card-header-tabs",
+                attrs: { id: "myTab", role: "tablist" }
+              },
+              _vm._l(_vm.cats, function(cat) {
+                return _c(
+                  "li",
+                  {
+                    key: cat.id,
+                    staticClass: "nav-item",
+                    on: {
+                      click: function($event) {
+                        _vm.getPostByCatID(cat.id)
+                        _vm.getLatestPostByCatID(cat.id)
+                      }
+                    }
+                  },
+                  [
+                    _vm.cats[0].id != cat.id
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: {
+                              href: "#two",
+                              id: "one-tab",
+                              "data-toggle": "tab",
+                              role: "tab",
+                              "aria-controls": "One",
+                              "aria-selected": "true"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                                " +
+                                _vm._s(cat.name)
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.cats[0].id == cat.id
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link active",
+                            attrs: {
+                              href: "#two",
+                              id: "one-tab",
+                              "data-toggle": "tab",
+                              role: "tab",
+                              "aria-controls": "One",
+                              "aria-selected": "true"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                                " +
+                                _vm._s(cat.name)
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -55987,29 +55790,61 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(1),
+                    _c("div", { staticClass: "active-users col-md-4" }, [
+                      _c("a", { attrs: { href: "./news/news_details.html" } }, [
+                        _c("img", {
+                          staticClass: "source-img img-responsive",
+                          staticStyle: { width: "100%", height: "80%" },
+                          attrs: { src: "/images/" + _vm.latest_post.photo }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass: "source-title",
+                            attrs: { "aria-label": "" }
+                          },
+                          [_vm._v(_vm._s(_vm.latest_post.title))]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "source-subtitle" }, [
+                          _c("img", {
+                            staticClass: "source-img",
+                            attrs: { alt: "", src: "/images/5.png" }
+                          }),
+                          _vm._v(
+                            _vm._s(_vm.latest_post.created_at) +
+                              "\r\n                                                                        "
+                          )
+                        ])
+                      ])
+                    ]),
                     _vm._v(" "),
                     _c(
                       "div",
-                      {
-                        staticClass:
-                          "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                      },
-                      [
-                        _c(
+                      { staticClass: "col-md-8 news-wrapper" },
+                      _vm._l(_vm.posts, function(post) {
+                        return _c(
                           "ul",
-                          { staticClass: "list-group list-group-flush" },
+                          {
+                            key: post.id,
+                            staticClass: "list-group list-group-flush"
+                          },
                           [
-                            _c(
-                              "li",
-                              { staticClass: "list-group-item p-t-5 p-b-5" },
-                              [
-                                _c(
-                                  "a",
+                            _vm.posts[0].id != post.id
+                              ? _c(
+                                  "li",
+                                  {
+                                    staticClass: "list-group-item p-t-5 p-b-5"
+                                  },
                                   [
                                     _c(
-                                      "router-link",
-                                      { attrs: { to: "/job_details" } },
+                                      "a",
+                                      {
+                                        attrs: {
+                                          href: "./news/news_details.html"
+                                        }
+                                      },
                                       [
                                         _c("img", {
                                           staticClass:
@@ -56030,122 +55865,82 @@ var render = function() {
                                             staticClass:
                                               "source-img-small d-inline-block text-truncate"
                                           },
-                                          [
-                                            _vm._v(
-                                              "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                            )
-                                          ]
+                                          [_vm._v(_vm._s(post.title) + " ")]
                                         )
                                       ]
                                     )
-                                  ],
-                                  1
+                                  ]
                                 )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              { staticClass: "list-group-item p-t-5 p-b-5" },
-                              [
-                                _c(
-                                  "a",
-                                  [
-                                    _c(
-                                      "router-link",
-                                      { attrs: { to: "/newsdetails" } },
-                                      [
-                                        _c("img", {
-                                          staticClass:
-                                            "img-responsive float-right",
-                                          staticStyle: {
-                                            width: "16px",
-                                            height: "16px"
-                                          },
-                                          attrs: {
-                                            src: "/images/2.png",
-                                            alt: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          { staticClass: "source-img-small" },
-                                          [_vm._v("日刊スポーツ")]
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              { staticClass: "list-group-item p-t-5 p-b-5" },
-                              [
-                                _c(
-                                  "a",
-                                  [
-                                    _c(
-                                      "router-link",
-                                      { attrs: { to: "/facilitieslist" } },
-                                      [
-                                        _c("img", {
-                                          staticClass:
-                                            "img-responsive float-right",
-                                          staticStyle: {
-                                            width: "16px",
-                                            height: "16px"
-                                          },
-                                          attrs: {
-                                            src: "/images/3.png",
-                                            alt: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          { staticClass: "source-img-small" },
-                                          [_vm._v("日刊スポーツ")]
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _vm._m(2),
-                            _vm._v(" "),
-                            _vm._m(3),
-                            _vm._v(" "),
-                            _vm._m(4),
-                            _vm._v(" "),
-                            _vm._m(5),
-                            _vm._v(" "),
-                            _vm._m(6),
-                            _vm._v(" "),
-                            _vm._m(7)
+                              : _vm._e()
                           ]
                         )
-                      ]
+                      }),
+                      0
                     )
                   ])
                 ]
-              ),
-              _vm._v(" "),
-              _vm._m(8),
-              _vm._v(" "),
-              _vm._m(9)
+              )
             ]
           )
         ])
       ]),
       _vm._v(" "),
-      _vm._m(10)
+      _c(
+        "div",
+        { staticClass: "row m-lr-0" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
+            return _c(
+              "div",
+              {
+                key: latest_post_all_cat.id,
+                staticClass: "col-sm-3  col-md-3 mt-2"
+              },
+              [
+                _c("div", { staticClass: "hovereffect fit-image" }, [
+                  _c("img", {
+                    staticClass: "img-responsive fit-image",
+                    attrs: {
+                      src: "/images/" + latest_post_all_cat.photo,
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "overlay" }, [
+                    _c("h2"),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm all-btn secondary-bg-color",
+                        attrs: { href: "/newsdetails" }
+                      },
+                      [_vm._v(_vm._s(latest_post_all_cat.title))]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "info" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-12" }, [
+                        _c("p", { staticClass: " p_3" }, [
+                          _vm._v(
+                            "\r\n                                                                        " +
+                              _vm._s(latest_post_all_cat.main_point) +
+                              "\r\n                                                                "
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          })
+        ],
+        2
+      )
     ])
   ])
 }
@@ -56154,786 +55949,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header tab-card-header" }, [
-      _c(
-        "ul",
-        {
-          staticClass: "nav nav-tabs card-header-tabs",
-          attrs: { id: "myTab", role: "tablist" }
-        },
-        [
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link active",
-                attrs: {
-                  id: "one-tab",
-                  "data-toggle": "tab",
-                  href: "#one",
-                  role: "tab",
-                  "aria-controls": "One",
-                  "aria-selected": "true"
-                }
-              },
-              [
-                _vm._v(
-                  "\r\n                                                                ニュース 1"
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  id: "two-tab",
-                  "data-toggle": "tab",
-                  href: "#two",
-                  role: "tab",
-                  "aria-controls": "Two",
-                  "aria-selected": "false"
-                }
-              },
-              [
-                _vm._v(
-                  "\r\n                                                                ニュース 2"
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  id: "three-tab",
-                  "data-toggle": "tab",
-                  href: "#three",
-                  role: "tab",
-                  "aria-controls": "Three",
-                  "aria-selected": "false"
-                }
-              },
-              [
-                _vm._v(
-                  "\r\n                                                                ニュース 3"
-                )
-              ]
-            )
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-xl-4 col-sm-12 col-md-3 col-lg-3 col-12" },
-      [
-        _c("a", { attrs: { href: "/newsdetails" } }, [
-          _c("img", {
-            staticClass: "img-responsive",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/h4.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c(
-            "p",
-            { staticClass: "source-title", attrs: { "aria-label": "" } },
-            [
-              _vm._v(
-                "\r\n                                                                                ニュースタイトル\r\n                                                                        "
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "source-subtitle" }, [
-            _c("img", {
-              staticClass: "source-img",
-              attrs: { alt: "", src: "/images/5.png" }
-            }),
-            _vm._v(
-              "日刊スポーツ\r\n                                                                        "
-            )
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/4.png", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/5.png", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/h2.jpg", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/news_search.png", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/h1.jpg", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/2.png", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "tab-pane fade p-3",
-        attrs: { id: "two", role: "tabpanel", "aria-labelledby": "two-tab" }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" },
-            [
-              _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                _c("img", {
-                  staticClass: "img-responsive",
-                  staticStyle: { width: "100%" },
-                  attrs: { src: "/images/h9.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  { staticClass: "source-title", attrs: { "aria-label": "" } },
-                  [
-                    _vm._v(
-                      "\r\n                                                                                ニュースタイトル\r\n                                                                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "source-subtitle" }, [
-                  _c("img", {
-                    staticClass: "source-img",
-                    attrs: { alt: "", src: "/images/5.png" }
-                  }),
-                  _vm._v(
-                    "日刊スポーツ\r\n                                                                        "
-                  )
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-            },
-            [
-              _c("ul", { staticClass: "list-group list-group-flush" }, [
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/3.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/4.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/5.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/h2.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/news_search.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/h1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/2.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ])
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "tab-pane fade p-3",
-        attrs: { id: "three", role: "tabpanel", "aria-labelledby": "three-tab" }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" },
-            [
-              _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                _c("img", {
-                  staticClass: "img-responsive",
-                  staticStyle: { width: "100%" },
-                  attrs: { src: "/images/h4.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  { staticClass: "source-title", attrs: { "aria-label": "" } },
-                  [
-                    _vm._v(
-                      "\r\n                                                                                ニュースタイトル\r\n                                                                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "source-subtitle" }, [
-                  _c("img", {
-                    staticClass: "source-img",
-                    attrs: { alt: "", src: "/images/5.png" }
-                  }),
-                  _vm._v(
-                    "日刊スポーツ\r\n                                                                        "
-                  )
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-            },
-            [
-              _c("ul", { staticClass: "list-group list-group-flush" }, [
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "source-img-small d-inline-block text-truncate"
-                      },
-                      [
-                        _vm._v(
-                          "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "source-img-small d-inline-block text-truncate"
-                      },
-                      [
-                        _vm._v(
-                          "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "source-img-small d-inline-block text-truncate"
-                      },
-                      [
-                        _vm._v(
-                          "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/2.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/3.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/4.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/5.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/5.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/h2.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/news_search.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/h1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/2.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ])
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-lr-0" }, [
-      _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
-        _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/newsdetails" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/newsdetails" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/hhh.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/newsdetails" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/home2.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/newsdetails" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
+      _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
     ])
   }
 ]
@@ -57593,7 +56610,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(119)
 /* template */
 var __vue_template__ = __webpack_require__(75)
 /* template functional */
@@ -57664,8 +56681,6 @@ var render = function() {
         _vm._v(" "),
         _vm._m(8),
         _vm._v(" "),
-        _vm._m(9),
-        _vm._v(" "),
         _c(
           "div",
           { staticClass: "text-center" },
@@ -57693,12 +56708,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "form-group" }, [
       _c("input", {
         staticClass: "form-control box",
-        attrs: {
-          type: "text",
-          id: "jobid",
-          placeholder: " ジョブID",
-          name: "jobid"
-        }
+        attrs: { type: "text", id: "name", placeholder: "name", name: "name" }
       })
     ])
   },
@@ -57709,7 +56719,12 @@ var staticRenderFns = [
     return _c("div", { staticClass: "form-group" }, [
       _c("input", {
         staticClass: "form-control box",
-        attrs: { type: "text", id: "email", placeholder: "名", name: "name" }
+        attrs: {
+          type: "text",
+          id: "birth",
+          placeholder: "birthday",
+          name: "birthday"
+        }
       })
     ])
   },
@@ -57721,43 +56736,22 @@ var staticRenderFns = [
       _c("input", {
         staticClass: "form-control",
         attrs: {
-          id: "form_email",
-          type: "email",
-          name: "email",
-          placeholder: "電子メールアドレス"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", {
-        staticClass: "form-control box",
-        attrs: {
-          type: "text",
-          id: "phone",
-          placeholder: "電話番号",
-          name: "phone"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", {
-        staticClass: "form-control box",
-        attrs: {
           type: "text",
           id: "address",
-          placeholder: "アドレッ",
-          name: "address"
+          name: "address",
+          placeholder: "address"
         }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("input", {
+        staticClass: "form-control box",
+        attrs: { type: "tel", id: "phone", placeholder: "phone", name: "phone" }
       })
     ])
   },
@@ -57780,7 +56774,12 @@ var staticRenderFns = [
     return _c("div", { staticClass: "form-group" }, [
       _c("input", {
         staticClass: "form-control box",
-        attrs: { type: "text", id: "comp", placeholder: "会社名", name: "comp" }
+        attrs: {
+          type: "time",
+          id: "time",
+          placeholder: "working_time",
+          name: "time"
+        }
       })
     ])
   },
@@ -57789,36 +56788,28 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "select",
-        {
-          staticClass: "form-control",
-          attrs: {
-            id: "form_need",
-            name: "need",
-            "data-error": "Please specify your need."
-          }
-        },
-        [
-          _c("option", { attrs: { value: "" } }, [_vm._v("必要職業")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "Doctor" } }, [_vm._v("Doctor")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "Nurse" } }, [_vm._v("Nurse")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "pharmacists" } }, [
-            _vm._v("Pharmacists")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "health professionals" } }, [
-            _vm._v("Health Professionals")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "Other" } }, [
-            _vm._v("Other Hospital Staff")
-          ])
-        ]
-      )
+      _c("input", { attrs: { type: "checkbox", name: "skill1" } }),
+      _vm._v("Communication"),
+      _c("br"),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "checkbox", name: "skill2" } }),
+      _vm._v("Ethics"),
+      _c("br"),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "checkbox", name: "skill3" } }),
+      _vm._v("Critical Thinking"),
+      _c("br"),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "checkbox", name: "skill4" } }),
+      _vm._v("Attention To Detail"),
+      _c("br"),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "checkbox", name: "skill4" } }),
+      _vm._v("Commitment To Development"),
+      _c("br"),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "checkbox", name: "skill4" } }),
+      _vm._v("Responsibility\r\n         ")
     ])
   },
   function() {
@@ -57845,7 +56836,7 @@ var staticRenderFns = [
             staticClass: "input-group-text",
             attrs: { id: "inputGroupFileAddon01" }
           },
-          [_vm._v("アップロード")]
+          [_vm._v("Upload")]
         )
       ]),
       _vm._v(" "),
@@ -57861,7 +56852,7 @@ var staticRenderFns = [
             staticClass: "custom-file-label",
             attrs: { for: "inputGroupFile01" }
           },
-          [_vm._v("ファイルを選ぶ")]
+          [_vm._v("No file chosen")]
         )
       ])
     ])
@@ -57883,7 +56874,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(120)
 /* template */
 var __vue_template__ = __webpack_require__(77)
 /* template functional */
@@ -57931,213 +56922,185 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "scroll col-12" },
+        _vm._l(_vm.customers, function(customer) {
+          return _c(
+            "div",
+            { key: customer.id, staticClass: "card card-default m-b-20" },
+            [
+              _c("div", { staticClass: "card-body news-post" }, [
+                _c("div", { staticClass: "row" }, [
+                  _vm._m(3, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-10" }, [
+                    _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                      _c("a", [
+                        _c("strong", [_vm._v("Name     :")]),
+                        _vm._v(_vm._s(customer.name))
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("a", [
+                        _c("strong", [_vm._v("Email    :")]),
+                        _vm._v(_vm._s(customer.email))
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("a", [
+                        _c("strong", [_vm._v("Logo     :")]),
+                        _vm._v(_vm._s(customer.logo))
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("a", [
+                        _c("strong", [_vm._v("Phone    :")]),
+                        _vm._v(_vm._s(customer.phone))
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("a", [
+                        _c("strong", [_vm._v("Address  :")]),
+                        _vm._v(_vm._s(customer.address))
+                      ]),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-4 text-center" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "btn main-bg-color all-btn white",
+                              attrs: {
+                                to: {
+                                  name: "custedit",
+                                  params: { id: customer.id }
+                                }
+                              }
+                            },
+                            [_vm._v("Edit")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger all-btn",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteCustomer(customer.id)
+                                }
+                              }
+                            },
+                            [_vm._v("Delete")]
+                          )
+                        ],
+                        1
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "card card-default m-b-20" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "main-color" }, [
-              _vm._v("ニュース記事を検索")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-10" }, [
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "検索" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-2" }, [
-                _c(
-                  "button",
-                  { staticClass: "btn secondary-bg-color all-btn white" },
-                  [_vm._v("検索")]
-                )
-              ])
-            ])
+    return _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+      _c("ol", { staticClass: "breadcrumb" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "../news/news_details.html" } }, [
+            _vm._v(" 新しい詳細")
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-header text-center" }, [
-          _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-            _vm._v("ユーザーリストテーブル")
-          ])
-        ]),
+        _c(
+          "li",
+          {
+            staticClass: "breadcrumb-item active",
+            attrs: { "aria-current": "page" }
+          },
+          [
+            _vm._v(
+              "\r\n                                            就職活動リスト"
+            )
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card card-default m-b-20" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
         _vm._v(" "),
-        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
-          _c("div", { staticClass: "card-body news-post" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-2 pad-free" }, [
-                _c("img", {
-                  staticClass: "col-md-12 ",
-                  staticStyle: { height: "150px" },
-                  attrs: { src: "/images/hospital6.jpg", alt: " " }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-10" }, [
-                _c("h4", { staticClass: "txt2 bold_h5" }, [
-                  _vm._v("Fukuoka Kinen Hospital")
-                ]),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Type   :")]),
-                _vm._v(" General Hospital"),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Address:")]),
-                _vm._v(
-                  " 1-1-35 Nishijin, Sawara-ku, Fukuoka-shi, Fukuoka, 814-8525"
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Contact:")]),
-                _vm._v(" info@kinen.jp English, Japanese, Chinese"),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Train  :")]),
-                _vm._v(
-                  " 3 minutes walk from Nishijin Station, Fukuoka City Subway Airport Line "
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Airplane:")]),
-                _vm._v(
-                  " 20 minutes by car from Fukuoka Airport\r\n                                                18 minutes by subway from Fukuoka Airport"
-                ),
-                _c("br"),
-                _c("br"),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-center" }, [
-                  _c(
-                    "button",
-                    { staticClass: "btn main-bg-color all-btn white" },
-                    [_vm._v("Edit")]
-                  ),
-                  _vm._v(" "),
-                  _c("button", { staticClass: "btn btn-danger all-btn" }, [
-                    _vm._v("Delete")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
-          _c("div", { staticClass: "card-body news-post" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-2 pad-free " }, [
-                _c("img", {
-                  staticClass: "col-md-12 ",
-                  staticStyle: { height: "150px" },
-                  attrs: { src: "/images/eye.jpg", alt: "" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-10" }, [
-                _c("h4", { staticClass: "txt2 bold_h5" }, [
-                  _vm._v("Sinjuku-Higashiguchi")
-                ]),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Type   :")]),
-                _vm._v(" Eye Clinic"),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Address:")]),
-                _vm._v(
-                  " 9th floor of Hulic Shinjuku Building,3-25-1, Shinjuku, Shinjuku-ku, Tokyo, 160-0022"
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Contact:")]),
-                _vm._v(" 03-5363-0507"),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Train  :")]),
-                _vm._v(" 1-minute walk from Tokyo Metro Shinjuku Station"),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Airplane:")]),
-                _vm._v(" 25 minutes by car from  Airport"),
-                _c("br"),
-                _c("br"),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-center" }, [
-                  _c(
-                    "button",
-                    { staticClass: "btn main-bg-color all-btn white" },
-                    [_vm._v("Edit")]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
-          _c("div", { staticClass: "card-body news-post" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-2 pad-free " }, [
-                _c("img", {
-                  staticClass: "col-md-12 ",
-                  staticStyle: { height: "150px" },
-                  attrs: { src: "/images/grandparent.jpg", alt: "" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-10" }, [
-                _c("h4", { staticClass: "txt2 bold_h5" }, [
-                  _vm._v("Care Center")
-                ]),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Type   :")]),
-                _vm._v(" grandparents and grandchildren"),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Address:")]),
-                _vm._v(
-                  "  International Child Development Initiatives - ICDI. "
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Contact:")]),
-                _vm._v(
-                  " Margaret Kernan and Giulia Cortellesi, info@toyproject.net "
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Train  :")]),
-                _vm._v(" 1-minute walk from Tokyo Metro Shinjuku Station"),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Airplane:")]),
-                _vm._v(" 25 minutes by car from  Airport"),
-                _c("br"),
-                _c("br"),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-center" }, [
-                  _c(
-                    "button",
-                    { staticClass: "btn main-bg-color all-btn white" },
-                    [_vm._v("Edit")]
-                  ),
-                  _vm._v(" "),
-                  _c("button", { staticClass: "btn btn-danger all-btn" }, [
-                    _vm._v("Delete")
-                  ])
-                ])
-              ])
-            ])
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-10" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "検索" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-2" }, [
+            _c(
+              "button",
+              { staticClass: "btn secondary-bg-color all-btn white" },
+              [_vm._v("検索")]
+            )
           ])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("h4", { staticStyle: { "padding-top": "20px" } }, [
+        _vm._v("Customer List ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2" }, [
+      _c("img", {
+        staticClass: "col-md-12 ",
+        staticStyle: { height: "150px" },
+        attrs: { src: "/images/hospitalpage.jpg", alt: " " }
+      })
     ])
   }
 ]
@@ -60070,9 +59033,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -60113,10 +59073,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content" }, [
+  return _c("div", { staticClass: "row" }, [
     _c(
       "div",
-      { staticClass: "container" },
+      { staticClass: "col-12" },
       [
         _vm._m(0),
         _vm._v(" "),
@@ -60343,31 +59303,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            errors: [],
-            category: {
-                name: '',
-                user_id: '',
-                recordstatus: ''
-            }
-        };
-    },
+        data: function data() {
+                return {
+                        errors: [],
+                        category: {
+                                name: '',
+                                user_id: '',
+                                recordstatus: ''
+                        }
+                };
+        },
 
 
-    methods: {
-        add: function add() {
-            var _this = this;
+        methods: {
+                add: function add() {
+                        var _this = this;
 
-            axios.post('http://localhost:8000/api/category/add', this.category).then(function (response) {
-                alert('Successfully Created');
-                console.log(response);
-                _this.$router.push({ name: 'categorylist' });
-            });
+                        axios.post('http://localhost:8000/api/category/add', this.category).then(function (response) {
+                                alert('Successfully Created');
+                                console.log(response);
+                                _this.$router.push({ name: 'categorylist' });
+                        });
+                }
         }
-    }
 
 });
 
@@ -60447,7 +59422,29 @@ var render = function() {
                             )
                           ],
                           1
-                        )
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-12" }, [
+                          _c("div", { staticClass: "form-group row" }, [
+                            _vm._m(3),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-3 pad-free" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "btn btn-warning",
+                                    attrs: { to: "/categorylist" }
+                                  },
+                                  [_vm._v("Cancel")]
+                                )
+                              ],
+                              1
+                            )
+                          ])
+                        ])
                       ])
                     ])
                   ]
@@ -60478,6 +59475,14 @@ var staticRenderFns = [
     return _c("label", [
       _vm._v("カテゴリ 名 :"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-1 pad-free" }, [
+      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Create")])
     ])
   },
   function() {
@@ -61073,7 +60078,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -61930,6 +60934,659 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
+                        latest_post_all_cats: []
+                };
+        },
+        created: function created() {
+                this.getLatestPostFromAllCat();
+        },
+
+        methods: {
+                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
+                        var _this = this;
+
+                        this.axios.get('http://localhost:8000/api/get_latest_post_all_cat').then(function (response) {
+                                _this.latest_post_all_cats = response.data;
+                        });
+                }
+        }
+        // alert(cats[0]);
+
+});
+
+/***/ }),
+/* 119 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 120 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            customers: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/customers').then(function (response) {
+            _this.customers = response.data;
+        });
+    },
+
+    methods: {
+        deleteCustomer: function deleteCustomer(id) {
+            var _this2 = this;
+
+            this.axios.delete('http://localhost:8000/api/customer/delete/' + id).then(function (response) {
+                alert('Delete Successfully!');
+                var a = _this2.customers.map(function (item) {
+                    return item.id;
+                }).indexOf(id);
+                _this2.customers.splice(a, 1);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(122)
+/* template */
+var __vue_template__ = __webpack_require__(123)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/custedit.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-316f4174", Component.options)
+  } else {
+    hotAPI.reload("data-v-316f4174", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 122 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            errors: [],
+            customer: {
+                name: '',
+                email: '',
+                logo: '',
+                phone: '',
+                address: ''
+
+            }
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/customer/edit/' + this.$route.params.id).then(function (response) {
+            _this.customer = response.data;
+        });
+    },
+
+    methods: {
+        CustomerUpdate: function CustomerUpdate() {
+            var _this2 = this;
+
+            this.axios.post('http://localhost:8000/api/customer/update/' + this.$route.params.id, this.customer).then(function (response) {
+                alert('Successfully Updated!');
+                _this2.$router.push({ name: 'customerlist' });
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h1", { staticClass: "text-center" }, [_vm._v("Customer Edit")]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.CustomerUpdate($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Name")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.customer.name,
+                    expression: "customer.name"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", required: "" },
+                domProps: { value: _vm.customer.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.customer, "name", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v(" Email")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.customer.email,
+                    expression: "customer.email"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", required: "" },
+                domProps: { value: _vm.customer.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.customer, "email", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v(" Logo")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.customer.logo,
+                    expression: "customer.logo"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", required: "" },
+                domProps: { value: _vm.customer.logo },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.customer, "logo", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v(" Phone")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.customer.phone,
+                    expression: "customer.phone"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", required: "" },
+                domProps: { value: _vm.customer.phone },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.customer, "phone", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Address")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.customer.address,
+                    expression: "customer.address"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", required: "" },
+                domProps: { value: _vm.customer.address },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.customer, "address", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-sm-4 text-center" },
+          [
+            _c("button", { staticClass: "btn main-bg-color all-btn" }, [
+              _vm._v("Update")
+            ]),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-info all-btn",
+                attrs: { to: "/customerlist" }
+              },
+              [_vm._v(" Cancel ")]
+            )
+          ],
+          1
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-316f4174", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
