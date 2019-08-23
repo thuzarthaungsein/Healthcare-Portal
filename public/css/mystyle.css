@@ -979,6 +979,25 @@ ul.main-tab li:after{
 }
 /* End Hospital Search */
 
+/* Newdetails */
+    .p5
+    {
+        font-size:18px;
+        letter-spacing:2px;
+    }
+
+    .news_photo {
+        height: 250px;
+        width: 80%;
+        margin-bottom: 24px;
+        border-radius: 3px;
+    }
+
+    .related-area span {
+        color: rgb(255, 72, 0);
+        font-size: 14px;
+    }
+/*End Newdetails */
 /* Scrollbar */
     .news-wrapper::-webkit-scrollbar,
     body::-webkit-scrollbar {
