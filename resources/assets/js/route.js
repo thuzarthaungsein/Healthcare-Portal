@@ -1,4 +1,7 @@
 import home from './components/home.vue';
+import Newsdetails from './components/Newsdetails.vue';
+import categorieslist from './components/categorieslist.vue';
+
 import hospitalSearch from './components/hospitalSearch.vue';
 import JobApply from './components/JobApply.vue';
 import customerlist from './components/customerlist.vue';
@@ -20,6 +23,17 @@ export const routes = [
         name: 'home',
         path: '/',
         component: home
+    },
+
+    {
+        name: 'newsdetails',
+        path: '/newsdetails',
+        component: Newsdetails
+    },
+    {
+        name: 'categorieslist',
+        path: '/categorieslist',
+        component: categorieslist
     },
        {
         name: 'hospital_search',

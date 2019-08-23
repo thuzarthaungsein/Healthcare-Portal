@@ -17,9 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('jobs', 'JobController@index');
-
-
 Route::group(['prefix' => 'facility'], function () {
     Route::get('facilities', 'FacilityController@index');
     Route::post('add', 'FacilityController@add');  
@@ -38,6 +35,10 @@ Route::group(['prefix' => 'category'], function () {
 
 Route::get('job_details', 'JobDetailController@show');
 Route::get('news_list', 'PostController@show');
+Route::get('job_details', 'JobDetailController@index');
+Route::get('newdetails', 'PostController@index');
+Route::get('jobs', 'JobController@index');
+Route::get('news_list', 'PostController@index');
 
 
 Route::group(['prefix' => 'new'], function () {

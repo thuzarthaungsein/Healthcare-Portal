@@ -1,9 +1,9 @@
 <template>
-    <div>
+    
         <div class="row justify-content-md-center">
             <div class="col-md container cont-pad">
                 <div class="row m-b-20" v-for="jobDetail in job_details" :key="jobDetail.id">
-                    <div class="col-md-12 scroll2" v-if="jobDetail.id==1">
+                    <div class="col-md-12 scroll2">
                         <h4 class="h_4">{{jobDetail.title}}</h4>
                         <img src="/images/img1.jpg" class="img-responsive img_6" height="" width="15%">
                         <div class="col-md-12">
@@ -73,12 +73,12 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <!-- <button type="button" class="btn btn-warning btn-width white">戻る</button> -->
-                        <a href="job_apply_form.html" class="btn main-bg-color white all-btn">この案件に応募</a>
+                        <a href="#" class="btn main-bg-color white all-btn"><router-link to="/jobapply">この案件に応募</router-link></a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    
 </template>
 
 <script>
@@ -93,6 +93,7 @@
             this.axios
                  .get('http://localhost:8000/api/job_details')
                  .then(response=>{
+                     console.log(response.data);
                      this.job_details = response.data;
                  });
         }
