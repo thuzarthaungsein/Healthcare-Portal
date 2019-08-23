@@ -37,4 +37,10 @@ Route::group(['prefix' => 'category'], function () {
     Route::delete('delete/{id}', 'CategoryController@destroy');
 });
 
+// Home Page
+Route::get('home', 'HomeController@index');
+Route::get('posts/{cat_id}', 'HomeController@getPosts');
+Route::get('get_latest_post/{cat_id}', 'HomeController@getLatestPost');
+Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
+
 Route::get('job_details', 'JobDetailController@index');

@@ -14596,7 +14596,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -14639,7 +14639,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(110);
+module.exports = __webpack_require__(111);
 
 
 /***/ }),
@@ -14650,12 +14650,12 @@ module.exports = __webpack_require__(110);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__App_vue__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__route__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__route__ = __webpack_require__(64);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -49400,7 +49400,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(60)
+var __vue_template__ = __webpack_require__(61)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -49523,9 +49523,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__);
 //
 //
@@ -50101,9 +50101,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(54)
 /* template */
-var __vue_template__ = __webpack_require__(54)
+var __vue_template__ = __webpack_require__(55)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50143,147 +50143,152 @@ module.exports = Component.exports
 
 /***/ }),
 /* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
+                        latest_post_all_cats: []
+                };
+        },
+        created: function created() {
+                this.getLatestPostFromAllCat();
+        },
+
+        methods: {
+                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
+                        var _this = this;
+
+                        this.axios.get('http://localhost:8000/api/get_latest_post_all_cat').then(function (response) {
+                                _this.latest_post_all_cats = response.data;
+                        });
+                }
+        }
+        // alert(cats[0]);
+
+});
+
+/***/ }),
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "card m-b-10 ads-card2" }, [
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
+          return _c(
+            "ul",
+            {
+              key: latest_post_all_cat.id,
+              staticClass: "list-group list-group-flush"
+            },
+            [
+              _c("li", { staticClass: "list-group-item" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("img", {
+                    staticClass: "img-responsivie ads-img",
+                    attrs: {
+                      src: "/images/" + latest_post_all_cat.photo,
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "h3",
+                    { staticClass: "ads-title text-truncate", staticStyle: {} },
+                    [_vm._v(" " + _vm._s(latest_post_all_cat.title) + " ")]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "source-wrapper" }, [
+                    _c("span", { staticClass: "subtitle" }, [
+                      _vm._v(" " + _vm._s(latest_post_all_cat.created_at))
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card m-b-10 ads-card" }, [
-        _c("div", {}, [
-          _c("img", {
-            staticClass: "img-responsivie",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/ad_1.jpg", alt: "" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card m-b-10 ads-card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title text-center" }, [
-            _vm._v("二つ目の広告")
-          ]),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "img-responsivie",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/logo_japanese_horizontal.png", alt: "" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card m-b-10 ads-card2" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("ul", { staticClass: "list-group list-group-flush" }, [
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/home1.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: { src: "/images/company-profile1.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/h8.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: { src: "/images/company-profile1.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/day1.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: {
-                      src: "/images/logo_japanese_horizontal.png",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/h11.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: { src: "/images/company-profile1.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "card m-b-10 ads-card" }, [
+      _c("div", {}, [
+        _c("img", {
+          staticClass: "img-responsivie",
+          staticStyle: { width: "100%" },
+          attrs: { src: "/images/ad_1.jpg", alt: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card m-b-10 ads-card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title text-center" }, [
+          _vm._v("二つ目の広告")
+        ]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "img-responsivie",
+          staticStyle: { width: "100%" },
+          attrs: { src: "/images/logo_japanese_horizontal.png", alt: "" }
+        })
       ])
     ])
   }
@@ -50298,7 +50303,7 @@ if (false) {
 }
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51562,7 +51567,7 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -51570,7 +51575,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(58)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51609,7 +51614,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51900,7 +51905,7 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -51908,7 +51913,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(59)
+var __vue_template__ = __webpack_require__(60)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51947,7 +51952,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52238,7 +52243,7 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52515,7 +52520,7 @@ if (false) {
 }
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55360,7 +55365,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55368,44 +55373,44 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.Vue&&window.axios&&Vue.use(o,window.axios)}();
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_job_details_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_news_list_vue__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_news_list_vue__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_news_list_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_news_list_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_create_news_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__);
 
 
@@ -55498,19 +55503,19 @@ var routes = [{
 }];
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(65)
+  __webpack_require__(66)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(67)
+var __vue_script__ = __webpack_require__(68)
 /* template */
-var __vue_template__ = __webpack_require__(68)
+var __vue_template__ = __webpack_require__(69)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55549,13 +55554,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(66);
+var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -55575,7 +55580,7 @@ if(false) {
 }
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -55589,7 +55594,7 @@ exports.push([module.i, "\ndiv.tab-card-header > .card-header-tab > .nav-tabs .n
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55666,1707 +55671,333 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        mounted: function mounted() {
-                console.log('Component mounted.');
-                //     $(document).ready(function() {
-                //            // jssor_1_slider_init();   
-                //             $('.nav-tabs').scrollingTabs({
-                //             bootstrapVersion: 4  
-                //           });                   
+        data: function data() {
+                return {
+                        cats: [],
+                        posts: [],
+                        latest_post: [],
+                        latest_post_all_cats: []
+                };
+        },
+        created: function created() {
+                this.getAllCat();
+                this.getPostByFirstCat();
+                this.getLatestPostByFirstCatID();
+                this.getLatestPostFromAllCat();
+        },
 
-                //         });
+        methods: {
+                getAllCat: function getAllCat() {
+                        var _this = this;
+
+                        this.axios.get('http://localhost:8000/api/home').then(function (response) {
+                                _this.cats = response.data;
+                        });
+                },
+                getPostByFirstCat: function getPostByFirstCat() {
+                        var _this2 = this;
+
+                        axios.get("http://localhost:8000/api/posts/1").then(function (response) {
+                                _this2.posts = response.data;
+                        });
+                },
+                getPostByCatID: function getPostByCatID(cat_id) {
+                        var _this3 = this;
+
+                        axios.get("http://localhost:8000/api/posts/" + cat_id).then(function (response) {
+                                _this3.posts = response.data;
+                        });
+                },
+                getLatestPostByFirstCatID: function getLatestPostByFirstCatID() {
+                        var _this4 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/1").then(function (response) {
+                                _this4.latest_post = response.data;
+                        });
+                },
+                getLatestPostByCatID: function getLatestPostByCatID(cat_id) {
+                        var _this5 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/" + cat_id).then(function (response) {
+                                _this5.latest_post = response.data;
+                        });
+                },
+                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
+                        var _this6 = this;
+
+                        this.axios.get('http://localhost:8000/api/get_latest_post_all_cat').then(function (response) {
+                                _this6.latest_post_all_cats = response.data;
+                        });
+                }
         }
+        // alert(cats[0]);
+
 });
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "card tab-card" }, [
+          _c("div", { staticClass: "card-header tab-card-header" }, [
+            _c(
+              "ul",
+              {
+                staticClass: "nav nav-tabs card-header-tabs",
+                attrs: { id: "myTab", role: "tablist" }
+              },
+              _vm._l(_vm.cats, function(cat) {
+                return _c(
+                  "li",
+                  {
+                    key: cat.id,
+                    staticClass: "nav-item",
+                    on: {
+                      click: function($event) {
+                        _vm.getPostByCatID(cat.id)
+                        _vm.getLatestPostByCatID(cat.id)
+                      }
+                    }
+                  },
+                  [
+                    _vm.cats[0].id != cat.id
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: {
+                              href: "#two",
+                              id: "one-tab",
+                              "data-toggle": "tab",
+                              role: "tab",
+                              "aria-controls": "One",
+                              "aria-selected": "true"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                                " +
+                                _vm._s(cat.name)
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.cats[0].id == cat.id
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link active",
+                            attrs: {
+                              href: "#two",
+                              id: "one-tab",
+                              "data-toggle": "tab",
+                              role: "tab",
+                              "aria-controls": "One",
+                              "aria-selected": "true"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                                " +
+                                _vm._s(cat.name)
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "tab-pane fade show active p-3",
+                  attrs: {
+                    id: "one",
+                    role: "tabpanel",
+                    "aria-labelledby": "one-tab"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "active-users col-md-4" }, [
+                      _c("a", { attrs: { href: "./news/news_details.html" } }, [
+                        _c("img", {
+                          staticClass: "source-img img-responsive",
+                          staticStyle: { width: "100%", height: "80%" },
+                          attrs: { src: "/images/" + _vm.latest_post.photo }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass: "source-title",
+                            attrs: { "aria-label": "" }
+                          },
+                          [_vm._v(_vm._s(_vm.latest_post.title))]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "source-subtitle" }, [
+                          _c("img", {
+                            staticClass: "source-img",
+                            attrs: { alt: "", src: "/images/5.png" }
+                          }),
+                          _vm._v(
+                            _vm._s(_vm.latest_post.created_at) +
+                              "\r\n                                                                        "
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-8 news-wrapper" },
+                      _vm._l(_vm.posts, function(post) {
+                        return _c(
+                          "ul",
+                          {
+                            key: post.id,
+                            staticClass: "list-group list-group-flush"
+                          },
+                          [
+                            _vm.posts[0].id != post.id
+                              ? _c(
+                                  "li",
+                                  {
+                                    staticClass: "list-group-item p-t-5 p-b-5"
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: {
+                                          href: "./news/news_details.html"
+                                        }
+                                      },
+                                      [
+                                        _c("img", {
+                                          staticClass:
+                                            "img-responsive float-right",
+                                          staticStyle: {
+                                            width: "16px",
+                                            height: "16px"
+                                          },
+                                          attrs: {
+                                            src: "/images/1.jpg",
+                                            alt: ""
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "source-img-small d-inline-block text-truncate"
+                                          },
+                                          [_vm._v(_vm._s(post.title) + " ")]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row m-lr-0" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
+            return _c(
+              "div",
+              {
+                key: latest_post_all_cat.id,
+                staticClass: "col-sm-3  col-md-3 mt-2"
+              },
+              [
+                _c("div", { staticClass: "hovereffect fit-image" }, [
+                  _c("img", {
+                    staticClass: "img-responsive fit-image",
+                    attrs: {
+                      src: "/images/" + latest_post_all_cat.photo,
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "overlay" }, [
+                    _c("h2"),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm all-btn secondary-bg-color",
+                        attrs: { href: "/newsdetails" }
+                      },
+                      [_vm._v(_vm._s(latest_post_all_cat.title))]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "info" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-12" }, [
+                        _c("p", { staticClass: " p_3" }, [
+                          _vm._v(
+                            "\r\n                                                                        " +
+                              _vm._s(latest_post_all_cat.main_point) +
+                              "\r\n                                                                "
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          })
+        ],
+        2
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "row justify-content-md-center" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("div", { staticClass: "card tab-card" }, [
-            _c("div", { staticClass: "card-header tab-card-header" }, [
-              _c(
-                "ul",
-                {
-                  staticClass: "nav nav-tabs card-header-tabs",
-                  attrs: { id: "myTab", role: "tablist" }
-                },
-                [
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link active",
-                        attrs: {
-                          id: "one-tab",
-                          "data-toggle": "tab",
-                          href: "#one",
-                          role: "tab",
-                          "aria-controls": "One",
-                          "aria-selected": "true"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\r\n                                                                ニュース 1"
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          id: "two-tab",
-                          "data-toggle": "tab",
-                          href: "#two",
-                          role: "tab",
-                          "aria-controls": "Two",
-                          "aria-selected": "false"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\r\n                                                                ニュース 2"
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          id: "three-tab",
-                          "data-toggle": "tab",
-                          href: "#three",
-                          role: "tab",
-                          "aria-controls": "Three",
-                          "aria-selected": "false"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\r\n                                                                ニュース 3"
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "tab-content", attrs: { id: "myTabContent" } },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "tab-pane fade show active p-3",
-                    attrs: {
-                      id: "one",
-                      role: "tabpanel",
-                      "aria-labelledby": "one-tab"
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "row" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-xl-4 col-sm-12 col-md-3 col-lg-3 col-12"
-                        },
-                        [
-                          _c("a", { attrs: { href: "/newsdetails" } }, [
-                            _c("img", {
-                              staticClass: "img-responsive",
-                              staticStyle: { width: "100%" },
-                              attrs: { src: "/images/h4.jpg", alt: "" }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass: "source-title",
-                                attrs: { "aria-label": "" }
-                              },
-                              [
-                                _vm._v(
-                                  "\r\n                                                                                ニュースタイトル\r\n                                                                        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "source-subtitle" }, [
-                              _c("img", {
-                                staticClass: "source-img",
-                                attrs: { alt: "", src: "/images/5.png" }
-                              }),
-                              _vm._v(
-                                "日刊スポーツ\r\n                                                                        "
-                              )
-                            ])
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                        },
-                        [
-                          _c(
-                            "ul",
-                            { staticClass: "list-group list-group-flush" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/1.jpg", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "source-img-small d-inline-block text-truncate"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/2.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/3.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/4.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/5.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: {
-                                          src: "/images/h2.jpg",
-                                          alt: ""
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: {
-                                          src: "/images/news_search.png",
-                                          alt: ""
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: {
-                                          src: "/images/h1.jpg",
-                                          alt: ""
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/2.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "tab-pane fade p-3",
-                    attrs: {
-                      id: "two",
-                      role: "tabpanel",
-                      "aria-labelledby": "two-tab"
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "row" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12"
-                        },
-                        [
-                          _c(
-                            "a",
-                            { attrs: { href: "./news/news_details.html" } },
-                            [
-                              _c("img", {
-                                staticClass: "img-responsive",
-                                staticStyle: { width: "100%" },
-                                attrs: { src: "/images/h9.jpg", alt: "" }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                {
-                                  staticClass: "source-title",
-                                  attrs: { "aria-label": "" }
-                                },
-                                [
-                                  _vm._v(
-                                    "\r\n                                                                                ニュースタイトル\r\n                                                                        "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticClass: "source-subtitle" }, [
-                                _c("img", {
-                                  staticClass: "source-img",
-                                  attrs: { alt: "", src: "/images/5.png" }
-                                }),
-                                _vm._v(
-                                  "日刊スポーツ\r\n                                                                        "
-                                )
-                              ])
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                        },
-                        [
-                          _c(
-                            "ul",
-                            { staticClass: "list-group list-group-flush" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/3.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/4.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/5.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: {
-                                          src: "/images/h2.jpg",
-                                          alt: ""
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: {
-                                          src: "/images/news_search.png",
-                                          alt: ""
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: {
-                                          src: "/images/h1.jpg",
-                                          alt: ""
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/2.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "tab-pane fade p-3",
-                    attrs: {
-                      id: "three",
-                      role: "tabpanel",
-                      "aria-labelledby": "three-tab"
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "row" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12"
-                        },
-                        [
-                          _c(
-                            "a",
-                            { attrs: { href: "./news/news_details.html" } },
-                            [
-                              _c("img", {
-                                staticClass: "img-responsive",
-                                staticStyle: { width: "100%" },
-                                attrs: { src: "/images/h4.jpg", alt: "" }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                {
-                                  staticClass: "source-title",
-                                  attrs: { "aria-label": "" }
-                                },
-                                [
-                                  _vm._v(
-                                    "\r\n                                                                                ニュースタイトル\r\n                                                                        "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticClass: "source-subtitle" }, [
-                                _c("img", {
-                                  staticClass: "source-img",
-                                  attrs: { alt: "", src: "/images/5.png" }
-                                }),
-                                _vm._v(
-                                  "日刊スポーツ\r\n                                                                        "
-                                )
-                              ])
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                        },
-                        [
-                          _c(
-                            "ul",
-                            { staticClass: "list-group list-group-flush" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/1.jpg", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "source-img-small d-inline-block text-truncate"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/1.jpg", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "source-img-small d-inline-block text-truncate"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/1.jpg", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "source-img-small d-inline-block text-truncate"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/2.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/3.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/4.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/5.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/5.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: {
-                                          src: "/images/h2.jpg",
-                                          alt: ""
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: {
-                                          src: "/images/news_search.png",
-                                          alt: ""
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: {
-                                          src: "/images/h1.jpg",
-                                          alt: ""
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "./news/news_details.html"
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/2.png", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "source-img-small" },
-                                        [_vm._v("日刊スポーツ")]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ]
-                )
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row m-lr-0" }, [
-          _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
-            _c("h4", { staticClass: "h_4 next-title" }, [
-              _vm._v("関連ニュース")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-            _c("div", { staticClass: "hovereffect fit-image" }, [
-              _c("img", {
-                staticClass: "img-responsive fit-image",
-                attrs: { src: "images/j5.jpg", alt: "" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "overlay" }, [
-                _c("h2"),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-sm all-btn secondary-bg-color",
-                    attrs: { href: "/newsdetails" }
-                  },
-                  [_vm._v("詳細を見る")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "info" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("p", { staticClass: " p_3" }, [
-                      _vm._v(
-                        "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-            _c("div", { staticClass: "hovereffect fit-image" }, [
-              _c("img", {
-                staticClass: "img-responsive fit-image",
-                attrs: { src: "images/day1.jpg", alt: "" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "overlay" }, [
-                _c("h2"),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-sm all-btn secondary-bg-color",
-                    attrs: { href: "/newsdetails" }
-                  },
-                  [_vm._v("詳細を見る")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "info" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("p", { staticClass: " p_3" }, [
-                      _vm._v(
-                        "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-            _c("div", { staticClass: "hovereffect fit-image" }, [
-              _c("img", {
-                staticClass: "img-responsive fit-image",
-                attrs: { src: "images/hhh.jpg", alt: "" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "overlay" }, [
-                _c("h2"),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-sm all-btn secondary-bg-color",
-                    attrs: { href: "/newsdetails" }
-                  },
-                  [_vm._v("詳細を見る")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "info" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("p", { staticClass: " p_3" }, [
-                      _vm._v(
-                        "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-            _c("div", { staticClass: "hovereffect fit-image" }, [
-              _c("img", {
-                staticClass: "img-responsive fit-image",
-                attrs: { src: "images/home2.jpg", alt: "" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "overlay" }, [
-                _c("h2"),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-sm all-btn secondary-bg-color",
-                    attrs: { href: "/newsdetails" }
-                  },
-                  [_vm._v("詳細を見る")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "info" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("p", { staticClass: " p_3" }, [
-                      _vm._v(
-                        "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
+      _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
     ])
   }
 ]
@@ -57380,15 +56011,15 @@ if (false) {
 }
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(70)
+var __vue_script__ = __webpack_require__(71)
 /* template */
-var __vue_template__ = __webpack_require__(71)
+var __vue_template__ = __webpack_require__(72)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57427,7 +56058,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57658,7 +56289,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57966,7 +56597,7 @@ if (false) {
 }
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -57974,7 +56605,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(73)
+var __vue_template__ = __webpack_require__(74)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58013,7 +56644,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58033,7 +56664,7 @@ if (false) {
 }
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -58041,7 +56672,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(75)
+var __vue_template__ = __webpack_require__(76)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58080,7 +56711,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58274,7 +56905,7 @@ if (false) {
 }
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -58282,7 +56913,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(77)
+var __vue_template__ = __webpack_require__(78)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58321,7 +56952,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58548,15 +57179,15 @@ if (false) {
 }
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(79)
+var __vue_script__ = __webpack_require__(80)
 /* template */
-var __vue_template__ = __webpack_require__(80)
+var __vue_template__ = __webpack_require__(81)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58595,7 +57226,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58652,7 +57283,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58774,15 +57405,15 @@ if (false) {
 }
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(82)
+var __vue_script__ = __webpack_require__(83)
 /* template */
-var __vue_template__ = __webpack_require__(83)
+var __vue_template__ = __webpack_require__(84)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58821,7 +57452,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58933,7 +57564,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -59140,15 +57771,15 @@ if (false) {
 }
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(85)
+var __vue_script__ = __webpack_require__(86)
 /* template */
-var __vue_template__ = __webpack_require__(86)
+var __vue_template__ = __webpack_require__(87)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -59187,7 +57818,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59281,7 +57912,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -59368,15 +57999,15 @@ if (false) {
 }
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(88)
+var __vue_script__ = __webpack_require__(89)
 /* template */
-var __vue_template__ = __webpack_require__(89)
+var __vue_template__ = __webpack_require__(90)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -59415,7 +58046,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports) {
 
 //
@@ -59531,7 +58162,7 @@ module.exports = Component.exports
 //
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -59839,7 +58470,7 @@ if (false) {
 }
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -59847,7 +58478,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(91)
+var __vue_template__ = __webpack_require__(92)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -59886,7 +58517,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -60076,15 +58707,15 @@ if (false) {
 }
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(93)
+var __vue_script__ = __webpack_require__(94)
 /* template */
-var __vue_template__ = __webpack_require__(94)
+var __vue_template__ = __webpack_require__(95)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60123,7 +58754,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60212,7 +58843,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -60358,15 +58989,15 @@ if (false) {
 }
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(96)
+var __vue_script__ = __webpack_require__(97)
 /* template */
-var __vue_template__ = __webpack_require__(97)
+var __vue_template__ = __webpack_require__(98)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60405,7 +59036,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60478,7 +59109,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -60605,15 +59236,15 @@ if (false) {
 }
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(99)
+var __vue_script__ = __webpack_require__(100)
 /* template */
-var __vue_template__ = __webpack_require__(100)
+var __vue_template__ = __webpack_require__(101)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60652,7 +59283,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60736,7 +59367,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -60879,15 +59510,15 @@ if (false) {
 }
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(102)
+var __vue_script__ = __webpack_require__(103)
 /* template */
-var __vue_template__ = __webpack_require__(103)
+var __vue_template__ = __webpack_require__(104)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60926,7 +59557,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60996,7 +59627,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61127,15 +59758,15 @@ if (false) {
 }
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(105)
+var __vue_script__ = __webpack_require__(106)
 /* template */
-var __vue_template__ = __webpack_require__(106)
+var __vue_template__ = __webpack_require__(107)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61174,7 +59805,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61251,7 +59882,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61378,15 +60009,15 @@ if (false) {
 }
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(108)
+var __vue_script__ = __webpack_require__(109)
 /* template */
-var __vue_template__ = __webpack_require__(109)
+var __vue_template__ = __webpack_require__(110)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61425,7 +60056,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61505,7 +60136,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61632,7 +60263,7 @@ if (false) {
 }
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
