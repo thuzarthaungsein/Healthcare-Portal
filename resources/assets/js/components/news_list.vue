@@ -25,7 +25,11 @@
                                 <img src="/images/nursing1.jpg" class="col-md-12" alt="">
                             </div>
                             <div class="col-md-10">
-                                <div class="col-sm-8 pad-free mb-2"><b><a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a></b></div>
+                                <div class="col-sm-8 pad-free mb-2"><b>
+                                    <router-link :to="{name: 'newdetails', params:{id:newsList.id}}" class="mr-auto">{{newsList.title}}</router-link>
+                                    <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
+                                    <!-- <a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
+                                    </b></div>
                                 <p>{{newsList.main_point}}</p>
                                 <div class="row">
                                     <div class="col-sm-4">

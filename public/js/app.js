@@ -55433,8 +55433,8 @@ var routes = [{
   path: '/',
   component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
 }, {
-  name: 'newsdetails',
-  path: '/newsdetails',
+  name: 'newdetails',
+  path: '/newsdetails/:id',
   component: __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default.a
 }, {
   name: 'categorieslist',
@@ -57163,45 +57163,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57212,9 +57173,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        this.axios.get('http://localhost:8000/api/newdetails').then(function (response) {
+        this.axios.get("http://localhost:8000/api/newdetails/" + this.$route.params.id).then(function (response) {
+
+            _this.newdetails = response.data;
             console.log(response.data.newdetails);
-            _this.newdetails = response.data.newdetails;
         });
     }
 });
@@ -57227,80 +57189,105 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", {}, [
-    _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row justify-content-md-center" }, [
-        _c("div", { staticClass: "col-md container" }, [
-          _c("div", { staticClass: "scroll2" }, [
+  return _c("div", [
+    _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", {}, [
+          _c("div", [
             _c("div", { staticClass: "row m-lr-0" }, [
-              _c(
-                "div",
-                { staticClass: "row m-lr-0" },
-                _vm._l(_vm.newdetails, function(news) {
-                  return _c("div", { key: news.id, staticClass: "container" }, [
-                    news.id == 1
-                      ? _c("div", { staticClass: "row m-lr-0" }, [
-                          _c("div", { staticClass: "col-md-12" }, [
-                            _c("h4", { staticClass: "h_4" }, [
-                              _vm._v(_vm._s(news.title))
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("p", { staticClass: "p5" }, [
-                              _vm._v(_vm._s(news.body))
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "col-md-6  mt-2 related-area" },
-                            [
-                              _c("img", {
-                                staticClass: "img-responsive img_2 news_photo",
-                                attrs: { src: news.photo }
-                              }),
-                              _vm._v(" "),
-                              _vm._m(0, true),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                {
-                                  staticClass: "img_2",
-                                  staticStyle: { "font-size": "22px" }
-                                },
-                                [_vm._v("関連ニュース")]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(1, true),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "m-l-10p" }, [
-                                _vm._v("21/08/2019")
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(2, true),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "m-l-10p" }, [
-                                _vm._v("21/08/2019")
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(3, true),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "m-l-10p" }, [
-                                _vm._v("21/08/2019")
-                              ])
-                            ]
-                          )
-                        ])
-                      : _vm._e()
-                  ])
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("h4", { staticClass: "h_4 header" }, [
+                  _vm._v(_vm._s(_vm.newdetails.title))
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("p", { staticClass: "p5" }, [
+                  _vm._v(_vm._s(_vm.newdetails.body))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6  mt-2 related-area" }, [
+                _c("img", {
+                  staticClass: "img-responsive img_2 news_photo",
+                  attrs: { src: "/images/" + _vm.newdetails.photo }
                 }),
-                0
-              ),
-              _vm._v(" "),
-              _c("hr", { staticClass: "hr-line" }),
-              _vm._v(" "),
-              _vm._m(4)
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "img_2 header",
+                    staticStyle: { "font-size": "22px" }
+                  },
+                  [_vm._v("関連ニュース")]
+                ),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4)
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row m-lr-0" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+              _c("div", { staticClass: "hovereffect fit-image" }, [
+                _c("img", {
+                  staticClass: "img-responsive fit-image",
+                  attrs: { src: "/images/" + _vm.newdetails.photo, alt: "" }
+                }),
+                _vm._v(" "),
+                _vm._m(6),
+                _vm._v(" "),
+                _vm._m(7)
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+              _c("div", { staticClass: "hovereffect fit-image" }, [
+                _c("img", {
+                  staticClass: "img-responsive fit-image",
+                  attrs: { src: "/images/" + _vm.newdetails.photo, alt: "" }
+                }),
+                _vm._v(" "),
+                _vm._m(8),
+                _vm._v(" "),
+                _vm._m(9)
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+              _c("div", { staticClass: "hovereffect fit-image" }, [
+                _c("img", {
+                  staticClass: "img-responsive fit-image",
+                  attrs: { src: "/images/" + _vm.newdetails.photo, alt: "" }
+                }),
+                _vm._v(" "),
+                _vm._m(10),
+                _vm._v(" "),
+                _vm._m(11)
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+              _c("div", { staticClass: "hovereffect fit-image" }, [
+                _c("img", {
+                  staticClass: "img-responsive fit-image",
+                  attrs: { src: "/images/" + _vm.newdetails.photo, alt: "" }
+                }),
+                _vm._v(" "),
+                _vm._m(12),
+                _vm._v(" "),
+                _vm._m(13)
+              ])
             ])
           ])
         ])
@@ -57313,205 +57300,213 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "img_2" }, [
-      _vm._v("東京五輪開幕まで1年　メダルお披露目 "),
-      _c("br"),
-      _vm._v(" "),
-      _c("span", [_vm._v("21/08/2019")])
+    return _c("p", { staticClass: "set-date" }, [
+      _c("time", { attrs: { datetime: "2012-01-04" } }, [
+        _vm._v("2012年1月4日")
+      ])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticStyle: { "text-decoration": "underline", color: "black" },
-        attrs: { href: "#" }
-      },
-      [
-        _c("p", { staticClass: "img_2" }, [
-          _vm._v("韓国人男女が日本総領事館に侵入し抗議　身柄を拘束")
+    return _c("p", { staticClass: "img_2" }, [
+      _vm._v("東京五輪開幕まで1年　メダルお披露目 "),
+      _c("br"),
+      _vm._v(" "),
+      _c("span", [
+        _c("time", { attrs: { datetime: "2019-06-07" } }, [
+          _vm._v("2019年6月7日")
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticStyle: { "text-decoration": "underline", color: "black" },
-        attrs: { href: "#" }
-      },
-      [
-        _c("p", { staticClass: "img_2" }, [
-          _vm._v("動く美術館」都大路進む 京都・祇園祭の山鉾巡行")
+    return _c("a", { staticStyle: { color: "#000" }, attrs: { href: "#" } }, [
+      _c("p", { staticClass: "img_2" }, [
+        _vm._v("韓国人男女が日本総領事館に侵入し抗議　身柄を拘束 "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [
+          _c("time", { attrs: { datetime: "2012-01-04" } }, [
+            _vm._v("2012年1月4日")
+          ])
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticStyle: { "text-decoration": "underline", color: "black" },
-        attrs: { href: "#" }
-      },
-      [
-        _c("p", { staticClass: "img_2" }, [
-          _vm._v("警察学校教官がナイフで巡査刺す　犯人確保訓練中に")
+    return _c("a", { staticStyle: { color: "#000" }, attrs: { href: "#" } }, [
+      _c("p", { staticClass: "img_2" }, [
+        _vm._v("動く美術館」都大路進む 京都・祇園祭の山鉾巡行 "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [
+          _c("time", { attrs: { datetime: "2012-01-04" } }, [
+            _vm._v("2012年1月4日")
+          ])
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-lr-0" }, [
-      _c("div", { staticClass: "row col-md-12 text-center" }, [
-        _c("h4", { staticClass: "h_4" }, [_vm._v("関連ニュース")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                  )
-                ])
-              ])
-            ])
+    return _c("a", { staticStyle: { color: "#000" }, attrs: { href: "#" } }, [
+      _c("p", { staticClass: "img_2" }, [
+        _vm._v("警察学校教官がナイフで巡査刺す　犯人確保訓練中に "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [
+          _c("time", { attrs: { datetime: "2012-01-04" } }, [
+            _vm._v("2012年1月4日")
           ])
         ])
-      ]),
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row col-md-12 text-center" }, [
+      _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "overlay" }, [
+      _c("h2"),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-sm all-btn secondary-bg-color",
+          attrs: { href: "news_details.html" }
+        },
+        [_vm._v("詳細を見る")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("p", { staticClass: " p_3" }, [
+            _vm._v(
+              "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
             )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                  )
-                ])
-              ])
-            ])
           ])
         ])
-      ]),
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "overlay" }, [
+      _c("h2"),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/hhh.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-sm all-btn secondary-bg-color",
+          attrs: { href: "news_details.html" }
+        },
+        [_vm._v("詳細を見る")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("p", { staticClass: " p_3" }, [
+            _vm._v(
+              "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
             )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                  )
-                ])
-              ])
-            ])
           ])
         ])
-      ]),
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "overlay" }, [
+      _c("h2"),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-sm all-btn secondary-bg-color",
+          attrs: { href: "news_details.html" }
+        },
+        [_vm._v("詳細を見る")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("p", { staticClass: " p_3" }, [
+            _vm._v(
+              "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
             )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                  )
-                ])
-              ])
-            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "overlay" }, [
+      _c("h2"),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-sm all-btn secondary-bg-color",
+          attrs: { href: "news_details.html" }
+        },
+        [_vm._v("詳細を見る")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("p", { staticClass: " p_3" }, [
+            _vm._v(
+              "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+            )
           ])
         ])
       ])
@@ -59248,6 +59243,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59290,16 +59289,25 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-10" }, [
                     _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                      _c("b", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "mr-auto",
-                            attrs: { href: "../news/news_details.html" }
-                          },
-                          [_vm._v(_vm._s(newsList.title) + " ")]
-                        )
-                      ])
+                      _c(
+                        "b",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "mr-auto",
+                              attrs: {
+                                to: {
+                                  name: "newdetails",
+                                  params: { id: newsList.id }
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(newsList.title))]
+                          )
+                        ],
+                        1
+                      )
                     ]),
                     _vm._v(" "),
                     _c("p", [_vm._v(_vm._s(newsList.main_point))]),
