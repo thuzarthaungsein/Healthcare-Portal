@@ -52702,33 +52702,40 @@ var render = function() {
                 [
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "active-users col-md-4" }, [
-                      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                        _c("img", {
-                          staticClass: "source-img img-responsive",
-                          staticStyle: { width: "100%", height: "80%" },
-                          attrs: { src: "/images/" + _vm.latest_post.photo }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "source-title",
-                            attrs: { "aria-label": "" }
-                          },
-                          [_vm._v(_vm._s(_vm.latest_post.title))]
-                        ),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "source-subtitle" }, [
-                          _c("img", {
-                            staticClass: "source-img",
-                            attrs: { alt: "", src: "/images/5.png" }
-                          }),
-                          _vm._v(
-                            _vm._s(_vm.latest_post.created_at) +
-                              "\r\n                                                                        "
-                          )
-                        ])
-                      ])
+                      _c(
+                        "a",
+                        { attrs: { href: "#" } },
+                        [
+                          _c("router-link", { attrs: { to: "/newsdetails" } }, [
+                            _c("img", {
+                              staticClass: "source-img img-responsive",
+                              staticStyle: { width: "100%", height: "200px" },
+                              attrs: { src: "/images/" + _vm.latest_post.photo }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              {
+                                staticClass: "source-title",
+                                attrs: { "aria-label": "" }
+                              },
+                              [_vm._v(_vm._s(_vm.latest_post.title))]
+                            ),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "source-subtitle" }, [
+                              _c("img", {
+                                staticClass: "source-img",
+                                attrs: { alt: "", src: "/images/5.png" }
+                              }),
+                              _vm._v(
+                                _vm._s(_vm.latest_post.created_at) +
+                                  "\r\n                                                                        "
+                              )
+                            ])
+                          ])
+                        ],
+                        1
+                      )
                     ]),
                     _vm._v(" "),
                     _c(
@@ -52751,34 +52758,37 @@ var render = function() {
                                   [
                                     _c(
                                       "a",
-                                      {
-                                        attrs: {
-                                          href: "./news/news_details.html"
-                                        }
-                                      },
+                                      { attrs: { href: "#" } },
                                       [
-                                        _c("img", {
-                                          staticClass:
-                                            "img-responsive float-right",
-                                          staticStyle: {
-                                            width: "16px",
-                                            height: "16px"
-                                          },
-                                          attrs: {
-                                            src: "/images/1.jpg",
-                                            alt: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
                                         _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "source-img-small d-inline-block text-truncate"
-                                          },
-                                          [_vm._v(_vm._s(post.title) + " ")]
+                                          "router-link",
+                                          { attrs: { to: "/newsdetails" } },
+                                          [
+                                            _c("img", {
+                                              staticClass:
+                                                "img-responsive float-right",
+                                              staticStyle: {
+                                                width: "16px",
+                                                height: "16px"
+                                              },
+                                              attrs: {
+                                                src: "/images/1.jpg",
+                                                alt: ""
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "source-img-small d-inline-block text-truncate"
+                                              },
+                                              [_vm._v(_vm._s(post.title) + " ")]
+                                            )
+                                          ]
                                         )
-                                      ]
+                                      ],
+                                      1
                                     )
                                   ]
                                 )
@@ -53126,19 +53136,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            newdetails: []
-        };
-    },
-    created: function created() {
-        var _this = this;
+        data: function data() {
+                return {
+                        newdetails: []
+                };
+        },
+        created: function created() {
+                this.getPostById();
+        },
 
-        this.axios.get('http://localhost:8000/api/newdetails').then(function (response) {
-            console.log(response.data.newdetails);
-            _this.newdetails = response.data.newdetails;
-        });
-    }
+        methods: {
+                getPostById: function getPostById() {
+                        var _this = this;
+
+                        var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+                        this.axios.get('http://localhost:8000/api/newdetails/' + id).then(function (response) {
+                                console.log(response.data.news_list);
+                                _this.newdetails = response.data.news_list;
+                        });
+                }
+        }
+
 });
 
 /***/ }),
@@ -53180,7 +53199,7 @@ var render = function() {
                         [
                           _c("img", {
                             staticClass: "img-responsive img_2 news_photo",
-                            attrs: { src: news.photo }
+                            attrs: { src: "/images/" + news.photo }
                           }),
                           _vm._v(" "),
                           _vm._m(1, true),

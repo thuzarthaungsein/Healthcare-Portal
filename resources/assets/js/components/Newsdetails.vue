@@ -25,7 +25,7 @@
                                         </div>
                                         <div class="col-md-6  mt-2 related-area" >
                                                 <img
-                                                        :src="(news.photo)"
+                                                        v-bind:src="'/images/' + news.photo"
                                                         class="img-responsive img_2 news_photo"
                                                         > 
                                                 <p class="img_2">東京五輪開幕まで1年　メダルお披露目 <br> <span><time datetime="2019-06-07">2019年6月7日</time></span></p> 
@@ -204,12 +204,17 @@
             }
         },
         created(){
-            this.axios
-                 .get('http://localhost:8000/api/newdetails')
-                 .then(response=>{
-                         console.log(response.data.newdetails);
-                     this.newdetails = response.data.newdetails;
-                 });
+                this.getPostById();            
+        },
+        methods: {
+                getPostById: function(id=1) {
+                        this.axios
+                        .get('http://localhost:8000/api/newdetails/'+id)
+                        .then(response=>{
+                                console.log(response.data.news_list);
+                        this.newdetails = response.data.news_list;
+                        });
+                },
         }
 
     }

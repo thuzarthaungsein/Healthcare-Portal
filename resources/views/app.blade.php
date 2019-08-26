@@ -23,44 +23,57 @@
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
-
     <style>
         .bg-light {
             background-color: #eae9e9 !important;
         }
     </style>
-
-
-    <!-- link for editor -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
-    <!-- end link for editor -->
+<!-- link for editor -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+<!-- end link for editor -->
 </head>
 <body>
 <div id="app">
-<div class="col-md-10 offset-md-1">
-       <nav class="navbar navbar-expand-lg navbar-dark main-header">
-        <a class="navbar-brand" href="#"><img src="images/trust_growth.png" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<div class="col-md-10 offset-md-1 main-content pad-free">
+<!--navigation bar-->
+<nav class="navbar navbar-expand-lg navbar-dark main-header">
+<a class="navbar-brand" href="#"><img src="images/trust_growth.png" alt=""></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline">
-            <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> Search</button>
-          </form>
-          <ul class="navbar-nav mr-auto col-lg-2">
-            <li class="nav-item active btn login-register-btn col-lg-6">
-              <a href="/login" class="nav-item nav-link p-lr-0">サインイン</a>     
-            </li>
-            <li class="nav-item btn login-register-btn col-lg-6">
-              <a href="/register" class="nav-item nav-link p-lr-0">Register</a> 
-            </li>      
-          </ul>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <form class="form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline">
+    <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> Search</button>
+  </form>
+  <ul class="navbar-nav mr-auto col-lg-2">
+    <li class="nav-item active btn login-register-btn col-lg-6">
+      <a href="/login" class="nav-item nav-link p-lr-0">サインイン</a>     
+    </li>
+    <li class="nav-item btn login-register-btn col-lg-6">
+      <a href="/register" class="nav-item nav-link p-lr-0">Register</a> 
+    </li>      
+  </ul>
+</div>
+</nav>
+     
+<div class="sidebar-scroll container-fluid">
+	<div class="row" style="background:#b7dad2;">
+  <div class="col-2 pad-free">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i>自分のニュースの検索</a>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fa fa-paper-plane "></i> <span>ニュース作成</span></a>
+      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fa fa-user"></i> <span>プロフィール</span></a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-sign-out"></i> ログアウト</a>
+    </div>
+  </div>
+  <div class="col-10 pad-free">
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
-        </div>
-      </nav>
-      <section class="main-content">
+      <!--section one-->
+        <section>
         <div class="container-fluid main-wrapper">
          
         <div class="col-md-auto">
@@ -213,6 +226,16 @@
                 <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
         </div>
       </section>
+       <!--end section one-->
+    </div>
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- END LEFT SIDEBAR -->      
     </div>
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
