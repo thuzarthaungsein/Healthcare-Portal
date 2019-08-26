@@ -60,6 +60,9 @@
 .navbar-btn{
   display: none;
 }
+.sidebar .nav {
+  font-size: 14px;
+}
 footer {
    right: 35% !important;
   

@@ -14596,7 +14596,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -14639,7 +14639,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(116);
+module.exports = __webpack_require__(120);
 
 
 /***/ }),
@@ -14650,12 +14650,12 @@ module.exports = __webpack_require__(116);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__App_vue__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__route__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__route__ = __webpack_require__(64);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -49400,7 +49400,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(60)
+var __vue_template__ = __webpack_require__(61)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -49473,7 +49473,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -49523,10 +49523,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__);
+//
 //
 //
 //
@@ -50101,9 +50102,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(54)
 /* template */
-var __vue_template__ = __webpack_require__(54)
+var __vue_template__ = __webpack_require__(55)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50143,147 +50144,152 @@ module.exports = Component.exports
 
 /***/ }),
 /* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
+                        latest_post_all_cats: []
+                };
+        },
+        created: function created() {
+                this.getLatestPostFromAllCat();
+        },
+
+        methods: {
+                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
+                        var _this = this;
+
+                        this.axios.get('http://localhost:8000/api/get_latest_post_all_cat').then(function (response) {
+                                _this.latest_post_all_cats = response.data;
+                        });
+                }
+        }
+        // alert(cats[0]);
+
+});
+
+/***/ }),
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "card m-b-10 ads-card2" }, [
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
+          return _c(
+            "ul",
+            {
+              key: latest_post_all_cat.id,
+              staticClass: "list-group list-group-flush"
+            },
+            [
+              _c("li", { staticClass: "list-group-item" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("img", {
+                    staticClass: "img-responsivie ads-img",
+                    attrs: {
+                      src: "/images/" + latest_post_all_cat.photo,
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "h3",
+                    { staticClass: "ads-title text-truncate", staticStyle: {} },
+                    [_vm._v(" " + _vm._s(latest_post_all_cat.title) + " ")]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "source-wrapper" }, [
+                    _c("span", { staticClass: "subtitle" }, [
+                      _vm._v(" " + _vm._s(latest_post_all_cat.created_at))
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card m-b-10 ads-card" }, [
-        _c("div", {}, [
-          _c("img", {
-            staticClass: "img-responsivie",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/ad_1.jpg", alt: "" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card m-b-10 ads-card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title text-center" }, [
-            _vm._v("二つ目の広告")
-          ]),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "img-responsivie",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/logo_japanese_horizontal.png", alt: "" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card m-b-10 ads-card2" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("ul", { staticClass: "list-group list-group-flush" }, [
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/home1.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: { src: "/images/company-profile1.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/h8.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: { src: "/images/company-profile1.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/day1.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: {
-                      src: "/images/logo_japanese_horizontal.png",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "img-responsivie ads-img",
-                  attrs: { src: "/images/h11.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticClass: "ads-title" }, [
-                  _vm._v(" 変わらぬ美しさ、20年ぶりグラビア")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "source-wrapper" }, [
-                  _c("img", {
-                    staticClass: "img-responsivie source-img",
-                    attrs: { src: "/images/company-profile1.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [
-                    _vm._v("クランクイン")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "card m-b-10 ads-card" }, [
+      _c("div", {}, [
+        _c("img", {
+          staticClass: "img-responsivie",
+          staticStyle: { width: "100%" },
+          attrs: { src: "/images/ad_1.jpg", alt: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card m-b-10 ads-card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title text-center" }, [
+          _vm._v("二つ目の広告")
+        ]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "img-responsivie",
+          staticStyle: { width: "100%" },
+          attrs: { src: "/images/logo_japanese_horizontal.png", alt: "" }
+        })
       ])
     ])
   }
@@ -50298,7 +50304,7 @@ if (false) {
 }
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51562,7 +51568,7 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -51570,7 +51576,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(58)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51609,7 +51615,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51900,7 +51906,7 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -51908,7 +51914,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(59)
+var __vue_template__ = __webpack_require__(60)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51947,7 +51953,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52238,7 +52244,7 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52515,7 +52521,7 @@ if (false) {
 }
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55360,7 +55366,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55368,47 +55374,49 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.Vue&&window.axios&&Vue.use(o,window.axios)}();
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_job_details_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_news_list_vue__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_news_list_vue__ = __webpack_require__(90);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_news_list_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_news_list_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_create_news_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_custedit_vue__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_custedit_vue__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_custedit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_custedit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue__);
 
 
 
@@ -55465,7 +55473,7 @@ var routes = [{
   component: __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue___default.a
 }, {
   name: 'job_details',
-  path: '/job_details',
+  path: '/job_details/:id',
   component: __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue___default.a
 }, {
   name: 'news_list',
@@ -55475,6 +55483,10 @@ var routes = [{
   name: 'create_news',
   path: '/create_news',
   component: __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue___default.a
+}, {
+  name: 'editPost',
+  path: '/editPost',
+  component: __WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue___default.a
 }, {
   name: 'categorylist',
   path: '/categorylist',
@@ -55506,19 +55518,19 @@ var routes = [{
 }];
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(65)
+  __webpack_require__(66)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(67)
+var __vue_script__ = __webpack_require__(68)
 /* template */
-var __vue_template__ = __webpack_require__(68)
+var __vue_template__ = __webpack_require__(69)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55557,13 +55569,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(66);
+var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -55583,7 +55595,7 @@ if(false) {
 }
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -55597,2063 +55609,13 @@ exports.push([module.i, "\ndiv.tab-card-header > .card-header-tab > .nav-tabs .n
 
 
 /***/ }),
-/* 67 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-        mounted: function mounted() {
-                console.log('Component mounted.');
-                //     $(document).ready(function() {
-                //            // jssor_1_slider_init();   
-                //             $('.nav-tabs').scrollingTabs({
-                //             bootstrapVersion: 4  
-                //           });                   
-
-                //         });
-        }
-});
-
-/***/ }),
 /* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "row justify-content-md-center" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "card tab-card" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "tab-content", attrs: { id: "myTabContent" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "tab-pane fade show active p-3",
-                  attrs: {
-                    id: "one",
-                    role: "tabpanel",
-                    "aria-labelledby": "one-tab"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "row" }, [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-                      },
-                      [
-                        _c(
-                          "ul",
-                          { staticClass: "list-group list-group-flush" },
-                          [
-                            _c(
-                              "li",
-                              { staticClass: "list-group-item p-t-5 p-b-5" },
-                              [
-                                _c(
-                                  "a",
-                                  [
-                                    _c(
-                                      "router-link",
-                                      { attrs: { to: "/job_details" } },
-                                      [
-                                        _c("img", {
-                                          staticClass:
-                                            "img-responsive float-right",
-                                          staticStyle: {
-                                            width: "16px",
-                                            height: "16px"
-                                          },
-                                          attrs: {
-                                            src: "/images/1.jpg",
-                                            alt: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "source-img-small d-inline-block text-truncate"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              { staticClass: "list-group-item p-t-5 p-b-5" },
-                              [
-                                _c(
-                                  "a",
-                                  [
-                                    _c(
-                                      "router-link",
-                                      { attrs: { to: "/newsdetails" } },
-                                      [
-                                        _c("img", {
-                                          staticClass:
-                                            "img-responsive float-right",
-                                          staticStyle: {
-                                            width: "16px",
-                                            height: "16px"
-                                          },
-                                          attrs: {
-                                            src: "/images/2.png",
-                                            alt: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          { staticClass: "source-img-small" },
-                                          [_vm._v("日刊スポーツ")]
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              { staticClass: "list-group-item p-t-5 p-b-5" },
-                              [
-                                _c(
-                                  "a",
-                                  [
-                                    _c(
-                                      "router-link",
-                                      { attrs: { to: "/facilitieslist" } },
-                                      [
-                                        _c("img", {
-                                          staticClass:
-                                            "img-responsive float-right",
-                                          staticStyle: {
-                                            width: "16px",
-                                            height: "16px"
-                                          },
-                                          attrs: {
-                                            src: "/images/3.png",
-                                            alt: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          { staticClass: "source-img-small" },
-                                          [_vm._v("日刊スポーツ")]
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _vm._m(2),
-                            _vm._v(" "),
-                            _vm._m(3),
-                            _vm._v(" "),
-                            _vm._m(4),
-                            _vm._v(" "),
-                            _vm._m(5),
-                            _vm._v(" "),
-                            _vm._m(6),
-                            _vm._v(" "),
-                            _vm._m(7)
-                          ]
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(8),
-              _vm._v(" "),
-              _vm._m(9)
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(10)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header tab-card-header" }, [
-      _c(
-        "ul",
-        {
-          staticClass: "nav nav-tabs card-header-tabs",
-          attrs: { id: "myTab", role: "tablist" }
-        },
-        [
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link active",
-                attrs: {
-                  id: "one-tab",
-                  "data-toggle": "tab",
-                  href: "#one",
-                  role: "tab",
-                  "aria-controls": "One",
-                  "aria-selected": "true"
-                }
-              },
-              [
-                _vm._v(
-                  "\r\n                                                                ニュース 1"
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  id: "two-tab",
-                  "data-toggle": "tab",
-                  href: "#two",
-                  role: "tab",
-                  "aria-controls": "Two",
-                  "aria-selected": "false"
-                }
-              },
-              [
-                _vm._v(
-                  "\r\n                                                                ニュース 2"
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  id: "three-tab",
-                  "data-toggle": "tab",
-                  href: "#three",
-                  role: "tab",
-                  "aria-controls": "Three",
-                  "aria-selected": "false"
-                }
-              },
-              [
-                _vm._v(
-                  "\r\n                                                                ニュース 3"
-                )
-              ]
-            )
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-xl-4 col-sm-12 col-md-3 col-lg-3 col-12" },
-      [
-        _c("a", { attrs: { href: "/newsdetails" } }, [
-          _c("img", {
-            staticClass: "img-responsive",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/h4.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c(
-            "p",
-            { staticClass: "source-title", attrs: { "aria-label": "" } },
-            [
-              _vm._v(
-                "\r\n                                                                                ニュースタイトル\r\n                                                                        "
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "source-subtitle" }, [
-            _c("img", {
-              staticClass: "source-img",
-              attrs: { alt: "", src: "/images/5.png" }
-            }),
-            _vm._v(
-              "日刊スポーツ\r\n                                                                        "
-            )
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/4.png", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/5.png", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/h2.jpg", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/news_search.png", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/h1.jpg", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-      _c("a", { attrs: { href: "./news/news_details.html" } }, [
-        _c("img", {
-          staticClass: "img-responsive float-right",
-          staticStyle: { width: "16px", height: "16px" },
-          attrs: { src: "/images/2.png", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "source-img-small" }, [
-          _vm._v("日刊スポーツ")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "tab-pane fade p-3",
-        attrs: { id: "two", role: "tabpanel", "aria-labelledby": "two-tab" }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" },
-            [
-              _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                _c("img", {
-                  staticClass: "img-responsive",
-                  staticStyle: { width: "100%" },
-                  attrs: { src: "/images/h9.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  { staticClass: "source-title", attrs: { "aria-label": "" } },
-                  [
-                    _vm._v(
-                      "\r\n                                                                                ニュースタイトル\r\n                                                                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "source-subtitle" }, [
-                  _c("img", {
-                    staticClass: "source-img",
-                    attrs: { alt: "", src: "/images/5.png" }
-                  }),
-                  _vm._v(
-                    "日刊スポーツ\r\n                                                                        "
-                  )
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-            },
-            [
-              _c("ul", { staticClass: "list-group list-group-flush" }, [
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/3.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/4.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/5.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/h2.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/news_search.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/h1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/2.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ])
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "tab-pane fade p-3",
-        attrs: { id: "three", role: "tabpanel", "aria-labelledby": "three-tab" }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" },
-            [
-              _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                _c("img", {
-                  staticClass: "img-responsive",
-                  staticStyle: { width: "100%" },
-                  attrs: { src: "/images/h4.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  { staticClass: "source-title", attrs: { "aria-label": "" } },
-                  [
-                    _vm._v(
-                      "\r\n                                                                                ニュースタイトル\r\n                                                                        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "source-subtitle" }, [
-                  _c("img", {
-                    staticClass: "source-img",
-                    attrs: { alt: "", src: "/images/5.png" }
-                  }),
-                  _vm._v(
-                    "日刊スポーツ\r\n                                                                        "
-                  )
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 news-wrapper"
-            },
-            [
-              _c("ul", { staticClass: "list-group list-group-flush" }, [
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "source-img-small d-inline-block text-truncate"
-                      },
-                      [
-                        _vm._v(
-                          "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "source-img-small d-inline-block text-truncate"
-                      },
-                      [
-                        _vm._v(
-                          "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "source-img-small d-inline-block text-truncate"
-                      },
-                      [
-                        _vm._v(
-                          "Lorem Ipsumは、印刷および植字業界の単なるダミーテキストです。 Lorem Ipsumは、1500年代以来、業界の標準的なダミーテキストであり、未知のプリンターがタイプのギャレーを取り、それをスクランブルしてタイプ見本帳を作成していました。 5世紀だけでなく、電子組版への飛躍も生き残り、本質的に変化していません。"
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/2.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/3.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/4.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/5.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/5.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/h2.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/news_search.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/h1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "list-group-item p-t-5 p-b-5" }, [
-                  _c("a", { attrs: { href: "./news/news_details.html" } }, [
-                    _c("img", {
-                      staticClass: "img-responsive float-right",
-                      staticStyle: { width: "16px", height: "16px" },
-                      attrs: { src: "/images/2.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-img-small" }, [
-                      _vm._v("日刊スポーツ")
-                    ])
-                  ])
-                ])
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-lr-0" }, [
-      _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
-        _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/newsdetails" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/newsdetails" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/hhh.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/newsdetails" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/home2.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/newsdetails" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6ebcac14", module.exports)
-  }
-}
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(70)
-/* template */
-var __vue_template__ = __webpack_require__(71)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Newsdetails.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1fdaf828", Component.options)
-  } else {
-    hotAPI.reload("data-v-1fdaf828", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 70 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            newdetails: []
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        this.axios.get('http://localhost:8000/api/newdetails').then(function (response) {
-            console.log(response.data.newdetails);
-            _this.newdetails = response.data.newdetails;
-        });
-    }
-});
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("section", {}, [
-    _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row justify-content-md-center" }, [
-        _c("div", { staticClass: "col-md container" }, [
-          _c("div", { staticClass: "scroll2" }, [
-            _c("div", { staticClass: "row m-lr-0" }, [
-              _c(
-                "div",
-                { staticClass: "row m-lr-0" },
-                _vm._l(_vm.newdetails, function(news) {
-                  return _c("div", { key: news.id, staticClass: "container" }, [
-                    news.id == 1
-                      ? _c("div", { staticClass: "row m-lr-0" }, [
-                          _c("div", { staticClass: "col-md-12" }, [
-                            _c("h4", { staticClass: "h_4" }, [
-                              _vm._v(_vm._s(news.title))
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("p", { staticClass: "p5" }, [
-                              _vm._v(_vm._s(news.body))
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "col-md-6  mt-2 related-area" },
-                            [
-                              _c("img", {
-                                staticClass: "img-responsive img_2 news_photo",
-                                attrs: { src: news.photo }
-                              }),
-                              _vm._v(" "),
-                              _vm._m(0, true),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                {
-                                  staticClass: "img_2",
-                                  staticStyle: { "font-size": "22px" }
-                                },
-                                [_vm._v("関連ニュース")]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(1, true),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "m-l-10p" }, [
-                                _vm._v("21/08/2019")
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(2, true),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "m-l-10p" }, [
-                                _vm._v("21/08/2019")
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(3, true),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "m-l-10p" }, [
-                                _vm._v("21/08/2019")
-                              ])
-                            ]
-                          )
-                        ])
-                      : _vm._e()
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("hr", { staticClass: "hr-line" }),
-              _vm._v(" "),
-              _vm._m(4)
-            ])
-          ])
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "img_2" }, [
-      _vm._v("東京五輪開幕まで1年　メダルお披露目 "),
-      _c("br"),
-      _vm._v(" "),
-      _c("span", [_vm._v("21/08/2019")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticStyle: { "text-decoration": "underline", color: "black" },
-        attrs: { href: "#" }
-      },
-      [
-        _c("p", { staticClass: "img_2" }, [
-          _vm._v("韓国人男女が日本総領事館に侵入し抗議　身柄を拘束")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticStyle: { "text-decoration": "underline", color: "black" },
-        attrs: { href: "#" }
-      },
-      [
-        _c("p", { staticClass: "img_2" }, [
-          _vm._v("動く美術館」都大路進む 京都・祇園祭の山鉾巡行")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticStyle: { "text-decoration": "underline", color: "black" },
-        attrs: { href: "#" }
-      },
-      [
-        _c("p", { staticClass: "img_2" }, [
-          _vm._v("警察学校教官がナイフで巡査刺す　犯人確保訓練中に")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-lr-0" }, [
-      _c("div", { staticClass: "row col-md-12 text-center" }, [
-        _c("h4", { staticClass: "h_4" }, [_vm._v("関連ニュース")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/hhh.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\n                                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\n                                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\n                                                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1fdaf828", module.exports)
-  }
-}
-
-/***/ }),
-/* 72 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(73)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/categorieslist.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7925a591", Component.options)
-  } else {
-    hotAPI.reload("data-v-7925a591", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n       cat_list\n")])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7925a591", module.exports)
-  }
-}
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(75)
-/* template */
-var __vue_template__ = __webpack_require__(76)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/JobApply.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2813fe68", Component.options)
-  } else {
-    hotAPI.reload("data-v-2813fe68", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 75 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -57728,6 +55690,1117 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
                 return {
+                        cats: [],
+                        posts: [],
+                        latest_post: [],
+                        latest_post_all_cats: []
+                };
+        },
+        created: function created() {
+                this.getAllCat();
+                this.getPostByFirstCat();
+                this.getLatestPostByFirstCatID();
+                this.getLatestPostFromAllCat();
+        },
+
+        methods: {
+                getAllCat: function getAllCat() {
+                        var _this = this;
+
+                        this.axios.get('http://localhost:8000/api/home').then(function (response) {
+                                _this.cats = response.data;
+                        });
+                },
+                getPostByFirstCat: function getPostByFirstCat() {
+                        var _this2 = this;
+
+                        axios.get("http://localhost:8000/api/posts/1").then(function (response) {
+                                _this2.posts = response.data;
+                        });
+                },
+                getPostByCatID: function getPostByCatID(cat_id) {
+                        var _this3 = this;
+
+                        axios.get("http://localhost:8000/api/posts/" + cat_id).then(function (response) {
+                                _this3.posts = response.data;
+                        });
+                },
+                getLatestPostByFirstCatID: function getLatestPostByFirstCatID() {
+                        var _this4 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/1").then(function (response) {
+                                _this4.latest_post = response.data;
+                        });
+                },
+                getLatestPostByCatID: function getLatestPostByCatID(cat_id) {
+                        var _this5 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/" + cat_id).then(function (response) {
+                                _this5.latest_post = response.data;
+                        });
+                },
+                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
+                        var _this6 = this;
+
+                        this.axios.get('http://localhost:8000/api/get_latest_post_all_cat').then(function (response) {
+                                _this6.latest_post_all_cats = response.data;
+                        });
+                }
+        }
+        // alert(cats[0]);
+
+});
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "card tab-card" }, [
+          _c("div", { staticClass: "card-header tab-card-header" }, [
+            _c(
+              "ul",
+              {
+                staticClass: "nav nav-tabs card-header-tabs",
+                attrs: { id: "myTab", role: "tablist" }
+              },
+              _vm._l(_vm.cats, function(cat) {
+                return _c(
+                  "li",
+                  {
+                    key: cat.id,
+                    staticClass: "nav-item",
+                    on: {
+                      click: function($event) {
+                        _vm.getPostByCatID(cat.id)
+                        _vm.getLatestPostByCatID(cat.id)
+                      }
+                    }
+                  },
+                  [
+                    _vm.cats[0].id != cat.id
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: {
+                              href: "#two",
+                              id: "one-tab",
+                              "data-toggle": "tab",
+                              role: "tab",
+                              "aria-controls": "One",
+                              "aria-selected": "true"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                                " +
+                                _vm._s(cat.name)
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.cats[0].id == cat.id
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link active",
+                            attrs: {
+                              href: "#two",
+                              id: "one-tab",
+                              "data-toggle": "tab",
+                              role: "tab",
+                              "aria-controls": "One",
+                              "aria-selected": "true"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                                " +
+                                _vm._s(cat.name)
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "tab-pane fade show active p-3",
+                  attrs: {
+                    id: "one",
+                    role: "tabpanel",
+                    "aria-labelledby": "one-tab"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "active-users col-md-4" }, [
+                      _c(
+                        "a",
+                        { attrs: { href: "#" } },
+                        [
+                          _c("router-link", { attrs: { to: "/newsdetails" } }, [
+                            _c("img", {
+                              staticClass: "source-img img-responsive",
+                              staticStyle: { width: "100%", height: "200px" },
+                              attrs: { src: "/images/" + _vm.latest_post.photo }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              {
+                                staticClass: "source-title",
+                                attrs: { "aria-label": "" }
+                              },
+                              [_vm._v(_vm._s(_vm.latest_post.title))]
+                            ),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "source-subtitle" }, [
+                              _c("img", {
+                                staticClass: "source-img",
+                                attrs: { alt: "", src: "/images/5.png" }
+                              }),
+                              _vm._v(
+                                _vm._s(_vm.latest_post.created_at) +
+                                  "\r\n                                                                        "
+                              )
+                            ])
+                          ])
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-8 news-wrapper" },
+                      _vm._l(_vm.posts, function(post) {
+                        return _c(
+                          "ul",
+                          {
+                            key: post.id,
+                            staticClass: "list-group list-group-flush"
+                          },
+                          [
+                            _vm.posts[0].id != post.id
+                              ? _c(
+                                  "li",
+                                  {
+                                    staticClass: "list-group-item p-t-5 p-b-5"
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      { attrs: { href: "#" } },
+                                      [
+                                        _c(
+                                          "router-link",
+                                          { attrs: { to: "/newsdetails" } },
+                                          [
+                                            _c("img", {
+                                              staticClass:
+                                                "img-responsive float-right",
+                                              staticStyle: {
+                                                width: "16px",
+                                                height: "16px"
+                                              },
+                                              attrs: {
+                                                src: "/images/1.jpg",
+                                                alt: ""
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "source-img-small d-inline-block text-truncate"
+                                              },
+                                              [_vm._v(_vm._s(post.title) + " ")]
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row m-lr-0" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
+            return _c(
+              "div",
+              {
+                key: latest_post_all_cat.id,
+                staticClass: "col-sm-3  col-md-3 mt-2"
+              },
+              [
+                _c("div", { staticClass: "hovereffect fit-image" }, [
+                  _c("img", {
+                    staticClass: "img-responsive fit-image",
+                    attrs: {
+                      src: "/images/" + latest_post_all_cat.photo,
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "overlay" }, [
+                    _c("h2"),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm all-btn secondary-bg-color",
+                        attrs: { href: "/newsdetails" }
+                      },
+                      [_vm._v(_vm._s(latest_post_all_cat.title))]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "info" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-12" }, [
+                        _c("p", { staticClass: " p_3" }, [
+                          _vm._v(
+                            "\r\n                                                                        " +
+                              _vm._s(latest_post_all_cat.main_point) +
+                              "\r\n                                                                "
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          })
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
+      _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6ebcac14", module.exports)
+  }
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(71)
+/* template */
+var __vue_template__ = __webpack_require__(72)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Newsdetails.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1fdaf828", Component.options)
+  } else {
+    hotAPI.reload("data-v-1fdaf828", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
+                        newdetails: []
+                };
+        },
+        created: function created() {
+                this.getPostById();
+        },
+
+        methods: {
+                getPostById: function getPostById() {
+                        var _this = this;
+
+                        var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+                        this.axios.get('http://localhost:8000/api/newdetails/' + id).then(function (response) {
+                                console.log(response.data.news_list);
+                                _this.newdetails = response.data.news_list;
+                        });
+                }
+        }
+
+});
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c(
+          "div",
+          {},
+          [
+            _vm._l(_vm.newdetails, function(news) {
+              return _c("div", { key: news.id }, [
+                news.id == 1
+                  ? _c("div", { staticClass: "row m-lr-0" }, [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("h4", { staticClass: "h_4 header" }, [
+                          _vm._v(_vm._s(news.title))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(0, true)
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("p", { staticClass: "p5" }, [
+                          _vm._v(_vm._s(news.body))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-md-6  mt-2 related-area" },
+                        [
+                          _c("img", {
+                            staticClass: "img-responsive img_2 news_photo",
+                            attrs: { src: "/images/" + news.photo }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(1, true),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              staticClass: "img_2 header",
+                              staticStyle: { "font-size": "22px" }
+                            },
+                            [_vm._v("関連ニュース")]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(2, true),
+                          _vm._v(" "),
+                          _vm._m(3, true),
+                          _vm._v(" "),
+                          _vm._m(4, true)
+                        ]
+                      )
+                    ])
+                  : _vm._e()
+              ])
+            }),
+            _vm._v(" "),
+            _vm._m(5)
+          ],
+          2
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "set-date" }, [
+      _c("time", { attrs: { datetime: "2012-01-04" } }, [
+        _vm._v("2012年1月4日")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "img_2" }, [
+      _vm._v("東京五輪開幕まで1年　メダルお披露目 "),
+      _c("br"),
+      _vm._v(" "),
+      _c("span", [
+        _c("time", { attrs: { datetime: "2019-06-07" } }, [
+          _vm._v("2019年6月7日")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticStyle: { color: "#000" }, attrs: { href: "#" } }, [
+      _c("p", { staticClass: "img_2" }, [
+        _vm._v("韓国人男女が日本総領事館に侵入し抗議　身柄を拘束 "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [
+          _c("time", { attrs: { datetime: "2012-01-04" } }, [
+            _vm._v("2012年1月4日")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticStyle: { color: "#000" }, attrs: { href: "#" } }, [
+      _c("p", { staticClass: "img_2" }, [
+        _vm._v("動く美術館」都大路進む 京都・祇園祭の山鉾巡行 "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [
+          _c("time", { attrs: { datetime: "2012-01-04" } }, [
+            _vm._v("2012年1月4日")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticStyle: { color: "#000" }, attrs: { href: "#" } }, [
+      _c("p", { staticClass: "img_2" }, [
+        _vm._v("警察学校教官がナイフで巡査刺す　犯人確保訓練中に "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [
+          _c("time", { attrs: { datetime: "2012-01-04" } }, [
+            _vm._v("2012年1月4日")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row m-lr-0" }, [
+      _c("div", { staticClass: "row col-md-12 text-center" }, [
+        _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "images/j5.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "images/j5.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "images/hhh.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
+        _c("div", { staticClass: "hovereffect fit-image" }, [
+          _c("img", {
+            staticClass: "img-responsive fit-image",
+            attrs: { src: "images/j5.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }, [
+            _c("h2"),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm all-btn secondary-bg-color",
+                attrs: { href: "news_details.html" }
+              },
+              [_vm._v("詳細を見る")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("p", { staticClass: " p_3" }, [
+                  _vm._v(
+                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1fdaf828", module.exports)
+  }
+}
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(74)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/categorieslist.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7925a591", Component.options)
+  } else {
+    hotAPI.reload("data-v-7925a591", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n       cat_list\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7925a591", module.exports)
+  }
+}
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(76)
+/* template */
+var __vue_template__ = __webpack_require__(77)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/JobApply.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2813fe68", Component.options)
+  } else {
+    hotAPI.reload("data-v-2813fe68", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 76 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
                         errors: [],
                         jobApply: {
                                 name: '',
@@ -57736,8 +56809,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 phone: '',
                                 email: '',
                                 work_time: '',
-                                skill: false
+                                skill: []
                         }
+
                 };
         },
 
@@ -57745,10 +56819,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 apply: function apply() {
                         var _this = this;
 
-                        axios.post('http://localhost:8000/api/jobapply', this.jobApply).then(function (response) {
+                        this.axios.post('http://localhost:8000/api/jobapply', this.jobApply).then(function (response) {
                                 alert('Successful Apply');
                                 console.log(response);
-                                //console.log(this.skill.toString());
+                                //console.log(this.jobApply.toString());
                                 _this.jobApply = response.data;
                         });
                 }
@@ -57756,7 +56830,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57924,156 +56998,292 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "control" }, [
-            _c("label", { staticClass: "checkbox" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.jobApply.skill,
-                    expression: "jobApply.skill"
-                  }
-                ],
-                attrs: { type: "checkbox", value: "promises" },
-                domProps: {
-                  checked: Array.isArray(_vm.jobApply.skill)
-                    ? _vm._i(_vm.jobApply.skill, "promises") > -1
-                    : _vm.jobApply.skill
-                },
-                on: {
-                  change: function($event) {
-                    var $$a = _vm.jobApply.skill,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = "promises",
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 &&
-                          _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
-                      } else {
-                        $$i > -1 &&
-                          _vm.$set(
-                            _vm.jobApply,
-                            "skill",
-                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                          )
-                      }
+          _c("div", [
+            _c("h4", [_vm._v("Skills")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "communication" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "communication") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "communication",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
                     } else {
-                      _vm.$set(_vm.jobApply, "skill", $$c)
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
                     }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
                   }
                 }
-              }),
-              _vm._v("Communication ")
-            ]),
+              }
+            }),
+            _vm._v("Communication"),
             _c("br"),
             _vm._v(" "),
-            _c("label", { staticClass: "checkbox" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.jobApply.skill,
-                    expression: "jobApply.skill"
-                  }
-                ],
-                attrs: { type: "checkbox", value: "testing" },
-                domProps: {
-                  checked: Array.isArray(_vm.jobApply.skill)
-                    ? _vm._i(_vm.jobApply.skill, "testing") > -1
-                    : _vm.jobApply.skill
-                },
-                on: {
-                  change: function($event) {
-                    var $$a = _vm.jobApply.skill,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = "testing",
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 &&
-                          _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
-                      } else {
-                        $$i > -1 &&
-                          _vm.$set(
-                            _vm.jobApply,
-                            "skill",
-                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                          )
-                      }
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "ethics" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "ethics") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "ethics",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
                     } else {
-                      _vm.$set(_vm.jobApply, "skill", $$c)
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
                     }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
                   }
                 }
-              }),
-              _vm._v("Ethics")
-            ]),
+              }
+            }),
+            _vm._v("Ethics"),
             _c("br"),
             _vm._v(" "),
-            _c("label", { staticClass: "checkbox" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.jobApply.skill,
-                    expression: "jobApply.skill"
-                  }
-                ],
-                attrs: { type: "checkbox", value: "testing" },
-                domProps: {
-                  checked: Array.isArray(_vm.jobApply.skill)
-                    ? _vm._i(_vm.jobApply.skill, "testing") > -1
-                    : _vm.jobApply.skill
-                },
-                on: {
-                  change: function($event) {
-                    var $$a = _vm.jobApply.skill,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = "testing",
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 &&
-                          _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
-                      } else {
-                        $$i > -1 &&
-                          _vm.$set(
-                            _vm.jobApply,
-                            "skill",
-                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                          )
-                      }
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "crital thinking" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "crital thinking") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "crital thinking",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
                     } else {
-                      _vm.$set(_vm.jobApply, "skill", $$c)
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
                     }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
                   }
                 }
-              }),
-              _vm._v("Critical Thinking")
-            ])
+              }
+            }),
+            _vm._v("Critical Thinking"),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "attention to detail" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "attention to detail") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "attention to detail",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("Attention To Detail"),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "comitment to development" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "comitment to development") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "comitment to development",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("Comitment To Development"),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "responsibility" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "responsibility") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "responsibility",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("Responsibility"),
+            _c("br"),
+            _c("br")
           ]),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn main-bg-color white all-btn",
-              attrs: { type: "submit" }
-            },
-            [_vm._v("Apply")]
-          )
+          _vm._m(0)
         ]
       )
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn main-bg-color white all-btn ",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("Apply")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -58084,15 +57294,15 @@ if (false) {
 }
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(78)
+var __vue_script__ = __webpack_require__(79)
 /* template */
-var __vue_template__ = __webpack_require__(79)
+var __vue_template__ = __webpack_require__(80)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58131,7 +57341,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58311,7 +57521,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58510,15 +57720,15 @@ if (false) {
 }
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(81)
+var __vue_script__ = __webpack_require__(82)
 /* template */
-var __vue_template__ = __webpack_require__(82)
+var __vue_template__ = __webpack_require__(83)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58557,11 +57767,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -58614,7 +57828,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58639,21 +57853,52 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-10" }, [
                     _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                      _c("b", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "mr-auto",
-                            attrs: { href: "../jobs/job_search_details.html" }
-                          },
-                          [_vm._v(_vm._s(job.title) + " ")]
-                        )
-                      ])
+                      _c(
+                        "b",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "mr-auto",
+                              attrs: {
+                                to: {
+                                  name: "job_details",
+                                  params: { id: job.id }
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(job.title))]
+                          )
+                        ],
+                        1
+                      )
                     ]),
                     _vm._v(" "),
                     _c("p", [_vm._v(_vm._s(job.description))]),
                     _vm._v(" "),
-                    _vm._m(2, true)
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-4" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass:
+                                "btn btn all-btn secondary-bg-color white",
+                              attrs: {
+                                to: {
+                                  name: "job_details",
+                                  params: { id: job.id }
+                                }
+                              }
+                            },
+                            [_vm._v("詳細を見る")]
+                          )
+                        ],
+                        1
+                      )
+                    ])
                   ])
                 ])
               ])
@@ -58707,23 +57952,6 @@ var staticRenderFns = [
         attrs: { src: "images/hospital1.jpg", alt: "" }
       })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn all-btn secondary-bg-color white",
-            attrs: { href: "../jobs/job_search_details.html" }
-          },
-          [_vm._v("詳細を見る")]
-        )
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -58736,15 +57964,15 @@ if (false) {
 }
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(84)
+var __vue_script__ = __webpack_require__(85)
 /* template */
-var __vue_template__ = __webpack_require__(85)
+var __vue_template__ = __webpack_require__(86)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -58783,7 +58011,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58895,7 +58123,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -59102,15 +58330,15 @@ if (false) {
 }
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(87)
+var __vue_script__ = __webpack_require__(88)
 /* template */
-var __vue_template__ = __webpack_require__(88)
+var __vue_template__ = __webpack_require__(89)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -59149,7 +58377,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59247,7 +58475,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        this.axios.get('http://localhost:8000/api/job_details').then(function (response) {
+        this.axios.get("http://localhost:8000/api/job_details/" + this.$route.params.id).then(function (response) {
             console.log(response.data);
             _this.job_details = response.data;
         });
@@ -59255,7 +58483,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -59263,167 +58491,134 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-md-center" }, [
-    _c(
-      "div",
-      { staticClass: "col-md container cont-pad" },
-      [
-        _vm._l(_vm.job_details, function(jobDetail) {
-          return _c("div", { key: jobDetail.id, staticClass: "row m-b-20" }, [
-            _c("div", { staticClass: "col-md-12 scroll2" }, [
-              _c("h4", { staticClass: "h_4" }, [
-                _vm._v(_vm._s(jobDetail.title))
+    _c("div", { staticClass: "col-md container cont-pad" }, [
+      _c("div", { staticClass: "row m-b-20" }, [
+        _c("div", { staticClass: "col-md-12 scroll2" }, [
+          _c("h4", { staticClass: "h_4" }, [
+            _vm._v(_vm._s(_vm.job_details.title))
+          ]),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "img-responsive img_6",
+            attrs: { src: "/images/img1.jpg", height: "", width: "15%" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("仕事内容")
               ]),
               _vm._v(" "),
-              _c("img", {
-                staticClass: "img-responsive img_6",
-                attrs: { src: "/images/img1.jpg", height: "", width: "15%" }
-              }),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.description))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("経験・スキル")
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("仕事内容")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.description))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("経験・スキル")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.skills))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("勤務地")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.location))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("最寄り駅")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.nearest_station))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("雇用形態")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.employment_status))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("給与")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.salary))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("諸手当")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.allowances))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("各種保険")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.insurance))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("就業時間")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.working_hours))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "topic b" }, [
-                  _c("h4", { staticClass: "item text-center" }, [
-                    _vm._v("休日休暇")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "data", staticStyle: { width: "50%" } },
-                    [_vm._v(_vm._s(jobDetail.holidays))]
-                  )
-                ])
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.skills))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [_vm._v("勤務地")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.location))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("最寄り駅")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.nearest_station))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("雇用形態")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.employment_status))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [_vm._v("給与")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.salary))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [_vm._v("諸手当")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.allowances))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("各種保険")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.insurance))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("就業時間")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.working_hours))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "topic b" }, [
+              _c("h4", { staticClass: "item text-center" }, [
+                _vm._v("休日休暇")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
+                _vm._v(_vm._s(_vm.job_details.holidays))
               ])
             ])
           ])
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-12 text-center" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn main-bg-color white all-btn",
-                attrs: { href: "#" }
-              },
-              [
-                _c("router-link", { attrs: { to: "/jobapply" } }, [
-                  _vm._v("この案件に応募")
-                ])
-              ],
-              1
-            )
-          ])
         ])
-      ],
-      2
-    )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12 text-center" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn main-bg-color white all-btn",
+              attrs: { href: "#" }
+            },
+            [
+              _c("router-link", { attrs: { to: "/jobapply" } }, [
+                _vm._v("この案件に応募")
+              ])
+            ],
+            1
+          )
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -59437,15 +58632,15 @@ if (false) {
 }
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(90)
+var __vue_script__ = __webpack_require__(91)
 /* template */
-var __vue_template__ = __webpack_require__(91)
+var __vue_template__ = __webpack_require__(92)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -59484,7 +58679,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59612,11 +58807,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.axios.get('http://localhost:8000/api/news_list').then(function (response) {
             _this.news_list = response.data;
         });
+    },
+
+    methods: {
+        deletePost: function deletePost(id) {
+            var _this2 = this;
+
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.delete('http://localhost:8000/api/new/delete/' + id).then(function (response) {
+                    alert('Delete Successfully!');
+                    var i = _this2.news_list.map(function (item) {
+                        return item.id;
+                    }).indexOf(id); // find index of your object
+                    _this2.news_list.splice(i, 1);
+                });
+            }
+        }
     }
+
 });
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -59655,7 +58867,44 @@ var render = function() {
                     _vm._v(" "),
                     _c("p", [_vm._v(_vm._s(newsList.main_point))]),
                     _vm._v(" "),
-                    _vm._m(2, true)
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-4" }, [
+                        _c(
+                          "small",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "mr-auto text-warning",
+                                attrs: {
+                                  to: {
+                                    name: "editPost",
+                                    params: { id: newsList.id }
+                                  }
+                                }
+                              },
+                              [_vm._v("編集")]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v("  \n                                    "),
+                        _c("small", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "mr-auto text-danger",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deletePost(newsList.id)
+                                }
+                              }
+                            },
+                            [_vm._v("削除")]
+                          )
+                        ])
+                      ])
+                    ])
                   ])
                 ])
               ])
@@ -59705,28 +58954,6 @@ var staticRenderFns = [
         attrs: { src: "/images/nursing1.jpg", alt: "" }
       })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c("small", [
-          _c(
-            "a",
-            { staticClass: "mr-auto text-warning", attrs: { href: "" } },
-            [_vm._v("編集")]
-          )
-        ]),
-        _vm._v("  \n                                    "),
-        _c("small", [
-          _c("a", { staticClass: "mr-auto text-danger", attrs: { href: "" } }, [
-            _vm._v("削除")
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -59739,15 +58966,15 @@ if (false) {
 }
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(93)
+var __vue_script__ = __webpack_require__(94)
 /* template */
-var __vue_template__ = __webpack_require__(94)
+var __vue_template__ = __webpack_require__(95)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -59786,25 +59013,11 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -59878,21 +59091,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 body: '',
                 category_id: '',
                 user_id: '',
-                recordstatus: '',
-                photo: ''
+                recordstatus: ''
             }
         };
     },
 
     methods: {
-        onImageChange: function onImageChange(e) {
-            this.image = e.target.files[0];
-        },
         add: function add() {
             var _this = this;
 
-            var formData = new FormData();
-            formData.append('image', this.image);
             this.axios.post('http://localhost:8000/api/new/add', this.news).then(function (response) {
 
                 _this.$router.push({ name: 'news_list' });
@@ -59908,7 +59115,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -59920,150 +59127,118 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card  text-dark" }, [
           _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "form",
-                  {
-                    attrs: { enctype: "multipart/form-data" },
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.add($event)
-                      }
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  staticClass: "col-md-12",
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.add($event)
                     }
-                  },
-                  [
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.news.title,
-                              expression: "news.title"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder: "題名を入力してください。"
-                          },
-                          domProps: { value: _vm.news.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.news, "title", $event.target.value)
-                            }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.title,
+                          expression: "news.title"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "題名を入力してください。"
+                      },
+                      domProps: { value: _vm.news.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        })
-                      ])
-                    ]),
+                          _vm.$set(_vm.news, "title", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(2),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.news.main_point,
-                              expression: "news.main_point"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder:
-                              "ニュースの主な情報を入力してください。"
-                          },
-                          domProps: { value: _vm.news.main_point },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.news,
-                                "main_point",
-                                $event.target.value
-                              )
-                            }
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.main_point,
+                          expression: "news.main_point"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "ニュースの主な情報を入力してください。"
+                      },
+                      domProps: { value: _vm.news.main_point },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        })
-                      ])
-                    ]),
+                          _vm.$set(_vm.news, "main_point", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("br"),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("br"),
-                        _vm._v(" "),
-                        _vm._m(3),
-                        _vm._v(" "),
-                        _c("textarea", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.news.body,
-                              expression: "news.body"
-                            }
-                          ],
-                          staticClass: "form-control rounded-0",
-                          attrs: {
-                            id: "exampleFormControlTextarea1",
-                            rows: "10",
-                            placeholder: "内容を入力してください。"
-                          },
-                          domProps: { value: _vm.news.body },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.news, "body", $event.target.value)
-                            }
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.body,
+                          expression: "news.body"
+                        }
+                      ],
+                      staticClass: "form-control rounded-0",
+                      attrs: {
+                        id: "exampleFormControlTextarea1",
+                        rows: "10",
+                        placeholder: "内容を入力してください。"
+                      },
+                      domProps: { value: _vm.news.body },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "col-sm-2 imgUp" }, [
-                        _c("br"),
-                        _vm._v(" "),
-                        _vm._m(4),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("label", { staticClass: "btn bg-color all-btn" }, [
-                          _vm._v(
-                            "\r\n                                                    写真/画像を投稿する\r\n                                                 "
-                          ),
-                          _c("input", {
-                            staticClass: "uploadFile img",
-                            attrs: { type: "file" },
-                            on: { change: _vm.onImageChange }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "imagePreview" })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(5)
-                  ]
-                )
-              ])
+                          _vm.$set(_vm.news, "body", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _vm._m(6)
+                ]
+              )
             ])
           ])
         ])
@@ -60104,6 +59279,40 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btn-group" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn main-bg-color white dropdown-toggle all-btn",
+          attrs: { type: "button", "data-toggle": "dropdown" }
+        },
+        [
+          _vm._v(
+            "\r\n                                                    種類\r\n                                                "
+          ),
+          _c("span", { staticClass: "caret" })
+        ]
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "dropdown-menu" }, [
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Doctor")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Nurse")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Pharmacist")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Administrative Staff")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Therapists")])])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("内容:"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
@@ -60113,9 +59322,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "menu-pos" }, [
-      _vm._v("メディア:"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    return _c("div", { staticClass: "col-sm-2 imgUp" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("label", { staticClass: "menu-pos" }, [
+        _vm._v("メディア:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("label", { staticClass: "btn bg-color all-btn" }, [
+        _vm._v(
+          "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+        ),
+        _c("input", {
+          staticClass: "uploadFile img",
+          attrs: { type: "file", value: "Upload Photo" }
+        })
+      ])
     ])
   },
   function() {
@@ -60123,12 +59348,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("br"),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn news-post-btn all-btn" }, [
-          _vm._v(" ニュースを投稿する")
-        ])
+      _c("br"),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn news-post-btn all-btn" }, [
+        _vm._v(" ニュースを投稿する")
       ])
     ])
   }
@@ -60143,15 +59366,15 @@ if (false) {
 }
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(96)
+var __vue_script__ = __webpack_require__(97)
 /* template */
-var __vue_template__ = __webpack_require__(97)
+var __vue_template__ = __webpack_require__(98)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60190,7 +59413,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60276,7 +59499,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -60422,15 +59645,15 @@ if (false) {
 }
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(99)
+var __vue_script__ = __webpack_require__(100)
 /* template */
-var __vue_template__ = __webpack_require__(100)
+var __vue_template__ = __webpack_require__(101)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60469,7 +59692,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60557,7 +59780,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -60714,15 +59937,15 @@ if (false) {
 }
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(102)
+var __vue_script__ = __webpack_require__(103)
 /* template */
-var __vue_template__ = __webpack_require__(103)
+var __vue_template__ = __webpack_require__(104)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60761,7 +59984,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60845,7 +60068,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -60988,15 +60211,15 @@ if (false) {
 }
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(105)
+var __vue_script__ = __webpack_require__(106)
 /* template */
-var __vue_template__ = __webpack_require__(106)
+var __vue_template__ = __webpack_require__(107)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61035,7 +60258,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61105,7 +60328,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61236,15 +60459,15 @@ if (false) {
 }
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(108)
+var __vue_script__ = __webpack_require__(109)
 /* template */
-var __vue_template__ = __webpack_require__(109)
+var __vue_template__ = __webpack_require__(110)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61283,7 +60506,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61376,7 +60599,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61582,15 +60805,15 @@ if (false) {
 }
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(111)
+var __vue_script__ = __webpack_require__(112)
 /* template */
-var __vue_template__ = __webpack_require__(112)
+var __vue_template__ = __webpack_require__(113)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61629,7 +60852,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61705,7 +60928,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61832,15 +61055,15 @@ if (false) {
 }
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(114)
+var __vue_script__ = __webpack_require__(115)
 /* template */
-var __vue_template__ = __webpack_require__(115)
+var __vue_template__ = __webpack_require__(116)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61879,7 +61102,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61959,7 +61182,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -62086,7 +61309,407 @@ if (false) {
 }
 
 /***/ }),
-/* 116 */
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(118)
+/* template */
+var __vue_template__ = __webpack_require__(119)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/editNewsPost.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-77fc8554", Component.options)
+  } else {
+    hotAPI.reload("data-v-77fc8554", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 118 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            errors: [],
+            news: {
+                title: '',
+                main_point: '',
+                body: '',
+                category_id: '',
+                user_id: '',
+                recordstatus: ''
+            }
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/new/editPost/' + this.$route.params.id).then(function (response) {
+            _this.news = response.data;
+        });
+    },
+
+    methods: {
+        updatePost: function updatePost() {
+            var _this2 = this;
+
+            this.axios.post('http://localhost:8000/api/new/update/' + this.$route.params.id, this.news).then(function (response) {
+                alert('Successfully Updated!');
+                _this2.$router.push({ name: 'news_list' });
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "content" } }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card  text-dark" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  staticClass: "col-md-12",
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.updatePost($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.title,
+                          expression: "news.title"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "題名を入力してください。"
+                      },
+                      domProps: { value: _vm.news.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.news, "title", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.main_point,
+                          expression: "news.main_point"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "ニュースの主な情報を入力してください。"
+                      },
+                      domProps: { value: _vm.news.main_point },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.news, "main_point", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.news.body,
+                          expression: "news.body"
+                        }
+                      ],
+                      staticClass: "form-control rounded-0",
+                      attrs: {
+                        id: "exampleFormControlTextarea1",
+                        rows: "10",
+                        placeholder: "内容を入力してください。"
+                      },
+                      domProps: { value: _vm.news.body },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.news, "body", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _vm._m(6)
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h4", { staticClass: "page-header" }, [_vm._v("ニュース投稿を作成")]),
+      _vm._v(" "),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("題名:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("主な情報:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btn-group" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn main-bg-color white dropdown-toggle all-btn",
+          attrs: { type: "button", "data-toggle": "dropdown" }
+        },
+        [
+          _vm._v(
+            "\r\n                                                    種類\r\n                                                "
+          ),
+          _c("span", { staticClass: "caret" })
+        ]
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "dropdown-menu" }, [
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Doctor")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Nurse")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Pharmacist")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Administrative Staff")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Therapists")])])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("内容:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2 imgUp" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("label", { staticClass: "menu-pos" }, [
+        _vm._v("メディア:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("label", { staticClass: "btn bg-color all-btn" }, [
+        _vm._v(
+          "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+        ),
+        _c("input", {
+          staticClass: "uploadFile img",
+          attrs: { type: "file", value: "Upload Photo" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn news-post-btn all-btn" }, [
+        _vm._v(" ニュースを更新する")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-77fc8554", module.exports)
+  }
+}
+
+/***/ }),
+/* 120 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

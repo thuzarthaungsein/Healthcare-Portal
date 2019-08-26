@@ -50,21 +50,21 @@ class JobApplyController extends Controller
     public function store(Request $request)
     {
 
+
             $jobapply = new JobApply([
-                'name' => $request->input('name'),
-                'birthday' =>  $request->input('birthday'),
-                'address' =>  $request->input('address'),
-                'phone' =>  $request->input('phone'),
-                'email'=> $request->input('email'),
-                'work_time'=>$request->input('work_time'),
-                //  'skill'=>$request->input('skill')
-                'skill' =>'ffffff'
+                 'name' => $request->input('name'),
+                 'birthday' =>  $request->input('birthday'),
+                 'address' =>  $request->input('address'),
+                 'phone' =>  $request->input('phone'),
+                 'email'=> $request->input('email'),
+                 'work_time'=>$request->input('work_time'),
+                 'skill'=>implode("," , $request->input('skill'))
+                // //$jobapply->skill=skills,
 
+             ]);
+             $jobapply->save();
 
-            ]);
-            $jobapply->save();
-
-            return response()->json('Apply successfully ');
+             return response()->json('Apply successfully ');
 
 
 

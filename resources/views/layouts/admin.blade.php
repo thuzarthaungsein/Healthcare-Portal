@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+	<title>Portal</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -32,7 +32,7 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top main-header">
 			<div class="brand">
-				<a href="#"><img src="{{asset('images/news_search.png')}}" alt="Klorofil Logo" class="img-responsive logo"></a>
+				<a href="/"><img src="{{asset('images/news_search.png')}}" alt="Klorofil Logo" class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
@@ -73,7 +73,7 @@
 						@endcan
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('images/user.png')}}" class="img-circle"> <span>{{ Auth::user()->name }}</span> </a>
-							<ul class="dropdown-menu">
+							<!-- <ul class="dropdown-menu">
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								<li>
 									<a href="{{ route('logout') }}"  onclick="event.preventDefault();
@@ -84,7 +84,7 @@
                                         @csrf
                                     </form>
 								</li>
-							</ul>
+							</ul> -->
 						</li>
 						<!-- login view -->
 						@endguest
@@ -150,7 +150,7 @@
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
-				<p class="copyright">&copy; 2019 <a href="!#" target="_blank">Management Partners</a>. All Rights Reserved.</p>
+				<p class="copyright">&copy; 2019 <a href="!#" target="_blank">Management Partners Corp</a>. All Rights Reserved.</p>
 			</div>
 		</footer>
 		</div>

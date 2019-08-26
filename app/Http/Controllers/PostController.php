@@ -14,17 +14,22 @@ class PostController extends Controller
      */
     public function index()
     {
-        $newdetails = Post::all()->toArray();
-        // return $newdetails;
         $news_list = Post::all()->toArray();
+<<<<<<< HEAD
         $data = array("news_list" => $news_list, "newdetails" => $newdetails);
 
+=======
+        $data = array("news_list" => $news_list);
+>>>>>>> 3bf9753de046c44f0b16a79529e85b619ecec4ad
        return response()->json($data);
     }
     // add news
     public function add(Request $request)
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3bf9753de046c44f0b16a79529e85b619ecec4ad
         $post = new Post([
             'title' => $request->input('title'),
             'main_point' => $request->input('main_point'),
@@ -67,7 +72,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $news_list = Post::find($post);
+        $data = array("news_list" => $news_list);
+       return response()->json($data);
     }
 
     /**
@@ -76,9 +83,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        //
+        $posts = Post::find($id);
+        return response()->json($posts);
     }
 
     /**
@@ -88,9 +96,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update($id, Request $request)
     {
-        //
+        $post = Post::find($id);
+        $post->update($request->all());
+        return response()->json('The book successfully updated');
     }
 
     /**
@@ -99,8 +109,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function delete($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return response()->json('The news post successfully deleted');
     }
 }

@@ -30,15 +30,16 @@
         </div>
         <!-- <h5>Skills</h5> -->
 
-         <!-- <div class="form-group">
-            <input type="checkbox" name="skill1" v-model="JobApply.skill">Communication<br/>
-            <input type="checkbox" name="skill2" v-model="JobApply.skill">Ethics<br/>
-            <input type="checkbox" name="skill3" v-model="JobApply.skill">Critical Thinking<br/>
-            <input type="checkbox" name="skill4" v-model="JobApply.skill">Attention To Detail<br/>
-            <input type="checkbox" name="skill4" v-model="JobApply.skill">Commitment To Development<br/>
-            <input type="checkbox" name="skill4" v-model="JobApply.skill">Responsibility
-         </div> -->
-           <!-- <div class="input-group mb-3">
+           <div >
+               <h4>Skills</h4>
+                <input type="checkbox" value="communication" v-model="jobApply.skill">Communication<br/>
+                <input type="checkbox" value="ethics" v-model="jobApply.skill">Ethics<br/>
+                <input type="checkbox" value="crital thinking" v-model="jobApply.skill">Critical Thinking<br/>
+                <input type="checkbox" value="attention to detail" v-model="jobApply.skill">Attention To Detail<br/>
+                <input type="checkbox" value="comitment to development" v-model="jobApply.skill">Comitment To Development<br/>
+                <input type="checkbox" value="responsibility" v-model="jobApply.skill">Responsibility<br/><br/>
+         </div>
+        <!-- <div class="input-group mb-3">
             <div class="input-group-prepend">
                  <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
             </div>
@@ -47,23 +48,12 @@
                 <label class="custom-file-label" for="inputGroupFile01">No file chosen</label>
             </div>
         </div> -->
-        <!-- <div class="from-group">
-            <input type="file" class="" v-on:change="onImageChange">
-        </div> <br/> -->
-        <div class="control">
-            <label class="checkbox">
-                <input type="checkbox" v-model="jobApply.skill" value="promises">Communication </label><br/>
-            <label class="checkbox">
-                <input type="checkbox" v-model="jobApply.skill" value="testing">Ethics</label><br/>
-            <label class="checkbox">
-                <input type="checkbox" v-model="jobApply.skill" value="testing">Critical Thinking</label>
-         </div>
-
-            <button type="submit" class="btn main-bg-color white all-btn">Apply</button>
-
+        <div class="text-center">
+            <button type="submit" class="btn main-bg-color white all-btn ">Apply</button>
+        </div>
              <!-- <div v-if="success" class="alert alert-success mt-3">Apply sent!</div> -->
 
-                <!-- <router-link to="" class="btn main-bg-color white all-btn">Apply</router-link> -->
+            <!-- <router-link to="" class="btn main-bg-color white all-btn">Apply</router-link> -->
     </form>
     </div>
 </div>
@@ -80,17 +70,20 @@ export default {
                         phone:'',
                         email:'',
                         work_time:'',
-                        skill:false
+                        skill:[]
                     },
+
+
             }
     },
     methods: {
             apply() {
-                axios.post('http://localhost:8000/api/jobapply', this.jobApply)
+
+                this.axios.post('http://localhost:8000/api/jobapply', this.jobApply)
                     .then((response) => {
                     alert('Successful Apply')
                     console.log(response);
-                     //console.log(this.skill.toString());
+                    //console.log(this.jobApply.toString());
                     this.jobApply = response.data;
                     })
             }

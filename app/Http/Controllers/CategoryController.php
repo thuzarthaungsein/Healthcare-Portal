@@ -3,7 +3,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Category;
 use Auth;
 use Illuminate\Http\Request;
@@ -49,14 +48,13 @@ class CategoryController extends Controller
     public function add(Request $request)
     {
 
-
-            $category = new Category([
-                'name' => $request->input('name'),
-                'user_id' => 1,
-                'recordstatus' => 2
-            ]);
-            $category ->save();
-            return $category;
+        $category = new Category([
+            'name' => $request->input('name'),
+            'user_id' => 1,
+            'recordstatus' => 2
+        ]);
+        $category ->save();
+        return $category;
 
     }
 
@@ -83,13 +81,8 @@ class CategoryController extends Controller
     public function create()
 
     {
-
         return view('categories.create');
-
     }
-
-
-
 
     // public function store(Request $request)
     // {
