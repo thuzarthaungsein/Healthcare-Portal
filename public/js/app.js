@@ -53672,6 +53672,10 @@ var routes = [{
   path: '/',
   component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
 }, {
+  name: 'home',
+  path: '/home',
+  component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
+}, {
   name: 'newsdetails',
   path: '/newsdetails',
   component: __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default.a
