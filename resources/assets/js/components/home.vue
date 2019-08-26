@@ -20,21 +20,21 @@
 
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
-                                                                <a href="./news/news_details.html">
-                                                                        <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:80%" >
+                                                                <a href="#"><router-link to="/newsdetails">
+                                                                        <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" >
                                                                         <p class="source-title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle">
                                                                                 <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
                                                                         </p>
-                                                                </a>
+                                                                </router-link></a>
                                                         </div>
                                                         <div class="col-md-8 news-wrapper">
                                                                 <ul class="list-group list-group-flush" v-for="post in posts" :key="post.id">
                                                                         <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
-                                                                                <a href="./news/news_details.html">
+                                                                                <a href="#"><router-link to="/newsdetails">
                                                                                         <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                                 <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
-                                                                                </a>
+                                                                                </router-link></a>
                                                                         </li>
                                                                 </ul>
                                                         </div>

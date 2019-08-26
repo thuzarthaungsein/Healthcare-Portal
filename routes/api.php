@@ -58,7 +58,7 @@ Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 
 
 Route::get('news_list', 'PostController@index');
-
+Route::get('newdetails/{id}', 'PostController@show');
 Route::get('jobs', 'JobController@index');
 Route::get('news_list', 'PostController@index');
 

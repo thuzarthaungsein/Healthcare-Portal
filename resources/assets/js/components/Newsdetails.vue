@@ -168,6 +168,39 @@
         </section>  -->
         </div>
 </template>
+// <script>
+//     export default {
+       
+//         data() {
+//             return {
+//                 newdetails:[]
+//             }
+//         },
+//         created(){
+//             this.axios
+//                  .get(`http://localhost:8000/api/newdetails/${this.$route.params.id}`)
+//                  .then(response=>{
+                       
+//                      this.newdetails = response.data;
+//                        console.log(response.data);
+//                  });
+                       
+//         }
+//         // methods: {
+//         //         getPostById: function(id=1) {
+//         //                 this.axios
+//         //                 .get('http://localhost:8000/api/newdetails/'+id)
+//         //                 .then(response=>{
+//         //                         console.log(response.data.news_list);
+//         //                 this.newdetails = response.data.news_list;
+//         //                 });
+//         //         },
+//         // }
+        
+
+//     }
+// </script>
+
 <script>
     export default {
        
@@ -189,8 +222,6 @@
 
     }
 </script>
-
-
 
 
 

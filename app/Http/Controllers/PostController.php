@@ -16,9 +16,8 @@ class PostController extends Controller
     {
        
         $news_list = Post::all()->toArray();
-        return response()->json(array_reverse($news_list));
-    //     $data = array("news_list" => $news_list);
-    //    return response()->json($data);
+       return response()->json(array_reverse($news_list));
+
     }
     // add news
     public function add(Request $request)
@@ -65,8 +64,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-      
         return Post::findOrFail($id);
+    //     $news_list = Post::find($post);
+    //     $data = array("news_list" => $news_list);
+    //    return response()->json($data);
     }
 
     /**
