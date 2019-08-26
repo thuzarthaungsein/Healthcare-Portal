@@ -25,7 +25,6 @@
                 <div class="form-group">
                         <label>Gallery<span class="error">*</span></label>
                         <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
-                        <!-- <button>Clear Images</button> -->
 
                         <div class="col-md-12">
                                 <div class="row" id="image_preview"></div>
@@ -64,7 +63,7 @@
                         </div>
 
                         <div class="btn all-btn main-bg-color" @click="togglediv()">Consultation Hours</div>
-                        
+
                         <div class="toggle-div">
                                 <table class="table table-striped table-bordered">
                                         <tr>

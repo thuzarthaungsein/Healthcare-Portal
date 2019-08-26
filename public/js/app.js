@@ -58266,7 +58266,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                            就職活動リスト"
+              "\r\n                                            就職活動リスト"
             )
           ]
         )
@@ -60366,29 +60366,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            errors: [],
-            category: {
-                name: '',
-                user_id: '',
-                recordstatus: ''
-            }
-        };
-    },
+        data: function data() {
+                return {
+                        errors: [],
+                        category: {
+                                name: '',
+                                user_id: '',
+                                recordstatus: ''
+                        }
+                };
+        },
 
 
-    methods: {
-        add: function add() {
-            var _this = this;
+        methods: {
+                add: function add() {
+                        var _this = this;
 
-            axios.post('http://localhost:8000/api/category/add', this.category).then(function (response) {
-                alert('Successfully Created');
-                console.log(response);
-                _this.$router.push({ name: 'categorylist' });
-            });
+                        axios.post('http://localhost:8000/api/category/add', this.category).then(function (response) {
+                                alert('Successfully Created');
+                                console.log(response);
+                                _this.$router.push({ name: 'categorylist' });
+                        });
+                }
         }
-    }
 
 });
 
