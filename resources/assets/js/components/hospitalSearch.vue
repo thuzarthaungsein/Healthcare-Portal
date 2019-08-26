@@ -1,6 +1,7 @@
 <template>
 <div class="search-map">
         <div class="row">
+        
                 <div class="col-md-7 divisions">
                         <div class="row m-b-30">
                                 <div class="col-md-3">

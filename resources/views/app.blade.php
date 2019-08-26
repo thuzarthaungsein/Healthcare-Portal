@@ -10,6 +10,7 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/myJs.js') }}" defer></script>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
@@ -49,12 +50,32 @@
       <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> Search</button>
     </form>
     <ul class="navbar-nav mr-auto col-lg-2">
-      <li class="nav-item active btn login-register-btn col-lg-6">
-        <a href="/login" class="nav-item nav-link p-lr-0">サインイン</a>     
-      </li>
-      <li class="nav-item btn login-register-btn col-lg-6">
-        <a href="/register" class="nav-item nav-link p-lr-0">Register</a> 
-      </li>      
+    @guest
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        </li>
+    @else
+        <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }} <span class="caret"></span>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </li>
+    @endguest      
     </ul>
   </div>
   </nav>
@@ -67,11 +88,20 @@
 	<div class="row">
   <div class="col-2 pad-free custom-sidebar">
     <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <li><a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i>自分のニュースの検索</a></li>
-      <li> <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fa fa-paper-plane "></i> <span>ニュース作成</span></a></li>
-      <li><a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fa fa-user"></i> <span>プロフィール</span></a></li>
-      <li><a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-sign-out"></i> ログアウト</a></li>
-      
+      @guest
+      <!-- public menu -->
+
+      @else
+      <!-- login menu  -->
+      @can('role-list')
+      <li><a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i>admin</a></li>
+      <li><a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fa fa-paper-plane "></i> <span>admin</span></a></li>
+      @endcan
+      <li><router-link to="/map" class="nav-link">Map</router-link></li>
+      <li><router-link to="/editfacility" class="nav-link">editfacility</router-link></li>
+      <li><a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fa fa-user"></i> <span>user</span></a></li>
+      <li><a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-sign-out"></i> user</a></li>
+      @endguest
       
       </ul>
   </div>
@@ -174,7 +204,6 @@
                       </li>
                     </ol>
                   </nav> -->
-                  <router-view></router-view>
                 </div>
                 <div role="tabpanel" class="tab-pane " id="tab2">
                 <!--hospital search-->
@@ -196,9 +225,17 @@
            
            
         </div>
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">two</div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">three</div>
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div>
+
+      <!-- vue component -->
+      <div class="">
+
+          <router-view></router-view>
+
+      </div>
+      <!-- vue component -->
+
+      <!-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">three</div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div> -->
       </div>
       
       <div class="col-2">

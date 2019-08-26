@@ -1,6 +1,6 @@
 <template>
          <div>
-                                        
+         <router-link to="/map" > Map </router-link>           
                 <div class="card m-b-10 ads-card">
                         <div class="">
                                 <!-- <h5 class="card-title text-center">一つ目の広告</h5> -->
