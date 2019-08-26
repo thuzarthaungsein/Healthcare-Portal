@@ -16,7 +16,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
     Route::resource('categories','CategoryController');
     // admin home page
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@home');
     Route::get('/*', function () {return view('layouts.admin');})->where('any', '.*');
 });
 
