@@ -30,6 +30,12 @@ class HomeController extends Controller
         return response()->json($cats);
     }
 
+    public function home()
+    {
+        // $cats = Category::all()->toArray();
+        return view("home");
+    }
+
     public function getPosts($cat_id)
     {
         $posts = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->get();
