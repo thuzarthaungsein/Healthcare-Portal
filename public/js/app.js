@@ -14699,14 +14699,12 @@ module.exports = __webpack_require__(121);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__App_vue__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__route__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_axios__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__route__ = __webpack_require__(65);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -14717,26 +14715,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __webpack_require__(19);
 window.Vue = __webpack_require__(40);
 
+// import App from './App.vue';
 
 
 
 
 
+Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
+Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
 
-Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_3_axios___default.a);
-
-var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
     mode: 'history',
-    routes: __WEBPACK_IMPORTED_MODULE_4__route__["a" /* routes */]
+    routes: __WEBPACK_IMPORTED_MODULE_3__route__["a" /* routes */]
 });
 
 var app = new Vue({
     el: '#app',
-    router: router,
-    render: function render(h) {
-        return h(__WEBPACK_IMPORTED_MODULE_0__App_vue___default.a);
-    }
+    router: router
+    // render: h => h(App),
 });
 
 /***/ }),
@@ -49439,97 +49435,9 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(10)))
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(45)
-}
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(48)
-/* template */
-var __vue_template__ = __webpack_require__(62)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-66ab2f82"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/App.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-66ab2f82", Component.options)
-  } else {
-    hotAPI.reload("data-v-66ab2f82", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(46);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(4)("0aef848c", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66ab2f82\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66ab2f82\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-66ab2f82] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n                    animation-name: jssorl-009-spin-data-v-66ab2f82;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-66ab2f82 {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-66ab2f82] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-66ab2f82] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-66ab2f82] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-66ab2f82] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-66ab2f82] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-66ab2f82] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-66ab2f82] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-66ab2f82]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-66ab2f82] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-66ab2f82] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n\r\n\r\n\r\n\r\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 44 */,
+/* 45 */,
+/* 46 */,
 /* 47 */
 /***/ (function(module, exports) {
 
@@ -49563,807 +49471,15 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 48 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Ads_vue__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Ads_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Ads_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    relatedNews: __WEBPACK_IMPORTED_MODULE_1__components_Relatednews_vue___default.a,
-    hospitalSearch: __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default.a,
-    nursingSearch: __WEBPACK_IMPORTED_MODULE_3__components_nursingSearch_vue___default.a,
-    jobSearch: __WEBPACK_IMPORTED_MODULE_4__components_jobSearch_vue___default.a,
-    ads: __WEBPACK_IMPORTED_MODULE_0__components_Ads_vue___default.a
-  },
-  mounted: function mounted() {
-    console.log('Component mounted.');
-    $(document).ready(function () {
-      // jssor_1_slider_init();   
-      //   $('.nav-tabs').scrollingTabs({
-      //   bootstrapVersion: 4  
-      // });                   
-
-    });
-  }
-});
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(50)
-}
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(52)
-/* template */
-var __vue_template__ = __webpack_require__(53)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-a9e2b56e"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Ads.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-a9e2b56e", Component.options)
-  } else {
-    hotAPI.reload("data-v-a9e2b56e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(51);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(4)("37852d2f", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-a9e2b56e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Ads.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-a9e2b56e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Ads.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*for jssor*/\r\n   /*jssor slider loading skin spin css*/\n.jssorl-009-spin img[data-v-a9e2b56e] {\r\n            -webkit-animation-name: jssorl-009-spin-data-v-a9e2b56e;\r\n                    animation-name: jssorl-009-spin-data-v-a9e2b56e;\r\n            -webkit-animation-duration: 1.6s;\r\n                    animation-duration: 1.6s;\r\n            -webkit-animation-iteration-count: infinite;\r\n                    animation-iteration-count: infinite;\r\n            -webkit-animation-timing-function: linear;\r\n                    animation-timing-function: linear;\n}\n@-webkit-keyframes jssorl-009-spin-data-v-a9e2b56e {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes jssorl-009-spin-data-v-a9e2b56e {\nfrom { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\nto { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n\r\n        /*jssor slider bullet skin 057 css*/\n.jssorb057 .i[data-v-a9e2b56e] {position:absolute;cursor:pointer;\n}\n.jssorb057 .i .b[data-v-a9e2b56e] {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;\n}\n.jssorb057 .i:hover .b[data-v-a9e2b56e] {stroke-opacity:.7;\n}\n.jssorb057 .iav .b[data-v-a9e2b56e] {stroke-opacity: 1;\n}\n.jssorb057 .i.idn[data-v-a9e2b56e] {opacity:.3;\n}\r\n\r\n        /*jssor slider arrow skin 073 css*/\n.jssora073[data-v-a9e2b56e] {display:block;position:absolute;cursor:pointer;\n}\n.jssora073 .a[data-v-a9e2b56e] {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;\n}\n.jssora073[data-v-a9e2b56e]:hover {opacity:.8;\n}\n.jssora073.jssora073dn[data-v-a9e2b56e] {opacity:.4;\n}\n.jssora073.jssora073ds[data-v-a9e2b56e] {opacity:.3;pointer-events:none;\n}\r\n\r\n/*end for jssor*/\r\n \r\n\r\n\r\n\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-        $(document).ready(function () {
-            jssor_1_slider_init();
-        });
-    }
-});
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-auto" }, [
-    _c(
-      "div",
-      {
-        staticStyle: {
-          position: "relative",
-          margin: "0 auto",
-          top: "0px",
-          left: "0px",
-          width: "980px",
-          height: "100px",
-          overflow: "hidden",
-          visibility: "hidden",
-          "margin-bottom": "10px"
-        },
-        attrs: { id: "jssor_1" }
-      },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "jssorb057",
-            staticStyle: {
-              position: "absolute",
-              bottom: "12px",
-              right: "12px"
-            },
-            attrs: {
-              "data-u": "navigator",
-              "data-autocenter": "1",
-              "data-scale": "0.5",
-              "data-scale-bottom": "0.75"
-            }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "i",
-                staticStyle: { width: "16px", height: "16px" },
-                attrs: { "data-u": "prototype" }
-              },
-              [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      position: "absolute",
-                      top: "0",
-                      left: "0",
-                      width: "100%",
-                      height: "100%"
-                    },
-                    attrs: { viewbox: "0 0 16000 16000" }
-                  },
-                  [
-                    _c("circle", {
-                      staticClass: "b",
-                      attrs: { cx: "8000", cy: "8000", r: "5000" }
-                    })
-                  ]
-                )
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "jssora073",
-            staticStyle: {
-              width: "50px",
-              height: "50px",
-              top: "0px",
-              left: "30px"
-            },
-            attrs: {
-              "data-u": "arrowleft",
-              "data-autocenter": "2",
-              "data-scale": "0.75",
-              "data-scale-left": "0.75"
-            }
-          },
-          [
-            _c(
-              "svg",
-              {
-                staticStyle: {
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  width: "100%",
-                  height: "100%"
-                },
-                attrs: { viewbox: "0 0 16000 16000" }
-              },
-              [
-                _c("path", {
-                  staticClass: "a",
-                  attrs: {
-                    d:
-                      "M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z"
-                  }
-                })
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "jssora073",
-            staticStyle: {
-              width: "50px",
-              height: "50px",
-              top: "0px",
-              right: "30px"
-            },
-            attrs: {
-              "data-u": "arrowright",
-              "data-autocenter": "2",
-              "data-scale": "0.75",
-              "data-scale-right": "0.75"
-            }
-          },
-          [
-            _c(
-              "svg",
-              {
-                staticStyle: {
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  width: "100%",
-                  height: "100%"
-                },
-                attrs: { viewbox: "0 0 16000 16000" }
-              },
-              [
-                _c("path", {
-                  staticClass: "a",
-                  attrs: {
-                    d:
-                      "M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z"
-                  }
-                })
-              ]
-            )
-          ]
-        )
-      ]
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "jssorl-009-spin",
-        staticStyle: {
-          position: "absolute",
-          top: "0px",
-          left: "0px",
-          width: "100%",
-          height: "100%",
-          "text-align": "center",
-          "background-color": "rgba(0,0,0,0.7)"
-        },
-        attrs: { "data-u": "loading" }
-      },
-      [
-        _c("img", {
-          staticStyle: {
-            "margin-top": "-19px",
-            position: "relative",
-            top: "50%",
-            width: "38px",
-            height: "38px"
-          },
-          attrs: { src: "images/spin.svg" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticStyle: {
-          cursor: "default",
-          position: "relative",
-          top: "0px",
-          left: "0px",
-          width: "980px",
-          height: "120px",
-          overflow: "hidden"
-        },
-        attrs: { "data-u": "slides" }
-      },
-      [
-        _c("div", [
-          _c("img", { attrs: { "data-u": "image", src: "/images/day2.jpg" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { "data-u": "image", src: "/images/day3.jpg" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { "data-u": "image", src: "/images/day4.jpg" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { "data-u": "image", src: "/images/day5.jpg" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { "data-u": "image", src: "/images/day4.jpg" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", {
-            attrs: { "data-u": "image", src: "/images/hospital1.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", {
-            attrs: { "data-u": "image", src: "/images/hospital3.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", {
-            attrs: { "data-u": "image", src: "/images/hospital4.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", {
-            attrs: { "data-u": "image", src: "/images/hospital5.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { "data-u": "image", src: "/images/h5.jpg" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { "data-u": "image", src: "/images/home1.jpg" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("img", { attrs: { "data-u": "image", src: "/images/h7.jpg" } })
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-a9e2b56e", module.exports)
-  }
-}
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(55)
-/* template */
-var __vue_template__ = __webpack_require__(56)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Relatednews.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4cc99e17", Component.options)
-  } else {
-    hotAPI.reload("data-v-4cc99e17", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 55 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-        data: function data() {
-                return {
-                        latest_post_all_cats: []
-                };
-        },
-        created: function created() {
-                this.getLatestPostFromAllCat();
-        },
-
-        methods: {
-                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
-                        var _this = this;
-
-                        this.axios.get('http://localhost:8000/api/get_latest_post_all_cat').then(function (response) {
-                                _this.latest_post_all_cats = response.data;
-                        });
-                }
-        }
-        // alert(cats[0]);
-
-});
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("router-link", { attrs: { to: "/map" } }, [_vm._v(" Map ")]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("div", { staticClass: "card m-b-10 ads-card2" }, [
-        _c(
-          "div",
-          { staticClass: "card-body" },
-          _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
-            return _c(
-              "ul",
-              {
-                key: latest_post_all_cat.id,
-                staticClass: "list-group list-group-flush"
-              },
-              [
-                _c("li", { staticClass: "list-group-item" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("img", {
-                      staticClass: "img-responsivie ads-img",
-                      attrs: {
-                        src: "/images/" + latest_post_all_cat.photo,
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "h3",
-                      {
-                        staticClass: "ads-title text-truncate",
-                        staticStyle: {}
-                      },
-                      [_vm._v(" " + _vm._s(latest_post_all_cat.title) + " ")]
-                    ),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "source-wrapper" }, [
-                      _c("span", { staticClass: "subtitle" }, [
-                        _vm._v(" " + _vm._s(latest_post_all_cat.created_at))
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            )
-          }),
-          0
-        )
-      ])
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card m-b-10 ads-card" }, [
-      _c("div", {}, [
-        _c("img", {
-          staticClass: "img-responsivie",
-          staticStyle: { width: "100%" },
-          attrs: { src: "/images/ad_1.jpg", alt: "" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card m-b-10 ads-card" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h5", { staticClass: "card-title text-center" }, [
-          _vm._v("二つ目の広告")
-        ]),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "img-responsivie",
-          staticStyle: { width: "100%" },
-          attrs: { src: "/images/logo_japanese_horizontal.png", alt: "" }
-        })
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4cc99e17", module.exports)
-  }
-}
-
-/***/ }),
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
 /* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -51628,959 +50744,11 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(59)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/nursingSearch.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6121795b", Component.options)
-  } else {
-    hotAPI.reload("data-v-6121795b", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "search-map" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-7 divisions" }, [
-          _c("div", { staticClass: "row m-b-30" }, [
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#c296c5" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                中国・東海\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-body",
-                      staticStyle: { padding: "10px" }
-                    },
-                    [
-                      _c("span", [_vm._v("広島")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("岡山")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("山口")]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("鳥取")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("島根")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("愛知")]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("静岡")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("岐阜")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("三重")])
-                    ]
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#fab755" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                近畿\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("大阪")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("兵庫")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("京都")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("奈良")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("滋賀")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("和歌山")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#ec9a9c" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                甲信越・北陸\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("石川")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("新潟")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("富山")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("福井")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("長野")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("山梨")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#9ac1d6" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                北海道・東北\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-body",
-                      staticStyle: { padding: "10px" }
-                    },
-                    [
-                      _c("span", [_vm._v("宮城")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("北海道")]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("青森")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("岩手")]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("山形")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("福島")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("秋田")])
-                    ]
-                  )
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#f26d6d" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                九州・沖縄\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("福岡")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("熊本")]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("長崎")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("鹿児島")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("宮崎")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("大分")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("佐賀")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("沖縄")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#a2ce4b" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                関東\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("東京")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("神奈川")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("千葉")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("埼玉")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("群馬")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("茨城")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("栃木")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#9cd9e0" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                四国\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("愛媛")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("香川")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("高知 ")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("徳島")])
-                  ])
-                ]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-5" }, [
-          _c("img", {
-            staticClass: "img-responsive",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/map.png", alt: "" }
-          })
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6121795b", module.exports)
-  }
-}
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(61)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/jobSearch.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7dbf913e", Component.options)
-  } else {
-    hotAPI.reload("data-v-7dbf913e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "search-map" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-7 divisions" }, [
-          _c("div", { staticClass: "row m-b-30" }, [
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#c296c5" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                中国・東海\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-body",
-                      staticStyle: { padding: "10px" }
-                    },
-                    [
-                      _c("span", [_vm._v("広島")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("岡山")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("山口")]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("鳥取")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("島根")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("愛知")]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("静岡")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("岐阜")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("三重")])
-                    ]
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#fab755" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                近畿\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("大阪")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("兵庫")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("京都")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("奈良")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("滋賀")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("和歌山")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#ec9a9c" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                甲信越・北陸\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("石川")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("新潟")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("富山")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("福井")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("長野")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("山梨")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#9ac1d6" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                北海道・東北\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-body",
-                      staticStyle: { padding: "10px" }
-                    },
-                    [
-                      _c("span", [_vm._v("宮城")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("北海道")]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("青森")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("岩手")]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("山形")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("福島")]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("秋田")])
-                    ]
-                  )
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#f26d6d" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                九州・沖縄\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("福岡")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("熊本")]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("長崎")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("鹿児島")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("宮崎")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("大分")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("佐賀")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("沖縄")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#a2ce4b" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                関東\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("東京")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("神奈川")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("千葉")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("埼玉")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("群馬")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("茨城")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("栃木")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { background: "#9cd9e0" } },
-                [
-                  _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\r\n                                                四国\r\n                                                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("span", [_vm._v("愛媛")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("香川")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("高知 ")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("徳島")])
-                  ])
-                ]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-5" }, [
-          _c("img", {
-            staticClass: "img-responsive",
-            staticStyle: { width: "100%" },
-            attrs: { src: "/images/map.png", alt: "" }
-          })
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7dbf913e", module.exports)
-  }
-}
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-10 offset-md-1" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("section", { staticClass: "main-content" }, [
-      _c(
-        "div",
-        { staticClass: "container-fluid main-wrapper" },
-        [
-          _c("ads"),
-          _vm._v(" "),
-          _c("div", { staticClass: "row justify-content-md-center" }, [
-            _c("div", { staticClass: "col-10 tab" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "tab-content tabs" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "tab-pane in active",
-                    attrs: { role: "tabpanel", id: "tab1" }
-                  },
-                  [_c("router-view")],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "tab-pane fade",
-                    attrs: { role: "tabpanel", id: "tab2" }
-                  },
-                  [_c("hospitalSearch")],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "tab-pane fade",
-                    attrs: { role: "tabpanel", id: "tab3" }
-                  },
-                  [_c("nursingSearch")],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "tab-pane fade",
-                    attrs: { role: "tabpanel", id: "tab4" }
-                  },
-                  [_c("jobSearch")],
-                  1
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-2" }, [_c("relatedNews")], 1)
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(2)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-dark main-header" },
-      [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/trust_growth.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarSupportedContent",
-              "aria-controls": "navbarSupportedContent",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation"
-            }
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarSupportedContent" }
-          },
-          [
-            _c(
-              "form",
-              {
-                staticClass:
-                  "form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline"
-              },
-              [
-                _c("input", {
-                  staticClass:
-                    "form-control col-lg mr-sm-3 d-flex p-2 form-control",
-                  attrs: {
-                    type: "search",
-                    placeholder: "Search",
-                    "aria-label": "Search"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
-                    attrs: { type: "submit" }
-                  },
-                  [_c("i", { staticClass: "fas fa-search" }), _vm._v(" Search")]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("ul", { staticClass: "navbar-nav mr-auto col-lg-2" }, [
-              _c(
-                "li",
-                {
-                  staticClass: "nav-item active btn login-register-btn col-lg-6"
-                },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-item nav-link p-lr-0",
-                      attrs: { href: "/login" }
-                    },
-                    [_vm._v("サインイン")]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item btn login-register-btn col-lg-6" },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-item nav-link p-lr-0",
-                      attrs: { href: "/register" }
-                    },
-                    [_vm._v("Register")]
-                  )
-                ]
-              )
-            ])
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "ul",
-      {
-        staticClass: "nav nav-tabs card-head-tabs",
-        attrs: { role: "tablist" }
-      },
-      [
-        _c(
-          "li",
-          {
-            staticClass: "active subtab1 nav-item",
-            attrs: { role: "presentation" }
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link active",
-                attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
-              },
-              [_c("i", { staticClass: "fas fa-home" }), _vm._v("ホーム")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "subtab2 nav-item", attrs: { role: "presentation" } },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: { href: "#tab2", role: "tab", "data-toggle": "tab" }
-              },
-              [
-                _c("i", { staticClass: "fas fa-briefcase-medical" }),
-                _vm._v(" 病院検索")
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "subtab3 nav-item", attrs: { role: "presentation" } },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: { href: "#tab3", role: "tab", "data-toggle": "tab" }
-              },
-              [_c("i", { staticClass: "fas fa-user-md" }), _vm._v(" 介護検索")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "subtab5 nav-item", attrs: { role: "presentation" } },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: { href: "#tab4", role: "tab", "data-toggle": "tab" }
-              },
-              [_c("i", { staticClass: "fas fa-users" }), _vm._v(" 求人検索")]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid footer" }, [
-      _c("span", [
-        _vm._v("Copyright©Management Partners Corp.All Rights Reserved. ")
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-66ab2f82", module.exports)
-  }
-}
-
-/***/ }),
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
 /* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58244,9 +56412,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58276,134 +56441,310 @@ var render = function() {
     _c("div", { staticClass: "col-md container cont-pad" }, [
       _c("div", { staticClass: "row m-b-20" }, [
         _c("div", { staticClass: "col-md-12 scroll2" }, [
-          _c("h4", { staticClass: "h_4" }, [
+          _c("h4", { staticClass: "h_4 header" }, [
             _vm._v(_vm._s(_vm.job_details.title))
           ]),
           _vm._v(" "),
           _c("img", {
-            staticClass: "img-responsive img_6",
-            attrs: { src: "/images/img1.jpg", height: "", width: "15%" }
+            staticClass: "img-responsive",
+            staticStyle: { width: "150px" },
+            attrs: { src: "/images/img1.jpg" }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("仕事内容")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.description))
-              ])
+          _c("div", { staticClass: "maintable_wrapper" }, [
+            _c("h4", { staticClass: "h_4" }, [
+              _vm._v(
+                "お仕事  No.04058  平日のみ月10日程度の仕事！富裕層向け通販会社での電話受注スタッフ"
+              )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("経験・スキル")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.skills))
-              ])
-            ]),
+            _c(
+              "div",
+              { staticClass: "table_wrapper", staticStyle: { clear: "both" } },
+              [
+                _c(
+                  "table",
+                  {
+                    staticClass: "table",
+                    staticStyle: {
+                      margin: "0 auto",
+                      "border-collapse": "separate"
+                    }
+                  },
+                  [
+                    _c("tbody", [
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("仕事内容")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.description))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("経験・スキル")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.skills))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("勤務地")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.location))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("最寄り駅")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.nearest_station))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("雇用形態")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.employment_status))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("給与")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.salary))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("諸手当")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.allowances))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("各種保険")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.insurance))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("就業時間")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.working_hours))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(8),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "ds_detail_1",
+                            attrs: { scope: "row" }
+                          },
+                          [_vm._v("休日休暇")]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "ds_detail_2" }, [
+                          _vm._v(_vm._s(_vm.job_details.holidays))
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [_vm._v("勤務地")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.location))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("最寄り駅")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.nearest_station))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("雇用形態")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.employment_status))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [_vm._v("給与")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.salary))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [_vm._v("諸手当")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.allowances))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("各種保険")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.insurance))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("就業時間")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.working_hours))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "topic b" }, [
-              _c("h4", { staticClass: "item text-center" }, [
-                _vm._v("休日休暇")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "data", staticStyle: { width: "50%" } }, [
-                _vm._v(_vm._s(_vm.job_details.holidays))
-              ])
-            ])
+            _c("h4", { staticStyle: { padding: "3px" } })
           ])
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12 text-center" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn main-bg-color white all-btn",
-              attrs: { href: "#" }
-            },
-            [
-              _c("router-link", { attrs: { to: "/jobapply" } }, [
-                _vm._v("この案件に応募")
-              ])
-            ],
-            1
-          )
-        ])
+        _c(
+          "div",
+          { staticClass: "col-md-12 text-center" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "btn secondary-bg-color white all-btn",
+                attrs: { to: "/jobapply" }
+              },
+              [_vm._v("この案件に応募")]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { staticClass: "ds_cellline", attrs: { colspan: "2" } })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -60275,7 +58616,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.land\n{\n    fill: #B7DAD2;\n    fill-opacity: 19;\n    stroke:#888080;\n    stroke-opacity: 1;\n    stroke-width:1.5;\n}\n", ""]);
+exports.push([module.i, "\npath {\ncursor: pointer;\nfill: grey\n}\n.selected {\nfill: #002868;\nstroke: #339999;\nstroke-width: 1px;\nstroke-linejoin: round;\n}\n", ""]);
 
 // exports
 
@@ -60291,13 +58632,13 @@ var render = function() {
   return _c(
     "svg",
     {
-      staticStyle: { position: "absolute", width: "100%", height: "100%" },
       attrs: {
-        viewbox: "0 0 16000 16000",
+        width: "100%",
+        height: "100%",
+        viewBox: "100 0 400 420",
+        preserveAspectRatio: "xMidYMid meet",
         xmlns: "http://www.w3.org/2000/svg",
-        "xmlns:amcharts": "http://amcharts.com/ammap",
-        "xmlns:xlink": "http://www.w3.org/1999/xlink",
-        version: "1.1"
+        "xmlns:xlink": "http://www.w3.org/1999/xlink"
       }
     },
     [
