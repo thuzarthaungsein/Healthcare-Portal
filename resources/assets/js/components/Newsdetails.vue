@@ -18,7 +18,7 @@
                                 <div class="row m-lr-0">
                                         <div class="col-md-12" >
                                                 <h4 class="h_4 header">{{newdetails.title}}</h4>
-                                                <p class="set-date"><time datetime="2012-01-04">2012年1月4日</time></p>
+                                                <p class="set-date"><time datetime="2012-01-04">{{newdetails.created_at}}</time></p>
                                         </div>
                                         <div class="col-md-6">
                                                 <p class="p5">{{newdetails.body}}</p>
@@ -185,6 +185,7 @@
                        console.log(response.data);
                  });
         }
+        
 
     }
 </script>

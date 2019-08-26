@@ -41,6 +41,7 @@ Route::group(['prefix' => 'customer'], function () {
 });
 
 Route::group(['prefix' => 'category'], function () {
+    Route::get('category_list','CategoryController@list');
     Route::get('categories', 'CategoryController@index');
     Route::post('add', 'CategoryController@add');
     Route::get('edit/{id}', 'CategoryController@edit');

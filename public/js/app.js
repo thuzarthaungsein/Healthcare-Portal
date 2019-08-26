@@ -56285,7 +56285,11 @@ var render = function() {
                   _vm._v(_vm._s(_vm.newdetails.title))
                 ]),
                 _vm._v(" "),
-                _vm._m(0)
+                _c("p", { staticClass: "set-date" }, [
+                  _c("time", { attrs: { datetime: "2012-01-04" } }, [
+                    _vm._v(_vm._s(_vm.newdetails.created_at))
+                  ])
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-6" }, [
@@ -56300,7 +56304,7 @@ var render = function() {
                   attrs: { src: "/images/" + _vm.newdetails.photo }
                 }),
                 _vm._v(" "),
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
                   "p",
@@ -56311,32 +56315,22 @@ var render = function() {
                   [_vm._v("関連ニュース")]
                 ),
                 _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
                 _vm._m(2),
                 _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _vm._m(4)
+                _vm._m(3)
               ])
             ])
           ]),
           _vm._v(" "),
-          _vm._m(5)
+          _vm._m(4)
         ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "set-date" }, [
-      _c("time", { attrs: { datetime: "2012-01-04" } }, [
-        _vm._v("2012年1月4日")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -58752,6 +58746,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58764,7 +58766,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 category_id: '',
                 user_id: '',
                 recordstatus: ''
-            }
+            },
+            categories: {
+                id: '',
+                name: ''
+            },
+
+            selected: ""
         };
     },
 
@@ -58782,6 +58790,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).finally(function () {
                 return _this.loading = false;
             });
+        },
+        created: function created() {
+            console.log("I'm a littel teapot");
+            axios.get('http://localhost:8000/api/category/category_list').then(function (response) {
+                this.categories = response.data;
+                console.log(data);
+            }.bind(this));
         }
     }
 });
@@ -58872,7 +58887,56 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(3),
+                  _c("div", { staticClass: "btn-group" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selected,
+                            expression: "selected"
+                          }
+                        ],
+                        attrs: { id: "categoryList" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.selected = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      _vm._l(_vm.categories, function(category) {
+                        return _c(
+                          "option",
+                          {
+                            key: category.id,
+                            domProps: { value: category.id }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                    " +
+                                _vm._s(category.name) +
+                                "\r\n                                                "
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("br"),
@@ -58951,35 +59015,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "btn-group" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn main-bg-color white dropdown-toggle all-btn",
-          attrs: { type: "button", "data-toggle": "dropdown" }
-        },
-        [
-          _vm._v(
-            "\r\n                                                    種類\r\n                                                "
-          ),
-          _c("span", { staticClass: "caret" })
-        ]
-      ),
-      _vm._v(" "),
-      _c("ul", { staticClass: "dropdown-menu" }, [
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Doctor")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Nurse")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Pharmacist")])]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Administrative Staff")])
-        ]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Therapists")])])
-      ])
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "btn main-bg-color white all-btn",
+        attrs: { type: "button" }
+      },
+      [
+        _vm._v(
+          "\r\n                                                    種類\r\n                                                "
+        ),
+        _c("span", { staticClass: "caret" })
+      ]
+    )
   },
   function() {
     var _vm = this

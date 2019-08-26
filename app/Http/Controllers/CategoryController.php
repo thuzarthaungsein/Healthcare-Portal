@@ -43,6 +43,13 @@ class CategoryController extends Controller
         $categories = Category::all()->toArray();
         return array_reverse($categories);
     }
+    public function list()
+    {
+ 
+        $category_list = Category::select('id','name')->get(); 
+        return response()->json($category_list);
+
+    }
 
     //add category
     public function add(Request $request)
@@ -124,21 +131,6 @@ class CategoryController extends Controller
 
     // }
 
-<<<<<<< HEAD
-        $user = Auth::user()->id;
-        request()->validate([
-            'name' => 'required',
-        ]);
-            $form_data = array(
-                'user_id'         =>   $user,
-                'name'            =>   $request->name,
-                'recordstatus'    =>   1,
-            );
-        Category::whereId($id)->update($form_data);
-
-        //$product->update($request->all());
-=======
->>>>>>> 28bd47386420519b3dda7589fab574db4355a8f3
 
 
     // public function update(Request $request,$id)
