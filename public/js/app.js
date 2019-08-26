@@ -57403,8 +57403,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
+                        errors: [],
+                        jobApply: {
+                                name: '',
+                                birthday: '',
+                                address: '',
+                                phone: '',
+                                email: '',
+                                work_time: '',
+                                skill: []
+                        }
+
+                };
+        },
+
+        methods: {
+                apply: function apply() {
+                        var _this = this;
+
+                        this.axios.post('http://localhost:8000/api/jobapply', this.jobApply).then(function (response) {
+                                alert('Successful Apply');
+                                console.log(response);
+                                //console.log(this.jobApply.toString());
+                                _this.jobApply = response.data;
+                        });
+                }
+        }
+});
 
 /***/ }),
 /* 80 */
@@ -57415,44 +57451,432 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-12" }, [
-    _c("h4", { staticClass: "h_4 header" }, [_vm._v("求人応募フォーム")]),
+    _c("h4", { staticClass: "h_4 text-center" }, [_vm._v("Job Apply Form")]),
     _vm._v(" "),
     _c("div", { staticClass: "col-md-7 offset-md-3" }, [
-      _c("form", [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _vm._m(4),
-        _vm._v(" "),
-        _vm._m(5),
-        _vm._v(" "),
-        _vm._m(6),
-        _vm._v(" "),
-        _vm._m(7),
-        _vm._v(" "),
-        _vm._m(8),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "text-center" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "btn secondary-bg-color white all-btn",
-                attrs: { to: "/" }
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.apply($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.name,
+                  expression: "jobApply.name"
+                }
+              ],
+              staticClass: "form-control box",
+              attrs: { type: "text", id: "name", placeholder: "name" },
+              domProps: { value: _vm.jobApply.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobApply, "name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.birthday,
+                  expression: "jobApply.birthday"
+                }
+              ],
+              staticClass: "form-control box",
+              attrs: { type: "text", id: "birth", placeholder: "birthday" },
+              domProps: { value: _vm.jobApply.birthday },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobApply, "birthday", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.address,
+                  expression: "jobApply.address"
+                }
+              ],
+              staticClass: "form-control box",
+              attrs: { type: "text", id: "address", placeholder: "address" },
+              domProps: { value: _vm.jobApply.address },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobApply, "address", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.phone,
+                  expression: "jobApply.phone"
+                }
+              ],
+              staticClass: "form-control box",
+              attrs: { type: "tel", id: "phone", placeholder: "phone" },
+              domProps: { value: _vm.jobApply.phone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobApply, "phone", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.email,
+                  expression: "jobApply.email"
+                }
+              ],
+              staticClass: "form-control box",
+              attrs: { type: "email", id: "email", placeholder: "email" },
+              domProps: { value: _vm.jobApply.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobApply, "email", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Work Time")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.work_time,
+                  expression: "jobApply.work_time"
+                }
+              ],
+              staticClass: "form-control box",
+              attrs: { type: "time", id: "time" },
+              domProps: { value: _vm.jobApply.work_time },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobApply, "work_time", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("h4", [_vm._v("Skills")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "communication" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "communication") > -1
+                  : _vm.jobApply.skill
               },
-              [_vm._v("募集")]
-            )
-          ],
-          1
-        )
-      ])
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "communication",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("Communication"),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "ethics" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "ethics") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "ethics",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("Ethics"),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "crital thinking" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "crital thinking") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "crital thinking",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("Critical Thinking"),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "attention to detail" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "attention to detail") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "attention to detail",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("Attention To Detail"),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "comitment to development" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "comitment to development") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "comitment to development",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("Comitment To Development"),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobApply.skill,
+                  expression: "jobApply.skill"
+                }
+              ],
+              attrs: { type: "checkbox", value: "responsibility" },
+              domProps: {
+                checked: Array.isArray(_vm.jobApply.skill)
+                  ? _vm._i(_vm.jobApply.skill, "responsibility") > -1
+                  : _vm.jobApply.skill
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.jobApply.skill,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "responsibility",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(_vm.jobApply, "skill", $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.jobApply,
+                          "skill",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.jobApply, "skill", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("Responsibility"),
+            _c("br"),
+            _c("br")
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      )
     ])
   ])
 }
@@ -57461,156 +57885,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", {
-        staticClass: "form-control box",
-        attrs: { type: "text", id: "name", placeholder: "name", name: "name" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", {
-        staticClass: "form-control box",
-        attrs: {
-          type: "text",
-          id: "birth",
-          placeholder: "birthday",
-          name: "birthday"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          id: "address",
-          name: "address",
-          placeholder: "address"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", {
-        staticClass: "form-control box",
-        attrs: { type: "tel", id: "phone", placeholder: "phone", name: "phone" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("textarea", {
-        staticClass: "form-control",
-        staticStyle: { width: "100%", padding: "5px" },
-        attrs: { rows: "8", cols: "30", placeholder: "コンテンツ" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", {
-        staticClass: "form-control box",
-        attrs: {
-          type: "time",
-          id: "time",
-          placeholder: "working_time",
-          name: "time"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", { attrs: { type: "checkbox", name: "skill1" } }),
-      _vm._v("Communication"),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "checkbox", name: "skill2" } }),
-      _vm._v("Ethics"),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "checkbox", name: "skill3" } }),
-      _vm._v("Critical Thinking"),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "checkbox", name: "skill4" } }),
-      _vm._v("Attention To Detail"),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "checkbox", name: "skill4" } }),
-      _vm._v("Commitment To Development"),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "checkbox", name: "skill4" } }),
-      _vm._v("Responsibility\r\n         ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("textarea", {
-        staticClass: "form-control",
-        staticStyle: { width: "100%", padding: "5px" },
-        attrs: { name: "message", id: "message", rows: "8" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-3" }, [
-      _c("div", { staticClass: "input-group-prepend" }, [
-        _c(
-          "span",
-          {
-            staticClass: "input-group-text",
-            attrs: { id: "inputGroupFileAddon01" }
-          },
-          [_vm._v("Upload")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "custom-file" }, [
-        _c("input", {
-          staticClass: "custom-file-input",
-          attrs: { type: "file", id: "inputGroupFile01" }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "custom-file-label",
-            attrs: { for: "inputGroupFile01" }
-          },
-          [_vm._v("No file chosen")]
-        )
-      ])
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn main-bg-color white all-btn ",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("Apply")]
+      )
     ])
   }
 ]
@@ -57983,7 +58266,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\r\n                                            就職活動リスト"
+              "\n                                            就職活動リスト"
             )
           ]
         )
@@ -60083,29 +60366,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        data: function data() {
-                return {
-                        errors: [],
-                        category: {
-                                name: '',
-                                user_id: '',
-                                recordstatus: ''
-                        }
-                };
-        },
+    data: function data() {
+        return {
+            errors: [],
+            category: {
+                name: '',
+                user_id: '',
+                recordstatus: ''
+            }
+        };
+    },
 
 
-        methods: {
-                add: function add() {
-                        var _this = this;
+    methods: {
+        add: function add() {
+            var _this = this;
 
-                        axios.post('http://localhost:8000/api/category/add', this.category).then(function (response) {
-                                alert('Successfully Created');
-                                console.log(response);
-                                _this.$router.push({ name: 'categorylist' });
-                        });
-                }
+            axios.post('http://localhost:8000/api/category/add', this.category).then(function (response) {
+                alert('Successfully Created');
+                console.log(response);
+                _this.$router.push({ name: 'categorylist' });
+            });
         }
+    }
 
 });
 
