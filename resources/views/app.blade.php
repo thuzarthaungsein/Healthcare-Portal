@@ -35,50 +35,57 @@
 <body>
 <div id="app">
 <div class="col-md-10 offset-md-1 main-content pad-free">
-<!--navigation bar-->
-<nav class="navbar navbar-expand-lg navbar-dark main-header">
-<a class="navbar-brand" href="#"><img src="images/trust_growth.png" alt=""></a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <form class="form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline">
-    <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> Search</button>
-  </form>
-  <ul class="navbar-nav mr-auto col-lg-2">
-    <li class="nav-item active btn login-register-btn col-lg-6">
-      <a href="/login" class="nav-item nav-link p-lr-0">サインイン</a>     
-    </li>
-    <li class="nav-item btn login-register-btn col-lg-6">
-      <a href="/register" class="nav-item nav-link p-lr-0">Register</a> 
-    </li>      
-  </ul>
-</div>
-</nav>
-     
+  <!--navigation bar-->
+  <nav class="navbar navbar-expand-lg navbar-dark main-header">
+  <a class="navbar-brand" href="#"><img src="images/trust_growth.png" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline">
+      <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> Search</button>
+    </form>
+    <ul class="navbar-nav mr-auto col-lg-2">
+      <li class="nav-item active btn login-register-btn col-lg-6">
+        <a href="/login" class="nav-item nav-link p-lr-0">サインイン</a>     
+      </li>
+      <li class="nav-item btn login-register-btn col-lg-6">
+        <a href="/register" class="nav-item nav-link p-lr-0">Register</a> 
+      </li>      
+    </ul>
+  </div>
+  </nav>
+  <!--end navigation bar-->
+
+  <!--sidebar-->
+
+  <!--end sidebar -->     
 <div class="sidebar-scroll container-fluid">
 	<div class="row" style="background:#b7dad2;">
   <div class="col-2 pad-free">
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i>自分のニュースの検索</a>
-      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fa fa-paper-plane "></i> <span>ニュース作成</span></a>
-      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fa fa-user"></i> <span>プロフィール</span></a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-sign-out"></i> ログアウト</a>
-    </div>
+    <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <li><a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i>自分のニュースの検索</a></li>
+      <li> <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fa fa-paper-plane "></i> <span>ニュース作成</span></a></li>
+      <li><a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fa fa-user"></i> <span>プロフィール</span></a></li>
+      <li><a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-sign-out"></i> ログアウト</a></li>
+      
+      
+      </ul>
   </div>
+
   <div class="col-10 pad-free">
     <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-
       <!--section one-->
-        <section>
+      <section>
         <div class="container-fluid main-wrapper">
-         
+        
+        <!--slider for ads-->
         <div class="col-md-auto">
-              <!--jssor carousel-->
-                          <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:100px;overflow:hidden;visibility:hidden;margin-bottom:10px;">
+        <!--jssor carousel-->
+        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:100px;overflow:hidden;visibility:hidden;margin-bottom:10px;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="images/spin.svg" />
@@ -140,25 +147,25 @@
                 <path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z"></path>
             </svg>
         </div>
-    </div>
-            
-        </div>    
+        </div>
+        <!--end jssor slider-->
+      </div>    
+      <!--end slider for ads-->
            
-          <div class="row justify-content-md-center">
-            <div class="col-10 tab">
-               <!--menu tabs-->
-          
-           <ul class="nav nav-tabs card-head-tabs" role="tablist">
-            <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i>ホーム</a></li>
-            <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
-            <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
-          </ul>
-          <!--end menu tabs-->
-         
-          
-               <!-- Tab panes -->
-              <div class="tab-content tabs">
+      <div class="row justify-content-md-center">           
+        <div class="col-10 tab">
+          <!--menu tabs-->
+          <ul class="nav nav-tabs card-head-tabs" role="tablist">
+              <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i>ホーム</a></li>
+              <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+              <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
+              <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
+            </ul>
+             <!--end menu tabs-->
+            
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">  
+            <!-- Tab panes -->
+            <div class="tab-content tabs">
                 
                 <div role="tabpanel" class="tab-pane in active" id="tab1"> 
                    <!-- <nav aria-label="breadcrumb">
@@ -169,25 +176,32 @@
                   </nav> -->
                   <router-view></router-view>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab2">
+                <div role="tabpanel" class="tab-pane " id="tab2">
                 <!--hospital search-->
                 <h1>hospital search</h1>
                 <!-- end hospital search-->
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab3">
+                <div role="tabpanel" class="tab-pane " id="tab3">
                 <!--nursing search-->
                 <h1>Nursing search</h1>
                 <!-- end nursing search-->
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4">
+                <div role="tabpanel" class="tab-pane" id="tab4">
                 <!--Job search-->
                 <h1>Job search</h1>
                 <!-- end Job search-->
                 </div>
               </div>
-            <!--end Tab panes-->                      
-            </div>
-            <div class="col-2">
+            <!--end Tab panes-->         
+           
+           
+        </div>
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">two</div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">three</div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div>
+      </div>
+      
+      <div class="col-2">
                 <!--related news-->
                 <div class="card m-b-10 ads-card">
                         <div class="">
@@ -218,20 +232,18 @@
                 </div>
                 <!-- end related news-->
             </div>
+    </div>
+            
           </div>
-
-        </div>
-        
-         <div class="container-fluid footer">
+          <div class="container-fluid footer">
                 <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
         </div>
+        </div>
+        
+        
       </section>
        <!--end section one-->
-    </div>
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-    </div>
+      
   </div>
 </div>
 </div>
