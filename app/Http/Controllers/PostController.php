@@ -22,17 +22,20 @@ class PostController extends Controller
     // add news
     public function add(Request $request)
     {
+        $imageName = $request->image->getClientOriginalName();
+        $request->image->move(public_path('images'), $imageName);
         $post = new Post([
             'title' => $request->input('title'),
             'main_point' => $request->input('main_point'),
             'body' => $request->input('body'),
+            'photo' => $request->image->getClientOriginalName(),
             'category_id' =>1,
             'user_id' => 1,
             'recordstatus' => 1
         ]);
         $post->save();
             return $post;
-        return response()->json('The New successfully added');
+        // return response()->json('The New successfully added');
     }
 
     /**
@@ -88,9 +91,20 @@ class PostController extends Controller
      */
     public function update($id, Request $request)
     {
+        $imageName = $request->image->getClientOriginalName();
+        $request->image->move(public_path('images'), $imageName);
+        $formData = array(
+            'title' => $request->input('title'),
+            'main_point' => $request->input('main_point'),
+            'body' => $request->input('body'),
+            'photo' => $request->image->getClientOriginalName(),
+            'category_id' =>1,
+            'user_id' => 1,
+            'recordstatus' => 1
+        );
         $post = Post::find($id);
-        $post->update($request->all());
-        return response()->json('The book successfully updated');
+        $post->update($formData);
+        return response()->json('The news successfully updated');
     }
 
     /**

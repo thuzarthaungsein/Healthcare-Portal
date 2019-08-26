@@ -22,7 +22,8 @@
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2">
-                                <img src="/images/nursing1.jpg" class="col-md-12" alt="">
+                                <!-- <img src="/images/nursing1.jpg" class="col-md-12" alt=""> -->
+                                <img :src="'/images/'+newsList.photo" class="col-md-12" alt="">
                             </div>
                             <div class="col-md-10">
                                 <div class="col-sm-8 pad-free mb-2"><b><a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a></b></div>

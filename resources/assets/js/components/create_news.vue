@@ -41,9 +41,9 @@
                                             <br>
                                             <label class="menu-pos">メディア:<span class="error">*</span></label>
                                             <br>
-                                            <label class="btn bg-color all-btn">
+                                            <label>
                                                     写真/画像を投稿する
-                                                 <input type="file" class="uploadFile img" value="Upload Photo">
+                                                 <input type="file" accept="image/*" @change ="onFileSelected" id="file" ref="file">
                                             </label>
                                             <!-- <div class="imagePreview"></div> -->
                                         </div>
@@ -71,20 +71,27 @@ export default {
                 body: '',
                 category_id: '',
                 user_id: '',
-                recordstatus: ''
+                recordstatus: '',
+                image: ''
             }
         }
     },
     methods: {
+        onFileSelected(event){
+            this.news.image = event.target.files[0]
+        },
     add(){
-      
-        this.axios
-                    .post('http://localhost:8000/api/new/add', this.news)
+        let fData = new FormData();
+        fData.append('image',this.news.image)
+        fData.append('title',this.news.title)
+        fData.append('main_point',this.news.main_point)
+        fData.append('body',this.news.body)
+        axios.post('http://localhost:8000/api/new/add', fData)
                     .then(response => {
                         
                         this.$router.push({name: 'news_list'})
                          console.log(response);
-                        // console.log(response.data)
+                         alert('Successfully Created')
                     })
                     .catch(error => console.log(error))
                     .finally(() => this.loading = false)
