@@ -1,6 +1,7 @@
 <template>
 <div>
-        <div class="row justify-content-md-center">                                
+        <div class="row justify-content-md-center">    
+                                 
                 <div class="col-12">
                         <div class="card tab-card">
                                 <div class="card-header tab-card-header">

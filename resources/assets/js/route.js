@@ -14,18 +14,19 @@ import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
-import custedit from './components/custedit.vue';
-
+import custedit from './components/map.vue';
+import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
 import editPost from './components/editNewsPost.vue';
 
 export const routes = [
+ 
        {
         name: 'home',
         path: '/',
         component: home
-    },
+      },
 
     {
         name: 'newsdetails',
@@ -116,5 +117,10 @@ export const routes = [
       name: 'editfacility',
       path: '/editfacility',
       component: EditFacilityComponent
-    }
+    },
+    {
+      name: 'map',
+      path: '/map',
+      component: map
+    },
 ];
