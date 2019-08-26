@@ -25,7 +25,7 @@
                                         </div>
                                         <div class="col-md-6  mt-2 related-area" >
                                                 <img
-                                                        :src="'/'+ newdetails.photo"
+                                                        :src="'/images/'+ newdetails.photo"
                                                         class="img-responsive img_2 news_photo"
                                                         > 
                                                 <p class="img_2">東京五輪開幕まで1年　メダルお披露目 <br> <span><time datetime="2019-06-07">2019年6月7日</time></span></p> 

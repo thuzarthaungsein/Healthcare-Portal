@@ -56297,7 +56297,7 @@ var render = function() {
               _c("div", { staticClass: "col-md-6  mt-2 related-area" }, [
                 _c("img", {
                   staticClass: "img-responsive img_2 news_photo",
-                  attrs: { src: "/" + _vm.newdetails.photo }
+                  attrs: { src: "/images/" + _vm.newdetails.photo }
                 }),
                 _vm._v(" "),
                 _vm._m(1),
