@@ -64,8 +64,8 @@
 
   <!--end sidebar -->     
 <div class="sidebar-scroll container-fluid">
-	<div class="row" style="background:#b7dad2;">
-  <div class="col-2 pad-free">
+	<div class="row">
+  <div class="col-2 pad-free custom-sidebar">
     <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <li><a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i>自分のニュースの検索</a></li>
       <li> <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fa fa-paper-plane "></i> <span>ニュース作成</span></a></li>
