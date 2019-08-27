@@ -56618,6 +56618,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56727,18 +56728,24 @@ var render = function() {
                           [_vm._v("Delete")]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-info all-btn",
-                            on: {
-                              click: function($event) {
-                                return _vm.comfirm(customer.id)
-                              }
-                            }
-                          },
-                          [_vm._v("Confirm")]
-                        )
+                        customer.status != 0
+                          ? _c(
+                              "button",
+                              { staticClass: "btn btn-info all-btn" },
+                              [_vm._v("Confirmed")]
+                            )
+                          : _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-info all-btn",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.comfirm(customer.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("Confirm")]
+                            )
                       ])
                     ])
                   ])

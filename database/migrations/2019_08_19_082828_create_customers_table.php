@@ -23,7 +23,7 @@ class CreateCustomersTable extends Migration
             $table->string('phone');
             $table->text('address');
             $table->integer('user_id');
-            $table->string('status');
+            $table->integer('status')->default(0);
             $table->integer('recordstatus')->default(1);
             $table->timestamps();
         });

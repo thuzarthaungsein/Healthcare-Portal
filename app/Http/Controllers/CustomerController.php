@@ -97,7 +97,7 @@ class CustomerController extends Controller
             return response()->json('user is already confirm!');
         }else{
             $customer = Customer::find($id);
-            $customer->status = 'confirm';
+            $customer->status = 1;
             $customer->save();
 
             $data = array([
