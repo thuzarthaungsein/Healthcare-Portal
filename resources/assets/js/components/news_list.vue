@@ -29,8 +29,8 @@
                                 <p>{{newsList.main_point}}</p>
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <small><a href="" class="mr-auto text-warning">編集</a></small> &nbsp;
-                                        <small><a href="" class="mr-auto text-danger">削除</a></small>
+                                        <small><router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="mr-auto text-warning">編集</router-link></small> &nbsp;
+                                        <small><a class="mr-auto text-danger" @click="deletePost(newsList.id)">削除</a></small>
                                     </div>
 
                                 </div>
@@ -122,6 +122,21 @@ export default {
                  .then(response=>{
                      this.news_list = response.data;
                  });
+        },
+         methods: {
+            deletePost(id) {
+                if(confirm("Are you sure you want to delete?"))
+                {
+                     this.axios
+                    .delete(`http://localhost:8000/api/new/delete/${id}`)
+                    .then(response => {
+                        alert('Delete Successfully!');
+                        let i = this.news_list.map(item => item.id).indexOf(id); // find index of your object
+                        this.news_list.splice(i, 1)
+                    });
+                }
+               
+            }
         }
 
     }

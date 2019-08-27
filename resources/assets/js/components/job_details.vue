@@ -2,78 +2,75 @@
     
         <div class="row justify-content-md-center">
             <div class="col-md container cont-pad">
-                <div class="row m-b-20" v-for="jobDetail in job_details" :key="jobDetail.id">
+                <div class="row m-b-20">
                     <div class="col-md-12 scroll2">
-                        <h4 class="h_4">{{jobDetail.title}}</h4>
-                        <img src="/images/img1.jpg" class="img-responsive img_6" height="" width="15%">
-                        <div class="col-md-12">
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">仕事内容</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.description}}</p>
-                                <!-- </dd> -->
-                             </div> 
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">経験・スキル</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.skills}}</p>
-                                <!-- </dd> -->
-                             </div>
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">勤務地</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.location}}</p>
-                                <!-- </dd> -->
-                             </div>
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">最寄り駅</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.nearest_station}}</p>
-                                <!-- </dd> -->
-                             </div>
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">雇用形態</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.employment_status}}</p>
-                                <!-- </dd> -->
-                             </div>
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">給与</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.salary}}</p>
-                                <!-- </dd> -->
-                             </div>
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">諸手当</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.allowances}}</p>
-                                <!-- </dd> -->
-                             </div>
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">各種保険</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.insurance}}</p>
-                                <!-- </dd> -->
-                             </div>
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">就業時間</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.working_hours}}</p>
-                                <!-- </dd> -->
-                             </div>
-                             <div class="topic b"> 
-                                 <h4 class="item text-center">休日休暇</h4> 
-                                <!-- <dd  class="data"> -->
-                                    <p class="data" style="width:50%">{{jobDetail.holidays}}</p>
-                                <!-- </dd> -->
-                             </div>
+                        <h4 class="h_4 header">{{job_details.title}}</h4>
+                        <img src="/images/img1.jpg" class="img-responsive" style="width:150px;">
+                        <div class="maintable_wrapper">
+                            <h4 class="h_4">お仕事  No.04058  平日のみ月10日程度の仕事！富裕層向け通販会社での電話受注スタッフ</h4>
+                        <div class="table_wrapper" style="clear:both;">
+                        <table class="table" style="margin:0 auto;border-collapse:separate;">                            
+                            <tbody>       
+                                <tr>
+                                <th class="ds_detail_1" scope="row">仕事内容</th>
+                                <td class="ds_detail_2">{{job_details.description}}</td>                                
+                                </tr>
+                                <tr><td colspan="2" class="ds_cellline"></td></tr>
+                                <tr>
+                                <th class="ds_detail_1" scope="row">経験・スキル</th>
+                                <td class="ds_detail_2">{{job_details.skills}}</td>                                
+                                </tr>
+                                <tr><td colspan="2" class="ds_cellline"></td></tr>
+                                <tr>
+                                <th class="ds_detail_1" scope="row">勤務地</th>
+                                <td class="ds_detail_2">{{job_details.location}}</td>                               
+                                </tr>
+                                <tr><td colspan="2" class="ds_cellline"></td></tr>
+                                <tr>
+                                <th class="ds_detail_1" scope="row">最寄り駅</th>
+                                <td class="ds_detail_2">{{job_details.nearest_station}}</td>                               
+                                </tr>
+                                <tr><td colspan="2" class="ds_cellline"></td></tr>
+                                <tr>
+                                <th class="ds_detail_1" scope="row">雇用形態</th>
+                                <td class="ds_detail_2">{{job_details.employment_status}}</td>                               
+                                </tr>
+                                <tr><td colspan="2" class="ds_cellline"></td></tr>
+                                <tr>
+                                <th class="ds_detail_1" scope="row">給与</th>
+                                <td class="ds_detail_2">{{job_details.salary}}</td>                               
+                                </tr>
+                                <tr><td colspan="2" class="ds_cellline"></td></tr>
+                                <tr>
+                                <th class="ds_detail_1" scope="row">諸手当</th>
+                                <td class="ds_detail_2">{{job_details.allowances}}</td>                               
+                                </tr>
+                                <tr><td colspan="2" class="ds_cellline"></td></tr>
+                                <tr>
+                                <th class="ds_detail_1" scope="row">各種保険</th>
+                                <td class="ds_detail_2">{{job_details.insurance}}</td>                               
+                                </tr>
+                                <tr><td colspan="2" class="ds_cellline"></td></tr>
+                                <tr>
+                                <th class="ds_detail_1" scope="row">就業時間</th>
+                                <td class="ds_detail_2">{{job_details.working_hours}}</td>                               
+                                </tr>
+                                <tr><td colspan="2" class="ds_cellline"></td></tr>
+                                <tr>
+                                <th  class="ds_detail_1" scope="row">休日休暇</th>
+                                <td class="ds_detail_2">{{job_details.holidays}}</td>                               
+                                </tr>                                                               
+                            </tbody>
+                        </table>                        
                         </div>
+                        <h4 style="padding:3px;"></h4>    
+                        </div>                                            
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <!-- <button type="button" class="btn btn-warning btn-width white">戻る</button> -->
-                        <a href="#" class="btn main-bg-color white all-btn"><router-link to="/jobapply">この案件に応募</router-link></a>
+                        <router-link to="/jobapply" class="btn secondary-bg-color white all-btn">この案件に応募</router-link>
                     </div>
                 </div>
             </div>
@@ -91,7 +88,7 @@
         },
         created(){
             this.axios
-                 .get('http://localhost:8000/api/job_details')
+                 .get(`http://localhost:8000/api/job_details/${this.$route.params.id}`)
                  .then(response=>{
                      console.log(response.data);
                      this.job_details = response.data;

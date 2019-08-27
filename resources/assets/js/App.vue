@@ -51,11 +51,12 @@
                       </li>
                     </ol>
                   </nav> -->
-                  <router-view></router-view>
+                 
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab4"><profile></profile></div>
+                <!-- <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div> -->
               </div>
             <!--end Tab panes-->                      
             </div>
@@ -65,9 +66,10 @@
           </div>
 
         </div>
+        
          <div class="container-fluid footer">
-                                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
-                        </div>
+                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
+        </div>
       </section>
     </div>
 
@@ -80,13 +82,15 @@
   import hospitalSearch from './components/hospitalSearch.vue'
   import nursingSearch from './components/nursingSearch.vue'
   import jobSearch from './components/jobSearch.vue'
+  import profile from './components/Profile.vue'
    export default {
     components: {
       relatedNews,
       hospitalSearch,
       nursingSearch,
       jobSearch,
-      ads
+      ads,
+      profile
     },
      mounted() {
             console.log('Component mounted.')

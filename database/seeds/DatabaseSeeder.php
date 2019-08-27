@@ -82,22 +82,12 @@ class DatabaseSeeder extends Seeder
                 'permission_id' => 8,
                 'role_id' => 1,
             ],
+            
             [
-                'permission_id' => 5,
+                'permission_id' => 9,
                 'role_id' => 2,
             ],
-            [
-                'permission_id' => 6,
-                'role_id' => 2,
-            ],
-            [
-                'permission_id' => 7,
-                'role_id' => 2,
-            ],
-            [
-                'permission_id' => 8,
-                'role_id' => 2,
-            ],
+ 
  
         ]);
         DB::table('model_has_roles')->insert([
@@ -122,6 +112,7 @@ class DatabaseSeeder extends Seeder
         for ($i=0; $i < 20; $i++) { 
             $post = new Post();
             $post->title = $faker->sentence();
+            $post->photo = "day1.jpg";
             $post->body = $faker->paragraph();
             $post->main_point = $faker->sentence();
             $post->category_id = rand(1, 5);
