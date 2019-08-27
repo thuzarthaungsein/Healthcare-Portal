@@ -77,7 +77,7 @@
     <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       @guest
       <!-- public menu -->
-      <div class="userview-sidebar">
+      <div class="userview-sidebar" style="padding-top: 35%;padding-left: 25px;">
           <div class="card m-b-10 ads-card">
               <div><img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width: 100%;"></div></div> 
               <div class="card m-b-10 ads-card"><div class="card-body"><h5 class="card-title text-center">二つ目の広告</h5> <img src="/images/logo_japanese_horizontal.png" alt="" class="img-responsivie" style="width: 100%;"></div></div> <div class="card m-b-10 ads-card2"><div class="card-body"></div></div></div>
@@ -130,7 +130,7 @@
         <!--slider for ads-->
         <div class="col-md-auto">
         <!--jssor carousel-->
-        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:100px;overflow:hidden;visibility:hidden;margin-bottom:10px;">
+        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1115pxpx;height:100px;overflow:hidden;visibility:hidden;margin-bottom:10px;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="images/spin.svg" />
