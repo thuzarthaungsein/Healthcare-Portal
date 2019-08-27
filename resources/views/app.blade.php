@@ -58,23 +58,10 @@
             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
         </li>
     @else
-        <li class="nav-item btn login-register-btn col-lg-6 dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            <img src="/images/user.png" class="img-circle user-profile">{{ Auth::user()->name }} <span class="caret"></span>
-            </a>
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </div>
+    <li class="nav-item btn login-register-btn col-lg-6">
+            <a class="nav-link" href="#!">{{ Auth::user()->name }}</a>
         </li>
+        
     @endguest      
     </ul>
   </div>
@@ -94,13 +81,22 @@
       @else
       <!-- login menu  -->
       @can('role-list')
-      <li><a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i> admin</a></li>
-      <li><a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fa fa-paper-plane "></i> <span>admin</span></a></li>
+      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  Home</router-link></li>
       @endcan
       <li><router-link to="/map" class="nav-link"><i class="fa fa-map"></i>  Map</router-link></li>
       <li><router-link to="/editfacility" class="nav-link"><i class="fa fa-edit"></i> editfacility</router-link></li>
       <li><a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fa fa-user"></i> <span> user</span></a></li>
-      <li><a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i> logout</a></li>
+      <li><a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}" 
+      onclick="event.preventDefault();
+      document.getElementById('logout-form').submit();"
+      role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>
+      
+                    {{ __('Logout') }}
+                
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+    </a></li>
       @endguest
       
       </ul>
@@ -183,56 +179,10 @@
       <!--end slider for ads-->
            
       <div class="row justify-content-md-center">           
-        <div class="col-10 tab">
-          <!--menu tabs-->
-          <ul class="nav nav-tabs card-head-tabs" role="tablist">
-              <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i>ホーム</a></li>
-              <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-              <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
-              <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
-            </ul>
-             <!--end menu tabs-->
-            
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">  
-            <!-- Tab panes -->
-            <div class="tab-content tabs">
-                
-                <div role="tabpanel" class="tab-pane in active" id="tab1"> 
-                   <!-- <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item active"><router-link to="/hospitalSearch" ><i class="fas fa-home"></i>   ホーム</router-link>
-                      </li>
-                    </ol>
-                  </nav> -->
-                </div>
-                <div role="tabpanel" class="tab-pane " id="tab2">
-                <!--hospital search-->
-                <h1>hospital search</h1>
-                <!-- end hospital search-->
-                </div>
-                <div role="tabpanel" class="tab-pane " id="tab3">
-                <!--nursing search-->
-                <h1>Nursing search</h1>
-                <!-- end nursing search-->
-                </div>
-                <div role="tabpanel" class="tab-pane" id="tab4">
-                <!--Job search-->
-                <h1>Job search</h1>
-                <!-- end Job search-->
-                </div>
-              </div>
-            <!--end Tab panes-->         
-           
-           
-        </div>
-
-      <!-- vue component -->
-      <div class="">
-
-          <router-view></router-view>
-
-      </div>
-      <!-- vue component -->
+        <div class="col-10 tab"> 
+          <!-- vue component -->
+              <router-view></router-view>
+          <!-- vue component -->
 
       <!-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">three</div>
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div> -->
