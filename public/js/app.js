@@ -52513,8 +52513,8 @@ var routes = [{
   path: '/home',
   component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
 }, {
-  name: 'newsdetails',
-  path: '/newsdetails',
+  name: 'newdetails',
+  path: '/newsdetails/:id',
   component: __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default.a
 }, {
   name: 'hospital_search',
@@ -55554,30 +55554,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        data: function data() {
-                return {
-                        newdetails: []
-                };
-        },
-        created: function created() {
-                this.getPostById();
-        },
+    data: function data() {
+        return {
+            newdetails: []
+        };
+    },
+    created: function created() {
+        var _this = this;
 
-        methods: {
-                getPostById: function getPostById() {
-                        var _this = this;
+        this.axios.get("http://localhost:8000/api/newdetails/" + this.$route.params.id).then(function (response) {
 
-                        var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-
-                        this.axios.get('http://localhost:8000/api/newdetails/' + id).then(function (response) {
-                                console.log(response.data.news_list);
-                                _this.newdetails = response.data.news_list;
-                        });
-                }
-        }
-
+            _this.newdetails = response.data;
+            console.log(response.data);
+        });
+    }
 });
 
 /***/ }),
@@ -55591,79 +55589,60 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "row justify-content-md-center" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c(
-          "div",
-          {},
-          [
-            _vm._l(_vm.newdetails, function(news) {
-              return _c("div", { key: news.id }, [
-                news.id == 1
-                  ? _c("div", { staticClass: "row m-lr-0" }, [
-                      _c("div", { staticClass: "col-md-12" }, [
-                        _c("h4", { staticClass: "h_4 header" }, [
-                          _vm._v(_vm._s(news.title))
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(0, true)
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-6" }, [
-                        _c("p", { staticClass: "p5" }, [
-                          _vm._v(_vm._s(news.body))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col-md-6  mt-2 related-area" },
-                        [
-                          _c("img", {
-                            staticClass: "img-responsive img_2 news_photo",
-                            attrs: { src: "/images/" + news.photo }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(1, true),
-                          _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              staticClass: "img_2 header",
-                              staticStyle: { "font-size": "22px" }
-                            },
-                            [_vm._v("関連ニュース")]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(2, true),
-                          _vm._v(" "),
-                          _vm._m(3, true),
-                          _vm._v(" "),
-                          _vm._m(4, true)
-                        ]
-                      )
-                    ])
-                  : _vm._e()
+        _c("div", {}, [
+          _c("div", [
+            _c("div", { staticClass: "row m-lr-0" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("h4", { staticClass: "h_4 header" }, [
+                  _vm._v(_vm._s(_vm.newdetails.title))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "set-date" }, [
+                  _c("time", { attrs: { datetime: "2012-01-04" } }, [
+                    _vm._v(_vm._s(_vm.newdetails.created_at))
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("p", { staticClass: "p5" }, [
+                  _vm._v(_vm._s(_vm.newdetails.body))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6  mt-2 related-area" }, [
+                _c("img", {
+                  staticClass: "img-responsive img_2 news_photo",
+                  attrs: { src: "/images/" + _vm.newdetails.photo }
+                }),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "img_2 header",
+                    staticStyle: { "font-size": "22px" }
+                  },
+                  [_vm._v("関連ニュース")]
+                ),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3)
               ])
-            }),
-            _vm._v(" "),
-            _vm._m(5)
-          ],
-          2
-        )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(4)
+        ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "set-date" }, [
-      _c("time", { attrs: { datetime: "2012-01-04" } }, [
-        _vm._v("2012年1月4日")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -55743,7 +55722,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "hovereffect fit-image" }, [
           _c("img", {
             staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
+            attrs: { src: "/images/day1.jpg", alt: "" }
           }),
           _vm._v(" "),
           _c("div", { staticClass: "overlay" }, [
@@ -55777,7 +55756,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "hovereffect fit-image" }, [
           _c("img", {
             staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
+            attrs: { src: "/images/day1.jpg", alt: "" }
           }),
           _vm._v(" "),
           _c("div", { staticClass: "overlay" }, [
@@ -55811,7 +55790,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "hovereffect fit-image" }, [
           _c("img", {
             staticClass: "img-responsive fit-image",
-            attrs: { src: "images/hhh.jpg", alt: "" }
+            attrs: { src: "/images/day1.jpg", alt: "" }
           }),
           _vm._v(" "),
           _c("div", { staticClass: "overlay" }, [
@@ -55845,7 +55824,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "hovereffect fit-image" }, [
           _c("img", {
             staticClass: "img-responsive fit-image",
-            attrs: { src: "images/j5.jpg", alt: "" }
+            attrs: { src: "/images/day1.jpg", alt: "" }
           }),
           _vm._v(" "),
           _c("div", { staticClass: "overlay" }, [
@@ -56686,12 +56665,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56734,14 +56707,9 @@ var render = function() {
     _c("div", { staticClass: "col-12" }, [
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm._m(2),
-      _c("br"),
-      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "scroll col-12" },
+        { staticClass: "scrolldiv col-12" },
         _vm._l(_vm.customers, function(customer) {
           return _c(
             "div",
@@ -56749,7 +56717,7 @@ var render = function() {
             [
               _c("div", { staticClass: "card-body news-post" }, [
                 _c("div", { staticClass: "row" }, [
-                  _vm._m(3, true),
+                  _vm._m(1, true),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-10" }, [
                     _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
@@ -56835,37 +56803,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-      _c("ol", { staticClass: "breadcrumb" }, [
-        _c("li", { staticClass: "breadcrumb-item" }, [
-          _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "breadcrumb-item" }, [
-          _c("a", { attrs: { href: "../news/news_details.html" } }, [
-            _vm._v(" 新しい詳細")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            staticClass: "breadcrumb-item active",
-            attrs: { "aria-current": "page" }
-          },
-          [
-            _vm._v(
-              "\r\n                                            就職活動リスト"
-            )
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card card-default m-b-20" }, [
       _c("div", { staticClass: "card-body" }, [
         _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
@@ -56886,16 +56823,6 @@ var staticRenderFns = [
             )
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center" }, [
-      _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-        _vm._v("Customer List ")
       ])
     ])
   },
@@ -57686,24 +57613,12 @@ var render = function() {
   return _c("div", { staticClass: "row justify-content-md-center" }, [
     _c("div", { staticClass: "col-md container cont-pad" }, [
       _c("div", { staticClass: "row m-b-20" }, [
-        _c("div", { staticClass: "col-md-12 scroll2" }, [
+        _c("div", { staticClass: "col-md-12" }, [
           _c("h4", { staticClass: "h_4 header" }, [
             _vm._v(_vm._s(_vm.job_details.title))
           ]),
           _vm._v(" "),
-          _c("img", {
-            staticClass: "img-responsive",
-            staticStyle: { width: "150px" },
-            attrs: { src: "/images/img1.jpg" }
-          }),
-          _vm._v(" "),
           _c("div", { staticClass: "maintable_wrapper" }, [
-            _c("h4", { staticClass: "h_4" }, [
-              _vm._v(
-                "お仕事  No.04058  平日のみ月10日程度の仕事！富裕層向け通販会社での電話受注スタッフ"
-              )
-            ]),
-            _vm._v(" "),
             _c(
               "div",
               { staticClass: "table_wrapper", staticStyle: { clear: "both" } },
@@ -58163,6 +58078,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58208,9 +58133,28 @@ var render = function() {
     _c("div", { staticClass: "container" }, [
       _vm._m(0),
       _vm._v(" "),
+      _c("div", { staticClass: "row m-b-15" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "float-right",
+                staticStyle: { color: "blue" },
+                attrs: { to: "/create_news" }
+              },
+              [_vm._v("Create New Post")]
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col-md-12 scroll2" },
+        { staticClass: "col-md-12 scrolldiv" },
         _vm._l(_vm.news_list, function(newsList) {
           return _c(
             "div",
@@ -58218,20 +58162,34 @@ var render = function() {
             [
               _c("div", { staticClass: "card-body news-post" }, [
                 _c("div", { staticClass: "row" }, [
-                  _vm._m(1, true),
+                  _c("div", { staticClass: "col-md-2" }, [
+                    _c("img", {
+                      staticClass: "col-md-12",
+                      attrs: { src: "/images/" + newsList.photo, alt: "" }
+                    })
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-10" }, [
                     _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                      _c("b", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "mr-auto",
-                            attrs: { href: "../news/news_details.html" }
-                          },
-                          [_vm._v(_vm._s(newsList.title) + " ")]
-                        )
-                      ])
+                      _c(
+                        "b",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "mr-auto",
+                              attrs: {
+                                to: {
+                                  name: "newdetails",
+                                  params: { id: newsList.id }
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(newsList.title))]
+                          )
+                        ],
+                        1
+                      )
                     ]),
                     _vm._v(" "),
                     _c("p", [_vm._v(_vm._s(newsList.main_point))]),
@@ -58311,17 +58269,6 @@ var staticRenderFns = [
           ])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "col-md-12",
-        attrs: { src: "/images/nursing1.jpg", alt: "" }
-      })
     ])
   }
 ]
@@ -58449,10 +58396,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            selected: "please select",
             errors: [],
             news: {
                 title: '',
@@ -58460,20 +58419,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 body: '',
                 category_id: '',
                 user_id: '',
-                recordstatus: ''
-            }
+                recordstatus: '',
+                image: ''
+            },
+            categories: []
+
         };
+    },
+    created: function created() {
+        console.log("I'm a littel teapot");
+        axios.get('http://localhost:8000/api/category/category_list').then(function (response) {
+
+            this.categories = response.data;
+        }.bind(this));
     },
 
     methods: {
+        onFileSelected: function onFileSelected(event) {
+            this.news.image = event.target.files[0];
+        },
         add: function add() {
             var _this = this;
 
-            this.axios.post('http://localhost:8000/api/new/add', this.news).then(function (response) {
+            var fData = new FormData();
+            fData.append('image', this.news.image);
+            fData.append('title', this.news.title);
+            fData.append('main_point', this.news.main_point);
+            fData.append('body', this.news.body);
+            axios.post('http://localhost:8000/api/new/add', fData).then(function (response) {
 
                 _this.$router.push({ name: 'news_list' });
                 console.log(response);
-                // console.log(response.data)
+                alert('Successfully Created');
             }).catch(function (error) {
                 return console.log(error);
             }).finally(function () {
@@ -58569,7 +58546,57 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(3),
+                  _c("div", { staticClass: "btn-group" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selected,
+                            expression: "selected"
+                          }
+                        ],
+                        staticClass: "browser-default custom-select",
+                        attrs: { id: "categoryList" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.selected = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      _vm._l(_vm.categories, function(category) {
+                        return _c(
+                          "option",
+                          {
+                            key: category.id,
+                            domProps: { value: category.id }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                    " +
+                                _vm._s(category.name) +
+                                "\r\n                                                "
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("br"),
@@ -58603,7 +58630,24 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(5),
+                  _c("div", { staticClass: "col-sm-2 imgUp" }, [
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+                      ),
+                      _c("input", {
+                        ref: "file",
+                        attrs: { type: "file", accept: "image/*", id: "file" },
+                        on: { change: _vm.onFileSelected }
+                      })
+                    ])
+                  ]),
                   _vm._v(" "),
                   _vm._m(6)
                 ]
@@ -58648,35 +58692,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "btn-group" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn main-bg-color white dropdown-toggle all-btn",
-          attrs: { type: "button", "data-toggle": "dropdown" }
-        },
-        [
-          _vm._v(
-            "\r\n                                                    種類\r\n                                                "
-          ),
-          _c("span", { staticClass: "caret" })
-        ]
-      ),
-      _vm._v(" "),
-      _c("ul", { staticClass: "dropdown-menu" }, [
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Doctor")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Nurse")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Pharmacist")])]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Administrative Staff")])
-        ]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Therapists")])])
-      ])
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "btn main-bg-color white all-btn",
+        attrs: { type: "button" }
+      },
+      [
+        _vm._v(
+          "\r\n                                                    種類\r\n                                                "
+        ),
+        _c("span", { staticClass: "caret" })
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -58691,25 +58719,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-2 imgUp" }, [
-      _c("br"),
-      _vm._v(" "),
-      _c("label", { staticClass: "menu-pos" }, [
-        _vm._v("メディア:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("label", { staticClass: "btn bg-color all-btn" }, [
-        _vm._v(
-          "\r\n                                                    写真/画像を投稿する\r\n                                                 "
-        ),
-        _c("input", {
-          staticClass: "uploadFile img",
-          attrs: { type: "file", value: "Upload Photo" }
-        })
-      ])
+    return _c("label", { staticClass: "menu-pos" }, [
+      _vm._v("メディア:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
   function() {
@@ -58719,9 +58731,11 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row" }, [
       _c("br"),
       _vm._v(" "),
-      _c("button", { staticClass: "btn news-post-btn all-btn" }, [
-        _vm._v(" ニュースを投稿する")
-      ])
+      _c(
+        "button",
+        { staticClass: "btn news-post-btn all-btn", attrs: { type: "submit" } },
+        [_vm._v(" ニュースを投稿する")]
+      )
     ])
   }
 ]
@@ -58835,6 +58849,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58876,15 +58894,13 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-12" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "row m-b-15" }, [
         _c(
           "div",
-          { staticClass: "m-b-30" },
+          { staticClass: "col-md-12" },
           [
             _c(
               "router-link",
@@ -58897,24 +58913,25 @@ var render = function() {
             )
           ],
           1
-        ),
-        _c("br"),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-12 scrolldiv" },
         _vm._l(_vm.categories, function(category) {
           return _c(
             "div",
             { key: category.id, staticClass: "container-fuid" },
             [
-              _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
+              _c("div", { staticClass: "card card-default m-b-20" }, [
                 _c("div", { staticClass: "card-body" }, [
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-9 m-t-8" }, [
                       _vm._v(
-                        "\n                            " +
+                        "\n                                " +
                           _vm._s(category.name) +
-                          "\n                        "
+                          "\n                            "
                       )
                     ]),
                     _vm._v(" "),
@@ -58959,10 +58976,10 @@ var render = function() {
               ])
             ]
           )
-        })
-      ],
-      2
-    )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -58990,16 +59007,6 @@ var staticRenderFns = [
             )
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-center" }, [
-      _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-        _vm._v(" カテゴリーリスト   ")
       ])
     ])
   }
@@ -59374,6 +59381,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59415,15 +59425,13 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-12" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "row m-b-15" }, [
         _c(
           "div",
-          { staticClass: "m-b-30" },
+          { staticClass: "col-md-12" },
           [
             _c(
               "router-link",
@@ -59436,16 +59444,18 @@ var render = function() {
             )
           ],
           1
-        ),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-12 scrolldiv" },
         _vm._l(_vm.facilities, function(facility) {
           return _c(
             "div",
             { key: facility.id, staticClass: "container-fuid" },
             [
-              _c("div", { staticClass: "card card-default m-b-20 m-t-22" }, [
+              _c("div", { staticClass: "card card-default m-b-20" }, [
                 _c("div", { staticClass: "card-body" }, [
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-9 m-t-8" }, [
@@ -59495,10 +59505,10 @@ var render = function() {
               ])
             ]
           )
-        })
-      ],
-      2
-    )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -59506,7 +59516,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
+    return _c("div", { staticClass: "card m-b-20" }, [
       _c("div", { staticClass: "card-body" }, [
         _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
         _vm._v(" "),
@@ -59528,16 +59538,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "h4",
-      { staticClass: "page-header", staticStyle: { "text-align": "center" } },
-      [_c("strong", [_vm._v("  Facility List")])]
-    )
   }
 ]
 render._withStripped = true
@@ -62318,6 +62318,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62329,7 +62333,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 body: '',
                 category_id: '',
                 user_id: '',
-                recordstatus: ''
+                recordstatus: '',
+                image: ''
             }
         };
     },
@@ -62342,12 +62347,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
+        onFileSelected: function onFileSelected(event) {
+            this.news.image = event.target.files[0];
+        },
         updatePost: function updatePost() {
             var _this2 = this;
 
-            this.axios.post('http://localhost:8000/api/new/update/' + this.$route.params.id, this.news).then(function (response) {
+            var fData = new FormData();
+            fData.append('image', this.news.image);
+            fData.append('title', this.news.title);
+            fData.append('main_point', this.news.main_point);
+            fData.append('body', this.news.body);
+            axios.post('http://localhost:8000/api/new/update/' + this.$route.params.id, fData).then(function (response) {
                 alert('Successfully Updated!');
                 _this2.$router.push({ name: 'news_list' });
+                console.log(response);
             });
         }
     }
@@ -62473,7 +62487,24 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(5),
+                  _c("div", { staticClass: "col-sm-2 imgUp" }, [
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+                      ),
+                      _c("input", {
+                        ref: "file",
+                        attrs: { type: "file", accept: "image/*", id: "file" },
+                        on: { change: _vm.onFileSelected }
+                      })
+                    ])
+                  ]),
                   _vm._v(" "),
                   _vm._m(6)
                 ]
@@ -62561,25 +62592,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-2 imgUp" }, [
-      _c("br"),
-      _vm._v(" "),
-      _c("label", { staticClass: "menu-pos" }, [
-        _vm._v("メディア:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("label", { staticClass: "btn bg-color all-btn" }, [
-        _vm._v(
-          "\r\n                                                    写真/画像を投稿する\r\n                                                 "
-        ),
-        _c("input", {
-          staticClass: "uploadFile img",
-          attrs: { type: "file", value: "Upload Photo" }
-        })
-      ])
+    return _c("label", { staticClass: "menu-pos" }, [
+      _vm._v("メディア:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
   function() {
@@ -62871,7 +62886,7 @@ var render = function() {
   return _c("div", { staticClass: "card profile" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
+    _c("div", { staticClass: "card-body scrolldiv" }, [
       _c("form", { staticClass: "col-md-12" }, [
         _vm._m(1),
         _vm._v(" "),
@@ -63067,7 +63082,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "col-md-12" }, [_vm._v("Profile")])
+      _c("h4", { staticClass: "col-md-12" }, [_vm._v("マイページ")])
     ])
   },
   function() {
