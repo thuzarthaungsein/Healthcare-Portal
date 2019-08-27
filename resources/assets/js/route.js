@@ -19,6 +19,8 @@ import custedit from './components/custedit.vue';
 
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
+import createcustomer from './components/CreateCustomer.vue';
+import joboffercreate from './components/JobOfferCreate.vue';
 
 export const routes = [
        {
@@ -111,5 +113,15 @@ export const routes = [
       name: 'editfacility',
       path: '/editfacility',
       component: EditFacilityComponent
+    },
+    {
+      name:'createcustomer',
+      path: '/createcustomer',
+      component: createcustomer
+    },
+    {
+      name : 'joboffercreate',
+      path : '/joboffercreate',
+      component : joboffercreate
     }
 ];
