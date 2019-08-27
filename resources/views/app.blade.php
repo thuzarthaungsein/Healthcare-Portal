@@ -36,7 +36,7 @@
 <body>
 <div id="app">
 <div class="col-md-10 offset-md-1 main-content pad-free">
-
+    <flash message=""></flash>
   <!--navigation bar-->
   <nav class="navbar navbar-expand-lg navbar-dark main-header">
   <a class="navbar-brand" href="#"><img src="images/trust_growth.png" alt=""></a>

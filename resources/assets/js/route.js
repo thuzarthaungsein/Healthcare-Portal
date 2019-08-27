@@ -13,7 +13,7 @@ import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
-import custedit from './components/map.vue';
+
 import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
@@ -108,11 +108,7 @@ export const routes = [
       path: '/createfacility',
       component: CreateFacilityComponent
     },
-    {
-        name: 'custedit',
-        path: '/custedit',
-        component: custedit
-      },
+
     {
       name: 'editfacility',
       path: '/editfacility',
