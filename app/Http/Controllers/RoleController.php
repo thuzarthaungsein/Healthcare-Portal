@@ -41,6 +41,8 @@ class RoleController extends Controller
 
          $this->middleware('permission:role-delete', ['only' => ['destroy']]);
 
+         $this->middleware('permission:customer');
+
     }
 
 
