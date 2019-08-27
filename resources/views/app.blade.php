@@ -77,10 +77,15 @@
     <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       @guest
       <!-- public menu -->
-        <span>not login</span>
+      <div class="userview-sidebar">
+          <div class="card m-b-10 ads-card">
+              <div><img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width: 100%;"></div></div> 
+              <div class="card m-b-10 ads-card"><div class="card-body"><h5 class="card-title text-center">二つ目の広告</h5> <img src="/images/logo_japanese_horizontal.png" alt="" class="img-responsivie" style="width: 100%;"></div></div> <div class="card m-b-10 ads-card2"><div class="card-body"></div></div></div>
       @else
       <!-- login menu  -->
+      <div class="adminview-sidebar">
       <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  Home</router-link></li>
+      
       @can('role-list')      
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>  News List</router-link></li>
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>  Customers List</router-link></li>
@@ -110,8 +115,9 @@
         </form>
         </a>
       </li>
+      </div>
       @endguest
-      
+     
       </ul>
   </div>
 
