@@ -15,6 +15,12 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 import {routes} from './route';
 
+window.events = new Vue();
+window.flash = function(message) {
+    window.events.$emit('flash',message);
+}
+Vue.component('flash', require('./components/Flash.vue'));
+
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
 

@@ -121,9 +121,11 @@
                             <a><strong>Address  :</strong>{{customer.address}}</a><br/>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4 text-center">
-                                 <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link>
-                                <button class="btn btn-danger all-btn" @click="deleteCustomer(customer.id)">Delete</button>
+                            <div class="col-sm-5 pl-3">
+                                <button class="btn btn-danger  all-btn" @click="deleteCustomer(customer.id)">Delete</button>
+                                 <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
+                                <button class="btn btn-info all-btn" @click="comfirm(customer.id)">Confirm</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -148,8 +150,11 @@ export default {
                 .get('http://localhost:8000/api/customers')
                 .then(response => {
                     this.customers = response.data;
+
+
                 });
     },
+ 
     methods: {
             deleteCustomer(id) {
                 this.axios
@@ -159,6 +164,13 @@ export default {
                         let a = this.customers.map(item => item.id).indexOf(id);
                         this.customers.splice(a, 1)
                     });
+            },
+            comfirm(id){
+                this.axios.get(`http://localhost:8000/api/confirm/${id}`)
+                .then(response=>{
+                    flash('Successfully Send Mail.', 'success');
+                    console.log(response.data);
+                })
             }
         }
 }
