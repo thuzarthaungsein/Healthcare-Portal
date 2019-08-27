@@ -323,7 +323,13 @@
         overflow-y:auto;
         scrollbar-width: thin;
         }
-   
+   .scrolldiv {
+       height: 550px;
+       overflow-y: auto;
+       scrollbar-width: thin;
+       background: white;
+       padding-top: 15px;
+   }
 
    
 /* End Search News List */
@@ -439,6 +445,7 @@ p {
 .main-header{
     background-color: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    height: 8vh;
     /* margin-left: 100px;
     margin-right: 100px; */
 }
@@ -791,6 +798,9 @@ div.b{
 .m-b-20 {
     margin-bottom: 20px;
 }
+.m-b-15 {
+    margin-bottom: 15px;
+}
 .m-t-22{
     margin-top: 22px;
 }
@@ -891,6 +901,9 @@ div.b{
 .nav-link{
     color: #095c5f !important;
 }
+.router-link-active{
+    color: #fff !important;
+}
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
     border-color:transparent !important;
 }
@@ -912,6 +925,10 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 .nav-tabs .nav-link{
     border-top-left-radius: 0px !important;
     border-top-right-radius: 0px !important;
+}
+
+#v-pills-tab li a {
+    padding: 0.7rem 20px 0.7rem 25px;
 }
 
 .card-head-tabs {
@@ -945,12 +962,12 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 .custom-sidebar{
     
-    /* height: 100vh; scroll */
+    height: 92vh;
     background: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
 }
 .custom-sidebar ul li{
-    border-bottom: 1px dashed #dedddd;
+    border-bottom: 1px dashed #eee;
 }
 .router-link-exact-active{
     background-color: rgba(0,0,0,.1);
@@ -964,9 +981,9 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 
 /*for main tab*/
-.tab{
+/* .tab{
     height:743px;
-}
+} */
 
 .main-tab{
     margin: 0 auto;
@@ -1076,10 +1093,11 @@ ul.main-tab li:after{
     background: transparent;
     text-align: center; 
     line-height: 20px; 
-    bottom: 0;
+    padding: 10px;
     width: 100%;
-  
-   
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
 }
 
 /* Hospital Search */
@@ -1130,6 +1148,7 @@ ul.main-tab li:after{
 /* Scrollbar */
     .news-wrapper::-webkit-scrollbar,
     body::-webkit-scrollbar,
+    .scrolldiv::-webkit-scrollbar,
     .main-wrap::-webkit-scrollbar {
     width: 6px!important;
     background: #f7f7f7 !important;
@@ -1137,6 +1156,7 @@ ul.main-tab li:after{
    
   .news-wrapper::-webkit-scrollbar-track,
    body::-webkit-scrollbar-track,
+   .scrolldiv::-webkit-scrollbar-track,
    .main-wrap::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)!important;     
     border-radius: 0px!important;
@@ -1144,6 +1164,7 @@ ul.main-tab li:after{
   
   .news-wrapper::-webkit-scrollbar-thumb,
   .main-wrap::-webkit-scrollbar-thumb,
+  .scrolldiv::-webkit-scrollbar-thumb,
   body::-webkit-scrollbar-thumb {    
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)!important; 
     background-color: #d7d7d7!important;

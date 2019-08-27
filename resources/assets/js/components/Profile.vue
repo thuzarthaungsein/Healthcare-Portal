@@ -1,7 +1,7 @@
 <template>
 <div class="card profile">
-        <div class="card-header"><h4 class="col-md-12">Profile</h4></div>
-        <div class="card-body">
+        <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
+        <div class="card-body scrolldiv">
                 
                 <form class="col-md-12">
                         <div class="form-group">
