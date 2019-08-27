@@ -838,9 +838,8 @@ div.b{
 }
 .tab-content{
     padding: 15px !important;
-    background: transparent;
-    /* background: #fff;
-    border: 1px solid #f27a24; */
+    background: white;
+    border: 1px solid #eee;
 }
 .tab-card-header{
     background-color: #b7dad2 !important;
@@ -856,7 +855,7 @@ a:hover{
 }
 .nav-tabs .nav-item{
     /* margin-bottom: -3px !important; */
-    border-left: 1px solid #fff !important;
+    /* border-left: 1px solid #fff !important; */
 }
 div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {   
     color: #f27a24 !important;
@@ -875,6 +874,8 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
     margin-bottom: 0rem !important;
     background-color: #ecede1 !important;
     border-bottom: 0;
+    border-left-style: solid;
+    border-left: 1px solid #eee;
   }
   .user-profile{
     width: 22px;
@@ -906,6 +907,13 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 .custom-sidebar ul li{
     border-bottom: 1px dashed #dedddd;
+}
+.router-link-exact-active{
+    background-color: rgba(0,0,0,.1);
+    border-left-color: #f27a24;
+    font-weight: bold;
+    border-radius: 0px !important;
+    border-left: 3px solid #f27a24;
 }
 
 /*for main tab*/
