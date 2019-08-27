@@ -19,6 +19,9 @@ class PostController extends Controller
        return response()->json(array_reverse($news_list));
     //    $news_list = Post::all()->toArray();
     //     return array_reverse($news_list);
+        $data = array("news_list" => $news_list, "newdetails" => $newdetails);
+
+       return response()->json($data);
     }
     // add news
     public function add(Request $request)
