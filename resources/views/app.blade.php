@@ -82,10 +82,10 @@
       <!-- login menu  -->
       <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  Home</router-link></li>
       @can('role-list')      
-      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-home"></i>  News List</router-link></li>
-      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-home"></i>  Customers List</router-link></li>
-      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-home"></i>  Categories List</router-link></li>
-      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-home"></i>  Facilities List</router-link></li>      
+      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>  News List</router-link></li>
+      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>  Customers List</router-link></li>
+      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>  Categories List</router-link></li>
+      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>  Facilities List</router-link></li>      
       @endcan
 
       @can('customer')
@@ -95,7 +95,7 @@
       @endcan
 
       @can('role-list')
-      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  Advertisement</router-link></li>
+      <li><router-link to="/" class="nav-link"><i class="fa fa-globe"></i>  Advertisement</router-link></li>
       @endcan
 
       <li>
@@ -117,7 +117,7 @@
   </div>
 
   <div class="col-10 pad-free">
-    <div class="tab-content" id="v-pills-tabContent">
+    <div class="maintab-content" id="v-pills-tabContent">
       <!--section one-->
       <section>
         <div class="container-fluid main-wrapper">

@@ -15,12 +15,12 @@
               <div class="tab-content tabs">
                 
                 <div role="tabpanel" class="tab-pane in active" id="tab1"> 
-                   <nav aria-label="breadcrumb">
+                   <!-- <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item active"><router-link to="/hospitalSearch" ><i class="fas fa-home"></i>   ホーム</router-link>
                       </li>
                     </ol>
-                  </nav>
+                  </nav> -->
                   <News></News>
         
                 </div>

@@ -52808,7 +52808,7 @@ exports = module.exports = __webpack_require__(15)(false);
 
 
 // module
-exports.push([module.i, "\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link[data-v-3c9a8a0a], .nav-tabs .nav-link.active[data-v-3c9a8a0a] {   \r\n    color: #fff !important;\r\n    font-weight: bold;\r\n    background-color: #1aa985  !important;\r\n    border-top: 1px solid #1aa985  ;\r\n    border-color: #1aa985   #1aa985  #1aa985   #1aa985  !important;\n}\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-link[data-v-3c9a8a0a] {\r\n    border: 1px solid #1aa985  !important;\n}\r\n", ""]);
+exports.push([module.i, "\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link[data-v-3c9a8a0a], .nav-tabs .nav-link.active[data-v-3c9a8a0a] {   \r\n    color: #fff !important;\r\n    font-weight: bold;\r\n    background-color: #1aa985  !important;\r\n    border-top: 1px solid #1aa985  ;\r\n    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;\n}\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-link[data-v-3c9a8a0a] {\r\n    border: 1px solid #1aa985  !important;\n}\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link[data-v-3c9a8a0a], .nav-tabs .nav-link[data-v-3c9a8a0a] {   \r\n   \r\n    border-color: transparent   #ecede1   transparent   #ecede1   !important;\n}\r\n", ""]);
 
 // exports
 
@@ -52860,6 +52860,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -54877,7 +54885,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-md-center" }, [
     _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "card tab-card" }, [
+      _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header tab-card-header" }, [
           _c(
             "ul",
@@ -54890,7 +54898,7 @@ var render = function() {
                 "li",
                 {
                   key: cat.id,
-                  staticClass: "nav-item",
+                  staticClass: "nav-item nav-line",
                   on: {
                     click: function($event) {
                       _vm.getPostByCatID(cat.id)
@@ -54926,7 +54934,7 @@ var render = function() {
                     ? _c(
                         "a",
                         {
-                          staticClass: "nav-link active",
+                          staticClass: "nav-link active nav-line",
                           attrs: {
                             href: "#two",
                             id: "one-tab",
@@ -54953,12 +54961,12 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+          { staticClass: "tab-content scroll2", attrs: { id: "myTabContent" } },
           [
             _c(
               "div",
               {
-                staticClass: "tab-pane fade show active p-3",
+                staticClass: "tab-pane fade show active p-1",
                 attrs: {
                   id: "one",
                   role: "tabpanel",
@@ -55165,25 +55173,7 @@ var render = function() {
           staticClass: "tab-pane in active",
           attrs: { role: "tabpanel", id: "tab1" }
         },
-        [
-          _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-            _c("ol", { staticClass: "breadcrumb" }, [
-              _c(
-                "li",
-                { staticClass: "breadcrumb-item active" },
-                [
-                  _c("router-link", { attrs: { to: "/hospitalSearch" } }, [
-                    _c("i", { staticClass: "fas fa-home" }),
-                    _vm._v("   ホーム")
-                  ])
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("News")
-        ],
+        [_c("News")],
         1
       ),
       _vm._v(" "),
