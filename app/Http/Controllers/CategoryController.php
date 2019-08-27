@@ -123,16 +123,16 @@ class CategoryController extends Controller
 
     // }
 
-        $user = Auth::user()->id;
-        request()->validate([
-            'name' => 'required',
-        ]);
-            $form_data = array(
-                'user_id'         =>   $user,
-                'name'            =>   $request->name,
-                'recordstatus'    =>   1,
-            );
-        Category::whereId($id)->update($form_data);
+        // $user = Auth::user()->id;
+        // request()->validate([
+        //     'name' => 'required',
+        // ]);
+        //     $form_data = array(
+        //         'user_id'         =>   $user,
+        //         'name'            =>   $request->name,
+        //         'recordstatus'    =>   1,
+        //     );
+        // Category::whereId($id)->update($form_data);
 
         //$product->update($request->all());
 
@@ -175,3 +175,4 @@ class CategoryController extends Controller
 
     // }
 
+}

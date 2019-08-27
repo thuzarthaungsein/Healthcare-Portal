@@ -15,6 +15,10 @@ class adminController extends Controller
     {
             return view('auth.login');
     }
+    public function getMap(Request $request){
+
+        return response()->json($request);
+    }
 
     /**
      * Show the form for creating a new resource.
