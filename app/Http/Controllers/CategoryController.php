@@ -45,9 +45,9 @@ class CategoryController extends Controller
     }
     public function list()
     {
- 
-        $category_list = Category::select('id','name')->get(); 
-        return response()->json($category_list);
+       
+        $category_list = Category::select('id','name')->get()->toArray(); 
+        return array_reverse($category_list);
 
     }
 

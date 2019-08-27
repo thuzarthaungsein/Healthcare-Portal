@@ -25,9 +25,12 @@
                                                     種類
                                                 <span class="caret"></span>
                                             </button>
-                                            <select v-model="selected" id="categoryList">
-                                               
-                                                <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
+
+                                            <!-- <div  v-for="category in categories" :key="category.id">
+                                               <label> {{category.name}}</label>
+                                             </div> -->
+                                            <select v-model="selected" id="categoryList" class="browser-default custom-select">
+                                             <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                                     {{category.name}}
                                                 </option>
                                             </select>
@@ -49,15 +52,15 @@
                                             <br>
                                             <label class="menu-pos">メディア:<span class="error">*</span></label>
                                             <br>
-                                            <label class="btn bg-color all-btn">
+                                            <label>
                                                     写真/画像を投稿する
-                                                 <input type="file" class="uploadFile img" value="Upload Photo">
+                                                 <input type="file" accept="image/*" @change ="onFileSelected" id="file" ref="file">
                                             </label>
                                             <!-- <div class="imagePreview"></div> -->
                                         </div>
                                     <div class="row">
                                             <br>
-                                            <button class="btn news-post-btn all-btn"> ニュースを投稿する</button>
+                                            <button class="btn news-post-btn all-btn" type="submit"> ニュースを投稿する</button>
                                             <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
                                     </div>
                                     </form>
@@ -72,6 +75,7 @@
 export default {
     data(){
         return{
+            selected:"please select",
              errors: [],
             news:{
                 title: '',
@@ -79,41 +83,46 @@ export default {
                 body: '',
                 category_id: '',
                 user_id: '',
-                recordstatus: ''
+                recordstatus: '',
+                image: ''
             },
-            categories:{
-                id: '',
-                name: ''
-            },
-            
-            selected: ""
+              categories:[]
+          
         }
+        
     },
+       created(){
+            console.log("I'm a littel teapot");
+             axios.get('http://localhost:8000/api/category/category_list')
+              .then(function (response) {
+                 
+                 this.categories = response.data;
+                 
+              }.bind(this));
+      
+        },
     methods: {
+         onFileSelected(event){
+            this.news.image = event.target.files[0]
+        },
     add(){
-   
-        this.axios
-                    .post('http://localhost:8000/api/new/add', this.news)
+         let fData = new FormData();
+        fData.append('image',this.news.image)
+        fData.append('title',this.news.title)
+        fData.append('main_point',this.news.main_point)
+        fData.append('body',this.news.body)
+        axios.post('http://localhost:8000/api/new/add', fData)
                     .then(response => {
                         
                         this.$router.push({name: 'news_list'})
                          console.log(response);
-                        // console.log(response.data)
+                         alert('Successfully Created')
                     })
                     .catch(error => console.log(error))
                     .finally(() => this.loading = false)
-    },
 
-     created(){
-            console.log("I'm a littel teapot");
-             axios.get('http://localhost:8000/api/category/category_list')
-              .then(function (response) {
-                 this.categories = response.data;
-                 console.log(data);
-              }.bind(this));
-      
-        }
-}
+       }
+    }
 }
 
 </script>

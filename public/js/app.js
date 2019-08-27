@@ -58765,7 +58765,12 @@ var render = function() {
             [
               _c("div", { staticClass: "card-body news-post" }, [
                 _c("div", { staticClass: "row" }, [
-                  _vm._m(1, true),
+                  _c("div", { staticClass: "col-md-2" }, [
+                    _c("img", {
+                      staticClass: "col-md-12",
+                      attrs: { src: "/images/" + newsList.photo, alt: "" }
+                    })
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-10" }, [
                     _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
@@ -58867,17 +58872,6 @@ var staticRenderFns = [
           ])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "col-md-12",
-        attrs: { src: "/images/nursing1.jpg", alt: "" }
-      })
     ])
   }
 ]
@@ -59013,10 +59007,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            selected: "please select",
             errors: [],
             news: {
                 title: '',
@@ -59024,38 +59022,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 body: '',
                 category_id: '',
                 user_id: '',
-                recordstatus: ''
+                recordstatus: '',
+                image: ''
             },
-            categories: {
-                id: '',
-                name: ''
-            },
+            categories: []
 
-            selected: ""
         };
+    },
+    created: function created() {
+        console.log("I'm a littel teapot");
+        axios.get('http://localhost:8000/api/category/category_list').then(function (response) {
+
+            this.categories = response.data;
+        }.bind(this));
     },
 
     methods: {
+        onFileSelected: function onFileSelected(event) {
+            this.news.image = event.target.files[0];
+        },
         add: function add() {
             var _this = this;
 
-            this.axios.post('http://localhost:8000/api/new/add', this.news).then(function (response) {
+            var fData = new FormData();
+            fData.append('image', this.news.image);
+            fData.append('title', this.news.title);
+            fData.append('main_point', this.news.main_point);
+            fData.append('body', this.news.body);
+            axios.post('http://localhost:8000/api/new/add', fData).then(function (response) {
 
                 _this.$router.push({ name: 'news_list' });
                 console.log(response);
-                // console.log(response.data)
+                alert('Successfully Created');
             }).catch(function (error) {
                 return console.log(error);
             }).finally(function () {
                 return _this.loading = false;
             });
-        },
-        created: function created() {
-            console.log("I'm a littel teapot");
-            axios.get('http://localhost:8000/api/category/category_list').then(function (response) {
-                this.categories = response.data;
-                console.log(data);
-            }.bind(this));
         }
     }
 });
@@ -59160,6 +59163,7 @@ var render = function() {
                             expression: "selected"
                           }
                         ],
+                        staticClass: "browser-default custom-select",
                         attrs: { id: "categoryList" },
                         on: {
                           change: function($event) {
@@ -59229,7 +59233,24 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(5),
+                  _c("div", { staticClass: "col-sm-2 imgUp" }, [
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+                      ),
+                      _c("input", {
+                        ref: "file",
+                        attrs: { type: "file", accept: "image/*", id: "file" },
+                        on: { change: _vm.onFileSelected }
+                      })
+                    ])
+                  ]),
                   _vm._v(" "),
                   _vm._m(6)
                 ]
@@ -59301,25 +59322,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-2 imgUp" }, [
-      _c("br"),
-      _vm._v(" "),
-      _c("label", { staticClass: "menu-pos" }, [
-        _vm._v("メディア:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("label", { staticClass: "btn bg-color all-btn" }, [
-        _vm._v(
-          "\r\n                                                    写真/画像を投稿する\r\n                                                 "
-        ),
-        _c("input", {
-          staticClass: "uploadFile img",
-          attrs: { type: "file", value: "Upload Photo" }
-        })
-      ])
+    return _c("label", { staticClass: "menu-pos" }, [
+      _vm._v("メディア:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
   function() {
@@ -59329,9 +59334,11 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row" }, [
       _c("br"),
       _vm._v(" "),
-      _c("button", { staticClass: "btn news-post-btn all-btn" }, [
-        _vm._v(" ニュースを投稿する")
-      ])
+      _c(
+        "button",
+        { staticClass: "btn news-post-btn all-btn", attrs: { type: "submit" } },
+        [_vm._v(" ニュースを投稿する")]
+      )
     ])
   }
 ]
@@ -61401,6 +61408,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -61412,7 +61423,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 body: '',
                 category_id: '',
                 user_id: '',
-                recordstatus: ''
+                recordstatus: '',
+                image: ''
             }
         };
     },
@@ -61425,12 +61437,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
+        onFileSelected: function onFileSelected(event) {
+            this.news.image = event.target.files[0];
+        },
         updatePost: function updatePost() {
             var _this2 = this;
 
-            this.axios.post('http://localhost:8000/api/new/update/' + this.$route.params.id, this.news).then(function (response) {
+            var fData = new FormData();
+            fData.append('image', this.news.image);
+            fData.append('title', this.news.title);
+            fData.append('main_point', this.news.main_point);
+            fData.append('body', this.news.body);
+            axios.post('http://localhost:8000/api/new/update/' + this.$route.params.id, fData).then(function (response) {
                 alert('Successfully Updated!');
                 _this2.$router.push({ name: 'news_list' });
+                console.log(response);
             });
         }
     }
@@ -61556,7 +61577,24 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(5),
+                  _c("div", { staticClass: "col-sm-2 imgUp" }, [
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+                      ),
+                      _c("input", {
+                        ref: "file",
+                        attrs: { type: "file", accept: "image/*", id: "file" },
+                        on: { change: _vm.onFileSelected }
+                      })
+                    ])
+                  ]),
                   _vm._v(" "),
                   _vm._m(6)
                 ]
@@ -61644,25 +61682,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-2 imgUp" }, [
-      _c("br"),
-      _vm._v(" "),
-      _c("label", { staticClass: "menu-pos" }, [
-        _vm._v("メディア:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("label", { staticClass: "btn bg-color all-btn" }, [
-        _vm._v(
-          "\r\n                                                    写真/画像を投稿する\r\n                                                 "
-        ),
-        _c("input", {
-          staticClass: "uploadFile img",
-          attrs: { type: "file", value: "Upload Photo" }
-        })
-      ])
+    return _c("label", { staticClass: "menu-pos" }, [
+      _vm._v("メディア:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
   function() {
