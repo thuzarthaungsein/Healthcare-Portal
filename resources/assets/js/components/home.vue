@@ -22,10 +22,11 @@
                     </ol>
                   </nav>
                   <News></News>
+        
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4"><profile></profile></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
               </div>
             <!--end Tab panes-->                              

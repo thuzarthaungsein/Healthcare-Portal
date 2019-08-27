@@ -1,6 +1,5 @@
 import home from './components/home.vue';
 import Newsdetails from './components/Newsdetails.vue';
-import categorieslist from './components/categorieslist.vue';
 
 import hospitalSearch from './components/hospitalSearch.vue';
 import JobApply from './components/JobApply.vue';
@@ -19,6 +18,7 @@ import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
 import editPost from './components/editNewsPost.vue';
+import profile from './components/Profile.vue';
 
 export const routes = [
  
@@ -37,12 +37,7 @@ export const routes = [
         name: 'newsdetails',
         path: '/newsdetails',
         component: Newsdetails
-    },
-    {
-        name: 'categorieslist',
-        path: '/categorieslist',
-        component: categorieslist
-    },
+    },   
        {
         name: 'hospital_search',
         path: '/hospitalsearch',
@@ -127,5 +122,10 @@ export const routes = [
       name: 'map',
       path: '/map',
       component: map
+    },
+    {
+      name: 'profile',
+      path: '/profile',
+      component: profile
     },
 ];

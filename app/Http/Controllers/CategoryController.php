@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
     // }
 
-  
+
     //index category
     public function index()
     {
@@ -46,12 +46,12 @@ class CategoryController extends Controller
 
     //add category
     public function add(Request $request)
-    {    
-       
+    {
+
         $category = new Category([
             'name' => $request->input('name'),
             'user_id' => 1,
-            'recordstatus' => 2 
+            'recordstatus' => 2
         ]);
         $category ->save();
         return $category;
@@ -68,7 +68,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->update($request->all());
-        
+
         return response()->json('The Facility successfully updated');
     }
 
@@ -78,7 +78,6 @@ class CategoryController extends Controller
         $category->delete();
         return response()->json('The Category successfully deleted');
     }
-
     public function create()
 
     {
@@ -115,7 +114,7 @@ class CategoryController extends Controller
     // }
 
 
-    
+
     // public function edit($id)
 
     // {
@@ -124,6 +123,18 @@ class CategoryController extends Controller
 
     // }
 
+        // $user = Auth::user()->id;
+        // request()->validate([
+        //     'name' => 'required',
+        // ]);
+        //     $form_data = array(
+        //         'user_id'         =>   $user,
+        //         'name'            =>   $request->name,
+        //         'recordstatus'    =>   1,
+        //     );
+        // Category::whereId($id)->update($form_data);
+
+        //$product->update($request->all());
 
 
     // public function update(Request $request,$id)
@@ -139,9 +150,9 @@ class CategoryController extends Controller
     //             'user_id'         =>   $user,
     //             'name'            =>   $request->name,
     //             'recordstatus'    =>   1,
-    //         );  
+    //         );
     //     Category::whereId($id)->update($form_data);
-       
+
     //     //$product->update($request->all());
 
 

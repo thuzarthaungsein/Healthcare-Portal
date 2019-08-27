@@ -66,7 +66,7 @@ Route::group(['prefix' => 'new'], function () {
     Route::post('update/{id}', 'PostController@update');
     Route::delete('delete/{id}', 'PostController@delete');
 });
-
+Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
