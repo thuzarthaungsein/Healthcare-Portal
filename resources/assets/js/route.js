@@ -1,6 +1,5 @@
 import home from './components/home.vue';
 import Newsdetails from './components/Newsdetails.vue';
-import categorieslist from './components/categorieslist.vue';
 
 import hospitalSearch from './components/hospitalSearch.vue';
 import JobApply from './components/JobApply.vue';
@@ -14,29 +13,33 @@ import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
-import custedit from './components/custedit.vue';
-
+import custedit from './components/map.vue';
+import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
+import createcustomer from './components/CreateCustomer.vue';
+import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
+import profile from './components/Profile.vue';
 
 export const routes = [
+ 
        {
         name: 'home',
         path: '/',
         component: home
-    },
+      },
+      {
+        name: 'home',
+        path: '/home',
+        component: home
+      },
 
     {
         name: 'newdetails',
         path: '/newsdetails/:id',
         component: Newsdetails
-    },
-    {
-        name: 'categorieslist',
-        path: '/categorieslist',
-        component: categorieslist
-    },
+    },   
        {
         name: 'hospital_search',
         path: '/hospitalsearch',
@@ -116,5 +119,25 @@ export const routes = [
       name: 'editfacility',
       path: '/editfacility',
       component: EditFacilityComponent
-    }
+    },
+    {
+      name:'createcustomer',
+      path: '/createcustomer',
+      component: createcustomer
+    },
+    {
+      name : 'joboffercreate',
+      path : '/joboffercreate',
+      component : joboffercreate
+    },
+    {
+      name: 'map',
+      path: '/map',
+      component: map
+    },
+    {
+      name: 'profile',
+      path: '/profile',
+      component: profile
+    },
 ];

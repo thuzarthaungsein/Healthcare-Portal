@@ -20,25 +20,39 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('jobs', 'JobController@index');
 Route::get('newdetails/{id}', 'PostController@show');
 
+Route::post('getmap','adminController@getMap');
 Route::get('customers','CustomerController@index');
 Route::get('categories','CategoryController@index');
 Route::get('custedit','custedit@edit');
 Route::get('facilities', 'FacilityController@index');
+
 Route::group(['prefix' => 'facility'], function () {
     Route::post('add', 'FacilityController@add');
     Route::get('facilities', 'FacilityController@index');
-    Route::post('add', 'FacilityController@add');
     Route::get('edit/{id}', 'FacilityController@edit');
     Route::post('update/{id}', 'FacilityController@update');
     Route::delete('delete/{id}', 'FacilityController@destroy');
 });
+
+
+Route::group(['prefix' => 'job'], function () {
+    Route::post('add', 'JobController@store');
+    Route::get('index', 'JobController@index');
+    Route::get('edit/{id}', 'JobController@edit');
+    Route::post('update/{id}', 'JobController@update');
+    Route::delete('delete/{id}', 'JobController@destroy');
+});
+
 Route::get('job_details', 'JobDetailController@index');
 
 Route::group(['prefix' => 'customer'], function () {
+    Route::post('add', 'CustomerController@add'); 
     Route::get('edit/{id}', 'CustomerController@edit');
     Route::post('update/{id}','CustomerController@update');
     Route::delete('delete/{id}','CustomerController@destroy');
 });
+
+
 
 Route::group(['prefix' => 'category'], function () {
     Route::get('category_list','CategoryController@list');
@@ -69,7 +83,7 @@ Route::group(['prefix' => 'new'], function () {
     Route::post('update/{id}', 'PostController@update');
     Route::delete('delete/{id}', 'PostController@delete');
 });
-
+Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
