@@ -27,13 +27,13 @@
                                                     <div class="col-sm-4">
                                                             <router-link :to="{name: 'job_details', params:{id:job.id}}" class="btn btn all-btn secondary-bg-color white">詳細を見る</router-link>
                                                             <!-- <a href="../jobs/job_search_details.html"  class="btn btn all-btn secondary-bg-color white">詳細を見る</a> -->
-                                                    </div>                                 
+                                                    </div>
                                             </div>
                                     </div>
                             </div>
                             </div>
                     </div>
-        </div>
+            </div>
       </div>
  </div>
 </template>

@@ -28,16 +28,28 @@
             <input type="time" class="form-control box" id="time"  v-model="jobApply.work_time">
             <!-- <div v-if="errors && errors.work_time" class="text-danger">{{ errors.work_time[0] }}</div> -->
         </div>
-        <!-- <h5>Skills</h5> -->
+        <!-- <div class="row">
+            <div v-for="job in jobs" :key="job.id" class="card card-default m-b-20">
+                <div class="col-md-6">
+                    <div class="col-sm-8 pad-free mb-2">
+                        <input type="checkbox" v-model="job.skills">
+                    </div>
 
-           <div >
-               <h4>Skills</h4>
+                </div>
+
+            </div>
+        </div> -->
+
+            <div class="bg">
+               <div class="chiller_cb">
+                   <h4>Skills</h4>
                 <input type="checkbox" value="communication" v-model="jobApply.skill">Communication<br/>
                 <input type="checkbox" value="ethics" v-model="jobApply.skill">Ethics<br/>
                 <input type="checkbox" value="crital thinking" v-model="jobApply.skill">Critical Thinking<br/>
                 <input type="checkbox" value="attention to detail" v-model="jobApply.skill">Attention To Detail<br/>
                 <input type="checkbox" value="comitment to development" v-model="jobApply.skill">Comitment To Development<br/>
                 <input type="checkbox" value="responsibility" v-model="jobApply.skill">Responsibility<br/><br/>
+               </div>
          </div>
         <!-- <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -70,7 +82,7 @@ export default {
                         phone:'',
                         email:'',
                         work_time:'',
-                        skill:[]
+                        skills:[]
                     },
 
 
