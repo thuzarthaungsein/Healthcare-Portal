@@ -948,6 +948,9 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
     border-radius: 0px !important;
     border-left: 3px solid #f27a24;
 }
+.router-link-exact-active >i.fa, .router-link-exact-active >i.fas{
+    color: #f27a24 !important;
+}
 
 /*for main tab*/
 .main-tab{
@@ -987,6 +990,7 @@ ul.main-tab li:after{
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
 }
+
 /* .tablink{
     color: #fff !important;
 } */

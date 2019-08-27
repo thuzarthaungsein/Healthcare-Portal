@@ -4,13 +4,14 @@
                         <div class="card tab-card">
                                 <div class="card-header tab-card-header">
                                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                                                <li v-for="cat in cats" :key="cat.id" class="nav-item" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
+                                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
                                                         <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
                                                                 {{ cat.name }}</a>
                                                 
-                                                        <a class="nav-link active" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                                        <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
                                                                 {{ cat.name }}</a>
                                                 </li>
+                                                
                                         </ul>
                                 </div>
 
@@ -73,11 +74,18 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .na
     font-weight: bold;
     background-color: #1aa985  !important;
     border-top: 1px solid #1aa985  ;
-    border-color: #1aa985   #1aa985  #1aa985   #1aa985  !important;
+    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
    
 }
 div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
     border: 1px solid #1aa985  !important;
+  
+}
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {   
+   
+    border-color: transparent   #ecede1   transparent   #ecede1   !important;
+    
+   
 }
 </style>
 <script>
