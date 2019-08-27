@@ -193,7 +193,7 @@
       <!--end slider for ads-->
            
       <div class="row justify-content-md-center">           
-        <div class="col-10 tab"> 
+        <div class="col-10 tab main-wrap"> 
           <!-- vue component -->
               <router-view></router-view>
           <!-- vue component -->
