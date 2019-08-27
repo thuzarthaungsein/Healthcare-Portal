@@ -91,7 +91,6 @@
       @can('customer')
       <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>  Profile</router-link></li>
       <li><router-link to="/" class="nav-link"><i class="fa fa-edit"></i> Jobs List</router-link></li>
-      <li><a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fa fa-user"></i> <span> user</span></a></li>
       @endcan
 
       @can('role-list')
