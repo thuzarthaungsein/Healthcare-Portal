@@ -80,23 +80,37 @@
         <span>not login</span>
       @else
       <!-- login menu  -->
-      @can('role-list')
       <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  Home</router-link></li>
+      @can('role-list')      
+      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-home"></i>  News List</router-link></li>
+      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-home"></i>  Customers List</router-link></li>
+      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-home"></i>  Categories List</router-link></li>
+      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-home"></i>  Facilities List</router-link></li>      
       @endcan
-      <li><router-link to="/map" class="nav-link"><i class="fa fa-map"></i>  Map</router-link></li>
-      <li><router-link to="/editfacility" class="nav-link"><i class="fa fa-edit"></i> editfacility</router-link></li>
+
+      @can('customer')
+      <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>  Profile</router-link></li>
+      <li><router-link to="/" class="nav-link"><i class="fa fa-edit"></i> Jobs List</router-link></li>
       <li><a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fa fa-user"></i> <span> user</span></a></li>
-      <li><a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}" 
-      onclick="event.preventDefault();
-      document.getElementById('logout-form').submit();"
-      role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>
+      @endcan
+
+      @can('role-list')
+      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  Advertisement</router-link></li>
+      @endcan
+
+      <li>
+        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}" 
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();"
+        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>
       
-                    {{ __('Logout') }}
-                
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-    </a></li>
+            {{ __('Logout') }}
+        
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        </a>
+      </li>
       @endguest
       
       </ul>

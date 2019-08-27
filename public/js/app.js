@@ -52442,40 +52442,40 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_job_details_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_news_list_vue__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_news_list_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_news_list_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_create_news_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_map_vue__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_map_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_map_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_customerlist_vue__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_customerlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_customerlist_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_JobSearchListComponent_vue__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_JobSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_JobSearchListComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobOfferComponent_vue__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_JobOfferComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_JobOfferComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_job_details_vue__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_job_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_job_details_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_news_list_vue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_news_list_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_news_list_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_create_news_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_create_news_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_create_news_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_categorylist_vue__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_categorylist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_categorylist_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_createcategory_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_createcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_createcategory_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_FacilitiesListComponent_vue__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_FacilitiesListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_FacilitiesListComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_CreateFacilityComponent_vue__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_CreateFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_CreateFacilityComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_map_vue__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_map_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_map_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_Profile_vue__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_Profile_vue__);
 
 
 
@@ -52511,77 +52511,77 @@ var routes = [{
   path: '/newsdetails',
   component: __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default.a
 }, {
-  name: 'categorieslist',
-  path: '/categorieslist',
-  component: __WEBPACK_IMPORTED_MODULE_2__components_categorieslist_vue___default.a
-}, {
   name: 'hospital_search',
   path: '/hospitalsearch',
-  component: __WEBPACK_IMPORTED_MODULE_3__components_hospitalSearch_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default.a
 }, {
   name: 'jobapply',
   path: '/jobapply',
-  component: __WEBPACK_IMPORTED_MODULE_4__components_JobApply_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue___default.a
 }, {
   name: 'customerlist',
   path: '/customerlist',
-  component: __WEBPACK_IMPORTED_MODULE_5__components_customerlist_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_4__components_customerlist_vue___default.a
 }, {
   name: 'jobsearchlist',
   path: '/jobsearchlist',
-  component: __WEBPACK_IMPORTED_MODULE_6__components_JobSearchListComponent_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_5__components_JobSearchListComponent_vue___default.a
 }, {
   name: 'joboffer',
   path: '/joboffer',
-  component: __WEBPACK_IMPORTED_MODULE_7__components_JobOfferComponent_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_6__components_JobOfferComponent_vue___default.a
 }, {
   name: 'job_details',
   path: '/job_details/:id',
-  component: __WEBPACK_IMPORTED_MODULE_8__components_job_details_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_7__components_job_details_vue___default.a
 }, {
   name: 'news_list',
   path: '/news_list',
-  component: __WEBPACK_IMPORTED_MODULE_9__components_news_list_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_8__components_news_list_vue___default.a
 }, {
   name: 'create_news',
   path: '/create_news',
-  component: __WEBPACK_IMPORTED_MODULE_10__components_create_news_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_9__components_create_news_vue___default.a
 }, {
   name: 'editPost',
   path: '/editPost',
-  component: __WEBPACK_IMPORTED_MODULE_18__components_editNewsPost_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_17__components_editNewsPost_vue___default.a
 }, {
   name: 'categorylist',
   path: '/categorylist',
-  component: __WEBPACK_IMPORTED_MODULE_11__components_categorylist_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_10__components_categorylist_vue___default.a
 }, {
   name: 'createcategory',
   path: '/createcategory',
-  component: __WEBPACK_IMPORTED_MODULE_12__components_createcategory_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_11__components_createcategory_vue___default.a
 }, {
   name: 'editcategory',
   path: '/editcategory',
-  component: __WEBPACK_IMPORTED_MODULE_17__components_editcategory_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_16__components_editcategory_vue___default.a
 }, {
   name: 'facilitieslist',
   path: '/facilitieslist',
-  component: __WEBPACK_IMPORTED_MODULE_13__components_FacilitiesListComponent_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_12__components_FacilitiesListComponent_vue___default.a
 }, {
   name: 'createfacility',
   path: '/createfacility',
-  component: __WEBPACK_IMPORTED_MODULE_14__components_CreateFacilityComponent_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_13__components_CreateFacilityComponent_vue___default.a
 }, {
   name: 'custedit',
   path: '/custedit',
-  component: __WEBPACK_IMPORTED_MODULE_15__components_map_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_14__components_map_vue___default.a
 }, {
   name: 'editfacility',
   path: '/editfacility',
-  component: __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_15__components_EditFacilityComponent_vue___default.a
 }, {
   name: 'map',
   path: '/map',
-  component: __WEBPACK_IMPORTED_MODULE_15__components_map_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_14__components_map_vue___default.a
+}, {
+  name: 'profile',
+  path: '/profile',
+  component: __WEBPACK_IMPORTED_MODULE_18__components_Profile_vue___default.a
 }];
 
 /***/ }),
@@ -52645,8 +52645,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Profile_vue__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Profile_vue__);
 //
 //
 //
@@ -52681,7 +52679,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
+//
 
 
 
@@ -52693,8 +52691,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 News: __WEBPACK_IMPORTED_MODULE_0__News_vue___default.a,
                 hospitalSearch: __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue___default.a,
                 nursingSearch: __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default.a,
-                jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a,
-                profile: __WEBPACK_IMPORTED_MODULE_4__Profile_vue___default.a
+                jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a
 
         },
         mounted: function mounted() {
@@ -55196,15 +55193,10 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "tab-pane fade",
-          attrs: { role: "tabpanel", id: "tab4" }
-        },
-        [_c("profile")],
-        1
-      ),
+      _c("div", {
+        staticClass: "tab-pane fade",
+        attrs: { role: "tabpanel", id: "tab4" }
+      }),
       _vm._v(" "),
       _c(
         "div",
@@ -55891,73 +55883,8 @@ if (false) {
 }
 
 /***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(65)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/categorieslist.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7925a591", Component.options)
-  } else {
-    hotAPI.reload("data-v-7925a591", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n       cat_list\n")])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7925a591", module.exports)
-  }
-}
-
-/***/ }),
+/* 64 */,
+/* 65 */,
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61361,15 +61288,18 @@ if (false) {
 /* 112 */,
 /* 113 */,
 /* 114 */,
-/* 115 */
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(116)
+var __vue_script__ = __webpack_require__(119)
 /* template */
-var __vue_template__ = __webpack_require__(117)
+var __vue_template__ = __webpack_require__(120)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61408,7 +61338,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 116 */
+/* 119 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61568,7 +61498,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 117 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
