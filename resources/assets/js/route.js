@@ -13,7 +13,7 @@ import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
-import custedit from './components/map.vue';
+import custedit from './components/custedit.vue';
 import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
@@ -21,7 +21,7 @@ import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 
 export const routes = [
- 
+
        {
         name: 'home',
         path: '/',
@@ -37,7 +37,7 @@ export const routes = [
         name: 'newsdetails',
         path: '/newsdetails',
         component: Newsdetails
-    },   
+    },
        {
         name: 'hospital_search',
         path: '/hospitalsearch',
