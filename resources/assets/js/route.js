@@ -17,6 +17,8 @@ import custedit from './components/map.vue';
 import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
+import createcustomer from './components/CreateCustomer.vue';
+import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 
@@ -117,6 +119,16 @@ export const routes = [
       name: 'editfacility',
       path: '/editfacility',
       component: EditFacilityComponent
+    },
+    {
+      name:'createcustomer',
+      path: '/createcustomer',
+      component: createcustomer
+    },
+    {
+      name : 'joboffercreate',
+      path : '/joboffercreate',
+      component : joboffercreate
     },
     {
       name: 'map',

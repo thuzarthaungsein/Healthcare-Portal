@@ -117,7 +117,7 @@
   </div>
 
   <div class="col-10 pad-free">
-    <div class="tab-content" id="v-pills-tabContent">
+    <div class="maintab-content" id="v-pills-tabContent">
       <!--section one-->
       <section>
         <div class="container-fluid main-wrapper">
@@ -262,7 +262,8 @@
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
  $(document).ready(function() {
-    jssor_1_slider_init();                      
+    jssor_1_slider_init();                 
+
 
 });
 </script>

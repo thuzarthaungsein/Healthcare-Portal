@@ -1,7 +1,7 @@
 <template>
 <div class="row justify-content-md-center">                                
                 <div class="col-12">
-                        <div class="card tab-card">
+                        <div class="card">
                                 <div class="card-header tab-card-header">
                                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                                 <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
@@ -15,8 +15,8 @@
                                         </ul>
                                 </div>
 
-                                <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                                <div class="tab-content scroll2" id="myTabContent">
+                                        <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
 
                                                 <div class="row">
                                                         <div class="active-users col-md-4">

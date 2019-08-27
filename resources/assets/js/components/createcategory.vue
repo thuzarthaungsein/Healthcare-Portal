@@ -27,17 +27,17 @@
                                     </div>
 
                                     <!-- <div class="row"> -->
-                                        <div class="col-md-12">
+                                        <!-- <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <div class="col-1 pad-free">
                                                         <button class="btn news-post-btn">Create</button>
                                                     </div>
                                                     <div class="col-3 pad-free">
-                                                        <!-- <a href="categorylist" class="btn btn-warning">Cancel</a> -->
+                                                       
                                                         <router-link to="/categorylist" class="btn btn-warning">Cancel</router-link>
                                                     </div>
                                                 </div>
-                                        </div>
+                                        </div> -->
                                     <!-- </div> -->
 
                                 </div>

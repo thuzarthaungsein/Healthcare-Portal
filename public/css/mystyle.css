@@ -289,7 +289,7 @@
 .fit-image{
     width: 100%;
     object-fit: cover;
-    height: 300px; /* only if you want fixed height */
+    height: 200px; /* only if you want fixed height */
     }
     .info{
         width: 100%;
@@ -308,7 +308,7 @@
         border-right: 1px solid #fff;
     }
     div.scroll2{
-        height:900px;
+        height:350px;
         float: left;
         overflow-y:auto;
         scrollbar-width: thin;
@@ -865,14 +865,16 @@ div.b{
     min-height: 252px; */
     /* width: 49%; */
 }
-.tab-card{
-    min-height: 400px;
-       
+.maintab-content{
+    padding: 7px;/*for no scroll*/
 }
+
 .tab-content{
-    padding: 15px !important;
+    /* padding: 15px !important; */
+    padding: 13px !important;/*for no scroll*/
     background: white;
     border: 1px solid #eee;
+    min-height: 350px;
 }
 .tab-card-header{
     background-color: #b7dad2 !important;
@@ -933,8 +935,8 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
     color: #fff !important;
 }
 .custom-sidebar{
-    width: auto;
-    height: 100vh;;
+    
+    /* height: 100vh; scroll */
     background: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
 }
@@ -953,6 +955,10 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 
 /*for main tab*/
+.tab{
+    height:743px;
+}
+
 .main-tab{
     margin: 0 auto;
 }
@@ -1047,7 +1053,7 @@ ul.main-tab li:after{
 /*related news*/
 .next-title{
     border-top: 2px dotted #118063;
-    padding: 20px;
+    padding: 10px;
     font-size: 20px;
     font-weight: bold;
     clear: both;
