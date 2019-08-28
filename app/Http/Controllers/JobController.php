@@ -20,9 +20,14 @@ class JobController extends Controller
         
     }
 
- 
+    public function getSkill()
+    {
+        $job = Job::select('skills')->value('skills');
+        return $job;
+    }
     public function store(Request $request)
     {
+
         $string = '';
         $count = count($request->fields);
         for($i = 0;$i< $count ;$i++)
@@ -32,8 +37,24 @@ class JobController extends Controller
               $string .= $request->fields[$i]['skills'];
             }else{
                 $string .= $request->fields[$i]['skills'] .',';
-            }     
-        } 
+            }
+             
+        }
+
+        $cstring = '';
+        if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false)
+        {
+            
+            $cstring = "Part";
+        }
+        else if($request->employment_status[0]['fchecked'] == true && $request->employment_status[0]['pchecked'] == false){
+            $cstring = "Full";
+        }
+        else {
+            $cstring = "Part,Full";
+        }
+         
+ 
       
         $job = new Job ([
 
@@ -43,7 +64,7 @@ class JobController extends Controller
             'skills' => $string,
             'location' => $request->input('location'),
             'nearest_station' => $request->input('nearest_station'),
-            'employment_status' => implode(',',$request->input('employment_status')),
+            'employment_status' => $cstring,
             'salary' => $request->input('salary'),
             'allowances' => $request->input('allowances'),
             'insurance' => $request->input('insurance'),
@@ -53,6 +74,8 @@ class JobController extends Controller
             'recordstatus' => 2
           
         ]);
+ 
+    
         $job ->save();
         return $job;
     }
@@ -63,20 +86,80 @@ class JobController extends Controller
         
     }
 
-    public function edit(Job $job)
-    {
+  
         
+    public function edit($id)
+    {
+       
+        $job = Job::find($id);
+      
+        return response()->json($job);
+    }
+    
+
+ 
+    public function update($id, Request $request)
+    {
+      
+        $job = Job::find($id);
+        if($job != null)
+        {
+          
+            $string = '';
+            $count = count($request->fields);
+            for($i = 0;$i< $count ;$i++)
+            {
+                if($i == $count-1)
+                {
+                  $string .= $request->fields[$i]['skills'];
+                }else{
+                    $string .= $request->fields[$i]['skills'] .',';
+                }
+                 
+            }
+
+
+            $cstring = '';
+            if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false)
+            {
+                
+                $cstring = "Part";
+            }
+            else if($request->employment_status[0]['fchecked'] == true && $request->employment_status[0]['pchecked'] == false){
+                $cstring = "Full";
+            }
+            else {
+                $cstring = "Part,Full";
+            }
+          
+            $job->skills = $string;  
+            $job->title =$request->input('title');
+            $job->customer_id= $request->customer_id;        
+            $job->description = $request->input('description');
+            $job->location = $request->input('location');
+            $job->nearest_station = $request->input('nearest_station');
+            $job->employment_status = $cstring;
+            $job->salary = $request->input('salary');
+            $job->allowances = $request->input('allowances');
+            $job->insurance = $request->input('insurance');
+            $job->working_hours = $request->input('working_hours');
+            $job->holidays = $request->input('holidays');
+            $job->user_id = $request->user_id;
+            $job->recordstatus = $request->recordstatus;
+         
+            $job ->update();
+         
+           
+        }
+         
+        return response()->json('The Job successfully updated');
     }
 
  
-    public function update(Request $request, Job $job)
+    public function destroy($id)
     {
-        
-    }
-
- 
-    public function destroy(Job $job)
-    {
-        
+        $job = Job::find($id);
+        $job->delete();
+        return response()->json('The Job successfully deleted');
     }
 }
