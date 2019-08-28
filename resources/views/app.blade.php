@@ -148,7 +148,17 @@
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;  ニュース一覧</router-link></li>
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;  顧客一覧</router-link></li>
       <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;  カテゴ一覧</router-link></li>
-      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  施設一覧</router-link></li>      
+      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  施設一覧</router-link></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list"></i>&nbsp;&nbsp;Dropdown</a>
+        <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </li>      
       @endcan
 
       @can('customer')
