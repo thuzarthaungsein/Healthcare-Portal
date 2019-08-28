@@ -3,11 +3,11 @@
         <div class="row justify-content-md-center">
             <div class="col-md container cont-pad">
                 <div class="row m-b-20">
-                    <div class="col-md-12 scroll2">
+                    <div class="col-md-12">
                         <h4 class="h_4 header">{{job_details.title}}</h4>
-                        <img src="/images/img1.jpg" class="img-responsive" style="width:150px;">
+                        <!-- <img src="/images/img1.jpg" class="img-responsive" style="width:150px;"> -->
                         <div class="maintable_wrapper">
-                            <h4 class="h_4">お仕事  No.04058  平日のみ月10日程度の仕事！富裕層向け通販会社での電話受注スタッフ</h4>
+                            <!-- <h4 class="h_4">お仕事  No.04058  平日のみ月10日程度の仕事！富裕層向け通販会社での電話受注スタッフ</h4> -->
                         <div class="table_wrapper" style="clear:both;">
                         <table class="table" style="margin:0 auto;border-collapse:separate;">                            
                             <tbody>       

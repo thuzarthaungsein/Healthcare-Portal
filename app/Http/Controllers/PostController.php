@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\PostView;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,6 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
+
         $news_list = Post::all()->toArray();
         //$data = array("news_list" => $news_list, "newdetails" => $newdetails);
 
@@ -27,13 +29,14 @@ class PostController extends Controller
             'title' => $request->input('title'),
             'main_point' => $request->input('main_point'),
             'body' => $request->input('body'),
+            'photo' => $request->image->getClientOriginalName(),
             'category_id' =>1,
             'user_id' => 1,
             'recordstatus' => 1
         ]);
         $post->save();
             return $post;
-        return response()->json('The New successfully added');
+        // return response()->json('The New successfully added');
     }
 
     /**
@@ -63,11 +66,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        $news_list = Post::find($post);
-        $data = array("news_list" => $news_list);
-       return response()->json($data);
+        return Post::findOrFail($id);
+    //     $news_list = Post::find($post);
+    //     $data = array("news_list" => $news_list);
+    //    return response()->json($data);
     }
 
     /**
@@ -91,9 +95,20 @@ class PostController extends Controller
      */
     public function update($id, Request $request)
     {
+        $imageName = $request->image->getClientOriginalName();
+        $request->image->move(public_path('images'), $imageName);
+        $formData = array(
+            'title' => $request->input('title'),
+            'main_point' => $request->input('main_point'),
+            'body' => $request->input('body'),
+            'photo' => $request->image->getClientOriginalName(),
+            'category_id' =>1,
+            'user_id' => 1,
+            'recordstatus' => 1
+        );
         $post = Post::find($id);
-        $post->update($request->all());
-        return response()->json('The book successfully updated');
+        $post->update($formData);
+        return response()->json('The news successfully updated');
     }
 
     /**
