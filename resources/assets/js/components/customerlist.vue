@@ -129,8 +129,8 @@
                         <div class="row">
                             <div class="col-sm-5 pl-3">
                                 <button class="btn btn-danger  all-btn" @click="deleteCustomer(customer.id)">Delete</button>
-                                 <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
-                                <button class="btn btn-info all-btn" @click="comfirm(customer.id)">Confirm</button>
+                                <button v-if="customer.status == 1"> test</button>
+                                <button v-else class="btn btn-info all-btn" @click="comfirm(customer.id)">Confirm</button>
                                 
                             </div>
                         </div>
