@@ -23,7 +23,7 @@ Route::get('newdetails/{id}', 'PostController@show');
 Route::post('getmap','adminController@getMap');
 Route::get('customers','CustomerController@index');
 Route::get('categories','CategoryController@index');
-Route::get('custedit','custedit@edit');
+Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
 
 Route::group(['prefix' => 'facility'], function () {

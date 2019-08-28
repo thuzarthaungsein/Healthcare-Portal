@@ -85,7 +85,7 @@ class PostController extends Controller
     public function edit($id)
     {
       
-        $posts = PostView::find($id);
+        $posts = Post::find($id);
         return response()->json($posts);
     }
 
@@ -109,7 +109,7 @@ class PostController extends Controller
             'user_id' => 1,
             'recordstatus' => 1
         );
-        $post = PostView::find($id);
+        $post = Post::find($id);
         $post->update($formData);
         return response()->json('The news successfully updated');
     }

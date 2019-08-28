@@ -36,9 +36,9 @@
 <body>
 <div id="app">
 <div class="col-md-10 offset-md-1 main-content pad-free">
-
+    <flash message=""></flash>
   <!--navigation bar-->
-  <nav class="navbar navbar-expand-lg navbar-dark main-header">
+  <nav class="navbar navbar-expand-lg navbar-dark main-header" style="padding-right: 0px;">
   <a class="navbar-brand" href="#"><img src="images/trust_growth.png" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -46,16 +46,17 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <form class="form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline">
-      <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> Search</button>
+      <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control" type="search" placeholder="検索" aria-label="検索">
+      <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> 検索</button>
     </form>
-    <ul class="navbar-nav mr-auto col-lg-2">
+    <ul class="navbar-nav mr-auto col-lg-2 pad-free">
     @guest
-        <li class="nav-item btn login-register-btn col-lg-6">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
+            <a class="nav-link pad-free" href="{{ route('login') }}">{{ __('事業者 ログイン') }}</a>
         </li>
         <li class="nav-item btn login-register-btn col-lg-6">
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
+            <router-link to="/createcustomer" class="nav-link">事業者 登録</router-link>
         </li>
     @else
     <li class="nav-item btn login-register-btn col-lg-6">
@@ -77,33 +78,33 @@
     <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       @guest
       <!-- public menu -->
-        <span>not login</span>
+        <span></span>
       @else
       <!-- login menu  -->
-      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  Home</router-link></li>
+      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
       @can('role-list')      
-      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>  News List</router-link></li>
-      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>  Customers List</router-link></li>
-      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>  Categories List</router-link></li>
-      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>  Facilities List</router-link></li>      
+      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;  ニュース一覧</router-link></li>
+      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;  顧客一覧</router-link></li>
+      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;  カテゴ一覧</router-link></li>
+      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  施設一覧</router-link></li>      
       @endcan
 
       @can('customer')
-      <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>  Profile</router-link></li>
-      <li><router-link to="/" class="nav-link"><i class="fa fa-edit"></i> Jobs List</router-link></li>
+      <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
+      <li><router-link to="/joblist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
       @endcan
 
       @can('role-list')
-      <li><router-link to="/" class="nav-link"><i class="fa fa-globe"></i>  Advertisement</router-link></li>
+      <li><router-link to="/advertisement" class="nav-link"><i class="fa fa-globe"></i>&nbsp;&nbsp;  広告</router-link></li>
       @endcan
 
       <li>
         <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}" 
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
-        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>
+        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;&nbsp;
       
-            {{ __('Logout') }}
+            {{ __('ログアウト') }}
         
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
@@ -235,7 +236,7 @@
     </div>
             
           </div>
-          <div class="container-fluid footer">
+          <div class="container-fluid footer footer-div">
                 <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
         </div>
         </div>

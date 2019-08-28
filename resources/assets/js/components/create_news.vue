@@ -98,13 +98,7 @@ export default {
               }.bind(this));
       
         },
-        mounted() {
-            this.axios
-                .get(`http://localhost:8000/api/new/editPost/${this.$route.params.id}`)
-                .then(function(response) {
-                    this.news = response.data;
-                }.bind(this));
-        },
+        
 
     methods: {
          onFileSelected(event){

@@ -17,7 +17,13 @@
                 </div>
 
             </div>
-            <div class="col-md-12 scroll2">
+            <div class="row m-b-15">
+                <div class="col-md-12">
+                    <router-link to="/create_news" class="float-right" style="color: blue;">Create New Post</router-link>
+                </div>
+                <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
+            </div>
+            <div class="col-md-12 scrolldiv">
                 <div v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
@@ -34,7 +40,7 @@
                                 <p>{{newsList.main_point}}</p>
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <small><router-link :to="{name: 'create_news', params: {id: newsList.id}}" class="mr-auto text-warning">編集</router-link></small> &nbsp;
+                                        <small><router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="mr-auto text-warning">編集</router-link></small> &nbsp;
                                         <small><a class="mr-auto text-danger" @click="deletePost(newsList.id)">削除</a></small>
                                     </div>
 
