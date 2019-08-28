@@ -299,7 +299,7 @@
         width: 100%;
         height: 120px;
         position: absolute;
-        top: 180px;
+        top: 104px;
         background-color: #2a2d2cb0;
         color: #fff;
         text-align: justify !important;
@@ -709,8 +709,37 @@ div.b{
 .ads-title{
     font-size: 12px;
     line-height: 1.357;
-    /* margin-top: 12.8px; */
+    margin-top: -12.8px;
 }
+.adslist-card{
+    height: 71px;
+    width: 188px;
+}
+.smallads-title{
+    font-size: 12px;
+    line-height: 1.357;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    top: -0.2rem;
+    max-height: 200px;
+}
+.today .adslist-card .smallads-title{
+    font-size: 12px;
+    line-height: 1.357;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    top: -0.2rem;
+    max-height: 65px;
+}
+.today .smallads-title{
+    display: block;
+    white-space: normal;
+}
+
 .ads-img{
     float:left;
     /* width: 128px; */
@@ -960,12 +989,26 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 .nav-pills .nav-link.active > a{
     color: #fff !important;
 }
-.custom-sidebar{
+/*user view sidebar*/
+.userview-sidebar{
+   background-color: #f5f5f5;
+   height: 92vh;  
     
+    
+}
+.adminview-sidebar{
     height: 92vh;
     background: #b7dad2;
+    
     box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
 }
+.custom-sidebar{    
+    /* height: 100vh; scroll */
+    background: #b7dad2;
+   
+    
+}
+
 .custom-sidebar ul li{
     border-bottom: 1px dashed #eee;
 }
@@ -975,6 +1018,7 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
     font-weight: bold;
     border-radius: 0px !important;
     border-left: 3px solid #f27a24;
+    color: #fff !important;
 }
 .router-link-exact-active >i.fa, .router-link-exact-active >i.fas{
     color: #f27a24 !important;
