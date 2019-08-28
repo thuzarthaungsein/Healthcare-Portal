@@ -52437,6 +52437,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_editNewsPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_editNewsPost_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_Profile_vue__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_Profile_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_JobOfferList_vue__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_JobOfferList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_JobOfferList_vue__);
+
 
 
 
@@ -52550,6 +52553,10 @@ var routes = [{
   name: 'profile',
   path: '/profile',
   component: __WEBPACK_IMPORTED_MODULE_21__components_Profile_vue___default.a
+}, {
+  name: 'jobofferlist',
+  path: '/jobofferlist',
+  component: __WEBPACK_IMPORTED_MODULE_22__components_JobOfferList_vue___default.a
 }];
 
 /***/ }),
@@ -61607,62 +61614,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            errors: [],
             joboffer: {
                 title: '',
                 customer_id: '',
                 description: '',
                 fields: [{
-                    skills: ''
+                    skills: '',
+                    id: ''
                 }],
                 // skills :'',
                 location: '',
                 nearest_station: '',
-                employment_status: [],
+                employment_status: [{
+                    pchecked: false,
+                    fchecked: false
+                }],
                 salary: '',
                 allowances: '',
                 insurance: '',
@@ -61670,31 +61640,103 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 holidays: '',
                 user_id: '',
                 recordstatus: ''
-            }
+            },
+            ischeck: ''
 
         };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/job/edit/' + this.$route.params.id).then(function (response) {
+
+            _this.joboffer.title = response.data.title;
+            _this.joboffer.customer_id = response.data.customer_id;
+            _this.joboffer.description = response.data.description;
+            _this.joboffer.fields.skills = response.data.skills;
+            var arr = [];
+            arr = _this.joboffer.fields.skills.split(',');
+            _this.createskill(arr);
+            _this.joboffer.location = response.data.location;
+            _this.joboffer.nearest_station = response.data.nearest_station;
+            //this.joboffer.employment_status = response.data.employment_status;
+            _this.ischeck = response.data.employment_status;
+            _this.createCheck(_this.ischeck);
+
+            _this.joboffer.salary = response.data.salary;
+            _this.joboffer.allowances = response.data.allowances;
+            _this.joboffer.insurance = response.data.insurance;
+            _this.joboffer.working_hours = response.data.working_hours;
+            _this.joboffer.holidays = response.data.holidays;
+            _this.joboffer.user_id = response.data.user_id;
+            _this.joboffer.recordstatus = response.data.recordstatus;
+        });
     },
 
 
     methods: {
         add: function add() {
-            axios.post('http://localhost:8000/api/job/add', this.joboffer).then(function (response) {
-                alert('Successfully Created');
-                console.log(response);
-                //  this.$router.push({name: 'facilitieslist'});
-            });
+            var _this2 = this;
+
+            if ('' + this.$route.params.id == "undefined") {
+                axios.post('http://localhost:8000/api/job/add', this.joboffer).then(function (response) {
+                    alert('Successfully Created');
+                    console.log(response);
+                    _this2.$router.push({ name: 'jobofferlist' });
+                    _this2.$route.params.id = null;
+                });
+            } else {
+
+                this.updateJob();
+            }
         },
 
         addRow: function addRow() {
             this.joboffer.fields.push({
-                skills: ''
-
-            });
+                skills: '',
+                id: '' });
         },
         delRow: function delRow() {
             this.joboffer.fields.pop();
-        }
+        },
+        createskill: function createskill(arr) {
+            this.joboffer.fields.shift();
+            for (var i = 0; i < arr.length; i++) {
 
+                this.joboffer.fields.push({
+                    skills: arr[i]
+
+                });
+            }
+        },
+        createCheck: function createCheck(check) {
+            this.joboffer.employment_status.shift();
+            if (check == "Full") {
+                this.joboffer.employment_status.push({
+                    fchecked: 1,
+                    pchecked: 0
+                });
+            } else if (check == "Part") {
+                this.joboffer.employment_status.push({
+                    fchecked: 0,
+                    pchecked: 1
+                });
+            } else {
+                this.joboffer.employment_status.push({
+                    fchecked: 1,
+                    pchecked: 1
+                });
+            }
+        },
+
+        updateJob: function updateJob() {
+            var _this3 = this;
+
+            this.axios.post('http://localhost:8000/api/job/update/' + this.$route.params.id, this.joboffer).then(function (response) {
+                alert('Successfully Updated!');
+                _this3.$router.push({ name: 'jobofferlist' });
+            });
+        }
     }
 
 });
@@ -61743,7 +61785,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control box",
-                        attrs: { type: "title", id: "title", name: "title" },
+                        attrs: {
+                          type: "title",
+                          id: "title",
+                          name: "title",
+                          required: ""
+                        },
                         domProps: { value: _vm.joboffer.title },
                         on: {
                           input: function($event) {
@@ -61771,7 +61818,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { name: "description", cols: "50", rows: "5" },
+                        attrs: {
+                          name: "description",
+                          cols: "50",
+                          rows: "5",
+                          required: ""
+                        },
                         domProps: { value: _vm.joboffer.description },
                         on: {
                           input: function($event) {
@@ -61808,7 +61860,7 @@ var render = function() {
                           staticClass: "btn btn-danger",
                           on: { click: _vm.delRow }
                         },
-                        [_vm._v("Delete Skill")]
+                        [_vm._v("Delete")]
                       )
                     ])
                   ]),
@@ -61817,8 +61869,9 @@ var render = function() {
                     return _c(
                       "div",
                       {
-                        key: field.skills,
-                        staticClass: "form-group row input-group"
+                        key: field.id,
+                        staticClass: "form-group row sk",
+                        attrs: { id: "newlinktpl" }
                       },
                       [
                         _vm._m(3, true),
@@ -61866,7 +61919,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { name: "location", cols: "50", rows: "5" },
+                        attrs: {
+                          name: "location",
+                          cols: "50",
+                          rows: "5",
+                          required: ""
+                        },
                         domProps: { value: _vm.joboffer.location },
                         on: {
                           input: function($event) {
@@ -61920,114 +61978,126 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _vm._m(6),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.joboffer.employment_status,
-                            expression: "joboffer.employment_status"
-                          }
-                        ],
-                        attrs: {
-                          type: "checkbox",
-                          value: "Part",
-                          name: "part_time"
-                        },
-                        domProps: {
-                          checked: Array.isArray(_vm.joboffer.employment_status)
-                            ? _vm._i(_vm.joboffer.employment_status, "Part") >
-                              -1
-                            : _vm.joboffer.employment_status
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.joboffer.employment_status,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = "Part",
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.joboffer,
-                                    "employment_status",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.joboffer,
-                                    "employment_status",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
+                  _vm._l(_vm.joboffer.employment_status, function(emstatus) {
+                    return _c(
+                      "div",
+                      { key: emstatus.id, staticClass: "form-group row" },
+                      [
+                        _vm._m(6, true),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("label", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: emstatus.pchecked,
+                                  expression: "emstatus.pchecked"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                value: "Part",
+                                name: "part_time"
+                              },
+                              domProps: {
+                                checked: Array.isArray(emstatus.pchecked)
+                                  ? _vm._i(emstatus.pchecked, "Part") > -1
+                                  : emstatus.pchecked
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = emstatus.pchecked,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = "Part",
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          emstatus,
+                                          "pchecked",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          emstatus,
+                                          "pchecked",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(emstatus, "pchecked", $$c)
+                                  }
+                                }
                               }
-                            } else {
-                              _vm.$set(_vm.joboffer, "employment_status", $$c)
-                            }
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("strong", [_vm._v("Part Time ")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.joboffer.employment_status,
-                            expression: "joboffer.employment_status"
-                          }
-                        ],
-                        attrs: {
-                          type: "checkbox",
-                          value: "Full",
-                          name: "full-time"
-                        },
-                        domProps: {
-                          checked: Array.isArray(_vm.joboffer.employment_status)
-                            ? _vm._i(_vm.joboffer.employment_status, "Full") >
-                              -1
-                            : _vm.joboffer.employment_status
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.joboffer.employment_status,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = "Full",
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.joboffer,
-                                    "employment_status",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.joboffer,
-                                    "employment_status",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
+                            }),
+                            _vm._v(" "),
+                            _c("strong", [_vm._v("Part Time ")])
+                          ]),
+                          _vm._v(" "),
+                          _c("label", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: emstatus.fchecked,
+                                  expression: "emstatus.fchecked"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                value: "Full",
+                                name: "full-time"
+                              },
+                              domProps: {
+                                checked: Array.isArray(emstatus.fchecked)
+                                  ? _vm._i(emstatus.fchecked, "Full") > -1
+                                  : emstatus.fchecked
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = emstatus.fchecked,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = "Full",
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          emstatus,
+                                          "fchecked",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          emstatus,
+                                          "fchecked",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(emstatus, "fchecked", $$c)
+                                  }
+                                }
                               }
-                            } else {
-                              _vm.$set(_vm.joboffer, "employment_status", $$c)
-                            }
-                          }
-                        }
-                      }),
-                      _c("strong", [_vm._v(" Full Time ")])
-                    ])
-                  ]),
+                            }),
+                            _c("strong", [_vm._v(" Full Time ")])
+                          ])
+                        ])
+                      ]
+                    )
+                  }),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _vm._m(7),
@@ -62043,7 +62113,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", name: "salary" },
+                        attrs: { type: "text", name: "salary", required: "" },
                         domProps: { value: _vm.joboffer.salary },
                         on: {
                           input: function($event) {
@@ -62139,7 +62209,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "workhour", name: "workhour" },
+                        attrs: {
+                          type: "workhour",
+                          name: "workhour",
+                          required: ""
+                        },
                         domProps: { value: _vm.joboffer.working_hours },
                         on: {
                           input: function($event) {
@@ -63720,6 +63794,273 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(131)
+/* template */
+var __vue_template__ = __webpack_require__(132)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/JobOfferList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d98a15d8", Component.options)
+  } else {
+    hotAPI.reload("data-v-d98a15d8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 131 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            jobs: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/job/index').then(function (response) {
+            _this.jobs = response.data;
+        });
+    },
+
+    methods: {
+        deleteJob: function deleteJob(id) {
+            var _this2 = this;
+
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.delete('http://localhost:8000/api/job/delete/' + id).then(function (response) {
+                    alert('Delete Successfully!');
+                    var i = _this2.jobs.map(function (item) {
+                        return item.id;
+                    }).indexOf(id); // find index of your object
+                    _this2.jobs.splice(i, 1);
+                });
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 132 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "scroll col-12" },
+        _vm._l(_vm.jobs, function(job) {
+          return _c(
+            "div",
+            { key: job.id, staticClass: "card card-default m-b-20" },
+            [
+              _c("div", { staticClass: "card-body news-post" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-10" }, [
+                    _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                      _c(
+                        "b",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "mr-auto",
+                              attrs: {
+                                to: {
+                                  name: "job_details",
+                                  params: { id: job.id }
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(job.title))]
+                          )
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(job.description))]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(job.working_hours))]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-4" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "btn main-bg-color white all-btn",
+                              attrs: {
+                                to: {
+                                  name: "joboffercreate",
+                                  params: { id: job.id }
+                                }
+                              }
+                            },
+                            [_vm._v("Edit")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger all-btn",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteJob(job.id)
+                                }
+                              }
+                            },
+                            [_vm._v("Delete")]
+                          )
+                        ],
+                        1
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+      _c("ol", { staticClass: "breadcrumb" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "../news/news_details.html" } }, [
+            _vm._v(" 新しい詳細")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            staticClass: "breadcrumb-item active",
+            attrs: { "aria-current": "page" }
+          },
+          [
+            _vm._v(
+              "\n                                           就職活動リスト"
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d98a15d8", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

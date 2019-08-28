@@ -22,6 +22,7 @@ import createcustomer from './components/CreateCustomer.vue';
 import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
+import JobOfferList from './components/JobOfferList.vue';
 
 export const routes = [
 
@@ -136,5 +137,10 @@ export const routes = [
       name: 'profile',
       path: '/profile',
       component: profile
+    },
+    {
+      name: 'jobofferlist',
+      path: '/jobofferlist',
+      component: JobOfferList
     },
 ];
