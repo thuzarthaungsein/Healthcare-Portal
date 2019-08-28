@@ -78,9 +78,67 @@
       @guest
       <!-- public menu -->
       <div class="userview-sidebar" style="padding-top: 35%;padding-left: 25px;">
-          <div class="card m-b-10 ads-card">
-              <div><img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width: 100%;"></div></div> 
-              <div class="card m-b-10 ads-card"><div class="card-body"><h5 class="card-title text-center">二つ目の広告</h5> <img src="/images/logo_japanese_horizontal.png" alt="" class="img-responsivie" style="width: 100%;"></div></div> <div class="card m-b-10 ads-card2"><div class="card-body"></div></div></div>
+        <div class="card m-b-10 ads-card">
+            <div>
+                <img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width: 100%;">
+            </div>
+        </div>
+        <div class="card m-b-10 ads-card2">
+            <div class="card-body">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="subtitle">クランクイン</span>
+                    </span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="subtitle">クランクイン</span>
+                    </span>
+                </a>
+            </li>
+            </ul>
+            </div>            
+        </div> 
+        <div class="card m-b-10 ads-card2">
+            <div class="card-body">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="#">                   
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <div>
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="subtitle">クランクイン</span>
+                    </span>
+                    </div>
+                   
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="subtitle">クランクイン</span>
+                    </span>
+                </a>
+            </li>
+            </ul>   
+            </div>
+        </div>
+    </div>
       @else
       <!-- login menu  -->
       <div class="adminview-sidebar">
@@ -224,16 +282,10 @@
                         </div>
                 </div>
                 <div class="card m-b-10 ads-card2">
-                        <div class="card-body">
-                                <ul class="list-group list-group-flush" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
-                                        <li class="list-group-item"><a href="#">
-                                                <img v-bind:src="'/images/' + latest_post_all_cat.photo" alt="" class="img-responsivie ads-img">
-                                                <h3 class="ads-title text-truncate" style="ma"> eee </h3>
-                                                <span class="source-wrapper">
-                                                        <span class="subtitle"> eeee</span>
-                                                </span>
-                                        </a></li>
-                                </ul>                                                       
+                        <div class="card-body today">
+                        <ul id="menu" class="list-group list-group-flush">
+                               
+                            </ul>                                                
                         </div>
                 </div>
                 <!-- end related news-->
@@ -267,7 +319,23 @@
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
  $(document).ready(function() {
-    jssor_1_slider_init();                 
+    jssor_1_slider_init();   
+    var csrf = "{{ csrf_token() }}";
+    $.ajax({
+        url: 'http://localhost:8000/api/get_latest_post_all_cat',
+        type: 'GET',
+        data: {'_token': csrf},
+
+        success: function( data ) {
+            
+            for (var i = 0; i < data.length; i++) {
+                var link_arr = '';
+                var photo = '<li class="list-group-item adslist-card"><a href= "#"><img class="img-responsivie ads-img" src="../images/' + data[i].photo + '" />';
+                var title = '<h3 class="smallads-title text-truncate">' + data[i].title + '</h3>';
+                $("#menu").append(photo + title);
+            } 
+        }       
+    });              
 
 
 });

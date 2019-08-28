@@ -709,8 +709,37 @@ div.b{
 .ads-title{
     font-size: 12px;
     line-height: 1.357;
-    /* margin-top: 12.8px; */
+    margin-top: -12.8px;
 }
+.adslist-card{
+    height: 71px;
+    width: 188px;
+}
+.smallads-title{
+    font-size: 12px;
+    line-height: 1.357;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    top: -0.2rem;
+    max-height: 200px;
+}
+.today .adslist-card .smallads-title{
+    font-size: 12px;
+    line-height: 1.357;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    top: -0.2rem;
+    max-height: 65px;
+}
+.today .smallads-title{
+    display: block;
+    white-space: normal;
+}
+
 .ads-img{
     float:left;
     /* width: 128px; */
