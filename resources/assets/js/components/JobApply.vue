@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-12">
+<div class="col-md-12 scrolldiv">
     <h4 class="h_4 text-center">Job Apply Form</h4>
     <div class="col-md-7 offset-md-3">
         <form @submit.prevent="apply">
@@ -28,38 +28,29 @@
             <input type="time" class="form-control box" id="time"  v-model="jobApply.work_time">
             <!-- <div v-if="errors && errors.work_time" class="text-danger">{{ errors.work_time[0] }}</div> -->
         </div>
-          <div class="">
-            <div v-for="job in jobApply" :key="job.id" class="card card-default m-b-20">
+        <div class="row">
+            <div class="col-md-6">
+                    <div class="form-group" v-for="job in jobApply.fields" :key="job.id">
+             <label><input type="checkbox" v-bind:value="{ id: job }"  v-model="job.skills" > {{job}} </label>
+        </div>
+            </div>
+        </div>
+
+          <!-- <div class="">
+            <div  class="card card-default m-b-20">
                 <div class="col-md-6">
-                    <div class="">
-                        <input type="checkbox" v-model="job.skill">{{job.skill}}
+                    <div v-for="job in jobs" :key="job.skills">
+                        <label> {{job.skills}}</label> -->
+                        <!-- <label><input type="checkbox" v-model="job.skills" ></label> -->
+<!--
                     </div>
 
                 </div>
 
             </div>
-        </div>
-
-            <!-- <div class="bg">
-               <div class="chiller_cb">
-                   <h4>Skills</h4>
-                <input type="checkbox" value="communication" v-model="jobApply.skill">Communication<br/>
-                <input type="checkbox" value="ethics" v-model="jobApply.skill">Ethics<br/>
-                <input type="checkbox" value="crital thinking" v-model="jobApply.skill">Critical Thinking<br/>
-                <input type="checkbox" value="attention to detail" v-model="jobApply.skill">Attention To Detail<br/>
-                <input type="checkbox" value="comitment to development" v-model="jobApply.skill">Comitment To Development<br/>
-                <input type="checkbox" value="responsibility" v-model="jobApply.skill">Responsibility<br/><br/>
-               </div>
-         </div> -->
-        <!-- <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                 <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-            </div>
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile01">
-                <label class="custom-file-label" for="inputGroupFile01">No file chosen</label>
-            </div>
         </div> -->
+
+
         <div class="text-center">
             <button type="submit" class="btn main-bg-color white all-btn ">Apply</button>
         </div>
@@ -75,6 +66,7 @@ export default {
     data() {
             return {
                 errors: [],
+                jobs:[],
                 jobApply: {
                         name: '',
                         birthday:'',
@@ -82,8 +74,12 @@ export default {
                         phone:'',
                         email:'',
                         work_time:'',
-                        skill:[]
+                        fields:[{
+                            skills:'',
+                            id:''
+                        }],
                     },
+
 
             }
     },
@@ -91,8 +87,9 @@ export default {
         this.axios
                 .get('http://localhost:8000/api/skill')
                 .then(response => {
-                 this.jobApply.skill = response.data.skills;
+                 this.jobApply.fields = response.data;
                 });
+
     },
     methods: {
             apply() {
@@ -101,6 +98,7 @@ export default {
                     .then((response) => {
                     alert('Successful Apply')
                     console.log(response);
+
                     //console.log(this.jobApply.toString());
                     this.jobApply = response.data;
                     })

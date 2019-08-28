@@ -16,19 +16,7 @@ class JobApplyController extends Controller
     {
 
     }
-    // public function apply(Request $request){
-    //     $jobapply = new JobApply([
-    //         'name' => $request->input('name'),
-    //         'birthday' => 1,
-    //         'address' => 2,
-    //         'phone' => 3,
-    //         'email'=>4,
-    //         'work-time'=>5,
-    //         'skill'=>6
-    //     ]);
-    //     $jobapply->save();
-    //     return $jobapply;
-    // }
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,7 +38,23 @@ class JobApplyController extends Controller
     public function store(Request $request)
     {
 
-            return response()->json($request);
+                $string = '';
+                $count = count($request->fields);
+
+                for($i = 0;$i< $count ;$i++)
+                {
+
+                    if($i == $count-1)
+                    {
+                        $string .= $request->fields[$i];
+                    }else{
+                        $string .= $request->fields[$i] .',';
+                    }
+
+                }
+
+
+
             $jobapply = new JobApply([
                  'name' => $request->input('name'),
                  'birthday' =>  $request->input('birthday'),
@@ -58,11 +62,12 @@ class JobApplyController extends Controller
                  'phone' =>  $request->input('phone'),
                  'email'=> $request->input('email'),
                  'work_time'=>$request->input('work_time'),
-                 'skill'=>implode("," , $request->input('skill'))
-                // //$jobapply->skill=skills,
+                 'skill' =>$string
+
 
              ]);
              $jobapply->save();
+
 
              return response()->json('Apply successfully ');
 
@@ -71,11 +76,9 @@ class JobApplyController extends Controller
     public function getSkill()
     {
         $skill = Job::select('skills')->value('skills');
-            //$a  =  array();
-             //if (strpos($skill, ',') !== false) {
-              //return $skill;
-            $array =explode(',',$skill);
-             return $array;
+         $array =explode(',',$skill);
+
+            return ($array);
 
         }
 

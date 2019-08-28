@@ -13,11 +13,8 @@ import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
-<<<<<<< HEAD
 import custedit from './components/custedit.vue';
-=======
 
->>>>>>> cb0df8b52dc7b50a315037a5cc22ff930c034ffe
 import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
