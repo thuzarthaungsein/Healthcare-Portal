@@ -24,13 +24,19 @@
                                                     種類
                                                 <span class="caret"></span>
                                             </button>
-                                            <ul class="dropdown-menu">
+                                            <select v-model="category_id" class="form-control">
+                                                <!-- <option v-bind:value="-1">選択してください。</option> -->
+                                             <option v-for="category in news" :key="category.id" v-bind:value="category.id">
+                                                    {{category.name}}
+                                                </option>
+                                            </select>
+                                            <!-- <ul class="dropdown-menu">
                                                 <li><a href="#">Doctor</a></li>
                                                 <li><a href="#">Nurse</a></li>
                                                 <li><a href="#">Pharmacist</a></li>
                                                 <li><a href="#">Administrative Staff</a></li>
                                                 <li><a href="#">Therapists</a></li>
-                                            </ul>
+                                            </ul> -->
                                         </div>
                                         <div class="form-group">
                                             <br>
@@ -69,13 +75,12 @@ export default {
         return{
              errors: [],
             news:{
-                title: '',
-                main_point: '',
-                body: '',
+                post_title: '',
+                post_mainPoint: '',
+                post_body: '',
                 category_id: '',
-                user_id: '',
-                recordstatus: '',
-                image: ''
+                category_name: '',
+                post_photo: ''
             }
         }
     },

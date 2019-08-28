@@ -29,19 +29,12 @@
                                             <!-- <div  v-for="category in categories" :key="category.id">
                                                <label> {{category.name}}</label>
                                              </div> -->
-                                            <select v-model="selected" id="categoryList" class="browser-default custom-select">
+                                            <select v-model="category_id" class="form-control" @change='getstates()'>
+                                                <!-- <option v-bind:value="-1">選択してください。</option> -->
                                              <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                                     {{category.name}}
                                                 </option>
                                             </select>
-                                            
-                                            <!-- <ul class="dropdown-menu" >
-                                                <li><a href="#">Doctor</a></li> -->
-                                                <!-- <li><a href="#">Nurse</a></li>
-                                                <li><a href="#">Pharmacist</a></li>
-                                                <li><a href="#">Administrative Staff</a></li>
-                                                <li><a href="#">Therapists</a></li> -->
-                                            <!-- </ul> -->
                                         </div>
                                         <div class="form-group">
                                             <br>
@@ -75,7 +68,6 @@
 export default {
     data(){
         return{
-            selected:"please select",
              errors: [],
             news:{
                 title: '',
@@ -86,7 +78,12 @@ export default {
                 recordstatus: '',
                 image: ''
             },
-              categories:[]
+            // User: -1,
+            // Userdrp: "選択してください。",
+              categories:{
+                  id: '',
+                  name: ''
+              }
           
         }
         
@@ -101,6 +98,14 @@ export default {
               }.bind(this));
       
         },
+        mounted() {
+            this.axios
+                .get(`http://localhost:8000/api/new/editPost/${this.$route.params.id}`)
+                .then(function(response) {
+                    this.news = response.data;
+                }.bind(this));
+        },
+
     methods: {
          onFileSelected(event){
             this.news.image = event.target.files[0]
@@ -111,6 +116,7 @@ export default {
         fData.append('title',this.news.title)
         fData.append('main_point',this.news.main_point)
         fData.append('body',this.news.body)
+        fData.append('category_id',this.news.category_id)
         axios.post('http://localhost:8000/api/new/add', fData)
                     .then(response => {
                         
@@ -121,7 +127,13 @@ export default {
                     .catch(error => console.log(error))
                     .finally(() => this.loading = false)
 
-       }
+       },
+       getstates: function(){
+          
+           this.news.category_id = this.category_id;
+
+       },
+       
     }
 }
 

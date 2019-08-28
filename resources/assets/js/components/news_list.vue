@@ -22,6 +22,7 @@
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2">
+
                                 <img :src="'/images/'+ newsList.photo" class="col-md-12" alt=""> 
                             </div>
                             <div class="col-md-10">
@@ -33,7 +34,7 @@
                                 <p>{{newsList.main_point}}</p>
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <small><router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="mr-auto text-warning">編集</router-link></small> &nbsp;
+                                        <small><router-link :to="{name: 'create_news', params: {id: newsList.id}}" class="mr-auto text-warning">編集</router-link></small> &nbsp;
                                         <small><a class="mr-auto text-danger" @click="deletePost(newsList.id)">削除</a></small>
                                     </div>
 
