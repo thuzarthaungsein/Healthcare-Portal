@@ -22,44 +22,61 @@ class CustomerController extends Controller
         return array_reverse($customers);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function add(Request $request)
+    {
+        $imageName = $request->logo->getClientOriginalName();
+        
+        $request->logo->move(public_path('images'), $imageName);
+        
+        $request->validate([
+
+            'name' => 'required|min:2|max:50',
+            'phone' => 'required|numeric',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'confirm_password' => 'required|min:6|max:20|same:password',
+            'address' => 'required',
+
+        ],[
+            'name.required' => 'Name is required',
+            'name.min' => 'Name must be at least 2 characters.',
+            'name.max' => 'Name should not be greater than 50 characters.',
+        ]);
+
+        $customer = new Customer ([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            'logo' => $request->logo->getClientOriginalName(),
+            'type_id' => 1,
+            'phone' => $request->input('phone'),
+            'address' => $request->input('address'),
+            'recordstatus' => 2
+          
+ 
+        ]);
+        $customer ->save();
+        return response()->json(['success'=>'Done!']);
+
+    }
+
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
     public function show(Customer $customer)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $customer = Customer::find($id);
@@ -67,13 +84,6 @@ class CustomerController extends Controller
         return response()->json($customer);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
     public function update($id,Request $request)
     {
         $customer = Customer::find($id);
@@ -81,12 +91,7 @@ class CustomerController extends Controller
         return response()->json('Customer successfully updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //
@@ -105,7 +110,7 @@ class CustomerController extends Controller
             return response()->json('user is already confirm!');
         }else{
             $customer = Customer::find($id);
-            $customer->status = 'confirm';
+            $customer->status = 1;
             $customer->save();
 
             $data = array([

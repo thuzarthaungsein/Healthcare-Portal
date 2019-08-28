@@ -41,9 +41,13 @@
                                             <br>
                                             <label class="menu-pos">メディア:<span class="error">*</span></label>
                                             <br>
-                                            <label class="btn bg-color all-btn">
+                                            <!-- <label class="btn bg-color all-btn">
                                                     写真/画像を投稿する
                                                  <input type="file" class="uploadFile img" value="Upload Photo">
+                                            </label> -->
+                                            <label>
+                                                    写真/画像を投稿する
+                                                 <input type="file" accept="image/*" @change ="onFileSelected" id="file" ref="file">
                                             </label>
                                         </div>
                                     <div class="row">
@@ -70,7 +74,8 @@ export default {
                 body: '',
                 category_id: '',
                 user_id: '',
-                recordstatus: ''
+                recordstatus: '',
+                image: ''
             }
         }
     },
@@ -83,12 +88,20 @@ export default {
                 });
         },
     methods: {
+        onFileSelected(event){
+            this.news.image = event.target.files[0]
+        },
     updatePost() {
-                this.axios
-                    .post(`http://localhost:8000/api/new/update/${this.$route.params.id}`, this.news)
+        let fData = new FormData();
+        fData.append('image',this.news.image)
+        fData.append('title',this.news.title)
+        fData.append('main_point',this.news.main_point)
+        fData.append('body',this.news.body)
+        axios.post(`http://localhost:8000/api/new/update/${this.$route.params.id}`, fData)
                     .then((response) => {
                           alert('Successfully Updated!')
                         this.$router.push({name: 'news_list'});
+                        console.log(response);
                     });
             }
 }

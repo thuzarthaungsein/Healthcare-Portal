@@ -22,14 +22,14 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionTableSeeder::class);
         DB::table('users')->insert([
             [
-                'name' => 'Administrator',
+                'name' => '管理者',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name' => 'Customer',
+                'name' => '顧客',
                 'email' => 'customer@gmail.com',
                 'password' => bcrypt('customer'),
                 'created_at' => date('Y-m-d H:i:s'),
@@ -38,13 +38,13 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('roles')->insert([
             [
-                'name' => 'Administrator',
+                'name' => '管理者',
                 'guard_name' => 'web',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name' => 'Customer',
+                'name' => '顧客',
                 'guard_name' => 'web',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
