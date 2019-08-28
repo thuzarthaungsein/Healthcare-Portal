@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\JobApply;
 use Illuminate\Http\Request;
-
+use App\Job;
 class JobApplyController extends Controller
 {
     /**
@@ -14,7 +14,7 @@ class JobApplyController extends Controller
      */
     public function index()
     {
-        //
+
     }
     // public function apply(Request $request){
     //     $jobapply = new JobApply([
@@ -50,7 +50,7 @@ class JobApplyController extends Controller
     public function store(Request $request)
     {
 
-
+            return response()->json($request);
             $jobapply = new JobApply([
                  'name' => $request->input('name'),
                  'birthday' =>  $request->input('birthday'),
@@ -66,9 +66,19 @@ class JobApplyController extends Controller
 
              return response()->json('Apply successfully ');
 
-
-
     }
+
+    public function getSkill()
+    {
+        $skill = Job::select('skills')->value('skills');
+            //$a  =  array();
+             //if (strpos($skill, ',') !== false) {
+              //return $skill;
+            $array =explode(',',$skill);
+             return $array;
+
+        }
+
 
     /**
      * Display the specified resource.
@@ -76,7 +86,7 @@ class JobApplyController extends Controller
      * @param  \App\JobApply  $jobApply
      * @return \Illuminate\Http\Response
      */
-    public function show(JobApply $jobApply)
+        public function show(JobApply $jobApply)
     {
         //
     }

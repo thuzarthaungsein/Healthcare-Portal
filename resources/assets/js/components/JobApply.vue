@@ -28,11 +28,11 @@
             <input type="time" class="form-control box" id="time"  v-model="jobApply.work_time">
             <!-- <div v-if="errors && errors.work_time" class="text-danger">{{ errors.work_time[0] }}</div> -->
         </div>
-         <div class="row">
-            <div v-for="job in jobs" :key="job.id" class="card card-default m-b-20">
+          <div class="">
+            <div v-for="job in jobApply" :key="job.id" class="card card-default m-b-20">
                 <div class="col-md-6">
-                    <div class="col-sm-8 pad-free mb-2">
-                        <input type="checkbox" v-model="job.skills">{{job.skills}}
+                    <div class="">
+                        <input type="checkbox" v-model="job.skill">{{job.skill}}
                     </div>
 
                 </div>
@@ -82,11 +82,17 @@ export default {
                         phone:'',
                         email:'',
                         work_time:'',
-                        skills:[]
+                        skill:[]
                     },
 
-
             }
+    },
+     created(){
+        this.axios
+                .get('http://localhost:8000/api/skill')
+                .then(response => {
+                 this.jobApply.skill = response.data.skills;
+                });
     },
     methods: {
             apply() {
