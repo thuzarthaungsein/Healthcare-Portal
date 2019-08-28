@@ -29,9 +29,9 @@
             <!-- <div v-if="errors && errors.work_time" class="text-danger">{{ errors.work_time[0] }}</div> -->
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12" style=" columns: 2;-webkit-columns: 2;-moz-columns: 2;">
                     <div class="form-group" v-for="job in jobApply.fields" :key="job.id">
-             <label><input type="checkbox" v-bind:value="{ id: job }"  v-model="job.skills" > {{job}} </label>
+                        <label><input type="checkbox" v-bind:value="{ id: job.skills }"  v-model="job.skills" > {{job}} </label>
         </div>
             </div>
         </div>
@@ -66,7 +66,7 @@ export default {
     data() {
             return {
                 errors: [],
-                jobs:[],
+
                 jobApply: {
                         name: '',
                         birthday:'',
@@ -75,7 +75,7 @@ export default {
                         email:'',
                         work_time:'',
                         fields:[{
-                            skills:'',
+                            skills:[],
                             id:''
                         }],
                     },
@@ -85,9 +85,10 @@ export default {
     },
      created(){
         this.axios
-                .get('http://localhost:8000/api/skill')
+                .get('http://localhost:8000/api/getskill')
                 .then(response => {
                  this.jobApply.fields = response.data;
+
                 });
 
     },
@@ -98,7 +99,6 @@ export default {
                     .then((response) => {
                     alert('Successful Apply')
                     console.log(response);
-
                     //console.log(this.jobApply.toString());
                     this.jobApply = response.data;
                     })

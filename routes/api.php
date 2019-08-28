@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('jobs', 'JobController@index');
-Route::get('skill', 'JobApplyController@getSkill');
+Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
 Route::post('getmap','adminController@getMap');
 Route::get('customers','CustomerController@index');

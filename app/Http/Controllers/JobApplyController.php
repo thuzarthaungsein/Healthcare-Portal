@@ -73,11 +73,11 @@ class JobApplyController extends Controller
 
     }
 
-    public function getSkill()
+    public function getSkills()
     {
+
         $skill = Job::select('skills')->value('skills');
          $array =explode(',',$skill);
-
             return ($array);
 
         }
