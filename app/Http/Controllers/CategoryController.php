@@ -181,5 +181,4 @@ class CategoryController extends Controller
     //                     ->with('success','categories deleted successfully');
 
     // }
-
 }
