@@ -118,6 +118,13 @@
     display: none;
     /* margin-top: 15px; */
 }
+.fac-toggle-div {
+    border: 1px solid #eee;
+    padding: 20px 20px 0px 20px;
+
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
 .profile .card-header {
     padding-top: 20px !important;
 }
@@ -819,6 +826,9 @@ div.b{
 }
 .m-t-10{
     margin-top: 10px !important;
+}
+.m-t-15{
+    margin-top: 15px !important;
 }
 .m-t-30 {
     margin-top:32px;
