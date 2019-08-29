@@ -151,8 +151,11 @@
                                         Map Area Here
                                 </div>
                         </div>
-                        <div class="row" v-if="type == 'nursing'">
-                                Nursing
+                        <div class="col-md-12 pad-free" v-if="type == 'nursing'">
+                                <div class="form-group">
+                                        <label>特長<span class="error">*</span></label>
+                                        <textarea name="medicaldepartment" class="form-control"></textarea>
+                                </div>
                         </div>
 
                 

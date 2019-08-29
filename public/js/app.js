@@ -63343,6 +63343,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
@@ -63582,14 +63585,10 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _vm.type == "nursing"
-          ? _c("div", { staticClass: "row" }, [
-              _vm._v(
-                "\r\n                                Nursing\r\n                        "
-              )
-            ])
+          ? _c("div", { staticClass: "col-md-12 pad-free" }, [_vm._m(17)])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(17)
+        _vm._m(18)
       ])
     ])
   ])
@@ -63897,6 +63896,22 @@ var staticRenderFns = [
       _c("textarea", {
         staticClass: "form-control",
         attrs: { name: "congestion" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("特長"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { name: "medicaldepartment" }
       })
     ])
   },
