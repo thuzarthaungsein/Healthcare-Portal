@@ -24,7 +24,7 @@ class PostController extends Controller
     {
         
         $imageName = $request->image->getClientOriginalName();
-        $request->image->move(public_path('images'), $imageName);
+        $request->image->move(public_path('/upload/news'), $imageName);
         $post = new Post([
             'title' => $request->input('title'),
             'main_point' => $request->input('main_point'),
@@ -98,7 +98,7 @@ class PostController extends Controller
     public function update($id, Request $request)
     {
         $imageName = $request->image->getClientOriginalName();
-        $request->image->move(public_path('images'), $imageName);
+        $request->image->move(public_path('/upload/news'), $imageName);
         $formData = array(
             'title' => $request->input('title'),
             'main_point' => $request->input('main_point'),
