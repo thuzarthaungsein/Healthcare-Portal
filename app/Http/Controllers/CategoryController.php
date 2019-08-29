@@ -47,7 +47,7 @@ class CategoryController extends Controller
     {
        
         $category_list = Category::select('id','name')->get()->toArray(); 
-        return array_reverse($category_list);
+        return $category_list;
 
     }
 

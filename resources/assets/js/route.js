@@ -14,6 +14,7 @@ import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
 import custedit from './components/custedit.vue';
+import CustomerSearchListComponent from './components/CustomerSearchListComponent.vue';
 
 import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
@@ -56,6 +57,11 @@ export const routes = [
         name: 'customerlist',
         path: '/customerlist',
         component: customerlist
+    },
+    {
+      name: 'customersearchlist',
+      path: '/customersearchlist',
+      component: CustomerSearchListComponent
     },
     {
       name: 'jobsearchlist',
