@@ -1,7 +1,7 @@
 <template>
 <div class="card profile">
         <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
-        <div class="card-body scrolldiv">
+        <div class="card-body scrolldiv2">
                 
                 <form class="col-md-12">
                         <div class="form-group">
@@ -125,15 +125,16 @@
                                 </div>
                                 <div class="btn all-btn main-bg-color m-b-20" @click="factogglediv()">Facilities</div>
 
-                                <div class="fac-toggle-div toggle-div">
-                                        <div v-for="fac in fac_list" :key="fac.id" class="card card-default m-b-20">
-                                                <div class="card-body news-post">
-                                                       <label for="">
-                                                               <input type="checkbox">
-                                                               {{fac.description}}
+                                <div class="col-md-12 fac-toggle-div toggle-div">
+                                        <div class="row">
+                                                <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
+                                                        <label for="fac.id">
+                                                        <input type="checkbox" v-id="fac.id">
+                                                        {{fac.description}}
                                                         </label>
                                                 </div>
                                         </div>
+                                        
                                 </div>
                                 <div class="form-group">
                                         <label>Official Website</label>
@@ -147,7 +148,7 @@
                                 <div class="btn all-btn main-bg-color m-b-20" @click="maptogglediv()">Map</div>
 
                                 <div class="map-toggle-div toggle-div">
-                                        This is Map togglediv
+                                        Map Area Here
                                 </div>
                         </div>
                         <div class="row" v-if="type == 'nursing'">
@@ -156,8 +157,7 @@
 
                 
                         <div class="row">
-                                <br>
-                                <button class="btn news-post-btn all-btn">Create</button>
+                                <button class="btn news-post-btn all-btn m-t-15">Create</button>
                                 <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
                         </div>
                 </form>

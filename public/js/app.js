@@ -63390,7 +63390,7 @@ var render = function() {
   return _c("div", { staticClass: "card profile" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "card-body scrolldiv" }, [
+    _c("div", { staticClass: "card-body scrolldiv2" }, [
       _c("form", { staticClass: "col-md-12" }, [
         _vm._m(1),
         _vm._v(" "),
@@ -63520,26 +63520,40 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "fac-toggle-div toggle-div" },
-                _vm._l(_vm.fac_list, function(fac) {
-                  return _c(
+                { staticClass: "col-md-12 fac-toggle-div toggle-div" },
+                [
+                  _c(
                     "div",
-                    { key: fac.id, staticClass: "card card-default m-b-20" },
-                    [
-                      _c("div", { staticClass: "card-body news-post" }, [
-                        _c("label", { attrs: { for: "" } }, [
-                          _c("input", { attrs: { type: "checkbox" } }),
-                          _vm._v(
-                            "\r\n                                                               " +
-                              _vm._s(fac.description) +
-                              "\r\n                                                        "
-                          )
-                        ])
-                      ])
-                    ]
+                    { staticClass: "row" },
+                    _vm._l(_vm.fac_list, function(fac) {
+                      return _c(
+                        "div",
+                        { key: fac.id, staticClass: "col-md-6 m-b-20" },
+                        [
+                          _c("label", { attrs: { for: "fac.id" } }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "id",
+                                  rawName: "v-id",
+                                  value: fac.id,
+                                  expression: "fac.id"
+                                }
+                              ],
+                              attrs: { type: "checkbox" }
+                            }),
+                            _vm._v(
+                              "\r\n                                                        " +
+                                _vm._s(fac.description) +
+                                "\r\n                                                        "
+                            )
+                          ])
+                        ]
+                      )
+                    }),
+                    0
                   )
-                }),
-                0
+                ]
               ),
               _vm._v(" "),
               _vm._m(15),
@@ -63561,7 +63575,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "map-toggle-div toggle-div" }, [
                 _vm._v(
-                  "\r\n                                        This is Map togglediv\r\n                                "
+                  "\r\n                                        Map Area Here\r\n                                "
                 )
               ])
             ])
@@ -63891,9 +63905,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("br"),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn news-post-btn all-btn" }, [
+      _c("button", { staticClass: "btn news-post-btn all-btn m-t-15" }, [
         _vm._v("Create")
       ])
     ])
