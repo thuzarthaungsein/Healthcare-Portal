@@ -58049,6 +58049,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58361,18 +58362,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            selected: "please select",
             errors: [],
             news: {
                 title: '',
@@ -58383,7 +58376,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 recordstatus: '',
                 image: ''
             },
-            categories: []
+            // User: -1,
+            // Userdrp: "選択してください。",
+            categories: {
+                id: '',
+                name: ''
+            }
 
         };
     },
@@ -58394,6 +58392,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.categories = response.data;
         }.bind(this));
     },
+
 
     methods: {
         onFileSelected: function onFileSelected(event) {
@@ -58407,6 +58406,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fData.append('title', this.news.title);
             fData.append('main_point', this.news.main_point);
             fData.append('body', this.news.body);
+            fData.append('category_id', this.news.category_id);
             axios.post('http://localhost:8000/api/new/add', fData).then(function (response) {
 
                 _this.$router.push({ name: 'news_list' });
@@ -58417,7 +58417,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).finally(function () {
                 return _this.loading = false;
             });
+        },
+
+        getstates: function getstates() {
+
+            this.news.category_id = this.category_id;
         }
+
     }
 });
 
@@ -58517,26 +58523,30 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.selected,
-                            expression: "selected"
+                            value: _vm.category_id,
+                            expression: "category_id"
                           }
                         ],
-                        staticClass: "browser-default custom-select",
-                        attrs: { id: "categoryList" },
+                        staticClass: "form-control",
                         on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.selected = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          }
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.category_id = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                            function($event) {
+                              return _vm.getstates()
+                            }
+                          ]
                         }
                       },
                       _vm._l(_vm.categories, function(category) {
@@ -62333,20 +62343,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             errors: [],
             news: {
-                title: '',
-                main_point: '',
-                body: '',
+                post_title: '',
+                post_mainPoint: '',
+                post_body: '',
                 category_id: '',
-                user_id: '',
-                recordstatus: '',
-                image: ''
+                category_name: '',
+                post_photo: ''
+            },
+            categories: {
+                id: '',
+                name: ''
             }
         };
     },
@@ -62356,6 +62368,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.axios.get('http://localhost:8000/api/new/editPost/' + this.$route.params.id).then(function (response) {
             _this.news = response.data;
         });
+    },
+    mounted: function mounted() {
+        this.axios.get('http://localhost:8000/api/category/category_list').then(function (response) {
+            this.categories = response.data;
+        }.bind(this));
     },
 
     methods: {
@@ -62465,7 +62482,56 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(3),
+                  _c("div", { staticClass: "btn-group" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.category_id,
+                            expression: "category_id"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.category_id = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      _vm._l(_vm.categories, function(category) {
+                        return _c(
+                          "option",
+                          {
+                            key: category.id,
+                            domProps: { value: category.id }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                    " +
+                                _vm._s(category.name) +
+                                "\r\n                                                "
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("br"),
@@ -62561,35 +62627,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "btn-group" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn main-bg-color white dropdown-toggle all-btn",
-          attrs: { type: "button", "data-toggle": "dropdown" }
-        },
-        [
-          _vm._v(
-            "\r\n                                                    種類\r\n                                                "
-          ),
-          _c("span", { staticClass: "caret" })
-        ]
-      ),
-      _vm._v(" "),
-      _c("ul", { staticClass: "dropdown-menu" }, [
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Doctor")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Nurse")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Pharmacist")])]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Administrative Staff")])
-        ]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Therapists")])])
-      ])
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "btn main-bg-color white dropdown-toggle all-btn",
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [
+        _vm._v(
+          "\r\n                                                    種類\r\n                                                "
+        ),
+        _c("span", { staticClass: "caret" })
+      ]
+    )
   },
   function() {
     var _vm = this
