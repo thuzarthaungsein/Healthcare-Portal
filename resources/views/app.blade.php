@@ -36,9 +36,9 @@
 <body>
 <div id="app">
 <div class="col-md-10 offset-md-1 main-content pad-free">
-
+    <flash message=""></flash>
   <!--navigation bar-->
-  <nav class="navbar navbar-expand-lg navbar-dark main-header">
+  <nav class="navbar navbar-expand-lg navbar-dark main-header" style="padding-right: 0px;">
   <a class="navbar-brand" href="#"><img src="images/trust_growth.png" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -46,16 +46,17 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <form class="form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline">
-      <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> Search</button>
+      <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control" type="search" placeholder="検索" aria-label="検索">
+      <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> 検索</button>
     </form>
-    <ul class="navbar-nav mr-auto col-lg-2">
+    <ul class="navbar-nav mr-auto col-lg-2 pad-free">
     @guest
-        <li class="nav-item btn login-register-btn col-lg-6">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
+            <a class="nav-link pad-free" href="{{ route('login') }}">{{ __('事業者 ログイン') }}</a>
         </li>
         <li class="nav-item btn login-register-btn col-lg-6">
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
+            <router-link to="/createcustomer" class="nav-link">事業者 登録</router-link>
         </li>
     @else
     <li class="nav-item btn login-register-btn col-lg-6">
@@ -77,47 +78,120 @@
     <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       @guest
       <!-- public menu -->
-        <span>not login</span>
+      <div class="userview-sidebar" style="padding-top: 35%;padding-left: 25px;">
+        <div class="card m-b-10 ads-card">
+            <div>
+                <img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width: 100%;">
+            </div>
+        </div>
+        <div class="card m-b-10 ads-card2">
+            <div class="card-body">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="subtitle">クランクイン</span>
+                    </span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="subtitle">クランクイン</span>
+                    </span>
+                </a>
+            </li>
+            </ul>
+            </div>            
+        </div> 
+        <div class="card m-b-10 ads-card2">
+            <div class="card-body">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="#">                   
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <div>
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="subtitle">クランクイン</span>
+                    </span>
+                    </div>
+                   
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="subtitle">クランクイン</span>
+                    </span>
+                </a>
+            </li>
+            </ul>   
+            </div>
+        </div>
+    </div>
       @else
       <!-- login menu  -->
-      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  Home</router-link></li>
+      <div class="adminview-sidebar">
+      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
+      
       @can('role-list')      
-      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-home"></i>  News List</router-link></li>
-      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-home"></i>  Customers List</router-link></li>
-      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-home"></i>  Categories List</router-link></li>
-      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-home"></i>  Facilities List</router-link></li>      
+      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;  ニュース一覧</router-link></li>
+      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;  顧客一覧</router-link></li>
+      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;  カテゴ一覧</router-link></li>
+      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  施設一覧</router-link></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list"></i>&nbsp;&nbsp;Dropdown</a>
+        <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </li>      
       @endcan
 
       @can('customer')
-      <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>  Profile</router-link></li>
-      <li><router-link to="/" class="nav-link"><i class="fa fa-edit"></i> Jobs List</router-link></li>
-      <li><a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fa fa-user"></i> <span> user</span></a></li>
+      <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
+      <li><router-link to="/joblist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
       @endcan
 
       @can('role-list')
-      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  Advertisement</router-link></li>
+      <li><router-link to="/advertisement" class="nav-link"><i class="fa fa-globe"></i>&nbsp;&nbsp;  広告</router-link></li>
       @endcan
 
       <li>
         <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}" 
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
-        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>
+        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;&nbsp;
       
-            {{ __('Logout') }}
+            {{ __('ログアウト') }}
         
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
         </a>
       </li>
+      </div>
       @endguest
-      
+     
       </ul>
   </div>
 
   <div class="col-10 pad-free">
-    <div class="tab-content" id="v-pills-tabContent">
+    <div class="maintab-content" id="v-pills-tabContent">
       <!--section one-->
       <section>
         <div class="container-fluid main-wrapper">
@@ -125,7 +199,7 @@
         <!--slider for ads-->
         <div class="col-md-auto">
         <!--jssor carousel-->
-        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:100px;overflow:hidden;visibility:hidden;margin-bottom:10px;">
+        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1115pxpx;height:100px;overflow:hidden;visibility:hidden;margin-bottom:10px;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="images/spin.svg" />
@@ -193,7 +267,7 @@
       <!--end slider for ads-->
            
       <div class="row justify-content-md-center">           
-        <div class="col-10 tab"> 
+        <div class="col-10 tab main-wrap"> 
           <!-- vue component -->
               <router-view></router-view>
           <!-- vue component -->
@@ -219,16 +293,10 @@
                         </div>
                 </div>
                 <div class="card m-b-10 ads-card2">
-                        <div class="card-body">
-                                <ul class="list-group list-group-flush" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
-                                        <li class="list-group-item"><a href="#">
-                                                <img v-bind:src="'/images/' + latest_post_all_cat.photo" alt="" class="img-responsivie ads-img">
-                                                <h3 class="ads-title text-truncate" style="ma"> eee </h3>
-                                                <span class="source-wrapper">
-                                                        <span class="subtitle"> eeee</span>
-                                                </span>
-                                        </a></li>
-                                </ul>                                                       
+                        <div class="card-body today">
+                        <ul id="menu" class="list-group list-group-flush">
+                               
+                            </ul>                                                
                         </div>
                 </div>
                 <!-- end related news-->
@@ -236,7 +304,7 @@
     </div>
             
           </div>
-          <div class="container-fluid footer">
+          <div class="container-fluid footer footer-div">
                 <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
         </div>
         </div>
@@ -262,7 +330,23 @@
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
  $(document).ready(function() {
-    jssor_1_slider_init();                 
+    jssor_1_slider_init();   
+    var csrf = "{{ csrf_token() }}";
+    $.ajax({
+        url: 'http://localhost:8000/api/get_latest_post_all_cat',
+        type: 'GET',
+        data: {'_token': csrf},
+
+        success: function( data ) {
+            
+            for (var i = 0; i < data.length; i++) {
+                var link_arr = '';
+                var photo = '<li class="list-group-item adslist-card"><a href= "#"><img class="img-responsivie ads-img" src="../images/' + data[i].photo + '" />';
+                var title = '<h3 class="smallads-title text-truncate">' + data[i].title + '</h3>';
+                $("#menu").append(photo + title);
+            } 
+        }       
+    });              
 
 
 });

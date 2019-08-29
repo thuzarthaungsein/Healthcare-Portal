@@ -14,18 +14,18 @@
         <div class="row justify-content-md-center">
                 <div class="col-md-12">
                         <div class="">
-                        <div v-for="news in newdetails" :key="news.id">
-                                <div class="row m-lr-0" v-if="news.id==1">
+                        <div>
+                                <div class="row m-lr-0">
                                         <div class="col-md-12" >
-                                                <h4 class="h_4 header">{{news.title}}</h4>
-                                                <p class="set-date"><time datetime="2012-01-04">2012年1月4日</time></p>
+                                                <h4 class="h_4 header">{{newdetails.title}}</h4>
+                                                <p class="set-date"><time datetime="2012-01-04">{{newdetails.created_at}}</time></p>
                                         </div>
                                         <div class="col-md-6">
-                                                <p class="p5">{{news.body}}</p>
+                                                <p class="p5">{{newdetails.body}}</p>
                                         </div>
                                         <div class="col-md-6  mt-2 related-area" >
                                                 <img
-                                                        v-bind:src="'/images/' + news.photo"
+                                                        :src="'/images/'+ newdetails.photo"
                                                         class="img-responsive img_2 news_photo"
                                                         > 
                                                 <p class="img_2">東京五輪開幕まで1年　メダルお披露目 <br> <span><time datetime="2019-06-07">2019年6月7日</time></span></p> 
@@ -66,7 +66,7 @@
                                                 <div class="col-sm-3  col-md-3 mt-2">
                                                         <div class="hovereffect fit-image">
                                                                 <img class="img-responsive fit-image"
-                                                                        src="images/j5.jpg"
+                                                                        src="/images/day1.jpg"
                                                                         alt="">
                                                                 <div class="overlay">
                                                                         <h2></h2>
@@ -90,7 +90,7 @@
                                                 <div class="col-sm-3  col-md-3 mt-2">
                                                         <div class="hovereffect fit-image">
                                                                 <img class="img-responsive fit-image"
-                                                                        src="images/j5.jpg"
+                                                                        src="/images/day1.jpg"
                                                                         alt="">
                                                                 <div class="overlay">
                                                                         <h2></h2>
@@ -114,7 +114,7 @@
                                                 <div class="col-sm-3  col-md-3 mt-2">
                                                         <div class="hovereffect fit-image">
                                                                 <img class="img-responsive fit-image"
-                                                                        src="images/hhh.jpg"
+                                                                        src="/images/day1.jpg"
                                                                         alt="">
                                                                 <div class="overlay">
                                                                         <h2></h2>
@@ -138,7 +138,7 @@
                                                 <div class="col-sm-3  col-md-3 mt-2">
                                                         <div class="hovereffect fit-image">
                                                                 <img class="img-responsive fit-image"
-                                                                        src="images/j5.jpg"
+                                                                        src="/images/day1.jpg"
                                                                         alt="">
                                                                 <div class="overlay">
                                                                         <h2></h2>
@@ -168,31 +168,37 @@
         </section>  -->
         </div>
 </template>
-
 // <script>
 //     export default {
-//         mounted() {
-//             console.log('Component mounted.')
+       
+//         data() {
+//             return {
+//                 newdetails:[]
+//             }
+//         },
+//         created(){
+//             this.axios
+//                  .get(`http://localhost:8000/api/newdetails/${this.$route.params.id}`)
+//                  .then(response=>{
+                       
+//                      this.newdetails = response.data;
+//                        console.log(response.data);
+//                  });
+                       
 //         }
-//     };
-//      $(document).ready(function () {
-                    
+//         // methods: {
+//         //         getPostById: function(id=1) {
+//         //                 this.axios
+//         //                 .get('http://localhost:8000/api/newdetails/'+id)
+//         //                 .then(response=>{
+//         //                         console.log(response.data.news_list);
+//         //                 this.newdetails = response.data.news_list;
+//         //                 });
+//         //         },
+//         // }
+        
 
-                        
-// 			$(".readMore").on('click', function(event) {
-// 				if ($(this).hasClass('opened')) {
-// 					$(this).removeClass('opened');
-// 					$(this).parent().find('.displaytext').slideToggle('fast');
-// 				}
-// 				else {
-// 					$(this).addClass('opened');
-// 					$('.readMore').css("display", "none");
-// 					$(this).parent().find('.displaytext').slideToggle('fast');
-// 				}
-// 			});
-		
-
-//                 });
+//     }
 // </script>
 
 <script>
@@ -204,23 +210,18 @@
             }
         },
         created(){
-                this.getPostById();            
-        },
-        methods: {
-                getPostById: function(id=1) {
-                        this.axios
-                        .get('http://localhost:8000/api/newdetails/'+id)
-                        .then(response=>{
-                                console.log(response.data.news_list);
-                        this.newdetails = response.data.news_list;
-                        });
-                },
+            this.axios
+                 .get(`http://localhost:8000/api/newdetails/${this.$route.params.id}`)
+                 .then(response=>{
+                       
+                     this.newdetails = response.data;
+                       console.log(response.data);
+                 });
         }
+        
 
     }
 </script>
-
-
 
 
 

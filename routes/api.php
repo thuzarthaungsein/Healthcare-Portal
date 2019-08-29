@@ -18,10 +18,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('jobs', 'JobController@index');
+Route::get('skill', 'JobApplyController@getSkill');
+Route::get('skill', 'JobController@getSkill');
 Route::post('getmap','adminController@getMap');
 Route::get('customers','CustomerController@index');
 Route::get('categories','CategoryController@index');
-Route::get('custedit','custedit@edit');
+Route::get('custedit','CustomerController@edit');
+Route::get('newdetails/{id}', 'PostController@show');
+
+Route::post('getmap','adminController@getMap');
+Route::get('customers','CustomerController@index');
+Route::get('categories','CategoryController@index');
+Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
 
 Route::group(['prefix' => 'facility'], function () {
@@ -44,7 +52,7 @@ Route::group(['prefix' => 'job'], function () {
 Route::get('job_details', 'JobDetailController@index');
 
 Route::group(['prefix' => 'customer'], function () {
-    Route::post('add', 'CustomerController@add'); 
+    Route::post('add', 'CustomerController@add');
     Route::get('edit/{id}', 'CustomerController@edit');
     Route::post('update/{id}','CustomerController@update');
     Route::delete('delete/{id}','CustomerController@destroy');
@@ -53,6 +61,7 @@ Route::group(['prefix' => 'customer'], function () {
 
 
 Route::group(['prefix' => 'category'], function () {
+    Route::get('category_list','CategoryController@list');
     Route::get('categories', 'CategoryController@index');
     Route::post('add', 'CategoryController@add');
     Route::get('edit/{id}', 'CategoryController@edit');
@@ -60,6 +69,7 @@ Route::group(['prefix' => 'category'], function () {
     Route::delete('delete/{id}', 'CategoryController@destroy');
 });
 
+Route::get('job_details', 'JobDetailController@index');
 // Home Page
 Route::get('home', 'HomeController@index');
 Route::get('posts/{cat_id}', 'HomeController@getPosts');

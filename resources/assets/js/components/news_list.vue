@@ -17,16 +17,26 @@
                 </div>
 
             </div>
-            <div class="col-md-12 scroll2">
+            <div class="row m-b-15">
+                <div class="col-md-12">
+                    <router-link to="/create_news" class="float-right" style="color: blue;">Create New Post</router-link>
+                </div>
+                <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
+            </div>
+            <div class="col-md-12 scrolldiv">
                 <div v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2">
-                                <!-- <img src="/images/nursing1.jpg" class="col-md-12" alt=""> -->
-                                <img :src="'/images/'+newsList.photo" class="col-md-12" alt="">
+
+                                <img :src="'/images/'+ newsList.photo" class="col-md-12" alt=""> 
                             </div>
                             <div class="col-md-10">
-                                <div class="col-sm-8 pad-free mb-2"><b><a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a></b></div>
+                                <div class="col-sm-8 pad-free mb-2"><b>
+                                    <router-link :to="{name: 'newdetails', params:{id:newsList.id}}" class="mr-auto">{{newsList.title}}</router-link>
+                                    <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
+                                    <!-- <a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
+                                    </b></div>
                                 <p>{{newsList.main_point}}</p>
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -38,7 +48,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 <!-- <div class="card card-default m-b-20">
                     <div class="card-body news-post">

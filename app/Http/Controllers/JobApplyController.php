@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\JobApply;
 use Illuminate\Http\Request;
-
+use App\Job;
 class JobApplyController extends Controller
 {
     /**
@@ -14,21 +14,9 @@ class JobApplyController extends Controller
      */
     public function index()
     {
-        //
+
     }
-    // public function apply(Request $request){
-    //     $jobapply = new JobApply([
-    //         'name' => $request->input('name'),
-    //         'birthday' => 1,
-    //         'address' => 2,
-    //         'phone' => 3,
-    //         'email'=>4,
-    //         'work-time'=>5,
-    //         'skill'=>6
-    //     ]);
-    //     $jobapply->save();
-    //     return $jobapply;
-    // }
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,6 +38,22 @@ class JobApplyController extends Controller
     public function store(Request $request)
     {
 
+                $string = '';
+                $count = count($request->fields);
+
+                for($i = 0;$i< $count ;$i++)
+                {
+
+                    if($i == $count-1)
+                    {
+                        $string .= $request->fields[$i];
+                    }else{
+                        $string .= $request->fields[$i] .',';
+                    }
+
+                }
+
+
 
             $jobapply = new JobApply([
                  'name' => $request->input('name'),
@@ -58,17 +62,26 @@ class JobApplyController extends Controller
                  'phone' =>  $request->input('phone'),
                  'email'=> $request->input('email'),
                  'work_time'=>$request->input('work_time'),
-                 'skill'=>implode("," , $request->input('skill'))
-                // //$jobapply->skill=skills,
+                 'skill' =>$string
+
 
              ]);
              $jobapply->save();
 
+
              return response()->json('Apply successfully ');
 
-
-
     }
+
+    public function getSkill()
+    {
+        $skill = Job::select('skills')->value('skills');
+         $array =explode(',',$skill);
+
+            return ($array);
+
+        }
+
 
     /**
      * Display the specified resource.
@@ -76,7 +89,7 @@ class JobApplyController extends Controller
      * @param  \App\JobApply  $jobApply
      * @return \Illuminate\Http\Response
      */
-    public function show(JobApply $jobApply)
+        public function show(JobApply $jobApply)
     {
         //
     }

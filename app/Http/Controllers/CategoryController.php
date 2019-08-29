@@ -43,6 +43,13 @@ class CategoryController extends Controller
         $categories = Category::all()->toArray();
         return array_reverse($categories);
     }
+    public function list()
+    {
+       
+        $category_list = Category::select('id','name')->get()->toArray(); 
+        return $category_list;
+
+    }
 
     //add category
     public function add(Request $request)
@@ -174,5 +181,4 @@ class CategoryController extends Controller
     //                     ->with('success','categories deleted successfully');
 
     // }
-
 }
