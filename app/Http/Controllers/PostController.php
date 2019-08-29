@@ -15,10 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-       
+
         $news_list = Post::all()->toArray();
        return response()->json(array_reverse($news_list));
-
     }
     // add news
     public function add(Request $request)
@@ -63,7 +62,7 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource.  
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
