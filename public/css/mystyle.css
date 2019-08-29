@@ -769,6 +769,10 @@ div.b{
     .adminview-sidebar{
         height: auto;
     }
+    .customer-sidebar{
+        display: none;
+    }
+
 }
 @media (max-width: 600px) and (min-width: 400px)  {
     .source-img-small{
@@ -1053,7 +1057,7 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 .custom-sidebar{    
     /* height: 100vh; scroll */
-    background: #b7dad2;
+    /* background: #b7dad2; */
    
     
 }

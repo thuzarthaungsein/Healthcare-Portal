@@ -70,7 +70,7 @@
   <!--end sidebar -->     
 <div class="sidebar-scroll container-fluid">
 	<div class="row">
-  <div class="col-md-2 pad-free custom-sidebar">
+  <div class="col-lg-2 col-md-12 col-sm-12 pad-free custom-sidebar">
     <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       @guest
       <!-- public menu -->
@@ -208,7 +208,7 @@
       </ul>
   </div>
 
-  <div class="col-10 pad-free">
+  <div class="col-lg-10 col-md-12 col-sm-12 pad-free">
     <div class="maintab-content" id="v-pills-tabContent">
       <!--section one-->
       <section>
