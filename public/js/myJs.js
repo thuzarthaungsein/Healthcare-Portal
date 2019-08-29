@@ -38,3 +38,7 @@ $('path').on("click", function(e) {
         var parentEle = d.getElementById('newlink');
         parentEle.removeChild(ele);
     }
+
+    function closebtn(){
+        console.log("close");
+    }

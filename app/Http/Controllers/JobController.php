@@ -66,7 +66,7 @@ class JobController extends Controller
             'nearest_station' => $request->input('nearest_station'),
             'employment_status' => $cstring,
             'salary' => $request->input('salary'),
-            'allowances' => $request->input('allowances'),
+            'allowances' => $request->input('allowances'),  
             'insurance' => $request->input('insurance'),
             'working_hours' => $request->input('working_hours'),
             'holidays' => $request->input('holidays'),
@@ -75,7 +75,6 @@ class JobController extends Controller
           
         ]);
  
-    
         $job ->save();
         return $job;
     }

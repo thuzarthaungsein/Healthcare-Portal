@@ -19,10 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('jobs', 'JobController@index');
 Route::get('skill', 'JobController@getSkill');
+Route::get('newdetails/{id}', 'PostController@show');
+
 Route::post('getmap','adminController@getMap');
 Route::get('customers','CustomerController@index');
 Route::get('categories','CategoryController@index');
-Route::get('custedit','custedit@edit');
+Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
 
 Route::group(['prefix' => 'facility'], function () {
@@ -54,6 +56,7 @@ Route::group(['prefix' => 'customer'], function () {
 
 
 Route::group(['prefix' => 'category'], function () {
+    Route::get('category_list','CategoryController@list');
     Route::get('categories', 'CategoryController@index');
     Route::post('add', 'CategoryController@add');
     Route::get('edit/{id}', 'CategoryController@edit');
@@ -61,6 +64,7 @@ Route::group(['prefix' => 'category'], function () {
     Route::delete('delete/{id}', 'CategoryController@destroy');
 });
 
+Route::get('job_details', 'JobDetailController@index');
 // Home Page
 Route::get('home', 'HomeController@index');
 Route::get('posts/{cat_id}', 'HomeController@getPosts');

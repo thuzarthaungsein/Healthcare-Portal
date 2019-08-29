@@ -102,7 +102,7 @@ export default {
                         console.log(response);
                     alert('Successfully Created')
                     console.log(response);
-                     this.$router.push({name: 'customerlist'});
+                     this.$router.push({name: '/'});
                     })
             }
            
