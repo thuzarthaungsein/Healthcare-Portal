@@ -1,77 +1,57 @@
 <template>
-<div>
-        <div class="row justify-content-md-center">                                
-                <div class="col-12">
-                        <div class="card tab-card">
-                                <div class="card-header tab-card-header">
-                                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                                                <li v-for="cat in cats" :key="cat.id" class="nav-item" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
-                                                        <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-                                                                {{ cat.name }}</a>
-                                                
-                                                        <a class="nav-link active" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-                                                                {{ cat.name }}</a>
-                                                </li>
-                                        </ul>
-                                </div>
-
-                                <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
-
-                                                <div class="row">
-                                                        <div class="active-users col-md-4">
-                                                                <a href="#"><router-link to="/newsdetails">
-                                                                        <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" >
-                                                                        <p class="source-title" aria-label="">{{ latest_post.title }}</p>
-                                                                        <p class="source-subtitle">
-                                                                                <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
-                                                                        </p>
-                                                                </router-link></a>
-                                                        </div>
-                                                        <div class="col-md-8 news-wrapper">
-                                                                <ul class="list-group list-group-flush" v-for="post in posts" :key="post.id">
-                                                                        <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
-                                                                                <a href="#"><router-link to="/newsdetails">
-                                                                                        <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
-                                                                                                <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
-                                                                                </router-link></a>
-                                                                        </li>
-                                                                </ul>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
+<div>                                
+               <!--menu tabs-->
+          
+           <ul class="nav nav-tabs card-head-tabs" role="tablist">
+            <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i>ホーム</a></li>
+            <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
+            <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
+          </ul>
+          <!--end menu tabs-->
+         
+          
+               <!-- Tab panes -->
+              <div class="tab-content tabs">
+                
+                <div role="tabpanel" class="tab-pane in active" id="tab1"> 
+                   <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active"><router-link to="/hospitalSearch" ><i class="fas fa-home"></i>   ホーム</router-link>
+                      </li>
+                    </ol>
+                  </nav>
+                  <News></News>
+        
                 </div>
-                                               
-                <div class="row m-lr-0">
-                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
-                        <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
-                                <div class="hovereffect fit-image">
-                                        <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
-                                        <img class="img-responsive fit-image" v-bind:src="'/images/' + latest_post_all_cat.photo" alt="">
-                                        <div class="overlay">
-                                                <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">{{ latest_post_all_cat.title }}</a>
-                                        </div>
-                                        <div class="info">
-                                                <div class="row">
-                                                        <div class="col-12">
-                                                                <p class=" p_3">
-                                                                        {{ latest_post_all_cat.main_point }}
-                                                                </p>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                </div>                             
+                <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
+              </div>
+            <!--end Tab panes-->                              
         </div>   
-</div>
 </template>
 
 <script>
+import News from './News.vue'
+import hospitalSearch from './hospitalSearch.vue'
+import nursingSearch from './nursingSearch.vue'
+import jobSearch from './jobSearch.vue'
+  
 export default {
+    components: {
+     News,
+     hospitalSearch,
+     nursingSearch,
+     jobSearch
+
+
+    },
+     mounted() {
+            console.log('Component mounted.')
+           
+        },
         data() {
             return {
                 cats: [],
@@ -126,22 +106,9 @@ export default {
                         });
                 }
         }
-        
+
 }
-// alert(cats[0]);
-</script>
-<style scoped>
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {   
-    color: #fff !important;
-    font-weight: bold;
-    background-color: #1aa985  !important;
-    border-top: 1px solid #1aa985  ;
-    border-color: #1aa985   #1aa985  #1aa985   #1aa985  !important;
-   
-}
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
-    border: 1px solid #1aa985  !important;
-}
-</style>
+
+ </script>
 
 
