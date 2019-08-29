@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-12 scrolldiv">
+<div class="col-md-12">
     <h4 class="h_4 text-center">Job Apply Form</h4>
     <div class="col-md-7 offset-md-3">
         <form @submit.prevent="apply">
@@ -35,21 +35,6 @@
         </div>
             </div>
         </div>
-
-          <!-- <div class="">
-            <div  class="card card-default m-b-20">
-                <div class="col-md-6">
-                    <div v-for="job in jobs" :key="job.skills">
-                        <label> {{job.skills}}</label> -->
-                        <!-- <label><input type="checkbox" v-model="job.skills" ></label> -->
-<!--
-                    </div>
-
-                </div>
-
-            </div>
-        </div> -->
-
 
         <div class="text-center">
             <button type="submit" class="btn main-bg-color white all-btn ">Apply</button>
