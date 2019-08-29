@@ -52421,8 +52421,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_FacilitiesListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_FacilitiesListComponent_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_CreateFacilityComponent_vue__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_CreateFacilityComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_CreateFacilityComponent_vue__);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_custedit_vue__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_custedit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_custedit_vue__);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CustomerSearchListComponent_vue__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_CustomerSearchListComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_CustomerSearchListComponent_vue__);
+>>>>>>> ccc525893792e95fdc1345ac64c557132eaa103e
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_map_vue__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_map_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_map_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_EditFacilityComponent_vue__ = __webpack_require__(103);
@@ -52437,9 +52442,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_editNewsPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_editNewsPost_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_Profile_vue__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_Profile_vue__);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_JobOfferList_vue__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_JobOfferList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_JobOfferList_vue__);
 
+=======
+>>>>>>> ccc525893792e95fdc1345ac64c557132eaa103e
 
 
 
@@ -52489,6 +52497,10 @@ var routes = [{
   name: 'customerlist',
   path: '/customerlist',
   component: __WEBPACK_IMPORTED_MODULE_4__components_customerlist_vue___default.a
+}, {
+  name: 'customersearchlist',
+  path: '/customersearchlist',
+  component: __WEBPACK_IMPORTED_MODULE_14__components_CustomerSearchListComponent_vue___default.a
 }, {
   name: 'jobsearchlist',
   path: '/jobsearchlist',
@@ -52553,10 +52565,13 @@ var routes = [{
   name: 'profile',
   path: '/profile',
   component: __WEBPACK_IMPORTED_MODULE_21__components_Profile_vue___default.a
+<<<<<<< HEAD
 }, {
   name: 'jobofferlist',
   path: '/jobofferlist',
   component: __WEBPACK_IMPORTED_MODULE_22__components_JobOfferList_vue___default.a
+=======
+>>>>>>> ccc525893792e95fdc1345ac64c557132eaa103e
 }];
 
 /***/ }),
@@ -59612,7 +59627,11 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
+<<<<<<< HEAD
 Component.options.__file = "resources/assets/js/components/custedit.vue"
+=======
+Component.options.__file = "resources/assets/js/components/CustomerSearchListComponent.vue"
+>>>>>>> ccc525893792e95fdc1345ac64c557132eaa103e
 
 /* hot reload */
 if (false) {(function () {
@@ -59621,9 +59640,15 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
+<<<<<<< HEAD
     hotAPI.createRecord("data-v-316f4174", Component.options)
   } else {
     hotAPI.reload("data-v-316f4174", Component.options)
+=======
+    hotAPI.createRecord("data-v-e19c54dc", Component.options)
+  } else {
+    hotAPI.reload("data-v-e19c54dc", Component.options)
+>>>>>>> ccc525893792e95fdc1345ac64c557132eaa103e
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -59675,6 +59700,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -59713,6 +59739,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         }
     }
+=======
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
+                        customers: []
+                };
+        },
+        created: function created() {
+                this.getAllCustomer();
+        },
+
+        methods: {
+                getAllCustomer: function getAllCustomer() {
+                        var _this = this;
+
+                        this.axios.get('http://localhost:8000/api/customers').then(function (response) {
+                                _this.customers = response.data;
+                        });
+                }
+        }
+>>>>>>> ccc525893792e95fdc1345ac64c557132eaa103e
 });
 
 /***/ }),
@@ -59723,6 +59771,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
   return _c("div", [
     _c("h4", { staticClass: "h_4 header text-center" }, [
       _vm._v("Customer Edit")
@@ -59895,12 +59944,122 @@ var render = function() {
   ])
 }
 var staticRenderFns = []
+=======
+  return _c("div", { staticClass: "row" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "row m-lr-0" },
+      [
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._l(_vm.customers, function(customer) {
+          return _c(
+            "div",
+            { key: customer.id, staticClass: "col-sm-3  col-md-3 mt-2" },
+            [
+              _c("div", { staticClass: "hovereffect fit-image" }, [
+                _c("img", {
+                  staticClass: "img-responsive fit-image",
+                  attrs: { src: "/images/" + customer.logo, alt: "" }
+                }),
+                _vm._v(" "),
+                _vm._m(2, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "info" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-12" }, [
+                      _c("p", { staticClass: " p_3" }, [
+                        _vm._v(
+                          "\n                                                                       " +
+                            _vm._s(customer.name) +
+                            "\n                                                               "
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        })
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+        _c("ol", { staticClass: "breadcrumb" }, [
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "../news/news_details.html" } }, [
+              _vm._v(" 新しい詳細")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "breadcrumb-item active",
+              attrs: { "aria-current": "page" }
+            },
+            [
+              _vm._v(
+                "\n                                               就職活動リスト"
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
+      _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "overlay" }, [
+      _c("h2"),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-sm all-btn secondary-bg-color",
+          attrs: { href: "/newsdetails" }
+        },
+        [_vm._v("Profile")]
+      )
+    ])
+  }
+]
+>>>>>>> ccc525893792e95fdc1345ac64c557132eaa103e
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
+<<<<<<< HEAD
     require("vue-hot-reload-api")      .rerender("data-v-316f4174", module.exports)
+=======
+    require("vue-hot-reload-api")      .rerender("data-v-e19c54dc", module.exports)
+>>>>>>> ccc525893792e95fdc1345ac64c557132eaa103e
   }
 }
 
