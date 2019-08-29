@@ -54946,37 +54946,34 @@ var render = function() {
                   _c("div", { staticClass: "active-users col-md-4" }, [
                     _c(
                       "a",
-                      { attrs: { href: "#" } },
+                      { attrs: { href: "/newsdetails/" + _vm.latest_post.id } },
                       [
-                        _c("router-link", { attrs: { to: "/newsdetails" } }, [
+                        _c("img", {
+                          staticClass: "source-img img-responsive",
+                          staticStyle: { width: "100%", height: "200px" },
+                          attrs: { src: "/images/" + _vm.latest_post.photo }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass: "source-title",
+                            attrs: { "aria-label": "" }
+                          },
+                          [_vm._v(_vm._s(_vm.latest_post.title))]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "source-subtitle" }, [
                           _c("img", {
-                            staticClass: "source-img img-responsive",
-                            staticStyle: { width: "100%", height: "200px" },
-                            attrs: { src: "/images/" + _vm.latest_post.photo }
+                            staticClass: "source-img",
+                            attrs: { alt: "", src: "/images/5.png" }
                           }),
-                          _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              staticClass: "source-title",
-                              attrs: { "aria-label": "" }
-                            },
-                            [_vm._v(_vm._s(_vm.latest_post.title))]
-                          ),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "source-subtitle" }, [
-                            _c("img", {
-                              staticClass: "source-img",
-                              attrs: { alt: "", src: "/images/5.png" }
-                            }),
-                            _vm._v(
-                              _vm._s(_vm.latest_post.created_at) +
-                                "\r\n                                                                        "
-                            )
-                          ])
+                          _vm._v(
+                            _vm._s(_vm.latest_post.created_at) +
+                              "\r\n                                                                        "
+                          )
                         ])
-                      ],
-                      1
+                      ]
                     )
                   ]),
                   _vm._v(" "),
@@ -54998,37 +54995,29 @@ var render = function() {
                                 [
                                   _c(
                                     "a",
-                                    { attrs: { href: "#" } },
+                                    {
+                                      attrs: { href: "/newsdetails/" + post.id }
+                                    },
                                     [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/1.jpg", alt: "" }
+                                      }),
+                                      _vm._v(" "),
                                       _c(
-                                        "router-link",
-                                        { attrs: { to: "/newsdetails" } },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [_vm._v(_vm._s(post.title) + " ")]
-                                          )
-                                        ]
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "source-img-small d-inline-block text-truncate"
+                                        },
+                                        [_vm._v(_vm._s(post.title) + " ")]
                                       )
-                                    ],
-                                    1
+                                    ]
                                   )
                                 ]
                               )
@@ -55076,7 +55065,7 @@ var render = function() {
                     "a",
                     {
                       staticClass: "btn btn-sm all-btn secondary-bg-color",
-                      attrs: { href: "/newsdetails" }
+                      attrs: { href: "/newsdetails/" + latest_post_all_cat.id }
                     },
                     [_vm._v(_vm._s(latest_post_all_cat.title))]
                   )
