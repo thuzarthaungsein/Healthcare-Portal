@@ -13,7 +13,9 @@ import categorylist from './components/categorylist.vue';
 import createcategory from './components/createcategory.vue';
 import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
-import custedit from './components/map.vue';
+import custedit from './components/custedit.vue';
+import CustomerSearchListComponent from './components/CustomerSearchListComponent.vue';
+
 import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
@@ -21,9 +23,10 @@ import createcustomer from './components/CreateCustomer.vue';
 import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
+import JobOfferList from './components/JobOfferList.vue';
 
 export const routes = [
- 
+
        {
         name: 'home',
         path: '/',
@@ -39,7 +42,7 @@ export const routes = [
         name: 'newdetails',
         path: '/newsdetails/:id',
         component: Newsdetails
-    },   
+    },
        {
         name: 'hospital_search',
         path: '/hospitalsearch',
@@ -54,6 +57,11 @@ export const routes = [
         name: 'customerlist',
         path: '/customerlist',
         component: customerlist
+    },
+    {
+      name: 'customersearchlist',
+      path: '/customersearchlist',
+      component: CustomerSearchListComponent
     },
     {
       name: 'jobsearchlist',
@@ -110,11 +118,7 @@ export const routes = [
       path: '/createfacility',
       component: CreateFacilityComponent
     },
-    {
-        name: 'custedit',
-        path: '/custedit',
-        component: custedit
-      },
+
     {
       name: 'editfacility',
       path: '/editfacility',
@@ -139,5 +143,10 @@ export const routes = [
       name: 'profile',
       path: '/profile',
       component: profile
+    },
+    {
+      name: 'jobofferlist',
+      path: '/jobofferlist',
+      component: JobOfferList
     },
 ];

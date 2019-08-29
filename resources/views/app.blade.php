@@ -32,6 +32,7 @@
 <body>
 <div id="app">
 <div class="col-md-10 offset-md-1 main-content pad-free">
+    <flash message=""></flash>
   <!--navigation bar-->
   <nav class="navbar navbar-expand-lg navbar-dark main-header" style="padding-right: 0px;">
   <a class="navbar-brand" href="#">
@@ -51,8 +52,9 @@
         <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
             <a class="nav-link pad-free" href="{{ route('login') }}">{{ __('事業者 ログイン') }}</a>
         </li>
-        <li class="nav-item btn login-register-btn col-lg-6">
-            <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a>
+        <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
+            <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
+            <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link>
         </li>
     @else
     <li class="nav-item btn login-register-btn col-lg-6">

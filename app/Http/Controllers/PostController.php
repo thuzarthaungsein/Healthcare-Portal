@@ -15,14 +15,17 @@ class PostController extends Controller
      */
     public function index()
     {
-       
-        $news_list = Post::all()->toArray();
-       return response()->json(array_reverse($news_list));
 
+        $news_list = Post::all()->toArray();
+        //$data = array("news_list" => $news_list, "newdetails" => $newdetails);
+
+        $data = array("news_list" => $news_list);
+       return response()->json($data);
     }
     // add news
     public function add(Request $request)
     {
+        
         $imageName = $request->image->getClientOriginalName();
         $request->image->move(public_path('images'), $imageName);
         $post = new Post([
@@ -30,12 +33,13 @@ class PostController extends Controller
             'main_point' => $request->input('main_point'),
             'body' => $request->input('body'),
             'photo' => $request->image->getClientOriginalName(),
-            'category_id' =>1,
+            'category_id' =>$request->input('category_id'),
             'user_id' => 1,
             'recordstatus' => 1
         ]);
+      
         $post->save();
-            return $post;
+          
         // return response()->json('The New successfully added');
     }
 
@@ -82,6 +86,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+      
         $posts = Post::find($id);
         return response()->json($posts);
     }

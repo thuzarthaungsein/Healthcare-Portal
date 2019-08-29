@@ -937,6 +937,14 @@ div.b{
     width: 82px;
     font-size: 12px;
 }
+.login-register-btn > .router-link-exact-active {
+    background-color: transparent;
+    border-left-color: transparent;
+    font-weight: bold;
+    border-radius: 0px !important;
+    border-left:none;
+    color: #095c5f !important;
+}
 .login-register-btn:hover, .login-register-btn:active, .login-register-btn:focus{
     background-color: transparent;
     color: #000;
