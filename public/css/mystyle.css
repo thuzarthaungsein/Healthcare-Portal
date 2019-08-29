@@ -338,6 +338,14 @@
        padding-top: 15px;
    }
 
+   .scrolldiv2 {
+       height: 700px;
+       overflow-y: auto;
+       scrollbar-width: thin;
+       background: white;
+       padding-top: 15px;
+   }
+
    
 /* End Search News List */
 
@@ -1203,6 +1211,7 @@ ul.main-tab li:after{
     .news-wrapper::-webkit-scrollbar,
     body::-webkit-scrollbar,
     .scrolldiv::-webkit-scrollbar,
+    .scrolldiv2::-webkit-scrollbar,
     .main-wrap::-webkit-scrollbar {
     width: 6px!important;
     background: #f7f7f7 !important;
@@ -1211,6 +1220,7 @@ ul.main-tab li:after{
   .news-wrapper::-webkit-scrollbar-track,
    body::-webkit-scrollbar-track,
    .scrolldiv::-webkit-scrollbar-track,
+   .scrolldiv2::-webkit-scrollbar-track,
    .main-wrap::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)!important;     
     border-radius: 0px!important;
@@ -1219,6 +1229,7 @@ ul.main-tab li:after{
   .news-wrapper::-webkit-scrollbar-thumb,
   .main-wrap::-webkit-scrollbar-thumb,
   .scrolldiv::-webkit-scrollbar-thumb,
+  .scrolldiv2::-webkit-scrollbar-thumb,
   body::-webkit-scrollbar-thumb {    
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)!important; 
     background-color: #d7d7d7!important;
