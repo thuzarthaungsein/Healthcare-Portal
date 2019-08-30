@@ -24,6 +24,7 @@ import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
+import ProfilePublish from './components/ProfilePublish.vue';
 
 export const routes = [
 
@@ -148,5 +149,10 @@ export const routes = [
       name: 'jobofferlist',
       path: '/jobofferlist',
       component: JobOfferList
+    },
+    {
+      name: 'profilepublish',
+      path: '/profilepublish',
+      component: ProfilePublish
     },
 ];

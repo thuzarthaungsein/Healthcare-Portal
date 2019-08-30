@@ -496,6 +496,8 @@ p {
     margin-bottom: 15px;
 }
 
+
+
 .del {
     position: absolute;
     top: 0px;
@@ -1008,6 +1010,49 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
    
     
 }
+
+/*mycss */
+
+.section-bg {
+    background: #f7f7f7;
+  }
+
+  #about {
+    height: 600px;
+    background-color: pink;
+  }
+  
+  #service {
+    height: 600px;
+    background-color: green;
+  }
+  #contact {
+    height: 600px;
+    background-color: red;
+  }
+  
+  #link1 {
+    height: 600px;
+    background-color: blue;
+  }
+  #link2 {
+    height: 600px;
+    background-color: burlywood;
+  }
+  
+  
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 55.6%;
+
+  }
+  
+ 
+
+  /* end mycss */
+
 
 .custom-sidebar ul li{
     border-bottom: 1px dashed #eee;

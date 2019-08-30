@@ -351,5 +351,45 @@
 
 });
 </script>
+
+  <script>
+window.onscroll = function() {myFunction()};
+
+var profile = document.getElementById("profile");
+var sticky = profile.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    profile.classList.add("sticky")
+  } else {
+    profile.classList.remove("sticky");
+  }
+}
+</script>
+ 
+ <script>
+$(document).ready(function(){
+
+  $("a").on('click', function(event) {
+
+
+    if (this.hash !== "") {
+
+      event.preventDefault();
+
+   
+      var hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+     
+        window.location.hash = hash;
+      });
+    } 
+  });
+});
+</script>
 </body>
 </html>
