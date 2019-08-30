@@ -25,6 +25,8 @@ import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
 
+import GuestWatchHistory from './components/HospitalHistory.vue';
+
 export const routes = [
 
        {
@@ -45,7 +47,7 @@ export const routes = [
     },
        {
         name: 'hospital_search',
-        path: '/hospitalsearch',
+        path: '/hospital_search',
         component: hospitalSearch
        },
     {
@@ -148,5 +150,10 @@ export const routes = [
       name: 'jobofferlist',
       path: '/jobofferlist',
       component: JobOfferList
+    },
+    {
+      name: 'guest_watch_history',
+      path: '/guest_watch_history',
+      component: GuestWatchHistory
     },
 ];
