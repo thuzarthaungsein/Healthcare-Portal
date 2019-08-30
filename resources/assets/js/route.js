@@ -21,10 +21,12 @@ import createcustomer from './components/CreateCustomer.vue';
 import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
+import userPasswordResetList from './components/userPasswordResetList.vue';
+
 
 export const routes = [
  
-       {
+      {
         name: 'home',
         path: '/',
         component: home
@@ -135,5 +137,10 @@ export const routes = [
       name: 'profile',
       path: '/profile',
       component: profile
+    },
+    {
+      name: 'userPasswordResetList',
+      path: '/userPasswordResetList',
+      component: userPasswordResetList
     },
 ];

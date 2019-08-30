@@ -24,12 +24,8 @@ class CustomerController extends Controller
 
     public function add(Request $request)
     {
-        $imageName = $request->logo->getClientOriginalName();
-        
-        $request->logo->move(public_path('images'), $imageName);
-        
         $request->validate([
-
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required|min:2|max:50',
             'phone' => 'required|numeric',
             'email' => 'required|email|unique:users',
@@ -42,7 +38,8 @@ class CustomerController extends Controller
             'name.min' => 'Name must be at least 2 characters.',
             'name.max' => 'Name should not be greater than 50 characters.',
         ]);
-
+        $imageName = $request->logo->getClientOriginalName();
+        $request->logo->move(public_path('images'), $imageName);
         $customer = new Customer ([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
