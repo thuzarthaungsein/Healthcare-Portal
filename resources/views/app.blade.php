@@ -24,11 +24,7 @@
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
-    <style>
-        .bg-light {
-            background-color: #eae9e9 !important;
-        }
-    </style>
+
 <!-- link for editor -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 <!-- end link for editor -->
@@ -39,7 +35,9 @@
     <flash message=""></flash>
   <!--navigation bar-->
   <nav class="navbar navbar-expand-lg navbar-dark main-header" style="padding-right: 0px;">
-  <a class="navbar-brand" href="#"><img src="images/trust_growth.png" alt=""></a>
+  <a class="navbar-brand" href="#">
+      <img src="images/trust_growth.png" alt="">
+ </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -54,9 +52,10 @@
         <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
             <a class="nav-link pad-free" href="{{ route('login') }}">{{ __('事業者 ログイン') }}</a>
         </li>
-        <li class="nav-item btn login-register-btn col-lg-6">
+        <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
             <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
-            <router-link to="/createcustomer" class="nav-link">事業者 登録</router-link>
+            <a class="nav-link pad-free" href="{{ url('registerForm') }}">{{ __('事業者 ログイン') }}</a>
+            <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
         </li>
     @else
     <li class="nav-item btn login-register-btn col-lg-6">
@@ -74,15 +73,37 @@
   <!--end sidebar -->     
 <div class="sidebar-scroll container-fluid">
 	<div class="row">
-  <div class="col-2 pad-free custom-sidebar">
+  <div class="col-lg-2 col-md-12 col-sm-12 pad-free custom-sidebar">
     <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       @guest
       <!-- public menu -->
-      <div class="userview-sidebar" style="padding-top: 35%;padding-left: 25px;">
-        <div class="card m-b-10 ads-card">
-            <div>
-                <img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width: 100%;">
+      <div class="userview-sidebar col-auto">
+        <div class="card m-b-10 ads-card">           
+            <!--ads slider-->
+            <div style="display: block; overflow: hidden;">
+            <div id="slider2_container" style="position: relative; margin:10px; float: left; top: 0px; left: 0px; width: 200px;
+                                                    height: 200px; overflow: hidden;">
+            <!-- Slides Container -->
+            <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;
+                overflow: hidden;">
+                <div><img data-u="image" src="/images/ad_1.jpg" />
+               
+                </div>
+                <div><img data-u="image" src="/images/h2.jpg" />
+                    
+                </div>
+                <div><img data-u="image" src="/images/h3.jpg" />
+                  
+                </div>
+                <div><img data-u="image" src="/images/h4.jpg" />
+                 
+                </div>
             </div>
+            <!-- Trigger -->          
+            </div>
+            </div>
+            <!--end ads slider-->
+            
         </div>
         <div class="card m-b-10 ads-card2">
             <div class="card-body">
@@ -142,7 +163,7 @@
     </div>
       @else
       <!-- login menu  -->
-      <div class="adminview-sidebar">
+      <div class="adminview-sidebar" id="navbarSupportedContent">
       <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
       
       @can('role-list')      
@@ -190,7 +211,7 @@
       </ul>
   </div>
 
-  <div class="col-10 pad-free">
+  <div class="col-lg-10 col-md-12 col-sm-12 pad-free">
     <div class="maintab-content" id="v-pills-tabContent">
       <!--section one-->
       <section>
@@ -267,7 +288,7 @@
       <!--end slider for ads-->
            
       <div class="row justify-content-md-center">           
-        <div class="col-10 tab main-wrap"> 
+        <div class="col-10 tab pad-free"> 
           <!-- vue component -->
               <router-view></router-view>
           <!-- vue component -->
@@ -328,9 +349,12 @@
 <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
+
 <script type="text/javascript">
  $(document).ready(function() {
-    jssor_1_slider_init();   
+    jssor_1_slider_init(); 
+    jssor_slider2_init();  
     var csrf = "{{ csrf_token() }}";
     $.ajax({
         url: 'http://localhost:8000/api/get_latest_post_all_cat',

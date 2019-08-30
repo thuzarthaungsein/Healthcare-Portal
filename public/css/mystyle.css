@@ -118,8 +118,21 @@
     display: none;
     /* margin-top: 15px; */
 }
+.fac-toggle-div {
+    border: 1px solid #eee;
+    padding: 20px 20px 0px 20px;
+
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
 .profile .card-header {
     padding-top: 20px !important;
+}
+#gallery {
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid #eee;
+    margin-top: 15px;
 }
 
 /* End Profile */
@@ -143,7 +156,8 @@
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			border-radius: 5px;
+            border-radius: 5px;
+            font-size: 14px;
 
 		}
 		.brand_logo_container {
@@ -152,15 +166,20 @@
 			width: 170px;
 			top: -75px;
 			border-radius: 50%;
-			background: #4db197;
+			background: #fff;
 			padding: 10px;
-			text-align: center;
+            text-align: center;
+            border: 10px solid #4db197;
 		}
 		.brand_logo {
-			height: 150px;
+			/* height: 150px;
 			width: 150px;
 			border-radius: 50%;
-			border: 2px solid white;
+            border: 2px solid white; */
+            position: absolute;
+            left: 0;
+            top: 35%;
+            width: 100%;
 		}
 		.form_container {
 			margin-top: 100px;
@@ -216,7 +235,44 @@
 
         }
 /* End Login */
-
+/* Register form*/
+.registerform_container{
+    margin-top: 80px;
+}
+.user_registercard{
+    width: 700px;
+    height: auto;
+    padding: 20px;
+}
+.user_registercard form label{
+    color: #fff;
+    align-self: flex-end;
+}
+.form-type-managed-file {
+    position: relative;
+    overflow: hidden;
+  }
+input[type=file] {
+    display: inline-block;
+    width: 100%;
+    padding: 35px 0 0 0;
+    height: 20px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-size: 60px 60px;
+    background-color: #ecede1 ;
+  }
+.register_btn {
+    color: white !important;
+    width: 120px;
+}
+.register_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+/* End Register form*/
 /* Search News List */
 .hovereffect {
     height: 100%;
@@ -325,6 +381,14 @@
         }
    .scrolldiv {
        height: 550px;
+       overflow-y: auto;
+       scrollbar-width: thin;
+       background: white;
+       padding-top: 15px;
+   }
+
+   .scrolldiv2 {
+       height: 700px;
        overflow-y: auto;
        scrollbar-width: thin;
        background: white;
@@ -761,14 +825,32 @@ div.b{
 }
 /*End Ad*/
 /* Media Queries*/
+@media (max-width:1024px) and (min-width: 320px){
+    .main-header{
+        height: auto;
+    }
+    .maintab-content {
+        padding: 7px;
+    }
+    .adminview-sidebar{
+        height: auto;
+    }
+    .customer-sidebar{
+        display: none;
+    }
+
+}
 @media (max-width: 600px) and (min-width: 400px)  {
     .source-img-small{
         width: 500px;
     }
     .ads-card{
         width: 120px;
-   }
- }
+   } 
+   .adminview-sidebar {
+    height: auto;
+}
+}
  @media (min-width: 320px) {
     .source-img-small{
        width: 300px;
@@ -776,6 +858,41 @@ div.b{
     /* .ads-card{
          width: 18rem;
     } */
+    .smallads-title{
+        font-size: 12px;
+        line-height: 1.357;
+        color: #333;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        top: -0.2rem;
+        max-height: 200px;
+    }
+    .today .adslist-card .smallads-title{
+        font-size: 12px;
+        line-height: 1.357;
+        color: #333;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        top: -0.2rem;
+        max-height: 65px;
+    }
+    .today .smallads-title{
+        display: block;
+        white-space: normal;
+    }
+    .adslist-card {
+        height: 71px;
+        width: 100%;
+    }
+    .userview-sidebar{
+        background-color: #f5f5f5;
+        height: 92vh;
+        padding-top: 35%;
+        padding-left: 25px;        
+    }   
+    
  }
 /*for search for,*/
 .toggle-input{
@@ -819,8 +936,14 @@ div.b{
     margin-left: 0px;
     margin-right: 0px;
 }
+.m-l-10 {
+    margin-left: 10px !important;
+}
 .m-t-10{
     margin-top: 10px !important;
+}
+.m-t-15{
+    margin-top: 15px !important;
 }
 .m-t-30 {
     margin-top:32px;
@@ -885,6 +1008,14 @@ div.b{
     font-weight: bold;
     width: 82px;
     font-size: 12px;
+}
+.login-register-btn > .router-link-exact-active {
+    background-color: transparent;
+    border-left-color: transparent;
+    font-weight: bold;
+    border-radius: 0px !important;
+    border-left:none;
+    color: #095c5f !important;
 }
 .login-register-btn:hover, .login-register-btn:active, .login-register-btn:focus{
     background-color: transparent;
@@ -994,9 +1125,9 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 /*user view sidebar*/
 .userview-sidebar{
    background-color: #f5f5f5;
-   height: 92vh;  
-    
-    
+   height: 92vh;
+   padding-top: 35%;
+   padding-left: 25px;    
 }
 .adminview-sidebar{
     height: 92vh;
@@ -1006,7 +1137,7 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 .custom-sidebar{    
     /* height: 100vh; scroll */
-    background: #b7dad2;
+    /* background: #b7dad2; */
    
     
 }
@@ -1238,6 +1369,7 @@ ul.main-tab li:after{
     .news-wrapper::-webkit-scrollbar,
     body::-webkit-scrollbar,
     .scrolldiv::-webkit-scrollbar,
+    .scrolldiv2::-webkit-scrollbar,
     .main-wrap::-webkit-scrollbar {
     width: 6px!important;
     background: #f7f7f7 !important;
@@ -1246,6 +1378,7 @@ ul.main-tab li:after{
   .news-wrapper::-webkit-scrollbar-track,
    body::-webkit-scrollbar-track,
    .scrolldiv::-webkit-scrollbar-track,
+   .scrolldiv2::-webkit-scrollbar-track,
    .main-wrap::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)!important;     
     border-radius: 0px!important;
@@ -1254,6 +1387,7 @@ ul.main-tab li:after{
   .news-wrapper::-webkit-scrollbar-thumb,
   .main-wrap::-webkit-scrollbar-thumb,
   .scrolldiv::-webkit-scrollbar-thumb,
+  .scrolldiv2::-webkit-scrollbar-thumb,
   body::-webkit-scrollbar-thumb {    
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)!important; 
     background-color: #d7d7d7!important;

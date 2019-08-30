@@ -8,6 +8,7 @@ use App\Customer;
 use App\Job;
 use App\JobDetail;
 use App\Type;
+use App\Facility;
 use Carbon\Carbon;
 class DatabaseSeeder extends Seeder
 {
@@ -193,6 +194,30 @@ class DatabaseSeeder extends Seeder
         $type->name = "病院";
         $type->user_id = 1;
         $type->save();
+
+        $fac = new Facility();
+        $fac->description = "駐車場";
+        $fac->save();
+
+        $fac = new Facility();
+        $fac->description = "女医";
+        $fac->save();
+
+        $fac = new Facility();
+        $fac->description = "人間ドック";
+        $fac->save();
+
+        $fac = new Facility();
+        $fac->description = "カード";
+        $fac->save();
+
+        $fac = new Facility();
+        $fac->description = "院内処方";
+        $fac->save();
+
+        $fac = new Facility();
+        $fac->description = "意見";
+        $fac->save();
         
     }
   

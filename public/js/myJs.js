@@ -42,3 +42,8 @@ $('path').on("click", function(e) {
     function closebtn(){
         console.log("close");
     }
+
+    function showImg(c,event) {
+        console.log(event);
+        $("."+c).html("<img src='../images/day1.jpg'>");
+    }
