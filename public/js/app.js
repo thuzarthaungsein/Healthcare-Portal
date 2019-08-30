@@ -14784,7 +14784,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(20);
-module.exports = __webpack_require__(134);
+module.exports = __webpack_require__(135);
 
 
 /***/ }),
@@ -14819,7 +14819,7 @@ window.events = new Vue();
 window.flash = function (message) {
     window.events.$emit('flash', message);
 };
-Vue.component('flash', __webpack_require__(129));
+Vue.component('flash', __webpack_require__(130));
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
@@ -55992,7 +55992,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-12 scrolldiv" }, [
-    _c("h4", { staticClass: "h_4 text-center" }, [_vm._v("Job Apply Form")]),
+    _c("h4", { staticClass: "h_4 text-center header" }, [
+      _vm._v("Job Apply Form")
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-md-7 offset-md-3" }, [
       _c(
@@ -64228,9 +64230,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(138)
+var __vue_script__ = __webpack_require__(128)
 /* template */
-var __vue_template__ = __webpack_require__(128)
+var __vue_template__ = __webpack_require__(129)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -64270,6 +64272,108 @@ module.exports = Component.exports
 
 /***/ }),
 /* 128 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            errors: [],
+            ads: {
+                title: '',
+                description: '',
+                location: [],
+                photo: ''
+            }
+        };
+    },
+
+    methods: {
+        uploadImage: function uploadImage(event) {
+            this.ads.photo = event.target.files[0];
+        },
+        add: function add() {
+            var _this = this;
+
+            var adsData = new FormData();
+            adsData.append('title', this.ads.title);
+            adsData.append('description', this.ads.description);
+            adsData.append('location', this.ads.location);
+            adsData.append('photo', this.ads.photo);
+
+            this.axios.post('http://localhost:8000/api/advertisement/add', adsData).then(function (response) {
+                alert('Successfully');
+                console.log(response);
+                //console.log(this.jobApply.toString());
+                _this.ads = response.data;
+            });
+            // .catch(error => console.log(error))
+            // .finally(() => this.loading = false)
+        }
+    }
+});
+
+/***/ }),
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -64291,7 +64395,7 @@ var render = function() {
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
-                      return _vm.ads($event)
+                      return _vm.add($event)
                     }
                   }
                 },
@@ -64364,54 +64468,54 @@ var render = function() {
                   _c("div", { staticClass: "form-group row" }, [
                     _vm._m(3),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
+                    _c("div", { staticClass: "col-sm-9" }, [
                       _c("label", [
                         _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.ads.topbar,
-                              expression: "ads.topbar"
+                              value: _vm.ads.location,
+                              expression: "ads.location"
                             }
                           ],
                           attrs: {
                             type: "checkbox",
-                            value: "top",
+                            value: "topbar",
                             name: "top_bar"
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.ads.topbar)
-                              ? _vm._i(_vm.ads.topbar, "top") > -1
-                              : _vm.ads.topbar
+                            checked: Array.isArray(_vm.ads.location)
+                              ? _vm._i(_vm.ads.location, "topbar") > -1
+                              : _vm.ads.location
                           },
                           on: {
                             change: function($event) {
-                              var $$a = _vm.ads.topbar,
+                              var $$a = _vm.ads.location,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "top",
+                                var $$v = "topbar",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
                                     _vm.$set(
                                       _vm.ads,
-                                      "topbar",
+                                      "location",
                                       $$a.concat([$$v])
                                     )
                                 } else {
                                   $$i > -1 &&
                                     _vm.$set(
                                       _vm.ads,
-                                      "topbar",
+                                      "location",
                                       $$a
                                         .slice(0, $$i)
                                         .concat($$a.slice($$i + 1))
                                     )
                                 }
                               } else {
-                                _vm.$set(_vm.ads, "topbar", $$c)
+                                _vm.$set(_vm.ads, "location", $$c)
                               }
                             }
                           }
@@ -64428,47 +64532,47 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.ads.sidebar,
-                              expression: "ads.sidebar"
+                              value: _vm.ads.location,
+                              expression: "ads.location"
                             }
                           ],
                           attrs: {
                             type: "checkbox",
-                            value: "side",
+                            value: "sidebar",
                             name: "side_bar"
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.ads.sidebar)
-                              ? _vm._i(_vm.ads.sidebar, "side") > -1
-                              : _vm.ads.sidebar
+                            checked: Array.isArray(_vm.ads.location)
+                              ? _vm._i(_vm.ads.location, "sidebar") > -1
+                              : _vm.ads.location
                           },
                           on: {
                             change: function($event) {
-                              var $$a = _vm.ads.sidebar,
+                              var $$a = _vm.ads.location,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "side",
+                                var $$v = "sidebar",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
                                     _vm.$set(
                                       _vm.ads,
-                                      "sidebar",
+                                      "location",
                                       $$a.concat([$$v])
                                     )
                                 } else {
                                   $$i > -1 &&
                                     _vm.$set(
                                       _vm.ads,
-                                      "sidebar",
+                                      "location",
                                       $$a
                                         .slice(0, $$i)
                                         .concat($$a.slice($$i + 1))
                                     )
                                 }
                               } else {
-                                _vm.$set(_vm.ads, "sidebar", $$c)
+                                _vm.$set(_vm.ads, "location", $$c)
                               }
                             }
                           }
@@ -64482,11 +64586,10 @@ var render = function() {
                   _c("div", { staticClass: "form-group row" }, [
                     _vm._m(4),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
+                    _c("div", { staticClass: "custom-file col-sm-10" }, [
                       _c("input", {
-                        ref: "file",
                         attrs: { type: "file", accept: "", id: "file" },
-                        on: { change: _vm.onFileSelected }
+                        on: { change: _vm.uploadImage }
                       })
                     ])
                   ]),
@@ -64547,7 +64650,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-2 text-right" }, [
-      _c("label", { attrs: { for: "image" } }, [
+      _c("label", { attrs: { for: "photo" } }, [
         _c("strong", [_vm._v(" Photo/Image :")])
       ])
     ])
@@ -64578,19 +64681,19 @@ if (false) {
 }
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(130)
+  __webpack_require__(131)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(132)
+var __vue_script__ = __webpack_require__(133)
 /* template */
-var __vue_template__ = __webpack_require__(133)
+var __vue_template__ = __webpack_require__(134)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -64629,13 +64732,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(131);
+var content = __webpack_require__(132);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -64655,7 +64758,7 @@ if(false) {
 }
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -64669,7 +64772,7 @@ exports.push([module.i, "\n.spacing {\n    position: fixed;\n    right: 25px;\n 
 
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64718,7 +64821,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -64748,102 +64851,10 @@ if (false) {
 }
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            errors: [],
-            advertisements: {
-                title: '',
-                description: '',
-                location: '',
-                photo: ''
-            }
-        };
-    },
-
-    methods: {
-        ads: function ads() {
-            var _this = this;
-
-            this.axios.post('http://localhost:8000/api/advertisement').then(function (response) {
-                alert('Successfully');
-                console.log(response);
-                //console.log(this.jobApply.toString());
-                _this.ads = response.data;
-            });
-        }
-    }
-});
 
 /***/ })
 /******/ ]);

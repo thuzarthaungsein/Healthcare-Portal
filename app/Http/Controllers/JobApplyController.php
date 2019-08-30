@@ -67,8 +67,6 @@ class JobApplyController extends Controller
 
              ]);
              $jobapply->save();
-
-
              return response()->json('Apply successfully ');
 
     }

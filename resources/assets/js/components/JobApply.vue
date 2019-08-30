@@ -1,6 +1,6 @@
 <template>
 <div class="col-md-12 scrolldiv">
-    <h4 class="h_4 text-center">Job Apply Form</h4>
+    <h4 class="h_4 text-center header">Job Apply Form</h4>
     <div class="col-md-7 offset-md-3">
         <form @submit.prevent="apply">
         <div class="form-group">

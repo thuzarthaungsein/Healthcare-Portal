@@ -93,4 +93,9 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
-Route::get('advertisement','AdvertisementController@store');
+//Route::post('add','AdvertisementController@store');
+Route::group(['prefix' => 'advertisement'], function () {
+    Route::post('add', 'AdvertisementController@store');
+});
+
+

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Advertisement;
 
 class AdvertisementController extends Controller
 {
@@ -34,7 +35,35 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //  $adstring = '';
+        //  if($request->location[0]['topbar'] == true && $request->location[0]['sidebar'] == false)
+        //   {
+        //      $adstring = "TopBar(200 円)";
+        //   }
+        //          else if($request->location[0]['sidebar'] == true && $request->location[0]['topbar'] == false){
+        //       $adstring = "SideBar(300 円)";
+        //  }
+        //   else {
+        //       $adstring = "Topbar(200 円),SideBar(300 円)";
+        //   }
+        $imageName = $request->photo->getClientOriginalName();
+        $request->photo->move(public_path('upload/advertisement'), $imageName);
+
+        $ads = new Advertisement([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            //'location'=>$adstring,
+            'location'=>$request->input('location'),
+            //'location' =>implode("," , $request->input('location')),
+            'photo' => $request->photo->getClientOriginalName(),
+            'user_id' => 1,
+            'recordstatus' => 2
+        ]);
+         $ads ->save();
+         //return $ads;
+         return response()->json('Successfully ');
+
     }
 
     /**
