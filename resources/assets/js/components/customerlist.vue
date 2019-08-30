@@ -124,8 +124,8 @@
                             <div class="col-sm-5 pl-3">
                                 <button class="btn btn-danger  all-btn" @click="deleteCustomer(customer.id)">Delete</button>
                                  <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
-                                 <button class="btn btn-info all-btn" v-if="customer.status != 0">Confirmed</button>
-                                <button class="btn btn-info all-btn" v-else @click="comfirm(customer.id)">Confirm</button>
+                                 <!-- <button class="btn btn-info all-btn" v-if="customer.status != 0">Confirmed</button> -->
+                                <button class="btn btn-info all-btn"  @click="comfirm(customer.id)">Confirm</button>
                                 
                             </div>
                         </div>
@@ -155,7 +155,7 @@ export default {
 
                 });
     },
- 
+  
     methods: {
             deleteCustomer(id) {
                 this.axios
