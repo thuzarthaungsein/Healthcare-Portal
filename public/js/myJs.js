@@ -44,7 +44,6 @@ $('path').on("click", function(e) {
     }
 
     function showImg(c,event) {
-        console.log(event);
-        $("."+c).html("<img src='../images/day1.jpg'>");
+        $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
     }
 

@@ -134,6 +134,10 @@
     border: 1px solid #eee;
     margin-top: 15px;
 }
+.method-box {
+    border-bottom: 2px solid #eee;
+    padding: 20px 0px;
+}
 
 /* End Profile */
 
