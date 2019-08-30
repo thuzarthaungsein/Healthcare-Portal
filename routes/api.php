@@ -93,3 +93,13 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
+
+
+Route::group(['prefix' => 'medical'], function () {
+    Route::post('add', 'MedicalController@add');
+    Route::get('medicalacceptance', 'MedicalController@index');
+    Route::delete('delete/{id}', 'MedicalController@destroy');
+    Route::get('edit/{id}', 'MedicalController@edit');
+    Route::post('update/{id}', 'MedicalController@update');
+});
+
