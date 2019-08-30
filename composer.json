@@ -12,6 +12,7 @@
         "laravel/passport": "^7.3",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.5",
+        "snowfire/beautymail": "dev-master",
         "spatie/laravel-permission": "^2.37"
     },
     "require-dev": {

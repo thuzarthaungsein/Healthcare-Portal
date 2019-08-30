@@ -11,8 +11,9 @@
 |
 */
 
-
 Route::get('registerForm','registerController@index');
+Route::get('passwordReset','registerController@reset');
+Route::post('reset','registerController@insertUesr');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');

@@ -28,10 +28,11 @@ import JobOfferList from './components/JobOfferList.vue';
 import createmedicalacceptance from './components/createmedicalacceptance.vue';
 import medicalacceptancelist from './components/medicalacceptancelist.vue';
 import editmedicalacceptance from './components/editmedicalacceptance.vue';
+import userPasswordResetList from './components/userPasswordResetList.vue';
 
 export const routes = [
-
-       {
+ 
+      {
         name: 'home',
         path: '/',
         component: home
@@ -170,5 +171,10 @@ export const routes = [
       name: 'editmedicalacceptance',
       path: '/editmedicalacceptance',
       component: editmedicalacceptance
+    },
+    {
+      name: 'userPasswordResetList',
+      path: '/userPasswordResetList',
+      component: userPasswordResetList
     },
 ];
