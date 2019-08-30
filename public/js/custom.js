@@ -44,6 +44,8 @@
             /*#endregion responsive code end*/
         };
 
+
+
 ///////////////////////////////for summernote//////////////////////////
 $('.summernote').summernote({
     placeholder: 'Hello bootstrap 4',
