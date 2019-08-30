@@ -24,11 +24,22 @@ class CustomerController extends Controller
 
     public function add(Request $request)
     {
-        $imageName = $request->logo->getClientOriginalName();
-        
-        $request->logo->move(public_path('images'), $imageName);
-        
+        $request->validate([
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required|min:2|max:50',
+            'phone' => 'required|numeric',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'confirm_password' => 'required|min:6|max:20|same:password',
+            'address' => 'required',
 
+        ],[
+            'name.required' => 'Name is required',
+            'name.min' => 'Name must be at least 2 characters.',
+            'name.max' => 'Name should not be greater than 50 characters.',
+        ]);
+        $imageName = $request->logo->getClientOriginalName();
+        $request->logo->move(public_path('images'), $imageName);
         $customer = new Customer ([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -37,13 +48,12 @@ class CustomerController extends Controller
             'type_id' => 1,
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
-            'user_id' => 3,
             'recordstatus' => 2
           
  
         ]);
         $customer ->save();
-        return $customer;
+        return response()->json(['success'=>'Done!']);
 
     }
 

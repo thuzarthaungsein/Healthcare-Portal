@@ -25,11 +25,16 @@ import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
 
+import createmedicalacceptance from './components/createmedicalacceptance.vue';
+import medicalacceptancelist from './components/medicalacceptancelist.vue';
+import editmedicalacceptance from './components/editmedicalacceptance.vue';
+import userPasswordResetList from './components/userPasswordResetList.vue';
+
 import HospitalHistory from './components/HospitalHistory.vue';
 
 export const routes = [
-
-       {
+ 
+      {
         name: 'home',
         path: '/',
         component: home
@@ -155,5 +160,27 @@ export const routes = [
       name: 'hospital_history',
       path: '/hospital_history',
       component: HospitalHistory
+    },
+    {
+      name: 'createmedicalacceptance',
+      path: '/createmedicalacceptance',
+      component: createmedicalacceptance
+    },
+
+    {
+      name: 'medicalacceptancelist',
+      path: '/medicalacceptancelist',
+      component: medicalacceptancelist
+    },
+
+    {
+      name: 'editmedicalacceptance',
+      path: '/editmedicalacceptance',
+      component: editmedicalacceptance
+    },
+    {
+      name: 'userPasswordResetList',
+      path: '/userPasswordResetList',
+      component: userPasswordResetList
     },
 ];

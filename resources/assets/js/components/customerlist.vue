@@ -161,7 +161,7 @@ export default {
                 this.axios
                     .delete(`http://localhost:8000/api/customer/delete/${id}`)
                     .then(response => {
-                        alert('Delete Successfully!');
+                        flash('Delete Success', 'success');
                         let a = this.customers.map(item => item.id).indexOf(id);
                         this.customers.splice(a, 1)
                     });

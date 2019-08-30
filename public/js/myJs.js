@@ -47,3 +47,4 @@ $('path').on("click", function(e) {
         console.log(event);
         $("."+c).html("<img src='../images/day1.jpg'>");
     }
+
