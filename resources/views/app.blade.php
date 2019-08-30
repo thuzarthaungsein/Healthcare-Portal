@@ -380,15 +380,12 @@
         success: function( data ) {
             
             for (var i = 0; i < data.length; i++) {
-                var link_arr = '';
-                var photo = '<li class="list-group-item adslist-card"><a href= "#"><img class="img-responsivie ads-img" src="../images/' + data[i].photo + '" />';
-                var title = '<h3 class="smallads-title text-truncate">' + data[i].title + '</h3>';
+                var photo = '<li class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-responsivie ads-img" src="../images/' + data[i].photo + '" />';
+                var title = '<h3 class="smallads-title text-truncate">' + data[i].title + '</h3></li>';
                 $("#menu").append(photo + title);
             } 
         }       
     });              
-
-
 });
 </script>
 </body>
