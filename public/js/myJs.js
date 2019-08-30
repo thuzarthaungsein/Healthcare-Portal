@@ -48,3 +48,4 @@ $('path').on("click", function(e) {
         $("."+c).html("<img src='../images/day1.jpg'>");
     }
 
+

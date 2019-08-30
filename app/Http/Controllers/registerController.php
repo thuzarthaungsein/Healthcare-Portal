@@ -41,7 +41,18 @@ class registerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request;
+        $this->validate($request, [
+            'name' => 'required|min:3|max:50',
+            'email' => 'email',
+            'phone' => 'max:13',
+            'password' => 'min:6|required_with:comfirm_password|same:comfirm_password',
+            'comfirm_password' => 'min:6',
+            'address' =>'required',
+            'img' => 'required'
+            ]);
+
+            return response()->json($request);
     }
 
     /**
@@ -152,7 +163,7 @@ class registerController extends Controller
         DB::table('password_reset')->where('id',$id)->update($updateReset);
         DB::table('users')->where('email',$getEmail)->update($updateUser);
         DB::table('customers')->where('email',$getEmail)->update($updateCustomer);
-        
+
         $resetPass= password_reset_view::findOrFail($id);
         \Mail::to($getEmail)->send(new sendResetPasswordMail($resetPass));
 

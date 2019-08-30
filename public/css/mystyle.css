@@ -172,13 +172,13 @@
             border: 10px solid #4db197;
 		}
 		.brand_logo {
-			/* height: 150px;
+			height: 150px;
 			width: 150px;
 			border-radius: 50%;
-            border: 2px solid white; */
+            border: 2px solid white;
             position: absolute;
             left: 0;
-            top: 35%;
+            bottom: 0.5%;
             width: 100%;
 		}
 		.form_container {
