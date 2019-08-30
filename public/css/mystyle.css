@@ -252,7 +252,7 @@
     position: relative;
     overflow: hidden;
   }
-input[type=file] {
+/* input[type=file] {
     display: inline-block;
     width: 100%;
     padding: 35px 0 0 0;
@@ -263,7 +263,7 @@ input[type=file] {
     box-sizing: border-box;
     background-size: 60px 60px;
     background-color: #ecede1 ;
-  }
+  } */
 .register_btn {
     color: white !important;
     width: 120px;
