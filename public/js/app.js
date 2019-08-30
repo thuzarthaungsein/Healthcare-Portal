@@ -63346,6 +63346,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
@@ -63378,6 +63382,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 },
                 factogglediv: function factogglediv() {
                         $(".fac-toggle-div").toggle('medium');
+                },
+                galleryAdd: function galleryAdd() {
+                        var date = new Date();
+                        var s = date.getMilliseconds();
+                        var m = date.getMinutes();
+                        var h = date.getHours();
+                        var classname = "class" + h + m + s;
+                        var c = "'" + classname + "'";
+                        $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="Title" class="form-control m-b-15"><textarea name="description" placeholder="Description" class="form-control m-b-15"></textarea></div>');
                 }
         }
 });
@@ -63407,26 +63420,6 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _vm._m(6),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "file",
-              value: "Upload Photo",
-              id: "upload_file",
-              multiple: ""
-            },
-            on: {
-              change: function($event) {
-                return _vm.preview_image()
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm._m(7)
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _vm._m(8),
           _vm._v(" "),
           _c("label", { attrs: { for: "hospital" } }, [
             _c("input", {
@@ -63483,6 +63476,26 @@ var render = function() {
         _vm._v(" "),
         _vm.type == "hospital"
           ? _c("div", { staticClass: "col-md-12 pad-free" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _vm._m(7),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "file",
+                    value: "Upload Photo",
+                    id: "upload_file",
+                    multiple: ""
+                  },
+                  on: {
+                    change: function($event) {
+                      return _vm.preview_image()
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm._m(8)
+              ]),
+              _vm._v(" "),
               _vm._m(9),
               _vm._v(" "),
               _vm._m(10),
@@ -63533,18 +63546,8 @@ var render = function() {
                         "div",
                         { key: fac.id, staticClass: "col-md-6 m-b-20" },
                         [
-                          _c("label", { attrs: { for: "fac.id" } }, [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "id",
-                                  rawName: "v-id",
-                                  value: fac.id,
-                                  expression: "fac.id"
-                                }
-                              ],
-                              attrs: { type: "checkbox" }
-                            }),
+                          _c("label", [
+                            _c("input", { attrs: { type: "checkbox" } }),
                             _vm._v(
                               "\r\n                                                        " +
                                 _vm._s(fac.description) +
@@ -63585,7 +63588,29 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _vm.type == "nursing"
-          ? _c("div", { staticClass: "col-md-12 pad-free" }, [_vm._m(17)])
+          ? _c("div", { staticClass: "col-md-12 pad-free" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Gallery")]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "btn all-btn main-bg-color m-l-10",
+                    staticStyle: { "min-width": "0px" },
+                    on: {
+                      click: function($event) {
+                        return _vm.galleryAdd()
+                      }
+                    }
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "row", attrs: { id: "gallery" } })
+              ]),
+              _vm._v(" "),
+              _vm._m(17)
+            ])
           : _vm._e(),
         _vm._v(" "),
         _vm._m(18)
@@ -63687,6 +63712,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
+      _vm._v("Type"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
       _vm._v("Gallery"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
@@ -63697,15 +63731,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
       _c("div", { staticClass: "row", attrs: { id: "image_preview" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("Type"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
   function() {

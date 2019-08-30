@@ -29,7 +29,7 @@
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" class="brand_logo" alt="Logo">
+						<img src="/images/trust_growth.png" class="brand_logo" alt="Logo">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">

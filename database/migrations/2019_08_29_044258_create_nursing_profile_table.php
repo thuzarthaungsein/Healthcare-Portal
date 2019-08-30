@@ -15,6 +15,7 @@ class CreateNursingProfileTable extends Migration
     {
         Schema::create('nursing_profile', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('customer_id');
             $table->text('access')->nullable();
             $table->string('gallery')->nullable();
             $table->text('feature')->nullable();
@@ -28,6 +29,17 @@ class CreateNursingProfileTable extends Migration
             $table->text('capacity')->nullable();
             $table->text('num_rooms')->nullable();
             $table->text('residence_form')->nullable();
+            $table->text('fac_type')->nullable();
+            $table->text('occupancy_condition')->nullable();
+            $table->text('room_floor')->nullable();
+            $table->text('living_room_facilities')->nullable();
+            $table->text('equipment')->nullable();
+            $table->text('medical_acceptable')->nullable();
+            $table->text('medical_unacceptable')->nullable();
+            $table->text('medical_negotiable')->nullable();
+            $table->text('dementia')->nullable();
+            $table->text('staff_system')->nullable();
+            $table->text('special_features')->nullable();
             $table->timestamps();
         });
     }

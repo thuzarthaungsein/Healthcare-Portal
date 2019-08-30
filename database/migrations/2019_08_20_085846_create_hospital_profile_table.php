@@ -15,6 +15,7 @@ class CreateHospitalProfileTable extends Migration
     {
         Schema::create('hospital_profile', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('customer_id');
             $table->text('access')->nullable();
             $table->text('medical_department')->nullable();
             $table->string('specialist')->nullable();
