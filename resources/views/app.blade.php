@@ -34,7 +34,7 @@
 <div class="col-md-10 offset-md-1 main-content pad-free">
     <flash message=""></flash>
   <!--navigation bar-->
-  <nav class="navbar navbar-expand-lg navbar-dark main-header" style="padding-right: 0px;">
+  <nav class="navbar navbar-expand-lg navbar-dark main-header">
   <a class="navbar-brand" href="#">
       <img src="images/trust_growth.png" alt="">
  </a>
@@ -58,7 +58,8 @@
             <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
         </li>
     @else
-    <li class="nav-item btn login-register-btn col-lg-6">
+    <li class="nav-item btn login-register-btn col-lg-12 userprofile-name">
+            <img src="/images/user.png" alt="" class="userprofile-img">
             <a class="nav-link" href="#!">{{ Auth::user()->name }}</a>
         </li>
         
