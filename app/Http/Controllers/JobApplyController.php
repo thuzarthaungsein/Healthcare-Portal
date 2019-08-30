@@ -48,7 +48,7 @@ class JobApplyController extends Controller
                     {
                         $string .= $request->fields[$i];
                     }else{
-                        $string .= $request->fields[$i] .',';
+                        $string .= $request->fields[$i].',';
                     }
 
                 }

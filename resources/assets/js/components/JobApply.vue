@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-12">
+<div class="col-md-12 scrolldiv">
     <h4 class="h_4 text-center">Job Apply Form</h4>
     <div class="col-md-7 offset-md-3">
         <form @submit.prevent="apply">
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-md-12" style=" columns: 2;-webkit-columns: 2;-moz-columns: 2;">
                     <div class="form-group" v-for="job in jobApply.fields" :key="job.id">
-                        <label><input type="checkbox" v-bind:value="{ id: job.skills }"  v-model="job.skills" > {{job}} </label>
+                        <label><input type="checkbox" v-bind:value="{ id: job.skill }"  v-model="job.skill" > {{job}}</label>
         </div>
             </div>
         </div>
