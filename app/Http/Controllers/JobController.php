@@ -26,15 +26,12 @@ class JobController extends Controller
 
     }
 
-<<<<<<< HEAD
 
-=======
     public function getSkill()
     {
         $job = Job::select('skills')->value('skills');
         return $job;
     }
->>>>>>> 35e548c153393c827d10b3b8b68f804905d4163b
     public function store(Request $request)
     {
 

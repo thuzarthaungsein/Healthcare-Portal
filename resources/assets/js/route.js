@@ -25,6 +25,10 @@ import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
 
+import createmedicalacceptance from './components/createmedicalacceptance.vue';
+import medicalacceptancelist from './components/medicalacceptancelist.vue';
+import editmedicalacceptance from './components/editmedicalacceptance.vue';
+
 export const routes = [
 
        {
@@ -148,5 +152,23 @@ export const routes = [
       name: 'jobofferlist',
       path: '/jobofferlist',
       component: JobOfferList
+    },
+
+    {
+      name: 'createmedicalacceptance',
+      path: '/createmedicalacceptance',
+      component: createmedicalacceptance
+    },
+
+    {
+      name: 'medicalacceptancelist',
+      path: '/medicalacceptancelist',
+      component: medicalacceptancelist
+    },
+
+    {
+      name: 'editmedicalacceptance',
+      path: '/editmedicalacceptance',
+      component: editmedicalacceptance
     },
 ];

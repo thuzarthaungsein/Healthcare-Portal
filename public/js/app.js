@@ -14784,7 +14784,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(20);
-module.exports = __webpack_require__(132);
+module.exports = __webpack_require__(139);
 
 
 /***/ }),
@@ -14819,7 +14819,7 @@ window.events = new Vue();
 window.flash = function (message) {
     window.events.$emit('flash', message);
 };
-Vue.component('flash', __webpack_require__(127));
+Vue.component('flash', __webpack_require__(134));
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
@@ -52441,6 +52441,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_Profile_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_JobOfferList_vue__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_JobOfferList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_JobOfferList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_createmedicalacceptance_vue__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_createmedicalacceptance_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_createmedicalacceptance_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_medicalacceptancelist_vue__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_medicalacceptancelist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_medicalacceptancelist_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_editmedicalacceptance_vue__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_editmedicalacceptance_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_editmedicalacceptance_vue__);
+
+
+
+
 
 
 
@@ -52564,6 +52574,18 @@ var routes = [{
   name: 'jobofferlist',
   path: '/jobofferlist',
   component: __WEBPACK_IMPORTED_MODULE_23__components_JobOfferList_vue___default.a
+}, {
+  name: 'createmedicalacceptance',
+  path: '/createmedicalacceptance',
+  component: __WEBPACK_IMPORTED_MODULE_24__components_createmedicalacceptance_vue___default.a
+}, {
+  name: 'medicalacceptancelist',
+  path: '/medicalacceptancelist',
+  component: __WEBPACK_IMPORTED_MODULE_25__components_medicalacceptancelist_vue___default.a
+}, {
+  name: 'editmedicalacceptance',
+  path: '/editmedicalacceptance',
+  component: __WEBPACK_IMPORTED_MODULE_26__components_editmedicalacceptance_vue___default.a
 }];
 
 /***/ }),
@@ -64229,15 +64251,575 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(128)
+/* template */
+var __vue_template__ = __webpack_require__(129)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/createmedicalacceptance.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-28a29e65", Component.options)
+  } else {
+    hotAPI.reload("data-v-28a29e65", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 128 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            errors: [],
+            medical: {
+                name: '',
+                user_id: '',
+                recordstatus: ''
+            }
+        };
+    },
+
+
+    methods: {
+        add: function add() {
+            var _this = this;
+
+            axios.post('http://localhost:8000/api/medical/add', this.medical).then(function (response) {
+                alert('Successfully Created');
+                console.log(response);
+                _this.$router.push({ name: 'medicalacceptancelist' });
+            });
+        }
+    }
+
+});
+
+/***/ }),
+/* 129 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-12" }, [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.add($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.medical.name,
+                            expression: "medical.name"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          placeholder: "medical acceptance",
+                          required: ""
+                        },
+                        domProps: { value: _vm.medical.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.medical, "name", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group " }, [
+                      _c("div", { staticClass: "form-group row" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-1 pad-free" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-warning",
+                                attrs: { to: "/medicalacceptancelist" }
+                              },
+                              [_vm._v("  Cancel ")]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h4", { staticClass: "page-header" }, [
+        _vm._v("Create Medical Acceptance")
+      ]),
+      _vm._v(" "),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("medical acceptance Name :"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-1 pad-free" }, [
+      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Create")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-28a29e65", module.exports)
+  }
+}
+
+/***/ }),
+/* 130 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(131)
+/* template */
+var __vue_template__ = __webpack_require__(132)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/medicalacceptancelist.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1a7f1bbf", Component.options)
+  } else {
+    hotAPI.reload("data-v-1a7f1bbf", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 131 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            medical_acceptance: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/medical/medicalacceptance').then(function (response) {
+            _this.medical_acceptance = response.data;
+            console.log(response.data);
+        });
+    },
+
+
+    methods: {
+        deletemedical: function deletemedical(id) {
+            var _this2 = this;
+
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.delete('http://localhost:8000/api/medical/delete/' + id).then(function (response) {
+                    alert('Delete Successfully!');
+                    var i = _this2.medical_acceptance.map(function (item) {
+                        return item.id;
+                    }).indexOf(id); // find index of your object
+                    _this2.medical_acceptance.splice(i, 1);
+                });
+            }
+        }
+    }
+
+});
+
+/***/ }),
+/* 132 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "row m-b-15" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "float-right",
+                staticStyle: { color: "blue" },
+                attrs: { to: "/createmedicalacceptance" }
+              },
+              [_vm._v("  Create New ")]
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-12 scrolldiv" },
+        _vm._l(_vm.medical_acceptance, function(medical) {
+          return _c("div", { key: medical.id, staticClass: "container-fuid" }, [
+            _c("div", { staticClass: "card card-default m-b-20" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-9 m-t-8" }, [
+                    _c("p", [_vm._v(" " + _vm._s(medical.name) + " ")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "col-md-3",
+                      staticStyle: { "margin-top": "8px" }
+                    },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn main-bg-color white all-btn",
+                          attrs: {
+                            to: {
+                              name: "editmedicalacceptance",
+                              params: { id: medical.id }
+                            }
+                          }
+                        },
+                        [_vm._v("Edit ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger all-btn",
+                          on: {
+                            click: function($event) {
+                              return _vm.deletemedical(medical.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Delete")]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card m-b-20" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-10" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "検索" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-2" }, [
+            _c(
+              "button",
+              { staticClass: "btn secondary-bg-color all-btn white" },
+              [_vm._v("検索")]
+            )
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1a7f1bbf", module.exports)
+  }
+}
+
+/***/ }),
+/* 133 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(143)
+/* template */
+var __vue_template__ = __webpack_require__(144)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/editmedicalacceptance.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0b609a57", Component.options)
+  } else {
+    hotAPI.reload("data-v-0b609a57", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 134 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(128)
+  __webpack_require__(135)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(130)
+var __vue_script__ = __webpack_require__(137)
 /* template */
-var __vue_template__ = __webpack_require__(131)
+var __vue_template__ = __webpack_require__(138)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -64276,13 +64858,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 128 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(129);
+var content = __webpack_require__(136);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -64302,7 +64884,7 @@ if(false) {
 }
 
 /***/ }),
-/* 129 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -64316,7 +64898,7 @@ exports.push([module.i, "\n.spacing {\n    position: fixed;\n    right: 25px;\n 
 
 
 /***/ }),
-/* 130 */
+/* 137 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64365,7 +64947,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 131 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -64395,10 +64977,218 @@ if (false) {
 }
 
 /***/ }),
-/* 132 */
+/* 139 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            errors: [],
+            medical: {
+                name: '',
+                user_id: '',
+                recordstatus: ''
+            }
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('http://localhost:8000/api/medical/edit/' + this.$route.params.id).then(function (response) {
+            _this.medical = response.data;
+        });
+    },
+
+
+    methods: {
+        updatemedical: function updatemedical() {
+            var _this2 = this;
+
+            this.axios.post('http://localhost:8000/api/medical/update/' + this.$route.params.id, this.medical).then(function (response) {
+                alert('Successfully Updated!');
+                _this2.$router.push({ name: 'medicalacceptancelist' });
+            });
+        }
+    }
+
+});
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "content" } }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card  text-dark" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "row" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c(
+                    "form",
+                    {
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.updatemedical($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.medical.name,
+                              expression: "medical.name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.medical.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.medical, "name", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-3 pad-free" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-warning",
+                                attrs: { to: "/medicalacceptancelist" }
+                              },
+                              [_vm._v("Cancel")]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h4", { staticClass: "page-header" }, [
+        _vm._v("Edit Medicalacceptance")
+      ]),
+      _vm._v(" "),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Medicalacceptance Name :"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-1 pad-free" }, [
+      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Update")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0b609a57", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
