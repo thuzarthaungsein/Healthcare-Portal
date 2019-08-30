@@ -63559,9 +63559,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        approve: function approve(password_reset_id) {
-            this.axios.get('http://localhost:8000/api/approve/' + password_reset_id).then(function (response) {
+        approve: function approve(id) {
+            this.axios.get('http://localhost:8000/api/approve/' + id).then(function (response) {
                 console.log(response.data);
+                ajax.reload();
             });
         }
     }
@@ -63580,13 +63581,13 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
       _c("div", { staticClass: "table-responsive" }, [
-        _c("table", { staticClass: "table table-hover" }, [
+        _c("table", { staticClass: "table table-hover DataTable" }, [
           _vm._m(1),
           _vm._v(" "),
           _c(
             "tbody",
             _vm._l(_vm.getReset, function(getUser) {
-              return _c("tr", { key: getUser.password_reset_id }, [
+              return _c("tr", { key: getUser.id }, [
                 _c("th", [_vm._v(_vm._s(getUser.name))]),
                 _vm._v(" "),
                 _c("th", [_vm._v(_vm._s(getUser.email))]),
@@ -63600,7 +63601,7 @@ var render = function() {
                       staticClass: "btn btn-sm btn-primary all-btn",
                       on: {
                         click: function($event) {
-                          return _vm.approve(getUser.password_reset_id)
+                          return _vm.approve(getUser.id)
                         }
                       }
                     },

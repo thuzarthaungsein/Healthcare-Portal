@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('getReset','registerController@getReset');
-Route::get('approve/{password_reset_id}','registerController@approve');
+Route::get('approve/{id}','registerController@approve');
 
 
 Route::get('jobs', 'JobController@index');

@@ -24,6 +24,7 @@
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <style>
         .bg-light {
             background-color: #eae9e9 !important;
@@ -335,8 +336,13 @@
 <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript">
  $(document).ready(function() {
+
+    $('.DataTable').DataTable();
+
     jssor_1_slider_init();   
     var csrf = "{{ csrf_token() }}";
     $.ajax({
