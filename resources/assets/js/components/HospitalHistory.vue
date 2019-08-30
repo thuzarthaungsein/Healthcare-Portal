@@ -1,7 +1,7 @@
 <template>
  <div class="row">
         <div class="col-12">
-        <nav aria-label="breadcrumb">
+                <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
                                 <li class="breadcrumb-item"><a href="../news/news_details.html"> 新しい詳細</a></li>
@@ -10,36 +10,38 @@
                         </ol>
                 </nav>
         </div>
-        <div class="row m-lr-0">
-                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
-                        <div class="col-sm-3  col-md-3 mt-2" v-for="customer in customers" :key="customer.id">
-                                <div class="hovereffect fit-image">
-                                        <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
-                                        <img class="img-responsive fit-image" v-bind:src="'/images/' + customer.logo" alt="">
-                                        <div class="overlay">
-                                                <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">Profile</a>
+
+        <div class="col-12">
+                <div v-for="hos_profile in hos_profiles" :key="hos_profile.id" class="card card-default m-b-20">
+                        <div class="card-body news-post">
+                                <div class="row">
+                                        <div class="col-md-4" >
+                                                <img class="col-md-12" v-bind:src="'/images/' + hos_profile.logo" alt="" style="">
+                                                <button class="btn btn-danger all-btn" style="margin-top: 10px;margin-left: 15px;display:block;align:center;">最近見た施設から削除 </button>
+                                                <button class="btn btn-info all-btn" style="margin-top: 10px; margin-left: 15px;">検討リストに追加</button>
                                         </div>
-                                        <div class="info">
-                                                <div class="row">
-                                                        <div class="col-12">
-                                                                <p class=" p_3">
-                                                                        {{ customer.name }}
-                                                                </p>
-                                                        </div>
+                                        <div class="col-md-8">
+                                                <div class="col-sm-8 pad-free mb-2">
+                                                        <h4> <a href="#"> {{hos_profile.name}} </a></h4>
+                                                        <strong>Website  :</strong><a href=""> {{hos_profile.website}}</a><br/>
+                                                        <a><strong>Medical Department    :</strong>{{hos_profile.medical_department}}</a><br/>
+                                                        <a><strong>Logo     :</strong>{{hos_profile.logo}}</a><br/>
+                                                        <a><strong>Phone    :</strong>{{hos_profile.phone}}</a><br/>
+                                                        <a><strong>Access  :</strong>{{hos_profile.access}}</a><br/>
+                                                        <a><strong>Email  :</strong>{{hos_profile.email}}</a><br/>
                                                 </div>
                                         </div>
                                 </div>
                         </div>
                 </div>
-              {{ customers }}
+        </div>
  </div>
 </template>
 <script>
 export default {
         data() {
             return {
-                customers: []
+                hos_profiles: []
             }
         },
         created() {
@@ -48,9 +50,9 @@ export default {
         methods: {
                 getAllCustomer: function() {
                      this.axios
-                        .get('http://localhost:8000/api/customers')
+                        .get('http://localhost:8000/api/hospital_history')
                         .then(response => {
-                                this.customers = response.data;
+                                this.hos_profiles = response.data;
                         });
                 }
         }

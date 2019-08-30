@@ -93,3 +93,6 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
+
+// Guest Hospital History
+Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');

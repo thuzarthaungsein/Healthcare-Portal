@@ -52569,8 +52569,8 @@ var routes = [{
   path: '/jobofferlist',
   component: __WEBPACK_IMPORTED_MODULE_23__components_JobOfferList_vue___default.a
 }, {
-  name: 'guest_watch_history',
-  path: '/guest_watch_history',
+  name: 'hospital_history',
+  path: '/hospital_history',
   component: __WEBPACK_IMPORTED_MODULE_24__components_HospitalHistory_vue___default.a
 }];
 
@@ -64490,11 +64490,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
                 return {
-                        customers: []
+                        hos_profiles: []
                 };
         },
         created: function created() {
@@ -64505,8 +64507,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 getAllCustomer: function getAllCustomer() {
                         var _this = this;
 
-                        this.axios.get('http://localhost:8000/api/customers').then(function (response) {
-                                _this.customers = response.data;
+                        this.axios.get('http://localhost:8000/api/hospital_history').then(function (response) {
+                                _this.hos_profiles = response.data;
                         });
                 }
         }
@@ -64525,44 +64527,99 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "row m-lr-0" },
-      [
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._l(_vm.customers, function(customer) {
-          return _c(
-            "div",
-            { key: customer.id, staticClass: "col-sm-3  col-md-3 mt-2" },
-            [
-              _c("div", { staticClass: "hovereffect fit-image" }, [
-                _c("img", {
-                  staticClass: "img-responsive fit-image",
-                  attrs: { src: "/images/" + customer.logo, alt: "" }
-                }),
+      { staticClass: "col-12" },
+      _vm._l(_vm.hos_profiles, function(hos_profile) {
+        return _c(
+          "div",
+          { key: hos_profile.id, staticClass: "card card-default m-b-20" },
+          [
+            _c("div", { staticClass: "card-body news-post" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("img", {
+                    staticClass: "col-md-12",
+                    attrs: { src: "/images/" + hos_profile.logo, alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger all-btn",
+                      staticStyle: {
+                        "margin-top": "10px",
+                        "margin-left": "15px",
+                        display: "block",
+                        align: "center"
+                      }
+                    },
+                    [_vm._v("最近見た施設から削除 ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info all-btn",
+                      staticStyle: {
+                        "margin-top": "10px",
+                        "margin-left": "15px"
+                      }
+                    },
+                    [_vm._v("検討リストに追加")]
+                  )
+                ]),
                 _vm._v(" "),
-                _vm._m(2, true),
-                _vm._v(" "),
-                _c("div", { staticClass: "info" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-12" }, [
-                      _c("p", { staticClass: " p_3" }, [
-                        _vm._v(
-                          "\n                                                                       " +
-                            _vm._s(customer.name) +
-                            "\n                                                               "
-                        )
+                _c("div", { staticClass: "col-md-8" }, [
+                  _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                    _c("h4", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v(" " + _vm._s(hos_profile.name) + " ")
                       ])
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c("strong", [_vm._v("Website  :")]),
+                    _c("a", { attrs: { href: "" } }, [
+                      _vm._v(" " + _vm._s(hos_profile.website))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Medical Department    :")]),
+                      _vm._v(_vm._s(hos_profile.medical_department))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Logo     :")]),
+                      _vm._v(_vm._s(hos_profile.logo))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Phone    :")]),
+                      _vm._v(_vm._s(hos_profile.phone))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Access  :")]),
+                      _vm._v(_vm._s(hos_profile.access))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Email  :")]),
+                      _vm._v(_vm._s(hos_profile.email))
+                    ]),
+                    _c("br")
                   ])
                 ])
               ])
-            ]
-          )
-        })
-      ],
-      2
-    ),
-    _vm._v("\n             " + _vm._s(_vm.customers) + "\n")
+            ])
+          ]
+        )
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = [
@@ -64597,31 +64654,6 @@ var staticRenderFns = [
           )
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
-      _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2"),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-sm all-btn secondary-bg-color",
-          attrs: { href: "/newsdetails" }
-        },
-        [_vm._v("Profile")]
-      )
     ])
   }
 ]
