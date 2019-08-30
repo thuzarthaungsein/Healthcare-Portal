@@ -11,6 +11,8 @@
 |
 */
 
+
+Route::get('registerForm','registerController@index');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');

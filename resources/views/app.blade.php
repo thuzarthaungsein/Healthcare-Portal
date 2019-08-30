@@ -54,7 +54,8 @@
         </li>
         <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
             <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
-            <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link>
+            <a class="nav-link pad-free" href="{{ url('registerForm') }}">{{ __('事業者 ログイン') }}</a>
+            <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
         </li>
     @else
     <li class="nav-item btn login-register-btn col-lg-6">
