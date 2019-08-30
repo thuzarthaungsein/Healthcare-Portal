@@ -1,7 +1,7 @@
 <template>
 <div class="card profile">
         <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
-        <div class="card-body scrolldiv">
+        <div class="card-body scrolldiv2">
                 
                 <form class="col-md-12">
                         <div class="form-group">
@@ -23,16 +23,7 @@
                         <div class="form-group">
                                 <label>Location Access<span class="error">*</span></label>
                                 <textarea name="address" rows="10" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group">
-                                <label>Gallery<span class="error">*</span></label>
-                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
-
-                                <div class="col-md-12">
-                                        <div class="row" id="image_preview"></div>
-                                </div>
-                        </div>
-
+                        </div>               
                         
                         <div class="form-group">
                                 <label>Type<span class="error">*</span></label>
@@ -46,6 +37,14 @@
                         
 
                         <div class="col-md-12 pad-free" v-if="type == 'hospital'">
+                                <div class="form-group">
+                                        <label>Gallery<span class="error">*</span></label>
+                                        <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
+
+                                        <div class="col-md-12">
+                                                <div class="row" id="image_preview"></div>
+                                        </div>
+                                </div>
                                 <div class="form-group">
                                         <label>Medical Department<span class="error">*</span></label>
                                         <textarea name="medicaldepartment" class="form-control"></textarea>
@@ -125,15 +124,16 @@
                                 </div>
                                 <div class="btn all-btn main-bg-color m-b-20" @click="factogglediv()">Facilities</div>
 
-                                <div class="fac-toggle-div toggle-div">
-                                        <div v-for="fac in fac_list" :key="fac.id" class="card card-default m-b-20">
-                                                <div class="card-body news-post">
-                                                       <label for="">
-                                                               <input type="checkbox">
-                                                               {{fac.description}}
+                                <div class="col-md-12 fac-toggle-div toggle-div">
+                                        <div class="row">
+                                                <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
+                                                        <label>
+                                                        <input type="checkbox">
+                                                        {{fac.description}}
                                                         </label>
                                                 </div>
                                         </div>
+                                        
                                 </div>
                                 <div class="form-group">
                                         <label>Official Website</label>
@@ -147,17 +147,24 @@
                                 <div class="btn all-btn main-bg-color m-b-20" @click="maptogglediv()">Map</div>
 
                                 <div class="map-toggle-div toggle-div">
-                                        This is Map togglediv
+                                        Map Area Here
                                 </div>
                         </div>
-                        <div class="row" v-if="type == 'nursing'">
-                                Nursing
+                        <div class="col-md-12 pad-free" v-if="type == 'nursing'">
+
+                                <div class="form-group">
+                                        <label>Gallery</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">+</span>
+                                        <div class="row" id="gallery"></div>
+                                </div>
+                                <div class="form-group">
+                                        <label>特長<span class="error">*</span></label>
+                                        <textarea name="medicaldepartment" class="form-control"></textarea>
+                                </div>
                         </div>
 
                 
                         <div class="row">
-                                <br>
-                                <button class="btn news-post-btn all-btn">Create</button>
+                                <button class="btn news-post-btn all-btn m-t-15">Create</button>
                                 <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
                         </div>
                 </form>
@@ -201,6 +208,16 @@ export default {
 
             factogglediv() {
                     $(".fac-toggle-div").toggle('medium');
+            },
+
+            galleryAdd() {
+                    var date = new Date;
+                    var s = date.getMilliseconds();
+                    var m = date.getMinutes();
+                    var h = date.getHours();
+                    var classname = "class"+h+m+s;
+                    var c = "'"+classname+"'";
+                    $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="Title" class="form-control m-b-15"><textarea name="description" placeholder="Description" class="form-control m-b-15"></textarea></div>');
             }
         }
 }
