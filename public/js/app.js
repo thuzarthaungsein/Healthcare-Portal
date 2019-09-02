@@ -14784,7 +14784,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(20);
-module.exports = __webpack_require__(134);
+module.exports = __webpack_require__(135);
 
 
 /***/ }),
@@ -14819,7 +14819,7 @@ window.events = new Vue();
 window.flash = function (message) {
     window.events.$emit('flash', message);
 };
-Vue.component('flash', __webpack_require__(129));
+Vue.component('flash', __webpack_require__(130));
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
@@ -64228,9 +64228,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(128)
 /* template */
-var __vue_template__ = __webpack_require__(128)
+var __vue_template__ = __webpack_require__(129)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -64270,6 +64270,226 @@ module.exports = Component.exports
 
 /***/ }),
 /* 128 */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+jQuery(document).ready(function ($) {
+    $('a[href*=#]:not([href=#])').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top - 32
+                }, 1000);
+                return false;
+            }
+        }
+    });
+});
+
+// Fixed Nav
+jQuery(document).ready(function ($) {
+
+    $(window).scroll(function () {
+
+        var scrollTop = 152;
+        if ($(window).scrollTop() >= scrollTop) {
+            $('.nav_menu').css({
+                position: 'fixed',
+                top: '0',
+                width: '57.12%'
+            });
+        }
+        if ($(window).scrollTop() < scrollTop) {
+            $('.nav_menu').removeAttr('style');
+        }
+    });
+
+    // Active Nav Link
+    $('.nav_menu ul li a').click(function () {
+        $('.nav_menu ul li a').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $(document).on("scroll", onScroll);
+    function onScroll(event) {
+        var scrollPos = $(document).scrollTop();
+        $('.nav_menu a').each(function () {
+            var currLink = $(this);
+
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('.nav_menu ul li a').removeClass("active");
+                currLink.addClass("active");
+            } else {
+                currLink.removeClass("active");
+            }
+        });
+    }
+});
+
+/***/ }),
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -64288,191 +64508,340 @@ var staticRenderFns = [
         _c("div", { staticClass: "card " }, [
           _c(
             "div",
-            { staticStyle: { "z-index": "1000" }, attrs: { id: "profile" } },
+            {
+              staticStyle: { "z-index": "1000", overflow: "hidden" },
+              attrs: { id: "profile" }
+            },
             [
-              _c(
-                "nav",
-                {
-                  staticClass: "navbar navbar-expand-lg navbar-light bg-light"
-                },
-                [
-                  _c(
-                    "a",
-                    { staticClass: "navbar-brand", attrs: { href: "#" } },
-                    [_vm._v("Navbar")]
-                  ),
+              _c("nav", { staticClass: "nav_menu" }, [
+                _c("ul", [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#section1" } }, [
+                      _vm._v("section 1")
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "navbar-toggler",
-                      attrs: {
-                        type: "button",
-                        "data-toggle": "collapse",
-                        "data-target": "#navbarSupportedContent",
-                        "aria-controls": "navbarSupportedContent",
-                        "aria-expanded": "false",
-                        "aria-label": "Toggle navigation"
-                      }
-                    },
-                    [_c("span", { staticClass: "navbar-toggler-icon" })]
-                  ),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#section2" } }, [
+                      _vm._v("section 2")
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "collapse navbar-collapse",
-                      attrs: { id: "navbarSupportedContent" }
-                    },
-                    [
-                      _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-                        _c("li", { staticClass: "nav-item active" }, [
-                          _c(
-                            "a",
-                            { staticClass: "nav-link", attrs: { href: "#" } },
-                            [
-                              _vm._v("Home "),
-                              _c("span", { staticClass: "sr-only" }, [
-                                _vm._v("(current)")
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { href: "#about" }
-                            },
-                            [_vm._v("About")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link ",
-                              attrs: { href: "#service" }
-                            },
-                            [_vm._v("Service")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link ",
-                              attrs: { href: "#contact" }
-                            },
-                            [_vm._v("Contact")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link ",
-                              attrs: { href: "#link1" }
-                            },
-                            [_vm._v("Link1")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link ",
-                              attrs: { href: "#link2" }
-                            },
-                            [_vm._v("Link2")]
-                          )
-                        ])
-                      ])
-                    ]
-                  )
-                ]
-              )
+                  _c("li", [
+                    _c("a", { attrs: { href: "#section3" } }, [
+                      _vm._v("section 3")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#section4" } }, [
+                      _vm._v("section 4")
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "section",
+            { staticClass: "section-header", attrs: { id: "section1" } },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("h3", [_vm._v("section 1")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("img", {
+                    staticClass: "img-fluid img-thumbnail",
+                    attrs: { src: "images/h6.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("We are professional")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("At vero eos et accusamus")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut."
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Temporibus autem quibusdam")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium."
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Nam libero tempore")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum."
+                      )
+                    ])
+                  ]
+                )
+              ])
             ]
           ),
           _vm._v(" "),
           _c(
             "section",
             {
-              staticStyle: {
-                width: "1050px",
-                height: "800px",
-                border: "1px solid black"
-              },
-              attrs: { id: "about" }
+              staticStyle: { "padding-top": "72px" },
+              attrs: { id: "section2" }
             },
             [
-              _c(
-                "div",
-                {
-                  staticClass: "carousel  slide carousel-fade",
-                  attrs: { "data-ride": "carousel" }
-                },
-                [_vm._v("\n                     About\n                ")]
-              )
+              _c("div", { staticClass: "container" }, [
+                _c("header", { staticClass: "section-header" }, [
+                  _c("h3", [_vm._v("section 2 ")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("img", {
+                    staticClass: "img-fluid img-thumbnail",
+                    attrs: { src: "images/h10.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Our Plan")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        " Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Our Mission")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        " Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Our Vision")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        " Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Our Skills")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
+                      )
+                    ])
+                  ]
+                )
+              ])
             ]
           ),
           _vm._v(" "),
           _c(
             "section",
             {
-              staticStyle: {
-                width: "1050px",
-                height: "800px",
-                border: "1px solid green"
-              },
-              attrs: { id: "service" }
+              staticStyle: { "padding-top": "20px" },
+              attrs: { id: "section3" }
             },
-            [_vm._v("\n                Service\n            ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "section",
-            {
-              staticStyle: {
-                width: "1050px",
-                height: "800px",
-                border: "1px solid yellow"
-              },
-              attrs: { id: "contact" }
-            },
-            [_vm._v("\n                Contact\n            ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "section",
-            {
-              staticStyle: {
-                width: "1050px",
-                height: "800px",
-                border: "1px solid blue"
-              },
-              attrs: { id: "link1" }
-            },
-            [_vm._v("\n                Link 1\n            ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "section",
-            {
-              staticStyle: {
-                width: "1050px",
-                height: "800px",
-                border: "1px solid gray"
-              },
-              attrs: { id: "link2" }
-            },
-            [_vm._v("\n                Link 1\n            ")]
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("header", { staticClass: "section-header wow fadeInUp" }, [
+                  _c("h3", [_vm._v("section 3 ")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("img", {
+                    staticClass: "img-fluid img-thumbnail",
+                    attrs: { src: "images/11.JPG", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Our Plan")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        " Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Our Mission")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        " Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Our Vision")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        " Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "padding-left": "20px",
+                      "padding-right": "20px"
+                    }
+                  },
+                  [
+                    _c("h2", [_vm._v("Our Skills")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ]
           )
         ])
       ])
@@ -64489,19 +64858,19 @@ if (false) {
 }
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(130)
+  __webpack_require__(131)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(132)
+var __vue_script__ = __webpack_require__(133)
 /* template */
-var __vue_template__ = __webpack_require__(133)
+var __vue_template__ = __webpack_require__(134)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -64540,13 +64909,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(131);
+var content = __webpack_require__(132);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -64566,7 +64935,7 @@ if(false) {
 }
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -64580,7 +64949,7 @@ exports.push([module.i, "\n.spacing {\n    position: fixed;\n    right: 25px;\n 
 
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64629,7 +64998,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -64659,7 +65028,7 @@ if (false) {
 }
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
