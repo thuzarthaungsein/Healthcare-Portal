@@ -67,8 +67,8 @@
             <img src="/images/user.png" alt="" class="userprofile-img">
             <a class="nav-link" href="#!">{{ Auth::user()->name }}</a>
         </li>
-        
-    @endguest      
+
+    @endguest
     </ul>
   </div>
   </nav>
@@ -76,7 +76,7 @@
 
   <!--sidebar-->
 
-  <!--end sidebar -->     
+  <!--end sidebar -->
 <div class="sidebar-scroll container-fluid">
 	<div class="row">
   <div class="col-lg-2 col-md-12 col-sm-12 pad-free custom-sidebar">
@@ -84,7 +84,7 @@
       @guest
       <!-- public menu -->
       <div class="userview-sidebar col-auto">
-        <div class="card m-b-10 ads-card">           
+        <div class="card m-b-10 ads-card">
             <!--ads slider-->
             <div style="display: block; overflow: hidden;">
             <div id="slider2_container" style="position: relative; margin:10px; float: left; top: 0px; left: 0px; width: 200px;
@@ -93,23 +93,23 @@
             <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;
                 overflow: hidden;">
                 <div><img data-u="image" src="/images/ad_1.jpg" />
-               
+
                 </div>
                 <div><img data-u="image" src="/images/h2.jpg" />
-                    
+
                 </div>
                 <div><img data-u="image" src="/images/h3.jpg" />
-                  
+
                 </div>
                 <div><img data-u="image" src="/images/h4.jpg" />
-                 
+
                 </div>
             </div>
-            <!-- Trigger -->          
+            <!-- Trigger -->
             </div>
             </div>
             <!--end ads slider-->
-            
+
         </div>
         <div class="card m-b-10 ads-card2">
             <div class="card-body">
@@ -124,31 +124,11 @@
                         <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
                     </div>
-                    
-                </a>
-            </li>         
-            
-            </ul>
-            </div>            
-        </div> 
-        <div class="card m-b-10 ads-card2">
-            <div class="card-body">
-            <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <a href="#">
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
-                    <div class="sub-title">
-                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper text-turncate">
-                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="smallads-title text-turncate">クランクイン</span>
-                    </span>
-                    </div>
-                    
+
                 </a>
             </li>
-            
-            </ul>   
+
+            </ul>
             </div>
         </div>
         <div class="card m-b-10 ads-card2">
@@ -164,11 +144,31 @@
                         <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
                     </div>
-                    
+
                 </a>
             </li>
-            
-            </ul>   
+
+            </ul>
+            </div>
+        </div>
+        <div class="card m-b-10 ads-card2">
+            <div class="card-body">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
+                    <div class="sub-title">
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper text-turncate">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="smallads-title text-turncate">クランクイン</span>
+                    </span>
+                    </div>
+
+                </a>
+            </li>
+
+            </ul>
             </div>
         </div>
     </div>
@@ -176,8 +176,8 @@
       <!-- login menu  -->
       <div class="adminview-sidebar" id="navbarSupportedContent">
       <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
-      
-      @can('role-list')      
+
+      @can('role-list')
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;  ニュース一覧</router-link></li>
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;  顧客一覧</router-link></li>
       <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;  カテゴ一覧</router-link></li>
@@ -196,7 +196,7 @@
             </li>
         </ul>
     </li>
-     
+
       @endcan
 
       @can('customer')
@@ -205,17 +205,17 @@
       @endcan
 
       @can('role-list')
-      <li><router-link to="/advertisement" class="nav-link"><i class="fa fa-globe"></i>&nbsp;&nbsp;  広告</router-link></li>
+      <li><router-link to="/ads" class="nav-link"><i class="fa fa-globe"></i>&nbsp;&nbsp;  広告</router-link></li>
       @endcan
 
       <li>
-        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}" 
+        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
         role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;&nbsp;
-      
+
             {{ __('ログアウト') }}
-        
+
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
@@ -223,7 +223,7 @@
       </li>
       </div>
       @endguest
-     
+
       </ul>
   </div>
 
@@ -232,7 +232,7 @@
       <!--section one-->
       <section>
         <div class="container-fluid main-wrapper">
-        
+
         <!--slider for ads-->
         <div class="col-md-auto">
         <!--jssor carousel-->
@@ -300,20 +300,20 @@
         </div> -->
         </div>
         <!--end jssor slider-->
-      </div>    
+      </div>
       <!--end slider for ads-->
-           
-      <div class="row justify-content-md-center">           
-        <div class="col-10 tab"> 
+
+      <div class="row justify-content-md-center">
+        <div class="col-10 tab">
           <!-- vue component -->
               <router-view></router-view>
-             
+
           <!-- vue component -->
 
       <!-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">three</div>
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div> -->
       </div>
-      
+
       <div class="col-2">
                 <!--related news-->
                 <div class="card m-b-10 ads-card">
@@ -333,28 +333,28 @@
                 <div class="card m-b-10 ads-card2">
                         <div class="card-body today">
                         <ul id="menu" class="list-group list-group-flush">
-                               
-                            </ul>                                                
+
+                            </ul>
                         </div>
                 </div>
                 <!-- end related news-->
             </div>
     </div>
-            
+
           </div>
           <div class="container-fluid footer footer-div">
                 <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
         </div>
         </div>
-        
-        
+
+
       </section>
        <!--end section one-->
-      
+
   </div>
 </div>
 </div>
-<!-- END LEFT SIDEBAR -->      
+<!-- END LEFT SIDEBAR -->
     </div>
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
@@ -373,8 +373,8 @@
 <script type="text/javascript">
  $(document).ready(function() {
     $('.DataTable').DataTable();
-    jssor_1_slider_init(); 
-    jssor_slider2_init();      
+    jssor_1_slider_init();
+    jssor_slider2_init();
 
     var csrf = "{{ csrf_token() }}";
     $.ajax({
@@ -383,14 +383,14 @@
         data: {'_token': csrf},
 
         success: function( data ) {
-            
+
             for (var i = 0; i < data.length; i++) {
                 var photo = '<li class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-responsivie ads-img" src="../images/' + data[i].photo + '" />';
                 var title = '<h3 class="smallads-title text-truncate">' + data[i].title + '</h3></li>';
                 $("#menu").append(photo + title);
-            } 
-        }       
-    });              
+            }
+        }
+    });
 });
 </script>
 </body>
