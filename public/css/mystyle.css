@@ -770,6 +770,23 @@ div.b{
 .ads-card2 .card-body > ul .list-group-item a {
     color: #000;
 }
+.sub-title{
+    background: 0;
+    bottom: auto;
+    padding: 0;
+    width: auto;
+}
+.sub-title > .ads-title{
+    font-size: 12px;
+    line-height: 1.357;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    top: -0.2rem;
+    max-height: 45px;
+}
+    
 .ads-title{
     font-size: 12px;
     line-height: 1.357;
@@ -1145,8 +1162,7 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 .adminview-sidebar{
     height: 92vh;
-    background: #b7dad2;
-    
+    background: #b7dad2;    
     box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
 }
 .custom-sidebar{    
