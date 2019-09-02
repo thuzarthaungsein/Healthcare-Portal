@@ -52600,10 +52600,6 @@ var routes = [{
   path: '/profilepublish',
   component: __WEBPACK_IMPORTED_MODULE_24__components_ProfilePublish_vue___default.a
 }, {
-  name: 'advertisement',
-  path: '/advertisement',
-  component: __WEBPACK_IMPORTED_MODULE_25__components_advertisement_vue___default.a
-}, {
   name: 'hospital_history',
   path: '/hospital_history',
   component: __WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue___default.a
