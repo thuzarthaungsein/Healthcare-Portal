@@ -1,7 +1,7 @@
 <template>
- <div class="row">
-      <div class="col-12 scrolldiv">
-          <div class="card">
+ <div class="container">
+      <div class="col-md-12 ">
+          <div class="card text-dark">
                     <div class="card-header text-center">
                         <h4 style="padding-top: 20px;"> Advertisements </h4>
                     </div>
@@ -86,11 +86,8 @@ export default {
                     .then((response) => {
                     alert('Successfully')
                     console.log(response);
-                    //console.log(this.jobApply.toString());
                     this.ads = response.data;
                     })
-                    // .catch(error => console.log(error))
-                    // .finally(() => this.loading = false)
             },
 
     }

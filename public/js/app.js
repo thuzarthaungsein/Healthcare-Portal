@@ -64363,11 +64363,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.axios.post('http://localhost:8000/api/advertisement/add', adsData).then(function (response) {
                 alert('Successfully');
                 console.log(response);
-                //console.log(this.jobApply.toString());
                 _this.ads = response.data;
             });
-            // .catch(error => console.log(error))
-            // .finally(() => this.loading = false)
         }
     }
 });
@@ -64380,9 +64377,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-12 scrolldiv" }, [
-      _c("div", { staticClass: "card" }, [
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "col-md-12 " }, [
+      _c("div", { staticClass: "card text-dark" }, [
         _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "card-body " }, [
