@@ -19,13 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-// public route api start 
+// public route api start
 
-    // ........ 
+    // ........
 
-// public route api end 
- 
-
+// public route api end
 
 
 
@@ -36,13 +34,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-// login route api start 
+
+
+// login route api start
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('approve/{id}','registerController@approve');
-    
+
 });
-// login route api end 
+// login route api end
 
 
 
@@ -129,7 +129,6 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
-
 // Guest Hospital History
 Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
 
