@@ -96,6 +96,10 @@ Route::get('job_details/{id}', 'JobDetailController@show');
 //Route::post('add','AdvertisementController@store');
 Route::group(['prefix' => 'advertisement'], function () {
     Route::post('add', 'AdvertisementController@store');
+    Route::get('edit/{id}', 'AdvertisementController@edit');
+    Route::get('ads', 'AdvertisementController@index');
+    Route::post('update/{id}', 'AdvertisementController@update');
+    Route::delete('delete/{id}','AdvertisementController@destroy');
 });
 
 

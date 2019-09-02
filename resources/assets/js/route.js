@@ -24,6 +24,8 @@ import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
 import advertisement from './components/advertisement.vue';
+import advertisementlist from './components/advertisementlist.vue';
+import editadvertisement from './components/editadvertisement.vue';
 
 export const routes = [
 
@@ -153,5 +155,15 @@ export const routes = [
         name: 'advertisement',
         path: '/advertisement',
         component: advertisement
-      }
+    },
+    {
+        name: 'ads',
+        path: '/ads',
+        component: advertisementlist
+    },
+    {
+        name: 'editadvertisement',
+        path: '/editads',
+        component: editadvertisement
+    }
 ];

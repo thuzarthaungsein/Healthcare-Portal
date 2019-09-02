@@ -43,9 +43,16 @@
                                                         <!-- <label class="" for="file">No file chosen</label> -->
                                                 </div>
                                             </div>
-                                            <div class="text-center">
-                                                    <button type="submit" class="btn main-bg-color white all-btn ">Submit</button>
+                                            <div class="form-group ">
+                                        <div class="form-group row">
+                                            <div class="col-1 pad-free">
+                                                <button class="btn news-post-btn">Create</button>
                                             </div>
+                                            <div class="col-1">
+                                                <router-link class="btn btn-warning" to="/ads" >  Cancel </router-link>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </form>
                                 </div>
                         </div>
