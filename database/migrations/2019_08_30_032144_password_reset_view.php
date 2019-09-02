@@ -42,6 +42,6 @@ class PasswordResetView extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('password_reset_view');
     }
 }

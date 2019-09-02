@@ -39,11 +39,11 @@ export const routes = [
         path: '/',
         component: home
       },
-      {
-        name: 'home',
-        path: '/home',
-        component: home
-      },
+      // {
+      //   name: 'home',
+      //   path: '/home',
+      //   component: home
+      // },
 
     {
         name: 'newdetails',

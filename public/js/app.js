@@ -52491,11 +52491,14 @@ var routes = [{
   name: 'home',
   path: '/',
   component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
-}, {
-  name: 'home',
-  path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
-}, {
+},
+// {
+//   name: 'home',
+//   path: '/home',
+//   component: home
+// },
+
+{
   name: 'newdetails',
   path: '/newsdetails/:id',
   component: __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default.a
@@ -55239,7 +55242,7 @@ var staticRenderFns = [
                 staticClass: "nav-link active",
                 attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
               },
-              [_c("i", { staticClass: "fas fa-home" }), _vm._v("ホーム")]
+              [_c("i", { staticClass: "fas fa-home" }), _vm._v(" ニュース")]
             )
           ]
         ),
