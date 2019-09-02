@@ -52491,11 +52491,14 @@ var routes = [{
   name: 'home',
   path: '/',
   component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
-}, {
-  name: 'home',
-  path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default.a
-}, {
+},
+// {
+//   name: 'home',
+//   path: '/home',
+//   component: home
+// },
+
+{
   name: 'newdetails',
   path: '/newsdetails/:id',
   component: __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default.a
@@ -55253,7 +55256,7 @@ var staticRenderFns = [
                 staticClass: "nav-link active",
                 attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
               },
-              [_c("i", { staticClass: "fas fa-home" }), _vm._v("ホーム")]
+              [_c("i", { staticClass: "fas fa-home" }), _vm._v(" ニュース")]
             )
           ]
         ),
@@ -55601,6 +55604,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
     _c("div", { staticClass: "row justify-content-md-center" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", {}, [
@@ -55630,7 +55635,7 @@ var render = function() {
                   attrs: { src: "/images/" + _vm.newdetails.photo }
                 }),
                 _vm._v(" "),
-                _vm._m(0),
+                _vm._m(1),
                 _vm._v(" "),
                 _c(
                   "p",
@@ -55641,22 +55646,51 @@ var render = function() {
                   [_vm._v("関連ニュース")]
                 ),
                 _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
                 _vm._m(2),
                 _vm._v(" "),
-                _vm._m(3)
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4)
               ])
             ])
           ]),
           _vm._v(" "),
-          _vm._m(4)
+          _vm._m(5)
         ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+        _c("ol", { staticClass: "breadcrumb" }, [
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "/home" } }, [_vm._v("ホーム")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "./search_news_result.html" } }, [
+              _vm._v("新しい結果を検索")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "breadcrumb-item active",
+              attrs: { "aria-current": "page" }
+            },
+            [_vm._v(" 新しい詳細")]
+          )
+        ])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

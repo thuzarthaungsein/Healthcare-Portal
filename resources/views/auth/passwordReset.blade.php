@@ -29,7 +29,7 @@
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="/images/trust_growth.png" class="brand_logo" alt="trustgrowth">
+						<img src="/images/trustgrowth.png" class="brand_logo" alt="trustgrowth">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">

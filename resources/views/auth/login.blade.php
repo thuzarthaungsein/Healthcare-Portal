@@ -29,7 +29,7 @@
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="/images/trust_growth.png" class="brand_logo" alt="trustgrowth">
+						<img src="/images/trustgrowth.png" class="brand_logo" alt="trustgrowth">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
@@ -39,7 +39,8 @@
 								<form  method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                                 @csrf
 										<div class="input-group mb-3">
-											<div class="input-group-append">
+											<div class="input-group-append"
+											>
 												<span class="input-group-text"><i class="fas fa-user"></i></span>
 											</div>
 											<input type="text" class="form-control input_user {{ $errors->has('email') ? ' is-invalid' : '' }}" d="email" type="email" name="email" value="{{ old('email') }}" required autofocus placeholder="ユーザー名">
