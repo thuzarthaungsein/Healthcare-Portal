@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\sendResetPasswordMail;
 use Carbon;
 use DB;
+use App\Type;
 use App\password_reset_view;
 class registerController extends Controller
 {
@@ -19,8 +20,8 @@ class registerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('register');
+    {   $type = Type::all();
+        return view('register',compact('type'));
     }
 
     /**
@@ -50,23 +51,26 @@ class registerController extends Controller
             'password' => 'min:6|required_with:comfirm_password|same:comfirm_password',
             'comfirm_password' => 'min:6',
             'address' =>'required',
-            'img' => 'required'
+            'img' => 'required',
+            'type' => 'required'
             ]);
+
             $destinationPath = public_path('/images');
             $image = $request->file('img');
-            $input['img'] = time().'.'.$image->getClientOriginalExtension();
-            $image->move($destinationPath, $input['img']);
-            $dbPath = $destinationPath. '/'.$input['img'];
+            $getName = time().'.'.$image->getClientOriginalExtension();
+            $image->move($destinationPath, $getName);
+            // $dbPath = $destinationPath. '/'.$input['img'];
 
             $customer = new Customer;
-            $customer->logo= $dbPath;
+            $customer->logo= $getName;
             $customer->name = $request->name;
             $customer->email = $request->email;
             $customer->phone = $request->phone;
+            $customer->type_id = $request->type;
             $customer->password = bcrypt($request->password);
             $customer->address = $request->address;
             $customer->save();
-            
+
             return response()->json($request);
 
     }

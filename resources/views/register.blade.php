@@ -76,6 +76,19 @@
                             
                     </div>  
                     <div class="input-group mb-3">
+                        <label class="col-4 col-lg-3 control-label">Choose Type</label>  
+						<div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<select name="type" id="" class="form-control custom-select">
+                        <option value="">Choose Your Type</option>
+                            @foreach($type as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+                        </select>
+                            
+                    </div>  
+                    <div class="input-group mb-3">
                         <label class="col-4 col-lg-3 control-label">電話番号</label>  
 						<div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>

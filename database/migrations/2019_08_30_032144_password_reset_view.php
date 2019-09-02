@@ -42,6 +42,6 @@ class PasswordResetView extends Migration
      */
     public function down()
     {
-        //
+        \DB::statement('DROP VIEW password_reset_view');
     }
 }
