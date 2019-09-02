@@ -24,12 +24,12 @@
 			<div class="user_card">
 				<div class="links">
 					<a href="/" class="mr-auto text-white">{{__('ホーム')}}</a>
-					<a href="register" class="ml-auto text">{{__('登録')}}</a>
+					<a href="{{ url('registerForm') }}" class="ml-auto text">{{__('登録')}}</a>
 				</div>
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="/images/trust_growth.png" class="brand_logo" alt="Logo">
+						<img src="/images/trust_growth.png" class="brand_logo" alt="trustgrowth">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">

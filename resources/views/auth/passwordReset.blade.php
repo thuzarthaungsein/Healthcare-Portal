@@ -24,12 +24,12 @@
 			<div class="user_card">
 				<div class="links">
 					<a href="/" class="mr-auto text-white">{{__('ホーム')}}</a>
-					<a href="register" class="ml-auto text">{{__('登録')}}</a>
+					<a href="{{ url('registerForm') }}" class="ml-auto text">{{__('登録')}}</a>
 				</div>
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" class="brand_logo" alt="Logo">
+						<img src="/images/trust_growth.png" class="brand_logo" alt="trustgrowth">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
@@ -64,7 +64,7 @@
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links d-margin">
 						<span class="text-center">
-                            <a href="{{ url('/') }}">Back to Home</a>
+                            <a href="{{ url('/') }}">家に帰る</a>
                             @include('alert.alert-message')
                         </span>
                         
