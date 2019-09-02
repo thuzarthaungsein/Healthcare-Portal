@@ -56484,7 +56484,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
     },
 
-
     methods: {
         deleteCustomer: function deleteCustomer(id) {
             var _this2 = this;

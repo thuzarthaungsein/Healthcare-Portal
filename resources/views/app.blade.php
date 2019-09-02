@@ -116,24 +116,18 @@
             <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <a href="#">
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
+                    <div class="sub-title">
                     <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper">
+                    <span class="source-wrapper text-turncate">
                      <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="subtitle">クランクイン</span>
+                        <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
+                    </div>
+                    
                 </a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
-                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper">
-                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="subtitle">クランクイン</span>
-                    </span>
-                </a>
-            </li>
+            </li>         
+            
             </ul>
             </div>            
         </div> 
@@ -141,28 +135,39 @@
             <div class="card-body">
             <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <a href="#">                   
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
-                    <div>
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
+                    <div class="sub-title">
                     <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper">
+                    <span class="source-wrapper text-turncate">
                      <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="subtitle">クランクイン</span>
+                        <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
                     </div>
-                   
+                    
                 </a>
             </li>
+            
+            </ul>   
+            </div>
+        </div>
+        <div class="card m-b-10 ads-card2">
+            <div class="card-body">
+            <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <a href="#">
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
+                    <div class="sub-title">
                     <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper">
+                    <span class="source-wrapper text-turncate">
                      <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="subtitle">クランクイン</span>
+                        <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
+                    </div>
+                    
                 </a>
             </li>
+            
             </ul>   
             </div>
         </div>
@@ -299,7 +304,7 @@
       <!--end slider for ads-->
            
       <div class="row justify-content-md-center">           
-        <div class="col-10 tab pad-free"> 
+        <div class="col-10 tab"> 
           <!-- vue component -->
               <router-view></router-view>
              
