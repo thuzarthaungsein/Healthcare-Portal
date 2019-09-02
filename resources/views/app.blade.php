@@ -13,8 +13,8 @@
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <!-- Fonts -->
 <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
 
@@ -30,7 +30,7 @@
         }
     </style>
 <!-- link for editor -->
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet"> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 <!-- end link for editor -->
 </head>
 <body>
@@ -155,7 +155,7 @@
       @else
       <!-- login menu  -->
       <div class="adminview-sidebar" id="navbarSupportedContent">
-      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
+      <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
       
       @can('role-list')      
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;  ニュース一覧</router-link></li>
@@ -358,8 +358,8 @@
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
   <!-- script for editor -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> 
   <!-- end script for editor -->
 
 <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>

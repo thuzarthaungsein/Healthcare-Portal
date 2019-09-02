@@ -1103,9 +1103,9 @@ li.userprofile-name > a {
 .nav-link{
     color: #095c5f !important;
 }
-.router-link-active{
+/* .router-link-active{
     color: #fff !important;
-}
+} */
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
     border-color:transparent !important;
 }
