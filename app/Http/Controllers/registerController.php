@@ -51,7 +51,6 @@ class registerController extends Controller
             'password' => 'min:6|required_with:comfirm_password|same:comfirm_password',
             'comfirm_password' => 'min:6',
             'address' =>'required',
-            'img' => 'required',
             'type' => 'required'
             ]);
 

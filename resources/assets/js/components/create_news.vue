@@ -10,7 +10,7 @@
                                         <h4 class="page-header">ニュース投稿を作成</h4>
                                         <br>
                                     </div>
-                                  
+
                                     <form @submit.prevent="add" class="col-md-12">
                                         <div class="form-group">
                                             <label>題名:<span class="error">*</span></label>
@@ -85,21 +85,21 @@ export default {
                   id: '',
                   name: ''
               }
-          
+
         }
-        
+
     },
        created(){
             console.log("I'm a littel teapot");
              axios.get('http://localhost:8000/api/category/category_list')
               .then(function (response) {
-                 
+
                  this.categories = response.data;
-                 
+
               }.bind(this));
-      
+
         },
-        
+
 
     methods: {
          onFileSelected(event){
@@ -114,7 +114,7 @@ export default {
         fData.append('category_id',this.news.category_id)
         axios.post('http://localhost:8000/api/new/add', fData)
                     .then(response => {
-                        
+
                         this.$router.push({name: 'news_list'})
                          console.log(response);
                          alert('Successfully Created')
@@ -124,11 +124,11 @@ export default {
 
        },
        getstates: function(){
-          
+
            this.news.category_id = this.category_id;
 
        },
-       
+
     }
 }
 

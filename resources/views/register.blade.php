@@ -79,12 +79,12 @@
                         <label class="col-4 col-lg-3 control-label">Choose Type</label>  
 						<div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
+
 						</div>
-						<select name="type" id="" class="form-control custom-select">
+						<select name="type" id="type" class="form-control custom-select">
                         <option value="">Choose Your Type</option>
-                            @foreach($type as $type)
-                                <option value="{{$type->id}}">{{$type->name}}</option>
-                            @endforeach
+                        <option value="1">Hospital</option>
+                        <option value="2">Nursing</option>
                         </select>
                             
                     </div>  
@@ -151,6 +151,11 @@
                 $(this).remove(); 
             });
         }, 5000);
+    });
+
+    $('#type').on('change',function(){
+       const v = $( "#type option:selected" ).val();
+       console.log(v);
     });
     </script>
     

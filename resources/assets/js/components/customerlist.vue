@@ -85,7 +85,7 @@
         </div>
     </div> -->
     <div class="col-12">
-        
+
             <div class="card card-default m-b-20">
 
             <div class="card-body">
@@ -103,7 +103,7 @@
         <!-- <div class="text-center">
             <h4 style="padding-top:20px;">Customer List </h4>
         </div><br/> -->
-        
+
         <div class="scrolldiv col-12">
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
                 <div class="card-body news-post">
@@ -126,7 +126,7 @@
                                  <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
                                  <button class="btn btn-info all-btn" v-if="customer.status != 0">Confirmed</button>
                                 <button class="btn btn-info all-btn" v-else @click="comfirm(customer.id)">Confirm</button>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -155,7 +155,6 @@ export default {
 
                 });
     },
- 
     methods: {
             deleteCustomer(id) {
                 this.axios

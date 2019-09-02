@@ -15,7 +15,6 @@ import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
 import custedit from './components/custedit.vue';
 import CustomerSearchListComponent from './components/CustomerSearchListComponent.vue';
-
 import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
@@ -24,6 +23,7 @@ import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
+import advertisement from './components/advertisement.vue';
 
 import createmedicalacceptance from './components/createmedicalacceptance.vue';
 import medicalacceptancelist from './components/medicalacceptancelist.vue';
@@ -183,4 +183,9 @@ export const routes = [
       path: '/userPasswordResetList',
       component: userPasswordResetList
     },
+    {
+        name: 'advertisement',
+        path: '/advertisement',
+        component: advertisement
+      }
 ];

@@ -60,6 +60,7 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Mamagement Partner'),
     ],
 
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

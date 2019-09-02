@@ -54,7 +54,7 @@ Route::get('getReset','registerController@getReset');
 
 
 Route::get('jobs', 'JobController@index');
-Route::get('skill', 'JobApplyController@getSkill');
+Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
 Route::post('getmap','adminController@getMap');
 Route::get('customers','CustomerController@index');
@@ -140,4 +140,10 @@ Route::group(['prefix' => 'medical'], function () {
     Route::get('edit/{id}', 'MedicalController@edit');
     Route::post('update/{id}', 'MedicalController@update');
 });
+
+//Route::post('add','AdvertisementController@store');
+Route::group(['prefix' => 'advertisement'], function () {
+    Route::post('add', 'AdvertisementController@store');
+});
+
 
