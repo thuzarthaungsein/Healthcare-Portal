@@ -4,7 +4,7 @@
             <div class="card-body news-post">
                 <div class="row">
                     <div class="col-md-2" >
-                          <img src="/upload/advertisement/ad_1.jpg" class="col-md-12 " alt=" " style="height:100px;width:100px" >
+                           <img src="/upload/advertisement/ad_1.jpg" class="col-md-12 " alt=" " style="height:100px;width:100px" >
                         <!-- <img v-bind:src="ads.photo" style="height:100px;width:100px"> -->
                         <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
                     </div>

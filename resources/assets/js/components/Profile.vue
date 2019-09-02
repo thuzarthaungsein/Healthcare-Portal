@@ -38,7 +38,7 @@
 
                         <div class="col-md-12 pad-free" v-if="type == 'hospital'">
                                 <div class="form-group">
-                                        <label>Gallery<span class="error">*</span></label>
+                                        <label>フォトアルバム<span class="error">*</span></label>
                                         <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
 
                                         <div class="col-md-12">
@@ -154,11 +154,23 @@
 
                                 <div class="form-group">
                                         <label>Gallery</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">+</span>
-                                        <div class="row" id="gallery"></div>
+                                        <div class="col-md-12">
+                                                <div class="row" id="gallery"></div>
+                                        </div>
+                                        
                                 </div>
                                 <div class="form-group">
                                         <label>特長<span class="error">*</span></label>
-                                        <textarea name="medicaldepartment" class="form-control"></textarea>
+                                        <textarea name="feature" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                        <label>費用</label>
+                                </div>
+                                <div class="form-group">
+                                        <label>支払い方法<span class="error">*</span></label>
+                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="methodAdd()">+</span>
+
+                                        <div class="col-md-12 pad-free" id="methods"></div>
                                 </div>
                         </div>
 
@@ -218,6 +230,10 @@ export default {
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
                     $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="Title" class="form-control m-b-15"><textarea name="description" placeholder="Description" class="form-control m-b-15"></textarea></div>');
+            },
+
+            methodAdd() {
+                   $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">Breakdown</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> '); 
             }
         }
 }

@@ -17,26 +17,32 @@
                                     <div class="form-group"> 
                                         <label> Logo : </label>
                                         <input type="file" accept="image/*"  @change ="onFileSelected" id="file" ref="file" class="form-control">
+                                        <span v-if="errors.logo" class="error">{{errors.logo[0]}}</span>
                                     </div>
                                     <div class="form-group">
                                         <label>Customer Name :</label>
-                                        <input type="text" class="form-control"  v-model="customer.name"  placeholder="Customer Name" required>
+                                        <input type="text" class="form-control"  v-model="customer.name"  placeholder="Customer Name">
+                                        <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                                     </div>
                                     <div class="form-group">
                                         <label>Email :</label>
-                                        <input type="text" class="form-control"  v-model="customer.email"  placeholder="Email" required>
+                                        <input type="text" class="form-control"  v-model="customer.email"  placeholder="Email">
+                                        <span v-if="errors.email" class="error">{{errors.email[0]}}</span>
                                     </div>
                                     <div class="form-group">
                                         <label>Password :</label>
-                                        <input type="text" class="form-control"  v-model="customer.password"  placeholder="Password" required>
+                                        <input type="password" class="form-control"  v-model="customer.password"  placeholder="Password">
+                                        <span v-if="errors.password" class="error">{{errors.password[0]}}</span>
                                     </div>
                                     <div class="form-group">
                                         <label>Phone No :</label>
-                                        <input type="text" class="form-control"  v-model="customer.phone"  placeholder="Phone No" required>
+                                        <input type="number" class="form-control"  v-model="customer.phone"  placeholder="Phone No">
+                                        <span v-if="errors.phone" class="error">{{errors.phone[0]}}</span>
                                     </div>
                                     <div class="form-group">
                                         <label>Address :</label>
-                                        <input type="text" class="form-control"  v-model="customer.address"  placeholder="Address" required>
+                                        <input type="text" class="form-control"  v-model="customer.address"  placeholder="Address">
+                                        <span v-if="errors.address" class="error">{{errors.address[0]}}</span>
                                     </div>
                                 
                                     <div class="form-group ">
@@ -98,12 +104,19 @@ export default {
 
                  
                  axios.post('http://localhost:8000/api/customer/add', fd )
-                    .then((response) => {
-                        console.log(response);
-                    alert('Successfully Created')
-                    console.log(response);
-                     this.$router.push({name: '/'});
-                    })
+                .then(response => {
+                    this.logo = ''
+                    this.name =''
+                    this.email = ''
+                    this.password = ''
+                    this.phone = ''
+                    this.address = ''
+                }).catch(error=>{
+                    if(error.response.status == 422){
+                        this.errors = error.response.data.errors
+                    }
+                })
+
             }
            
         }

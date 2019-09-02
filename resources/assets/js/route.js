@@ -27,18 +27,25 @@ import advertisement from './components/advertisement.vue';
 import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
 
-export const routes = [
+import createmedicalacceptance from './components/createmedicalacceptance.vue';
+import medicalacceptancelist from './components/medicalacceptancelist.vue';
+import editmedicalacceptance from './components/editmedicalacceptance.vue';
+import userPasswordResetList from './components/userPasswordResetList.vue';
 
-       {
+import HospitalHistory from './components/HospitalHistory.vue';
+
+export const routes = [
+ 
+      {
         name: 'home',
         path: '/',
         component: home
       },
-      {
-        name: 'home',
-        path: '/home',
-        component: home
-      },
+      // {
+      //   name: 'home',
+      //   path: '/home',
+      //   component: home
+      // },
 
     {
         name: 'newdetails',
@@ -47,7 +54,7 @@ export const routes = [
     },
        {
         name: 'hospital_search',
-        path: '/hospitalsearch',
+        path: '/hospital_search',
         component: hospitalSearch
        },
     {
@@ -150,6 +157,33 @@ export const routes = [
       name: 'jobofferlist',
       path: '/jobofferlist',
       component: JobOfferList
+    },
+    {
+      name: 'hospital_history',
+      path: '/hospital_history',
+      component: HospitalHistory
+    },
+    {
+      name: 'createmedicalacceptance',
+      path: '/createmedicalacceptance',
+      component: createmedicalacceptance
+    },
+
+    {
+      name: 'medicalacceptancelist',
+      path: '/medicalacceptancelist',
+      component: medicalacceptancelist
+    },
+
+    {
+      name: 'editmedicalacceptance',
+      path: '/editmedicalacceptance',
+      component: editmedicalacceptance
+    },
+    {
+      name: 'userPasswordResetList',
+      path: '/userPasswordResetList',
+      component: userPasswordResetList
     },
     {
         name: 'advertisement',
