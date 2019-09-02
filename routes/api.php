@@ -17,8 +17,40 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
+// public route api start 
+
+    // ........ 
+
+// public route api end 
+ 
+
+
+
+
+
+
+
+
+
+
+
+// login route api start 
+Route::group(['middleware' => ['auth']], function() {
+
+    Route::get('approve/{id}','registerController@approve');
+    
+});
+// login route api end 
+
+
+
+
+
+
 Route::get('getReset','registerController@getReset');
-Route::get('approve/{id}','registerController@approve');
+
 
 
 Route::get('jobs', 'JobController@index');

@@ -47,3 +47,4 @@ $('path').on("click", function(e) {
         $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
     }
 
+
