@@ -56663,7 +56663,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -57974,8 +57974,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "content" } }, [
-    _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "row", attrs: { id: "content" } }, [
+    _c("div", { staticClass: "col-12" }, [
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "row m-b-15" }, [
@@ -58109,7 +58109,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -58764,7 +58764,10 @@ var render = function() {
                 staticStyle: { color: "blue" },
                 attrs: { to: "/createcategory" }
               },
-              [_vm._v("新しいカテゴリを作成")]
+              [
+                _c("i", { staticClass: "fas fa-add-plus" }),
+                _vm._v("新しいカテゴリを作成")
+              ]
             )
           ],
           1
@@ -58858,7 +58861,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -59387,7 +59390,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -64531,8 +64534,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "col-md-12 " }, [
-      _c("div", { staticClass: "card text-dark" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12 card text-dark" }, [
         _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "card-body " }, [
@@ -64759,10 +64762,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-center" }, [
-      _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-        _vm._v(" Advertisements ")
-      ])
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "h4",
+        { staticClass: "header", staticStyle: { "padding-top": "20px" } },
+        [_vm._v(" Advertisements ")]
+      )
     ])
   },
   function() {

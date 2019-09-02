@@ -10,14 +10,14 @@
                                 <input type="text" class="form-control" placeholder="検索">
                             </div>
                             <div class="col-md-2">
-                                <button class="btn secondary-bg-color all-btn white">検索</button>
+                                <button class="btn secondary-bg-color all-btn white"><i class="fas fa-search"></i> 検索</button>
                             </div>
                         </div>
                 </div>
           </div>
            <div class="row m-b-15">
                 <div class="col-md-12">
-                    <router-link to="/createcategory" class="float-right" style="color: blue;">新しいカテゴリを作成</router-link>
+                    <router-link to="/createcategory" class="float-right" style="color: blue;"><i class="fas fa-add-plus"></i>新しいカテゴリを作成</router-link>
                 </div>
                 <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
             </div>
