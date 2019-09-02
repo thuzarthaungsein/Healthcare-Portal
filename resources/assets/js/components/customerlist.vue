@@ -85,7 +85,7 @@
         </div>
     </div> -->
     <div class="col-12">
-        
+
             <div class="card card-default m-b-20">
 
             <div class="card-body">
@@ -103,16 +103,16 @@
         <!-- <div class="text-center">
             <h4 style="padding-top:20px;">Customer List </h4>
         </div><br/> -->
-        
+
         <div class="scrolldiv col-12">
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
-            <div class="card-body news-post">
-                <div class="row">
-                    <div class="col-md-2" >
-                        <img src="/images/hospitalpage.jpg" class="col-md-12 " alt=" " style="height:150px;" >
-                        <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
-                    </div>
-                    <div class="col-md-10">
+                <div class="card-body news-post">
+                    <div class="row">
+                        <div class="col-md-2" >
+                            <img src="/images/hospitalpage.jpg" class="col-md-12 " alt=" " style="height:150px;" >
+                            <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
+                        </div>
+                        <div class="col-md-10">
                         <div class="col-sm-8 pad-free mb-2">
                             <a><strong>Name     :</strong>{{customer.name}}</a><br/>
                             <a><strong>Email    :</strong>{{customer.email}}</a><br/>
@@ -126,7 +126,7 @@
                                  <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
                                  <button class="btn btn-info all-btn" v-if="customer.status != 0">Confirmed</button>
                                 <button class="btn btn-info all-btn" v-else @click="comfirm(customer.id)">Confirm</button>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -155,13 +155,12 @@ export default {
 
                 });
     },
- 
     methods: {
             deleteCustomer(id) {
                 this.axios
                     .delete(`http://localhost:8000/api/customer/delete/${id}`)
                     .then(response => {
-                        alert('Delete Successfully!');
+                        flash('Delete Success', 'success');
                         let a = this.customers.map(item => item.id).indexOf(id);
                         this.customers.splice(a, 1)
                     });

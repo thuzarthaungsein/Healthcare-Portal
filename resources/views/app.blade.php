@@ -24,7 +24,12 @@
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <style>
+        .bg-light {
+            background-color: #eae9e9 !important;
+        }
+    </style>
 <!-- link for editor -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 <!-- end link for editor -->
@@ -34,7 +39,7 @@
 <div class="col-md-10 offset-md-1 main-content pad-free">
     <flash message=""></flash>
   <!--navigation bar-->
-  <nav class="navbar navbar-expand-lg navbar-dark main-header" style="padding-right: 0px;">
+  <nav class="navbar navbar-expand-lg navbar-dark main-header">
   <a class="navbar-brand" href="#">
       <img src="images/trust_growth.png" alt="">
  </a>
@@ -58,7 +63,8 @@
             <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
         </li>
     @else
-    <li class="nav-item btn login-register-btn col-lg-6">
+    <li class="nav-item btn login-register-btn col-lg-12 userprofile-name">
+            <img src="/images/user.png" alt="" class="userprofile-img">
             <a class="nav-link" href="#!">{{ Auth::user()->name }}</a>
         </li>
         
@@ -110,24 +116,18 @@
             <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <a href="#">
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
+                    <div class="sub-title">
                     <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper">
+                    <span class="source-wrapper text-turncate">
                      <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="subtitle">クランクイン</span>
+                        <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
+                    </div>
+                    
                 </a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
-                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper">
-                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="subtitle">クランクイン</span>
-                    </span>
-                </a>
-            </li>
+            </li>         
+            
             </ul>
             </div>            
         </div> 
@@ -135,28 +135,39 @@
             <div class="card-body">
             <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <a href="#">                   
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
-                    <div>
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
+                    <div class="sub-title">
                     <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper">
+                    <span class="source-wrapper text-turncate">
                      <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="subtitle">クランクイン</span>
+                        <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
                     </div>
-                   
+                    
                 </a>
             </li>
+            
+            </ul>   
+            </div>
+        </div>
+        <div class="card m-b-10 ads-card2">
+            <div class="card-body">
+            <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <a href="#">
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
+                    <div class="sub-title">
                     <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper">
+                    <span class="source-wrapper text-turncate">
                      <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="subtitle">クランクイン</span>
+                        <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
+                    </div>
+                    
                 </a>
             </li>
+            
             </ul>   
             </div>
         </div>
@@ -171,16 +182,21 @@
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;  顧客一覧</router-link></li>
       <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;  カテゴ一覧</router-link></li>
       <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  施設一覧</router-link></li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list"></i>&nbsp;&nbsp;Dropdown</a>
-        <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
-        </div>
-      </li>      
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Pages</a>
+        <ul class="list-unstyled collapse" id="pageSubmenu" style="">
+            <li>
+                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  User Password Reset</router-link>
+            </li>
+            <li>
+                <a href="#">Page 2</a>
+            </li>
+            <li>
+                <a href="#">Page 3</a>
+            </li>
+        </ul>
+    </li>
+     
       @endcan
 
       @can('customer')
@@ -288,9 +304,10 @@
       <!--end slider for ads-->
            
       <div class="row justify-content-md-center">           
-        <div class="col-10 tab pad-free"> 
+        <div class="col-10 tab"> 
           <!-- vue component -->
               <router-view></router-view>
+             
           <!-- vue component -->
 
       <!-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">three</div>
@@ -350,11 +367,15 @@
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 <script type="text/javascript">
  $(document).ready(function() {
+    $('.DataTable').DataTable();
     jssor_1_slider_init(); 
-    jssor_slider2_init();  
+    jssor_slider2_init();      
+
     var csrf = "{{ csrf_token() }}";
     $.ajax({
         url: 'http://localhost:8000/api/get_latest_post_all_cat',
@@ -364,15 +385,12 @@
         success: function( data ) {
             
             for (var i = 0; i < data.length; i++) {
-                var link_arr = '';
-                var photo = '<li class="list-group-item adslist-card"><a href= "#"><img class="img-responsivie ads-img" src="../images/' + data[i].photo + '" />';
-                var title = '<h3 class="smallads-title text-truncate">' + data[i].title + '</h3>';
+                var photo = '<li class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-responsivie ads-img" src="../images/' + data[i].photo + '" />';
+                var title = '<h3 class="smallads-title text-truncate">' + data[i].title + '</h3></li>';
                 $("#menu").append(photo + title);
             } 
         }       
     });              
-
-
 });
 </script>
 </body>

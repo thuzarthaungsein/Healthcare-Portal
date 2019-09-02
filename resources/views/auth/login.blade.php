@@ -24,12 +24,12 @@
 			<div class="user_card">
 				<div class="links">
 					<a href="/" class="mr-auto text-white">{{__('ホーム')}}</a>
-					<a href="register" class="ml-auto text">{{__('登録')}}</a>
+					<a href="{{ url('registerForm') }}" class="ml-auto text">{{__('登録')}}</a>
 				</div>
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="/images/trust_growth.png" class="brand_logo" alt="Logo">
+						<img src="/images/trust_growth.png" class="brand_logo" alt="trustgrowth">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
@@ -70,7 +70,7 @@
                 </form>
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links d-margin">
-						<span><a href="{{ route('password.request') }}">パスワードを忘れる ?</a></span>
+						<span><a href="{{ url('passwordReset') }}">パスワードを忘れる ?</a></span>
 
 					</div>
 				</div>
@@ -81,22 +81,6 @@
         <!-- Bootstrap Js CDN -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-		<script>
-			// $(document).ready(function(){
-			// 	$('#getUser').click(function(){
-			// 		var getUserName = $('#name').val();
-			// 		if(getUserName == "admin" || getUserName == "user"){
-			// 			localStorage.setItem(name,getUserName);
-			// 			var url = "http://localhost/News/pages/news/news_list.html";
-			// 			$(location).attr('href',url);
-			// 		}
-			// 		else{
-			// 			alert('login error');
-			// 		}
-			// 	});
-			// })
-		</script>
 </body>
 </html>
 

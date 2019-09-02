@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNursingProfileTable extends Migration
+class CreateNursingProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNursingProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('nursing_profile', function (Blueprint $table) {
+        Schema::create('nursing_profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id');
             $table->text('access')->nullable();
@@ -51,6 +51,6 @@ class CreateNursingProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nursing_profile');
+        Schema::dropIfExists('nursing_profiles');
     }
 }

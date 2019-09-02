@@ -15,7 +15,6 @@ import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
 import CreateFacilityComponent  from './components/CreateFacilityComponent.vue';
 import custedit from './components/custedit.vue';
 import CustomerSearchListComponent from './components/CustomerSearchListComponent.vue';
-
 import map from './components/map.vue';
 import EditFacilityComponent from './components/EditFacilityComponent.vue';
 import editcategory from './components/editcategory.vue';
@@ -24,10 +23,18 @@ import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
+import advertisement from './components/advertisement.vue';
+
+import createmedicalacceptance from './components/createmedicalacceptance.vue';
+import medicalacceptancelist from './components/medicalacceptancelist.vue';
+import editmedicalacceptance from './components/editmedicalacceptance.vue';
+import userPasswordResetList from './components/userPasswordResetList.vue';
+
+import HospitalHistory from './components/HospitalHistory.vue';
 
 export const routes = [
-
-       {
+ 
+      {
         name: 'home',
         path: '/',
         component: home
@@ -45,7 +52,7 @@ export const routes = [
     },
        {
         name: 'hospital_search',
-        path: '/hospitalsearch',
+        path: '/hospital_search',
         component: hospitalSearch
        },
     {
@@ -149,4 +156,36 @@ export const routes = [
       path: '/jobofferlist',
       component: JobOfferList
     },
+    {
+      name: 'hospital_history',
+      path: '/hospital_history',
+      component: HospitalHistory
+    },
+    {
+      name: 'createmedicalacceptance',
+      path: '/createmedicalacceptance',
+      component: createmedicalacceptance
+    },
+
+    {
+      name: 'medicalacceptancelist',
+      path: '/medicalacceptancelist',
+      component: medicalacceptancelist
+    },
+
+    {
+      name: 'editmedicalacceptance',
+      path: '/editmedicalacceptance',
+      component: editmedicalacceptance
+    },
+    {
+      name: 'userPasswordResetList',
+      path: '/userPasswordResetList',
+      component: userPasswordResetList
+    },
+    {
+        name: 'advertisement',
+        path: '/advertisement',
+        component: advertisement
+      }
 ];

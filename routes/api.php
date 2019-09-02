@@ -17,8 +17,44 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
+// public route api start 
+
+    // ........ 
+
+// public route api end 
+ 
+
+
+
+
+
+
+
+
+
+
+
+// login route api start 
+Route::group(['middleware' => ['auth']], function() {
+
+    Route::get('approve/{id}','registerController@approve');
+    
+});
+// login route api end 
+
+
+
+
+
+
+Route::get('getReset','registerController@getReset');
+
+
+
 Route::get('jobs', 'JobController@index');
-Route::get('skill', 'JobApplyController@getSkill');
+Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
 Route::post('getmap','adminController@getMap');
 Route::get('customers','CustomerController@index');
@@ -93,3 +129,21 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
+
+// Guest Hospital History
+Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
+
+Route::group(['prefix' => 'medical'], function () {
+    Route::post('add', 'MedicalController@add');
+    Route::get('medicalacceptance', 'MedicalController@index');
+    Route::delete('delete/{id}', 'MedicalController@destroy');
+    Route::get('edit/{id}', 'MedicalController@edit');
+    Route::post('update/{id}', 'MedicalController@update');
+});
+
+//Route::post('add','AdvertisementController@store');
+Route::group(['prefix' => 'advertisement'], function () {
+    Route::post('add', 'AdvertisementController@store');
+});
+
+
