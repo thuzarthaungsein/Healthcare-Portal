@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use App\Customer;
+use App\password_reset;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\sendResetPasswordMail;
+use Carbon;
+use DB;
+use App\password_reset_view;
 class registerController extends Controller
 {
     /**
@@ -81,4 +88,81 @@ class registerController extends Controller
     {
         //
     }
+
+    // regisert end
+
+    public function reset()
+    {
+        return view('auth.passwordReset');
+    }
+    public function insertUesr(Request $request)
+    {	
+        $getEmail = $request->email;
+        
+        $CheckUserEmail = User::where('email',$getEmail)->select('email')->value('email');
+        $checkResetEmail = password_reset::where('email',$getEmail)->select('email')->value('email');
+        if(!empty($checkResetEmail)){
+            return back()->with('reset','Your Email is already reset password!');
+        }else{
+            if(!empty($CheckUserEmail)){
+                $getUserId = User::where('email',$getEmail)->select('id')->value('id');
+                $getCustomerId = Customer::where('email',$getEmail)->select('id')->value('id');
+                $getTime = Carbon\Carbon::now();
+    
+                $data = array([
+                    'email' => $getEmail,
+                    'user_id' => $getUserId,
+                    'customer_id' => $getCustomerId,
+                    'created_at' => $getTime,
+                ]);
+                DB::table('password_reset')->insert($data);
+                return back()->with('reset','Check Your email for new password. When admin approved,you can use your password');
+    
+    
+    
+            }else{
+                return back()->with('reset','Your Email is not register');
+            }
+        }
+    }
+
+    public function getReset()
+    {
+        $getReset = DB::table('password_reset_view')->get();
+        return response()->json($getReset);
+    }
+    
+    public function approve($id)
+    {
+        $getEmail = password_reset::where('id',$id)->select('email')->value('email');
+        
+        $password = str_random(6);
+        $hashPass = bcrypt($password);
+        $updateUser = array(
+            'password' => $hashPass
+        );
+        $updateReset = array(
+            'password' => $password,
+            'status' => 1
+        );
+        
+        $updateCustomer = array(
+            'password' => $hashPass
+        );
+        DB::table('password_reset')->where('id',$id)->update($updateReset);
+        DB::table('users')->where('email',$getEmail)->update($updateUser);
+        DB::table('customers')->where('email',$getEmail)->update($updateCustomer);
+        
+        $resetPass= password_reset_view::findOrFail($id);
+        \Mail::to($getEmail)->send(new sendResetPasswordMail($resetPass));
+
+        return response()->json('success approved and send mail');
+    }
+
+
+
+
+
+
+
 }

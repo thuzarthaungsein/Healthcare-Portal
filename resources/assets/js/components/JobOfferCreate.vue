@@ -23,7 +23,7 @@
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="description" ><strong> Description :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="description" class="form-control" cols="50" rows="5" v-model="joboffer.description" required></textarea>
                                                 </div>
                                         </div>
@@ -41,7 +41,7 @@
                                             <div class="col-sm-3 text-right">
                                                 <label for ="skill"><strong> Skill : </strong></label>
                                             </div>
-                                            <div class="col-sm-10"  >
+                                            <div class="col-sm-9"  >
                                                  <input type="text" class="form-control" v-model="field.skills">
                                                 <!-- <input type="text" class="form-control"  v-model="joboffer.skills" >  -->
                                             </div>
@@ -56,7 +56,7 @@
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="location" ><strong> Location :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="location" class="form-control" cols="50" rows="5" v-model="joboffer.location"  required></textarea>
                                                 </div>
                                         </div>
@@ -65,7 +65,7 @@
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="neareststation" ><strong> Nearest Station :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="neareststation" class="form-control" cols="50" rows="5" v-model="joboffer.nearest_station" ></textarea>
                                                 </div>
                                         </div>
@@ -94,7 +94,7 @@
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="allowance" ><strong> Allowance :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="allowance" class="form-control" cols="50" rows="5" v-model="joboffer.allowances"></textarea>
                                                 </div>
                                         </div>
@@ -103,7 +103,7 @@
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="insurance" ><strong> Insurance :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="insurance" class="form-control" cols="50" rows="5" v-model="joboffer.insurance" ></textarea>
                                                 </div>
                                         </div>
@@ -121,7 +121,7 @@
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="holiday" ><strong> Holidays :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="holiday" class="form-control" cols="50" rows="5" v-model="joboffer.holidays" ></textarea>
                                                 </div>
                                         </div>

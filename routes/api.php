@@ -17,6 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('getReset','registerController@getReset');
+Route::get('approve/{id}','registerController@approve');
+
+
 Route::get('jobs', 'JobController@index');
 Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
@@ -98,4 +102,15 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::post('add', 'AdvertisementController@store');
 });
 
+
+// Guest Hospital History
+Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
+
+Route::group(['prefix' => 'medical'], function () {
+    Route::post('add', 'MedicalController@add');
+    Route::get('medicalacceptance', 'MedicalController@index');
+    Route::delete('delete/{id}', 'MedicalController@destroy');
+    Route::get('edit/{id}', 'MedicalController@edit');
+    Route::post('update/{id}', 'MedicalController@update');
+});
 
