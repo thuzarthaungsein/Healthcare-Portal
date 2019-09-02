@@ -48,7 +48,7 @@ class JobApplyController extends Controller
                     {
                         $string .= $request->fields[$i];
                     }else{
-                        $string .= $request->fields[$i] .',';
+                        $string .= $request->fields[$i].',';
                     }
 
                 }
@@ -67,17 +67,15 @@ class JobApplyController extends Controller
 
              ]);
              $jobapply->save();
-
-
              return response()->json('Apply successfully ');
 
     }
 
-    public function getSkill()
+    public function getSkills()
     {
+
         $skill = Job::select('skills')->value('skills');
          $array =explode(',',$skill);
-
             return ($array);
 
         }

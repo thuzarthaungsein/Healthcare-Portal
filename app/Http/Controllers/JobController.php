@@ -29,9 +29,9 @@ class JobController extends Controller
     public function getSkill()
     {
         $job = Job::select('skills')->value('skills');
+
         return $job;
     }
-    
     public function store(Request $request)
     {
 
@@ -48,7 +48,6 @@ class JobController extends Controller
         }
 
 
-        
 
         $cstring = '';
         if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false)

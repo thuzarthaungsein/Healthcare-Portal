@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('jobs', 'JobController@index');
-Route::get('skill', 'JobApplyController@getSkill');
+Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
 Route::post('getmap','adminController@getMap');
 Route::get('customers','CustomerController@index');
@@ -93,3 +93,9 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
+//Route::post('add','AdvertisementController@store');
+Route::group(['prefix' => 'advertisement'], function () {
+    Route::post('add', 'AdvertisementController@store');
+});
+
+

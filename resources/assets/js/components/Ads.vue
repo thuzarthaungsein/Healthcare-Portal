@@ -64,7 +64,7 @@
             </svg>
         </div>
     </div>
-            
+
         </div>
 </template>
 <script>
@@ -72,11 +72,11 @@
         mounted() {
             console.log('Component mounted.')
             $(document).ready(function() {
-                    jssor_1_slider_init();                      
+                    jssor_1_slider_init();
 
                 });
         }
-        
+
     }
 </script>
 
@@ -110,7 +110,7 @@
         .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
 
 /*end for jssor*/
- 
+
 
 
 
