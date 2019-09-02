@@ -51,6 +51,7 @@ class registerController extends Controller
             'address' =>'required',
             'img' => 'required'
             ]);
+            
 
             return response()->json($request);
     }
