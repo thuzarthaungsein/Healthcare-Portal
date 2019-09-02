@@ -30,6 +30,7 @@ class JobController extends Controller
     public function getSkill()
     {
         $job = Job::select('skills')->value('skills');
+
         return $job;
     }
     public function store(Request $request)
@@ -48,7 +49,7 @@ class JobController extends Controller
         }
 
 
-        }
+
 
         $cstring = '';
         if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false)
@@ -95,11 +96,6 @@ class JobController extends Controller
 
     }
 
-<<<<<<< HEAD
-    public function edit(Job $job)
-    {
-
-=======
 
 
     public function edit($id)
@@ -108,22 +104,9 @@ class JobController extends Controller
         $job = Job::find($id);
 
         return response()->json($job);
->>>>>>> 35e548c153393c827d10b3b8b68f804905d4163b
     }
 
 
-<<<<<<< HEAD
-
-    public function update(Request $request, Job $job)
-    {
-
-    }
-
-
-    public function destroy(Job $job)
-    {
-
-=======
 
     public function update($id, Request $request)
     {
@@ -188,6 +171,5 @@ class JobController extends Controller
         $job = Job::find($id);
         $job->delete();
         return response()->json('The Job successfully deleted');
->>>>>>> 35e548c153393c827d10b3b8b68f804905d4163b
     }
 }
