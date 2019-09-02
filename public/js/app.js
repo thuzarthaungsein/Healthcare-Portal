@@ -52449,6 +52449,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_editmedicalacceptance_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_editmedicalacceptance_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_userPasswordResetList_vue__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_userPasswordResetList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_userPasswordResetList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_HospitalHistory_vue__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_HospitalHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_HospitalHistory_vue__);
+
+
 
 
 
@@ -52495,7 +52499,7 @@ var routes = [{
   component: __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default.a
 }, {
   name: 'hospital_search',
-  path: '/hospitalsearch',
+  path: '/hospital_search',
   component: __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default.a
 }, {
   name: 'jobapply',
@@ -52577,6 +52581,10 @@ var routes = [{
   name: 'jobofferlist',
   path: '/jobofferlist',
   component: __WEBPACK_IMPORTED_MODULE_23__components_JobOfferList_vue___default.a
+}, {
+  name: 'hospital_history',
+  path: '/hospital_history',
+  component: __WEBPACK_IMPORTED_MODULE_28__components_HospitalHistory_vue___default.a
 }, {
   name: 'createmedicalacceptance',
   path: '/createmedicalacceptance',
@@ -54975,37 +54983,34 @@ var render = function() {
                   _c("div", { staticClass: "active-users col-md-4" }, [
                     _c(
                       "a",
-                      { attrs: { href: "#" } },
+                      { attrs: { href: "/newsdetails/" + _vm.latest_post.id } },
                       [
-                        _c("router-link", { attrs: { to: "/newsdetails" } }, [
+                        _c("img", {
+                          staticClass: "source-img img-responsive",
+                          staticStyle: { width: "100%", height: "200px" },
+                          attrs: { src: "/images/" + _vm.latest_post.photo }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass: "source-title",
+                            attrs: { "aria-label": "" }
+                          },
+                          [_vm._v(_vm._s(_vm.latest_post.title))]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "source-subtitle" }, [
                           _c("img", {
-                            staticClass: "source-img img-responsive",
-                            staticStyle: { width: "100%", height: "200px" },
-                            attrs: { src: "/images/" + _vm.latest_post.photo }
+                            staticClass: "source-img",
+                            attrs: { alt: "", src: "/images/5.png" }
                           }),
-                          _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              staticClass: "source-title",
-                              attrs: { "aria-label": "" }
-                            },
-                            [_vm._v(_vm._s(_vm.latest_post.title))]
-                          ),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "source-subtitle" }, [
-                            _c("img", {
-                              staticClass: "source-img",
-                              attrs: { alt: "", src: "/images/5.png" }
-                            }),
-                            _vm._v(
-                              _vm._s(_vm.latest_post.created_at) +
-                                "\r\n                                                                        "
-                            )
-                          ])
+                          _vm._v(
+                            _vm._s(_vm.latest_post.created_at) +
+                              "\r\n                                                                        "
+                          )
                         ])
-                      ],
-                      1
+                      ]
                     )
                   ]),
                   _vm._v(" "),
@@ -55027,37 +55032,29 @@ var render = function() {
                                 [
                                   _c(
                                     "a",
-                                    { attrs: { href: "#" } },
+                                    {
+                                      attrs: { href: "/newsdetails/" + post.id }
+                                    },
                                     [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/1.jpg", alt: "" }
+                                      }),
+                                      _vm._v(" "),
                                       _c(
-                                        "router-link",
-                                        { attrs: { to: "/newsdetails" } },
-                                        [
-                                          _c("img", {
-                                            staticClass:
-                                              "img-responsive float-right",
-                                            staticStyle: {
-                                              width: "16px",
-                                              height: "16px"
-                                            },
-                                            attrs: {
-                                              src: "/images/1.jpg",
-                                              alt: ""
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "source-img-small d-inline-block text-truncate"
-                                            },
-                                            [_vm._v(_vm._s(post.title) + " ")]
-                                          )
-                                        ]
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "source-img-small d-inline-block text-truncate"
+                                        },
+                                        [_vm._v(_vm._s(post.title) + " ")]
                                       )
-                                    ],
-                                    1
+                                    ]
                                   )
                                 ]
                               )
@@ -55105,7 +55102,7 @@ var render = function() {
                     "a",
                     {
                       staticClass: "btn btn-sm all-btn secondary-bg-color",
-                      attrs: { href: "/newsdetails" }
+                      attrs: { href: "/newsdetails/" + latest_post_all_cat.id }
                     },
                     [_vm._v(_vm._s(latest_post_all_cat.title))]
                   )
@@ -58220,6 +58217,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            category_id: '',
             errors: [],
             news: {
                 title: '',
@@ -63407,6 +63405,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
@@ -63448,6 +63458,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var classname = "class" + h + m + s;
                         var c = "'" + classname + "'";
                         $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="Title" class="form-control m-b-15"><textarea name="description" placeholder="Description" class="form-control m-b-15"></textarea></div>');
+                },
+                methodAdd: function methodAdd() {
+                        $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">Breakdown</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
                 }
         }
 });
@@ -63663,14 +63676,39 @@ var render = function() {
                   [_vm._v("+")]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "row", attrs: { id: "gallery" } })
+                _vm._m(17)
               ]),
               _vm._v(" "),
-              _vm._m(17)
+              _vm._m(18),
+              _vm._v(" "),
+              _vm._m(19),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _vm._m(20),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "btn all-btn main-bg-color m-l-10",
+                    staticStyle: { "min-width": "0px" },
+                    on: {
+                      click: function($event) {
+                        return _vm.methodAdd()
+                      }
+                    }
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass: "col-md-12 pad-free",
+                  attrs: { id: "methods" }
+                })
+              ])
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(18)
+        _vm._m(21)
       ])
     ])
   ])
@@ -63778,7 +63816,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("Gallery"),
+      _vm._v("フォトアルバム"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
@@ -63985,6 +64023,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "row", attrs: { id: "gallery" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
       _c("label", [
         _vm._v("特長"),
@@ -63993,8 +64039,25 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("textarea", {
         staticClass: "form-control",
-        attrs: { name: "medicaldepartment" }
+        attrs: { name: "feature" }
       })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("費用")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("支払い方法"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
   function() {
@@ -65424,6 +65487,275 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(149)
+/* template */
+var __vue_template__ = __webpack_require__(150)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/HospitalHistory.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7d4831da", Component.options)
+  } else {
+    hotAPI.reload("data-v-7d4831da", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 149 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
+                        hos_profiles: []
+                };
+        },
+        created: function created() {
+                this.getAllCustomer();
+        },
+
+        methods: {
+                getAllCustomer: function getAllCustomer() {
+                        var _this = this;
+
+                        this.axios.get('http://localhost:8000/api/hospital_history').then(function (response) {
+                                _this.hos_profiles = response.data;
+                        });
+                }
+        }
+});
+
+/***/ }),
+/* 150 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-12" },
+      _vm._l(_vm.hos_profiles, function(hos_profile) {
+        return _c(
+          "div",
+          { key: hos_profile.id, staticClass: "card card-default m-b-20" },
+          [
+            _c("div", { staticClass: "card-body news-post" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("img", {
+                    staticClass: "col-md-12",
+                    attrs: { src: "/images/" + hos_profile.logo, alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger all-btn",
+                      staticStyle: {
+                        "margin-top": "10px",
+                        "margin-left": "15px",
+                        display: "block",
+                        align: "center"
+                      }
+                    },
+                    [_vm._v("最近見た施設から削除 ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info all-btn",
+                      staticStyle: {
+                        "margin-top": "10px",
+                        "margin-left": "15px"
+                      }
+                    },
+                    [_vm._v("検討リストに追加")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-9" }, [
+                  _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                    _c("h4", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v(" " + _vm._s(hos_profile.name) + " ")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("strong", [_vm._v("Website  :")]),
+                    _c("a", { attrs: { href: "" } }, [
+                      _vm._v(" " + _vm._s(hos_profile.website))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Medical Department    :")]),
+                      _vm._v(_vm._s(hos_profile.medical_department))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Logo     :")]),
+                      _vm._v(_vm._s(hos_profile.logo))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Phone    :")]),
+                      _vm._v(_vm._s(hos_profile.phone))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Access  :")]),
+                      _vm._v(_vm._s(hos_profile.access))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Email  :")]),
+                      _vm._v(_vm._s(hos_profile.email))
+                    ]),
+                    _c("br")
+                  ])
+                ])
+              ])
+            ])
+          ]
+        )
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+        _c("ol", { staticClass: "breadcrumb" }, [
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "../news/news_details.html" } }, [
+              _vm._v(" 新しい詳細")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "breadcrumb-item active",
+              attrs: { "aria-current": "page" }
+            },
+            [
+              _vm._v(
+                "\n                                               就職活動リスト"
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7d4831da", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -68,6 +68,7 @@
 export default {
     data(){
         return{
+            category_id: '',
              errors: [],
             news:{
                 title: '',
