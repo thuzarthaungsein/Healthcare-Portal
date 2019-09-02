@@ -22,12 +22,12 @@
 			<div class="user_card user_registercard">
 				<div class="links">
 					<a href="/" class="mr-auto text-white">{{__('ホーム')}}</a>
-					<a href="register" class="ml-auto text">{{__('登録')}}</a>
+					<a href="/login" class="ml-auto text">{{__('ログイン')}}</a>
 				</div>
 				
 				<div class="d-flex justify-content-center registerform_container">
 					<div class="brand_logo_container">
-                        <img src="/images/trust_growth.png" id="thumbnil" class="brand_logo" alt="Logo">                        
+                        <img src="/images/trustgrowth.png" id="thumbnil" class="brand_logo" alt="Logo">                        
 					</div>
                 </div>
                 
@@ -76,6 +76,19 @@
                             
                     </div>  
                     <div class="input-group mb-3">
+                        <label class="col-4 col-lg-3 control-label">Choose Type</label>  
+						<div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<select name="type" id="" class="form-control custom-select">
+                        <option value="">Choose Your Type</option>
+                            @foreach($type as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+                        </select>
+                            
+                    </div>  
+                    <div class="input-group mb-3">
                         <label class="col-4 col-lg-3 control-label">電話番号</label>  
 						<div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -95,9 +108,9 @@
                         <div class="form-group row float-right">
                             <div class="col-12">     
                                 <button class="btn btn-danger register_btn">キャンセル</button>       
-                                <button type="submit" class="btn btn-info register_btn">作成</button>               
+                                <button type="submit" class="btn register_btn" style="background: #4db197;">作成</button>               
                                 <!-- <a class="btn btn-danger register_btn">キャンセル</a>
-                                <a class="btn register_btn"  style="background: #4db197;">作成</a> -->
+                                <a class="btn register_btn"  >作成</a> -->
                             </div>
                         </div>
                     </div>  
