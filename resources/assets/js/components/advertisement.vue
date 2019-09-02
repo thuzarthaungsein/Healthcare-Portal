@@ -42,6 +42,10 @@
                                                         <input type="file" accept="" @change ="uploadImage" id="file">
                                                         <!-- <label class="" for="file">No file chosen</label> -->
                                                 </div>
+                                                <!-- <div class="image-preview" v-if="imageData.length > 0">
+                                                    <img class="preview" :src="imageData">
+                                                </div> -->
+
                                             </div>
                                             <div class="form-group ">
                                         <div class="form-group row">
@@ -78,8 +82,23 @@ export default {
     },
     methods:{
              uploadImage(event) {
+
+            //      var input = event.target;
+
+            // if (input.files && input.files[0]) {
+
+            //     var reader = new FileReader();
+
+            //     reader.onload = (e) => {
+
+            //         this.imageData = e.target.result;
+            //     }
+
+            //     reader.readAsDataURL(input.files[0]);
+            // }
+
                 this.ads.photo = event.target.files[0]
-             },
+         },
 
 
         add() {

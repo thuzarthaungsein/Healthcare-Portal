@@ -61406,12 +61406,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -61450,16 +61444,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fd.append('address', this.customer.address);
 
             axios.post('http://localhost:8000/api/customer/add', fd).then(function (response) {
-                _this.logo = '';
-                _this.name = '';
-                _this.email = '';
-                _this.password = '';
-                _this.phone = '';
-                _this.address = '';
-            }).catch(function (error) {
-                if (error.response.status == 422) {
-                    _this.errors = error.response.data.errors;
-                }
+                console.log(response);
+                alert('Successfully Created');
+                console.log(response);
+                _this.$router.push({ name: '/' });
             });
         }
     }
@@ -61503,13 +61491,7 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: { type: "file", accept: "image/*", id: "file" },
                         on: { change: _vm.onFileSelected }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.logo
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.logo[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -61525,7 +61507,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Customer Name" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Customer Name",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.name },
                         on: {
                           input: function($event) {
@@ -61535,13 +61521,7 @@ var render = function() {
                             _vm.$set(_vm.customer, "name", $event.target.value)
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.name
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.name[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -61557,7 +61537,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Email" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Email",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.email },
                         on: {
                           input: function($event) {
@@ -61567,13 +61551,7 @@ var render = function() {
                             _vm.$set(_vm.customer, "email", $event.target.value)
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.email
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.email[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -61589,7 +61567,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "password", placeholder: "Password" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Password",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.password },
                         on: {
                           input: function($event) {
@@ -61603,13 +61585,7 @@ var render = function() {
                             )
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.password
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.password[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -61625,7 +61601,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "number", placeholder: "Phone No" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Phone No",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.phone },
                         on: {
                           input: function($event) {
@@ -61635,13 +61615,7 @@ var render = function() {
                             _vm.$set(_vm.customer, "phone", $event.target.value)
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.phone
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.phone[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -61657,7 +61631,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Address" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Address",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.address },
                         on: {
                           input: function($event) {
@@ -61671,13 +61649,7 @@ var render = function() {
                             )
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.address
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.address[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group " }, [
@@ -64483,6 +64455,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -64499,6 +64475,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         uploadImage: function uploadImage(event) {
+
+            //      var input = event.target;
+
+            // if (input.files && input.files[0]) {
+
+            //     var reader = new FileReader();
+
+            //     reader.onload = (e) => {
+
+            //         this.imageData = e.target.result;
+            //     }
+
+            //     reader.readAsDataURL(input.files[0]);
+            // }
+
             this.ads.photo = event.target.files[0];
         },
         add: function add() {
