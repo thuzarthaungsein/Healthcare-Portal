@@ -129,7 +129,6 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
-<<<<<<< HEAD
 
 // Guest Hospital History
 Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
@@ -142,11 +141,9 @@ Route::group(['prefix' => 'medical'], function () {
     Route::post('update/{id}', 'MedicalController@update');
 });
 
-=======
 //Route::post('add','AdvertisementController@store');
 Route::group(['prefix' => 'advertisement'], function () {
     Route::post('add', 'AdvertisementController@store');
 });
 
 
->>>>>>> c4fa7fbcd0bb4cac2a948fcee7a354afa45640f2
