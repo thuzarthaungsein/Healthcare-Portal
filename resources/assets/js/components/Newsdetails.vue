@@ -2,7 +2,7 @@
 <div>          
         <!-- <section class="">
                 <div class="container-fluid"> -->
-        <!-- <div class="row">
+        <div class="row">
         <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/home">ホーム</a></li>
@@ -10,7 +10,7 @@
                         <li class="breadcrumb-item active" aria-current="page"> 新しい詳細</li>
                 </ol>
         </nav>
-        </div> -->
+        </div>
         <div class="row justify-content-md-center">
                 <div class="col-md-12">
                         <div class="">

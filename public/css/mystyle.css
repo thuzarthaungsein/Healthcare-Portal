@@ -183,7 +183,8 @@
             position: absolute;
             left: 0;
             bottom: 0.5%;
-            width: 100%;
+            /* top: 35%;
+            width: 100%; */
 		}
 		.form_container {
 			margin-top: 100px;
@@ -248,10 +249,11 @@
     height: auto;
     padding: 20px;
 }
-/* .user_registercard form label{
+.user_registercard form label{
     color: #fff;
     align-self: flex-end;
 }
+/* 
 .form-type-managed-file {
     position: relative;
     overflow: hidden;
