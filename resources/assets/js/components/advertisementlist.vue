@@ -4,7 +4,6 @@
                         <div class="col-md-12">
                         <router-link to="/advertisement" class="float-right" style="color: blue;">Create Advertisement</router-link>
                         </div>
-                <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
                 </div>
             <div v-for="ads in advertisement" :key="ads.id" class="card card-default m-b-20">
             <div class="card-body news-post">

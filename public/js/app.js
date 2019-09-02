@@ -64771,7 +64771,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header text-center" }, [
       _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-        _vm._v(" Advertisements ")
+        _vm._v(" Create Advertisement ")
       ])
     ])
   },
@@ -64886,7 +64886,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
