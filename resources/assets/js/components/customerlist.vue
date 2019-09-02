@@ -155,7 +155,6 @@ export default {
 
                 });
     },
-
     methods: {
             deleteCustomer(id) {
                 this.axios

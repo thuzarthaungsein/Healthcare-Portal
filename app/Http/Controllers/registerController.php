@@ -41,7 +41,34 @@ class registerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request;
+        $this->validate($request, [
+            'img' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'name' => 'required|min:3|max:50',
+            'email' => 'email',
+            'phone' => 'max:13',
+            'password' => 'min:6|required_with:comfirm_password|same:comfirm_password',
+            'comfirm_password' => 'min:6',
+            'address' =>'required',
+            'img' => 'required'
+            ]);
+            $destinationPath = public_path('/images');
+            $image = $request->file('img');
+            $input['img'] = time().'.'.$image->getClientOriginalExtension();
+            $image->move($destinationPath, $input['img']);
+            $dbPath = $destinationPath. '/'.$input['img'];
+
+            $customer = new Customer;
+            $customer->logo= $dbPath;
+            $customer->name = $request->name;
+            $customer->email = $request->email;
+            $customer->phone = $request->phone;
+            $customer->password = bcrypt($request->password);
+            $customer->address = $request->address;
+            $customer->save();
+            
+            return response()->json($request);
+
     }
 
     /**
@@ -152,7 +179,7 @@ class registerController extends Controller
         DB::table('password_reset')->where('id',$id)->update($updateReset);
         DB::table('users')->where('email',$getEmail)->update($updateUser);
         DB::table('customers')->where('email',$getEmail)->update($updateCustomer);
-        
+
         $resetPass= password_reset_view::findOrFail($id);
         \Mail::to($getEmail)->send(new sendResetPasswordMail($resetPass));
 
