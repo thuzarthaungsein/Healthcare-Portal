@@ -12,19 +12,18 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
     <style>
         .bg-light {
             background-color: #eae9e9 !important;
@@ -59,7 +58,7 @@
         </li>
         <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
             <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
-            <a class="nav-link pad-free" href="{{ url('registerForm') }}">{{ __('事業者 ログイン') }}</a>
+            <a class="nav-link pad-free" href="{{ url('registerForm') }}">{{ __('事業者 登録') }}</a>
             <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
         </li>
     @else
@@ -84,32 +83,13 @@
       @guest
       <!-- public menu -->
       <div class="userview-sidebar col-auto">
-        <div class="card m-b-10 ads-card">
-            <!--ads slider-->
-            <div style="display: block; overflow: hidden;">
-            <div id="slider2_container" style="position: relative; margin:10px; float: left; top: 0px; left: 0px; width: 200px;
-                                                    height: 200px; overflow: hidden;">
-            <!-- Slides Container -->
-            <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;
-                overflow: hidden;">
-                <div><img data-u="image" src="/images/ad_1.jpg" />
-
-                </div>
-                <div><img data-u="image" src="/images/h2.jpg" />
-
-                </div>
-                <div><img data-u="image" src="/images/h3.jpg" />
-
-                </div>
-                <div><img data-u="image" src="/images/h4.jpg" />
-
-                </div>
-            </div>
-            <!-- Trigger -->
-            </div>
-            </div>
-            <!--end ads slider-->
-
+        <div class="card m-b-10 ads-card">           
+        <div class="">
+                                <!-- <h5 class="card-title text-center">一つ目の広告</h5> -->
+                                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                <img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width:100%">
+                        </div>
+            
         </div>
         <div class="card m-b-10 ads-card2">
             <div class="card-body">
@@ -175,9 +155,9 @@
       @else
       <!-- login menu  -->
       <div class="adminview-sidebar" id="navbarSupportedContent">
-      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
-
-      @can('role-list')
+      <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
+      
+      @can('role-list')      
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;  ニュース一覧</router-link></li>
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;  顧客一覧</router-link></li>
       <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;  カテゴ一覧</router-link></li>
@@ -317,11 +297,30 @@
       <div class="col-2">
                 <!--related news-->
                 <div class="card m-b-10 ads-card">
-                        <div class="">
-                                <!-- <h5 class="card-title text-center">一つ目の広告</h5> -->
-                                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                <img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width:100%">
-                        </div>
+                <!--ads slider-->
+            <div style="display: block; overflow: hidden;">
+            <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:167px; overflow: hidden;">
+            <!-- Slides Container -->
+            <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 167px;
+                overflow: hidden;">
+                <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/>
+               
+                </div>
+                <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/>
+                    
+                </div>
+                <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/>
+                  
+                </div>
+                <div><img data-u="image" src="/images/h4.jpg" style="width:100%"/>
+                 
+                </div>
+            </div>
+            <!-- Trigger -->          
+            </div>
+            </div>
+            <!--end ads slider-->
+
                 </div>
                 <div class="card m-b-10 ads-card">
                         <div class="card-body">
@@ -359,16 +358,16 @@
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
   <!-- script for editor -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> 
   <!-- end script for editor -->
 
 <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> -->
 
 <script type="text/javascript">
  $(document).ready(function() {
