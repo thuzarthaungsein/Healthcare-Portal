@@ -34,7 +34,7 @@
 				<div class="">
 				<div class="row">
 					<div class="col-12">
-                    <form method="post" action="{{ url('register/store') }}">
+                    <form method="post" action="{{ url('register/store') }}" enctype="multipart/form-data">
                         @csrf
                     <div class="input-group mb-3">
                         <label class="col-4 col-lg-3 control-label">ロゴを添付</label>  

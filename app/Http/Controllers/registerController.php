@@ -43,6 +43,7 @@ class registerController extends Controller
     {
         //return $request;
         $this->validate($request, [
+            'img' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|min:3|max:50',
             'email' => 'email',
             'phone' => 'max:13',
@@ -51,9 +52,23 @@ class registerController extends Controller
             'address' =>'required',
             'img' => 'required'
             ]);
-            
+            $destinationPath = public_path('/images');
+            $image = $request->file('img');
+            $input['img'] = time().'.'.$image->getClientOriginalExtension();
+            $image->move($destinationPath, $input['img']);
+            $dbPath = $destinationPath. '/'.$input['img'];
 
+            $customer = new Customer;
+            $customer->logo= $dbPath;
+            $customer->name = $request->name;
+            $customer->email = $request->email;
+            $customer->phone = $request->phone;
+            $customer->password = bcrypt($request->password);
+            $customer->address = $request->address;
+            $customer->save();
+            
             return response()->json($request);
+
     }
 
     /**
