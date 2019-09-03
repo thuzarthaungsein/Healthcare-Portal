@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\sendResetPasswordMail;
 use Carbon;
 use DB;
+use Redirect;
 use App\Type;
+use Session;
 use App\password_reset_view;
 class registerController extends Controller
 {
@@ -21,9 +23,23 @@ class registerController extends Controller
      */
     public function index()
     {   $type = Type::all();
-        return view('register',compact('type'));
+        $cities = DB::table('cities')->get();
+        $townships = DB::table('townships')->get();
+        return view('register',compact('type','townships','cities'));
     }
 
+    public function getTownship()
+    {
+        $cities = $_GET['cities'];
+        $data = DB::table('townships')->select('id','township_name','city_id')->where('city_id',$cities)->get();
+        return response()->json(array('result' => true,'data' => $data),200); 
+    }
+    public function getType()
+    {
+        $type = $_GET['type'];
+        $data = DB::table('types')->select('id','name','user_id','parent')->where('parent',$type)->get();
+        return response()->json(array('result' => true,'data' => $data),200);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -42,18 +58,24 @@ class registerController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request;
+
         $this->validate($request, [
             'img' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|min:3|max:50',
-            'email' => 'email',
+            'email' => 'required|email|unique:customers',
             'phone' => 'max:13',
             'password' => 'min:6|required_with:comfirm_password|same:comfirm_password',
             'comfirm_password' => 'min:6',
             'address' =>'required',
-            'img' => 'required',
-            'type' => 'required'
+            'cities'=> 'required',
+            'township'=> 'required',
             ]);
+
+            if($request->type == null){
+                $type = 1;
+            }else{
+                $type = $request->type;
+            }
 
             $destinationPath = public_path('/images');
             $image = $request->file('img');
@@ -66,12 +88,14 @@ class registerController extends Controller
             $customer->name = $request->name;
             $customer->email = $request->email;
             $customer->phone = $request->phone;
-            $customer->type_id = $request->type;
+            $customer->type_id = $type;
             $customer->password = bcrypt($request->password);
             $customer->address = $request->address;
+            $customer->townships_id = $request->township;
             $customer->save();
 
-            return response()->json($request);
+            Session::flash('success', "Special message goes here");
+            return Redirect::back();
 
     }
 

@@ -79,17 +79,48 @@
                         <label class="col-4 col-lg-3 control-label">Choose Type</label>  
 						<div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
+
 						</div>
-						<select name="type" id="" class="form-control custom-select">
+						<select  id="type" class="form-control custom-select">
                         <option value="">Choose Your Type</option>
-                            @foreach($type as $type)
-                                <option value="{{$type->id}}">{{$type->name}}</option>
-                            @endforeach
-                        </select>
-                            
+                        <option value="1">Hospital</option>
+                        <option value="2">Nursing</option>
+                        </select> 
+                    </div>  
+                    <div class="input-group mb-3 hide form-check form-check-inline" id="showHideActionNursing">
+                        <label class="col-4 col-lg-3 control-label">Choose Nursing</label>  
+						<div class="input-group-append " id="nursing">
+                           
+						</div>
+						
                     </div>  
                     <div class="input-group mb-3">
-                        <label class="col-4 col-lg-3 control-label">電話番号</label>  
+                        <label class="col-4 col-lg-3 control-label">Choose City</label>  
+						<div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+
+						</div>
+						<select name="cities" id="cities" class="form-control custom-select">
+                        <option value="">Choose Your City</option>
+                            @foreach($cities as $city)
+                                <option value="{{$city->id}}">{{$city->city_name}}</option>
+                            @endforeach
+                        </select> 
+                    </div>
+                    <div class="input-group mb-3 hide" id="showHideActionTownship">
+                        <label class="col-4 col-lg-3 control-label">Choose Township</label>  
+						<div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+
+						</div>
+						<select name="township" id="township" class="form-control custom-select">
+
+                        </select> 
+                    </div>
+                    
+
+                    <div class="input-group mb-3">
+                        <label class="col-3 col-lg-3 control-label">電話番号</label>  
 						<div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
 						</div>
@@ -126,6 +157,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>	
 
     <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     function showMyImage(fileInput) {
         var files = fileInput.files;
         for (var i = 0; i < files.length; i++) {           
@@ -148,9 +184,44 @@
     $(document).ready(function() {
         window.setTimeout(function() {
             $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                $(this).remove(); 
+                $('.showHideAction').removeClass('hide').addClass('show');
+                
             });
         }, 5000);
+    });
+
+    $('#type').on('change',function(){
+       const type = $( "#type option:selected" ).val();
+        if(type == 2){
+            $.getJSON("ajax-type?type="+type, function (data) {
+                $('#showHideActionNursing').removeClass('hide').addClass('show');
+                $('#nursing').empty();
+                $.each(data.data, function(id,name) {
+                    console.log(name.id,name.name,name.parent);
+                    $('#nursing').append('<input class="form-check-input" name="type" type="radio" name="nursing" value="'+name.id+'">'
+                    +'<label class="form-check-label">'+ name.name +'</label>');
+                });
+            });
+        }else{
+            $('#showHideActionNursing').removeClass('show').addClass('hide');
+            $('#nursing').empty();
+        }
+    });
+
+    
+
+    $('#cities').on('change', function(e) {
+        let cities = e.target.value;
+        $.getJSON("ajax-cities?cities="+cities, function (data) {
+            console.log(data);
+            $('#showHideActionTownship').removeClass('hide').addClass('show');
+            $('#township').html('<option selected="selected" value="">Select TownShip</option>');
+            $.each(data.data, function(id,name) {
+             console.log(name.id,name.township_name);
+             $('#township').append('<option value="'+name.id+'">'+name.township_name+'</option>');
+            });
+
+        });
     });
     </script>
     

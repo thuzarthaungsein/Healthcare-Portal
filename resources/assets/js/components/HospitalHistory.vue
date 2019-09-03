@@ -11,17 +11,17 @@
                 </nav>
         </div>
 
-        <div class="col-12">
-                <div v-for="hos_profile in hos_profiles" :key="hos_profile.id" class="card card-default m-b-20">
+        <div class=" col-12 scrolldiv2">
+                <div v-for="hos_profile in hos_profiles" :key="hos_profile.id" class="card card-default m-b-20 scrolldiv">
                         <div class="card-body news-post">
                                 <div class="row">
                                         <div class="col-md-3" >
                                                 <img class="col-md-12" v-bind:src="'/images/' + hos_profile.logo" alt="" style="">
-                                                <button class="btn btn-danger all-btn" style="margin-top: 10px;margin-left: 15px;display:block;align:center;">最近見た施設から削除 </button>
-                                                <button class="btn btn-info all-btn" style="margin-top: 10px; margin-left: 15px;">検討リストに追加</button>
+                                                <button class="btn btn-danger all-btn" style="margin-top: 10px;margin-left: 15px;display:block;align:center;width: 200px;">最近見た施設から削除 </button>
+                                                <button class="btn btn-info all-btn" style="margin-top: 10px; margin-left: 15px;width: 200px;">検討リストに追加</button>
                                         </div>
-                                        <div class="col-md-9">
-                                                <div class="col-sm-8 pad-free mb-2">
+                                        <div class="col-md-5">
+                                                <div class="pad-free mb-2 ">
                                                         <h4> <a href="#"> {{hos_profile.name}} </a></h4>
                                                         <strong>Website  :</strong><a href=""> {{hos_profile.website}}</a><br/>
                                                         <a><strong>Medical Department    :</strong>{{hos_profile.medical_department}}</a><br/>
@@ -33,11 +33,17 @@
                                                         <a><strong>Subjects  :</strong>{{hos_profile.subject}}</a><br/>
                                                 </div>
                                         </div>
+                                        <div class="col-md-4">
+                                                <div class="fac_container" v-for="feature in hos_profile.special_features" :key="feature.id">
+                                                        <ul class="equipment">
+                                                                <li>{{ feature }}</li>
+                                                        </ul>
+                                                </div>
+                                        </div>
                                 </div>
                         </div>
                 </div>
         </div>
-        <pre> {{ hos_profiles }} </pre>
  </div>
 </template>
 <script>

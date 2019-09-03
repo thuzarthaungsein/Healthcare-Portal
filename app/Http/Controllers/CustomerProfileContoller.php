@@ -12,14 +12,15 @@ class CustomerProfileContoller extends Controller
     }
 
     function getHospitalHistory() {
-        // $hos_histories = HospitalProfile::all()->toArray();
-        
-
         $hos_histories = DB::table('hospital_profiles')
             ->join('customers', 'hospital_profiles.customer_id', '=', 'customers.id')
             ->select('hospital_profiles.*', 'customers.name', 'customers.email', 'customers.logo', 'customers.phone')
-            ->first();
+            ->get();
+        foreach($hos_histories as $hos) {
+            $fea_arr = explode(",", $hos->special_features);
+            $hos->special_features = $fea_arr;
 
-        return $hos_histories->facilities;
+        }
+        return $hos_histories;
     }
 }

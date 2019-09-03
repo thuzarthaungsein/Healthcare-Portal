@@ -127,8 +127,9 @@ class DatabaseSeeder extends Seeder
             $cus->name = $faker->sentence();
             $cus->email = "customer@gmail.com";
             $cus->password = bcrypt("123123");
-            $cus->logo = $faker->sentence();
+            $cus->logo = "day1.jpg";
             $cus->type_id = rand(1, 3);
+            $cus->townships_id = rand(1, 10);
             $cus->phone = "09-20102010";
             $cus->address = $faker->sentence();
             $cus->user_id = rand(1, 2);
@@ -181,21 +182,31 @@ class DatabaseSeeder extends Seeder
         $category->save();
 
         $type = new Type();
-        $type->name = "特養";
-        $type->user_id = 1;
-        $type->parent = 0;
-        $type->save();
-
-        $type = new Type();
-        $type->name = "有料老人ホーム";
-        $type->user_id = 1;
-        $type->parent = 0;
-        $type->save();
-
-        $type = new Type();
         $type->name = "病院";
         $type->user_id = 1;
         $type->parent = 0;
+        $type->save();
+
+        $type = new Type();
+        $type->name = "介護";
+        $type->user_id = 1;
+        $type->parent = 0;
+        $type->save();
+        
+        $type = new Type();
+        $type->name = "有料老人ホーム";
+        $type->user_id = 1;
+        $type->parent = 2;
+        $type->save();
+        $type = new Type();
+        $type->name = "デイサービス";
+        $type->user_id = 1;
+        $type->parent = 2;
+        $type->save();
+        $type = new Type();
+        $type->name = "訪問介護・看護";
+        $type->user_id = 1;
+        $type->parent = 2;
         $type->save();
 
         $fac = new Facility();
