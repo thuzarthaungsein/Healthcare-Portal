@@ -164,11 +164,7 @@ export const routes = [
       path: '/profilepublish',
       component: ProfilePublish
     },
-    {
-        name: 'advertisement',
-        path: '/advertisement',
-        component: advertisement
-      },
+    
       {
       name: 'hospital_history',
       path: '/hospital_history',
