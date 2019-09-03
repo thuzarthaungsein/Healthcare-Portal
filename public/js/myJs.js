@@ -46,7 +46,11 @@ $('path').on("click", function(e) {
 
     function showImg(c,event) {
         $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
+<<<<<<< HEAD
     }
 
 
 
+=======
+    }
+>>>>>>> 69f6852f7876210578769d4cf5e14443d919c898

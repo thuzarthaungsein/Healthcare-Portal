@@ -1,6 +1,9 @@
 <template>
 <div class="row justify-content-md-center">                                
                 <div class="col-12">
+                        <form class="form-inline col-lg-5 form-inline mb-2 pad-free"><input type="search" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control"> 
+                                <button type="submit" class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary"><i class="fas fa-search"></i> 検索</button>
+                        </form>
                         <div class="card">
                                 <div class="card-header tab-card-header">
                                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -12,29 +15,31 @@
                                                                 {{ cat.name }}</a>
                                                 </li>
                                                 
-                                        </ul>
+                                        </ul> 
                                 </div>
 
-                                <div class="tab-content scroll2" id="myTabContent">
+                                <div class="tab-content tab-content2 scroll2" id="myTabContent">
                                         <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
 
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
-                                                                <a v-bind:href="'/newsdetails/' + latest_post.id">
-                                                                        <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" >
+                                                                <router-link :to="'/newsdetails/'+latest_post.id">
+                                                                        <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
                                                                         <p class="source-title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle">
                                                                                 <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
                                                                         </p>
-                                                                </a>
+                                                                </router-link>
                                                         </div>
                                                         <div class="col-md-8 news-wrapper">
                                                                 <ul class="list-group list-group-flush" v-for="post in posts" :key="post.id">
                                                                         <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
-                                                                                <a v-bind:href="'/newsdetails/' + post.id">
+                                                                                 <router-link :to="'/newsdetails/'+ post.id">
+                                                                                
                                                                                         <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                                 <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
-                                                                                </a>
+                                                                               
+                                                                                </router-link>
                                                                         </li>
                                                                 </ul>
                                                         </div>
@@ -52,7 +57,8 @@
                                         <img class="img-responsive fit-image" v-bind:src="'/images/' + latest_post_all_cat.photo" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" v-bind:href="'/newsdetails/' + latest_post_all_cat.id">{{ latest_post_all_cat.title }}</a>
+                                                <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">{{ latest_post_all_cat.title }}</router-link>
+                                                <!-- <a class="btn btn-sm all-btn secondary-bg-color" v-bind:href="'/newsdetails/' + latest_post_all_cat.id"></a> -->
                                         </div>
                                         <div class="info">
                                                 <div class="row">

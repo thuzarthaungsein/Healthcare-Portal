@@ -163,6 +163,7 @@
                                         <label>特長<span class="error">*</span></label>
                                         <textarea name="feature" class="form-control"></textarea>
                                 </div>
+                                <hr class="hor-line m-t-30">
                                 <div class="form-group">
                                         <label>費用</label>
                                 </div>
@@ -171,6 +172,43 @@
                                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="methodAdd()">+</span>
 
                                         <div class="col-md-12 pad-free" id="methods"></div>
+                                </div>
+                                <hr class="hor-line m-t-30">
+                                <div class="form-group">
+                                        <label>Medical Cooperate<span class="error">*</span></label>
+                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="cooperateAdd()">+</span>
+                                        <!-- <span class="m-l-10 float-right collapse-icon collapse-icon-down" title="Collapse All" @click="cooperateAdd()"><i class="fas fa-sort-down"></i></span> -->
+                                        <!-- <span class="m-l-10 float-right collapse-icon collapse-icon-up" title="Expand All" @click="coMedicalCollapse()"><i class="fas fa-sort-up"></i></span> -->
+
+                                        <div class="col-md-12 pad-free" id="cooperate-medical"></div>
+                                </div>
+                                <hr class="hor-line m-t-30">
+                                <div class="form-group">
+                                        <div class="btn all-btn main-bg-color m-b-20" @click="acceptanceList()">Medical Acceptance</div>
+                                        <div class="col-md-12 accept-toggle-div toggle-div pad-free">
+                                                <label for="" class="m-r-15"><i class="fas fa-check green"></i> 受入れ可</label>
+                                                <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
+                                                <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
+                                                <div class="row">
+                                                        <div class="col-md-6" v-for="medical in medical_acceptance" :key="medical.id">
+                                                                <div class="col-md-12 accept-box">
+                                                                        {{medical.name}}
+                                                                        <div class="float-right">
+                                                                                <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-check green"></i></label>
+                                                                                <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-times red"></i></label>
+                                                                                <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                                        </div>    
+                                                                </div>                                                            
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <hr class="hor-line m-t-30">
+                                <div class="form-group">
+                                        <label>こだわりの特長<span class="error">*</span></label>
+                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
+
+                                        <div class="col-md-12 pad-free" id="special-features"></div>
                                 </div>
                         </div>
 
@@ -188,17 +226,25 @@
 export default {
        data() {
                 return {
-                        type: 'hospital',
+                        type: 'nursing',
                         fac_list: [],
+                        medical_acceptance:[],
                 }
         },
         created(){
-            this.axios
-                 .get('http://localhost:8000/api/facilities')
-                 .then(response=>{
-                        //  console.log(response);
-                     this.fac_list = response.data;
-                 });
+                this.axios
+                .get('http://localhost:8000/api/facilities')
+                .then(response=>{
+                //  console.log(response);
+                this.fac_list = response.data;
+                });
+
+                this.axios
+                .get('http://localhost:8000/api/medical/medicalacceptance')
+                .then(response => {
+                    this.medical_acceptance = response.data;                  
+                //      console.log(response.data);
+                });
         },
         methods: {
              preview_image() 
@@ -233,7 +279,23 @@ export default {
             },
 
             methodAdd() {
-                   $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">Breakdown</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> '); 
+                   $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> '); 
+            },
+
+            cooperateAdd() {
+                   $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> '); 
+            },
+
+            acceptanceList() {
+                $(".accept-toggle-div").toggle('medium');
+            },
+
+            coMedicalCollapse() {
+                $(".co-medical-toogle-div").toggle('medium');
+            },
+
+            specialFeAdd() {
+                $("#cooperate-medical").append('');
             }
         }
 }
