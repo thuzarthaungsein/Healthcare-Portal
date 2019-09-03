@@ -82,6 +82,9 @@
 /* End News List */
 
 /* Profile */
+.hor-line {
+    border-top: 2px solid #ccc;
+}
 .btn-editProfile{
     background: #0f6064;
     color: white;
@@ -360,7 +363,7 @@
     display: none;
 }
 .show{
-    display:block;
+    display:inline-flex;
 }
 .form-check-inline.show{
     display: inline-flex;
