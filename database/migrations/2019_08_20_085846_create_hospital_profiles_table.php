@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHospitalProfileTable extends Migration
+class CreateHospitalProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateHospitalProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('hospital_profile', function (Blueprint $table) {
+        Schema::create('hospital_profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id');
             $table->text('access')->nullable();
@@ -23,6 +23,7 @@ class CreateHospitalProfileTable extends Migration
             $table->text('details_info')->nullable();
             $table->string('subject')->nullable();
             $table->text('closed_day')->nullable();
+            $table->text('facilities')->nullable();
             $table->text('website')->nullable();
             $table->text('congestion')->nullable();
             $table->timestamps();
@@ -36,6 +37,6 @@ class CreateHospitalProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hospital_profile');
+        Schema::dropIfExists('hospital_profiles');
     }
 }

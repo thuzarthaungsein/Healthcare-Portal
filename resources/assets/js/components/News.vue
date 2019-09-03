@@ -20,21 +20,21 @@
 
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
-                                                                <a href="#"><router-link to="/newsdetails">
+                                                                <a v-bind:href="'/newsdetails/' + latest_post.id">
                                                                         <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" >
                                                                         <p class="source-title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle">
                                                                                 <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
                                                                         </p>
-                                                                </router-link></a>
+                                                                </a>
                                                         </div>
                                                         <div class="col-md-8 news-wrapper">
                                                                 <ul class="list-group list-group-flush" v-for="post in posts" :key="post.id">
                                                                         <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
-                                                                                <a href="#"><router-link to="/newsdetails">
+                                                                                <a v-bind:href="'/newsdetails/' + post.id">
                                                                                         <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                                 <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
-                                                                                </router-link></a>
+                                                                                </a>
                                                                         </li>
                                                                 </ul>
                                                         </div>
@@ -52,7 +52,7 @@
                                         <img class="img-responsive fit-image" v-bind:src="'/images/' + latest_post_all_cat.photo" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" href="/newsdetails">{{ latest_post_all_cat.title }}</a>
+                                                <a class="btn btn-sm all-btn secondary-bg-color" v-bind:href="'/newsdetails/' + latest_post_all_cat.id">{{ latest_post_all_cat.title }}</a>
                                         </div>
                                         <div class="info">
                                                 <div class="row">

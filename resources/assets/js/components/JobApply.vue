@@ -1,6 +1,6 @@
 <template>
 <div class="col-md-12 scrolldiv">
-    <h4 class="h_4 text-center">Job Apply Form</h4>
+    <h4 class="h_4 text-center header">Job Apply Form</h4>
     <div class="col-md-7 offset-md-3">
         <form @submit.prevent="apply">
         <div class="form-group">
@@ -29,27 +29,12 @@
             <!-- <div v-if="errors && errors.work_time" class="text-danger">{{ errors.work_time[0] }}</div> -->
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12" style=" columns: 2;-webkit-columns: 2;-moz-columns: 2;">
                     <div class="form-group" v-for="job in jobApply.fields" :key="job.id">
-             <label><input type="checkbox" v-bind:value="{ id: job }"  v-model="job.skills" > {{job}} </label>
+                        <label><input type="checkbox" v-bind:value="{ id: job.skill }"  v-model="job.skill" > {{job}}</label>
         </div>
             </div>
         </div>
-
-          <!-- <div class="">
-            <div  class="card card-default m-b-20">
-                <div class="col-md-6">
-                    <div v-for="job in jobs" :key="job.skills">
-                        <label> {{job.skills}}</label> -->
-                        <!-- <label><input type="checkbox" v-model="job.skills" ></label> -->
-<!--
-                    </div>
-
-                </div>
-
-            </div>
-        </div> -->
-
 
         <div class="text-center">
             <button type="submit" class="btn main-bg-color white all-btn ">Apply</button>
@@ -66,7 +51,7 @@ export default {
     data() {
             return {
                 errors: [],
-                jobs:[],
+
                 jobApply: {
                         name: '',
                         birthday:'',
@@ -75,7 +60,7 @@ export default {
                         email:'',
                         work_time:'',
                         fields:[{
-                            skills:'',
+                            skills:[],
                             id:''
                         }],
                     },
@@ -85,9 +70,10 @@ export default {
     },
      created(){
         this.axios
-                .get('http://localhost:8000/api/skill')
+                .get('http://localhost:8000/api/getskill')
                 .then(response => {
                  this.jobApply.fields = response.data;
+
                 });
 
     },
@@ -98,7 +84,6 @@ export default {
                     .then((response) => {
                     alert('Successful Apply')
                     console.log(response);
-
                     //console.log(this.jobApply.toString());
                     this.jobApply = response.data;
                     })

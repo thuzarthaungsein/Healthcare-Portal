@@ -33,6 +33,7 @@ class PostController extends Controller
             'photo' => $request->image->getClientOriginalName(),
             'category_id' =>$request->input('category_id'),
             'user_id' => 1,
+            
             'recordstatus' => 1
         ]);
       

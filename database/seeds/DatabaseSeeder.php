@@ -183,16 +183,19 @@ class DatabaseSeeder extends Seeder
         $type = new Type();
         $type->name = "特養";
         $type->user_id = 1;
+        $type->parent = 0;
         $type->save();
 
         $type = new Type();
         $type->name = "有料老人ホーム";
         $type->user_id = 1;
+        $type->parent = 0;
         $type->save();
 
         $type = new Type();
         $type->name = "病院";
         $type->user_id = 1;
+        $type->parent = 0;
         $type->save();
 
         $fac = new Facility();

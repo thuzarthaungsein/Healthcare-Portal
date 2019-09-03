@@ -14,7 +14,7 @@
                                         <form @submit.prevent = "updatemedical">
                                         <div class="form-group">
                                             <label>Medicalacceptance Name :<span class="error">*</span></label>
-                                            <input type="text" class="form-control" v-model="medical.name">
+                                            <input type="text" class="form-control" v-model="medical.name" required>
                                         </div>
                                    
                                         <div class="form-group row">
