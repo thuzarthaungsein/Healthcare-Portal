@@ -52459,6 +52459,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_userPasswordResetList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_userPasswordResetList_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__);
+
 
 
 
@@ -52631,6 +52634,10 @@ var routes = [{
   name: 'editadvertisement',
   path: '/editads',
   component: __WEBPACK_IMPORTED_MODULE_27__components_editadvertisement_vue___default.a
+}, {
+  name: 'nursing_history',
+  path: '/nursing_history',
+  component: __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue___default.a
 }];
 
 /***/ }),
@@ -65884,7 +65891,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
@@ -65984,12 +65990,6 @@ var render = function() {
                     _c("a", [
                       _c("strong", [_vm._v("Medical Department    :")]),
                       _vm._v(_vm._s(hos_profile.medical_department))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Logo     :")]),
-                      _vm._v(_vm._s(hos_profile.logo))
                     ]),
                     _c("br"),
                     _vm._v(" "),
@@ -66269,6 +66269,303 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(166)
+/* template */
+var __vue_template__ = __webpack_require__(167)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/NursingHistory.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-68911791", Component.options)
+  } else {
+    hotAPI.reload("data-v-68911791", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 166 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
+                        nur_profiles: []
+                };
+        },
+        created: function created() {
+                this.getAllCustomer();
+        },
+
+        methods: {
+                getAllCustomer: function getAllCustomer() {
+                        var _this = this;
+
+                        this.axios.get('http://localhost:8000/api/nursing_history').then(function (response) {
+                                _this.nur_profiles = response.data;
+                        });
+                }
+        }
+
+});
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: " col-12 scrolldiv2" },
+      _vm._l(_vm.nur_profiles, function(nur_profile) {
+        return _c(
+          "div",
+          {
+            key: nur_profile.id,
+            staticClass: "card card-default m-b-20 scrolldiv"
+          },
+          [
+            _c("div", { staticClass: "card-body news-post" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("img", {
+                    staticClass: "col-md-12",
+                    attrs: { src: "/images/" + nur_profile.logo, alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger all-btn",
+                      staticStyle: {
+                        "margin-top": "10px",
+                        "margin-left": "15px",
+                        display: "block",
+                        align: "center",
+                        width: "200px"
+                      }
+                    },
+                    [_vm._v("最近見た施設から削除 ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info all-btn",
+                      staticStyle: {
+                        "margin-top": "10px",
+                        "margin-left": "15px",
+                        width: "200px"
+                      }
+                    },
+                    [_vm._v("検討リストに追加")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-5" }, [
+                  _c("div", { staticClass: "pad-free mb-2 " }, [
+                    _c("h4", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v(" " + _vm._s(nur_profile.name) + " ")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("strong", [_vm._v("Website  :")]),
+                    _c("a", { attrs: { href: "" } }, [
+                      _vm._v(" " + _vm._s(nur_profile.website))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Address    :")]),
+                      _vm._v(_vm._s(nur_profile.address))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Phone    :")]),
+                      _vm._v(_vm._s(nur_profile.phone))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Access  :")]),
+                      _vm._v(_vm._s(nur_profile.access))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Email  :")]),
+                      _vm._v(_vm._s(nur_profile.email))
+                    ]),
+                    _c("br")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-md-4" },
+                  _vm._l(nur_profile.special_features, function(feature) {
+                    return _c(
+                      "div",
+                      { key: feature.id, staticClass: "fac_container" },
+                      [
+                        _c("ul", { staticClass: "equipment" }, [
+                          _c("li", [_vm._v(_vm._s(feature))])
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            ])
+          ]
+        )
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("pre", [_vm._v(_vm._s(_vm.hos_profiles) + " ")])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+        _c("ol", { staticClass: "breadcrumb" }, [
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "../news/news_details.html" } }, [
+              _vm._v(" 新しい詳細")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "breadcrumb-item active",
+              attrs: { "aria-current": "page" }
+            },
+            [
+              _vm._v(
+                "\n                                               就職活動リスト"
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-68911791", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

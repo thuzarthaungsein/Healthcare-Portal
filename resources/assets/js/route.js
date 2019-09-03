@@ -34,6 +34,7 @@ import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
 
 import HospitalHistory from './components/HospitalHistory.vue';
+import NursingHistory from './components/NursingHistory.vue';
 
 export const routes = [
 
@@ -165,7 +166,7 @@ export const routes = [
       component: ProfilePublish
     },
     
-      {
+    {
       name: 'hospital_history',
       path: '/hospital_history',
       component: HospitalHistory
@@ -206,5 +207,10 @@ export const routes = [
         name: 'editadvertisement',
         path: '/editads',
         component: editadvertisement
+    },
+    {
+      name: 'nursing_history',
+      path: '/nursing_history',
+      component: NursingHistory
     }
 ];
