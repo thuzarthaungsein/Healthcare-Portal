@@ -3,7 +3,7 @@
       <div class="col-md-12 ">
           <div class="card text-dark">
                     <div class="card-header text-center">
-                        <h4 style="padding-top: 20px;"> Advertisements </h4>
+                        <h4 style="padding-top: 20px;"> Create Advertisement </h4>
                     </div>
                     <div class="card-body ">
                         <div class="row">
@@ -39,13 +39,20 @@
                                                         <label for ="photo" ><strong> Photo/Image :</strong>  </label>
                                                 </div>
                                                 <div class="custom-file col-sm-10">
-                                                        <input type="file" accept="" @change ="uploadImage" id="file" >
+                                                        <input type="file" accept="" @change ="uploadImage" id="file">
                                                         <!-- <label class="" for="file">No file chosen</label> -->
                                                 </div>
                                             </div>
-                                            <div class="text-center">
-                                                    <button type="submit" class="btn main-bg-color white all-btn ">Submit</button>
+                                            <div class="form-group ">
+                                        <div class="form-group row">
+                                            <div class="col-1 pad-free">
+                                                <button class="btn news-post-btn">Create</button>
                                             </div>
+                                            <div class="col-1">
+                                                <router-link class="btn btn-warning" to="/ads" >  Cancel </router-link>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </form>
                                 </div>
                         </div>

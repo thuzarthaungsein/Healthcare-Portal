@@ -23,7 +23,10 @@ import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
+import ProfilePublish from './components/ProfilePublish.vue';
 import advertisement from './components/advertisement.vue';
+import advertisementlist from './components/advertisementlist.vue';
+import editadvertisement from './components/editadvertisement.vue';
 
 import createmedicalacceptance from './components/createmedicalacceptance.vue';
 import medicalacceptancelist from './components/medicalacceptancelist.vue';
@@ -33,17 +36,17 @@ import userPasswordResetList from './components/userPasswordResetList.vue';
 import HospitalHistory from './components/HospitalHistory.vue';
 
 export const routes = [
- 
+
       {
         name: 'home',
         path: '/',
         component: home
       },
-      {
-        name: 'home',
-        path: '/home',
-        component: home
-      },
+      // {
+      //   name: 'home',
+      //   path: '/home',
+      //   component: home
+      // },
 
     {
         name: 'newdetails',
@@ -157,6 +160,16 @@ export const routes = [
       component: JobOfferList
     },
     {
+      name: 'profilepublish',
+      path: '/profilepublish',
+      component: ProfilePublish
+    },
+    {
+        name: 'advertisement',
+        path: '/advertisement',
+        component: advertisement
+      },
+      {
       name: 'hospital_history',
       path: '/hospital_history',
       component: HospitalHistory
@@ -187,5 +200,15 @@ export const routes = [
         name: 'advertisement',
         path: '/advertisement',
         component: advertisement
-      }
+    },
+    {
+        name: 'ads',
+        path: '/ads',
+        component: advertisementlist
+    },
+    {
+        name: 'editadvertisement',
+        path: '/editads',
+        component: editadvertisement
+    }
 ];

@@ -69,7 +69,7 @@ export default {
     data(){
         return{
             category_id: '',
-             errors: [],
+            errors: [],
             news:{
                 title: '',
                 main_point: '',
@@ -87,7 +87,7 @@ export default {
               }
 
         }
-
+ 
     },
        created(){
             console.log("I'm a littel teapot");
