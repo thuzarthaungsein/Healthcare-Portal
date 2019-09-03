@@ -35,8 +35,7 @@
                                 <p> {{medical.name}} </p>
                             </div>
                             <div class="col-md-3" style="margin-top: 8px;">
-                 <router-link :to ="{name:'editmedicalacceptance', params:{id : medical.id}}" class="btn main-bg-color white all-btn">Edit </router-link> 
-                                
+                                <router-link :to ="{name:'editmedicalacceptance', params:{id : medical.id}}" class="btn main-bg-color white all-btn">Edit </router-link>                                
                                <button class="btn btn-danger all-btn" @click="deletemedical(medical.id)">Delete</button>
                             </div>
                         </div>
