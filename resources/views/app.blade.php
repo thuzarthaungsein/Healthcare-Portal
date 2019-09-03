@@ -155,46 +155,42 @@
       @else
       <!-- login menu  -->
       <div class="adminview-sidebar" id="navbarSupportedContent">
-      <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
+      <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
       
       @can('role-list')      
-      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;  ニュース一覧</router-link></li>
-      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;  顧客一覧</router-link></li>
-      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;  カテゴ一覧</router-link></li>
-      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  施設一覧</router-link></li>
+      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
+      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;顧客一覧</router-link></li>
+      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
+      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
       <li>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Pages</a>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Pages</a>
         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
             <li>
-                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  User Password Reset</router-link>
+                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link>
             </li>
             <li>
-                <a href="#">Page 2</a>
+            <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
             </li>
-            <li>
-                <a href="#">Page 3</a>
-            </li>
+           
         </ul>
     </li>
 
       @endcan
 
       @can('customer')
-      <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
-      <li><router-link to="/joblist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
+      <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;マイページ</router-link></li>
+      <li><router-link to="/joblist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;仕事一覧</router-link></li>
       @endcan
 
       @can('role-list')
-      <li><router-link to="/ads" class="nav-link"><i class="fa fa-globe"></i>&nbsp;&nbsp;  広告</router-link></li>
+      <li><router-link to="/ads" class="nav-link"><i class="fa fa-globe"></i>&nbsp;広告</router-link></li>
       @endcan
 
       <li>
         <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
-        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;&nbsp;
-
-            {{ __('ログアウト') }}
+        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;{{ __('ログアウト') }}
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
@@ -298,28 +294,19 @@
                 <!--related news-->
                 <div class="card m-b-10 ads-card">
                 <!--ads slider-->
-            <div style="display: block; overflow: hidden;">
-            <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:167px; overflow: hidden;">
-            <!-- Slides Container -->
-            <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 167px;
-                overflow: hidden;">
-                <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/>
-               
+                <div style="display: block; overflow: hidden;">
+                    <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:167px; overflow: hidden;">
+                    <!-- Slides Container -->
+                        <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 167px; overflow: hidden;">
+                            <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/> </div>
+                            <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/> </div>
+                            <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/> </div>
+                            <div><img data-u="image" src="/images/h4.jpg" style="width:100%"/> </div>
+                        </div>
+                    <!-- Trigger -->          
+                    </div>
                 </div>
-                <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/>
-                    
-                </div>
-                <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/>
-                  
-                </div>
-                <div><img data-u="image" src="/images/h4.jpg" style="width:100%"/>
-                 
-                </div>
-            </div>
-            <!-- Trigger -->          
-            </div>
-            </div>
-            <!--end ads slider-->
+                <!--end ads slider-->
 
                 </div>
                 <div class="card m-b-10 ads-card">
@@ -358,7 +345,7 @@
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
   <!-- script for editor -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> 
   <!-- end script for editor -->
 
@@ -367,7 +354,7 @@
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
-<!-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> -->
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 <script type="text/javascript">
  $(document).ready(function() {
