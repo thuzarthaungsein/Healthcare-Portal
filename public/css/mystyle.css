@@ -241,6 +241,16 @@
         }
 /* End Login */
 /* Register form*/
+
+
+.hide{
+    display: none;
+}
+.show{
+    display: inline-flex;
+}
+
+
 .registerform_container{
     margin-top: 80px;
 }
