@@ -156,6 +156,11 @@
     color: blue;
     border-color: blue;
 }
+.accept-box {
+    border: 1px solid #eee;
+    padding: 8px;
+    margin-bottom: 3px;
+}
 /* End Profile */
 
 /* Login */
@@ -1058,7 +1063,15 @@ div.b{
 
 /*/////////////////////////// setup////////////////////// */
 /* setup class */
-
+.green {
+    color: green;
+}
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
 .p-lr-0 {
     padding-left:0px !important;
     padding-right:0px !important;
@@ -1109,6 +1122,9 @@ div.b{
 }
 .m-b-30{
     margin-bottom: 30px !important;
+}
+.m-r-15 {
+    margin-right: 15px;
 }
 /* .m-r-2per{
     margin-right: 2% !important;

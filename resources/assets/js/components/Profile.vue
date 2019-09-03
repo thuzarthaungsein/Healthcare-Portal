@@ -180,6 +180,26 @@
 
                                         <div class="col-md-12 pad-free toogle-div co-medical-toogle-div" id="cooperate-medical"></div>
                                 </div>
+                                <div class="form-group">
+                                        <label>Medical Acceptance<span class="error">*</span></label>
+                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="acceptanceList()">+</span>
+                                        <div class="col-md-12 m-t-20 accept-toggle-div toggle-div">
+                                                <label for="" class="m-r-15"><i class="fas fa-check green"></i> 受入れ可</label>
+                                                <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
+                                                <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
+                                                <div class="row">
+                                                        <div class="col-md-4 accept-box" v-for="medical in medical_acceptance" :key="medical.id">
+                                                                {{medical.name}}
+                                                                <div class="float-right">
+                                                                        <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-check green"></i></label>
+                                                                        <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-times red"></i></label>
+                                                                        <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                                </div>
+                                                                
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
                         </div>
 
                 
@@ -196,17 +216,25 @@
 export default {
        data() {
                 return {
-                        type: 'hospital',
+                        type: 'nursing',
                         fac_list: [],
+                        medical_acceptance:[],
                 }
         },
         created(){
-            this.axios
-                 .get('http://localhost:8000/api/facilities')
-                 .then(response=>{
-                        //  console.log(response);
-                     this.fac_list = response.data;
-                 });
+                this.axios
+                .get('http://localhost:8000/api/facilities')
+                .then(response=>{
+                //  console.log(response);
+                this.fac_list = response.data;
+                });
+
+                this.axios
+                .get('http://localhost:8000/api/medical/medicalacceptance')
+                .then(response => {
+                    this.medical_acceptance = response.data;                  
+                //      console.log(response.data);
+                });
         },
         methods: {
              preview_image() 
@@ -245,7 +273,11 @@ export default {
             },
 
             cooperateAdd() {
-                   $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-striped table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> '); 
+                   $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> '); 
+            },
+
+            acceptanceList() {
+                $(".accept-toggle-div").toggle('medium');
             }
         }
 }

@@ -62287,12 +62287,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
                 return {
-                        type: 'hospital',
-                        fac_list: []
+                        type: 'nursing',
+                        fac_list: [],
+                        medical_acceptance: []
                 };
         },
         created: function created() {
@@ -62301,6 +62322,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.axios.get('http://localhost:8000/api/facilities').then(function (response) {
                         //  console.log(response);
                         _this.fac_list = response.data;
+                });
+
+                this.axios.get('http://localhost:8000/api/medical/medicalacceptance').then(function (response) {
+                        _this.medical_acceptance = response.data;
+                        //      console.log(response.data);
                 });
         },
 
@@ -62333,7 +62359,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
                 },
                 cooperateAdd: function cooperateAdd() {
-                        $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-striped table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> ');
+                        $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> ');
+                },
+                acceptanceList: function acceptanceList() {
+                        $(".accept-toggle-div").toggle('medium');
                 }
         }
 });
@@ -62631,11 +62660,99 @@ var render = function() {
                     "col-md-12 pad-free toogle-div co-medical-toogle-div",
                   attrs: { id: "cooperate-medical" }
                 })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _vm._m(22),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "btn all-btn main-bg-color m-l-10",
+                    staticStyle: { "min-width": "0px" },
+                    on: {
+                      click: function($event) {
+                        return _vm.acceptanceList()
+                      }
+                    }
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-md-12 m-t-20 accept-toggle-div toggle-div"
+                  },
+                  [
+                    _vm._m(23),
+                    _vm._v(" "),
+                    _vm._m(24),
+                    _vm._v(" "),
+                    _vm._m(25),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "row" },
+                      _vm._l(_vm.medical_acceptance, function(medical) {
+                        return _c(
+                          "div",
+                          {
+                            key: medical.id,
+                            staticClass: "col-md-4 accept-box"
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                                " +
+                                _vm._s(medical.name) +
+                                "\r\n                                                                "
+                            ),
+                            _c("div", { staticClass: "float-right" }, [
+                              _c("label", [
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name: "medical" + medical.id
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("i", { staticClass: "fas fa-check green" })
+                              ]),
+                              _vm._v(" "),
+                              _c("label", [
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name: "medical" + medical.id
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("i", { staticClass: "fas fa-times red" })
+                              ]),
+                              _vm._v(" "),
+                              _c("label", [
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name: "medical" + medical.id
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("i", { staticClass: "fas fa-adjust blue" })
+                              ])
+                            ])
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]
+                )
               ])
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(22)
+        _vm._m(26)
       ])
     ])
   ])
@@ -62994,6 +63111,42 @@ var staticRenderFns = [
     return _c("label", [
       _vm._v("Medical Cooperate"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Medical Acceptance"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
+      _c("i", { staticClass: "fas fa-check green" }),
+      _vm._v(" 受入れ可")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
+      _c("i", { staticClass: "fas fa-times red" }),
+      _vm._v(" 受入れ不可")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
+      _c("i", { staticClass: "fas fa-adjust blue" }),
+      _vm._v(" 応相談")
     ])
   },
   function() {
@@ -65228,7 +65381,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //

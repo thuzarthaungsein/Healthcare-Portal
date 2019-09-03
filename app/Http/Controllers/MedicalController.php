@@ -56,7 +56,6 @@ class MedicalController extends Controller
         $medical = new Medical([
             'name' => $request->input('name'),
             'user_id' => 1,
-            'recordstatus' => 2
         ]);
         $medical->save();
         // return $request;
