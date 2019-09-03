@@ -15,6 +15,8 @@ class AdvertisementController extends Controller
     public function index()
     {
         //
+        $ads =Advertisement::all()->toArray();
+        return array_reverse($ads);
     }
 
     /**
@@ -86,6 +88,9 @@ class AdvertisementController extends Controller
     public function edit($id)
     {
         //
+         $ads = Advertisement::find($id);
+
+         return response()->json($ads);
     }
 
     /**
@@ -95,9 +100,13 @@ class AdvertisementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id,Request $request)
     {
         //
+        $ads = Advertisement::find($id);
+        $ads->update($request->all());
+
+        return response()->json('The Facility successfully updated');
     }
 
     /**
@@ -109,5 +118,8 @@ class AdvertisementController extends Controller
     public function destroy($id)
     {
         //
+        $ads = Advertisement::find($id);
+        $ads->delete();
+        return response()->json('The Facility successfully deleted');
     }
 }

@@ -9,7 +9,7 @@
                             <div class="col-md-10">
                                 <input type="text" class="form-control" placeholder="検索">
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 text-right">
                                 <button class="btn secondary-bg-color all-btn white"><i class="fas fa-search"></i> 検索</button>
                             </div>
                         </div>
@@ -17,7 +17,7 @@
           </div>
            <div class="row m-b-15">
                 <div class="col-md-12">
-                    <router-link to="/createcategory" class="float-right" style="color: blue;"><i class="fas fa-add-plus"></i>新しいカテゴリを作成</router-link>
+                    <router-link to="/createcategory" class="float-right main-bg-color create-btn"><i class="fas fa-plus-circle"></i> 新しいカテゴリを作成</router-link>
                 </div>
                 <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
             </div>
@@ -31,14 +31,16 @@
 
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-9 m-t-8">
+                                <div class="col-md-10 m-t-8">
                                     {{category.name}}
                                 </div>
-                                <div class="col-md-3" style="margin-top: 8px;">
+                                <div class="col-md-2 text-right pad-free" style="margin-top: 8px;">
 
-                                    <router-link :to ="{name:'editcategory', params:{id : category.id}}" class="btn main-bg-color white all-btn">Edit </router-link>
+                                   
+                                    <small><router-link :to ="{name:'editcategory', params:{id : category.id}}" class="btn mr-auto text-warning"> 編集</router-link></small> &nbsp;
+                                    <small><a class="btn mr-auto text-danger" @click="deleteCategory(category.id)"> 削除</a></small>
 
-                                    <button class="btn btn-danger all-btn" @click="deleteCategory(category.id)">Delete</button>
+                                   
                                 </div>
                             </div>
                         </div>
