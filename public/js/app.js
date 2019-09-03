@@ -52598,10 +52598,6 @@ var routes = [{
   path: '/profilepublish',
   component: __WEBPACK_IMPORTED_MODULE_24__components_ProfilePublish_vue___default.a
 }, {
-  name: 'advertisement',
-  path: '/advertisement',
-  component: __WEBPACK_IMPORTED_MODULE_25__components_advertisement_vue___default.a
-}, {
   name: 'hospital_history',
   path: '/hospital_history',
   component: __WEBPACK_IMPORTED_MODULE_30__components_HospitalHistory_vue___default.a
@@ -52633,6 +52629,14 @@ var routes = [{
   name: 'typelist',
   path: '/typelist',
   component: __WEBPACK_IMPORTED_MODULE_32__components_TypeList_vue___default.a
+}, {
+  name: 'ads',
+  path: '/ads',
+  component: advertisementlist
+}, {
+  name: 'editadvertisement',
+  path: '/editads',
+  component: editadvertisement
 }];
 
 /***/ }),
@@ -52987,6 +52991,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -53074,1250 +53082,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "search-map" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-7 divisions" }, [
-        _c("div", { staticClass: "row m-b-30" }, [
-          _c("div", { staticClass: "col-md-3" }, [
-            _c(
-              "div",
-              { staticClass: "card", staticStyle: { background: "#c296c5" } },
-              [
-                _c("div", { staticClass: "card-header" }, [
-                  _vm._v(
-                    "\r\n                                                中国・東海\r\n                                                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "card-body",
-                    staticStyle: { padding: "10px" }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked,
-                          expression: "checked"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "hiroshima" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checked)
-                          ? _vm._i(_vm.checked, null) > -1
-                          : _vm.checked
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked,
-                          expression: "checked"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "okayama" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checked)
-                          ? _vm._i(_vm.checked, null) > -1
-                          : _vm.checked
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(1),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked,
-                          expression: "checked"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "yamaguchi" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checked)
-                          ? _vm._i(_vm.checked, null) > -1
-                          : _vm.checked
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked,
-                          expression: "checked"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "tottori" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checked)
-                          ? _vm._i(_vm.checked, null) > -1
-                          : _vm.checked
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(3),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked,
-                          expression: "checked"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "shimane" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checked)
-                          ? _vm._i(_vm.checked, null) > -1
-                          : _vm.checked
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(4),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked,
-                          expression: "checked"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "aichi" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checked)
-                          ? _vm._i(_vm.checked, null) > -1
-                          : _vm.checked
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(5),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked,
-                          expression: "checked"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "shizuoka" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checked)
-                          ? _vm._i(_vm.checked, null) > -1
-                          : _vm.checked
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(6),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked,
-                          expression: "checked"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "gifu" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checked)
-                          ? _vm._i(_vm.checked, null) > -1
-                          : _vm.checked
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(7),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked,
-                          expression: "checked"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "triple" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checked)
-                          ? _vm._i(_vm.checked, null) > -1
-                          : _vm.checked
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(8)
-                  ]
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c(
-              "div",
-              { staticClass: "card", staticStyle: { background: "#fab755" } },
-              [
-                _c("div", { staticClass: "card-header" }, [
-                  _vm._v(
-                    "\r\n                                                近畿\r\n                                                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "osaka" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(9),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "hyogo" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(10),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "kyoto" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(11),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "nara" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(12),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "shiga" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(13),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "wakayama" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(14)
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c(
-              "div",
-              { staticClass: "card", staticStyle: { background: "#ec9a9c" } },
-              [
-                _c("div", { staticClass: "card-header" }, [
-                  _vm._v(
-                    "\r\n                                                甲信越・北陸\r\n                                                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "ishikawa" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(15),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "niigata" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(16),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "fukui" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(17),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "toyama" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(18),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "nagano" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(19),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checked,
-                        expression: "checked"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: "yamanashi" },
-                    domProps: {
-                      checked: Array.isArray(_vm.checked)
-                        ? _vm._i(_vm.checked, null) > -1
-                        : _vm.checked
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.checked,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checked = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checked = $$c
-                        }
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(20),
-                  _c("br")
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _vm._m(21)
-        ]),
-        _vm._v(" "),
-        _vm._m(22)
-      ]),
-      _vm._v(" "),
-      _vm._m(23)
-    ])
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "hiroshima" } }, [
-      _c("span", [_vm._v("広島")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "okayama" } }, [
-      _c("span", [_vm._v("岡山")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "yamaguchi" } }, [
-      _c("span", [_vm._v("山口")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "tottori" } }, [
-      _c("span", [_vm._v("鳥取")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "shimane" } }, [
-      _c("span", [_vm._v("島根")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "aichi" } }, [
-      _c("span", [_vm._v("愛知")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "shizuoka" } }, [
-      _c("span", [_vm._v("静岡")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "gifu" } }, [
-      _c("span", [_vm._v("岐阜")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "triple" } }, [
-      _c("span", [_vm._v("三重")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "osaka" } }, [
-      _c("span", [_vm._v("大阪")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "hyogo" } }, [
-      _c("span", [_vm._v("兵庫")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "kyoto" } }, [
-      _c("span", [_vm._v("京都")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "nara" } }, [
-      _c("span", [_vm._v("奈良")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "shiga" } }, [
-      _c("span", [_vm._v("滋賀")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "wakayama" } }, [
-      _c("span", [_vm._v("和歌山")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "ishikawa" } }, [
-      _c("span", [_vm._v("石川")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "niigata" } }, [
-      _c("span", [_vm._v("新潟")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "fukui" } }, [
-      _c("span", [_vm._v("福井")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "toyama" } }, [
-      _c("span", [_vm._v("富山")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "nagano" } }, [
-      _c("span", [_vm._v("長野")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "yamanashi" } }, [
-      _c("span", [_vm._v("山梨")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3" }, [
-      _c(
-        "div",
-        { staticClass: "card", staticStyle: { background: "#9ac1d6" } },
-        [
-          _c("div", { staticClass: "card-header" }, [
-            _vm._v(
-              "\r\n                                                北海道・東北\r\n                                                "
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-body", staticStyle: { padding: "10px" } },
-            [
-              _c("span", [_vm._v("宮城")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("北海道")]),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", [_vm._v("青森")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("岩手")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", [_vm._v("山形")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("福島")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("秋田")])
-            ]
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-3" }, [
-        _c(
-          "div",
-          { staticClass: "card", staticStyle: { background: "#f26d6d" } },
-          [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v(
-                "\r\n                                                九州・沖縄\r\n                                                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("span", [_vm._v("福岡")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("熊本")]),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", [_vm._v("長崎")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("鹿児島")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", [_vm._v("宮崎")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("大分")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", [_vm._v("佐賀")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("沖縄")])
-            ])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c(
-          "div",
-          { staticClass: "card", staticStyle: { background: "#a2ce4b" } },
-          [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v(
-                "\r\n                                                関東\r\n                                                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("span", [_vm._v("東京")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("神奈川")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", [_vm._v("千葉")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("埼玉")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", [_vm._v("群馬")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("茨城")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", [_vm._v("栃木")])
-            ])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c(
-          "div",
-          { staticClass: "card", staticStyle: { background: "#9cd9e0" } },
-          [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v(
-                "\r\n                                                四国\r\n                                                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("span", [_vm._v("愛媛")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("香川")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", [_vm._v("高知 ")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("徳島")])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-5" }, [
-      _c("img", {
-        staticClass: "img-responsive",
-        staticStyle: { width: "100%" },
-        attrs: { src: "/images/map.png", alt: "" }
-      })
+    return _c("div", { staticClass: "search-map" }, [
+      _c("div", { staticClass: "row" })
     ])
   }
 ]
@@ -54922,6 +53695,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-md-center" }, [
     _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header tab-card-header" }, [
           _c(
@@ -54998,7 +53773,10 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "tab-content scroll2", attrs: { id: "myTabContent" } },
+          {
+            staticClass: "tab-content tab-content2 scroll2",
+            attrs: { id: "myTabContent" }
+          },
           [
             _c(
               "div",
@@ -55108,7 +53886,7 @@ var render = function() {
       "div",
       { staticClass: "row m-lr-0" },
       [
-        _vm._m(0),
+        _vm._m(1),
         _vm._v(" "),
         _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
           return _c(
@@ -55167,6 +53945,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      { staticClass: "form-inline col-lg-5 form-inline mb-2 pad-free" },
+      [
+        _c("input", {
+          staticClass: "form-control col-lg mr-sm-3 d-flex p-2 form-control",
+          attrs: { type: "search", placeholder: "検索", "aria-label": "検索" }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
+            attrs: { type: "submit" }
+          },
+          [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
       _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
     ])
@@ -55192,7 +53995,7 @@ var render = function() {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "tab-content tabs" }, [
+    _c("div", { staticClass: "tab-content tab-content1 tabs" }, [
       _c(
         "div",
         {
@@ -55265,7 +54068,10 @@ var staticRenderFns = [
                 staticClass: "nav-link active",
                 attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
               },
-              [_c("i", { staticClass: "fas fa-home" }), _vm._v(" ニュース")]
+              [
+                _c("i", { staticClass: "fas fa-newspaper" }),
+                _vm._v(" ニュース")
+              ]
             )
           ]
         ),
@@ -55613,6 +54419,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
     _c("div", { staticClass: "row justify-content-md-center" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", {}, [
@@ -55642,7 +54450,7 @@ var render = function() {
                   attrs: { src: "/images/" + _vm.newdetails.photo }
                 }),
                 _vm._v(" "),
-                _vm._m(0),
+                _vm._m(1),
                 _vm._v(" "),
                 _c(
                   "p",
@@ -55653,22 +54461,51 @@ var render = function() {
                   [_vm._v("関連ニュース")]
                 ),
                 _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
                 _vm._m(2),
                 _vm._v(" "),
-                _vm._m(3)
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4)
               ])
             ])
           ]),
           _vm._v(" "),
-          _vm._m(4)
+          _vm._m(5)
         ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+        _c("ol", { staticClass: "breadcrumb" }, [
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "/home" } }, [_vm._v("ホーム")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "./search_news_result.html" } }, [
+              _vm._v("新しい結果を検索")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "breadcrumb-item active",
+              attrs: { "aria-current": "page" }
+            },
+            [_vm._v(" 新しい詳細")]
+          )
+        ])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -56655,7 +55492,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -57967,8 +56804,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "content" } }, [
-    _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "row", attrs: { id: "content" } }, [
+    _c("div", { staticClass: "col-12" }, [
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "row m-b-15" }, [
@@ -58102,7 +56939,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -58701,6 +57538,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58753,11 +57592,13 @@ var render = function() {
             _c(
               "router-link",
               {
-                staticClass: "float-right",
-                staticStyle: { color: "blue" },
+                staticClass: "float-right main-bg-color create-btn",
                 attrs: { to: "/createcategory" }
               },
-              [_vm._v("新しいカテゴリを作成")]
+              [
+                _c("i", { staticClass: "fas fa-plus-circle" }),
+                _vm._v(" 新しいカテゴリを作成")
+              ]
             )
           ],
           1
@@ -58775,7 +57616,7 @@ var render = function() {
               _c("div", { staticClass: "card card-default m-b-20" }, [
                 _c("div", { staticClass: "card-body" }, [
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-9 m-t-8" }, [
+                    _c("div", { staticClass: "col-md-10 m-t-8" }, [
                       _vm._v(
                         "\n                                " +
                           _vm._s(category.name) +
@@ -58786,38 +57627,45 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "col-md-3",
+                        staticClass: "col-md-2 text-right pad-free",
                         staticStyle: { "margin-top": "8px" }
                       },
                       [
                         _c(
-                          "router-link",
-                          {
-                            staticClass: "btn main-bg-color white all-btn",
-                            attrs: {
-                              to: {
-                                name: "editcategory",
-                                params: { id: category.id }
-                              }
-                            }
-                          },
-                          [_vm._v("Edit ")]
+                          "small",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn mr-auto text-warning",
+                                attrs: {
+                                  to: {
+                                    name: "editcategory",
+                                    params: { id: category.id }
+                                  }
+                                }
+                              },
+                              [_vm._v(" 編集")]
+                            )
+                          ],
+                          1
                         ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger all-btn",
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteCategory(category.id)
+                        _vm._v("  \n                                "),
+                        _c("small", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn mr-auto text-danger",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteCategory(category.id)
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Delete")]
-                        )
-                      ],
-                      1
+                            },
+                            [_vm._v(" 削除")]
+                          )
+                        ])
+                      ]
                     )
                   ])
                 ])
@@ -58847,11 +57695,11 @@ var staticRenderFns = [
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-2" }, [
+          _c("div", { staticClass: "col-md-2 text-right" }, [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -59390,7 +58238,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -63617,6 +62465,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
@@ -63660,7 +62516,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="Title" class="form-control m-b-15"><textarea name="description" placeholder="Description" class="form-control m-b-15"></textarea></div>');
                 },
                 methodAdd: function methodAdd() {
-                        $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">Breakdown</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
+                        $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
+                },
+                cooperateAdd: function cooperateAdd() {
+                        $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-striped table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> ');
                 }
         }
 });
@@ -63904,11 +62763,65 @@ var render = function() {
                   staticClass: "col-md-12 pad-free",
                   attrs: { id: "methods" }
                 })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _vm._m(21),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "btn all-btn main-bg-color m-l-10",
+                    staticStyle: { "min-width": "0px" },
+                    on: {
+                      click: function($event) {
+                        return _vm.cooperateAdd()
+                      }
+                    }
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "m-l-10 float-right collapse-icon collapse-icon-down",
+                    attrs: { title: "Collapse All" },
+                    on: {
+                      click: function($event) {
+                        return _vm.cooperateAdd()
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-sort-down" })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "m-l-10 float-right collapse-icon collapse-icon-up",
+                    attrs: { title: "Expand All" },
+                    on: {
+                      click: function($event) {
+                        return _vm.cooperateAdd()
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-sort-up" })]
+                ),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass:
+                    "col-md-12 pad-free toogle-div co-medical-toogle-div",
+                  attrs: { id: "cooperate-medical" }
+                })
               ])
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(21)
+        _vm._m(22)
       ])
     ])
   ])
@@ -64257,6 +63170,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("支払い方法"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Medical Cooperate"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
@@ -64771,25 +63693,24 @@ module.exports = Component.exports
 //
 //
 
-// jQuery(document).ready(function ($) {
-// 	$('a[href*=#]:not([href=#])').click(function() {
-// 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
-// 			|| location.hostname == this.hostname) {
-
-// 			var target = $(this.hash);
-// 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-// 			if (target.length) {
-// 				$('html,body').animate({
-// 					scrollTop: target.offset().top - 32
-// 				}, 1000);
-// 				return false;
-// 			}
-// 		}
-// 	});
-// });
 
 // Fixed Nav
 jQuery(document).ready(function ($) {
+
+    // $('a[href*=#]:not([href=#])').click(function() {
+    // 	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+    // 		|| location.hostname == this.hostname) {
+
+    // 		var target = $(this.hash);
+    // 		target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    // 		if (target.length) {
+    // 			$('html,body').animate({
+    // 				scrollTop: target.offset().top - 32
+    // 			}, 1000);
+    // 			return false;
+    // 		}
+    // 	}
+    // });
 
     $(window).scroll(function () {
 
@@ -65308,6 +64229,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -65353,8 +64281,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "col-md-12 " }, [
-      _c("div", { staticClass: "card text-dark" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12 card text-dark" }, [
         _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "card-body " }, [
@@ -65566,7 +64494,27 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _c("div", { staticClass: "form-group " }, [
+                    _c("div", { staticClass: "form-group row" }, [
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-1" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "btn btn-warning",
+                              attrs: { to: "/ads" }
+                            },
+                            [_vm._v("  Cancel ")]
+                          )
+                        ],
+                        1
+                      )
+                    ])
+                  ])
                 ]
               )
             ])
@@ -65581,10 +64529,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-center" }, [
-      _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-        _vm._v(" Advertisements ")
-      ])
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "h4",
+        { staticClass: "header", staticStyle: { "padding-top": "20px" } },
+        [_vm._v(" Advertisements ")]
+      )
     ])
   },
   function() {
@@ -65631,15 +64581,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn main-bg-color white all-btn ",
-          attrs: { type: "submit" }
-        },
-        [_vm._v("Submit")]
-      )
+    return _c("div", { staticClass: "col-1 pad-free" }, [
+      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Create")])
     ])
   }
 ]

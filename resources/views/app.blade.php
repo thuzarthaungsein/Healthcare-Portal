@@ -12,19 +12,18 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
     <style>
         .bg-light {
             background-color: #eae9e9 !important;
@@ -59,7 +58,7 @@
         </li>
         <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
             <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
-            <a class="nav-link pad-free" href="{{ url('registerForm') }}">{{ __('事業者 ログイン') }}</a>
+            <a class="nav-link pad-free" href="{{ url('registerForm') }}">{{ __('事業者 登録') }}</a>
             <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
         </li>
     @else
@@ -67,8 +66,8 @@
             <img src="/images/user.png" alt="" class="userprofile-img">
             <a class="nav-link" href="#!">{{ Auth::user()->name }}</a>
         </li>
-        
-    @endguest      
+
+    @endguest
     </ul>
   </div>
   </nav>
@@ -76,7 +75,7 @@
 
   <!--sidebar-->
 
-  <!--end sidebar -->     
+  <!--end sidebar -->
 <div class="sidebar-scroll container-fluid">
 	<div class="row">
   <div class="col-lg-2 col-md-12 col-sm-12 pad-free custom-sidebar">
@@ -85,30 +84,11 @@
       <!-- public menu -->
       <div class="userview-sidebar col-auto">
         <div class="card m-b-10 ads-card">           
-            <!--ads slider-->
-            <div style="display: block; overflow: hidden;">
-            <div id="slider2_container" style="position: relative; margin:10px; float: left; top: 0px; left: 0px; width: 200px;
-                                                    height: 200px; overflow: hidden;">
-            <!-- Slides Container -->
-            <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;
-                overflow: hidden;">
-                <div><img data-u="image" src="/images/ad_1.jpg" />
-               
-                </div>
-                <div><img data-u="image" src="/images/h2.jpg" />
-                    
-                </div>
-                <div><img data-u="image" src="/images/h3.jpg" />
-                  
-                </div>
-                <div><img data-u="image" src="/images/h4.jpg" />
-                 
-                </div>
-            </div>
-            <!-- Trigger -->          
-            </div>
-            </div>
-            <!--end ads slider-->
+        <div class="">
+                                <!-- <h5 class="card-title text-center">一つ目の広告</h5> -->
+                                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                <img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width:100%">
+                        </div>
             
         </div>
         <div class="card m-b-10 ads-card2">
@@ -124,31 +104,11 @@
                         <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
                     </div>
-                    
+
                 </a>
-            </li>         
-            
+            </li>
+
             </ul>
-            </div>            
-        </div> 
-        <div class="card m-b-10 ads-card2">
-            <div class="card-body">
-            <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <a href="#">
-                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
-                    <div class="sub-title">
-                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
-                    <span class="source-wrapper text-turncate">
-                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
-                        <span class="smallads-title text-turncate">クランクイン</span>
-                    </span>
-                    </div>
-                    
-                </a>
-            </li>
-            
-            </ul>   
             </div>
         </div>
         <div class="card m-b-10 ads-card2">
@@ -164,39 +124,57 @@
                         <span class="smallads-title text-turncate">クランクイン</span>
                     </span>
                     </div>
-                    
+
                 </a>
             </li>
-            
-            </ul>   
+
+            </ul>
+            </div>
+        </div>
+        <div class="card m-b-10 ads-card2">
+            <div class="card-body">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="#">
+                    <img src="/images/h11.jpg" alt="" class="img-responsivie ads-img" style="height: 80px;">
+                    <div class="sub-title">
+                    <h3 class="ads-title"> 変わらぬ美しさ、20年ぶりグラビア</h3>
+                    <span class="source-wrapper text-turncate">
+                     <img src="/images/company-profile1.png" alt="" class="img-responsivie source-img">
+                        <span class="smallads-title text-turncate">クランクイン</span>
+                    </span>
+                    </div>
+
+                </a>
+            </li>
+
+            </ul>
             </div>
         </div>
     </div>
       @else
       <!-- login menu  -->
       <div class="adminview-sidebar" id="navbarSupportedContent">
-      <li><router-link to="/home" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
+      <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
       
       @can('role-list')      
-      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;  ニュース一覧</router-link></li>
-      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;  顧客一覧</router-link></li>
-      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;  カテゴ一覧</router-link></li>
-      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  施設一覧</router-link></li>
+      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
+      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;顧客一覧</router-link></li>
+      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
+      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
       <li>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Pages</a>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Pages</a>
         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
             <li>
-                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  User Password Reset</router-link>
+                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link>
             </li>
             <li>
-                <a href="#">Page 2</a>
+            <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
             </li>
-            <li>
-                <a href="#">Page 3</a>
-            </li>
+           
         </ul>
     </li>
-     
+
       @endcan
 
       @can('customer')
@@ -205,17 +183,15 @@
       @endcan
 
       @can('role-list')
-      <li><router-link to="/advertisement" class="nav-link"><i class="fa fa-globe"></i>&nbsp;&nbsp;  広告</router-link></li>
+      <li><router-link to="/ads" class="nav-link"><i class="fa fa-globe"></i>&nbsp;広告</router-link></li>
       @endcan
 
       <li>
-        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}" 
+        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
-        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;&nbsp;
-      
-            {{ __('ログアウト') }}
-        
+        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;{{ __('ログアウト') }}
+
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
@@ -223,7 +199,7 @@
       </li>
       </div>
       @endguest
-     
+
       </ul>
   </div>
 
@@ -232,7 +208,7 @@
       <!--section one-->
       <section>
         <div class="container-fluid main-wrapper">
-        
+
         <!--slider for ads-->
         <div class="col-md-auto">
         <!--jssor carousel-->
@@ -300,28 +276,38 @@
         </div> -->
         </div>
         <!--end jssor slider-->
-      </div>    
+      </div>
       <!--end slider for ads-->
-           
-      <div class="row justify-content-md-center">           
-        <div class="col-10 tab"> 
+
+      <div class="row justify-content-md-center">
+        <div class="col-10 tab">
           <!-- vue component -->
               <router-view></router-view>
-             
+
           <!-- vue component -->
 
       <!-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">three</div>
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div> -->
       </div>
-      
+
       <div class="col-2">
                 <!--related news-->
                 <div class="card m-b-10 ads-card">
-                        <div class="">
-                                <!-- <h5 class="card-title text-center">一つ目の広告</h5> -->
-                                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                <img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width:100%">
+                <!--ads slider-->
+                <div style="display: block; overflow: hidden;">
+                    <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:167px; overflow: hidden;">
+                    <!-- Slides Container -->
+                        <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 167px; overflow: hidden;">
+                            <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/> </div>
+                            <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/> </div>
+                            <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/> </div>
+                            <div><img data-u="image" src="/images/h4.jpg" style="width:100%"/> </div>
                         </div>
+                    <!-- Trigger -->          
+                    </div>
+                </div>
+                <!--end ads slider-->
+
                 </div>
                 <div class="card m-b-10 ads-card">
                         <div class="card-body">
@@ -333,48 +319,48 @@
                 <div class="card m-b-10 ads-card2">
                         <div class="card-body today">
                         <ul id="menu" class="list-group list-group-flush">
-                               
-                            </ul>                                                
+
+                            </ul>
                         </div>
                 </div>
                 <!-- end related news-->
             </div>
     </div>
-            
+
           </div>
           <div class="container-fluid footer footer-div">
                 <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
         </div>
         </div>
-        
-        
+
+
       </section>
        <!--end section one-->
-      
+
   </div>
 </div>
 </div>
-<!-- END LEFT SIDEBAR -->      
+<!-- END LEFT SIDEBAR -->
     </div>
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
   <!-- script for editor -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> 
   <!-- end script for editor -->
 
 <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 <script type="text/javascript">
  $(document).ready(function() {
     $('.DataTable').DataTable();
-    jssor_1_slider_init(); 
-    jssor_slider2_init();      
+    jssor_1_slider_init();
+    jssor_slider2_init();
 
     var csrf = "{{ csrf_token() }}";
     $.ajax({
@@ -383,14 +369,14 @@
         data: {'_token': csrf},
 
         success: function( data ) {
-            
+
             for (var i = 0; i < data.length; i++) {
                 var photo = '<li class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-responsivie ads-img" src="../images/' + data[i].photo + '" />';
                 var title = '<h3 class="smallads-title text-truncate">' + data[i].title + '</h3></li>';
                 $("#menu").append(photo + title);
-            } 
-        }       
-    });              
+            }
+        }
+    });
 });
 </script>
 

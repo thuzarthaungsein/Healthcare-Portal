@@ -34,7 +34,7 @@ import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 
 export const routes = [
- 
+
       {
         name: 'home',
         path: '/',
@@ -162,11 +162,7 @@ export const routes = [
       path: '/profilepublish',
       component: ProfilePublish
     },
-    {
-        name: 'advertisement',
-        path: '/advertisement',
-        component: advertisement
-      },
+    
       {
       name: 'hospital_history',
       path: '/hospital_history',
@@ -208,5 +204,16 @@ export const routes = [
         name:'typelist',
         path:'/typelist',
         component:typelist
-      }
+      },
+   
+    {
+        name: 'ads',
+        path: '/ads',
+        component: advertisementlist
+    },
+    {
+        name: 'editadvertisement',
+        path: '/editads',
+        component: editadvertisement
+    }
 ];

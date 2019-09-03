@@ -2,7 +2,7 @@
 <div class="search-map">
         <div class="row">
         
-                <div class="col-md-7 divisions">
+                <!-- <div class="col-md-7 divisions">
                         <div class="row m-b-30">
                                 <div class="col-md-3">
                                         <div class="card" style="background: #c296c5">
@@ -163,24 +163,11 @@
                                                 </div>
                                         </div>
                                 </div>
-                                <!-- <div class="col-md-3">
-                                        <div class="card" style="background: #849fd2">
-                                                <div class="card-header">
-                                                東海
-                                                </div>
-                                                <div class="card-body">                                        
-                                                <span>愛知</span> 
-                                                <span>静岡</span> <br>
-                                                <span>岐阜</span> 
-                                                <span>三重</span>    
-                                                </div>
-                                        </div>
-                                </div> -->
                         </div>          
                 </div>
                 <div class="col-md-5">
                         <img src="/images/map.png" alt="" style="width:100%" class="img-responsive">
-                </div>
+                </div> -->
         </div>
 </div>
 </template>
