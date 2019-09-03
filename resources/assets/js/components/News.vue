@@ -1,7 +1,7 @@
 <template>
 <div class="row justify-content-md-center">                                
                 <div class="col-12">
-                        <form class="form-inline my-2 col-lg-5 form-inline mb-10 pad-free"><input type="search" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control"> 
+                        <form class="form-inline col-lg-5 form-inline mb-2 pad-free"><input type="search" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control"> 
                                 <button type="submit" class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary"><i class="fas fa-search"></i> 検索</button>
                         </form>
                         <div class="card">
@@ -15,19 +15,20 @@
                                                                 {{ cat.name }}</a>
                                                 </li>
                                                 
-                                        </ul>
+                                        </ul> 
                                 </div>
 
-                                <div class="tab-content scroll2" id="myTabContent">
+                                <div class="tab-content tab-content2 scroll2" id="myTabContent">
                                         <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
 
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
+                                                        <route-link :to="'/newsdetails/' + latest_post.id">asfdasfdasf</route-link>
                                                                 <a v-bind:href="'/newsdetails/' + latest_post.id">
                                                                         <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" >
                                                                         <p class="source-title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle">
-                                                                                <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
+                                                                                 <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
                                                                         </p>
                                                                 </a>
                                                         </div>

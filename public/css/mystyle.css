@@ -241,6 +241,16 @@
         }
 /* End Login */
 /* Register form*/
+
+
+.hide{
+    display: none;
+}
+.show{
+    display: inline-flex;
+}
+
+
 .registerform_container{
     margin-top: 80px;
 }
@@ -1101,7 +1111,14 @@ li.userprofile-name > a {
     padding: 13px !important;/*for no scroll*/
     background: white;
     border: 1px solid #eee;
-    max-height: 325px;
+   
+}
+.tab-content1{
+    min-height: 350px;
+    max-height: 900px;
+}
+.tab-content2{
+    height: 320px !important;
 }
 .tab-card-header{
     background-color: #b7dad2 !important;

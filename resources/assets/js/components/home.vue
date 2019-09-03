@@ -12,7 +12,7 @@
          
           
                <!-- Tab panes -->
-              <div class="tab-content tabs">
+              <div class="tab-content tab-content1 tabs">
                 
                 <div role="tabpanel" class="tab-pane in active" id="tab1"> 
                    <!-- <nav aria-label="breadcrumb">
