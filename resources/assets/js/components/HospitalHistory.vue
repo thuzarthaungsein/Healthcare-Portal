@@ -29,12 +29,15 @@
                                                         <a><strong>Phone    :</strong>{{hos_profile.phone}}</a><br/>
                                                         <a><strong>Access  :</strong>{{hos_profile.access}}</a><br/>
                                                         <a><strong>Email  :</strong>{{hos_profile.email}}</a><br/>
+                                                        <a><strong>Details  :</strong>{{hos_profile.details_info}}</a><br/>
+                                                        <a><strong>Subjects  :</strong>{{hos_profile.subject}}</a><br/>
                                                 </div>
                                         </div>
                                 </div>
                         </div>
                 </div>
         </div>
+        <pre> {{ hos_profiles }} </pre>
  </div>
 </template>
 <script>
@@ -56,5 +59,8 @@ export default {
                         });
                 }
         }
+
+        
 }
+
 </script>

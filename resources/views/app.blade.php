@@ -332,7 +332,7 @@
                 </div>
                 <div class="card m-b-10 ads-card2">
                         <div class="card-body today">
-                        <ul id="menu" class="list-group list-group-flush">
+                            <ul id="menu" class="list-group list-group-flush">
                                
                             </ul>                                                
                         </div>
@@ -374,7 +374,7 @@
  $(document).ready(function() {
     $('.DataTable').DataTable();
     jssor_1_slider_init(); 
-    jssor_slider2_init();      
+
 
     var csrf = "{{ csrf_token() }}";
     $.ajax({
@@ -390,7 +390,9 @@
                 $("#menu").append(photo + title);
             } 
         }       
-    });              
+    });
+    
+    jssor_slider2_init(); 
 });
 </script>
 </body>

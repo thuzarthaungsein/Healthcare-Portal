@@ -18,7 +18,8 @@ class CustomerProfileContoller extends Controller
         $hos_histories = DB::table('hospital_profiles')
             ->join('customers', 'hospital_profiles.customer_id', '=', 'customers.id')
             ->select('hospital_profiles.*', 'customers.name', 'customers.email', 'customers.logo', 'customers.phone')
-            ->get();
-        return response()->json($hos_histories);
+            ->first();
+
+        return $hos_histories->facilities;
     }
 }

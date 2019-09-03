@@ -65856,6 +65856,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
@@ -65876,6 +65879,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         });
                 }
         }
+
 });
 
 /***/ }),
@@ -65974,6 +65978,18 @@ var render = function() {
                       _c("strong", [_vm._v("Email  :")]),
                       _vm._v(_vm._s(hos_profile.email))
                     ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Details  :")]),
+                      _vm._v(_vm._s(hos_profile.details_info))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Subjects  :")]),
+                      _vm._v(_vm._s(hos_profile.subject))
+                    ]),
                     _c("br")
                   ])
                 ])
@@ -65983,7 +65999,9 @@ var render = function() {
         )
       }),
       0
-    )
+    ),
+    _vm._v(" "),
+    _c("pre", [_vm._v(" " + _vm._s(_vm.hos_profiles) + " ")])
   ])
 }
 var staticRenderFns = [
