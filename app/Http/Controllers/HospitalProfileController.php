@@ -14,8 +14,8 @@ class HospitalProfileController extends Controller
      */
     public function index()
     {
-    //     $favourite_list = HospitalProfile::all()->toArray();
-    //    return response()->json(array_reverse($favourite_list));
+        $favourite_list = HospitalProfile::all()->toArray();
+        return response()->json(array_reverse($favourite_list));
     }
 
     /**
@@ -27,8 +27,6 @@ class HospitalProfileController extends Controller
     {
         //
     }
-
-   
 
     /**
      * Store a newly created resource in storage.
@@ -49,7 +47,7 @@ class HospitalProfileController extends Controller
      */
     public function show($id)
     {
-        return HospitalProfile::findOrFail($id);
+        //
     }
 
     /**
@@ -83,6 +81,8 @@ class HospitalProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $favourite_list = HospitalProfile::find($id);
+        $favourite_list->delete();
+        return response()->json('The successfully deleted');
     }
 }

@@ -26,7 +26,6 @@ class JobController extends Controller
 
     }
 
-
     public function getSkill()
     {
         $job = Job::select('skills')->value('skills');
@@ -47,7 +46,6 @@ class JobController extends Controller
                 $string .= $request->fields[$i]['skills'] .',';
             }
         }
-
 
 
 
@@ -76,7 +74,7 @@ class JobController extends Controller
             'nearest_station' => $request->input('nearest_station'),
             'employment_status' => $cstring,
             'salary' => $request->input('salary'),
-            'allowances' => $request->input('allowances'),
+            'allowances' => $request->input('allowances'),  
             'insurance' => $request->input('insurance'),
             'working_hours' => $request->input('working_hours'),
             'holidays' => $request->input('holidays'),

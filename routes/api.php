@@ -19,13 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-// public route api start 
+// public route api start
 
-    // ........ 
+    // ........
 
-// public route api end 
- 
-
+// public route api end
 
 
 
@@ -36,13 +34,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-// login route api start 
+
+
+// login route api start
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('approve/{id}','registerController@approve');
-    
+
 });
-// login route api end 
+// login route api end
 
 
 
@@ -129,7 +129,6 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
-
 // Guest Hospital History
 Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
 
@@ -144,9 +143,18 @@ Route::group(['prefix' => 'medical'], function () {
 //Route::post('add','AdvertisementController@store');
 Route::group(['prefix' => 'advertisement'], function () {
     Route::post('add', 'AdvertisementController@store');
+    Route::get('edit/{id}', 'AdvertisementController@edit');
+    Route::get('ads', 'AdvertisementController@index');
+    Route::post('update/{id}', 'AdvertisementController@update');
+    Route::delete('delete/{id}','AdvertisementController@destroy');
 });
 
-Route::group(['prefix' => 'hospitalprofile'], function () {
-    Route::post('favourite_list', 'HospitalProfileController@show');
+    
    
-});
+
+    Route::group(['prefix' => 'hospital'], function () {
+       
+        Route::get('favourite_list', 'HospitalProfileController@index');
+        Route::delete('delete/{id}', 'HospitalProfileController@destroy');
+       
+    });

@@ -25,6 +25,7 @@ class CreateHospitalProfilesTable extends Migration
             $table->text('closed_day')->nullable();
             $table->text('facilities')->nullable();
             $table->text('website')->nullable();
+            $table->text('special_features')->nullable();
             $table->text('congestion')->nullable();
             $table->timestamps();
         });

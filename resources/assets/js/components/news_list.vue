@@ -31,7 +31,7 @@
 
                                 <img :src="'/images/'+ newsList.photo" class="col-md-12" alt=""> 
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-5">
                                 <div class="col-sm-8 pad-free mb-2"><b>
                                     <router-link :to="{name: 'newdetails', params:{id:newsList.id}}" class="mr-auto">{{newsList.title}}</router-link>
                                     <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->

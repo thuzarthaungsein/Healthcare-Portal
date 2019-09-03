@@ -183,7 +183,8 @@
             position: absolute;
             left: 0;
             bottom: 0.5%;
-            width: 100%;
+            /* top: 35%;
+            width: 100%; */
 		}
 		.form_container {
 			margin-top: 100px;
@@ -248,10 +249,11 @@
     height: auto;
     padding: 20px;
 }
-/* .user_registercard form label{
+.user_registercard form label{
     color: #fff;
     align-self: flex-end;
 }
+/* 
 .form-type-managed-file {
     position: relative;
     overflow: hidden;
@@ -564,6 +566,8 @@ p {
     margin-bottom: 15px;
 }
 
+
+
 .del {
     position: absolute;
     top: 0px;
@@ -790,7 +794,7 @@ div.b{
     top: -0.2rem;
     max-height: 45px;
 }
-    
+
 .ads-title{
     font-size: 12px;
     line-height: 1.357;
@@ -912,8 +916,10 @@ div.b{
         padding-left: 25px;
         margin-top: 2px;        
     }   
-    
- }
+
+}
+
+
 /*for search for,*/
 .toggle-input{
     display: block;
@@ -999,6 +1005,9 @@ div.b{
 .p-b-5{
     padding-bottom: 5px ;
 }
+.m-r-10{
+    margin-right: 10px;
+}
 
 .main-color {
     color: #333;
@@ -1069,7 +1078,7 @@ div.b{
     min-height: 252px; */
     /* width: 49%; */
 }
-li.userprofile-name{   
+li.userprofile-name{
     text-align:right;
 }
 li.userprofile-name:hover{
@@ -1099,9 +1108,9 @@ li.userprofile-name > a {
 .nav-link{
     color: #095c5f !important;
 }
-.router-link-active{
+/* .router-link-active{
     color: #fff !important;
-}
+} */
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
     border-color:transparent !important;
 }
@@ -1166,6 +1175,7 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
    padding-left: 22px;
    padding-right: 7px;  
    margin-top: 4px; 
+
 }
 .adminview-sidebar{
     height: 92vh;
@@ -1178,6 +1188,117 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 
 
 }
+
+
+
+/* profilepublish css start */
+
+
+#header {
+    padding: 30px 0;
+    height: 92px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 997;
+  }
+
+  #header.header-scrolled {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px 0;
+    height: 72px;
+    transition: all 0.5s;
+  }
+
+.section-header h3 {
+    font-size: 32px;
+    color: #111;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .section-header h3::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+  }
+
+  .section-header h3::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #18d26e;
+    bottom: 0;
+    left: calc(50% - 20px);
+  }
+
+  .section-header p {
+    text-align: center;
+    padding-bottom: 30px;
+    color: #333;
+  }
+
+.nav_menu {
+  margin: 0;
+  padding: 0;
+  background:#6cb7a6;
+  overflow: hidden;
+}
+.nav_menu ul {
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+}
+.nav_menu ul li {
+  display: inline-block;
+  margin: 0 -4px;
+  padding: 5px 0;
+}
+.nav_menu ul li a {
+  padding: 10px 10px 10px 10px;
+  font: normal 1em / normal 'Open Sans Condensed', sans-serif;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.nav_menu ul li a:hover,
+.nav_menu ul li a.active {
+  background: #343434;
+}
+.section {
+  padding: 20px;
+  font: normal 2em / normal 'Open Sans Condensed', sans-serif;
+}
+.section#section1,
+.section#section3 {
+  background: #343434;
+  color: #eee;
+}
+.section#section2,
+.section#section4 {
+  background: #666;
+  color: #eee;
+}
+
+
+/* profilepublish css end */
+
+
+
 
 .custom-sidebar ul li{
     border-bottom: 1px dashed #eee;
@@ -1449,5 +1570,12 @@ ul.main-tab li:after{
         text-decoration: none;
         color: black;
     }
+   .view1{
+    margin-left:42px;
+    letter-spacing: 2px;
+    }
+    .am-l-10
+    {
+        margin-left:20px;
     }
 /*view*/

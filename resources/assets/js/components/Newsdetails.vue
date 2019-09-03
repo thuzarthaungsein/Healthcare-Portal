@@ -2,7 +2,7 @@
 <div>          
         <!-- <section class="">
                 <div class="container-fluid"> -->
-        <!-- <div class="row">
+        <div class="row">
         <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/home">ホーム</a></li>
@@ -10,7 +10,7 @@
                         <li class="breadcrumb-item active" aria-current="page"> 新しい詳細</li>
                 </ol>
         </nav>
-        </div> -->
+        </div>
         <div class="row justify-content-md-center">
                 <div class="col-md-12">
                         <div class="">
@@ -32,29 +32,16 @@
 
                                                 <p class="img_2 header" style="font-size:22px;">関連ニュース</p>
                                                 <!-- 関連ニュース -->
-                                                <a href="#" style="color:#000;">
-                                                        <p class="img_2">韓国人男女が日本総領事館に侵入し抗議　身柄を拘束 <br>
+                                                <div v-for="newdetails in news" :key="newdetails.id" v-bind:value="newdetails.id">
+                                                <!-- <a href="#" style="color:#000;">
+                                                        <p class="img_2">{{newdetails.title}} <br>
                                                         <span><time datetime="2012-01-04">2012年1月4日</time></span>
                                                         </p>                                                        
-                                                </a>                                                
+                                                </a>  -->
+                                                 {{newdetails.title}}
+                                                </div>                                               
                                                 <!-- 関連ニュース --> 
-
-                                                <!-- 関連ニュース -->
-                                                <a href="#" style="color:#000;">
-                                                        <p class="img_2">動く美術館」都大路進む 京都・祇園祭の山鉾巡行 <br>
-                                                        <span><time datetime="2012-01-04">2012年1月4日</time></span>
-                                                        </p>                                                        
-                                                </a>                                                
-                                                <!-- 関連ニュース -->   
-
-                                                <!-- 関連ニュース -->
-                                                <a href="#" style="color:#000;">
-                                                        <p class="img_2">警察学校教官がナイフで巡査刺す　犯人確保訓練中に <br>
-                                                        <span><time datetime="2012-01-04">2012年1月4日</time></span>
-                                                        </p>
-                                                        
-                                                </a>                                                
-                                                <!-- 関連ニュース -->  
+  
                                         </div>
                                 </div>
                         </div>
@@ -206,7 +193,12 @@
        
         data() {
             return {
-                newdetails:[]
+                newdetails:[],
+
+                 news:{
+                  id: '',
+                  title: ''
+              }
             }
         },
         created(){
@@ -217,7 +209,13 @@
                      this.newdetails = response.data;
                        console.log(response.data);
                  });
-        }
+        },
+
+          getstates: function(){
+
+           this.news.newdetails_id = this.newdetails_id;
+
+       },
         
 
     }
