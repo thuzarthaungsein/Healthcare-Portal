@@ -360,6 +360,9 @@
     display: none;
 }
 .show{
+    display:block;
+}
+.form-check-inline.show{
     display: inline-flex;
 }
 
@@ -376,14 +379,13 @@
     color: #fff;
     align-self: flex-end;
 }
-/* 
-.form-type-managed-file {
+
+/* .form-type-managed-file {
     position: relative;
     overflow: hidden;
-  }
-/* input[type=file] {
+  } */
+ .inputfile > input[type=file] {
     display: inline-block;
-    width: 100%;
     padding: 35px 0 0 0;
     height: 20px;
     overflow: hidden;
@@ -391,8 +393,9 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background-size: 60px 60px;
-    background-color: #ecede1 ;
-  } */
+    
+  } 
+
 .register_btn {
     color: white !important;
     width: 120px;
@@ -556,6 +559,8 @@
             letter-spacing: 2px;
             text-align: justify;
             color: white;
+            max-height: 60px;
+            overflow: hidden;
 
         }
 
