@@ -32,7 +32,7 @@
 						<img src="/images/trustgrowth.png" class="brand_logo" alt="trustgrowth">
 					</div>
 				</div>
-				<div class="d-flex justify-content-center form_container">
+				<div class="d-flex justify-content-center form_container" style="margin-top:140px;">
 
 					<div class="row width">
 						<div class="col-12 ">

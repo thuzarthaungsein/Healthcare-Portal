@@ -68,49 +68,49 @@
                             
                     </div>  
                     <div class="input-group mb-3">
-                        <label class="col-4 col-lg-3 control-label">Confirm Password</label>  
+                        <label class="col-4 col-lg-3 control-label">パスワードを認証</label>  
 						<div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" name="comfirm_password" value="" required autofocus placeholder="パスワード">
+						<input type="password" class="form-control" name="comfirm_password" value="" required autofocus placeholder="パスワードを認証">
                             
                     </div>  
                     <div class="input-group mb-3">
-                        <label class="col-4 col-lg-3 control-label">Choose Type</label>  
+                        <label class="col-4 col-lg-3 control-label">タイプを選択</label>  
 						<div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            <span class="input-group-text"><i class="fas fa-list"></i></span>
 
 						</div>
 						<select  id="type" class="form-control custom-select">
-                        <option value="">Choose Your Type</option>
-                        <option value="1">Hospital</option>
-                        <option value="2">Nursing</option>
+                        <option value="">タイプを選択</option>
+                        <option value="1">病院</option>
+                        <option value="2">看護</option>
                         </select> 
                     </div>  
                     <div class="input-group mb-3 hide form-check form-check-inline" id="showHideActionNursing">
-                        <label class="col-4 col-lg-3 control-label">Choose Nursing</label>  
+                        <label class="col-4 col-lg-3 control-label">選択看護</label>  
 						<div class="input-group-append " id="nursing">
                            
 						</div>
 						
                     </div>  
                     <div class="input-group mb-3">
-                        <label class="col-4 col-lg-3 control-label">Choose City</label>  
+                        <label class="col-4 col-lg-3 control-label">都市を選択</label>  
 						<div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            <span class="input-group-text"><i class="fas fa-map"></i></span>
 
 						</div>
 						<select name="cities" id="cities" class="form-control custom-select">
-                        <option value="">Choose Your City</option>
+                        <option value="">都市を選択</option>
                             @foreach($cities as $city)
                                 <option value="{{$city->id}}">{{$city->city_name}}</option>
                             @endforeach
                         </select> 
                     </div>
                     <div class="input-group mb-3 hide" id="showHideActionTownship">
-                        <label class="col-4 col-lg-3 control-label">Choose Township</label>  
+                        <label class="col-4 col-lg-3 control-label">郷を選ぶ</label>  
 						<div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            <span class="input-group-text"><i class="fas fa-map"></i></span>
 
 						</div>
 						<select name="township" id="township" class="form-control custom-select">
@@ -198,8 +198,11 @@
                 $('#nursing').empty();
                 $.each(data.data, function(id,name) {
                     console.log(name.id,name.name,name.parent);
-                    $('#nursing').append('<input class="form-check-input" name="type" type="radio" name="nursing" value="'+name.id+'">'
-                    +'<label class="form-check-label">'+ name.name +'</label>');
+                    $('#nursing').append(
+                    '<div class="form-check sample">'+
+                    '<input class="form-check-input custom-radio" name="check" type="radio" name="nursing" value="'+name.id+'" id="'+name.id+'">'
+                    +'<label class="form-check-label custom-radio" for="'+name.id+'">'+ name.name +'</label>'+
+                    '</div>');
                 });
             });
         }else{
@@ -215,7 +218,7 @@
         $.getJSON("ajax-cities?cities="+cities, function (data) {
             console.log(data);
             $('#showHideActionTownship').removeClass('hide').addClass('show');
-            $('#township').html('<option selected="selected" value="">Select TownShip</option>');
+            $('#township').html('<option selected="selected" value="">郷を選ぶ</option>');
             $.each(data.data, function(id,name) {
              console.log(name.id,name.township_name);
              $('#township').append('<option value="'+name.id+'">'+name.township_name+'</option>');
