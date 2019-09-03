@@ -1,6 +1,21 @@
 <template>
-   <div class="col-12">
-                <div class="row m-b-15">
+   <div class="row">
+       <div class="col-12">
+           <div class="card card-default m-b-20">
+
+            <div class="card-body">
+                    <h4 class="main-color">ニュース記事を検索</h4>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="検索">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn secondary-bg-color all-btn white">検索</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="row m-b-15">
                         <div class="col-md-12">
                         <router-link to="/advertisement" class="float-right" style="color: blue;">Create Advertisement</router-link>
                         </div>
@@ -9,9 +24,8 @@
             <div class="card-body news-post">
                 <div class="row">
                     <div class="col-md-2" >
-                           <img src="/upload/advertisement/ad_1.jpg" class="col-md-12 " alt=" " style="height:100px;width:100px" >
-                        <!-- <img v-bind:src="ads.photo" style="height:100px;width:100px"> -->
-                        <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
+                        <img :src="'/images/'+ ads.photo" class="col-md-12" alt="">
+
                     </div>
                     <div class="col-md-10">
                         <div class="col-sm-8 pad-free mb-2">
@@ -30,6 +44,7 @@
                 </div>
             </div>
         </div>
+   </div>
    </div>
 </template>
 <script>
@@ -51,6 +66,8 @@ export default {
 
     methods: {
             deleteAds(id) {
+                if(confirm("Are you sure you want to delete?"))
+                {
                 this.axios
                     .delete(`http://localhost:8000/api/advertisement/delete/${id}`)
                     .then(response => {
@@ -58,7 +75,8 @@ export default {
                         let a = this.advertisement.map(item => item.id).indexOf(id);
                         this.advertisement.splice(a, 1)
                     });
-            },
+            }
+         }
 
         }
 }

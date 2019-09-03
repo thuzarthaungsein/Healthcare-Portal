@@ -57228,9 +57228,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\r\n                                                    " +
+                              "\n                                                    " +
                                 _vm._s(category.name) +
-                                "\r\n                                                "
+                                "\n                                                "
                             )
                           ]
                         )
@@ -57280,7 +57280,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("label", [
                       _vm._v(
-                        "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+                        "\n                                                    写真/画像を投稿する\n                                                 "
                       ),
                       _c("input", {
                         ref: "file",
@@ -57341,7 +57341,7 @@ var staticRenderFns = [
       },
       [
         _vm._v(
-          "\r\n                                                    種類\r\n                                                "
+          "\n                                                    種類\n                                                "
         ),
         _c("span", { staticClass: "caret" })
       ]
@@ -63886,11 +63886,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -63901,21 +63896,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 description: '',
                 location: [],
                 photo: ''
-
             }
         };
     },
 
     methods: {
-        uploadImage: function uploadImage(event) {
-
-            //  var total_file = document.getElementById("upload").files.length;
-            //         for(var i=0;i<total_file;i++)
-            //         {
-            //
-            //         }
+        uploadImage: function uploadImage() {
+            $('.image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
             this.ads.photo = event.target.files[0];
-            this.url = URL.createObjectURL(this.ads.photo);
         },
         add: function add() {
             var _this = this;
@@ -63924,13 +63912,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             adsData.append('title', this.ads.title);
             adsData.append('description', this.ads.description);
             adsData.append('location', this.ads.location);
-            adsData.append('photo', this.ads, this.ads.photo);
+            adsData.append('photo', this.ads.photo);
             //adsData.append ("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
 
             this.axios.post('http://localhost:8000/api/advertisement/add', adsData).then(function (response) {
-                alert('Successfully');
+                alert('Successfully Created');
                 console.log(response);
                 _this.$router.push({ name: 'ads' });
+            }).catch(function (error) {
+                return console.log(error);
+            }).finally(function () {
+                return _this.loading = false;
             });
         }
     }
@@ -64152,15 +64144,21 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "custom-file col-sm-10" }, [
                       _c("input", {
-                        attrs: { type: "file", id: "file", accept: "" },
+                        attrs: {
+                          type: "file",
+                          id: "upload",
+                          accept: "image/*"
+                        },
                         on: { change: _vm.uploadImage }
                       })
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(5)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group " }, [
                     _c("div", { staticClass: "form-group row" }, [
-                      _vm._m(5),
+                      _vm._m(6),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -64237,6 +64235,14 @@ var staticRenderFns = [
       _c("label", { attrs: { for: "photo" } }, [
         _c("strong", [_vm._v(" Photo/Image :")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12", attrs: { id: "par" } }, [
+      _c("div", { staticClass: "row image_preview" })
     ])
   },
   function() {
@@ -64344,6 +64350,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -64364,13 +64385,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         deleteAds: function deleteAds(id) {
             var _this2 = this;
 
-            this.axios.delete('http://localhost:8000/api/advertisement/delete/' + id).then(function (response) {
-                alert('Delete Successfully!');
-                var a = _this2.advertisement.map(function (item) {
-                    return item.id;
-                }).indexOf(id);
-                _this2.advertisement.splice(a, 1);
-            });
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.delete('http://localhost:8000/api/advertisement/delete/' + id).then(function (response) {
+                    alert('Delete Successfully!');
+                    var a = _this2.advertisement.map(function (item) {
+                        return item.id;
+                    }).indexOf(id);
+                    _this2.advertisement.splice(a, 1);
+                });
+            }
         }
     }
 });
@@ -64383,109 +64406,133 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "col-12" },
-    [
-      _c("div", { staticClass: "row m-b-15" }, [
-        _c(
-          "div",
-          { staticClass: "col-md-12" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "float-right",
-                staticStyle: { color: "blue" },
-                attrs: { to: "/advertisement" }
-              },
-              [_vm._v("Create Advertisement")]
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.advertisement, function(ads) {
-        return _c(
-          "div",
-          { key: ads.id, staticClass: "card card-default m-b-20" },
-          [
-            _c("div", { staticClass: "card-body news-post" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(0, true),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-10" }, [
-                  _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                    _c("a", [
-                      _c("strong", [_vm._v("Title    :")]),
-                      _vm._v(_vm._s(ads.title))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Description :")]),
-                      _vm._v(_vm._s(ads.description))
-                    ]),
-                    _c("br")
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "col-12" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "row m-b-15" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-12" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "float-right",
+                  staticStyle: { color: "blue" },
+                  attrs: { to: "/advertisement" }
+                },
+                [_vm._v("Create Advertisement")]
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.advertisement, function(ads) {
+          return _c(
+            "div",
+            { key: ads.id, staticClass: "card card-default m-b-20" },
+            [
+              _c("div", { staticClass: "card-body news-post" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-2" }, [
+                    _c("img", {
+                      staticClass: "col-md-12",
+                      attrs: { src: "/images/" + ads.photo, alt: "" }
+                    })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-sm-5 pl-3" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "btn main-bg-color white all-btn",
-                            attrs: {
-                              to: {
-                                name: "editadvertisement",
-                                params: { id: ads.id }
+                  _c("div", { staticClass: "col-md-10" }, [
+                    _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
+                      _c("a", [
+                        _c("strong", [_vm._v("Title    :")]),
+                        _vm._v(_vm._s(ads.title))
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("a", [
+                        _c("strong", [_vm._v("Description :")]),
+                        _vm._v(_vm._s(ads.description))
+                      ]),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-5 pl-3" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "btn main-bg-color white all-btn",
+                              attrs: {
+                                to: {
+                                  name: "editadvertisement",
+                                  params: { id: ads.id }
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Edit ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger  all-btn",
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteAds(ads.id)
+                            },
+                            [_vm._v("Edit ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger  all-btn",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteAds(ads.id)
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Delete")]
-                        )
-                      ],
-                      1
-                    )
+                            },
+                            [_vm._v("Delete")]
+                          )
+                        ],
+                        1
+                      )
+                    ])
                   ])
                 ])
               ])
-            ])
-          ]
-        )
-      })
-    ],
-    2
-  )
+            ]
+          )
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "col-md-12 ",
-        staticStyle: { height: "100px", width: "100px" },
-        attrs: { src: "/upload/advertisement/ad_1.jpg", alt: " " }
-      })
+    return _c("div", { staticClass: "card card-default m-b-20" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-10" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "検索" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-2" }, [
+            _c(
+              "button",
+              { staticClass: "btn secondary-bg-color all-btn white" },
+              [_vm._v("検索")]
+            )
+          ])
+        ])
+      ])
     ])
   }
 ]
@@ -64593,6 +64640,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -64600,7 +64658,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             errors: [],
             advertisement: {
                 title: '',
-                description: ''
+                description: '',
+                photo: ''
             }
         };
     },
@@ -64614,16 +64673,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
+        fileSelected: function fileSelected(e) {
+            //  this.advertisement.photo = e.target.files[0]
+            $('#image_update').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()' >X</span><img src='" + URL.createObjectURL(event.target.files[0]) + "'></div>");
+
+            this.advertisement.photo = event.target.files[0];
+        },
         updateAds: function updateAds() {
             var _this2 = this;
 
-            this.axios.post('http://localhost:8000/api/advertisement/update/' + this.$route.params.id, this.advertisement).then(function (response) {
+            var adsData = new FormData();
+
+            adsData.append('title', this.advertisement.title);
+            adsData.append('description', this.advertisement.description);
+            adsData.append('photo', this.advertisement.photo);
+
+            this.axios.post('http://localhost:8000/api/advertisement/update/' + this.$route.params.id, adsData).then(function (response) {
                 alert('Successfully Updated!');
-                _this2.$router.push({ title: 'advertisementlist' });
+                _this2.$router.push({ name: 'ads' });
             });
         }
     }
-
 });
 
 /***/ }),
@@ -64714,9 +64784,28 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(3),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "custom-file col-sm-10" }, [
+                        _c("input", {
+                          ref: "file",
+                          attrs: {
+                            type: "file",
+                            id: "file",
+                            accept: "image/*"
+                          },
+                          on: { change: _vm.fileSelected }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4)
+                    ]),
+                    _vm._v(" "),
                     _c("div", { staticClass: "form-group " }, [
                       _c("div", { staticClass: "form-group row" }, [
-                        _vm._m(3),
+                        _vm._m(5),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -64772,6 +64861,22 @@ var staticRenderFns = [
     return _c("label", [
       _vm._v("Description :"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "photo" } }, [
+      _c("strong", [_vm._v(" Photo/Image :")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "row", attrs: { id: "image_update" } })
     ])
   },
   function() {

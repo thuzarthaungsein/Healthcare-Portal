@@ -39,18 +39,13 @@
                                                         <label for ="photo" ><strong> Photo/Image :</strong>  </label>
                                                 </div>
                                                 <div class="custom-file col-sm-10">
-                                                        <input type="file" id="file" accept="" @change ="uploadImage">
-                                                        <!-- <div class="preview">
-                                                            <img v-if="url" :src="url"/>
-                                                        </div> -->
+                                                        <input type="file" id="upload" accept="image/*" @change ="uploadImage" >
                                                         <!-- <label class="" for="file">No file chosen</label> -->
                                                 </div>
-                                                    <!-- <div class="images-preview" v-show="images.length" >
-                                                        <div class="img-wrapper" v-for="(image,id) in ads.photo" :key="id">
-
-                                                        </div>
-                                                    </div> -->
-                                            </div>
+                                                 <div class="col-md-12" id = "par">
+                                                    <div class="row image_preview" ></div>
+                                                 </div>
+                                        </div>
                                             <div class="form-group ">
                                         <div class="form-group row">
                                             <div class="col-1 pad-free">
@@ -80,24 +75,17 @@ export default {
                     description:'',
                     location:[],
                     photo:''
-
                 }
             }
 
     },
     methods:{
-             uploadImage(event) {
-
-                //  var total_file = document.getElementById("upload").files.length;
-                //         for(var i=0;i<total_file;i++)
-                //         {
-                //
-                //         }
-                this.ads.photo = event.target.files[0]
-                this.url=URL.createObjectURL(this.ads.photo);
-
+             uploadImage() {
+                            $('.image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+                            this.ads.photo = event.target.files[0]
 
          },
+
 
 
         add() {
@@ -105,15 +93,17 @@ export default {
              adsData.append('title',this.ads.title)
              adsData.append('description',this.ads.description)
              adsData.append('location',this.ads.location)
-             adsData.append('photo',this.ads,this.ads.photo)
+             adsData.append('photo',this.ads.photo)
              //adsData.append ("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
 
                 this.axios.post('http://localhost:8000/api/advertisement/add',adsData)
                     .then((response) => {
-                    alert('Successfully')
+                    alert('Successfully Created')
                     console.log(response);
                     this.$router.push({name: 'ads'});
                     })
+                    .catch(error => console.log(error))
+                    .finally(() => this.loading = false)
             },
 
     }

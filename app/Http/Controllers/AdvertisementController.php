@@ -51,12 +51,12 @@ class AdvertisementController extends Controller
         //   }
         $imageName = $request->photo->getClientOriginalName();
         $request->photo->move(public_path('upload/advertisement'), $imageName);
-
         $ads = new Advertisement([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             //'location'=>$adstring,
             'location'=>$request->input('location'),
+             //'photo' =>$request->input('photo'),
             //'location' =>implode("," , $request->input('location')),
             'photo' => $request->photo->getClientOriginalName(),
             'user_id' => 1,
@@ -102,11 +102,19 @@ class AdvertisementController extends Controller
      */
     public function update($id,Request $request)
     {
-        //
-        $ads = Advertisement::find($id);
-        $ads->update($request->all());
 
-        return response()->json('The Facility successfully updated');
+        $imageName = $request->photo->getClientOriginalName();
+        $request->photo->move(public_path('upload/advertisement'), $imageName);
+          $uploadData = array(
+              'title' => $request->input('title'),
+              'description' => $request->input('description'),
+              'photo' => $request->photo->getClientOriginalName(),
+              'user_id' => 1,
+              'recordstatus' => 2
+         );
+          $ads = Advertisement::find($id);
+          $ads->update($uploadData);
+          return response()->json(' Successfully updated');
     }
 
     /**
@@ -120,6 +128,6 @@ class AdvertisementController extends Controller
         //
         $ads = Advertisement::find($id);
         $ads->delete();
-        return response()->json('The Facility successfully deleted');
+        return response()->json('The successfully deleted');
     }
 }
