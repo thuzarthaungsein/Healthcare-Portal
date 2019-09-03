@@ -18,6 +18,7 @@
                             <a><strong>Title    :</strong>{{ads.title}}</a><br/>
                             <a><strong>Description :</strong>{{ads.description}}</a><br/>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-5 pl-3">
                                  <router-link :to="{name: 'editadvertisement', params: { id: ads.id }}" class="btn main-bg-color white all-btn">Edit </router-link>

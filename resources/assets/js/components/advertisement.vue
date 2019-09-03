@@ -39,13 +39,17 @@
                                                         <label for ="photo" ><strong> Photo/Image :</strong>  </label>
                                                 </div>
                                                 <div class="custom-file col-sm-10">
-                                                        <input type="file" accept="" @change ="uploadImage" id="file">
+                                                        <input type="file" id="file" accept="" @change ="uploadImage">
+                                                        <!-- <div class="preview">
+                                                            <img v-if="url" :src="url"/>
+                                                        </div> -->
                                                         <!-- <label class="" for="file">No file chosen</label> -->
                                                 </div>
-                                                <!-- <div class="image-preview" v-if="imageData.length > 0">
-                                                    <img class="preview" :src="imageData">
-                                                </div> -->
+                                                    <!-- <div class="images-preview" v-show="images.length" >
+                                                        <div class="img-wrapper" v-for="(image,id) in ads.photo" :key="id">
 
+                                                        </div>
+                                                    </div> -->
                                             </div>
                                             <div class="form-group ">
                                         <div class="form-group row">
@@ -76,6 +80,7 @@ export default {
                     description:'',
                     location:[],
                     photo:''
+
                 }
             }
 
@@ -83,21 +88,15 @@ export default {
     methods:{
              uploadImage(event) {
 
-            //      var input = event.target;
-
-            // if (input.files && input.files[0]) {
-
-            //     var reader = new FileReader();
-
-            //     reader.onload = (e) => {
-
-            //         this.imageData = e.target.result;
-            //     }
-
-            //     reader.readAsDataURL(input.files[0]);
-            // }
-
+                //  var total_file = document.getElementById("upload").files.length;
+                //         for(var i=0;i<total_file;i++)
+                //         {
+                //
+                //         }
                 this.ads.photo = event.target.files[0]
+                this.url=URL.createObjectURL(this.ads.photo);
+
+
          },
 
 
@@ -106,13 +105,14 @@ export default {
              adsData.append('title',this.ads.title)
              adsData.append('description',this.ads.description)
              adsData.append('location',this.ads.location)
-             adsData.append('photo',this.ads.photo)
+             adsData.append('photo',this.ads,this.ads.photo)
+             //adsData.append ("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
 
                 this.axios.post('http://localhost:8000/api/advertisement/add',adsData)
                     .then((response) => {
                     alert('Successfully')
                     console.log(response);
-                    this.ads = response.data;
+                    this.$router.push({name: 'ads'});
                     })
             },
 
