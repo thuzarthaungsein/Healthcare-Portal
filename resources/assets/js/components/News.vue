@@ -23,14 +23,15 @@
 
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
-                                                        <!-- <route-link :to="'/newsdetails/' + latest_post.id">asfdasfdasf</route-link> -->
-                                                                <a v-bind:href="'/newsdetails/' + latest_post.id">
+                                                        <router-link :to="'/newsdetails/' + latest_post.id">
+                                                               
                                                                         <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" >
                                                                         <p class="source-title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle">
                                                                                  <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
                                                                         </p>
-                                                                </a>
+                                                                
+                                                        </router-link>       
                                                         </div>
                                                         <div class="col-md-8 news-wrapper">
                                                                 <ul class="list-group list-group-flush" v-for="post in posts" :key="post.id">

@@ -34,7 +34,7 @@
 						<img src="/images/trustgrowth.png" class="brand_logo" alt="trustgrowth">
 					</div>
 				</div>
-				<div class="d-flex justify-content-center form_container" style="margin-top:150px !important">
+				<div class="d-flex justify-content-center form_container">
 
 					<div class="row width">
 						<div class="col-12 ">
@@ -46,7 +46,7 @@
                                     >
                                         <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                     </div>
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="email" name="email" value="{{ $email ?? old('email') }}" required autofocus>
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -58,7 +58,7 @@
                                     >
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="password" name="password" required>
                                     @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -70,7 +70,7 @@
                                     >
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                    <input id="password-confirm" type="password" class="form-control" placeholder="confirm password" name="password_confirmation" required>
                                    
                                 </div>
 									
@@ -84,15 +84,8 @@
                 </form>
                
                 <div class="mt-4">
-					<div class="d-flex justify-content-center text-center links d-margin">
-						<span><a href="/">Back To Home</a><br>
-                                    @if (session('status'))
-                                     <a>
-                                     {{ session('status') }}    
-                                     </a>
-                                    @endif      
-                            </span>
-
+					<div class="d-flex justify-content-center text-center links d-margin" style="margin-bottom:1px;">
+						<span><a href="/">Back To Home</a></span>
 					</div>
 				</div>
               
