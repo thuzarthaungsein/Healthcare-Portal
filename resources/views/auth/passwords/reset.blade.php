@@ -1,65 +1,118 @@
-@extends('layouts.admin')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.request') }}" aria-label="{{ __('Reset Password') }}">
-                        @csrf
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>Reset Password</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{{asset('css/mystyle.css')}}" type="text/css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" ></script>
+    
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+</head>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+<body>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
+	<div class="wrapper h-100">
+		<div class="d-flex justify-content-center h-100">       
+			<div class="user_card">
+                   
+				<div class="links">
+					<a href="/" class="mr-auto text-white">{{__('ホーム')}}</a>
+					<a href="{{ url('registerForm') }}" class="ml-auto text">{{__('登録')}}</a>
+				</div>
+				
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src="/images/trustgrowth.png" class="brand_logo" alt="trustgrowth">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container" style="margin-top:150px !important">
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
+					<div class="row width">
+						<div class="col-12 ">
+								<form method="POST" action="{{ route('password.request') }}" aria-label="{{ __('Reset Password') }}">
+                                @csrf
+                                <input type="hidden" name="token" value="{{ $token }}">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append"
+                                    >
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append"
+                                    >
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append"
+                                    >
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                   
+                                </div>
+									
                         </div>
+                        
+					</div>
+				</div>
+				<div class="d-flex justify-content-center  mt-3 login_container">
+					<button type="submit" name="button" id="getUser" class="myBtn myBtn-success">{{ __('Reset Password') }}</button>
+				</div>
+                </form>
+               
+                <div class="mt-4">
+					<div class="d-flex justify-content-center text-center links d-margin">
+						<span><a href="/">Back To Home</a><br>
+                                    @if (session('status'))
+                                     <a>
+                                     {{ session('status') }}    
+                                     </a>
+                                    @endif      
+                            </span>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+					</div>
+				</div>
+              
+			</div>
+		</div>
     </div>
-</div>
-@endsection
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
