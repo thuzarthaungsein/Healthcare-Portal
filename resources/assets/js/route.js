@@ -31,6 +31,7 @@ import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
 import HospitalHistory from './components/HospitalHistory.vue';
 import type from './components/Type.vue';
+import typelist from './components/TypeList.vue';
 
 export const routes = [
  
@@ -39,11 +40,11 @@ export const routes = [
         path: '/',
         component: home
       },
-      {
-        name: 'home',
-        path: '/home',
-        component: home
-      },
+      // {
+      //   name: 'home',
+      //   path: '/home',
+      //   component: home
+      // },
 
     {
         name: 'newdetails',
@@ -202,5 +203,10 @@ export const routes = [
         name:'type',
         path:'/type',
         component: type
+      },
+      {
+        name:'typelist',
+        path:'/typelist',
+        component:typelist
       }
 ];

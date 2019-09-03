@@ -10,58 +10,102 @@ class TypeController extends Controller
 
     public function index()
     {
-        return view('typesample');
+        $types = Type::all()->toArray();
+        return $types;
+        // return view('typesample');
     }
+
+    public function typelist()
+    {
+ 
+      
+        $typelist = Type::select('id','name')->get()->toArray(); 
+       
+        return $typelist;
+    }
+
+    public function getParent()
+    {
+    
+        $typelist = Type::select('id','name')->get()->toArray(); 
+       
+        return $typelist;
+    }
+
+
 
     public function create()
     {
-        //
+        
     }
 
     public function store(Request $request)
     {
-
-          $validater =   $this->validate($request, [
-            'name' => 'required|min:3|max:50',
-            'parent' => 'required',
-            ]);
-
-            if($validater->passess())
-            {
-               
-            }
-
+        
+        
+        $request->validate([
+            'name' => 'required|unique:types',
+          
+      
+        ]);
+        
+        if( $request->parent != null)
+        {   
             $type = new Type ([
-
-                'title' => $request->input('title'),
+                'name' => $request->input('name'),
                 'user_id' => 1,
+                'parent' => $request->parent,               
                 'recordstatus' => 2
-    
             ]);
-        return $request;
+           
+        }
+        else if( $request->parent == null)
+        {
+            
+            $type = new Type ([
+                'name' => $request->input('name'),
+                'user_id' => 1,
+                'parent' => 0,               
+                'recordstatus' => 2
+            ]);
+          
+        }
+        $type->save();
+  
+        return $type;
     }
 
   
     public function show(Type $type)
     {
-        //
+        
     }
 
    
-    public function edit(Type $type)
+    public function edit($id)
     {
-        //
+        $type = Type::find($id);
+        return response()->json($type);
     }
 
 
-    public function update(Request $request, Type $type)
+    public function update($id, Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+        $type = Type::find($id);
+        $type->update($request->all());
+
+        return response()->json('The Type successfully updated');
     }
 
-
-    public function destroy(Type $type)
+    public function destroy($id)
     {
-        //
+        $type = Type::find($id);
+        $type->delete();
+        return response()->json('The Type was successfully deleted');
     }
+     
+
 }

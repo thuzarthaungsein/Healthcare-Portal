@@ -99,10 +99,12 @@ Route::group(['prefix' => 'advertisement'], function () {
 });
 
 Route::group(['prefix' => 'types'], function () {
+    Route::get('typelist', 'TypeController@TypeList');
+    Route::get('type', 'TypeController@index');
     Route::post('add', 'TypeController@store');
-    Route::get('editPost/{id}', 'PostController@edit');
-    Route::post('update/{id}', 'PostController@update');
-    Route::delete('delete/{id}', 'PostController@delete');
+    Route::get('edit/{id}', 'TypeController@edit');
+    Route::post('update/{id}', 'TypeController@update');
+    Route::delete('delete/{id}', 'TypeController@destroy');
 });
 
 

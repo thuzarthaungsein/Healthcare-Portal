@@ -13,21 +13,29 @@
                                 <form @submit.prevent ="add" class="m-t-16">
                                         <div class="form-group row">
                                             <div class="col-sm-3 text-right">
-                                                <label for ="name"  ><strong> Name :</strong>  </label>
+                                                <label for ="name"  ><strong> Name : <span class="error">*</span></strong>  </label>
                                             </div>
                                              <div class="col-sm-9">
-                                                <input type="name" class="form-control box" id="name"  name="name" v-model="Type.name"  required>
+                                                <input type="name" class="form-control box" id="name"  name="name" v-model="Type.name"  >
                                              </div>
                                         </div>
+                                          <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                                                </div>
+                                         </div>
 
                                         <div class="form-group row">
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="description" ><strong> Parent :</strong>  </label>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <select v-model="parent" class="form-control" @change='getParent()'>                        
-                                                        <option v-for="parent in Parents" :key="parent.id" v-bind:value="parent.id">
-                                                           {{parent.name}}
+                                                    <select v-model="selectedValue" class="form-control" @change='getParent()'>
+                                                        <option value="0">None</option>
+                                                        <option v-for="typelist in TypeList" :key="typelist.id" v-bind:value="typelist.id">
+                                                           {{typelist.name}}
                                                         </option>
                                                     </select>
                                                 </div>
@@ -35,12 +43,12 @@
 
                                           <div class="form-group row">
                                                 <div class="col-sm-10">
-      
+
                                                 </div>
                                                 <div class="col-sm-2">
                                                      <button class="btn news-post-btn">Create</button>
                                                 </div>
-                                        </div>                                                 
+                                        </div>
                                 </form>
                            </div>
                             <div class="col-sm-2"></div>
@@ -58,31 +66,100 @@
 export default {
           data() {
             return {
-                 Parents : [ { id: 0,name : 'None'},{ id: 1, name: 'Hospital' },{ id: 2, name: 'Nursing' }], 
+                 errors:[
+                ],
+                //  Parents : [ { id: 0,name : 'None'},{ id: 1, name: 'Hospital' },{ id: 2, name: 'Nursing' }],
                  Type: {
                         name: '',
                         parent:'',
                     },
-                parent: 0
+                TypeList:{
+                        id: '',
+                        name: ''
+                   },
+               
+                selectedValue:0
+               
             }
         },
-       
+         created() {
+            
+             axios.get('http://localhost:8000/api/types/typelist')
+              .then(function (response) {                
+                   this.TypeList = response.data;
+             
+              }.bind(this));
+        },
+        mounted() {
+             this.axios
+               .get(`http://localhost:8000/api/types/edit/${this.$route.params.id}`)
+                .then((response) => {
+
+                    if( `${this.$route.params.id}` == "undefined")
+                    {
+                                             
+                    }
+                    else{
+
+                        this.Type.name = response.data.name;
+                        this.Type.parent = response.data.parent;
+                        this.selectedValue = response.data.parent; 
+                        this.TypeList.name = response.data.name;
+                      
+                       
+                    }
+
+                });
+
+        },
+
          methods: {
             add() {
-                axios.post('http://localhost:8000/api/types/add', this.Type)
-                    .then((response) => {
-                    alert('Successfully Created')
-                    console.log(response);
-                     this.$router.push({name: 'facilitieslist'});
-                    })
+                if( `${this.$route.params.id}` == "undefined")
+                {         
+                    axios.post('http://localhost:8000/api/types/add', this.Type)
+                        .then((response) => {
+                            this.name = ''
+                        alert('Successfully Created')
+                        console.log(response);
+                        this.$router.push({name: 'typelist'});
+                        }).catch(error=>{
+                        
+                    if(error.response.status == 422){
+                      
+                        this.errors = error.response.data.errors       
+                          
+                    }
+                })   
+                }
+                else{
+                     this.updateType();
+                }
             },
              getParent: function(){
-           
-           this.Type.parent = this.parent;
+
+               this.Type.parent = this.selectedValue;
 
            },
-           
+           updateType() {
+               
+                this.axios
+                    .post(`http://localhost:8000/api/types/update/${this.$route.params.id}`, this.Type)
+                    .then((response) => {
+                        this.name = ''
+                          alert('Successfully Updated!')
+                        this.$router.push({name: 'typelist'});
+                    }).catch(error=>{
+                        
+                    if(error.response.status == 422){
+                      
+                        this.errors = error.response.data.errors       
+                          
+                    }
+                })   ;
+            },
+
         }
-             
+
 }
 </script>
