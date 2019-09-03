@@ -1,9 +1,9 @@
 <template>
  <div class="container">
-      <div class="col-md-12 ">
-          <div class="card text-dark">
-                    <div class="card-header text-center">
-                        <h4 style="padding-top: 20px;"> Create Advertisement </h4>
+      <div class="row">
+          <div class="col-sm-12 card text-dark">
+                    <div class="text-center">
+                        <h4 style="padding-top: 20px;" class="header"> Advertisements </h4>
                     </div>
                     <div class="card-body ">
                         <div class="row">

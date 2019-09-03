@@ -52986,6 +52986,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -53686,6 +53689,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-md-center" }, [
     _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header tab-card-header" }, [
           _c(
@@ -53762,7 +53767,10 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "tab-content scroll2", attrs: { id: "myTabContent" } },
+          {
+            staticClass: "tab-content tab-content2 scroll2",
+            attrs: { id: "myTabContent" }
+          },
           [
             _c(
               "div",
@@ -53872,7 +53880,7 @@ var render = function() {
       "div",
       { staticClass: "row m-lr-0" },
       [
-        _vm._m(0),
+        _vm._m(1),
         _vm._v(" "),
         _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
           return _c(
@@ -53931,6 +53939,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      { staticClass: "form-inline col-lg-5 form-inline mb-2 pad-free" },
+      [
+        _c("input", {
+          staticClass: "form-control col-lg mr-sm-3 d-flex p-2 form-control",
+          attrs: { type: "search", placeholder: "検索", "aria-label": "検索" }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
+            attrs: { type: "submit" }
+          },
+          [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
       _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
     ])
@@ -53956,7 +53989,7 @@ var render = function() {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "tab-content tabs" }, [
+    _c("div", { staticClass: "tab-content tab-content1 tabs" }, [
       _c(
         "div",
         {
@@ -54029,7 +54062,10 @@ var staticRenderFns = [
                 staticClass: "nav-link active",
                 attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
               },
-              [_c("i", { staticClass: "fas fa-home" }), _vm._v(" ニュース")]
+              [
+                _c("i", { staticClass: "fas fa-newspaper" }),
+                _vm._v(" ニュース")
+              ]
             )
           ]
         ),
@@ -55450,7 +55486,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -56761,8 +56797,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "content" } }, [
-    _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "row", attrs: { id: "content" } }, [
+    _c("div", { staticClass: "col-12" }, [
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "row m-b-15" }, [
@@ -56896,7 +56932,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -57495,6 +57531,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57547,11 +57585,13 @@ var render = function() {
             _c(
               "router-link",
               {
-                staticClass: "float-right",
-                staticStyle: { color: "blue" },
+                staticClass: "float-right main-bg-color create-btn",
                 attrs: { to: "/createcategory" }
               },
-              [_vm._v("新しいカテゴリを作成")]
+              [
+                _c("i", { staticClass: "fas fa-plus-circle" }),
+                _vm._v(" 新しいカテゴリを作成")
+              ]
             )
           ],
           1
@@ -57569,7 +57609,7 @@ var render = function() {
               _c("div", { staticClass: "card card-default m-b-20" }, [
                 _c("div", { staticClass: "card-body" }, [
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-9 m-t-8" }, [
+                    _c("div", { staticClass: "col-md-10 m-t-8" }, [
                       _vm._v(
                         "\n                                " +
                           _vm._s(category.name) +
@@ -57580,38 +57620,45 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "col-md-3",
+                        staticClass: "col-md-2 text-right pad-free",
                         staticStyle: { "margin-top": "8px" }
                       },
                       [
                         _c(
-                          "router-link",
-                          {
-                            staticClass: "btn main-bg-color white all-btn",
-                            attrs: {
-                              to: {
-                                name: "editcategory",
-                                params: { id: category.id }
-                              }
-                            }
-                          },
-                          [_vm._v("Edit ")]
+                          "small",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn mr-auto text-warning",
+                                attrs: {
+                                  to: {
+                                    name: "editcategory",
+                                    params: { id: category.id }
+                                  }
+                                }
+                              },
+                              [_vm._v(" 編集")]
+                            )
+                          ],
+                          1
                         ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger all-btn",
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteCategory(category.id)
+                        _vm._v("  \n                                "),
+                        _c("small", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn mr-auto text-danger",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteCategory(category.id)
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Delete")]
-                        )
-                      ],
-                      1
+                            },
+                            [_vm._v(" 削除")]
+                          )
+                        ])
+                      ]
                     )
                   ])
                 ])
@@ -57641,11 +57688,11 @@ var staticRenderFns = [
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-2" }, [
+          _c("div", { staticClass: "col-md-2 text-right" }, [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -58174,7 +58221,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -64031,8 +64078,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "col-md-12 " }, [
-      _c("div", { staticClass: "card text-dark" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12 card text-dark" }, [
         _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "card-body " }, [
@@ -64279,10 +64326,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-center" }, [
-      _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-        _vm._v(" Create Advertisement ")
-      ])
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "h4",
+        { staticClass: "header", staticStyle: { "padding-top": "20px" } },
+        [_vm._v(" Advertisements ")]
+      )
     ])
   },
   function() {
