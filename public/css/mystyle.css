@@ -157,9 +157,10 @@
     border-color: blue;
 }
 .accept-box {
-    border: 1px solid #eee;
-    padding: 8px;
-    margin-bottom: 3px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 7px;
+    border-radius: 3px;
 }
 /* End Profile */
 

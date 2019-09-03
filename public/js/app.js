@@ -62307,6 +62307,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
@@ -62697,48 +62698,47 @@ var render = function() {
                       _vm._l(_vm.medical_acceptance, function(medical) {
                         return _c(
                           "div",
-                          {
-                            key: medical.id,
-                            staticClass: "col-md-4 accept-box"
-                          },
+                          { key: medical.id, staticClass: "col-md-6" },
                           [
-                            _vm._v(
-                              "\r\n                                                                " +
-                                _vm._s(medical.name) +
-                                "\r\n                                                                "
-                            ),
-                            _c("div", { staticClass: "float-right" }, [
-                              _c("label", [
-                                _c("input", {
-                                  attrs: {
-                                    type: "radio",
-                                    name: "medical" + medical.id
-                                  }
-                                }),
+                            _c("div", { staticClass: "col-md-12 accept-box" }, [
+                              _vm._v(
+                                "\r\n                                                                        " +
+                                  _vm._s(medical.name) +
+                                  "\r\n                                                                        "
+                              ),
+                              _c("div", { staticClass: "float-right" }, [
+                                _c("label", [
+                                  _c("input", {
+                                    attrs: {
+                                      type: "radio",
+                                      name: "medical" + medical.id
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "fas fa-check green" })
+                                ]),
                                 _vm._v(" "),
-                                _c("i", { staticClass: "fas fa-check green" })
-                              ]),
-                              _vm._v(" "),
-                              _c("label", [
-                                _c("input", {
-                                  attrs: {
-                                    type: "radio",
-                                    name: "medical" + medical.id
-                                  }
-                                }),
+                                _c("label", [
+                                  _c("input", {
+                                    attrs: {
+                                      type: "radio",
+                                      name: "medical" + medical.id
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "fas fa-times red" })
+                                ]),
                                 _vm._v(" "),
-                                _c("i", { staticClass: "fas fa-times red" })
-                              ]),
-                              _vm._v(" "),
-                              _c("label", [
-                                _c("input", {
-                                  attrs: {
-                                    type: "radio",
-                                    name: "medical" + medical.id
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "fas fa-adjust blue" })
+                                _c("label", [
+                                  _c("input", {
+                                    attrs: {
+                                      type: "radio",
+                                      name: "medical" + medical.id
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "fas fa-adjust blue" })
+                                ])
                               ])
                             ])
                           ]

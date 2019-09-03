@@ -188,14 +188,15 @@
                                                 <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
                                                 <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
                                                 <div class="row">
-                                                        <div class="col-md-4 accept-box" v-for="medical in medical_acceptance" :key="medical.id">
-                                                                {{medical.name}}
-                                                                <div class="float-right">
-                                                                        <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-check green"></i></label>
-                                                                        <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-times red"></i></label>
-                                                                        <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-adjust blue"></i></label>
-                                                                </div>
-                                                                
+                                                        <div class="col-md-6" v-for="medical in medical_acceptance" :key="medical.id">
+                                                                <div class="col-md-12 accept-box">
+                                                                        {{medical.name}}
+                                                                        <div class="float-right">
+                                                                                <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-check green"></i></label>
+                                                                                <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-times red"></i></label>
+                                                                                <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                                        </div>    
+                                                                </div>                                                            
                                                         </div>
                                                 </div>
                                         </div>
