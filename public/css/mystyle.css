@@ -138,7 +138,24 @@
     border-bottom: 2px solid #eee;
     padding: 20px 0px;
 }
-
+.collapse-icon {
+    min-width: 0px;
+    font-size:1.5em;
+    color:#aaa;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    padding: 0px 10px;
+}
+.collapse-icon-down {
+    padding-bottom: 3px;
+}
+.collapse-icon-up {
+    padding-top: 3px;
+}
+.collapse-icon:hover {
+    color: blue;
+    border-color: blue;
+}
 /* End Profile */
 
 /* Login */
@@ -339,6 +356,9 @@
 .show{
     display:block;
 }
+.form-check-inline.show{
+    display: inline-flex;
+}
 
 
 .registerform_container{
@@ -353,14 +373,13 @@
     color: #fff;
     align-self: flex-end;
 }
-/* 
-.form-type-managed-file {
+
+/* .form-type-managed-file {
     position: relative;
     overflow: hidden;
-  }
-/* input[type=file] {
+  } */
+ .inputfile > input[type=file] {
     display: inline-block;
-    width: 100%;
     padding: 35px 0 0 0;
     height: 20px;
     overflow: hidden;
@@ -368,9 +387,9 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background-size: 60px 60px;
-    background-color: #ecede1 ;
-  } */
-  
+    
+  } 
+
 .register_btn {
     color: white !important;
     width: 120px;
@@ -1074,8 +1093,11 @@ div.b{
 .m-t-15{
     margin-top: 15px !important;
 }
+.m-t-20 {
+    margin-top:20px;
+}
 .m-t-30 {
-    margin-top:32px;
+    margin-top:30px;
 }
 
 .m-b-20 {
