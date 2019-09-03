@@ -179,7 +179,7 @@ module.exports = function normalizeComponent (
 "use strict";
 
 
-var bind = __webpack_require__(10);
+var bind = __webpack_require__(12);
 var isBuffer = __webpack_require__(26);
 
 /*global toString:true*/
@@ -513,6 +513,53 @@ module.exports = g;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(55)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/hospitalSearch.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5cde3559", Component.options)
+  } else {
+    hotAPI.reload("data-v-5cde3559", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
@@ -533,10 +580,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(12);
+    adapter = __webpack_require__(14);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(12);
+    adapter = __webpack_require__(14);
   }
   return adapter;
 }
@@ -611,10 +658,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 /*
@@ -696,7 +743,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -924,7 +971,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -932,7 +979,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -949,7 +996,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/hospitalSearch.vue"
+Component.options.__file = "resources/assets/js/components/nursingSearch.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -958,9 +1005,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5cde3559", Component.options)
+    hotAPI.createRecord("data-v-6121795b", Component.options)
   } else {
-    hotAPI.reload("data-v-5cde3559", Component.options)
+    hotAPI.reload("data-v-6121795b", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -971,7 +1018,54 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 7 */
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(57)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/jobSearch.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7dbf913e", Component.options)
+  } else {
+    hotAPI.reload("data-v-7dbf913e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3584,7 +3678,7 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -14189,13 +14283,13 @@ return jQuery;
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(25);
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14213,7 +14307,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -14403,7 +14497,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14414,7 +14508,7 @@ var settle = __webpack_require__(29);
 var buildURL = __webpack_require__(31);
 var parseHeaders = __webpack_require__(32);
 var isURLSameOrigin = __webpack_require__(33);
-var createError = __webpack_require__(13);
+var createError = __webpack_require__(15);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -14572,7 +14666,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14597,7 +14691,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14609,7 +14703,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14635,7 +14729,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -14686,100 +14780,6 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(56)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/nursingSearch.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6121795b", Component.options)
-  } else {
-    hotAPI.reload("data-v-6121795b", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(57)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/jobSearch.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7dbf913e", Component.options)
-  } else {
-    hotAPI.reload("data-v-7dbf913e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14796,7 +14796,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_axios__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__route__ = __webpack_require__(48);
 
@@ -14841,7 +14841,7 @@ var app = new Vue({
 
 
 window._ = __webpack_require__(22);
-window.Popper = __webpack_require__(7).default;
+window.Popper = __webpack_require__(9).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -14850,7 +14850,7 @@ window.Popper = __webpack_require__(7).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(8);
+  window.$ = window.jQuery = __webpack_require__(10);
 
   __webpack_require__(24);
 } catch (e) {}
@@ -14861,7 +14861,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(9);
+window.axios = __webpack_require__(11);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -32054,7 +32054,7 @@ module.exports = function(module) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(8), __webpack_require__(7)) :
+   true ? factory(exports, __webpack_require__(10), __webpack_require__(9)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (global = global || self, factory(global.bootstrap = {}, global.jQuery, global.Popper));
 }(this, function (exports, $, Popper) { 'use strict';
@@ -36493,9 +36493,9 @@ module.exports = function(module) {
 
 
 var utils = __webpack_require__(1);
-var bind = __webpack_require__(10);
+var bind = __webpack_require__(12);
 var Axios = __webpack_require__(27);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 
 /**
  * Create an instance of Axios
@@ -36528,9 +36528,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(15);
+axios.Cancel = __webpack_require__(17);
 axios.CancelToken = __webpack_require__(40);
-axios.isCancel = __webpack_require__(14);
+axios.isCancel = __webpack_require__(16);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -36568,7 +36568,7 @@ module.exports = function isBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 var utils = __webpack_require__(1);
 var InterceptorManager = __webpack_require__(35);
 var dispatchRequest = __webpack_require__(36);
@@ -36673,7 +36673,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(13);
+var createError = __webpack_require__(15);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -37063,8 +37063,8 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(1);
 var transformData = __webpack_require__(37);
-var isCancel = __webpack_require__(14);
-var defaults = __webpack_require__(3);
+var isCancel = __webpack_require__(16);
+var defaults = __webpack_require__(4);
 var isAbsoluteURL = __webpack_require__(38);
 var combineURLs = __webpack_require__(39);
 
@@ -37223,7 +37223,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(15);
+var Cancel = __webpack_require__(17);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -49532,7 +49532,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(13)))
 
 /***/ }),
 /* 46 */
@@ -52397,7 +52397,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue__);
@@ -52686,17 +52686,14 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__News_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
-//
-//
-//
 //
 //
 //
@@ -52819,7 +52816,7 @@ var content = __webpack_require__(52);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("a896b9c0", content, false, {});
+var update = __webpack_require__(6)("a896b9c0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -52838,7 +52835,7 @@ if(false) {
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 
@@ -52887,14 +52884,16 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__News_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
+//
+//
 //
 //
 //
@@ -53789,16 +53788,8 @@ var render = function() {
                     { staticClass: "active-users col-md-4" },
                     [
                       _c(
-                        "route-link",
+                        "router-link",
                         { attrs: { to: "/newsdetails/" + _vm.latest_post.id } },
-                        [_vm._v("asfdasfdasf")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "/newsdetails/" + _vm.latest_post.id }
-                        },
                         [
                           _c("img", {
                             staticClass: "source-img img-responsive",
@@ -53848,9 +53839,9 @@ var render = function() {
                                 { staticClass: "list-group-item p-t-5 p-b-5" },
                                 [
                                   _c(
-                                    "a",
+                                    "router-link",
                                     {
-                                      attrs: { href: "/newsdetails/" + post.id }
+                                      attrs: { to: "/newsdetails/" + post.id }
                                     },
                                     [
                                       _c("img", {
@@ -53873,7 +53864,8 @@ var render = function() {
                                       )
                                     ]
                                   )
-                                ]
+                                ],
+                                1
                               )
                             : _vm._e()
                         ]
@@ -53912,18 +53904,23 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("div", { staticClass: "overlay" }, [
-                  _c("h2"),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-sm all-btn secondary-bg-color",
-                      attrs: { href: "/newsdetails/" + latest_post_all_cat.id }
-                    },
-                    [_vm._v(_vm._s(latest_post_all_cat.title))]
-                  )
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "overlay" },
+                  [
+                    _c("h2"),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-sm all-btn secondary-bg-color",
+                        attrs: { to: "/newsdetails/" + latest_post_all_cat.id }
+                      },
+                      [_vm._v(_vm._s(latest_post_all_cat.title))]
+                    )
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "info" }, [
                   _c("div", { staticClass: "row" }, [
@@ -54196,30 +54193,12 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__jobSearch_vue__);
 //
 //
 //
@@ -54400,7 +54379,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        hospitalSearch: __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue___default.a,
+        nursingSearch: __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue___default.a,
+        jobSearch: __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue___default.a
+    },
+
     data: function data() {
         return {
             newdetails: []
@@ -54409,13 +54397,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        this.axios.get("http://localhost:8000/api/newdetails/" + this.$route.params.id).then(function (response) {
+        this.axios.get('http://localhost:8000/api/newdetails/' + this.$route.params.id).then(function (response) {
 
             _this.newdetails = response.data;
             console.log(response.data);
         });
     }
 });
+//     export default {
+
+//         data() {
+//             return {
+//                 newdetails:[]
+//             }
+//         },
+//         created(){
+//             this.axios
+//                  .get(`http://localhost:8000/api/newdetails/${this.$route.params.id}`)
+//                  .then(response=>{
+
+//                      this.newdetails = response.data;
+//                        console.log(response.data);
+//                  });
+
+//         }
+//         // methods: {
+//         //         getPostById: function(id=1) {
+//         //                 this.axios
+//         //                 .get('http://localhost:8000/api/newdetails/'+id)
+//         //                 .then(response=>{
+//         //                         console.log(response.data.news_list);
+//         //                 this.newdetails = response.data.news_list;
+//         //                 });
+//         //         },
+//         // }
+
+
+//     }
 
 /***/ }),
 /* 62 */
@@ -54428,58 +54446,134 @@ var render = function() {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-md-center" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", {}, [
-          _c("div", [
-            _c("div", { staticClass: "row m-lr-0" }, [
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("h4", { staticClass: "h_4 header" }, [
-                  _vm._v(_vm._s(_vm.newdetails.title))
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "set-date" }, [
-                  _c("time", { attrs: { datetime: "2012-01-04" } }, [
-                    _vm._v(_vm._s(_vm.newdetails.created_at))
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c("p", { staticClass: "p5" }, [
-                  _vm._v(_vm._s(_vm.newdetails.body))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6  mt-2 related-area" }, [
-                _c("img", {
-                  staticClass: "img-responsive img_2 news_photo",
-                  attrs: { src: "/images/" + _vm.newdetails.photo }
-                }),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
+    _c("div", { staticClass: "tab-content tab-content1 tabs" }, [
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane in active",
+          staticStyle: { height: "691px" },
+          attrs: { role: "tabpanel", id: "tab1" }
+        },
+        [
+          _c("div", { staticClass: "row col-sm-12" }, [
+            _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+              _c("ol", { staticClass: "breadcrumb" }, [
                 _c(
-                  "p",
-                  {
-                    staticClass: "img_2 header",
-                    staticStyle: { "font-size": "22px" }
-                  },
-                  [_vm._v("関連ニュース")]
+                  "li",
+                  { staticClass: "breadcrumb-item" },
+                  [
+                    _c("router-link", { attrs: { to: "/" } }, [
+                      _vm._v("ホーム")
+                    ])
+                  ],
+                  1
                 ),
                 _vm._v(" "),
-                _vm._m(2),
-                _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _vm._m(4)
+                _c(
+                  "li",
+                  {
+                    staticClass: "breadcrumb-item active",
+                    attrs: { "aria-current": "page" }
+                  },
+                  [_vm._v(" 新しい詳細")]
+                )
               ])
             ])
           ]),
           _vm._v(" "),
-          _vm._m(5)
-        ])
-      ])
+          _c(
+            "div",
+            {
+              staticClass: "row justify-content-md-center scroll2",
+              staticStyle: { height: "677px" }
+            },
+            [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "row m-lr-0 mb-3" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("h4", { staticClass: "h_4 header" }, [
+                      _vm._v(_vm._s(_vm.newdetails.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "set-date" }, [
+                      _c("time", { attrs: { datetime: "2012-01-04" } }, [
+                        _vm._v(_vm._s(_vm.newdetails.created_at))
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("p", { staticClass: "p5" }, [
+                      _vm._v(_vm._s(_vm.newdetails.body))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6  mt-2 related-area" }, [
+                    _c("img", {
+                      staticClass: "img-responsive img_2 news_photo",
+                      attrs: { src: "/images/" + _vm.newdetails.photo }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "img_2 header",
+                        staticStyle: { "font-size": "22px" }
+                      },
+                      [_vm._v("関連ニュース")]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _vm._m(4)
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5)
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: { role: "tabpanel", id: "tab2" }
+        },
+        [_c("hospitalSearch")],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: { role: "tabpanel", id: "tab3" }
+        },
+        [_c("nursingSearch")],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "tab-pane fade",
+        attrs: { role: "tabpanel", id: "tab4" }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: { role: "tabpanel", id: "tab4" }
+        },
+        [_c("jobSearch")],
+        1
+      )
     ])
   ])
 }
@@ -54488,30 +54582,83 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-        _c("ol", { staticClass: "breadcrumb" }, [
-          _c("li", { staticClass: "breadcrumb-item" }, [
-            _c("a", { attrs: { href: "/home" } }, [_vm._v("ホーム")])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "breadcrumb-item" }, [
-            _c("a", { attrs: { href: "./search_news_result.html" } }, [
-              _vm._v("新しい結果を検索")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "li",
-            {
-              staticClass: "breadcrumb-item active",
-              attrs: { "aria-current": "page" }
-            },
-            [_vm._v(" 新しい詳細")]
-          )
-        ])
-      ])
-    ])
+    return _c(
+      "ul",
+      {
+        staticClass: "nav nav-tabs card-head-tabs",
+        attrs: { role: "tablist" }
+      },
+      [
+        _c(
+          "li",
+          {
+            staticClass: "active subtab1 nav-item",
+            attrs: { role: "presentation" }
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active",
+                attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-newspaper" }),
+                _vm._v(" ニュース")
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "subtab2 nav-item", attrs: { role: "presentation" } },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#tab2", role: "tab", "data-toggle": "tab" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-briefcase-medical" }),
+                _vm._v(" 病院検索")
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "subtab3 nav-item", attrs: { role: "presentation" } },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#tab3", role: "tab", "data-toggle": "tab" }
+              },
+              [_c("i", { staticClass: "fas fa-user-md" }), _vm._v(" 介護検索")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "subtab5 nav-item", attrs: { role: "presentation" } },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#tab4", role: "tab", "data-toggle": "tab" }
+              },
+              [_c("i", { staticClass: "fas fa-users" }), _vm._v(" 求人検索")]
+            )
+          ]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -54583,8 +54730,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-lr-0" }, [
-      _c("div", { staticClass: "row col-md-12 text-center" }, [
+    return _c("div", { staticClass: "row m-lr-0 pad-free" }, [
+      _c("div", { staticClass: "col-md-12 text-center" }, [
         _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
       ]),
       _vm._v(" "),
@@ -54613,7 +54760,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "col-12" }, [
                 _c("p", { staticClass: " p_3" }, [
                   _vm._v(
-                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                    "一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・"
                   )
                 ])
               ])
@@ -54647,7 +54794,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "col-12" }, [
                 _c("p", { staticClass: " p_3" }, [
                   _vm._v(
-                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                    "\r\n                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                "
                   )
                 ])
               ])
@@ -54670,7 +54817,7 @@ var staticRenderFns = [
               "a",
               {
                 staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
+                attrs: { href: "/" }
               },
               [_vm._v("詳細を見る")]
             )
@@ -54681,7 +54828,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "col-12" }, [
                 _c("p", { staticClass: " p_3" }, [
                   _vm._v(
-                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                    "\r\n                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                "
                   )
                 ])
               ])
@@ -54704,7 +54851,7 @@ var staticRenderFns = [
               "a",
               {
                 staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
+                attrs: { href: "/" }
               },
               [_vm._v("詳細を見る")]
             )
@@ -54715,7 +54862,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "col-12" }, [
                 _c("p", { staticClass: " p_3" }, [
                   _vm._v(
-                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
+                    "\r\n                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                "
                   )
                 ])
               ])
@@ -59111,7 +59258,7 @@ var content = __webpack_require__(104);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("764acd49", content, false, {});
+var update = __webpack_require__(6)("764acd49", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -59130,7 +59277,7 @@ if(false) {
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 
@@ -66161,7 +66308,7 @@ var content = __webpack_require__(156);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("eeb0f47c", content, false, {});
+var update = __webpack_require__(6)("eeb0f47c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -66180,7 +66327,7 @@ if(false) {
 /* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 

@@ -337,7 +337,7 @@
     display: none;
 }
 .show{
-    display: inline-flex;
+    display:block;
 }
 
 
@@ -370,6 +370,7 @@
     background-size: 60px 60px;
     background-color: #ecede1 ;
   } */
+  
 .register_btn {
     color: white !important;
     width: 120px;
@@ -533,6 +534,8 @@
             letter-spacing: 2px;
             text-align: justify;
             color: white;
+            max-height: 60px;
+            overflow: hidden;
 
         }
 
