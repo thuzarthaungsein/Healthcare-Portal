@@ -298,28 +298,19 @@
                 <!--related news-->
                 <div class="card m-b-10 ads-card">
                 <!--ads slider-->
-            <div style="display: block; overflow: hidden;">
-            <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:167px; overflow: hidden;">
-            <!-- Slides Container -->
-            <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 167px;
-                overflow: hidden;">
-                <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/>
-               
+                <div style="display: block; overflow: hidden;">
+                    <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:167px; overflow: hidden;">
+                    <!-- Slides Container -->
+                        <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 167px; overflow: hidden;">
+                            <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/> </div>
+                            <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/> </div>
+                            <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/> </div>
+                            <div><img data-u="image" src="/images/h4.jpg" style="width:100%"/> </div>
+                        </div>
+                    <!-- Trigger -->          
+                    </div>
                 </div>
-                <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/>
-                    
-                </div>
-                <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/>
-                  
-                </div>
-                <div><img data-u="image" src="/images/h4.jpg" style="width:100%"/>
-                 
-                </div>
-            </div>
-            <!-- Trigger -->          
-            </div>
-            </div>
-            <!--end ads slider-->
+                <!--end ads slider-->
 
                 </div>
                 <div class="card m-b-10 ads-card">
@@ -358,7 +349,7 @@
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
   <!-- script for editor -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> 
   <!-- end script for editor -->
 
@@ -367,7 +358,7 @@
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
-<!-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> -->
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 <script type="text/javascript">
  $(document).ready(function() {
