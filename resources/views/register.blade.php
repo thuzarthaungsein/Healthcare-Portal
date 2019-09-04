@@ -200,7 +200,9 @@
                     console.log(name.id,name.name,name.parent);
                     $('#nursing').append(
                     '<div class="form-check sample">'+
-                    '<input class="form-check-input custom-radio" name="check" type="radio" name="nursing" value="'+name.id+'" id="'+name.id+'">'
+                    '<input
+                    
+                    class="form-check-input custom-radio" name="check" type="radio" name="nursing" value="'+name.id+'" id="'+name.id+'">'
                     +'<label class="form-check-label custom-radio" for="'+name.id+'">'+ name.name +'</label>'+
                     '</div>');
                 });

@@ -3,20 +3,20 @@
       <div class="col-12">  
            <div class="card m-b-20">  
                 <div class="card-body">
-                    <h4 class="main-color">施設一覧検索</h4>
+                    <h4 class="main-color">ニュース記事を検索</h4>
                     <div class="row">
                         <div class="col-md-10">
                             <input type="text" class="form-control" placeholder="検索">
                         </div>
                         <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
+                            <button class="btn secondary-bg-color all-btn white">検索</button>
                         </div>
                     </div>
                 </div>  
             </div>
-                <div class="row m-b-15 m-r-5">
+                <div class="row m-b-15">
                     <div class="col-md-12">
-                        <router-link class="float-right main-bg-color create-btn all-btn" style="color: blue;" to="/createfacility" ><i class="fas fa-plus-circle"></i> 新しい施設を作る</router-link>
+                        <router-link class="float-right" style="color: blue;" to="/createfacility" >  Create New Type</router-link>
                     </div>
                     <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
                 </div>
@@ -26,19 +26,18 @@
                <strong>  Facility List</strong>
         </h4>  -->
         <!--card-->
-        <div class="col-md-12 scrolldiv border-style">
-            <h5 class="main-color header">施設一覧</h5>
-            <div class="container-fuid" v-for="facility in facilities" :key="facility.id" >
+        <div class="col-md-12 scrolldiv">
+            <div class="container-fuid" v-for="type in types" :key="type.id" >
                 <div class="card card-default m-b-20">                    
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-10 m-t-8">
-                                <p> {{facility.description}} </p>
+                            <div class="col-md-9 m-t-8">
+                                <p> {{type.name}} </p>
                             </div>
-                            <div class="col-md-2" style="margin-top: 8px;">
-                                    <router-link :to="{name: 'editfacility', params: { id: facility.id }}" class="btn edit-borderbtn">編集</router-link>
+                            <div class="col-md-3" style="margin-top: 8px;">
+                                    <router-link :to="{name: 'type', params: { id: type.id }}" class="btn main-bg-color white all-btn">Edit </router-link>
                                 
-                                <button class="btn delete-borderbtn"  @click="deleteFacility(facility.id)">削除</button>
+                                <button class="btn btn-danger all-btn"   @click="deleteType(type.id)" >Delete</button>
                             </div>
                         </div>
                     </div>
@@ -52,26 +51,26 @@
 export default {
           data() {
             return {
-                facilities: []
+                types: []
             }
         },
         created() {
             this.axios
-                .get('http://localhost:8000/api/facility/facilities')
+                .get('http://localhost:8000/api/types/type')
                 .then(response => {
-                    this.facilities = response.data;
+                    this.types = response.data;
                 });
         },
          methods: {
-            deleteFacility(id) {
+            deleteType(id) {
                 if(confirm("Are you sure you want to delete?"))
                 {
                      this.axios
-                    .delete(`http://localhost:8000/api/facility/delete/${id}`)
+                    .delete(`http://localhost:8000/api/types/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
-                        let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
-                        this.facilities.splice(i, 1)
+                        let i = this.types.map(item => item.id).indexOf(id); // find index of your object
+                        this.types.splice(i, 1)
                     });
                 }
                

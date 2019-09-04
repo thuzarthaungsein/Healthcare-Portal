@@ -53,7 +53,7 @@ export default {
                 this.axios
                 .get('http://localhost:8000/api/medical/medicalacceptance')
                 .then(response => {
-                    this.medical_acceptance = response.data;                  
+                    this.medical_acceptance = response.data;
                 //      console.log(response.data);
                 });
         },
@@ -98,7 +98,7 @@ export default {
             },
 
             methodAdd() {
-                   $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> '); 
+                   $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
             },
 
             cooperateAdd() {

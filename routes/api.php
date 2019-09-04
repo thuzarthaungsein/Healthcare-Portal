@@ -151,5 +151,3 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::post('update/{id}', 'AdvertisementController@update');
     Route::delete('delete/{id}','AdvertisementController@destroy');
 });
-
-

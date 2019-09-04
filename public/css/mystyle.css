@@ -597,11 +597,8 @@
               bottom: 0;
               left: 42%;
               /* border-bottom: 1px solid #42b698; */
-          }
-        .m-l-14
-        {
-            margin-left: -12px;
-        }
+          }        
+
         .fit-image2{
             width: 350px;
             object-fit: cover;
@@ -1135,6 +1132,12 @@ div.b{
 .m-r-15 {
     margin-right: 15px;
 }
+.m-r-5{
+    margin-right: 5px;
+}
+.m-l-14{
+    margin-left: 14px;
+}
 /* .m-r-2per{
     margin-right: 2% !important;
 } */
@@ -1147,7 +1150,12 @@ div.b{
 .p-b-5{
     padding-bottom: 5px ;
 }
-
+.max-width12{
+    max-width:12%;
+}
+.max-width16{
+    max-width:16%;
+}
 .main-color {
     color: #333;
 }
@@ -1165,12 +1173,37 @@ div.b{
 .secondary-bg-color{
     background-color: #f27a24 !important;
 }
+
 .all-btn{
     color: #fff !important;
     border:none !important;
     min-width: 100px;
     cursor: pointer;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+}
+.edit-borderbtn{
+    border: 1px solid #ffc107 !important;
+    color: #ffc107;
+    background: #fff;    
+    box-shadow: none !important;
+    min-width: 70px;
+}
+.delete-borderbtn{
+    border: 1px solid #dc3545 !important;
+    color: #dc3545;
+    background: #fff;    
+    box-shadow: none !important;
+    min-width: 60px;
+}
+.confirm-borderbtn{
+    border: 1px solid #6cb2eb !important;
+    color: #6cb2eb;
+    background: #fff;    
+    box-shadow: none !important;
+    min-width: 60px;
+}
+.border-style{
+    border: 1px solid #eee;
 }
 .create-btn{
     color: #fff !important;
@@ -1322,12 +1355,12 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 /*user view sidebar*/
 .userview-sidebar{
-   background-color: #f5f5f5;
-   height: 91vh;
-   padding-top: 35%;
-   padding-left: 22px;
-   padding-right: 7px;  
-   margin-top: 4px; 
+    background-color: #f5f5f5;
+    height: 91vh;
+    padding-top: 35%;
+    padding-left: 22px;
+    padding-right: 7px; 
+    margin-top: 4px;
 
 }
 .adminview-sidebar{

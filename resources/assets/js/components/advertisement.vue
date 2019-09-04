@@ -39,17 +39,20 @@
                                                         <label for ="photo" ><strong> Photo/Image :</strong>  </label>
                                                 </div>
                                                 <div class="custom-file col-sm-10">
-                                                        <input type="file" accept="" @change ="uploadImage" id="file">
+                                                        <input type="file" id="upload" accept="image/*" @change ="uploadImage" >
                                                         <!-- <label class="" for="file">No file chosen</label> -->
                                                 </div>
-                                            </div>
+                                                 <div class="col-md-12" id = "par">
+                                                    <div class="row image_preview" ></div>
+                                                 </div>
+                                        </div>
                                             <div class="form-group ">
                                         <div class="form-group row">
                                             <div class="col-1 pad-free">
                                                 <button class="btn news-post-btn">Create</button>
                                             </div>
                                             <div class="col-1">
-                                                <router-link class="btn btn-warning" to="/ads" >  Cancel </router-link>
+                                                <router-link class="btn btn-warning" to="/ads" > Cancel </router-link>
                                             </div>
                                         </div>
                                     </div>
@@ -77,9 +80,12 @@ export default {
 
     },
     methods:{
-             uploadImage(event) {
-                this.ads.photo = event.target.files[0]
-             },
+             uploadImage() {
+                            $('.image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+                            this.ads.photo = event.target.files[0]
+
+         },
+
 
 
         add() {
@@ -88,13 +94,16 @@ export default {
              adsData.append('description',this.ads.description)
              adsData.append('location',this.ads.location)
              adsData.append('photo',this.ads.photo)
+             //adsData.append ("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
 
                 this.axios.post('http://localhost:8000/api/advertisement/add',adsData)
                     .then((response) => {
-                    alert('Successfully')
+                    alert('Successfully Created')
                     console.log(response);
-                    this.ads = response.data;
+                    this.$router.push({name: 'ads'});
                     })
+                    .catch(error => console.log(error))
+                    .finally(() => this.loading = false)
             },
 
     }
