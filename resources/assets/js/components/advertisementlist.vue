@@ -71,9 +71,10 @@ export default {
             deleteAds(id) {
                 if(confirm("Are you sure you want to delete?"))
                 {
-                this.axios
+                    this.axios
                     .delete(`http://localhost:8000/api/advertisement/delete/${id}`)
                     .then(response => {
+
                         alert('Delete Successfully!');
                         let a = this.advertisements.map(item => item.id).indexOf(id);
                         this.advertisements.splice(a, 1)

@@ -64562,7 +64562,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         uploadImage: function uploadImage() {
-            $('.image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
+            $('.image_preview').append("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
             this.ads.photo = event.target.files[0];
         },
         add: function add() {
@@ -64573,7 +64573,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             adsData.append('description', this.ads.description);
             adsData.append('location', this.ads.location);
             adsData.append('photo', this.ads.photo);
-            //adsData.append ("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
 
             this.axios.post('http://localhost:8000/api/advertisement/add', adsData).then(function (response) {
                 alert('Successfully Created');
@@ -66948,6 +66947,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (confirm("Are you sure you want to delete?")) {
                 this.axios.delete('http://localhost:8000/api/advertisement/delete/' + id).then(function (response) {
+
                     alert('Delete Successfully!');
                     var a = _this2.advertisements.map(function (item) {
                         return item.id;
