@@ -40,8 +40,9 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
-        var x_image = document.getElementById('x-image');
-        x_image.parentNode.removeChild(x_image);
+        var image_x = document.getElementById('x-image');
+        image_x.parentNode.removeChild(image_x);
+        document.getElementById('showimage').style.display = 'block';
         console.log("close");
     }
 
@@ -49,6 +50,19 @@ $('path').on("click", function(e) {
         $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
     }
 
+    function closevideo() {
+       
+        var file = document.getElementById("upload_file").files[0];
+        var file_path = 'upload/videos/'+file.name;
 
-
-
+        var url = "http://localhost:8000/api/customer/deletevideo";
+        $.ajax({
+            type:'post',
+            data:{"fiel_path":file_path},
+            url:url,
+            success:function(data){
+               $('#video-area').remove();
+            }
+        });
+        
+    }

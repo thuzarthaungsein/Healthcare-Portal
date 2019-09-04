@@ -1749,3 +1749,22 @@ ul.main-tab li:after{
 .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
 
 /*end for jssor*/
+
+/* Hospital History */
+.fac_container {
+    width: 100%;
+}
+.equipment {
+    list-style: none;
+}
+.equipment>li {
+    width:100%;
+    color: #4650db;
+    background: #a3cee1;
+    border: 1px solid #4650db;
+    padding: 5px;
+    margin: 0 0.5% 1px 0;
+    text-align: center;
+    border-radius: 2px;
+}
+/* End for Hospital History */
