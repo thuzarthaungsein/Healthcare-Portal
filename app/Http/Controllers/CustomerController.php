@@ -28,7 +28,7 @@ class CustomerController extends Controller
         $video_file = $request['file'];
         $video_name = $request['name'];
 
-        $destination = 'upload/'.$video_name; 
+        $destination = 'upload/videos/'.$video_name; 
         if (move_uploaded_file($video_file, $destination)) { 
             return response()->json(['success'=>'Done!']);
         } else {
