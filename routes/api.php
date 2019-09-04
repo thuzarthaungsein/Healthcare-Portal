@@ -89,11 +89,11 @@ Route::get('job_details', 'JobDetailController@index');
 
 Route::group(['prefix' => 'customer'], function () {
     Route::post('add', 'CustomerController@add');
+    Route::post('uploadvideo', 'CustomerController@uploadvideo');
     Route::get('edit/{id}', 'CustomerController@edit');
     Route::post('update/{id}','CustomerController@update');
     Route::delete('delete/{id}','CustomerController@destroy');
 });
-
 
 
 Route::group(['prefix' => 'category'], function () {

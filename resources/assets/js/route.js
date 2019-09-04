@@ -34,6 +34,7 @@ import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
 
 import HospitalHistory from './components/HospitalHistory.vue';
+import VideoUpload from './components/VideoUpload.vue';
 
 export const routes = [
 
@@ -206,5 +207,10 @@ export const routes = [
         name: 'editadvertisement',
         path: '/editads',
         component: editadvertisement
-    }
+    },
+    {
+      name: 'videoupload',
+      path: '/videoupload',
+      component: VideoUpload
+  }
 ];
