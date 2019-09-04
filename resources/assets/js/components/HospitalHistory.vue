@@ -30,6 +30,7 @@
                                                         <a><strong>Email  :</strong>{{hos_profile.email}}</a><br/>
                                                         <a><strong>Details  :</strong>{{hos_profile.details_info}}</a><br/>
                                                         <a><strong>Subjects  :</strong>{{hos_profile.subject}}</a><br/>
+                                                        <a><strong>Location    :</strong>{{hos_profile.township_name}}, {{hos_profile.city_name}}</a><br/>
                                                 </div>
                                         </div>
                                         <div class="col-md-4">

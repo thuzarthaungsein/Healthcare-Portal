@@ -24,10 +24,11 @@
                                                 <div class="pad-free mb-2 ">
                                                         <h4> <a href="#"> {{nur_profile.name}} </a></h4>
                                                         <strong>Website  :</strong><a href=""> {{nur_profile.website}}</a><br/>
-                                                        <a><strong>Address    :</strong>{{nur_profile.address}}</a><br/>
+                                                        <a><strong>Location    :</strong>{{nur_profile.township_name}}, {{nur_profile.city_name}}</a><br/>
                                                         <a><strong>Phone    :</strong>{{nur_profile.phone}}</a><br/>
                                                         <a><strong>Access  :</strong>{{nur_profile.access}}</a><br/>
                                                         <a><strong>Email  :</strong>{{nur_profile.email}}</a><br/>
+                                                        <a><strong>Occupancy Condition  :</strong>{{nur_profile.occupancy_condition}}</a><br/>
                                                 </div>
                                         </div>
                                         <div class="col-md-4">
@@ -41,7 +42,6 @@
                         </div>
                 </div>
         </div>
-        <pre>{{ hos_profiles }} </pre>
  </div>
 </template>
 <script>

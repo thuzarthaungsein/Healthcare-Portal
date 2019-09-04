@@ -14,7 +14,9 @@ class CustomerProfileContoller extends Controller
     function getHospitalHistory() {
         $hos_histories = DB::table('hospital_profiles')
             ->join('customers', 'hospital_profiles.customer_id', '=', 'customers.id')
-            ->select('hospital_profiles.*', 'customers.name', 'customers.email', 'customers.logo', 'customers.phone')
+            ->join('townships', 'townships.id', '=', 'customers.townships_id')
+            ->join('cities', 'townships.city_id', '=', 'cities.id')
+            ->select('hospital_profiles.*', 'customers.*' , 'townships.township_name', 'townships.city_id' , 'cities.city_name' )
             ->get();
         foreach($hos_histories as $hos) {
             $fea_arr = explode(",", $hos->special_features);
@@ -26,7 +28,9 @@ class CustomerProfileContoller extends Controller
     function getNursingHistory() {
         $nur_histories = DB::table('nursing_profiles')
             ->join('customers', 'nursing_profiles.customer_id', '=', 'customers.id')
-            ->select('nursing_profiles.*', 'customers.name', 'customers.email', 'customers.address', 'customers.phone', 'customers.logo')
+            ->join('townships', 'townships.id', '=', 'customers.townships_id')
+            ->join('cities', 'townships.city_id', '=', 'cities.id')
+            ->select('nursing_profiles.*', 'customers.*' , 'townships.township_name', 'townships.city_id' , 'cities.city_name' )
             ->get();
         foreach($nur_histories as $nur) {
             $fea_arr = explode(",", $nur->special_features);

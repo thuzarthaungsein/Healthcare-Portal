@@ -14784,7 +14784,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(20);
-module.exports = __webpack_require__(159);
+module.exports = __webpack_require__(162);
 
 
 /***/ }),
@@ -14819,7 +14819,7 @@ window.events = new Vue();
 window.flash = function (message) {
     window.events.$emit('flash', message);
 };
-Vue.component('flash', __webpack_require__(154));
+Vue.component('flash', __webpack_require__(157));
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
@@ -52459,7 +52459,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_userPasswordResetList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_userPasswordResetList_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__);
 
 
@@ -66326,6 +66326,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
@@ -66456,6 +66457,16 @@ var render = function() {
                       _c("strong", [_vm._v("Subjects  :")]),
                       _vm._v(_vm._s(hos_profile.subject))
                     ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Location    :")]),
+                      _vm._v(
+                        _vm._s(hos_profile.township_name) +
+                          ", " +
+                          _vm._s(hos_profile.city_name)
+                      )
+                    ]),
                     _c("br")
                   ])
                 ]),
@@ -66534,192 +66545,11 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(155)
-}
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(157)
+var __vue_script__ = __webpack_require__(155)
 /* template */
-var __vue_template__ = __webpack_require__(158)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Flash.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-03030049", Component.options)
-  } else {
-    hotAPI.reload("data-v-03030049", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 155 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(156);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(5)("eeb0f47c", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03030049\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Flash.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03030049\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Flash.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 156 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.spacing {\n    position: fixed;\n    right: 25px;\n    z-index:1000;\n}\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 157 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['message'],
-    data: function data() {
-        return {
-            show: false,
-            body: ''
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        if (this.message) {
-            this.flash(this.message);
-        }
-        window.events.$on('flash', function (message) {
-            return _this.flash(message);
-        });
-    },
-
-    methods: {
-        flash: function flash(message) {
-            var _this2 = this;
-
-            this.show = true;
-            this.body = message;
-            setTimeout(function () {
-                _this2.hide();
-            }, 3000);
-        },
-        hide: function hide() {
-            this.show = false;
-        }
-    }
-});
-
-/***/ }),
-/* 158 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      directives: [
-        { name: "show", rawName: "v-show", value: _vm.show, expression: "show" }
-      ],
-      staticClass: "alert alert-success spacing",
-      attrs: { role: "alert" }
-    },
-    [_vm._v("\n    " + _vm._s(_vm.body) + "\n")]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-03030049", module.exports)
-  }
-}
-
-/***/ }),
-/* 159 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(166)
-/* template */
-var __vue_template__ = __webpack_require__(167)
+var __vue_template__ = __webpack_require__(156)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -66758,7 +66588,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 166 */
+/* 155 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66833,7 +66663,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 167 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -66906,8 +66736,12 @@ var render = function() {
                     _c("br"),
                     _vm._v(" "),
                     _c("a", [
-                      _c("strong", [_vm._v("Address    :")]),
-                      _vm._v(_vm._s(nur_profile.address))
+                      _c("strong", [_vm._v("Location    :")]),
+                      _vm._v(
+                        _vm._s(nur_profile.township_name) +
+                          ", " +
+                          _vm._s(nur_profile.city_name)
+                      )
                     ]),
                     _c("br"),
                     _vm._v(" "),
@@ -66926,6 +66760,12 @@ var render = function() {
                     _c("a", [
                       _c("strong", [_vm._v("Email  :")]),
                       _vm._v(_vm._s(nur_profile.email))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Occupancy Condition  :")]),
+                      _vm._v(_vm._s(nur_profile.occupancy_condition))
                     ]),
                     _c("br")
                   ])
@@ -66953,9 +66793,7 @@ var render = function() {
         )
       }),
       0
-    ),
-    _vm._v(" "),
-    _c("pre", [_vm._v(_vm._s(_vm.hos_profiles) + " ")])
+    )
   ])
 }
 var staticRenderFns = [
@@ -67001,6 +66839,182 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-68911791", module.exports)
   }
 }
+
+/***/ }),
+/* 157 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(158)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(160)
+/* template */
+var __vue_template__ = __webpack_require__(161)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Flash.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-03030049", Component.options)
+  } else {
+    hotAPI.reload("data-v-03030049", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(159);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("eeb0f47c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03030049\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Flash.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03030049\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Flash.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 159 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.spacing {\n    position: fixed;\n    right: 25px;\n    z-index:1000;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 160 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['message'],
+    data: function data() {
+        return {
+            show: false,
+            body: ''
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        if (this.message) {
+            this.flash(this.message);
+        }
+        window.events.$on('flash', function (message) {
+            return _this.flash(message);
+        });
+    },
+
+    methods: {
+        flash: function flash(message) {
+            var _this2 = this;
+
+            this.show = true;
+            this.body = message;
+            setTimeout(function () {
+                _this2.hide();
+            }, 3000);
+        },
+        hide: function hide() {
+            this.show = false;
+        }
+    }
+});
+
+/***/ }),
+/* 161 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      directives: [
+        { name: "show", rawName: "v-show", value: _vm.show, expression: "show" }
+      ],
+      staticClass: "alert alert-success spacing",
+      attrs: { role: "alert" }
+    },
+    [_vm._v("\n    " + _vm._s(_vm.body) + "\n")]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-03030049", module.exports)
+  }
+}
+
+/***/ }),
+/* 162 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
