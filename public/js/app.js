@@ -14784,7 +14784,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(20);
-module.exports = __webpack_require__(162);
+module.exports = __webpack_require__(159);
 
 
 /***/ }),
@@ -14819,7 +14819,7 @@ window.events = new Vue();
 window.flash = function (message) {
     window.events.$emit('flash', message);
 };
-Vue.component('flash', __webpack_require__(157));
+Vue.component('flash', __webpack_require__(154));
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
@@ -52459,8 +52459,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_userPasswordResetList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_userPasswordResetList_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_HospitalHistory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_HospitalProfile_vue__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_HospitalProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_HospitalProfile_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_NursingProfile_vue__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_NursingProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_NursingProfile_vue__);
+
+
 
 
 
@@ -52638,6 +52644,14 @@ var routes = [{
   name: 'nursing_history',
   path: '/nursing_history',
   component: __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue___default.a
+}, {
+  name: 'hospital_profile',
+  path: '/hospital_profile',
+  component: __WEBPACK_IMPORTED_MODULE_34__components_HospitalProfile_vue___default.a
+}, {
+  name: 'nursing_profile',
+  path: '/nursing_profile',
+  component: __WEBPACK_IMPORTED_MODULE_35__components_NursingProfile_vue___default.a
 }];
 
 /***/ }),
@@ -62260,201 +62274,10 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HospitalProfile_vue__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HospitalProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__HospitalProfile_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue__);
 //
 //
 //
@@ -62485,7 +62308,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+            components: {
+                        hospitalProfile: __WEBPACK_IMPORTED_MODULE_0__HospitalProfile_vue___default.a,
+                        nursingProfile: __WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue___default.a
+            },
             data: function data() {
                         return {
                                     type: 'nursing',
@@ -62508,12 +62337,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             },
 
             methods: {
-                        preview_image: function preview_image() {
-                                    var total_file = document.getElementById("upload_file").files.length;
-                                    for (var i = 0; i < total_file; i++) {
-                                                $('#image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='" + URL.createObjectURL(event.target.files[i]) + "' class='show-img'></div>");
-                                    }
-                        },
+                        //      preview_image() 
+                        //         {
+                        //                 var total_file = document.getElementById("upload_file").files.length;
+                        //                 for(var i=0;i<total_file;i++)
+                        //                 {
+                        //                 $('#image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
+                        //                 }
+                        //         },               
+
                         scheduletogglediv: function scheduletogglediv() {
                                     $(".schedule-toggle-div").toggle('medium');
                         },
@@ -62521,7 +62353,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     $(".map-toggle-div").toggle('medium');
                         },
                         factogglediv: function factogglediv() {
-                                    $(".fac-toggle-div").toggle('medium');
+                                    $(".hos-fac-toggle-div").toggle('medium');
+                        },
+                        nurseFacToggleDiv: function nurseFacToggleDiv() {
+                                    $(".nurse-fac-toggle-div").toggle('medium');
+                        },
+                        staffToggleDiv: function staffToggleDiv() {
+                                    $(".staff-toggle-div").toggle('medium');
                         },
                         galleryAdd: function galleryAdd() {
                                     var date = new Date();
@@ -62530,22 +62368,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     var h = date.getHours();
                                     var classname = "class" + h + m + s;
                                     var c = "'" + classname + "'";
-                                    $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="Title" class="form-control m-b-15"><textarea name="description" placeholder="Description" class="form-control m-b-15"></textarea></div>');
+                                    $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
                         },
                         methodAdd: function methodAdd() {
                                     $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
                         },
                         cooperateAdd: function cooperateAdd() {
-                                    $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> ');
+                                    $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"> <label>名前 :</label> <input type="text" class="form-control" name="co-medical-header[]"> </div> <table class="table table-bordered"> <tr> <th style="width:30%">診療科目</th> <th style="width:70%"> <textarea class="form-control" name="clinical-sub"></textarea> </th> </tr> <tr> <th>協力内容</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>診療費用</th> <th> <textarea class="form-control" name="expense"></textarea> </th> </tr> <tr> <th>備考</th> <th> <textarea class="form-control" name="remark"></textarea> </th> </tr> </table> </div> ');
                         },
                         acceptanceList: function acceptanceList() {
                                     $(".accept-toggle-div").toggle('medium');
                         },
-                        coMedicalCollapse: function coMedicalCollapse() {
-                                    $(".co-medical-toogle-div").toggle('medium');
-                        },
                         specialFeAdd: function specialFeAdd() {
-                                    $("#special-feature-div").append('<div class="col-md-12"><input type="text" class="form-control" name="specialfeature[]"></div>');
+                                    $("#special-features").append('<div class="col-md-12 m-t-15 pad-free"><input type="text" class="form-control" name="specialfeature[]"></div>');
+                        },
+                        changeType: function changeType() {
+                                    $("#methods").html("");
+                                    $("#cooperate-medical").html("");
+                                    $("#special-features").html("");
+                                    $("#gallery").html("");
                         }
             }
 });
@@ -62562,377 +62403,90 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "card-body scrolldiv2" }, [
-      _c("form", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "form-group" }, [
         _vm._m(1),
         _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _vm._m(4),
-        _vm._v(" "),
-        _vm._m(5),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _vm._m(6),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "hospital" } }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.type,
-                  expression: "type"
-                }
-              ],
-              attrs: {
-                type: "radio",
-                value: "hospital",
-                name: "type",
-                id: "hospital"
-              },
-              domProps: { checked: _vm._q(_vm.type, "hospital") },
-              on: {
-                change: function($event) {
+        _c("label", { attrs: { for: "hospital" } }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.type,
+                expression: "type"
+              }
+            ],
+            attrs: {
+              type: "radio",
+              value: "hospital",
+              name: "type",
+              id: "hospital"
+            },
+            domProps: { checked: _vm._q(_vm.type, "hospital") },
+            on: {
+              change: [
+                function($event) {
                   _vm.type = "hospital"
+                },
+                function($event) {
+                  return _vm.changeType()
                 }
-              }
-            }),
-            _vm._v(" Hospital\r\n                                ")
-          ]),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "nursing" } }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.type,
-                  expression: "type"
-                }
-              ],
-              attrs: {
-                type: "radio",
-                value: "nursing",
-                name: "type",
-                id: "nursing"
-              },
-              domProps: { checked: _vm._q(_vm.type, "nursing") },
-              on: {
-                change: function($event) {
-                  _vm.type = "nursing"
-                }
-              }
-            }),
-            _vm._v(" Nursing Home\r\n                                ")
-          ])
+              ]
+            }
+          }),
+          _vm._v(" Hospital\r\n                        ")
         ]),
         _vm._v(" "),
+        _c("label", { attrs: { for: "nursing" } }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.type,
+                expression: "type"
+              }
+            ],
+            attrs: {
+              type: "radio",
+              value: "nursing",
+              name: "type",
+              id: "nursing"
+            },
+            domProps: { checked: _vm._q(_vm.type, "nursing") },
+            on: {
+              change: [
+                function($event) {
+                  _vm.type = "nursing"
+                },
+                function($event) {
+                  return _vm.changeType()
+                }
+              ]
+            }
+          }),
+          _vm._v(" Nursing Home\r\n                        ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("form", { staticClass: "col-md-12" }, [
         _vm.type == "hospital"
-          ? _c("div", { staticClass: "col-md-12 pad-free" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _vm._m(7),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "file",
-                    value: "Upload Photo",
-                    id: "upload_file",
-                    multiple: ""
-                  },
-                  on: {
-                    change: function($event) {
-                      return _vm.preview_image()
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm._m(8)
-              ]),
-              _vm._v(" "),
-              _vm._m(9),
-              _vm._v(" "),
-              _vm._m(10),
-              _vm._v(" "),
-              _vm._m(11),
-              _vm._v(" "),
-              _vm._m(12),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "btn all-btn main-bg-color m-b-20",
-                  on: {
-                    click: function($event) {
-                      return _vm.scheduletogglediv()
-                    }
-                  }
-                },
-                [_vm._v("Consultation Hours")]
-              ),
-              _vm._v(" "),
-              _vm._m(13),
-              _vm._v(" "),
-              _vm._m(14),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "btn all-btn main-bg-color m-b-20",
-                  on: {
-                    click: function($event) {
-                      return _vm.factogglediv()
-                    }
-                  }
-                },
-                [_vm._v("Facilities")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-md-12 fac-toggle-div toggle-div" },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "row" },
-                    _vm._l(_vm.fac_list, function(fac) {
-                      return _c(
-                        "div",
-                        { key: fac.id, staticClass: "col-md-6 m-b-20" },
-                        [
-                          _c("label", [
-                            _c("input", { attrs: { type: "checkbox" } }),
-                            _vm._v(
-                              "\r\n                                                        " +
-                                _vm._s(fac.description) +
-                                "\r\n                                                        "
-                            )
-                          ])
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(15),
-              _vm._v(" "),
-              _vm._m(16),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "btn all-btn main-bg-color m-b-20",
-                  on: {
-                    click: function($event) {
-                      return _vm.maptogglediv()
-                    }
-                  }
-                },
-                [_vm._v("Map")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "map-toggle-div toggle-div" }, [
-                _vm._v(
-                  "\r\n                                        Map Area Here\r\n                                "
-                )
-              ])
-            ])
+          ? _c(
+              "div",
+              { staticClass: "col-md-12 pad-free" },
+              [_c("hospitalProfile")],
+              1
+            )
           : _vm._e(),
         _vm._v(" "),
         _vm.type == "nursing"
-          ? _c("div", { staticClass: "col-md-12 pad-free" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Gallery")]),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "btn all-btn main-bg-color m-l-10",
-                    staticStyle: { "min-width": "0px" },
-                    on: {
-                      click: function($event) {
-                        return _vm.galleryAdd()
-                      }
-                    }
-                  },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _vm._m(17)
-              ]),
-              _vm._v(" "),
-              _vm._m(18),
-              _vm._v(" "),
-              _c("hr", { staticClass: "hor-line m-t-30" }),
-              _vm._v(" "),
-              _vm._m(19),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _vm._m(20),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "btn all-btn main-bg-color m-l-10",
-                    staticStyle: { "min-width": "0px" },
-                    on: {
-                      click: function($event) {
-                        return _vm.methodAdd()
-                      }
-                    }
-                  },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass: "col-md-12 pad-free",
-                  attrs: { id: "methods" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("hr", { staticClass: "hor-line m-t-30" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _vm._m(21),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "btn all-btn main-bg-color m-l-10",
-                    staticStyle: { "min-width": "0px" },
-                    on: {
-                      click: function($event) {
-                        return _vm.cooperateAdd()
-                      }
-                    }
-                  },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass: "col-md-12 pad-free",
-                  attrs: { id: "cooperate-medical" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("hr", { staticClass: "hor-line m-t-30" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "btn all-btn main-bg-color m-b-20",
-                    on: {
-                      click: function($event) {
-                        return _vm.acceptanceList()
-                      }
-                    }
-                  },
-                  [_vm._v("Medical Acceptance")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-md-12 accept-toggle-div toggle-div pad-free"
-                  },
-                  [
-                    _vm._m(22),
-                    _vm._v(" "),
-                    _vm._m(23),
-                    _vm._v(" "),
-                    _vm._m(24),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "row" },
-                      _vm._l(_vm.medical_acceptance, function(medical) {
-                        return _c(
-                          "div",
-                          { key: medical.id, staticClass: "col-md-6" },
-                          [
-                            _c("div", { staticClass: "col-md-12 accept-box" }, [
-                              _vm._v(
-                                "\r\n                                                                        " +
-                                  _vm._s(medical.name) +
-                                  "\r\n                                                                        "
-                              ),
-                              _c("div", { staticClass: "float-right" }, [
-                                _c("label", [
-                                  _c("input", {
-                                    attrs: {
-                                      type: "radio",
-                                      name: "medical" + medical.id
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("i", { staticClass: "fas fa-check green" })
-                                ]),
-                                _vm._v(" "),
-                                _c("label", [
-                                  _c("input", {
-                                    attrs: {
-                                      type: "radio",
-                                      name: "medical" + medical.id
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("i", { staticClass: "fas fa-times red" })
-                                ]),
-                                _vm._v(" "),
-                                _c("label", [
-                                  _c("input", {
-                                    attrs: {
-                                      type: "radio",
-                                      name: "medical" + medical.id
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("i", { staticClass: "fas fa-adjust blue" })
-                                ])
-                              ])
-                            ])
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("hr", { staticClass: "hor-line m-t-30" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _vm._m(25),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "btn all-btn main-bg-color m-l-10",
-                    staticStyle: { "min-width": "0px" },
-                    on: {
-                      click: function($event) {
-                        return _vm.specialFeAdd()
-                      }
-                    }
-                  },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass: "col-md-12 pad-free",
-                  attrs: { id: "special-features" }
-                })
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm._m(26)
+          ? _c(
+              "div",
+              { staticClass: "col-md-12 pad-free" },
+              [_c("nursingProfile")],
+              1
+            )
+          : _vm._e()
       ])
     ])
   ])
@@ -62950,393 +62504,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("Name"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "Name" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("Email"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "Email" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("Phone"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "Phone" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("Address"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "address", rows: "10" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("Location Access"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "address", rows: "10" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("Type"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("フォトアルバム"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "row", attrs: { id: "image_preview" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("Medical Department"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "medicaldepartment" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("Specialist"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "specialist" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("Details Information"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "detailsinfo" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("Clinic Subject"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "subject" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "schedule-toggle-div toggle-div" }, [
-      _c("table", { staticClass: "table table-striped table-bordered" }, [
-        _c("tr", [
-          _c("th", [_vm._v(" ")]),
-          _vm._v(" "),
-          _c("th", [_vm._v("A.M")]),
-          _vm._v(" "),
-          _c("th", [_vm._v("P.M")]),
-          _vm._v(" "),
-          _c("th", [_vm._v("Other")])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Monday")]),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td")
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Tuesday")]),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td")
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Wed")]),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td")
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Thu")]),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td")
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Friday")]),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td")
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Sat")]),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td")
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Sunday")]),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td"),
-          _vm._v(" "),
-          _c("td")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Closed Days")]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "close-day" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Official Website")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", name: "official-website" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Congestion")]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "congestion" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "row", attrs: { id: "gallery" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("特長"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "feature" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("費用")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("支払い方法"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("Medical Cooperate"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
-      _c("i", { staticClass: "fas fa-check green" }),
-      _vm._v(" 受入れ可")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
-      _c("i", { staticClass: "fas fa-times red" }),
-      _vm._v(" 受入れ不可")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
-      _c("i", { staticClass: "fas fa-adjust blue" }),
-      _vm._v(" 応相談")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("こだわりの特長"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("button", { staticClass: "btn news-post-btn all-btn m-t-15" }, [
-        _vm._v("Create")
-      ])
     ])
   }
 ]
@@ -66545,11 +65715,190 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(155)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(155)
+var __vue_script__ = __webpack_require__(157)
 /* template */
-var __vue_template__ = __webpack_require__(156)
+var __vue_template__ = __webpack_require__(158)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Flash.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-03030049", Component.options)
+  } else {
+    hotAPI.reload("data-v-03030049", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 155 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(156);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("eeb0f47c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03030049\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Flash.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03030049\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Flash.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.spacing {\n    position: fixed;\n    right: 25px;\n    z-index:1000;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 157 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['message'],
+    data: function data() {
+        return {
+            show: false,
+            body: ''
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        if (this.message) {
+            this.flash(this.message);
+        }
+        window.events.$on('flash', function (message) {
+            return _this.flash(message);
+        });
+    },
+
+    methods: {
+        flash: function flash(message) {
+            var _this2 = this;
+
+            this.show = true;
+            this.body = message;
+            setTimeout(function () {
+                _this2.hide();
+            }, 3000);
+        },
+        hide: function hide() {
+            this.show = false;
+        }
+    }
+});
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      directives: [
+        { name: "show", rawName: "v-show", value: _vm.show, expression: "show" }
+      ],
+      staticClass: "alert alert-success spacing",
+      attrs: { role: "alert" }
+    },
+    [_vm._v("\n    " + _vm._s(_vm.body) + "\n")]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-03030049", module.exports)
+  }
+}
+
+/***/ }),
+/* 159 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(164)
+/* template */
+var __vue_template__ = __webpack_require__(165)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -66588,7 +65937,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 155 */
+/* 164 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66663,7 +66012,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 156 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -66841,23 +66190,19 @@ if (false) {
 }
 
 /***/ }),
-/* 157 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(158)
-}
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(160)
+var __vue_script__ = __webpack_require__(167)
 /* template */
-var __vue_template__ = __webpack_require__(161)
+var __vue_template__ = __webpack_require__(168)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -66870,7 +66215,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Flash.vue"
+Component.options.__file = "resources/assets/js/components/HospitalProfile.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -66879,9 +66224,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-03030049", Component.options)
+    hotAPI.createRecord("data-v-92100cb0", Component.options)
   } else {
-    hotAPI.reload("data-v-03030049", Component.options)
+    hotAPI.reload("data-v-92100cb0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -66892,47 +66237,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 158 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(159);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(6)("eeb0f47c", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03030049\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Flash.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03030049\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Flash.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 159 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.spacing {\n    position: fixed;\n    right: 25px;\n    z-index:1000;\n}\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 160 */
+/* 167 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66944,77 +66249,1581 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['message'],
-    data: function data() {
-        return {
-            show: false,
-            body: ''
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        if (this.message) {
-            this.flash(this.message);
-        }
-        window.events.$on('flash', function (message) {
-            return _this.flash(message);
-        });
-    },
-
-    methods: {
-        flash: function flash(message) {
-            var _this2 = this;
-
-            this.show = true;
-            this.body = message;
-            setTimeout(function () {
-                _this2.hide();
-            }, 3000);
+        data: function data() {
+                return {
+                        fac_list: []
+                };
         },
-        hide: function hide() {
-            this.show = false;
+        created: function created() {
+                var _this = this;
+
+                this.axios.get('http://localhost:8000/api/facilities').then(function (response) {
+                        //  console.log(response);
+                        _this.fac_list = response.data;
+                });
+        },
+
+        methods: {
+                scheduletogglediv: function scheduletogglediv() {
+                        $(".schedule-toggle-div").toggle('medium');
+                },
+                maptogglediv: function maptogglediv() {
+                        $(".map-toggle-div").toggle('medium');
+                },
+                factogglediv: function factogglediv() {
+                        $(".hos-fac-toggle-div").toggle('medium');
+                },
+                galleryAdd: function galleryAdd() {
+                        var date = new Date();
+                        var s = date.getMilliseconds();
+                        var m = date.getMinutes();
+                        var h = date.getHours();
+                        var classname = "class" + h + m + s;
+                        var c = "'" + classname + "'";
+                        $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
+                },
+                specialFeAdd: function specialFeAdd() {
+                        $("#special-features").append('<div class="col-md-12 m-t-15 pad-free"><input type="text" class="form-control" name="specialfeature[]"></div>');
+                }
         }
-    }
 });
 
 /***/ }),
-/* 161 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      directives: [
-        { name: "show", rawName: "v-show", value: _vm.show, expression: "show" }
-      ],
-      staticClass: "alert alert-success spacing",
-      attrs: { role: "alert" }
-    },
-    [_vm._v("\n    " + _vm._s(_vm.body) + "\n")]
-  )
+  return _c("div", { staticClass: "card profile" }, [
+    _c("form", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "col-md-12 pad-free" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("フォトアルバム")]),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn all-btn main-bg-color m-l-10",
+              staticStyle: { "min-width": "0px" },
+              on: {
+                click: function($event) {
+                  return _vm.galleryAdd()
+                }
+              }
+            },
+            [_vm._v("+")]
+          ),
+          _vm._v(" "),
+          _vm._m(3)
+        ]),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _vm._m(6),
+        _vm._v(" "),
+        _vm._m(7),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn all-btn main-bg-color m-b-20",
+            on: {
+              click: function($event) {
+                return _vm.scheduletogglediv()
+              }
+            }
+          },
+          [_vm._v("Consultation Hours")]
+        ),
+        _vm._v(" "),
+        _vm._m(8),
+        _vm._v(" "),
+        _vm._m(9),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn all-btn main-bg-color m-b-20",
+            on: {
+              click: function($event) {
+                return _vm.factogglediv()
+              }
+            }
+          },
+          [_vm._v("Facilities")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-12 hos-fac-toggle-div toggle-div" }, [
+          _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.fac_list, function(fac) {
+              return _c(
+                "div",
+                { key: fac.id, staticClass: "col-md-6 m-b-20" },
+                [
+                  _c("label", [
+                    _c("input", { attrs: { type: "checkbox" } }),
+                    _vm._v(
+                      "\r\n                                            " +
+                        _vm._s(fac.description) +
+                        "\r\n                                            "
+                    )
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(10),
+        _vm._v(" "),
+        _vm._m(11),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn all-btn main-bg-color m-b-20",
+            on: {
+              click: function($event) {
+                return _vm.maptogglediv()
+              }
+            }
+          },
+          [_vm._v("Map")]
+        ),
+        _vm._v(" "),
+        _vm._m(12),
+        _vm._v(" "),
+        _vm._m(13)
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Name"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Name" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Email"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Email" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Phone"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Phone" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "row", attrs: { id: "gallery" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Medical Department"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { name: "medicaldepartment" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Specialist"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { name: "specialist" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Details Information"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { name: "detailsinfo" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Clinic Subject"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { name: "subject" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "schedule-toggle-div toggle-div" }, [
+      _c("table", { staticClass: "table table-striped table-bordered" }, [
+        _c("tr", [
+          _c("th", [_vm._v(" ")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("A.M")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("P.M")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("Other")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v("Monday")]),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td")
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v("Tuesday")]),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td")
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v("Wed")]),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td")
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v("Thu")]),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td")
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v("Friday")]),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td")
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v("Sat")]),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td")
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", [_vm._v("Sunday")]),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td"),
+          _vm._v(" "),
+          _c("td")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Closed Days")]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { name: "close-day" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Official Website")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", name: "official-website" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Congestion")]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { name: "congestion" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "map-toggle-div toggle-div" }, [
+      _vm._v(
+        "\r\n                            Map Area Here\r\n\r\n                            "
+      ),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [
+          _vm._v("住所"),
+          _c("span", { staticClass: "error" }, [_vm._v("*")])
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "form-control",
+          attrs: { name: "address", rows: "10" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [
+          _vm._v("交通"),
+          _c("span", { staticClass: "error" }, [_vm._v("*")])
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "form-control",
+          attrs: { name: "address", rows: "10" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("button", { staticClass: "btn news-post-btn all-btn m-t-15" }, [
+        _vm._v("Create")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-03030049", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-92100cb0", module.exports)
   }
 }
 
 /***/ }),
-/* 162 */
-/***/ (function(module, exports) {
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(170)
+/* template */
+var __vue_template__ = __webpack_require__(171)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/NursingProfile.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5e2d2a26", Component.options)
+  } else {
+    hotAPI.reload("data-v-5e2d2a26", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 170 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+        data: function data() {
+                return {
+                        fac_list: [],
+                        medical_acceptance: []
+                };
+        },
+        created: function created() {
+                var _this = this;
+
+                this.axios.get('http://localhost:8000/api/facilities').then(function (response) {
+                        //  console.log(response);
+                        _this.fac_list = response.data;
+                });
+
+                this.axios.get('http://localhost:8000/api/medical/medicalacceptance').then(function (response) {
+                        _this.medical_acceptance = response.data;
+                        //      console.log(response.data);
+                });
+        },
+
+        methods: {
+                maptogglediv: function maptogglediv() {
+                        $(".map-toggle-div").toggle('medium');
+                },
+                nurseFacToggleDiv: function nurseFacToggleDiv() {
+                        $(".nurse-fac-toggle-div").toggle('medium');
+                },
+                staffToggleDiv: function staffToggleDiv() {
+                        $(".staff-toggle-div").toggle('medium');
+                },
+                galleryAdd: function galleryAdd() {
+                        var date = new Date();
+                        var s = date.getMilliseconds();
+                        var m = date.getMinutes();
+                        var h = date.getHours();
+                        var classname = "class" + h + m + s;
+                        var c = "'" + classname + "'";
+                        $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
+                },
+                methodAdd: function methodAdd() {
+                        $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
+                },
+                cooperateAdd: function cooperateAdd() {
+                        $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"> <label>名前 :</label> <input type="text" class="form-control" name="co-medical-header[]"> </div> <table class="table table-bordered"> <tr> <th style="width:30%">診療科目</th> <th style="width:70%"> <textarea class="form-control" name="clinical-sub"></textarea> </th> </tr> <tr> <th>協力内容</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>診療費用</th> <th> <textarea class="form-control" name="expense"></textarea> </th> </tr> <tr> <th>備考</th> <th> <textarea class="form-control" name="remark"></textarea> </th> </tr> </table> </div> ');
+                },
+                acceptanceList: function acceptanceList() {
+                        $(".accept-toggle-div").toggle('medium');
+                },
+                specialFeAdd: function specialFeAdd() {
+                        $("#special-features").append('<div class="col-md-12 m-t-15 pad-free"><input type="text" class="form-control" name="specialfeature[]"></div>');
+                }
+        }
+});
+
+/***/ }),
+/* 171 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card profile" }, [
+    _c("form", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "col-md-12 pad-free" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("フォトアルバム")]),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn all-btn main-bg-color m-l-10",
+              staticStyle: { "min-width": "0px" },
+              on: {
+                click: function($event) {
+                  return _vm.galleryAdd()
+                }
+              }
+            },
+            [_vm._v("+")]
+          ),
+          _vm._v(" "),
+          _vm._m(3)
+        ]),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hor-line m-t-30" }),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _vm._m(6),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn all-btn main-bg-color m-l-10",
+              staticStyle: { "min-width": "0px" },
+              on: {
+                click: function($event) {
+                  return _vm.methodAdd()
+                }
+              }
+            },
+            [_vm._v("+")]
+          ),
+          _vm._v(" "),
+          _c("div", {
+            staticClass: "col-md-12 pad-free",
+            attrs: { id: "methods" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hor-line m-t-30" }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn all-btn main-bg-color m-b-20",
+            on: {
+              click: function($event) {
+                return _vm.nurseFacToggleDiv()
+              }
+            }
+          },
+          [_vm._v("施設の概要")]
+        ),
+        _vm._v(" "),
+        _vm._m(7),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hor-line m-t-30" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _vm._m(8),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn all-btn main-bg-color m-l-10",
+              staticStyle: { "min-width": "0px" },
+              on: {
+                click: function($event) {
+                  return _vm.cooperateAdd()
+                }
+              }
+            },
+            [_vm._v("+")]
+          ),
+          _vm._v(" "),
+          _c("div", {
+            staticClass: "col-md-12 pad-free",
+            attrs: { id: "cooperate-medical" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hor-line m-t-30" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn all-btn main-bg-color m-b-20",
+              on: {
+                click: function($event) {
+                  return _vm.acceptanceList()
+                }
+              }
+            },
+            [_vm._v("医療面の受入れ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-12 accept-toggle-div toggle-div pad-free" },
+            [
+              _vm._m(9),
+              _vm._v(" "),
+              _vm._m(10),
+              _vm._v(" "),
+              _vm._m(11),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.medical_acceptance, function(medical) {
+                  return _c(
+                    "div",
+                    { key: medical.id, staticClass: "col-md-6" },
+                    [
+                      _c("div", { staticClass: "col-md-12 accept-box" }, [
+                        _vm._v(
+                          "\r\n                                                            " +
+                            _vm._s(medical.name) +
+                            "\r\n                                                            "
+                        ),
+                        _c("div", { staticClass: "float-right" }, [
+                          _c("label", [
+                            _c("input", {
+                              attrs: {
+                                type: "radio",
+                                name: "medical" + medical.id
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fas fa-check green" })
+                          ]),
+                          _vm._v(" "),
+                          _c("label", [
+                            _c("input", {
+                              attrs: {
+                                type: "radio",
+                                name: "medical" + medical.id
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fas fa-times red" })
+                          ]),
+                          _vm._v(" "),
+                          _c("label", [
+                            _c("input", {
+                              attrs: {
+                                type: "radio",
+                                name: "medical" + medical.id
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "fas fa-adjust blue" })
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _vm._m(12)
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hor-line m-t-30" }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn all-btn main-bg-color m-b-20",
+            on: {
+              click: function($event) {
+                return _vm.staffToggleDiv()
+              }
+            }
+          },
+          [_vm._v("職員体制")]
+        ),
+        _vm._v(" "),
+        _vm._m(13),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hor-line m-t-30" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _vm._m(14),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn all-btn main-bg-color m-l-10",
+              staticStyle: { "min-width": "0px" },
+              on: {
+                click: function($event) {
+                  return _vm.specialFeAdd()
+                }
+              }
+            },
+            [_vm._v("+")]
+          ),
+          _vm._v(" "),
+          _c("div", {
+            staticClass: "col-md-12 pad-free",
+            attrs: { id: "special-features" }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn all-btn main-bg-color m-b-20",
+            on: {
+              click: function($event) {
+                return _vm.maptogglediv()
+              }
+            }
+          },
+          [_vm._v("地図")]
+        ),
+        _vm._v(" "),
+        _vm._m(15),
+        _vm._v(" "),
+        _vm._m(16)
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Name"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Name" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Email"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Email" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Phone"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Phone" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "row", attrs: { id: "gallery" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("特長"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { name: "feature" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("費用")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("支払い方法"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "nurse-fac-toggle-div toggle-div" }, [
+      _c("table", { staticClass: "table table-striped table-bordered" }, [
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("事業主体")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("開設年月日")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [
+            _vm._v("土地の権利形態")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [
+            _vm._v("建物の権利形態")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("敷地面積")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("延床面積")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("構造")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("定員")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("総居室・戸数")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [
+            _vm._v("居住の権利形態")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("類型")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("入居条件")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [
+            _vm._v("居室区分・間取り等")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [_vm._v("居室設備")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "30%" } }, [
+            _vm._v("共用施設・設備")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "70%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("協力医療機関"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
+      _c("i", { staticClass: "fas fa-check green" }),
+      _vm._v(" 受入れ可")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
+      _c("i", { staticClass: "fas fa-times red" }),
+      _vm._v(" 受入れ不可")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
+      _c("i", { staticClass: "fas fa-adjust blue" }),
+      _vm._v(" 応相談")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "" } }, [_vm._v("備考")]),
+      _vm._v(" "),
+      _c("textarea", { staticClass: "form-control", attrs: { name: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "staff-toggle-div toggle-div" }, [
+      _c("table", { staticClass: "table table-striped table-bordered" }, [
+        _c("tr", [
+          _c("td", { staticStyle: { width: "20%" } }, [
+            _vm._v("介護に関わる職員体制（入居者：職員）")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "32%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "16%" } }, [_vm._v("介護職員")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "32%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticStyle: { width: "20%" } }, [
+            _vm._v("夜間の最少職員数")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "32%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "16%" } }, [_vm._v("看護職員数")]),
+          _vm._v(" "),
+          _c("td", { staticStyle: { width: "32%" } }, [
+            _c("textarea", { staticClass: "form-control" })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "" } }, [_vm._v("備考")]),
+        _vm._v(" "),
+        _c("textarea", { staticClass: "form-control", attrs: { name: "" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("こだわりの特長"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "map-toggle-div toggle-div" }, [
+      _vm._v(
+        "\r\n                            Map Area Here\r\n\r\n                            "
+      ),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [
+          _vm._v("住所"),
+          _c("span", { staticClass: "error" }, [_vm._v("*")])
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "form-control",
+          attrs: { name: "address", rows: "10" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [
+          _vm._v("交通"),
+          _c("span", { staticClass: "error" }, [_vm._v("*")])
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "form-control",
+          attrs: { name: "address", rows: "10" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("button", { staticClass: "btn news-post-btn all-btn m-t-15" }, [
+        _vm._v("Create")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5e2d2a26", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

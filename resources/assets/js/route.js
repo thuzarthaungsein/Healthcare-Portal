@@ -35,6 +35,8 @@ import userPasswordResetList from './components/userPasswordResetList.vue';
 
 import HospitalHistory from './components/HospitalHistory.vue';
 import NursingHistory from './components/NursingHistory.vue';
+import HospitalProfile from './components/HospitalProfile.vue';
+import NursingProfile from './components/NursingProfile.vue';
 
 export const routes = [
 
@@ -212,5 +214,15 @@ export const routes = [
       name: 'nursing_history',
       path: '/nursing_history',
       component: NursingHistory
-    }
+    },
+    {
+      name: 'hospital_profile',
+      path: '/hospital_profile',
+      component: HospitalProfile
+     },
+    {
+      name: 'nursing_profile',
+      path: '/nursing_profile',
+      component: NursingProfile
+     },
 ];
