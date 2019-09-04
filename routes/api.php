@@ -74,6 +74,7 @@ Route::group(['prefix' => 'facility'], function () {
     Route::get('edit/{id}', 'FacilityController@edit');
     Route::post('update/{id}', 'FacilityController@update');
     Route::delete('delete/{id}', 'FacilityController@destroy');
+    Route::post('search', 'FacilityController@search');
 });
 
 
@@ -119,6 +120,7 @@ Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
 Route::get('jobs', 'JobController@index');
 Route::get('news_list', 'PostController@index');
+Route::post('news_list/search', 'PostController@search');
 
 
 Route::group(['prefix' => 'new'], function () {

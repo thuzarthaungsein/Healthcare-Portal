@@ -7,11 +7,20 @@
                 <div class="card-body">
                     <h4 class="main-color">ニュース役職の検索</h4>
                     <div class="row">
-                        <div class="col-md-10">
+                        <div class="col-md-8">
                             <input type="text" class="form-control" placeholder="検索">
                         </div>
-                        <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white"><i class="fas fa-search"></i> 検索</button>
+                        <div class="col-md-4">
+                            <div class="btn-group">
+                                <button class="btn main-bg-color white dropdown-toggle all-btn" type="button" data-toggle="dropdown"> 種類
+                                    <span class="caret"></span>
+                                </button>
+                                <select v-model="category_id" class="form-control" id="selectBox" @change="searchbyCategory()">
+                                    <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
+                                        {{category.name}}
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,7 +133,11 @@ export default {
        
         data() {
             return {
-                news_list:[]
+                news_list:[],
+                categories:{
+                  id: '',
+                  name: ''
+              }
             }
         },
         created(){
@@ -133,6 +146,13 @@ export default {
                  .then(response=>{
                      this.news_list = response.data;
                  });
+        },
+        mounted() {
+            this.axios
+                .get('http://localhost:8000/api/category/category_list')
+                .then(function(response) {
+                    this.categories = response.data;
+                }.bind(this));
         },
          methods: {
             deletePost(id) {
@@ -147,6 +167,15 @@ export default {
                     });
                 }
                
+            },
+            searchbyCategory() {
+                var selected_category  = document.getElementById("selectBox").value;
+                let fd = new FormData();
+                    fd.append('selected_category' ,selected_category )
+                this.axios.post('http://localhost:8000/api/news_list/search', fd)
+                    .then(response => {
+                        this.news_list = response.data;
+                    });
             }
         }
 

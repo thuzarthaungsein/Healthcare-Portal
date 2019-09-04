@@ -6,7 +6,7 @@
                     <h4 class="main-color">ニュース記事を検索</h4>
                     <div class="row">
                         <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="検索">
+                            <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchFacility()">
                         </div>
                         <div class="col-md-2">
                             <button class="btn secondary-bg-color all-btn white"><i class="fas fa-search"></i> 検索</button>
@@ -74,6 +74,18 @@ export default {
                     });
                 }
                
+            },
+
+            searchFacility() {
+                var search_word = $('#search-item').val();
+                let fd = new FormData();
+                    fd.append('search_word' , search_word )
+                this.axios.post('http://localhost:8000/api/facility/search', fd)
+                    .then(response => {
+                        this.facilities = response.data;
+                    });
+               
+
             }
         }
 }

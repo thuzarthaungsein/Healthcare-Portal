@@ -127,4 +127,16 @@ class PostController extends Controller
         $post->delete();
         return response()->json('The news post successfully deleted');
     }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $category_id = $request['selected_category'];
+        
+        $news_by_categories = Post::query()
+                            ->where('category_id', $category_id) 
+                            ->get()
+                            ->toArray();
+        return $news_by_categories;
+    }
 }
