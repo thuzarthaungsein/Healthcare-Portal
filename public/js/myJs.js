@@ -48,5 +48,18 @@ $('path').on("click", function(e) {
     }
 
     function closevideo() {
-        $('#video-area').remove();
+       
+        var file = document.getElementById("upload_file").files[0];
+        var file_path = 'upload/videos/'+file.name;
+
+        var url = "http://localhost:8000/api/customer/deletevideo";
+        $.ajax({
+            type:'post',
+            data:{"fiel_path":file_path},
+            url:url,
+            success:function(data){
+               $('#video-area').remove();
+            }
+        });
+        
     }

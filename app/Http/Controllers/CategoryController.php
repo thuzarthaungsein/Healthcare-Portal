@@ -91,6 +91,19 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
+    public function search(Request $request) 
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+        
+        $search_categories = Category::query()
+                            ->where('name', 'LIKE', "%{$search_word}%") 
+                            ->get()
+                            ->toArray();
+        return $search_categories;
+        
+    }
+
     // public function store(Request $request)
     // {
     //     $user = Auth::user()->id;
