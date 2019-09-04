@@ -14,7 +14,8 @@
                                         <form @submit.prevent = "updateCategory">
                                         <div class="form-group">
                                             <label>Category Name :<span class="error">*</span></label>
-                                            <input type="text" class="form-control" v-model="category.name">
+                                            <input type="text" class="form-control" v-model="category.name" >
+                                              <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                                         </div>
                                    
                                         <div class="form-group row">
@@ -64,9 +65,17 @@ export default {
                 this.axios
                     .post(`http://localhost:8000/api/category/update/${this.$route.params.id}`, this.category)
                     .then((response) => {
+                        this.name = ''
                           alert('Successfully Updated!')
                         this.$router.push({name: 'categorylist'});
-                    });
+                    }).catch(error=>{
+                        
+                    if(error.response.status == 422){
+                      
+                        this.errors = error.response.data.errors       
+                          
+                    }
+                })   ;
             }
            
         }

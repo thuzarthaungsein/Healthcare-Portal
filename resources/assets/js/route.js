@@ -25,15 +25,13 @@ import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
 import ProfilePublish from './components/ProfilePublish.vue';
 import advertisement from './components/advertisement.vue';
-import advertisementlist from './components/advertisementlist.vue';
-import editadvertisement from './components/editadvertisement.vue';
-
 import createmedicalacceptance from './components/createmedicalacceptance.vue';
 import medicalacceptancelist from './components/medicalacceptancelist.vue';
 import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
-
 import HospitalHistory from './components/HospitalHistory.vue';
+import type from './components/Type.vue';
+import typelist from './components/TypeList.vue';
 
 export const routes = [
 
@@ -196,7 +194,18 @@ export const routes = [
         name: 'advertisement',
         path: '/advertisement',
         component: advertisement
-    },
+      },
+      {
+        name:'type',
+        path:'/type',
+        component: type
+      },
+      {
+        name:'typelist',
+        path:'/typelist',
+        component:typelist
+      },
+   
     {
         name: 'ads',
         path: '/ads',

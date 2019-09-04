@@ -14,7 +14,8 @@
                              <form @submit.prevent="add">
                             <div class="form-group">
                                 <label>カテゴリ 名 :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリ 名" required>
+                                <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリ 名" >
+                                  <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                             </div>
 
                             <div class="form-group ">
@@ -69,10 +70,18 @@ export default {
             add() {
                 axios.post('http://localhost:8000/api/category/add', this.category)
                     .then((response) => {
+                        this.name = ''
                     alert('Successfully Created')
                     console.log(response);
                      this.$router.push({name: 'categorylist'});
-                    })
+                    }).catch(error=>{
+                        
+                    if(error.response.status == 422){
+                      
+                        this.errors = error.response.data.errors       
+                          
+                    }
+                })   
             }
 
         }
