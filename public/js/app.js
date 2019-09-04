@@ -57285,8 +57285,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57361,195 +57359,190 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "content" } }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card  text-dark" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "row" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "form",
-                {
-                  staticClass: "col-md-12",
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.add($event)
-                    }
+  return _c("div", { staticClass: "row", attrs: { id: "content" } }, [
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "card  text-dark" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "row" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                staticClass: "col-md-12",
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.add($event)
                   }
-                },
-                [
-                  _c("div", { staticClass: "form-group" }, [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.news.title,
-                          expression: "news.title"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "題名を入力してください。"
-                      },
-                      domProps: { value: _vm.news.title },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.news, "title", $event.target.value)
-                        }
-                      }
-                    })
-                  ]),
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _vm._m(1),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.news.main_point,
-                          expression: "news.main_point"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "ニュースの主な情報を入力してください。"
-                      },
-                      domProps: { value: _vm.news.main_point },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.news, "main_point", $event.target.value)
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "btn-group" }, [
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c(
-                      "select",
+                  _c("input", {
+                    directives: [
                       {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.category_id,
-                            expression: "category_id"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        on: {
-                          change: [
-                            function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.category_id = $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            },
-                            function($event) {
-                              return _vm.getstates()
-                            }
-                          ]
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.news.title,
+                        expression: "news.title"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "題名を入力してください。"
+                    },
+                    domProps: { value: _vm.news.title },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
                         }
-                      },
-                      _vm._l(_vm.categories, function(category) {
-                        return _c(
-                          "option",
-                          {
-                            key: category.id,
-                            domProps: { value: category.id }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                                    " +
-                                _vm._s(category.name) +
-                                "\r\n                                                "
-                            )
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  ]),
+                        _vm.$set(_vm.news, "title", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _vm._m(2),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("br"),
-                    _vm._v(" "),
-                    _vm._m(4),
-                    _vm._v(" "),
-                    _c("textarea", {
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.news.main_point,
+                        expression: "news.main_point"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "ニュースの主な情報を入力してください。"
+                    },
+                    domProps: { value: _vm.news.main_point },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.news, "main_point", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "btn-group" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.news.body,
-                          expression: "news.body"
+                          value: _vm.category_id,
+                          expression: "category_id"
                         }
                       ],
-                      staticClass: "form-control rounded-0",
-                      attrs: {
-                        id: "exampleFormControlTextarea1",
-                        rows: "10",
-                        placeholder: "内容を入力してください。"
-                      },
-                      domProps: { value: _vm.news.body },
+                      staticClass: "form-control",
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.category_id = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          function($event) {
+                            return _vm.getstates()
                           }
-                          _vm.$set(_vm.news, "body", $event.target.value)
-                        }
+                        ]
                       }
+                    },
+                    _vm._l(_vm.categories, function(category) {
+                      return _c(
+                        "option",
+                        { key: category.id, domProps: { value: category.id } },
+                        [
+                          _vm._v(
+                            "\r\n                                                    " +
+                              _vm._s(category.name) +
+                              "\r\n                                                "
+                          )
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.news.body,
+                        expression: "news.body"
+                      }
+                    ],
+                    staticClass: "form-control rounded-0",
+                    attrs: {
+                      id: "exampleFormControlTextarea1",
+                      rows: "10",
+                      placeholder: "内容を入力してください。"
+                    },
+                    domProps: { value: _vm.news.body },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.news, "body", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-2 imgUp" }, [
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("label", [
+                    _vm._v(
+                      "\r\n                                                    写真/画像を投稿する\r\n                                                 "
+                    ),
+                    _c("input", {
+                      ref: "file",
+                      attrs: { type: "file", accept: "image/*", id: "file" },
+                      on: { change: _vm.onFileSelected }
                     })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-2 imgUp" }, [
-                    _c("br"),
-                    _vm._v(" "),
-                    _vm._m(5),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [
-                      _vm._v(
-                        "\r\n                                                    写真/画像を投稿する\r\n                                                 "
-                      ),
-                      _c("input", {
-                        ref: "file",
-                        attrs: { type: "file", accept: "image/*", id: "file" },
-                        on: { change: _vm.onFileSelected }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(6)
-                ]
-              )
-            ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(6)
+              ]
+            )
           ])
         ])
       ])
@@ -57562,7 +57555,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header" }, [_vm._v("ニュース投稿を作成")]),
+      _c("h4", { staticClass: "page-header header" }, [
+        _vm._v("ニュース投稿を作成")
+      ]),
       _vm._v(" "),
       _c("br")
     ])

@@ -1,13 +1,12 @@
 <template>
 <!-- Page Content  -->
-        <div id="content">
-            <div class="container">
+        <div id="content" class="row">           
                 <div class="col-md-12">
                     <div class="card  text-dark">
                         <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h4 class="page-header">ニュース投稿を作成</h4>
+                                        <h4 class="page-header header">ニュース投稿を作成</h4>
                                         <br>
                                     </div>
 
@@ -60,8 +59,7 @@
                                 </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>            
         </div>
 </template>
 <script>
