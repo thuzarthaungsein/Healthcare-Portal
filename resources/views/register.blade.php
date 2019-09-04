@@ -36,12 +36,12 @@
 					<div class="col-12">
                     <form method="post" action="{{ url('register/store') }}" enctype="multipart/form-data">
                         @csrf
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 inputfile">
                         <label class="col-4 col-lg-3 control-label">ロゴを添付</label>  
 						<div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-image"></i></span>
                         </div>
-                        <input type="file" accept="image/*"  onchange="showMyImage(this)" name="img" id="file" ref="file" class="form-control form-file">        
+                        <input type="file" accept="image/*"  onchange="showMyImage(this)" name="img" id="file" ref="file" class="form-control inputfile">        
                     </div>
                     <div class="input-group mb-3">
                         <label class="col-4 col-lg-3 control-label">事業者名</label>  
@@ -120,7 +120,7 @@
                     
 
                     <div class="input-group mb-3">
-                        <label class="col-3 col-lg-3 control-label">電話番号</label>  
+                        <label class="col-4 col-lg-3 control-label">電話番号</label>  
 						<div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
 						</div>

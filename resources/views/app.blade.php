@@ -40,7 +40,7 @@
   <!--navigation bar-->
   <nav class="navbar navbar-expand-lg navbar-dark main-header">
   <a class="navbar-brand" href="#">
-      <img src="images/trust_growth.png" alt="">
+      <img src="/images/trust_growth.png" alt="">
  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -169,7 +169,7 @@
                 <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link>
             </li>
             <li>
-            <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
+                <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
             </li>
            
         </ul>
