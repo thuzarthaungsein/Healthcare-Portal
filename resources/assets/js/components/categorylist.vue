@@ -15,7 +15,7 @@
                         </div>
                 </div>
           </div>
-           <div class="row m-b-15">
+           <div class="row m-b-15 m-r-5">
                 <div class="col-md-12">
                     <router-link to="/createcategory" class="float-right main-bg-color create-btn all-btn"><i class="fas fa-plus-circle"></i> 新しいカテゴリを作成</router-link>
                 </div>
@@ -25,7 +25,8 @@
               <h4 style="padding-top:20px;"> カテゴリーリスト   </h4>
           </div> -->
             <!--card-->
-            <div class="col-md-12 scrolldiv">
+            <div class="col-md-12 scrolldiv border-style">
+                <h5 class="main-color header">カテゴ一覧</h5>
                 <div class="container-fuid" v-for="category in categories" :key="category.id">
                     <div class="card card-default m-b-20">
 
@@ -34,11 +35,11 @@
                                 <div class="col-md-10 m-t-8">
                                     {{category.name}}
                                 </div>
-                                <div class="col-md-2 text-right pad-free" style="margin-top: 8px;">
+                                <div class="col-md-2 pad-free" style="margin-top: 8px;">
 
                                    
-                                    <small><router-link :to ="{name:'editcategory', params:{id : category.id}}" class="btn mr-auto text-warning"> 編集</router-link></small> &nbsp;
-                                    <small><a class="btn mr-auto text-danger" @click="deleteCategory(category.id)"> 削除</a></small>
+                                    <small><router-link :to ="{name:'editcategory', params:{id : category.id}}" class="btn edit-borderbtn"> 編集</router-link></small> &nbsp;
+                                    <small><a class="btn text-danger delete-borderbtn" @click="deleteCategory(category.id)"> 削除</a></small>
 
                                    
                                 </div>

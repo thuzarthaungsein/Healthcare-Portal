@@ -32,21 +32,17 @@
 
                                 <img :src="'/images/'+ newsList.photo" alt="" class="img-fluid"> 
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <div class="col-sm-8 pad-free mb-2"><b>
                                     <router-link :to="{name: 'newdetails', params:{id:newsList.id}}" class="mr-auto">{{newsList.title}}</router-link>
                                     <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
                                     <!-- <a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
                                     </b></div>
-                                <p>{{newsList.main_point}}</p>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <small><router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="mr-auto text-warning">編集</router-link></small> &nbsp;
-                                        <small><a class="mr-auto text-danger" @click="deletePost(newsList.id)">削除</a></small>
-                                    </div>
-
-                                </div>
-
+                                <p>{{newsList.main_point}}</p>   
+                            </div>
+                            <div class="col-sm-2 align-self-center">
+                                <router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="btn edit-borderbtn">編集</router-link>&nbsp;
+                                <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a>
                             </div>
                         </div>
                     </div> 
