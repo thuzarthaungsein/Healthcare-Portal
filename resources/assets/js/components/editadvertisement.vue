@@ -25,10 +25,12 @@
                                 <label for ="photo" ><strong> Photo/Image :</strong>  </label><br/>
 
                                 <div class="custom-file col-sm-10">
-                                    <input type="file" id= "file" ref="file" accept="image/*" @change ="fileSelected">
+                                    <input type="file" id= "x-image" ref="file" accept="image/*" @change ="fileSelected">
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="row" id="image_update"></div>
+                                    <div class="row image_update">
+                                        <!-- <img v-if="advertisement.photo" :src="advertisement.photo"> -->
+                                    </div>
                                     </div>
                             </div>
 
@@ -74,10 +76,8 @@ export default {
 
          methods: {
               fileSelected(e){
-                    //  this.advertisement.photo = e.target.files[0]
-                     $('#image_update').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()' >X</span><img src='"+URL.createObjectURL(event.target.files[0])+"'></div>");
-
-                        this.advertisement.photo = event.target.files[0]
+                     $('.image_update').append("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+                    this.advertisement.photo = event.target.files[0]
 
               },
             updateAds() {

@@ -20,7 +20,8 @@
                         <div class="col-md-12">
                         <router-link to="/advertisement" class="float-right" style="color: blue;">Create Advertisement</router-link>
                         </div>
-                </div>
+    </div>
+    <div class="scrolldiv col-12">
             <div v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
             <div class="card-body news-post">
                  <div class="row">
@@ -45,6 +46,7 @@
                 </div>
             </div>
         </div>
+    </div>
    </div>
    </div>
 </template>

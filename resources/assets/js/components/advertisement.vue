@@ -52,7 +52,7 @@
                                                 <button class="btn news-post-btn">Create</button>
                                             </div>
                                             <div class="col-1">
-                                                <router-link class="btn btn-warning" to="/ads" >  Cancel </router-link>
+                                                <router-link class="btn btn-warning" to="/ads" > Cancel </router-link>
                                             </div>
                                         </div>
                                     </div>

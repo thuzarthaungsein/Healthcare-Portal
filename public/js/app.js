@@ -62646,68 +62646,68 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-            data: function data() {
-                        return {
-                                    type: 'nursing',
-                                    fac_list: [],
-                                    medical_acceptance: []
-                        };
-            },
-            created: function created() {
-                        var _this = this;
+        data: function data() {
+                return {
+                        type: 'nursing',
+                        fac_list: [],
+                        medical_acceptance: []
+                };
+        },
+        created: function created() {
+                var _this = this;
 
-                        this.axios.get('http://localhost:8000/api/facilities').then(function (response) {
-                                    //  console.log(response);
-                                    _this.fac_list = response.data;
-                        });
+                this.axios.get('http://localhost:8000/api/facilities').then(function (response) {
+                        //  console.log(response);
+                        _this.fac_list = response.data;
+                });
 
-                        this.axios.get('http://localhost:8000/api/medical/medicalacceptance').then(function (response) {
-                                    _this.medical_acceptance = response.data;
-                                    //      console.log(response.data);
-                        });
-            },
+                this.axios.get('http://localhost:8000/api/medical/medicalacceptance').then(function (response) {
+                        _this.medical_acceptance = response.data;
+                        //      console.log(response.data);
+                });
+        },
 
-            methods: {
-                        preview_image: function preview_image() {
-                                    var total_file = document.getElementById("upload_file").files.length;
-                                    for (var i = 0; i < total_file; i++) {
-                                                $('#image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='" + URL.createObjectURL(event.target.files[i]) + "' class='show-img'></div>");
-                                    }
-                        },
-                        scheduletogglediv: function scheduletogglediv() {
-                                    $(".schedule-toggle-div").toggle('medium');
-                        },
-                        maptogglediv: function maptogglediv() {
-                                    $(".map-toggle-div").toggle('medium');
-                        },
-                        factogglediv: function factogglediv() {
-                                    $(".fac-toggle-div").toggle('medium');
-                        },
-                        galleryAdd: function galleryAdd() {
-                                    var date = new Date();
-                                    var s = date.getMilliseconds();
-                                    var m = date.getMinutes();
-                                    var h = date.getHours();
-                                    var classname = "class" + h + m + s;
-                                    var c = "'" + classname + "'";
-                                    $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="Title" class="form-control m-b-15"><textarea name="description" placeholder="Description" class="form-control m-b-15"></textarea></div>');
-                        },
-                        methodAdd: function methodAdd() {
-                                    $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
-                        },
-                        cooperateAdd: function cooperateAdd() {
-                                    $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> ');
-                        },
-                        acceptanceList: function acceptanceList() {
-                                    $(".accept-toggle-div").toggle('medium');
-                        },
-                        coMedicalCollapse: function coMedicalCollapse() {
-                                    $(".co-medical-toogle-div").toggle('medium');
-                        },
-                        specialFeAdd: function specialFeAdd() {
-                                    $("#cooperate-medical").append('');
+        methods: {
+                preview_image: function preview_image() {
+                        var total_file = document.getElementById("upload_file").files.length;
+                        for (var i = 0; i < total_file; i++) {
+                                $('#image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='" + URL.createObjectURL(event.target.files[i]) + "' class='show-img'></div>");
                         }
-            }
+                },
+                scheduletogglediv: function scheduletogglediv() {
+                        $(".schedule-toggle-div").toggle('medium');
+                },
+                maptogglediv: function maptogglediv() {
+                        $(".map-toggle-div").toggle('medium');
+                },
+                factogglediv: function factogglediv() {
+                        $(".fac-toggle-div").toggle('medium');
+                },
+                galleryAdd: function galleryAdd() {
+                        var date = new Date();
+                        var s = date.getMilliseconds();
+                        var m = date.getMinutes();
+                        var h = date.getHours();
+                        var classname = "class" + h + m + s;
+                        var c = "'" + classname + "'";
+                        $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="Title" class="form-control m-b-15"><textarea name="description" placeholder="Description" class="form-control m-b-15"></textarea></div>');
+                },
+                methodAdd: function methodAdd() {
+                        $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
+                },
+                cooperateAdd: function cooperateAdd() {
+                        $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> ');
+                },
+                acceptanceList: function acceptanceList() {
+                        $(".accept-toggle-div").toggle('medium');
+                },
+                coMedicalCollapse: function coMedicalCollapse() {
+                        $(".co-medical-toogle-div").toggle('medium');
+                },
+                specialFeAdd: function specialFeAdd() {
+                        $("#cooperate-medical").append('');
+                }
+        }
 });
 
 /***/ }),
@@ -62759,7 +62759,7 @@ var render = function() {
                 }
               }
             }),
-            _vm._v(" Hospital\r\n                                ")
+            _vm._v(" Hospital\n                                ")
           ]),
           _vm._v(" "),
           _c("label", { attrs: { for: "nursing" } }, [
@@ -62785,7 +62785,7 @@ var render = function() {
                 }
               }
             }),
-            _vm._v(" Nursing Home\r\n                                ")
+            _vm._v(" Nursing Home\n                                ")
           ])
         ]),
         _vm._v(" "),
@@ -62864,9 +62864,9 @@ var render = function() {
                           _c("label", [
                             _c("input", { attrs: { type: "checkbox" } }),
                             _vm._v(
-                              "\r\n                                                        " +
+                              "\n                                                        " +
                                 _vm._s(fac.description) +
-                                "\r\n                                                        "
+                                "\n                                                        "
                             )
                           ])
                         ]
@@ -62896,7 +62896,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "map-toggle-div toggle-div" }, [
                 _vm._v(
-                  "\r\n                                        Map Area Here\r\n                                "
+                  "\n                                        Map Area Here\n                                "
                 )
               ])
             ])
@@ -63017,9 +63017,9 @@ var render = function() {
                           [
                             _c("div", { staticClass: "col-md-12 accept-box" }, [
                               _vm._v(
-                                "\r\n                                                                        " +
+                                "\n                                                                        " +
                                   _vm._s(medical.name) +
-                                  "\r\n                                                                        "
+                                  "\n                                                                        "
                               ),
                               _c("div", { staticClass: "float-right" }, [
                                 _c("label", [
@@ -64830,7 +64830,7 @@ var render = function() {
                               staticClass: "btn btn-warning",
                               attrs: { to: "/ads" }
                             },
-                            [_vm._v("  Cancel ")]
+                            [_vm._v(" Cancel ")]
                           )
                         ],
                         1
@@ -66924,6 +66924,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -66966,31 +66968,31 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-12" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "row m-b-15" }, [
-          _c(
-            "div",
-            { staticClass: "col-md-12" },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "float-right",
-                  staticStyle: { color: "blue" },
-                  attrs: { to: "/advertisement" }
-                },
-                [_vm._v("Create Advertisement")]
-              )
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "row m-b-15" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "float-right",
+                staticStyle: { color: "blue" },
+                attrs: { to: "/advertisement" }
+              },
+              [_vm._v("Create Advertisement")]
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "scrolldiv col-12" },
         _vm._l(_vm.advertisements, function(ads) {
           return _c(
             "div",
@@ -67060,10 +67062,10 @@ var render = function() {
               ])
             ]
           )
-        })
-      ],
-      2
-    )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -67210,6 +67212,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -67233,9 +67237,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         fileSelected: function fileSelected(e) {
-            //  this.advertisement.photo = e.target.files[0]
-            $('#image_update').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()' >X</span><img src='" + URL.createObjectURL(event.target.files[0]) + "'></div>");
-
+            $('.image_update').append("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
             this.advertisement.photo = event.target.files[0];
         },
         updateAds: function updateAds() {
@@ -67352,7 +67354,7 @@ var render = function() {
                           ref: "file",
                           attrs: {
                             type: "file",
-                            id: "file",
+                            id: "x-image",
                             accept: "image/*"
                           },
                           on: { change: _vm.fileSelected }
@@ -67435,7 +67437,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "row", attrs: { id: "image_update" } })
+      _c("div", { staticClass: "row image_update" })
     ])
   },
   function() {
