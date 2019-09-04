@@ -2,7 +2,7 @@
 <div class="card profile">
         <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
         <div class="card-body scrolldiv2">
-                
+
                 <form class="col-md-12">
                         <div class="form-group">
                                 <label>Name<span class="error">*</span></label>
@@ -11,7 +11,7 @@
                         <div class="form-group">
                                 <label>Email<span class="error">*</span></label>
                                 <input type="text" class="form-control"  placeholder="Email">
-                        </div>                
+                        </div>
                         <div class="form-group">
                                 <label>Phone<span class="error">*</span></label>
                                 <input type="text" class="form-control"  placeholder="Phone">
@@ -23,8 +23,8 @@
                         <div class="form-group">
                                 <label>Location Access<span class="error">*</span></label>
                                 <textarea name="address" rows="10" class="form-control"></textarea>
-                        </div>               
-                        
+                        </div>
+
                         <div class="form-group">
                                 <label>Type<span class="error">*</span></label>
                                 <label for="hospital">
@@ -34,7 +34,7 @@
                                         <input type="radio" v-model="type" value="nursing" name="type" id="nursing"> Nursing Home
                                 </label>
                         </div>
-                        
+
 
                         <div class="col-md-12 pad-free" v-if="type == 'hospital'">
                                 <div class="form-group">
@@ -117,7 +117,7 @@
                                                 </tr>
                                         </table>
                                 </div>
-                                
+
                                 <div class="form-group">
                                         <label>Closed Days</label>
                                         <textarea name="close-day" class="form-control"></textarea>
@@ -133,7 +133,7 @@
                                                         </label>
                                                 </div>
                                         </div>
-                                        
+
                                 </div>
                                 <div class="form-group">
                                         <label>Official Website</label>
@@ -157,7 +157,7 @@
                                         <div class="col-md-12">
                                                 <div class="row" id="gallery"></div>
                                         </div>
-                                        
+
                                 </div>
                                 <div class="form-group">
                                         <label>特長<span class="error">*</span></label>
@@ -197,8 +197,8 @@
                                                                                 <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-check green"></i></label>
                                                                                 <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-times red"></i></label>
                                                                                 <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-adjust blue"></i></label>
-                                                                        </div>    
-                                                                </div>                                                            
+                                                                        </div>
+                                                                </div>
                                                         </div>
                                                 </div>
                                         </div>
@@ -212,7 +212,7 @@
                                 </div>
                         </div>
 
-                
+
                         <div class="row">
                                 <button class="btn news-post-btn all-btn m-t-15">Create</button>
                                 <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
@@ -242,19 +242,19 @@ export default {
                 this.axios
                 .get('http://localhost:8000/api/medical/medicalacceptance')
                 .then(response => {
-                    this.medical_acceptance = response.data;                  
+                    this.medical_acceptance = response.data;
                 //      console.log(response.data);
                 });
         },
         methods: {
-             preview_image() 
+             preview_image()
                 {
                         var total_file = document.getElementById("upload_file").files.length;
                         for(var i=0;i<total_file;i++)
                         {
                         $('#image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
                         }
-                },               
+                },
 
             scheduletogglediv() {
                     $(".schedule-toggle-div").toggle('medium');
@@ -279,11 +279,11 @@ export default {
             },
 
             methodAdd() {
-                   $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> '); 
+                   $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
             },
 
             cooperateAdd() {
-                   $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> '); 
+                   $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> ');
             },
 
             acceptanceList() {

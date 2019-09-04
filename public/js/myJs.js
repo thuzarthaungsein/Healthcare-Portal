@@ -40,9 +40,16 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
+        var image_x = document.getElementById('x-image');
+        image_x.parentNode.removeChild(image_x);
+        document.getElementById('showimage').style.display = 'block';
         console.log("close");
     }
 
     function showImg(c,event) {
         $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
     }
+
+
+
+
