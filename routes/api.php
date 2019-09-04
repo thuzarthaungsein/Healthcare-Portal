@@ -159,4 +159,5 @@ Route::group(['prefix' => 'medical'], function () {
      Route::post('update/{id}', 'AdvertisementController@update');
      Route::delete('delete/{id}','AdvertisementController@destroy');
  });
-}
+
+});
