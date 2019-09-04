@@ -17,6 +17,7 @@ class CreateNursingProfilesTable extends Migration
             $table->increments('id');
             $table->integer('customer_id');
             $table->text('access')->nullable();
+            $table->text('website')->nullable();
             $table->string('gallery')->nullable();
             $table->text('feature')->nullable();
             $table->text('business_entity')->nullable();
