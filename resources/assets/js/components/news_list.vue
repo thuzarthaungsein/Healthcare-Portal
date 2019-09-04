@@ -1,7 +1,7 @@
 <template>
     <!-- Page Content  -->
-    <div id="content">
-        <div class="container">
+    <div id="content" class="row">
+        <div class="col-12">
             <div class="card card-default m-b-20">
 
                 <div class="card-body">
@@ -11,7 +11,7 @@
                             <input type="text" class="form-control" placeholder="検索">
                         </div>
                         <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white">検索</button>
+                            <button class="btn secondary-bg-color all-btn white"><i class="fas fa-search"></i> 検索</button>
                         </div>
                     </div>
                 </div>

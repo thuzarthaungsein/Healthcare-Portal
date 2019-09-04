@@ -40,7 +40,7 @@
   <!--navigation bar-->
   <nav class="navbar navbar-expand-lg navbar-dark main-header">
   <a class="navbar-brand" href="#">
-      <img src="images/trust_growth.png" alt="">
+      <img src="/images/trust_growth.png" alt="">
  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -155,46 +155,42 @@
       @else
       <!-- login menu  -->
       <div class="adminview-sidebar" id="navbarSupportedContent">
-      <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>  ホーム</router-link></li>
+      <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
       
       @can('role-list')      
-      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;  ニュース一覧</router-link></li>
-      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;  顧客一覧</router-link></li>
-      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;  カテゴ一覧</router-link></li>
-      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  施設一覧</router-link></li>
+      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
+      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;顧客一覧</router-link></li>
+      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
+      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
       <li>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Pages</a>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Pages</a>
         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
             <li>
-                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;  User Password Reset</router-link>
+                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link>
             </li>
             <li>
-                <a href="#">Page 2</a>
+                <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
             </li>
-            <li>
-                <a href="#">Page 3</a>
-            </li>
+           
         </ul>
     </li>
 
       @endcan
 
       @can('customer')
-      <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
-      <li><router-link to="/joblist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
+      <li><router-link to="/profile" class="nav-link"><i class="fa fa-user-alt"></i>&nbsp;マイページ</router-link></li>
+      <li><router-link to="/joblist" class="nav-link"><i class="fa fa-list-alt"></i>&nbsp;仕事一覧</router-link></li>
       @endcan
 
       @can('role-list')
-      <li><router-link to="/ads" class="nav-link"><i class="fa fa-globe"></i>&nbsp;&nbsp;  広告</router-link></li>
+      <li><router-link to="/ads" class="nav-link"><i class="fa fa-globe"></i>&nbsp;広告</router-link></li>
       @endcan
 
       <li>
         <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
-        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;&nbsp;
-
-            {{ __('ログアウト') }}
+        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;{{ __('ログアウト') }}
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
@@ -286,7 +282,7 @@
       <div class="row justify-content-md-center">
         <div class="col-10 tab">
           <!-- vue component -->
-              <router-view></router-view>
+              <router-view  :key="$route.fullPath"></router-view>
 
           <!-- vue component -->
 

@@ -179,7 +179,7 @@ module.exports = function normalizeComponent (
 "use strict";
 
 
-var bind = __webpack_require__(10);
+var bind = __webpack_require__(12);
 var isBuffer = __webpack_require__(26);
 
 /*global toString:true*/
@@ -513,6 +513,53 @@ module.exports = g;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(55)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/hospitalSearch.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5cde3559", Component.options)
+  } else {
+    hotAPI.reload("data-v-5cde3559", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
@@ -533,10 +580,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(12);
+    adapter = __webpack_require__(14);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(12);
+    adapter = __webpack_require__(14);
   }
   return adapter;
 }
@@ -611,10 +658,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 /*
@@ -696,7 +743,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -924,7 +971,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -932,7 +979,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -949,7 +996,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/hospitalSearch.vue"
+Component.options.__file = "resources/assets/js/components/nursingSearch.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -958,9 +1005,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5cde3559", Component.options)
+    hotAPI.createRecord("data-v-6121795b", Component.options)
   } else {
-    hotAPI.reload("data-v-5cde3559", Component.options)
+    hotAPI.reload("data-v-6121795b", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -971,7 +1018,54 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 7 */
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(57)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/jobSearch.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7dbf913e", Component.options)
+  } else {
+    hotAPI.reload("data-v-7dbf913e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3584,7 +3678,7 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -14189,13 +14283,13 @@ return jQuery;
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(25);
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14213,7 +14307,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -14403,7 +14497,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14414,7 +14508,7 @@ var settle = __webpack_require__(29);
 var buildURL = __webpack_require__(31);
 var parseHeaders = __webpack_require__(32);
 var isURLSameOrigin = __webpack_require__(33);
-var createError = __webpack_require__(13);
+var createError = __webpack_require__(15);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -14572,7 +14666,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14597,7 +14691,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14609,7 +14703,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14635,7 +14729,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -14686,100 +14780,6 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(56)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/nursingSearch.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6121795b", Component.options)
-  } else {
-    hotAPI.reload("data-v-6121795b", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(57)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/jobSearch.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7dbf913e", Component.options)
-  } else {
-    hotAPI.reload("data-v-7dbf913e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14796,7 +14796,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_axios__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__route__ = __webpack_require__(48);
 
@@ -14841,7 +14841,7 @@ var app = new Vue({
 
 
 window._ = __webpack_require__(22);
-window.Popper = __webpack_require__(7).default;
+window.Popper = __webpack_require__(9).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -14850,7 +14850,7 @@ window.Popper = __webpack_require__(7).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(8);
+  window.$ = window.jQuery = __webpack_require__(10);
 
   __webpack_require__(24);
 } catch (e) {}
@@ -14861,7 +14861,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(9);
+window.axios = __webpack_require__(11);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -32054,7 +32054,7 @@ module.exports = function(module) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(8), __webpack_require__(7)) :
+   true ? factory(exports, __webpack_require__(10), __webpack_require__(9)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (global = global || self, factory(global.bootstrap = {}, global.jQuery, global.Popper));
 }(this, function (exports, $, Popper) { 'use strict';
@@ -36493,9 +36493,9 @@ module.exports = function(module) {
 
 
 var utils = __webpack_require__(1);
-var bind = __webpack_require__(10);
+var bind = __webpack_require__(12);
 var Axios = __webpack_require__(27);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 
 /**
  * Create an instance of Axios
@@ -36528,9 +36528,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(15);
+axios.Cancel = __webpack_require__(17);
 axios.CancelToken = __webpack_require__(40);
-axios.isCancel = __webpack_require__(14);
+axios.isCancel = __webpack_require__(16);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -36568,7 +36568,7 @@ module.exports = function isBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 var utils = __webpack_require__(1);
 var InterceptorManager = __webpack_require__(35);
 var dispatchRequest = __webpack_require__(36);
@@ -36673,7 +36673,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(13);
+var createError = __webpack_require__(15);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -37063,8 +37063,8 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(1);
 var transformData = __webpack_require__(37);
-var isCancel = __webpack_require__(14);
-var defaults = __webpack_require__(3);
+var isCancel = __webpack_require__(16);
+var defaults = __webpack_require__(4);
 var isAbsoluteURL = __webpack_require__(38);
 var combineURLs = __webpack_require__(39);
 
@@ -37223,7 +37223,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(15);
+var Cancel = __webpack_require__(17);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -49532,7 +49532,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(13)))
 
 /***/ }),
 /* 46 */
@@ -52397,7 +52397,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_home_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Newsdetails_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_hospitalSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_JobApply_vue__);
@@ -52693,17 +52693,14 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__News_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
-//
-//
-//
 //
 //
 //
@@ -52826,7 +52823,7 @@ var content = __webpack_require__(52);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("a896b9c0", content, false, {});
+var update = __webpack_require__(6)("a896b9c0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -52845,7 +52842,7 @@ if(false) {
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 
@@ -52894,14 +52891,20 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__News_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__News_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -53692,6 +53695,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-md-center" }, [
     _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header tab-card-header" }, [
           _c(
@@ -53768,7 +53773,10 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "tab-content scroll2", attrs: { id: "myTabContent" } },
+          {
+            staticClass: "tab-content tab-content2 scroll2",
+            attrs: { id: "myTabContent" }
+          },
           [
             _c(
               "div",
@@ -53782,39 +53790,44 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "active-users col-md-4" }, [
-                    _c(
-                      "a",
-                      { attrs: { href: "/newsdetails/" + _vm.latest_post.id } },
-                      [
-                        _c("img", {
-                          staticClass: "source-img img-responsive",
-                          staticStyle: { width: "100%", height: "200px" },
-                          attrs: { src: "/images/" + _vm.latest_post.photo }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "source-title",
-                            attrs: { "aria-label": "" }
-                          },
-                          [_vm._v(_vm._s(_vm.latest_post.title))]
-                        ),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "source-subtitle" }, [
+                  _c(
+                    "div",
+                    { staticClass: "active-users col-md-4" },
+                    [
+                      _c(
+                        "router-link",
+                        { attrs: { to: "/newsdetails/" + _vm.latest_post.id } },
+                        [
                           _c("img", {
-                            staticClass: "source-img",
-                            attrs: { alt: "", src: "/images/5.png" }
+                            staticClass: "source-img img-responsive",
+                            staticStyle: { width: "100%", height: "200px" },
+                            attrs: { src: "/images/" + _vm.latest_post.photo }
                           }),
-                          _vm._v(
-                            _vm._s(_vm.latest_post.created_at) +
-                              "\r\n                                                                        "
-                          )
-                        ])
-                      ]
-                    )
-                  ]),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              staticClass: "source-title",
+                              attrs: { "aria-label": "" }
+                            },
+                            [_vm._v(_vm._s(_vm.latest_post.title))]
+                          ),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "source-subtitle" }, [
+                            _c("img", {
+                              staticClass: "source-img",
+                              attrs: { alt: "", src: "/images/5.png" }
+                            }),
+                            _vm._v(
+                              _vm._s(_vm.latest_post.created_at) +
+                                "\r\n                                                                        "
+                            )
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -53833,9 +53846,9 @@ var render = function() {
                                 { staticClass: "list-group-item p-t-5 p-b-5" },
                                 [
                                   _c(
-                                    "a",
+                                    "router-link",
                                     {
-                                      attrs: { href: "/newsdetails/" + post.id }
+                                      attrs: { to: "/newsdetails/" + post.id }
                                     },
                                     [
                                       _c("img", {
@@ -53858,7 +53871,8 @@ var render = function() {
                                       )
                                     ]
                                   )
-                                ]
+                                ],
+                                1
                               )
                             : _vm._e()
                         ]
@@ -53878,7 +53892,7 @@ var render = function() {
       "div",
       { staticClass: "row m-lr-0" },
       [
-        _vm._m(0),
+        _vm._m(1),
         _vm._v(" "),
         _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
           return _c(
@@ -53897,18 +53911,23 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("div", { staticClass: "overlay" }, [
-                  _c("h2"),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-sm all-btn secondary-bg-color",
-                      attrs: { href: "/newsdetails/" + latest_post_all_cat.id }
-                    },
-                    [_vm._v(_vm._s(latest_post_all_cat.title))]
-                  )
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "overlay" },
+                  [
+                    _c("h2"),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-sm all-btn secondary-bg-color",
+                        attrs: { to: "/newsdetails/" + latest_post_all_cat.id }
+                      },
+                      [_vm._v(_vm._s(latest_post_all_cat.title))]
+                    )
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "info" }, [
                   _c("div", { staticClass: "row" }, [
@@ -53933,6 +53952,31 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      { staticClass: "form-inline col-lg-5 form-inline mb-2 pad-free" },
+      [
+        _c("input", {
+          staticClass: "form-control col-lg mr-sm-3 d-flex p-2 form-control",
+          attrs: { type: "search", placeholder: "検索", "aria-label": "検索" }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
+            attrs: { type: "submit" }
+          },
+          [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+        )
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -53962,7 +54006,7 @@ var render = function() {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "tab-content tabs" }, [
+    _c("div", { staticClass: "tab-content tab-content1 tabs" }, [
       _c(
         "div",
         {
@@ -54035,7 +54079,10 @@ var staticRenderFns = [
                 staticClass: "nav-link active",
                 attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
               },
-              [_c("i", { staticClass: "fas fa-home" }), _vm._v(" ニュース")]
+              [
+                _c("i", { staticClass: "fas fa-newspaper" }),
+                _vm._v(" ニュース")
+              ]
             )
           ]
         ),
@@ -54153,6 +54200,12 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__jobSearch_vue__);
 //
 //
 //
@@ -54339,37 +54392,118 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            newdetails: [],
+        components: {
+                hospitalSearch: __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue___default.a,
+                nursingSearch: __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue___default.a,
+                jobSearch: __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue___default.a
+        },
 
-            news: {
-                id: '',
-                title: ''
-            }
-        };
-    },
-    created: function created() {
-        var _this = this;
+        data: function data() {
+                return {
+                        newdetails: [],
+                        cats: [],
+                        posts: [],
+                        latest_post: [],
+                        latest_post_all_cats: []
+                };
+        },
+        created: function created() {
+                var _this = this;
 
-        this.axios.get('http://localhost:8000/api/newdetails/' + this.$route.params.id).then(function (response) {
+                this.getAllCat();
+                this.getPostByFirstCat();
+                this.getLatestPostByFirstCatID();
+                this.getLatestPostFromAllCat();
+                this.axios.get('http://localhost:8000/api/newdetails/' + this.$route.params.id).then(function (response) {
+                        console.log(response.data);
+                        _this.newdetails = response.data;
+                        //        console.log(response.data);
+                });
+        },
 
-            _this.newdetails = response.data;
-            console.log(response.data);
-        });
-    },
+
+        methods: {
+                getAllCat: function getAllCat() {
+                        var _this2 = this;
+
+                        this.axios.get('http://localhost:8000/api/home').then(function (response) {
+                                _this2.cats = response.data;
+                        });
+                },
+                getPostByFirstCat: function getPostByFirstCat() {
+                        var _this3 = this;
+
+                        axios.get("http://localhost:8000/api/posts/1").then(function (response) {
+                                _this3.posts = response.data;
+                        });
+                },
+                getPostByCatID: function getPostByCatID(cat_id) {
+                        var _this4 = this;
+
+                        axios.get("http://localhost:8000/api/posts/" + cat_id).then(function (response) {
+                                _this4.posts = response.data;
+                        });
+                },
+                getLatestPostByFirstCatID: function getLatestPostByFirstCatID() {
+                        var _this5 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/1").then(function (response) {
+                                _this5.latest_post = response.data;
+                        });
+                },
+                getLatestPostByCatID: function getLatestPostByCatID(cat_id) {
+                        var _this6 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/" + cat_id).then(function (response) {
+                                _this6.latest_post = response.data;
+                        });
+                },
+                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
+                        var _this7 = this;
+
+                        this.axios.get('http://localhost:8000/api/get_latest_post_all_cat/').then(function (response) {
+                                //console.log(response);
+                                _this7.latest_post_all_cats = response.data;
+                        });
+                }
+        }
+
+        //     export default {
+
+        //         data() {
+        //             return {
+        //                 newdetails:[]
+        //             }
+        //         },
+        //         created(){
+        //             this.axios
+        //                  .get(`http://localhost:8000/api/newdetails/${this.$route.params.id}`)
+        //                  .then(response=>{
+
+        //                      this.newdetails = response.data;
+        //                        console.log(response.data);
+        //                  });
+
+        //         }
+        //         // methods: {
+        //         //         getPostById: function(id=1) {
+        //         //                 this.axios
+        //         //                 .get('http://localhost:8000/api/newdetails/'+id)
+        //         //                 .then(response=>{
+        //         //                         console.log(response.data.news_list);
+        //         //                 this.newdetails = response.data.news_list;
+        //         //                 });
+        //         //         },
+        //         // }
 
 
-    getstates: function getstates() {
-
-        this.news.newdetails_id = this.newdetails_id;
-    }
+        //     }
+        // 
 
 });
 
@@ -54384,71 +54518,211 @@ var render = function() {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-md-center" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", {}, [
-          _c("div", [
-            _c("div", { staticClass: "row m-lr-0" }, [
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("h4", { staticClass: "h_4 header" }, [
-                  _vm._v(_vm._s(_vm.newdetails.title))
-                ]),
+    _c("div", { staticClass: "tab-content tab-content1 tabs" }, [
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane in active",
+          staticStyle: { height: "691px" },
+          attrs: { role: "tabpanel", id: "tab1" }
+        },
+        [
+          _c("div", { staticClass: "row col-sm-12" }, [
+            _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+              _c("ol", { staticClass: "breadcrumb" }, [
+                _c(
+                  "li",
+                  { staticClass: "breadcrumb-item" },
+                  [
+                    _c("router-link", { attrs: { to: "/" } }, [
+                      _vm._v("ホーム")
+                    ])
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c("p", { staticClass: "set-date" }, [
-                  _c("time", { attrs: { datetime: "2012-01-04" } }, [
-                    _vm._v(_vm._s(_vm.newdetails.created_at))
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c("p", { staticClass: "p5" }, [
-                  _vm._v(_vm._s(_vm.newdetails.body))
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-md-6  mt-2 related-area" },
-                [
-                  _c("img", {
-                    staticClass: "img-responsive img_2 news_photo",
-                    attrs: { src: "/images/" + _vm.newdetails.photo }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass: "img_2 header",
-                      staticStyle: { "font-size": "22px" }
-                    },
-                    [_vm._v("関連ニュース")]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(_vm.news, function(newdetails) {
-                    return _c(
-                      "div",
-                      { key: newdetails.id, attrs: { value: newdetails.id } },
-                      [
-                        _vm._v(
-                          "\r\n                                                 " +
-                            _vm._s(newdetails.title) +
-                            "\r\n                                                "
-                        )
-                      ]
-                    )
-                  })
-                ],
-                2
-              )
+                _c(
+                  "li",
+                  {
+                    staticClass: "breadcrumb-item active",
+                    attrs: { "aria-current": "page" }
+                  },
+                  [_vm._v(" 新しい詳細")]
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
-          _vm._m(2)
-        ])
-      ])
+          _c(
+            "div",
+            {
+              staticClass: "justify-content-md-center scrolldiv2",
+              staticStyle: { height: "677px" }
+            },
+            [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "row m-lr-0 mb-3" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("h4", { staticClass: "h_4 header" }, [
+                      _vm._v(_vm._s(_vm.newdetails.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "set-date" }, [
+                      _c("time", { attrs: { datetime: "2012-01-04" } }, [
+                        _vm._v(_vm._s(_vm.newdetails.created_at))
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("p", { staticClass: "p5" }, [
+                      _vm._v(_vm._s(_vm.newdetails.body))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6  mt-2 related-area" }, [
+                    _c("img", {
+                      staticClass: "img-responsive img_2 news_photo",
+                      attrs: { src: "/images/" + _vm.newdetails.photo }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "img_2 header",
+                        staticStyle: { "font-size": "22px" }
+                      },
+                      [_vm._v("関連ニュース")]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(2)
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row m-lr-0" },
+                    [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _vm._l(_vm.latest_post_all_cats, function(
+                        latest_post_all_cat
+                      ) {
+                        return _c(
+                          "div",
+                          {
+                            key: latest_post_all_cat.id,
+                            staticClass: "col-sm-3  col-md-3 mt-2"
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "hovereffect fit-image" },
+                              [
+                                _c("img", {
+                                  staticClass: "img-responsive fit-image",
+                                  attrs: {
+                                    src: "/images/" + latest_post_all_cat.photo,
+                                    alt: ""
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "overlay" },
+                                  [
+                                    _c("h2"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass:
+                                          "btn btn-sm all-btn secondary-bg-color",
+                                        attrs: {
+                                          to:
+                                            "/newsdetails/" +
+                                            latest_post_all_cat.id
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(latest_post_all_cat.title)
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("a", {
+                                      attrs: { href: "'/newsdetails" }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "info" }, [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c("div", { staticClass: "col-12" }, [
+                                      _c("p", { staticClass: " p_3" }, [
+                                        _vm._v(
+                                          "\r\n                                                                        " +
+                                            _vm._s(
+                                              latest_post_all_cat.main_point
+                                            ) +
+                                            "\r\n                                                                "
+                                        )
+                                      ])
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: { role: "tabpanel", id: "tab2" }
+        },
+        [_c("hospitalSearch")],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: { role: "tabpanel", id: "tab3" }
+        },
+        [_c("nursingSearch")],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "tab-pane fade",
+        attrs: { role: "tabpanel", id: "tab4" }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: { role: "tabpanel", id: "tab4" }
+        },
+        [_c("jobSearch")],
+        1
+      )
     ])
   ])
 }
@@ -54457,30 +54731,83 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-        _c("ol", { staticClass: "breadcrumb" }, [
-          _c("li", { staticClass: "breadcrumb-item" }, [
-            _c("a", { attrs: { href: "/home" } }, [_vm._v("ホーム")])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "breadcrumb-item" }, [
-            _c("a", { attrs: { href: "./search_news_result.html" } }, [
-              _vm._v("新しい結果を検索")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "li",
-            {
-              staticClass: "breadcrumb-item active",
-              attrs: { "aria-current": "page" }
-            },
-            [_vm._v(" 新しい詳細")]
-          )
-        ])
-      ])
-    ])
+    return _c(
+      "ul",
+      {
+        staticClass: "nav nav-tabs card-head-tabs",
+        attrs: { role: "tablist" }
+      },
+      [
+        _c(
+          "li",
+          {
+            staticClass: "active subtab1 nav-item",
+            attrs: { role: "presentation" }
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active",
+                attrs: { href: "#tab1", role: "tab", "data-toggle": "tab" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-newspaper" }),
+                _vm._v(" ニュース")
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "subtab2 nav-item", attrs: { role: "presentation" } },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#tab2", role: "tab", "data-toggle": "tab" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-briefcase-medical" }),
+                _vm._v(" 病院検索")
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "subtab3 nav-item", attrs: { role: "presentation" } },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#tab3", role: "tab", "data-toggle": "tab" }
+              },
+              [_c("i", { staticClass: "fas fa-user-md" }), _vm._v(" 介護検索")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "subtab5 nav-item", attrs: { role: "presentation" } },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#tab4", role: "tab", "data-toggle": "tab" }
+              },
+              [_c("i", { staticClass: "fas fa-users" }), _vm._v(" 求人検索")]
+            )
+          ]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -54501,146 +54828,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-lr-0" }, [
-      _c("div", { staticClass: "row col-md-12 text-center" }, [
-        _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "/images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "/images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "/images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "/images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                                                一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                        "
-                  )
-                ])
-              ])
-            ])
+    return _c("a", { staticStyle: { color: "#000" }, attrs: { href: "#" } }, [
+      _c("p", { staticClass: "img_2" }, [
+        _vm._v("韓国人男女が日本総領事館に侵入し抗議　身柄を拘束 "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [
+          _c("time", { attrs: { datetime: "2012-01-04" } }, [
+            _vm._v("2012年1月4日")
           ])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
+      _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
     ])
   }
 ]
@@ -55417,7 +55623,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -56728,8 +56934,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "content" } }, [
-    _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "row", attrs: { id: "content" } }, [
+    _c("div", { staticClass: "col-12" }, [
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "row m-b-15" }, [
@@ -56863,7 +57069,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -57462,6 +57668,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57514,11 +57722,13 @@ var render = function() {
             _c(
               "router-link",
               {
-                staticClass: "float-right",
-                staticStyle: { color: "blue" },
+                staticClass: "float-right main-bg-color create-btn",
                 attrs: { to: "/createcategory" }
               },
-              [_vm._v("新しいカテゴリを作成")]
+              [
+                _c("i", { staticClass: "fas fa-plus-circle" }),
+                _vm._v(" 新しいカテゴリを作成")
+              ]
             )
           ],
           1
@@ -57536,7 +57746,7 @@ var render = function() {
               _c("div", { staticClass: "card card-default m-b-20" }, [
                 _c("div", { staticClass: "card-body" }, [
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-9 m-t-8" }, [
+                    _c("div", { staticClass: "col-md-10 m-t-8" }, [
                       _vm._v(
                         "\n                                " +
                           _vm._s(category.name) +
@@ -57547,38 +57757,45 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "col-md-3",
+                        staticClass: "col-md-2 text-right pad-free",
                         staticStyle: { "margin-top": "8px" }
                       },
                       [
                         _c(
-                          "router-link",
-                          {
-                            staticClass: "btn main-bg-color white all-btn",
-                            attrs: {
-                              to: {
-                                name: "editcategory",
-                                params: { id: category.id }
-                              }
-                            }
-                          },
-                          [_vm._v("Edit ")]
+                          "small",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn mr-auto text-warning",
+                                attrs: {
+                                  to: {
+                                    name: "editcategory",
+                                    params: { id: category.id }
+                                  }
+                                }
+                              },
+                              [_vm._v(" 編集")]
+                            )
+                          ],
+                          1
                         ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger all-btn",
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteCategory(category.id)
+                        _vm._v("  \n                                "),
+                        _c("small", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn mr-auto text-danger",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteCategory(category.id)
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Delete")]
-                        )
-                      ],
-                      1
+                            },
+                            [_vm._v(" 削除")]
+                          )
+                        ])
+                      ]
                     )
                   ])
                 ])
@@ -57608,11 +57825,11 @@ var staticRenderFns = [
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-2" }, [
+          _c("div", { staticClass: "col-md-2 text-right" }, [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -58141,7 +58358,7 @@ var staticRenderFns = [
             _c(
               "button",
               { staticClass: "btn secondary-bg-color all-btn white" },
-              [_vm._v("検索")]
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
         ])
@@ -59018,7 +59235,7 @@ var content = __webpack_require__(104);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("764acd49", content, false, {});
+var update = __webpack_require__(6)("764acd49", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -59037,7 +59254,7 @@ if(false) {
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 
@@ -62199,12 +62416,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
                 return {
-                        type: 'hospital',
-                        fac_list: []
+                        type: 'nursing',
+                        fac_list: [],
+                        medical_acceptance: []
                 };
         },
         created: function created() {
@@ -62213,6 +62460,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.axios.get('http://localhost:8000/api/facilities').then(function (response) {
                         //  console.log(response);
                         _this.fac_list = response.data;
+                });
+
+                this.axios.get('http://localhost:8000/api/medical/medicalacceptance').then(function (response) {
+                        _this.medical_acceptance = response.data;
+                        //      console.log(response.data);
                 });
         },
 
@@ -62242,7 +62494,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 ' + classname + '" id="upload_img" onChange="showImg(' + c + ',event)"><div class="col-md-12 hello ' + classname + '"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="Title" class="form-control m-b-15"><textarea name="description" placeholder="Description" class="form-control m-b-15"></textarea></div>');
                 },
                 methodAdd: function methodAdd() {
-                        $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">Breakdown</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
+                        $("#methods").append('<div class="row method-box"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control"></textarea></div><div class="col-md-9"><table class="table table-bordered"> <tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control"></th></tr> </table></div><div class="col-md-3">詳細</div> <div class="col-md-9"><textarea class="form-control" name="breakdown[]"></textarea></div> </div> ');
+                },
+                cooperateAdd: function cooperateAdd() {
+                        $("#cooperate-medical").append(' <div class="col-md-12 pad-free m-t-20"> <div class="form-group"><label>Institute Name :</label><input type="text" class="form-control" name="co-medical-header[]"></div> <table class="table table-bordered"> <tr> <th style="width:30%">Clinical subjects</th> <th style="width:70%"><textarea class="form-control" name="clinical-sub"></textarea></th> </tr> <tr> <th>Details of cooperation</th> <th><textarea class="form-control" name="details"></textarea></th> </tr> <tr> <th>Medical expenses</th> <th><textarea class="form-control" name="expense"></textarea></th> </tr> <tr> <th>Remarks</th> <th><textarea class="form-control" name="remark"></textarea></th> </tr> </table> </div> ');
+                },
+                acceptanceList: function acceptanceList() {
+                        $(".accept-toggle-div").toggle('medium');
                 }
         }
 });
@@ -62486,11 +62744,152 @@ var render = function() {
                   staticClass: "col-md-12 pad-free",
                   attrs: { id: "methods" }
                 })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _vm._m(21),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "btn all-btn main-bg-color m-l-10",
+                    staticStyle: { "min-width": "0px" },
+                    on: {
+                      click: function($event) {
+                        return _vm.cooperateAdd()
+                      }
+                    }
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "m-l-10 float-right collapse-icon collapse-icon-down",
+                    attrs: { title: "Collapse All" },
+                    on: {
+                      click: function($event) {
+                        return _vm.cooperateAdd()
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-sort-down" })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "m-l-10 float-right collapse-icon collapse-icon-up",
+                    attrs: { title: "Expand All" },
+                    on: {
+                      click: function($event) {
+                        return _vm.cooperateAdd()
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-sort-up" })]
+                ),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass:
+                    "col-md-12 pad-free toogle-div co-medical-toogle-div",
+                  attrs: { id: "cooperate-medical" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _vm._m(22),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "btn all-btn main-bg-color m-l-10",
+                    staticStyle: { "min-width": "0px" },
+                    on: {
+                      click: function($event) {
+                        return _vm.acceptanceList()
+                      }
+                    }
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-md-12 m-t-20 accept-toggle-div toggle-div"
+                  },
+                  [
+                    _vm._m(23),
+                    _vm._v(" "),
+                    _vm._m(24),
+                    _vm._v(" "),
+                    _vm._m(25),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "row" },
+                      _vm._l(_vm.medical_acceptance, function(medical) {
+                        return _c(
+                          "div",
+                          { key: medical.id, staticClass: "col-md-6" },
+                          [
+                            _c("div", { staticClass: "col-md-12 accept-box" }, [
+                              _vm._v(
+                                "\r\n                                                                        " +
+                                  _vm._s(medical.name) +
+                                  "\r\n                                                                        "
+                              ),
+                              _c("div", { staticClass: "float-right" }, [
+                                _c("label", [
+                                  _c("input", {
+                                    attrs: {
+                                      type: "radio",
+                                      name: "medical" + medical.id
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "fas fa-check green" })
+                                ]),
+                                _vm._v(" "),
+                                _c("label", [
+                                  _c("input", {
+                                    attrs: {
+                                      type: "radio",
+                                      name: "medical" + medical.id
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "fas fa-times red" })
+                                ]),
+                                _vm._v(" "),
+                                _c("label", [
+                                  _c("input", {
+                                    attrs: {
+                                      type: "radio",
+                                      name: "medical" + medical.id
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "fas fa-adjust blue" })
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]
+                )
               ])
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(21)
+        _vm._m(26)
       ])
     ])
   ])
@@ -62840,6 +63239,51 @@ var staticRenderFns = [
     return _c("label", [
       _vm._v("支払い方法"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Medical Cooperate"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Medical Acceptance"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
+      _c("i", { staticClass: "fas fa-check green" }),
+      _vm._v(" 受入れ可")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
+      _c("i", { staticClass: "fas fa-times red" }),
+      _vm._v(" 受入れ不可")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "m-r-15", attrs: { for: "" } }, [
+      _c("i", { staticClass: "fas fa-adjust blue" }),
+      _vm._v(" 応相談")
     ])
   },
   function() {
@@ -63924,8 +64368,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "col-md-12 " }, [
-      _c("div", { staticClass: "card text-dark" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12 card text-dark" }, [
         _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "card-body " }, [
@@ -64172,10 +64616,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-center" }, [
-      _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-        _vm._v(" Create Advertisement ")
-      ])
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "h4",
+        { staticClass: "header", staticStyle: { "padding-top": "20px" } },
+        [_vm._v(" Advertisements ")]
+      )
     ])
   },
   function() {
@@ -65072,7 +65518,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -66326,6 +66771,159 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -66415,7 +67013,9 @@ var render = function() {
                         },
                         [
                           _c("tr", [
-                            _c("td", [_vm._v("アクセス")]),
+                            _c("td", { attrs: { width: "130px" } }, [
+                              _vm._v("アクセス")
+                            ]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(favourite.access))])
                           ]),
@@ -66509,7 +67109,42 @@ var render = function() {
             _vm._v("※お差しつかえがなければご入力ください。")
           ]),
           _vm._v(" "),
-          _vm._m(5)
+          _vm._m(5),
+          _vm._v(" "),
+          _c("h1", [
+            _vm._v(
+              "JavaScript - Select/Unselect (Check/Uncheck) all CheckBoxes on Button Click."
+            )
+          ]),
+          _vm._v(" "),
+          _c("big", [_vm._v("Select your favourite accessories: ")]),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "checkbox", name: "acs", value: "Mobile" }
+          }),
+          _vm._v("Mobile"),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "checkbox", name: "acs", value: "Tab" }
+          }),
+          _vm._v("Tab"),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "checkbox", name: "acs", value: "Laptop" }
+          }),
+          _vm._v("Laptop"),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "checkbox", name: "acs", value: "IPod" }
+          }),
+          _vm._v("IPod"),
+          _c("br"),
+          _vm._v(" "),
+          _vm._m(6)
         ],
         2
       )
@@ -66580,14 +67215,9 @@ var staticRenderFns = [
           [
             _c("input", {
               staticClass: "form-check-input",
-              attrs: {
-                type: "checkbox",
-                id: "check2",
-                name: "option2",
-                value: "something"
-              }
+              attrs: { type: "checkbox", id: "check2", name: "", value: "" }
             }),
-            _vm._v("予約\n                                        ")
+            _vm._v("予約\n                                            ")
           ]
         )
       ]
@@ -66608,14 +67238,9 @@ var staticRenderFns = [
             _c("input", {
               staticClass: "form-check-input",
               staticStyle: { "margin-left": "-14px" },
-              attrs: {
-                type: "checkbox",
-                id: "check3",
-                name: "option2",
-                value: "something"
-              }
+              attrs: { type: "checkbox", id: "check3", name: "", value: "" }
             }),
-            _vm._v(" 書類請求\n                                        ")
+            _vm._v(" 書類請求\n                                            ")
           ]
         )
       ]
@@ -66684,7 +67309,7 @@ var staticRenderFns = [
                 },
                 [
                   _vm._v(
-                    "\n                                                都道府県\n                                            "
+                    "\n                                                    都道府県\n                                                "
                   ),
                   _c("span", {})
                 ]
@@ -66761,7 +67386,7 @@ var staticRenderFns = [
                     attrs: { type: "checkbox", value: "" }
                   }),
                   _vm._v(
-                    "「早分かり用語集」プレゼントを希望する\n                                    "
+                    "「早分かり用語集」プレゼントを希望する\n                                        "
                   )
                 ])
               ])
@@ -66795,26 +67420,28 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "btn-group" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn main-bg-color white all-btn",
-                    attrs: { type: "button" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                                                都道府県\n                                            "
-                    ),
-                    _c("span", {})
-                  ]
-                ),
-                _vm._v(" "),
                 _c("select", { attrs: { name: "", id: "" } }, [
-                  _c("option", { attrs: { value: "" } }, [_vm._v("東京都")]),
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("選択してください")
+                  ]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("茨城県")]),
+                  _c("option", { attrs: { value: "1" } }, [_vm._v("本人")]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("青森県")])
+                  _c("option", { attrs: { value: "2" } }, [_vm._v("家族")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "3" } }, [_vm._v("親族")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "4" } }, [_vm._v("友人")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "5" } }, [
+                    _vm._v("ケアマネージャー")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "6" } }, [
+                    _vm._v("ソーシャルワーカー")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "7" } }, [_vm._v("その他")])
                 ])
               ]),
               _c("br"),
@@ -66834,50 +67461,438 @@ var staticRenderFns = [
               })
             ]),
             _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("div", { staticClass: "form-check" }, [
+                _c("table", [
+                  _c("tr"),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { attrs: { width: "90px" } }, [
+                      _c(
+                        "label",
+                        {
+                          staticStyle: {
+                            "margin-top": "10px",
+                            "margin-left": "-21px"
+                          },
+                          attrs: { for: "sex" }
+                        },
+                        [
+                          _vm._v("性別:"),
+                          _c("span", { staticClass: "error" }, [_vm._v("*")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { attrs: { width: "70px" } }, [
+                      _c("input", {
+                        staticClass: "form-check-input",
+                        attrs: {
+                          type: "radio",
+                          id: "sex",
+                          name: "sex",
+                          value: "男性"
+                        }
+                      }),
+                      _vm._v("男性")
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { attrs: { width: "70px" } }, [
+                      _c("input", {
+                        staticClass: "form-check-input",
+                        attrs: {
+                          type: "radio",
+                          id: "sex",
+                          name: "sex",
+                          value: "女性"
+                        }
+                      }),
+                      _vm._v("女性")
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { attrs: { width: "50px" } }, [
+                      _c("input", {
+                        staticClass: "form-check-input",
+                        attrs: {
+                          type: "radio",
+                          id: "sex",
+                          name: "sex",
+                          value: "夫婦"
+                        }
+                      }),
+                      _vm._v("夫婦")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
             _c("label", { staticClass: "m-t-22" }, [
-              _vm._v("プレゼントのご希望:"),
+              _vm._v("年齢:"),
               _c("span", { staticClass: "error" }, [_vm._v("*")])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
+            _c("div", { staticClass: "btn-group" }, [
+              _c(
+                "select",
+                { staticClass: "mR10", staticStyle: { "margin-left": "17px" } },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("選択してください")
+                  ]),
+                  _vm._v(" "),
+                  _c("optgroup", { attrs: { label: "50代" } }, [
+                    _c("option", { attrs: { value: "50" } }, [_vm._v("50")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "51" } }, [_vm._v("51")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "52" } }, [_vm._v("52")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "53" } }, [_vm._v("53")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "54" } }, [_vm._v("54")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "55" } }, [_vm._v("55")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "56" } }, [_vm._v("56")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "57" } }, [_vm._v("57")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "58" } }, [_vm._v("58")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "59" } }, [_vm._v("59")])
+                  ]),
+                  _vm._v(" "),
+                  _c("optgroup", { attrs: { label: "60代" } }, [
+                    _c("option", { attrs: { value: "60" } }, [_vm._v("60")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "61" } }, [_vm._v("61")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "62" } }, [_vm._v("62")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "63" } }, [_vm._v("63")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "64" } }, [_vm._v("64")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "65" } }, [_vm._v("65")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "66" } }, [_vm._v("66")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "67" } }, [_vm._v("67")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "68" } }, [_vm._v("68")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "69" } }, [_vm._v("69")])
+                  ]),
+                  _vm._v(" "),
+                  _c("optgroup", { attrs: { label: "70代" } }, [
+                    _c("option", { attrs: { value: "70" } }, [_vm._v("70")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "71" } }, [_vm._v("71")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "72" } }, [_vm._v("72")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "73" } }, [_vm._v("73")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "74" } }, [_vm._v("74")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "75" } }, [_vm._v("75")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "76" } }, [_vm._v("76")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "77" } }, [_vm._v("77")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "78" } }, [_vm._v("78")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "79" } }, [_vm._v("79")])
+                  ]),
+                  _vm._v(" "),
+                  _c("optgroup", { attrs: { label: "80代" } }, [
+                    _c("option", { attrs: { value: "80" } }, [_vm._v("80")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "81" } }, [_vm._v("81")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "82" } }, [_vm._v("82")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "83" } }, [_vm._v("83")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "84" } }, [_vm._v("84")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "85" } }, [_vm._v("85")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "86" } }, [_vm._v("86")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "87" } }, [_vm._v("87")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "88" } }, [_vm._v("88")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "89" } }, [_vm._v("89")])
+                  ]),
+                  _vm._v(" "),
+                  _c("optgroup", { attrs: { label: "90代" } }, [
+                    _c("option", { attrs: { value: "90" } }, [_vm._v("90")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "91" } }, [_vm._v("91")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "92" } }, [_vm._v("92")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "93" } }, [_vm._v("93")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "94" } }, [_vm._v("94")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "95" } }, [_vm._v("95")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "96" } }, [_vm._v("96")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "97" } }, [_vm._v("97")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "98" } }, [_vm._v("98")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "99" } }, [_vm._v("99")])
+                  ]),
+                  _vm._v(" "),
+                  _c("optgroup", { attrs: { label: "100歳以上" } }, [
+                    _c("option", { attrs: { value: "100" } }, [_vm._v("100")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "101" } }, [_vm._v("101")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "102" } }, [_vm._v("102")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "103" } }, [_vm._v("103")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "104" } }, [_vm._v("104")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "105" } }, [_vm._v("105")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "106" } }, [_vm._v("106")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "107" } }, [_vm._v("107")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "108" } }, [_vm._v("108")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "109" } }, [_vm._v("109")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "110" } }, [_vm._v("110")])
+                  ])
+                ]
+              )
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("label", { staticClass: "m-t-22" }, [
+              _vm._v("介護度:"),
+              _c("span", { staticClass: "error" }, [_vm._v("*")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "btn-group" }, [
+              _c("select", { attrs: { name: "", id: "" } }, [
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("選択してください")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "1" } }, [_vm._v("自立")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "2" } }, [_vm._v("要支援")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "3" } }, [_vm._v("要介護1")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "4" } }, [_vm._v("要介護2")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "5" } }, [_vm._v("要介護3")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "6" } }, [_vm._v("要介護4")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "7" } }, [_vm._v("要介護5")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "7" } }, [_vm._v("要介護6")])
+              ])
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-t-22" }, [
               _c("div", { staticClass: "form-check" }, [
-                _c("label", { staticClass: "form-check-label" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: {
-                      type: "radio",
-                      id: "radio1",
-                      name: "optradio",
-                      value: "option1"
-                    }
-                  }),
-                  _vm._v("男性\n\n                                        "),
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: {
-                      type: "radio",
-                      id: "radio2",
-                      name: "optradio",
-                      value: "option2"
-                    }
-                  }),
-                  _vm._v("女性\n\n                                         "),
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: {
-                      type: "radio",
-                      id: "radio3",
-                      name: "optradio",
-                      value: "option2"
-                    }
-                  }),
-                  _vm._v("夫婦\n                                    ")
+                _c("label", {}, [
+                  _c("table", [
+                    _c("tr", [
+                      _c("td", { attrs: { width: "90px" } }, [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: {
+                              "margin-top": "10px",
+                              "margin-left": "-21px"
+                            },
+                            attrs: { for: "health" }
+                          },
+                          [
+                            _vm._v("認知症:"),
+                            _c("span", { staticClass: "error" }, [_vm._v("*")])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { width: "70px" } }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            id: "",
+                            name: "health",
+                            value: "あり"
+                          }
+                        }),
+                        _vm._v("あり")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { width: "70px" } }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            id: "",
+                            name: "health",
+                            value: "なし"
+                          }
+                        }),
+                        _vm._v("なし")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { width: "90px" } }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            id: "",
+                            name: "health",
+                            value: "わからない"
+                          }
+                        }),
+                        _vm._v("わからない")
+                      ])
+                    ])
+                  ])
                 ])
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-t-22" }, [
+              _c("div", { staticClass: "form-check" }, [
+                _c("label", {}, [
+                  _c("table", [
+                    _c("tr", [
+                      _c("td", { attrs: { width: "120px" } }, [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: {
+                              "margin-top": "10px",
+                              "margin-left": "-21px"
+                            },
+                            attrs: { for: "time" }
+                          },
+                          [
+                            _vm._v("入居希望時期:"),
+                            _c("span", { staticClass: "error" }, [_vm._v("*")])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { width: "125px" } }, [
+                        _c("input", {
+                          attrs: {
+                            type: "radio",
+                            id: "radio1",
+                            name: "time",
+                            value: "できるだけ早く"
+                          }
+                        }),
+                        _vm._v("できるだけ早く")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { width: "100px" } }, [
+                        _c("input", {
+                          attrs: {
+                            type: "radio",
+                            id: "radio2",
+                            name: "time",
+                            value: "ヶ月以内"
+                          }
+                        }),
+                        _vm._v("ヶ月以内")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { width: "100px" } }, [
+                        _c("input", {
+                          attrs: {
+                            type: "radio",
+                            id: "radio3",
+                            name: "time",
+                            value: "半年以内"
+                          }
+                        }),
+                        _vm._v("半年以内")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { width: "100px" } }, [
+                        _c("input", {
+                          attrs: {
+                            type: "radio",
+                            id: "radio4",
+                            name: "time",
+                            value: "1年以内"
+                          }
+                        }),
+                        _vm._v("1年以内")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { width: "100px" } }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            id: "radio1",
+                            name: "time",
+                            value: "未定"
+                          }
+                        }),
+                        _vm._v("未定")
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("label", { staticClass: "m-t-22" }, [
+              _vm._v("ご要望や、お困りごと、その他お問い合わせ:"),
+              _c("span", { staticClass: "error" }, [_vm._v("*")])
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("textarea", {
+              attrs: { name: "", id: "", cols: "34", rows: "15" }
+            })
           ]
         )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("input", {
+        attrs: { type: "button", onclick: "selectAll()", value: "Select All" }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "button",
+          onclick: "UnSelectAll()",
+          value: "Unselect All"
+        }
+      })
     ])
   }
 ]
@@ -66952,7 +67967,7 @@ var content = __webpack_require__(159);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("eeb0f47c", content, false, {});
+var update = __webpack_require__(6)("eeb0f47c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -66971,7 +67986,7 @@ if(false) {
 /* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // imports
 
 

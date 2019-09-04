@@ -48,7 +48,7 @@ export const routes = [
       //   path: '/home',
       //   component: home
       // },
-
+ 
     {
         name: 'newdetails',
         path: '/newsdetails/:id',
