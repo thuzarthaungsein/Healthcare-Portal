@@ -26,7 +26,7 @@
             <div class="card-body news-post">
                  <div class="row">
                     <div class="col-md-2" >
-                        <img :src="'/images/'+ ads.photo" class="col-md-12" alt="no_image">
+                        <img :src="'/upload/advertisement/'+ ads.photo" class="col-md-12" alt="no_image">
 
                     </div>
                     <div class="col-md-10">

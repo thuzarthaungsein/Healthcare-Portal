@@ -67003,7 +67003,10 @@ var render = function() {
                   _c("div", { staticClass: "col-md-2" }, [
                     _c("img", {
                       staticClass: "col-md-12",
-                      attrs: { src: "/images/" + ads.photo, alt: "no_image" }
+                      attrs: {
+                        src: "/upload/advertisement/" + ads.photo,
+                        alt: "no_image"
+                      }
                     })
                   ]),
                   _vm._v(" "),
