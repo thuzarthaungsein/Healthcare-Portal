@@ -14,7 +14,7 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-        //
+
         $ads =Advertisement::all()->toArray();
         return array_reverse($ads);
     }

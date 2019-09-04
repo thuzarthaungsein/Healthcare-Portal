@@ -1,3 +1,4 @@
+
 <template>
    <div class="row">
        <div class="col-12">
@@ -15,16 +16,16 @@
                     </div>
             </div>
         </div>
-        <div class="row m-b-15">
+    <div class="row m-b-15">
                         <div class="col-md-12">
                         <router-link to="/advertisement" class="float-right" style="color: blue;">Create Advertisement</router-link>
                         </div>
                 </div>
-            <div v-for="ads in advertisement" :key="ads.id" class="card card-default m-b-20">
+            <div v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
             <div class="card-body news-post">
-                <div class="row">
+                 <div class="row">
                     <div class="col-md-2" >
-                        <img :src="'/images/'+ ads.photo" class="col-md-12" alt="">
+                        <img :src="'/images/'+ ads.photo" class="col-md-12" alt="no_image">
 
                     </div>
                     <div class="col-md-10">
@@ -51,14 +52,14 @@
 export default {
     data(){
         return {
-            advertisement:[]
+            advertisements:[]
         }
     },
     created(){
         this.axios
                 .get('http://localhost:8000/api/advertisement/ads')
                 .then(response => {
-                    this.advertisement = response.data;
+                    this.advertisements = response.data;
 
 
                 });
@@ -72,8 +73,8 @@ export default {
                     .delete(`http://localhost:8000/api/advertisement/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
-                        let a = this.advertisement.map(item => item.id).indexOf(id);
-                        this.advertisement.splice(a, 1)
+                        let a = this.advertisements.map(item => item.id).indexOf(id);
+                        this.advertisements.splice(a, 1)
                     });
             }
          }

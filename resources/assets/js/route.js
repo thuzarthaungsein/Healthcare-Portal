@@ -32,7 +32,8 @@ import userPasswordResetList from './components/userPasswordResetList.vue';
 import HospitalHistory from './components/HospitalHistory.vue';
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
-
+import advertisementlist from './components/advertisementlist.vue';
+import editadvertisement from './components/editadvertisement.vue';
 export const routes = [
 
       {
@@ -71,6 +72,11 @@ export const routes = [
       path: '/customersearchlist',
       component: CustomerSearchListComponent
     },
+    {
+        name: 'custedit',
+        path: '/custsedit',
+        component: custedit
+      },
     {
       name: 'jobsearchlist',
       path: '/jobsearchlist',
@@ -162,7 +168,7 @@ export const routes = [
       path: '/profilepublish',
       component: ProfilePublish
     },
-    
+
       {
       name: 'hospital_history',
       path: '/hospital_history',
@@ -205,15 +211,15 @@ export const routes = [
         path:'/typelist',
         component:typelist
       },
-   
-    {
-        name: 'ads',
-        path: '/ads',
-        component: advertisementlist
-    },
-    {
-        name: 'editadvertisement',
-        path: '/editads',
+
+     {
+         name: 'ads',
+         path: '/ads',
+         component: advertisementlist
+     },
+     {
+         name: 'editadvertisement',
+         path: '/editads',
         component: editadvertisement
-    }
+     }
 ];
