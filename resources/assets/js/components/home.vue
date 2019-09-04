@@ -1,20 +1,17 @@
 <template>
 <div>                                
-               <!--menu tabs-->
-          
-           <ul class="nav nav-tabs card-head-tabs" role="tablist">
-            <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i> ニュース</a></li>
-            <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
-            <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
-          </ul>
-          <!--end menu tabs-->
+        <!--menu tabs-->          
+        <ul class="nav nav-tabs card-head-tabs" role="tablist">
+        <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-newspaper"></i> ニュース</a></li>
+        <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+        <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
+        <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
+        </ul>
+        <!--end menu tabs-->
          
-          
-               <!-- Tab panes -->
-              <div class="tab-content tabs">
-                
-                <div role="tabpanel" class="tab-pane in active" id="tab1"> 
+        <!-- Tab panes -->
+              <div class="tab-content tab-content1 tabs">
+               <div role="tabpanel" class="tab-pane in active" id="tab1"> 
                    <!-- <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item active"><router-link to="/hospitalSearch" ><i class="fas fa-home"></i>   ホーム</router-link>

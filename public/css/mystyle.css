@@ -82,6 +82,9 @@
 /* End News List */
 
 /* Profile */
+.hor-line {
+    border-top: 2px solid #ccc;
+}
 .btn-editProfile{
     background: #0f6064;
     color: white;
@@ -138,7 +141,30 @@
     border-bottom: 2px solid #eee;
     padding: 20px 0px;
 }
-
+.collapse-icon {
+    min-width: 0px;
+    font-size:1.5em;
+    color:#aaa;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    padding: 0px 10px;
+}
+.collapse-icon-down {
+    padding-bottom: 3px;
+}
+.collapse-icon-up {
+    padding-top: 3px;
+}
+.collapse-icon:hover {
+    color: blue;
+    border-color: blue;
+}
+.accept-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 7px;
+    border-radius: 3px;
+}
 /* End Profile */
 
 /* Login */
@@ -223,6 +249,96 @@
 		.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
 			background-color: #2ba7c0 !important;
         }
+         /*radio check*/
+        /* input[type=radio]+.custom-radio {
+            position: relative;
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            padding-left: 27px;
+            cursor: pointer;
+        }
+        input[type=radio]:checked+.custom-radio:before {
+            border: 1px solid #ff9500;
+            background-color: #ff9500;
+            box-shadow: none;
+        }
+        input[type=radio]+.custom-radio:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            box-shadow: 0 6px 6px -7px #dbdbdb inset;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #dedcd7;
+            border-radius: 3px;
+            background-color: white;
+        }
+        input[type=radio]:checked+.custom-radio:after {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            background: url('') no-repeat;
+        } */
+        .sample{
+            padding-left: 30px;
+        }
+        .sample label:before{
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            background: #bdc3c7;
+            border-radius: 50%;
+        }
+        .sample input{
+            display: none;
+        }
+        .sample label{
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+            padding: 10px;
+            border-radius: 2px;
+            color: #3e4956;
+            font-size: 14px;
+            text-align: center;
+            line-height: 1;
+        }
+        .sample label:before{
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: -9px;
+            width: 15px;
+            height: 15px;
+            margin-top: -9px;
+            background: #f5f5f5;
+            border-radius: 50%;
+        }
+        
+        .sample input[type="radio"]:checked + label:after {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: -6px;
+            width: 9px;
+            height: 9px;
+            margin-top: -6px;
+            border-radius: 50%;
+            background: #118063;
+        }
+        /*end radio check*/
         .links a{
             color:#d2cfcf !important;
         }
@@ -247,6 +363,9 @@
     display: none;
 }
 .show{
+    display:inline-flex;
+}
+.form-check-inline.show{
     display: inline-flex;
 }
 
@@ -263,14 +382,13 @@
     color: #fff;
     align-self: flex-end;
 }
-/* 
-.form-type-managed-file {
+
+/* .form-type-managed-file {
     position: relative;
     overflow: hidden;
-  }
-/* input[type=file] {
+  } */
+ .inputfile > input[type=file] {
     display: inline-block;
-    width: 100%;
     padding: 35px 0 0 0;
     height: 20px;
     overflow: hidden;
@@ -278,8 +396,9 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background-size: 60px 60px;
-    background-color: #ecede1 ;
-  } */
+    
+  } 
+
 .register_btn {
     color: white !important;
     width: 120px;
@@ -443,6 +562,8 @@
             letter-spacing: 2px;
             text-align: justify;
             color: white;
+            max-height: 60px;
+            overflow: hidden;
 
         }
 
@@ -951,7 +1072,15 @@ div.b{
 
 /*/////////////////////////// setup////////////////////// */
 /* setup class */
-
+.green {
+    color: green;
+}
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
 .p-lr-0 {
     padding-left:0px !important;
     padding-right:0px !important;
@@ -981,8 +1110,11 @@ div.b{
 .m-t-15{
     margin-top: 15px !important;
 }
+.m-t-20 {
+    margin-top:20px;
+}
 .m-t-30 {
-    margin-top:32px;
+    margin-top:30px;
 }
 
 .m-b-20 {
@@ -999,6 +1131,9 @@ div.b{
 }
 .m-b-30{
     margin-bottom: 30px !important;
+}
+.m-r-15 {
+    margin-right: 15px;
 }
 /* .m-r-2per{
     margin-right: 2% !important;
@@ -1036,6 +1171,13 @@ div.b{
     min-width: 100px;
     cursor: pointer;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+}
+.create-btn{
+    color: #fff !important;
+    text-align: center;
+    background: #b7dad2;
+    border-radius: 5px;
+    padding: 10px;
 }
 .login-register-btn{
     background-color: transparent;
@@ -1104,7 +1246,14 @@ li.userprofile-name > a {
     padding: 13px !important;/*for no scroll*/
     background: white;
     border: 1px solid #eee;
+   
+}
+.tab-content1{
     min-height: 350px;
+    max-height: 900px;
+}
+.tab-content2{
+    height: 320px !important;
 }
 .tab-card-header{
     background-color: #b7dad2 !important;
@@ -1189,8 +1338,6 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 .custom-sidebar{
     /* height: 100vh; scroll */
     /* background: #b7dad2; */
-
-
 }
 
 
@@ -1488,6 +1635,7 @@ ul.main-tab li:after{
     .news-wrapper::-webkit-scrollbar,
     body::-webkit-scrollbar,
     .scrolldiv::-webkit-scrollbar,
+    .scroll2::-webkit-scrollbar,
     .scrolldiv2::-webkit-scrollbar,
     .main-wrap::-webkit-scrollbar {
     width: 6px!important;
@@ -1497,6 +1645,7 @@ ul.main-tab li:after{
   .news-wrapper::-webkit-scrollbar-track,
    body::-webkit-scrollbar-track,
    .scrolldiv::-webkit-scrollbar-track,
+   .scroll2::-webkit-scrollbar-track,
    .scrolldiv2::-webkit-scrollbar-track,
    .main-wrap::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)!important;
@@ -1506,6 +1655,7 @@ ul.main-tab li:after{
   .news-wrapper::-webkit-scrollbar-thumb,
   .main-wrap::-webkit-scrollbar-thumb,
   .scrolldiv::-webkit-scrollbar-thumb,
+  .scroll2::-webkit-scrollbar-thumb,
   .scrolldiv2::-webkit-scrollbar-thumb,
   body::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)!important;
