@@ -52531,6 +52531,10 @@ var routes = [{
   path: '/customersearchlist',
   component: __WEBPACK_IMPORTED_MODULE_15__components_CustomerSearchListComponent_vue___default.a
 }, {
+  name: 'custedit',
+  path: '/custsedit',
+  component: __WEBPACK_IMPORTED_MODULE_14__components_custedit_vue___default.a
+}, {
   name: 'jobsearchlist',
   path: '/jobsearchlist',
   component: __WEBPACK_IMPORTED_MODULE_5__components_JobSearchListComponent_vue___default.a
@@ -58305,6 +58309,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58363,7 +58368,7 @@ var render = function() {
               },
               [
                 _c("i", { staticClass: "fas fa-plus-circle" }),
-                _vm._v("新しい施設を作る")
+                _vm._v(" 新しい施設を作る")
               ]
             )
           ],
@@ -58374,63 +58379,67 @@ var render = function() {
       _c(
         "div",
         { staticClass: "col-md-12 scrolldiv border-style" },
-        _vm._l(_vm.facilities, function(facility) {
-          return _c(
-            "div",
-            { key: facility.id, staticClass: "container-fuid" },
-            [
-              _c("div", { staticClass: "card card-default m-b-20" }, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-10 m-t-8" }, [
-                      _c("p", [
-                        _vm._v(" " + _vm._s(facility.description) + " ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "col-md-2",
-                        staticStyle: { "margin-top": "8px" }
-                      },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "btn edit-borderbtn",
-                            attrs: {
-                              to: {
-                                name: "editfacility",
-                                params: { id: facility.id }
+        [
+          _c("h5", { staticClass: "main-color header" }, [_vm._v("施設一覧")]),
+          _vm._v(" "),
+          _vm._l(_vm.facilities, function(facility) {
+            return _c(
+              "div",
+              { key: facility.id, staticClass: "container-fuid" },
+              [
+                _c("div", { staticClass: "card card-default m-b-20" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-10 m-t-8" }, [
+                        _c("p", [
+                          _vm._v(" " + _vm._s(facility.description) + " ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-md-2",
+                          staticStyle: { "margin-top": "8px" }
+                        },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "btn edit-borderbtn",
+                              attrs: {
+                                to: {
+                                  name: "editfacility",
+                                  params: { id: facility.id }
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("編集")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn delete-borderbtn",
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteFacility(facility.id)
+                            },
+                            [_vm._v("編集")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn delete-borderbtn",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteFacility(facility.id)
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("削除")]
-                        )
-                      ],
-                      1
-                    )
+                            },
+                            [_vm._v("削除")]
+                          )
+                        ],
+                        1
+                      )
+                    ])
                   ])
                 ])
-              ])
-            ]
-          )
-        }),
-        0
+              ]
+            )
+          })
+        ],
+        2
       )
     ])
   ])
@@ -60522,63 +60531,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
+        data: function data() {
+                return {
 
-            errors: [],
-            customer: {
-                name: '',
-                email: '',
-                password: '',
-                phone: '',
-                address: '',
-                user_id: '',
-                type_id: '',
-                recordstatus: '',
-                logo: ''
+                        errors: [],
+                        customer: {
+                                name: '',
+                                email: '',
+                                password: '',
+                                phone: '',
+                                address: '',
+                                user_id: '',
+                                type_id: '',
+                                recordstatus: '',
+                                logo: ''
 
-            }
-        };
-    },
-
-
-    methods: {
-        onFileSelected: function onFileSelected(event) {
-            this.customer.logo = event.target.files[0];
+                        }
+                };
         },
-        add: function add() {
-            var _this = this;
 
-            var fd = new FormData();
-            fd.append('logo', this.customer.logo);
-            fd.append('name', this.customer.name);
-            fd.append('email', this.customer.email);
-            fd.append('password', this.customer.password);
-            fd.append('phone', this.customer.phone);
-            fd.append('address', this.customer.address);
 
-            axios.post('http://localhost:8000/api/customer/add', fd).then(function (response) {
-                _this.logo = '';
-                _this.name = '';
-                _this.email = '';
-                _this.password = '';
-                _this.phone = '';
-                _this.address = '';
-            }).catch(function (error) {
-                if (error.response.status == 422) {
-                    _this.errors = error.response.data.errors;
+        methods: {
+                onFileSelected: function onFileSelected(event) {
+                        this.customer.logo = event.target.files[0];
+                },
+                add: function add() {
+                        var _this = this;
+
+                        var fd = new FormData();
+                        fd.append('logo', this.customer.logo);
+                        fd.append('name', this.customer.name);
+                        fd.append('email', this.customer.email);
+                        fd.append('password', this.customer.password);
+                        fd.append('phone', this.customer.phone);
+                        fd.append('address', this.customer.address);
+
+                        axios.post('http://localhost:8000/api/customer/add', fd).then(function (response) {
+                                console.log(response);
+                                alert('Successfully Created');
+                                console.log(response);
+                                _this.$router.push({ name: '/' });
+                        });
                 }
-            });
         }
-    }
 
 });
 
@@ -60619,13 +60616,7 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: { type: "file", accept: "image/*", id: "file" },
                         on: { change: _vm.onFileSelected }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.logo
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.logo[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -60641,7 +60632,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Customer Name" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Customer Name",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.name },
                         on: {
                           input: function($event) {
@@ -60651,13 +60646,7 @@ var render = function() {
                             _vm.$set(_vm.customer, "name", $event.target.value)
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.name
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.name[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -60673,7 +60662,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Email" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Email",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.email },
                         on: {
                           input: function($event) {
@@ -60683,13 +60676,7 @@ var render = function() {
                             _vm.$set(_vm.customer, "email", $event.target.value)
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.email
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.email[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -60705,7 +60692,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "password", placeholder: "Password" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Password",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.password },
                         on: {
                           input: function($event) {
@@ -60719,13 +60710,7 @@ var render = function() {
                             )
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.password
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.password[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -60741,7 +60726,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "number", placeholder: "Phone No" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Phone No",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.phone },
                         on: {
                           input: function($event) {
@@ -60751,13 +60740,7 @@ var render = function() {
                             _vm.$set(_vm.customer, "phone", $event.target.value)
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.phone
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.phone[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -60773,7 +60756,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Address" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Address",
+                          required: ""
+                        },
                         domProps: { value: _vm.customer.address },
                         on: {
                           input: function($event) {
@@ -60787,13 +60774,7 @@ var render = function() {
                             )
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.address
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.address[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group " }, [
@@ -64623,6 +64604,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -64638,7 +64622,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        uploadImage: function uploadImage(event) {
+        uploadImage: function uploadImage() {
+            $('.image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
             this.ads.photo = event.target.files[0];
         },
         add: function add() {
@@ -64649,11 +64634,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             adsData.append('description', this.ads.description);
             adsData.append('location', this.ads.location);
             adsData.append('photo', this.ads.photo);
+            //adsData.append ("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
 
             this.axios.post('http://localhost:8000/api/advertisement/add', adsData).then(function (response) {
-                alert('Successfully');
+                alert('Successfully Created');
                 console.log(response);
-                _this.ads = response.data;
+                _this.$router.push({ name: 'ads' });
+            }).catch(function (error) {
+                return console.log(error);
+            }).finally(function () {
+                return _this.loading = false;
             });
         }
     }
@@ -64875,15 +64865,21 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "custom-file col-sm-10" }, [
                       _c("input", {
-                        attrs: { type: "file", accept: "", id: "file" },
+                        attrs: {
+                          type: "file",
+                          id: "upload",
+                          accept: "image/*"
+                        },
                         on: { change: _vm.uploadImage }
                       })
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(5)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group " }, [
                     _c("div", { staticClass: "form-group row" }, [
-                      _vm._m(5),
+                      _vm._m(6),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -64895,7 +64891,7 @@ var render = function() {
                               staticClass: "btn btn-warning",
                               attrs: { to: "/ads" }
                             },
-                            [_vm._v("  Cancel ")]
+                            [_vm._v(" Cancel ")]
                           )
                         ],
                         1
@@ -64962,6 +64958,14 @@ var staticRenderFns = [
       _c("label", { attrs: { for: "photo" } }, [
         _c("strong", [_vm._v(" Photo/Image :")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12", attrs: { id: "par" } }, [
+      _c("div", { staticClass: "row image_preview" })
     ])
   },
   function() {
@@ -65068,18 +65072,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            advertisement: []
+            advertisements: []
         };
     },
     created: function created() {
         var _this = this;
 
         this.axios.get('http://localhost:8000/api/advertisement/ads').then(function (response) {
-            _this.advertisement = response.data;
+            _this.advertisements = response.data;
         });
     },
 
@@ -65088,13 +65111,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         deleteAds: function deleteAds(id) {
             var _this2 = this;
 
-            this.axios.delete('http://localhost:8000/api/advertisement/delete/' + id).then(function (response) {
-                alert('Delete Successfully!');
-                var a = _this2.advertisement.map(function (item) {
-                    return item.id;
-                }).indexOf(id);
-                _this2.advertisement.splice(a, 1);
-            });
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.delete('http://localhost:8000/api/advertisement/delete/' + id).then(function (response) {
+                    alert('Delete Successfully!');
+                    var a = _this2.advertisements.map(function (item) {
+                        return item.id;
+                    }).indexOf(id);
+                    _this2.advertisements.splice(a, 1);
+                });
+            }
         }
     }
 });
@@ -65107,11 +65132,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "col-12" },
-    [
-      _c("div", { staticClass: "row m-b-15" }, [
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "row m-b-15 m-r-5" }, [
         _c(
           "div",
           { staticClass: "col-md-12" },
@@ -65119,97 +65144,143 @@ var render = function() {
             _c(
               "router-link",
               {
-                staticClass: "float-right",
+                staticClass: "float-right main-bg-color create-btn all-btn",
                 staticStyle: { color: "blue" },
                 attrs: { to: "/advertisement" }
               },
-              [_vm._v("Create Advertisement")]
+              [
+                _c("i", { staticClass: "fas fa-plus-circle" }),
+                _vm._v(" 広告を作成する")
+              ]
             )
           ],
           1
         )
       ]),
       _vm._v(" "),
-      _vm._l(_vm.advertisement, function(ads) {
-        return _c(
-          "div",
-          { key: ads.id, staticClass: "card card-default m-b-20" },
-          [
-            _c("div", { staticClass: "card-body news-post" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(0, true),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-10" }, [
-                  _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                    _c("a", [
-                      _c("strong", [_vm._v("Title    :")]),
-                      _vm._v(_vm._s(ads.title))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Description :")]),
-                      _vm._v(_vm._s(ads.description))
-                    ]),
-                    _c("br")
-                  ]),
-                  _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "scrolldiv col-12 border-style" },
+        [
+          _c("h5", { staticClass: "main-color header" }, [_vm._v("広告")]),
+          _vm._v(" "),
+          _vm._l(_vm.advertisements, function(ads) {
+            return _c(
+              "div",
+              { key: ads.id, staticClass: "card card-default m-b-20" },
+              [
+                _c("div", { staticClass: "card-body news-post" }, [
                   _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-sm-5 pl-3" },
-                      [
+                    _c("div", { staticClass: "col-md-2" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "/images/" + ads.photo, alt: "ads" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row col-md-10" }, [
+                      _vm._m(1, true),
+                      _c("div", { staticClass: "col-md-10" }, [
+                        _vm._v(_vm._s(ads.title))
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(2, true),
+                      _c("div", { staticClass: "col-md-10" }, [
+                        _vm._v(_vm._s(ads.description))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row col-12 mt-2" }, [
                         _c(
-                          "router-link",
-                          {
-                            staticClass: "btn main-bg-color white all-btn",
-                            attrs: {
-                              to: {
-                                name: "editadvertisement",
-                                params: { id: ads.id }
-                              }
-                            }
-                          },
-                          [_vm._v("Edit ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger  all-btn",
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteAds(ads.id)
-                              }
-                            }
-                          },
-                          [_vm._v("Delete")]
+                          "div",
+                          { staticClass: "col-4 col-offset-4 pl-3" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn edit-borderbtn",
+                                attrs: {
+                                  to: {
+                                    name: "editadvertisement",
+                                    params: { id: ads.id }
+                                  }
+                                }
+                              },
+                              [_vm._v("編集")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn delete-borderbtn",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteAds(ads.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("削除")]
+                            )
+                          ],
+                          1
                         )
-                      ],
-                      1
-                    )
+                      ])
+                    ])
                   ])
                 ])
-              ])
-            ])
-          ]
-        )
-      })
-    ],
-    2
-  )
+              ]
+            )
+          })
+        ],
+        2
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "col-md-12 ",
-        staticStyle: { height: "100px", width: "100px" },
-        attrs: { src: "/upload/advertisement/ad_1.jpg", alt: " " }
-      })
+    return _c("div", { staticClass: "card card-default m-b-20" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-10" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "検索" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-2" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn secondary-bg-color all-btn white",
+                staticStyle: { width: "100%" }
+              },
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 max-width16" }, [
+      _c("strong", [_vm._v("Title :")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 max-width16" }, [
+      _c("strong", [_vm._v("Description :")])
     ])
   }
 ]
@@ -65317,6 +65388,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -65324,7 +65408,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             errors: [],
             advertisement: {
                 title: '',
-                description: ''
+                description: '',
+                photo: ''
             }
         };
     },
@@ -65338,16 +65423,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
+        fileSelected: function fileSelected(e) {
+            $('.image_update').append("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
+            this.advertisement.photo = event.target.files[0];
+        },
         updateAds: function updateAds() {
             var _this2 = this;
 
-            this.axios.post('http://localhost:8000/api/advertisement/update/' + this.$route.params.id, this.advertisement).then(function (response) {
+            var adsData = new FormData();
+
+            adsData.append('title', this.advertisement.title);
+            adsData.append('description', this.advertisement.description);
+            adsData.append('photo', this.advertisement.photo);
+
+            this.axios.post('http://localhost:8000/api/advertisement/update/' + this.$route.params.id, adsData).then(function (response) {
                 alert('Successfully Updated!');
-                _this2.$router.push({ title: 'advertisementlist' });
+                _this2.$router.push({ name: 'ads' });
             });
         }
     }
-
 });
 
 /***/ }),
@@ -65438,9 +65532,28 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _vm._m(3),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "custom-file col-sm-10" }, [
+                        _c("input", {
+                          ref: "file",
+                          attrs: {
+                            type: "file",
+                            id: "x-image",
+                            accept: "image/*"
+                          },
+                          on: { change: _vm.fileSelected }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4)
+                    ]),
+                    _vm._v(" "),
                     _c("div", { staticClass: "form-group " }, [
                       _c("div", { staticClass: "form-group row" }, [
-                        _vm._m(3),
+                        _vm._m(5),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -65496,6 +65609,22 @@ var staticRenderFns = [
     return _c("label", [
       _vm._v("Description :"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "photo" } }, [
+      _c("strong", [_vm._v(" Photo/Image :")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "row image_update" })
     ])
   },
   function() {

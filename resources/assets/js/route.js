@@ -73,6 +73,11 @@ export const routes = [
       component: CustomerSearchListComponent
     },
     {
+        name: 'custedit',
+        path: '/custsedit',
+        component: custedit
+      },
+    {
       name: 'jobsearchlist',
       path: '/jobsearchlist',
       component: JobSearchListComponent
@@ -163,7 +168,7 @@ export const routes = [
       path: '/profilepublish',
       component: ProfilePublish
     },
-    
+
       {
       name: 'hospital_history',
       path: '/hospital_history',
@@ -206,15 +211,15 @@ export const routes = [
         path:'/typelist',
         component:typelist
       },
-   
-    {
-        name: 'ads',
-        path: '/ads',
-        component: advertisementlist
-    },
-    {
-        name: 'editadvertisement',
-        path: '/editads',
+
+     {
+         name: 'ads',
+         path: '/ads',
+         component: advertisementlist
+     },
+     {
+         name: 'editadvertisement',
+         path: '/editads',
         component: editadvertisement
-    }
+     }
 ];

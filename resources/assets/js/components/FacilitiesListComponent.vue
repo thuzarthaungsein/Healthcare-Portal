@@ -16,7 +16,7 @@
             </div>
                 <div class="row m-b-15 m-r-5">
                     <div class="col-md-12">
-                        <router-link class="float-right main-bg-color create-btn all-btn" style="color: blue;" to="/createfacility" ><i class="fas fa-plus-circle"></i>新しい施設を作る</router-link>
+                        <router-link class="float-right main-bg-color create-btn all-btn" style="color: blue;" to="/createfacility" ><i class="fas fa-plus-circle"></i> 新しい施設を作る</router-link>
                     </div>
                     <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
                 </div>
@@ -27,6 +27,7 @@
         </h4>  -->
         <!--card-->
         <div class="col-md-12 scrolldiv border-style">
+            <h5 class="main-color header">施設一覧</h5>
             <div class="container-fuid" v-for="facility in facilities" :key="facility.id" >
                 <div class="card card-default m-b-20">                    
                     <div class="card-body">
@@ -37,7 +38,7 @@
                             <div class="col-md-2" style="margin-top: 8px;">
                                     <router-link :to="{name: 'editfacility', params: { id: facility.id }}" class="btn edit-borderbtn">編集</router-link>
                                 
-                                <button class="btn delete-borderbtn"   @click="deleteFacility(facility.id)">削除</button>
+                                <button class="btn delete-borderbtn"  @click="deleteFacility(facility.id)">削除</button>
                             </div>
                         </div>
                     </div>

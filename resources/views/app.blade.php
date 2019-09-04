@@ -83,13 +83,13 @@
       @guest
       <!-- public menu -->
       <div class="userview-sidebar col-auto">
-        <div class="card m-b-10 ads-card">           
+        <div class="card m-b-10 ads-card">
         <div class="">
                                 <!-- <h5 class="card-title text-center">一つ目の広告</h5> -->
                                 <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                                 <img src="/images/ad_1.jpg" alt="" class="img-responsivie" style="width:100%">
                         </div>
-            
+
         </div>
         <div class="card m-b-10 ads-card2">
             <div class="card-body">
@@ -156,8 +156,8 @@
       <!-- login menu  -->
       <div class="adminview-sidebar" id="navbarSupportedContent">
       <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
-      
-      @can('role-list')      
+
+      @can('role-list')
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
       <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
@@ -171,7 +171,7 @@
             <li>
                 <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
             </li>
-           
+
         </ul>
     </li>
 
@@ -303,7 +303,7 @@
                             <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/> </div>
                             <div><img data-u="image" src="/images/h4.jpg" style="width:100%"/> </div>
                         </div>
-                    <!-- Trigger -->          
+                    <!-- Trigger -->
                     </div>
                 </div>
                 <!--end ads slider-->
@@ -346,7 +346,7 @@
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
   <!-- script for editor -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
   <!-- end script for editor -->
 
 <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>
