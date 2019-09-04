@@ -67214,6 +67214,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -67231,14 +67238,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('http://localhost:8000/api/advertisement/edit/' + this.$route.params.id).then(function (response) {
             _this.advertisement = response.data;
+            _this.updateselected();
         });
     },
 
 
     methods: {
-        fileSelected: function fileSelected(e) {
-            $('.image_update').append("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
+        fileSelected: function fileSelected() {
+
+            $('.image_show').append("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
             this.advertisement.photo = event.target.files[0];
+        },
+        updateselected: function updateselected() {
+            $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/advertisement/" + this.advertisement.photo + " class='show-img''></div>");
         },
         updateAds: function updateAds() {
             var _this2 = this;
@@ -67345,24 +67357,32 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm._m(3),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "custom-file col-sm-10" }, [
-                        _c("input", {
-                          ref: "file",
-                          attrs: {
-                            type: "file",
-                            id: "x-image",
-                            accept: "image/*"
-                          },
-                          on: { change: _vm.fileSelected }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(4)
-                    ]),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "form-group",
+                        staticStyle: { display: "none" },
+                        attrs: { id: "showimage" }
+                      },
+                      [
+                        _vm._m(3),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "custom-file col-sm-10" }, [
+                          _c("input", {
+                            ref: "file",
+                            attrs: { type: "file", accept: "image/*" },
+                            on: { change: _vm.fileSelected }
+                          })
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "image_show" }),
+                    _vm._v(" "),
+                    _vm._m(4),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group " }, [
                       _c("div", { staticClass: "form-group row" }, [
@@ -67436,9 +67456,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "row image_update" })
-    ])
+    return _c(
+      "div",
+      { staticClass: "form-group image_update", attrs: { id: "x-image" } },
+      [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "row" })
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
