@@ -68232,7 +68232,10 @@ var render = function() {
                     _c("div", { staticClass: "col-md-2" }, [
                       _c("img", {
                         staticClass: "img-fluid",
-                        attrs: { src: "/images/" + ads.photo, alt: "ads" }
+                        attrs: {
+                          src: "/upload/advertisement/" + ads.photo,
+                          alt: "ads"
+                        }
                       })
                     ]),
                     _vm._v(" "),
