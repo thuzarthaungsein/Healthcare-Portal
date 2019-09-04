@@ -55632,7 +55632,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card card-default m-b-20" }, [
       _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
+        _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-10" }, [
@@ -55642,10 +55642,13 @@ var staticRenderFns = [
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-2" }, [
+          _c("div", { staticClass: "col-md-2 text-right" }, [
             _c(
               "button",
-              { staticClass: "btn secondary-bg-color all-btn white" },
+              {
+                staticClass: "btn secondary-bg-color all-btn white",
+                staticStyle: { width: "100%" }
+              },
               [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
@@ -56916,6 +56919,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56961,7 +56965,7 @@ var render = function() {
     _c("div", { staticClass: "col-12" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "row m-b-15" }, [
+      _c("div", { staticClass: "row m-b-15 m-r-5" }, [
         _c(
           "div",
           { staticClass: "col-md-12" },
@@ -56969,11 +56973,14 @@ var render = function() {
             _c(
               "router-link",
               {
-                staticClass: "float-right",
+                staticClass: "float-right main-bg-color create-btn all-btn",
                 staticStyle: { color: "blue" },
                 attrs: { to: "/create_news" }
               },
-              [_vm._v("Create New Post")]
+              [
+                _c("i", { staticClass: "fas fa-plus-circle" }),
+                _vm._v(" 新しい投稿を作成")
+              ]
             )
           ],
           1
@@ -56982,91 +56989,97 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col-md-12 scrolldiv" },
-        _vm._l(_vm.news_list, function(newsList) {
-          return _c(
-            "div",
-            { key: newsList.id, staticClass: "card card-default m-b-20" },
-            [
-              _c("div", { staticClass: "card-body news-post" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-2" }, [
-                    _c("img", {
-                      staticClass: "col-md-12",
-                      attrs: { src: "/images/" + newsList.photo, alt: "" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-10" }, [
-                    _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                      _c(
-                        "b",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "mr-auto",
-                              attrs: {
-                                to: {
-                                  name: "newdetails",
-                                  params: { id: newsList.id }
-                                }
-                              }
-                            },
-                            [_vm._v(_vm._s(newsList.title))]
-                          )
-                        ],
-                        1
-                      )
+        { staticClass: "col-md-12 scrolldiv border-style" },
+        [
+          _c("h5", { staticClass: "main-color header" }, [
+            _vm._v("ニュース一覧")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.news_list, function(newsList) {
+            return _c(
+              "div",
+              { key: newsList.id, staticClass: "card card-default m-b-20" },
+              [
+                _c("div", { staticClass: "card-body news-post" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-2" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "/images/" + newsList.photo, alt: "" }
+                      })
                     ]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(newsList.main_point))]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "col-md-10" }, [
+                      _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
                         _c(
-                          "small",
+                          "b",
                           [
                             _c(
                               "router-link",
                               {
-                                staticClass: "mr-auto text-warning",
+                                staticClass: "mr-auto",
                                 attrs: {
                                   to: {
-                                    name: "editPost",
+                                    name: "newdetails",
                                     params: { id: newsList.id }
                                   }
                                 }
                               },
-                              [_vm._v("編集")]
+                              [_vm._v(_vm._s(newsList.title))]
                             )
                           ],
                           1
-                        ),
-                        _vm._v("  \n                                    "),
-                        _c("small", [
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(newsList.main_point))]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-4" }, [
                           _c(
-                            "a",
-                            {
-                              staticClass: "mr-auto text-danger",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deletePost(newsList.id)
+                            "small",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "mr-auto text-warning",
+                                  attrs: {
+                                    to: {
+                                      name: "editPost",
+                                      params: { id: newsList.id }
+                                    }
+                                  }
+                                },
+                                [_vm._v("編集")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v("  \n                                    "),
+                          _c("small", [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "mr-auto text-danger",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deletePost(newsList.id)
+                                  }
                                 }
-                              }
-                            },
-                            [_vm._v("削除")]
-                          )
+                              },
+                              [_vm._v("削除")]
+                            )
+                          ])
                         ])
                       ])
                     ])
                   ])
                 ])
-              ])
-            ]
-          )
-        }),
-        0
+              ]
+            )
+          })
+        ],
+        2
       )
     ])
   ])
@@ -57078,7 +57091,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card card-default m-b-20" }, [
       _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース役職の検索")]),
+        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース検索")]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-10" }, [
@@ -57088,10 +57101,13 @@ var staticRenderFns = [
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-2" }, [
+          _c("div", { staticClass: "col-md-2 text-right" }, [
             _c(
               "button",
-              { staticClass: "btn secondary-bg-color all-btn white" },
+              {
+                staticClass: "btn secondary-bg-color all-btn white",
+                staticStyle: { width: "100%" }
+              },
               [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
             )
           ])
@@ -57745,7 +57761,7 @@ var render = function() {
             _c(
               "router-link",
               {
-                staticClass: "float-right main-bg-color create-btn",
+                staticClass: "float-right main-bg-color create-btn all-btn",
                 attrs: { to: "/createcategory" }
               },
               [
@@ -57838,7 +57854,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card card-default m-b-20" }, [
       _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
+        _c("h4", { staticClass: "main-color" }, [_vm._v("カテゴ一覧 検索")]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-10" }, [
@@ -58277,7 +58293,7 @@ var render = function() {
     _c("div", { staticClass: "col-12" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "row m-b-15" }, [
+      _c("div", { staticClass: "row m-b-15 m-r-13" }, [
         _c(
           "div",
           { staticClass: "col-md-12" },
@@ -58367,7 +58383,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card m-b-20" }, [
       _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース記事を検索")]),
+        _c("h4", { staticClass: "main-color" }, [_vm._v("施設一覧検索")]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-10" }, [

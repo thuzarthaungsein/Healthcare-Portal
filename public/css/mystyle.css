@@ -593,11 +593,8 @@
               bottom: 0;
               left: 42%;
               /* border-bottom: 1px solid #42b698; */
-          }
-        .m-l-14
-        {
-            margin-left: -12px;
-        }
+          }        
+
         .fit-image2{
             width: 350px;
             object-fit: cover;
@@ -1131,6 +1128,12 @@ div.b{
 .m-r-15 {
     margin-right: 15px;
 }
+.m-r-5{
+    margin-right: 5px;
+}
+.m-l-14{
+    margin-left: 14px;
+}
 /* .m-r-2per{
     margin-right: 2% !important;
 } */
@@ -1167,6 +1170,9 @@ div.b{
     min-width: 100px;
     cursor: pointer;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+}
+.border-style{
+    border: 1px solid #eee;
 }
 .create-btn{
     color: #fff !important;

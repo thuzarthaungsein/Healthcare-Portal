@@ -4,7 +4,7 @@
             <div class="card card-default m-b-20">
 
               <div class="card-body">
-                        <h4 class="main-color">ニュース記事を検索</h4>
+                        <h4 class="main-color">カテゴ一覧 検索</h4>
                         <div class="row">
                             <div class="col-md-10">
                                 <input type="text" class="form-control" placeholder="検索">
@@ -17,7 +17,7 @@
           </div>
            <div class="row m-b-15">
                 <div class="col-md-12">
-                    <router-link to="/createcategory" class="float-right main-bg-color create-btn"><i class="fas fa-plus-circle"></i> 新しいカテゴリを作成</router-link>
+                    <router-link to="/createcategory" class="float-right main-bg-color create-btn all-btn"><i class="fas fa-plus-circle"></i> 新しいカテゴリを作成</router-link>
                 </div>
                 <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
             </div>

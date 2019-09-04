@@ -3,7 +3,7 @@
       <div class="col-12">  
            <div class="card m-b-20">  
                 <div class="card-body">
-                    <h4 class="main-color">ニュース記事を検索</h4>
+                    <h4 class="main-color">施設一覧検索</h4>
                     <div class="row">
                         <div class="col-md-10">
                             <input type="text" class="form-control" placeholder="検索">
@@ -14,7 +14,7 @@
                     </div>
                 </div>  
             </div>
-                <div class="row m-b-15">
+                <div class="row m-b-15 m-r-13">
                     <div class="col-md-12">
                         <router-link class="float-right" style="color: blue;" to="/createfacility" >  Create New Facility</router-link>
                     </div>

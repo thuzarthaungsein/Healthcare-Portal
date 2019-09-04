@@ -89,13 +89,13 @@
             <div class="card card-default m-b-20">
 
             <div class="card-body">
-                    <h4 class="main-color">ニュース記事を検索</h4>
+                    <h4 class="main-color">事業者検索</h4>
                     <div class="row">
                         <div class="col-md-10">
                             <input type="text" class="form-control" placeholder="検索">
                         </div>
-                        <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white"><i class="fas fa-search"></i> 検索</button>
+                        <div class="col-md-2 text-right">
+                            <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
                         </div>
                     </div>
             </div>

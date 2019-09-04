@@ -5,31 +5,32 @@
             <div class="card card-default m-b-20">
 
                 <div class="card-body">
-                    <h4 class="main-color">ニュース役職の検索</h4>
+                    <h4 class="main-color">ニュース検索</h4>
                     <div class="row">
                         <div class="col-md-10">
                             <input type="text" class="form-control" placeholder="検索">
                         </div>
-                        <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white"><i class="fas fa-search"></i> 検索</button>
+                        <div class="col-md-2 text-right">
+                            <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="row m-b-15">
+            <div class="row m-b-15 m-r-5">
                 <div class="col-md-12">
-                    <router-link to="/create_news" class="float-right" style="color: blue;">Create New Post</router-link>
+                    <router-link to="/create_news" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle"></i> 新しい投稿を作成</router-link>
                 </div>
                 <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
             </div>
-            <div class="col-md-12 scrolldiv">
+            <div class="col-md-12 scrolldiv border-style">
+                <h5 class="main-color header">ニュース一覧</h5>
                 <div v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2">
 
-                                <img :src="'/images/'+ newsList.photo" class="col-md-12" alt=""> 
+                                <img :src="'/images/'+ newsList.photo" alt="" class="img-fluid"> 
                             </div>
                             <div class="col-md-10">
                                 <div class="col-sm-8 pad-free mb-2"><b>
