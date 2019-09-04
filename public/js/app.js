@@ -52555,14 +52555,17 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_HospitalProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_HospitalProfile_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingProfile_vue__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_NursingProfile_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_Type_vue__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_Type_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_Type_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_TypeList_vue__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_TypeList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_TypeList_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_advertisementlist_vue__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_advertisementlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_advertisementlist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_editadvertisement_vue__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_editadvertisement_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_editadvertisement_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_VideoUpload_vue__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_VideoUpload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_VideoUpload_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_Type_vue__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_Type_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_Type_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_TypeList_vue__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_TypeList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_TypeList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_advertisementlist_vue__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_advertisementlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_advertisementlist_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_editadvertisement_vue__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_editadvertisement_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__components_editadvertisement_vue__);
+
 
 
 
@@ -52737,19 +52740,19 @@ var routes = [{
 }, {
   name: 'type',
   path: '/type',
-  component: __WEBPACK_IMPORTED_MODULE_34__components_Type_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_35__components_Type_vue___default.a
 }, {
   name: 'typelist',
   path: '/typelist',
-  component: __WEBPACK_IMPORTED_MODULE_35__components_TypeList_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_36__components_TypeList_vue___default.a
 }, {
   name: 'ads',
   path: '/ads',
-  component: __WEBPACK_IMPORTED_MODULE_36__components_advertisementlist_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_37__components_advertisementlist_vue___default.a
 }, {
   name: 'editadvertisement',
   path: '/editads',
-  component: __WEBPACK_IMPORTED_MODULE_37__components_editadvertisement_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_38__components_editadvertisement_vue___default.a
 }, {
   name: 'nursing_history',
   path: '/nursing_history',
@@ -52762,6 +52765,10 @@ var routes = [{
   name: 'nursing_profile',
   path: '/nursing_profile',
   component: __WEBPACK_IMPORTED_MODULE_33__components_NursingProfile_vue___default.a
+}, {
+  name: 'videoupload',
+  path: '/videoupload',
+  component: __WEBPACK_IMPORTED_MODULE_34__components_VideoUpload_vue___default.a
 }];
 
 /***/ }),
@@ -57897,6 +57904,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this2.categories.splice(i, 1);
                 });
             }
+        },
+        searchCategory: function searchCategory() {
+            var _this3 = this;
+
+            var search_word = $('#search-item').val();
+            var fd = new FormData();
+            fd.append('search_word', search_word);
+            this.axios.post('http://localhost:8000/api/category/search', fd).then(function (response) {
+                _this3.categories = response.data;
+            });
         }
     }
 });
@@ -57911,7 +57928,27 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "card card-default m-b-20" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("h4", { staticClass: "main-color" }, [_vm._v("カテゴ一覧 検索")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-10" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-item" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchCategory()
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "row m-b-15 m-r-5" }, [
         _c(
@@ -58018,26 +58055,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-default m-b-20" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v("カテゴ一覧 検索")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-10" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "検索" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-2 text-right" }, [
-            _c(
-              "button",
-              { staticClass: "btn secondary-bg-color all-btn white" },
-              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-            )
-          ])
-        ])
+    return _c("div", { staticClass: "col-md-2 text-right" }, [
+      _c("button", { staticClass: "btn secondary-bg-color all-btn white" }, [
+        _c("i", { staticClass: "fas fa-search" }),
+        _vm._v(" 検索")
       ])
     ])
   }
@@ -68907,6 +68928,217 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(179)
+/* template */
+var __vue_template__ = __webpack_require__(180)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/VideoUpload.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-713d2816", Component.options)
+  } else {
+    hotAPI.reload("data-v-713d2816", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 179 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            type: 'video',
+            videos: []
+        };
+    },
+
+    methods: {
+        onFileSelected: function onFileSelected(event) {
+            this.file = event.target.files[0];
+        },
+
+
+        videoAdd: function videoAdd() {
+            var _this = this;
+
+            var file = document.getElementById("upload_file").files[0];
+            var pid = 1;
+            var Vname = file.name;
+            var Pname = Vname.slice(0, Vname.indexOf(".")); //get filename without extension
+            var Ptype = file.type;
+
+            var fd = new FormData();
+            fd.append('file', this.file);
+            fd.append('name', Vname);
+
+            axios.post('http://localhost:8000/api/customer/uploadvideo', fd).then(function (response) {
+                console.log(response);
+                $('#video_preview').append("<div class='col-md-6' id='video-area'><span onClick='closevideo()'>X</span><video src='upload/videos/" + Vname + "' controls></video></div>");
+            }).catch(function (error) {
+                console.log(error);
+                if (error.response.status == 422) {
+                    _this.errors = error.response.data.errors;
+                }
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card profile" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body scrolldiv2" }, [
+      _c("form", { staticClass: "col-md-12" }, [
+        _vm.type == "hospital"
+          ? _c("div", { staticClass: "col-md-12 pad-free" }, [_vm._m(1)])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "row", attrs: { id: "video_preview" } }),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("input", {
+            attrs: {
+              type: "file",
+              value: "Upload Video",
+              id: "upload_file",
+              name: "file"
+            },
+            on: { change: _vm.onFileSelected }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "span",
+              {
+                staticClass: "btn news-post-btn all-btn m-t-15",
+                on: {
+                  click: function($event) {
+                    return _vm.videoAdd()
+                  }
+                }
+              },
+              [_vm._v("Upload")]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h4", { staticClass: "col-md-12" }, [_vm._v("マイページ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("Upload Video"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-713d2816", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

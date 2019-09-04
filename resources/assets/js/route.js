@@ -33,6 +33,7 @@ import HospitalHistory from './components/HospitalHistory.vue';
 import NursingHistory from './components/NursingHistory.vue';
 import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
+import VideoUpload from './components/VideoUpload.vue';
 
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
@@ -240,4 +241,9 @@ export const routes = [
       path: '/nursing_profile',
       component: NursingProfile
      },
+    {
+      name: 'videoupload',
+      path: '/videoupload',
+      component: VideoUpload
+  }
 ];
