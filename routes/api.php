@@ -132,6 +132,9 @@ Route::get('job_details/{id}', 'JobDetailController@show');
 // Guest Hospital History
 Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
 
+// Guest Nursing History
+Route::get('nursing_history', 'CustomerProfileContoller@getNursingHistory');
+
 Route::group(['prefix' => 'medical'], function () {
     Route::post('add', 'MedicalController@add');
     Route::get('medicalacceptance', 'MedicalController@index');
