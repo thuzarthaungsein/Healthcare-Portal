@@ -295,7 +295,7 @@ export default {
             },
 
             specialFeAdd() {
-                $("#cooperate-medical").append('');
+                $("#special-feature-div").append('<div class="col-md-12"><input type="text" class="form-control" name="specialfeature[]"></div>');
             }
         }
 }
