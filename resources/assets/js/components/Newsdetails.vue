@@ -22,7 +22,7 @@
                                 </ol>
                         </nav>
                 </div>
-                <div class="row justify-content-md-center scroll2" style="height:677px;">
+                <div class="justify-content-md-center scrolldiv2" style="height:677px;">
                 <div class="col-md-12">                        
                         <div class="row m-lr-0 mb-3">
                                 <div class="col-md-12" >

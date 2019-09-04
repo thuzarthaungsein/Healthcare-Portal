@@ -163,6 +163,7 @@
                                         <label>特長<span class="error">*</span></label>
                                         <textarea name="feature" class="form-control"></textarea>
                                 </div>
+                                <hr class="hor-line m-t-30">
                                 <div class="form-group">
                                         <label>費用</label>
                                 </div>
@@ -172,33 +173,42 @@
 
                                         <div class="col-md-12 pad-free" id="methods"></div>
                                 </div>
+                                <hr class="hor-line m-t-30">
                                 <div class="form-group">
                                         <label>Medical Cooperate<span class="error">*</span></label>
                                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="cooperateAdd()">+</span>
-                                        <span class="m-l-10 float-right collapse-icon collapse-icon-down" title="Collapse All" @click="cooperateAdd()"><i class="fas fa-sort-down"></i></span>
-                                        <span class="m-l-10 float-right collapse-icon collapse-icon-up" title="Expand All" @click="cooperateAdd()"><i class="fas fa-sort-up"></i></span>
+                                        <!-- <span class="m-l-10 float-right collapse-icon collapse-icon-down" title="Collapse All" @click="cooperateAdd()"><i class="fas fa-sort-down"></i></span> -->
+                                        <!-- <span class="m-l-10 float-right collapse-icon collapse-icon-up" title="Expand All" @click="coMedicalCollapse()"><i class="fas fa-sort-up"></i></span> -->
 
-                                        <div class="col-md-12 pad-free toogle-div co-medical-toogle-div" id="cooperate-medical"></div>
+                                        <div class="col-md-12 pad-free" id="cooperate-medical"></div>
                                 </div>
+                                <hr class="hor-line m-t-30">
                                 <div class="form-group">
-                                        <label>Medical Acceptance<span class="error">*</span></label>
-                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="acceptanceList()">+</span>
-                                        <div class="col-md-12 m-t-20 accept-toggle-div toggle-div">
+                                        <div class="btn all-btn main-bg-color m-b-20" @click="acceptanceList()">Medical Acceptance</div>
+                                        <div class="col-md-12 accept-toggle-div toggle-div pad-free">
                                                 <label for="" class="m-r-15"><i class="fas fa-check green"></i> 受入れ可</label>
                                                 <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
                                                 <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
                                                 <div class="row">
-                                                        <div class="col-md-4 accept-box" v-for="medical in medical_acceptance" :key="medical.id">
-                                                                {{medical.name}}
-                                                                <div class="float-right">
-                                                                        <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-check green"></i></label>
-                                                                        <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-times red"></i></label>
-                                                                        <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-adjust blue"></i></label>
-                                                                </div>
-                                                                
+                                                        <div class="col-md-6" v-for="medical in medical_acceptance" :key="medical.id">
+                                                                <div class="col-md-12 accept-box">
+                                                                        {{medical.name}}
+                                                                        <div class="float-right">
+                                                                                <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-check green"></i></label>
+                                                                                <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-times red"></i></label>
+                                                                                <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                                        </div>    
+                                                                </div>                                                            
                                                         </div>
                                                 </div>
                                         </div>
+                                </div>
+                                <hr class="hor-line m-t-30">
+                                <div class="form-group">
+                                        <label>こだわりの特長<span class="error">*</span></label>
+                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
+
+                                        <div class="col-md-12 pad-free" id="special-features"></div>
                                 </div>
                         </div>
 
@@ -278,6 +288,14 @@ export default {
 
             acceptanceList() {
                 $(".accept-toggle-div").toggle('medium');
+            },
+
+            coMedicalCollapse() {
+                $(".co-medical-toogle-div").toggle('medium');
+            },
+
+            specialFeAdd() {
+                $("#cooperate-medical").append('');
             }
         }
 }
