@@ -52493,7 +52493,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 
 
 
-
 var routes = [{
   name: 'home',
   path: '/',
@@ -52629,14 +52628,6 @@ var routes = [{
   name: 'typelist',
   path: '/typelist',
   component: __WEBPACK_IMPORTED_MODULE_32__components_TypeList_vue___default.a
-}, {
-  name: 'ads',
-  path: '/ads',
-  component: advertisementlist
-}, {
-  name: 'editadvertisement',
-  path: '/editads',
-  component: editadvertisement
 }];
 
 /***/ }),

@@ -1,6 +1,5 @@
 import home from './components/home.vue';
 import Newsdetails from './components/Newsdetails.vue';
-
 import hospitalSearch from './components/hospitalSearch.vue';
 import JobApply from './components/JobApply.vue';
 import customerlist from './components/customerlist.vue';
@@ -34,7 +33,6 @@ import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 
 export const routes = [
-
       {
         name: 'home',
         path: '/',
@@ -206,14 +204,14 @@ export const routes = [
         component:typelist
       },
    
-    {
-        name: 'ads',
-        path: '/ads',
-        component: advertisementlist
-    },
-    {
-        name: 'editadvertisement',
-        path: '/editads',
-        component: editadvertisement
-    }
+    // {
+    //     name: 'ads',
+    //     path: '/ads',
+    //     component: advertisementlist
+    // },
+    // {
+    //     name: 'editadvertisement',
+    //     path: '/editads',
+    //     component: editadvertisement
+    // }
 ];
