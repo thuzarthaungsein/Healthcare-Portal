@@ -51,7 +51,7 @@ $('path').on("click", function(e) {
     }
 
     function closevideo() {
-       
+        alert('Are you sure to delete?');
         var file = document.getElementById("upload_file").files[0];
         var file_path = 'upload/videos/'+file.name;
 

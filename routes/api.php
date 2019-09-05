@@ -81,6 +81,7 @@ Route::group(['prefix' => 'facility'], function () {
     Route::get('edit/{id}', 'FacilityController@edit');
     Route::post('update/{id}', 'FacilityController@update');
     Route::delete('delete/{id}', 'FacilityController@destroy');
+    Route::post('search', 'FacilityController@search');
 });
 
 
@@ -118,6 +119,7 @@ Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
 Route::get('news_list', 'PostController@index');
+Route::post('news_list/search', 'PostController@search');
 
 
 Route::group(['prefix' => 'new'], function () {
