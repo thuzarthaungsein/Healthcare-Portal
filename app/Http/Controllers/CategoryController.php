@@ -54,6 +54,10 @@ class CategoryController extends Controller
     //add category
     public function add(Request $request)
     {
+        $request->validate([
+            'name' => 'required|unique:categories',
+      
+        ]);
 
         $category = new Category([
             'name' => $request->input('name'),
@@ -67,12 +71,17 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
+      
         $category = Category::find($id);
         return response()->json($category);
     }
 
     public function update($id, Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+      
+        ]);
         $category = Category::find($id);
         $category->update($request->all());
 
@@ -89,6 +98,19 @@ class CategoryController extends Controller
 
     {
         return view('categories.create');
+    }
+
+    public function search(Request $request) 
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+        
+        $search_categories = Category::query()
+                            ->where('name', 'LIKE', "%{$search_word}%") 
+                            ->get()
+                            ->toArray();
+        return $search_categories;
+        
     }
 
     // public function store(Request $request)

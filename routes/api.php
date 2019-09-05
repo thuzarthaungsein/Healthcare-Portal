@@ -40,13 +40,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('approve/{id}','registerController@approve');
-
+    // Route::get('authget','ProfileController@index');
+    
 });
 // login route api end
 
+Route::group(['prefix' => 'job'], function () {
+    Route::post('add', 'JobController@store');
+    Route::get('index', 'JobController@index');
+    Route::get('edit/{id}', 'JobController@edit');
+    Route::post('update/{id}', 'JobController@update');
+    Route::delete('delete/{id}', 'JobController@destroy');
+});
 
-
-
+Route::get('authget','ProfileController@index');
 
 
 Route::get('getReset','registerController@getReset');
@@ -74,26 +81,22 @@ Route::group(['prefix' => 'facility'], function () {
     Route::get('edit/{id}', 'FacilityController@edit');
     Route::post('update/{id}', 'FacilityController@update');
     Route::delete('delete/{id}', 'FacilityController@destroy');
+    Route::post('search', 'FacilityController@search');
 });
 
 
-Route::group(['prefix' => 'job'], function () {
-    Route::post('add', 'JobController@store');
-    Route::get('index', 'JobController@index');
-    Route::get('edit/{id}', 'JobController@edit');
-    Route::post('update/{id}', 'JobController@update');
-    Route::delete('delete/{id}', 'JobController@destroy');
-});
+
 
 Route::get('job_details', 'JobDetailController@index');
 
 Route::group(['prefix' => 'customer'], function () {
     Route::post('add', 'CustomerController@add');
+    Route::post('uploadvideo', 'CustomerController@uploadvideo');
+    Route::post('deletevideo', 'CustomerController@deletevideo');
     Route::get('edit/{id}', 'CustomerController@edit');
     Route::post('update/{id}','CustomerController@update');
     Route::delete('delete/{id}','CustomerController@destroy');
 });
-
 
 
 Route::group(['prefix' => 'category'], function () {
@@ -103,9 +106,9 @@ Route::group(['prefix' => 'category'], function () {
     Route::get('edit/{id}', 'CategoryController@edit');
     Route::post('update/{id}', 'CategoryController@update');
     Route::delete('delete/{id}', 'CategoryController@destroy');
+    Route::post('search', 'CategoryController@search');
 });
 
-Route::get('job_details', 'JobDetailController@index');
 // Home Page
 Route::get('home', 'HomeController@index');
 Route::get('posts/{cat_id}', 'HomeController@getPosts');
@@ -115,8 +118,8 @@ Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
-Route::get('jobs', 'JobController@index');
 Route::get('news_list', 'PostController@index');
+Route::post('news_list/search', 'PostController@search');
 
 
 Route::group(['prefix' => 'new'], function () {
@@ -151,5 +154,3 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::post('update/{id}', 'AdvertisementController@update');
     Route::delete('delete/{id}','AdvertisementController@destroy');
 });
-
-

@@ -41,6 +41,8 @@ class CreateNursingProfilesTable extends Migration
             $table->text('dementia')->nullable();
             $table->text('staff_system')->nullable();
             $table->text('special_features')->nullable();
+            $table->double('latitude',10,8)->nullable();
+            $table->double('longitude',10,8)->nullable();
             $table->timestamps();
         });
     }

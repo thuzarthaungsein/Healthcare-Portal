@@ -7,6 +7,7 @@
                             <li class="breadcrumb-item"><a href="../news/news_details.html"> 新しい詳細</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                             就職活動リスト</li>
+                         
                     </ol>
             </nav>
 
