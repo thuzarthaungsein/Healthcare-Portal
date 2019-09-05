@@ -68669,10 +68669,10 @@ var render = function() {
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-2" }, [
                       _c("img", {
-                        staticClass: "img-fluid",
+                        staticClass: "col-md-12",
                         attrs: {
                           src: "/upload/advertisement/" + ads.photo,
-                          alt: "ads"
+                          alt: "no_image"
                         }
                       })
                     ]),
