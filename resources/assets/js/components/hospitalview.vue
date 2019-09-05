@@ -38,17 +38,24 @@
                             
 
                             <div class="col-md-2  m-t-15">
+
+		
+
                                     
                                     <button class="btn btn-danger all-btn" @click="deletehospital(favourite.id)" >削除</button>
 
-                                     <button class="btn main-bg-color white all-btn m-t-30 form-check"><label class="form-check-label" for="check2">
-                                        <input type="checkbox" class="form-check-input" id="check2" name="" value="">予約
-                                            </label></button>
+                                        <button class="btn main-bg-color white all-btn m-t-30 form-check"><label class="form-check-label" for="check2">
+                                                <input type="checkbox" class="form-check-input" id="check2" name="acs" value="予約">予約
+                                        </label></button>
 
-                                            <button class="btn secondary-bg-color all-btn white m-t-30 form-check"><label class="form-check-label" for="check3">
-                                        <input type="checkbox" class="form-check-input" id="check3" style="margin-left:-14px;" name="" value=""> 書類請求
-                                            </label></button>
+                                        <button class="btn secondary-bg-color all-btn white m-t-30 form-check"><label class="form-check-label" for="check3">
+                                                    <input type="checkbox" class="form-check-input" id="check3" style="margin-left:-14px;" name="acs" value="書類請求"> 書類請求
+                                        </label></button>
 
+                                      <div class="m-t-22"> 
+                                        <input type="button" class="btn" @click='selectAll()' value="すべて選択" style="border:1px solid black;"/>
+                                        <input type="button" class="btn m-t-15" @click='UnSelectAll()' value="すべて選択解除" style="border:1px solid black;"/>
+                                      </div>
                                      
                             </div>
                             
@@ -138,13 +145,13 @@
                           <form class="col-md-12" style="border:1px solid #b5c1ce;padding:23px;border-radius:8px;">
                         <div class="form-group">
                                            <label>お名前:<span class="error">*</span></label>
-                                            <input type="text" class="form-control" placeholder="お名前を入力してください。" style="height:45px;width:89%;">
+                                            <input type="text" class="form-control" placeholder="お名前を入力してください。" style="height:45px;width:89%;" required>
                                         </div>
 
                                          <label>ふりがな:<span class="error">*</span></label>
                                         <div class="form-group">
                                             <!-- <label>題名:<span class="error">*</span></label> -->
-                                            <input type="text" class="form-control" placeholder="ふりがなを入力してください。" style="height:45px;width:89%;">
+                                            <input type="text" class="form-control" placeholder="ふりがなを入力してください。" style="height:45px;width:89%;" required>
                                         </div>
 
                                          <label class="m-t-30">ご住所:<span class="error">*</span></label>
@@ -155,68 +162,97 @@
                                                 <span class=""></span>
                                             </button>
 
-                                            <select name="" id="">
-                                                <option value="">東京都</option>
-                                                <option value="">茨城県</option>
-                                                <option value="">青森県</option>
-                                            </select>
+                        <select class="" id=""  aria-invalid="false" required>
+                            <option value="">選択してください</option>
+                        	<option value="1">東京都</option>
+                        	<option value="3">茨城県</option>
+                        	<option value="4">栃木県</option>
+                        	<option value="5">群馬県</option>
+                        	<option value="6">埼玉県</option>
+                        	<option value="7">千葉県</option>
+                        	<option value="8">神奈川県</option>
+                        	<option value="9">静岡県</option>
+                        	<option value="10">北海道</option>
+                        	<option value="11">青森県</option>
+                        	<option value="12">岩手県</option>
+                        	<option value="13">宮城県</option>
+                        	<option value="14">秋田県</option>
+                        	<option value="15">山形県</option>
+                        	<option value="16">福島県</option>
+                        	<option value="17">山梨県</option>
+                        	<option value="18">新潟県</option>
+                        	<option value="19">長野県</option>
+                        	<option value="20">富山県</option>
+                        	<option value="21">石川県</option>
+                        	<option value="22">福井県</option>
+                        	<option value="23">岐阜県</option>
+                        	<option value="24">愛知県</option>
+                        	<option value="25">三重県</option>
+                        	<option value="26">滋賀県</option>
+                        	<option value="27">京都府</option>
+                        	<option value="28">大阪府</option>
+                        	<option value="29">兵庫県</option>
+                        	<option value="30">奈良県</option>
+                        	<option value="31">和歌山県</option>
+                        	<option value="32">鳥取県</option>
+                        	<option value="33">島根県</option>
+                        	<option value="34">岡山県</option>
+                        	<option value="35">広島県</option>
+                        	<option value="36">山口県</option>
+                        	<option value="37">徳島県</option>
+                        	<option value="38">香川県</option>
+                        	<option value="39">愛媛県</option>
+                        	<option value="40">高知県</option>
+                        	<option value="41">福岡県</option>
+                        	<option value="42">佐賀県</option>
+                        	<option value="43">長崎県</option>
+                        	<option value="44">熊本県</option>
+                        	<option value="45">大分県</option>
+                        	<option value="46">宮崎県</option>
+                        	<option value="47">鹿児島県</option>
+                        	<option value="48">沖縄県</option>
+                        </select>
+
                                    
                                   
                                    
                                         </div><br>
 
                                         <label class="m-t-30">郵便番号:<span class="error">*</span></label>
+                                        <a href="https://www.post.japanpost.jp/zipcode/" target="blank">郵便番号検索</a>
                                         <div class="form-group">
                                             <!-- <label>題名:<span class="error">*</span></label> -->
-                                            <input type="text" class="form-control" placeholder="郵便番号を入力してください。" style="height:45px;width:89%;">
+                                            <input type="text" class="form-control" placeholder="郵便番号を入力してください。" style="height:45px;width:89%;" required>
                                         </div>
 
                                         <label class="m-t-30">電話番号:<span class="error">*</span></label>
                                         <div class="form-group">
                                             <!-- <label>題名:<span class="error">*</span></label> -->
-                                            <input type="text" class="form-control" placeholder="電話番号を入力してください。" style="height:45px;width:89%;">
+                                            <input type="text" class="form-control" placeholder="電話番号を入力してください。" style="height:45px;width:89%;" required>
                                         </div>
 
                                         <label class="m-t-30">メールアドレス:<span class="error">*</span></label>
                                         <div class="form-group">
                                             <!-- <label>題名:<span class="error">*</span></label> -->
-                                            <input type="text" class="form-control" placeholder="メールアドレスを入力してください。" style="height:45px;width:89%;">
+                                            <input type="text" class="form-control" placeholder="メールアドレスを入力してください。" style="height:45px;width:89%;" required>
                                         </div>
 
                                         <label class="m-t-22">プレゼントのご希望:<span class="error">*</span></label>
-                                        <div class="form-group">
+                                        <div class="form-group m-b-30">
                                             <div class="form-check">
                                         <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" value="">「早分かり用語集」プレゼントを希望する
+                                            <input type="checkbox" class="form-check-input" value="" required>「早分かり用語集」プレゼントを希望する
                                         </label>
                                     </div>
                                         </div>
-                    </form>
-                    </div>
 
-                    <!-- <div class="col-md-2">
-                          
-                    </div> -->
-                </div>
-                 <h2 style="text-align:left;text-decoration:none;" class="am-l-10">入居対象者様について</h2><span class="error am-l-10">※お差しつかえがなければご入力ください。</span>
-                 <div class="row"  style="padding:23px;">
-                   
-                    <!-- <div class="col-md-2">
-                       <p class="m-t-15">お名前:<span class="error">*</span></p>
-
-                       <p class="m-t-15">お名前:<span class="error">*</span></p>
-
-                        <p class="m-t-15">お名前:<span class="error">*</span></p>
-
-                    </div> -->
-
-                    <div class="col-md-10">
-                          <form class="col-md-12" style="border:1px solid #b5c1ce;padding:23px;border-radius:8px;">
-                        <div class="form-group">
-                <!--select-->
-                    <label class="m-t-30">入居対象者様とのご関係:<span class="error">*</span></label>
+                                        <hr>
+                         <h2 style="text-align:left;text-decoration:none;" class="m-t-30">入居対象者様について</h2><span class="error">※お差しつかえがなければご入力ください。</span>
+                                <div class="form-group">
+                        <!--select-->
+                                    <label class="m-t-30">入居対象者様とのご関係:<span class="error">*</span></label>
                                          <div class="btn-group">
-                                             <select name="" id="">
+                                             <select name="" id="" required>
                                                <option value="">選択してください</option>
                                                 <option value="1">本人</option>
                                                 <option value="2">家族</option>
@@ -229,9 +265,11 @@
                                         </div><br>
                                     <!--select-->
 
+                                    
+
 
                                            <label class="m-t-22">お名前:<span class="error">*</span></label>
-                                            <input type="text" class="form-control" placeholder="お名前を入力してください。" style="height:45px;width:29%;">
+                                            <input type="text" class="form-control" placeholder="お名前を入力してください。" style="height:45px;width:29%;" required>
                                         </div>
 
                                          <!-- radio -->
@@ -244,9 +282,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td width="90px"> <label style="margin-top:10px;margin-left:-21px;" for="sex">性別:<span class="error">*</span></label></td>
-                                                    <td width="70px"><input type="radio" class="form-check-input" id="sex" name="sex" value="男性">男性</td>
-                                                     <td width="70px"><input type="radio" class="form-check-input" id="sex" name="sex" value="女性">女性</td>
-                                                      <td width="50px"><input type="radio" class="form-check-input" id="sex" name="sex" value="夫婦">夫婦</td>
+                                                    <td width="70px"><input type="radio" class="form-check-input" id="sex" name="sex" value="男性" required>男性</td>
+                                                     <td width="70px"><input type="radio" class="form-check-input" id="sex" name="sex" value="女性" required>女性</td>
+                                                      <td width="50px"><input type="radio" class="form-check-input" id="sex" name="sex" value="夫婦" required>夫婦</td>
                                                  </tr>
                                                 
                                             </table>
@@ -259,7 +297,7 @@
                     <label class="m-t-22">年齢:<span class="error">*</span></label>
                                          <div class="btn-group">
 
-                                            <select class="mR10" style="margin-left:17px;">
+                                            <select class="mR10" style="margin-left:17px;" required>
                         <option value="">選択してください</option>
                         <optgroup label="50代">
                             <option value="50">50</option>
@@ -338,9 +376,9 @@
                                         </div><br>
                                     <!--select-->
                              <!--select-->
-                    <label class="m-t-22">介護度:<span class="error">*</span></label>
+                    <label class="m-t-22 select-box">介護度:<span class="error">*</span></label>
                                 <div class="btn-group">
-                                    <select name="" id="">
+                                    <select id="select-box1" class="select" required>
                                         <option value="">選択してください</option>
                                         <option value="1">自立</option>
                                         <option value="2">要支援</option>
@@ -361,9 +399,9 @@
                                             <table>
                                                 <tr>
                                                     <td width="90px"> <label style="margin-top:10px;margin-left:-21px;" for="health">認知症:<span class="error">*</span></label></td>
-                                                    <td width="70px"><input type="radio" class="form-check-input" id="" name="health" value="あり">あり</td>
-                                                    <td width="70px"><input type="radio" class="form-check-input" id="" name="health" value="なし">なし</td>
-                                                    <td width="90px"><input type="radio" class="form-check-input" id="" name="health" value="わからない">わからない</td>
+                                                    <td width="70px"><input type="radio" class="form-check-input" id="" name="health" value="あり" required>あり</td>
+                                                    <td width="70px"><input type="radio" class="form-check-input" id="" name="health" value="なし" required>なし</td>
+                                                    <td width="90px"><input type="radio" class="form-check-input" id="" name="health" value="わからない" required>わからない</td>
                                                 </tr>
                                             </table>
                                          
@@ -379,11 +417,11 @@
                                             <table>
                                                 <tr>
                                                     <td width="120px"> <label style="margin-top:10px;margin-left:-21px;" for="time">入居希望時期:<span class="error">*</span></label></td>
-                                                    <td width="125px"><input type="radio" class="" id="radio1" name="time" value="できるだけ早く">できるだけ早く</td>
-                                                    <td width="100px"><input type="radio" class="" id="radio2" name="time" value="ヶ月以内">ヶ月以内</td>
-                                                    <td width="100px"><input type="radio" class="" id="radio3" name="time" value="半年以内">半年以内</td>
-                                                    <td width="100px"><input type="radio" class="" id="radio4" name="time" value="1年以内">1年以内</td>
-                                                    <td width="100px"><input type="radio" class="form-check-input" id="radio1" name="time" value="未定">未定</td>
+                                                    <td width="125px"><input type="radio" class="" id="radio1" name="time" value="できるだけ早く" required>できるだけ早く</td>
+                                                    <td width="100px"><input type="radio" class="" id="radio2" name="time" value="ヶ月以内" required>ヶ月以内</td>
+                                                    <td width="100px"><input type="radio" class="" id="radio3" name="time" value="半年以内" required>半年以内</td>
+                                                    <td width="100px"><input type="radio" class="" id="radio4" name="time" value="1年以内" required>1年以内</td>
+                                                    <td width="100px"><input type="radio" class="form-check-input" id="radio1" name="time" value="未定" required>未定</td>
                                                 </tr>
                                             </table>
                                          
@@ -392,24 +430,25 @@
                                 </div>
                             <!-- radio -->
                             <label class="m-t-22">ご要望や、お困りごと、その他お問い合わせ:<span class="error">*</span></label><br>
-                            <textarea name="" id="" cols="34" rows="15"></textarea>
+                            <textarea name="" id="" cols="34" rows="30" required></textarea>
+
+
+                             <div class="" style="text-align:center">
+                                        <button class="btn news-post-btn-blue"> 同意して進む</button>
+                                    </div>
                     </form>
+                 
                     </div>
 
-                   
+                    <!-- <div class="col-md-2">
+                          
+                    </div> -->
                 </div>
+                
+    
             
             
-<h1>JavaScript - Select/Unselect (Check/Uncheck) all CheckBoxes on Button Click.</h1>
-	<big>Select your favourite accessories: </big><br>
-	<input type="checkbox" name="acs" value="Mobile">Mobile<br>
-	<input type="checkbox" name="acs" value="Tab">Tab<br>
-	<input type="checkbox" name="acs" value="Laptop">Laptop<br>
-	<input type="checkbox" name="acs" value="IPod">IPod<br>
-	<p>
-		<input type="button" onclick='selectAll()' value="Select All"/>
-		<input type="button" onclick='UnSelectAll()' value="Unselect All"/>
-	</p>
+
 
             </div>
             
@@ -437,6 +476,23 @@ export default {
         },
 
          methods: {
+
+              selectAll(){
+				var items=document.getElementsByName('acs');
+				for(var i=0; i<items.length; i++){
+					if(items[i].type=='checkbox')
+						items[i].checked=true;
+				}
+			},
+			
+			UnSelectAll(){
+				var items=document.getElementsByName('acs');
+				for(var i=0; i<items.length; i++){
+					if(items[i].type=='checkbox')
+						items[i].checked=false;
+				}
+			},		
+            
             deletehospital(id) {
                 if(confirm("Are you sure you want to delete?"))
                 {

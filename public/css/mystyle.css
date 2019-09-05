@@ -752,6 +752,13 @@ p {
     position: relative;
     left: 15px;
 }
+
+.news-post-btn-blue {
+    background-color: #007cdb !important;
+    color: white !important;
+    position: relative;
+    left: 15px;
+}
 /* End Create News */
 
 
@@ -1153,6 +1160,7 @@ div.b{
 .m-r-10{
     margin-right: 10px;
 }
+
 
 .main-color {
     color: #333;
@@ -1739,3 +1747,5 @@ ul.main-tab li:after{
         margin-left:20px;
     }
 /*view*/
+
+
