@@ -5,23 +5,24 @@
            <div class="card card-default m-b-20">
 
             <div class="card-body">
-                    <h4 class="main-color">ニュース記事を検索</h4>
+                    <h4 class="main-color"> 広告検索</h4>
                     <div class="row">
                         <div class="col-md-10">
                             <input type="text" class="form-control" placeholder="検索">
                         </div>
                         <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white">検索</button>
+                            <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
                         </div>
                     </div>
             </div>
         </div>
-    <div class="row m-b-15">
-                        <div class="col-md-12">
-                        <router-link to="/advertisement" class="float-right" style="color: blue;">Create Advertisement</router-link>
-                        </div>
+    <div class="row m-b-15 m-r-5">
+        <div class="col-md-12">
+        <router-link to="/advertisement" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle"></i> 広告を作成する</router-link>
+        </div>
     </div>
-    <div class="scrolldiv col-12">
+    <div class="scrolldiv col-12 border-style">
+        <h5 class="main-color header">広告</h5>
             <div v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
             <div class="card-body news-post">
                  <div class="row">
@@ -29,16 +30,15 @@
                         <img :src="'/upload/advertisement/'+ ads.photo" class="col-md-12" alt="no_image">
 
                     </div>
-                    <div class="col-md-10">
-                        <div class="col-sm-8 pad-free mb-2">
-                            <a><strong>Title    :</strong>{{ads.title}}</a><br/>
-                            <a><strong>Description :</strong>{{ads.description}}</a><br/>
-                        </div>
+                    <div class="row col-md-10">
+                        <div class="col-md-2 max-width16"><strong>Title :</strong></div><div class="col-md-10">{{ads.title}}</div>
+                        <div class="col-md-2 max-width16"><strong>Description :</strong></div><div class="col-md-10">{{ads.description}}</div>
+                        
 
-                        <div class="row">
-                            <div class="col-sm-5 pl-3">
-                                 <router-link :to="{name: 'editadvertisement', params: { id: ads.id }}" class="btn main-bg-color white all-btn">Edit </router-link>
-                                <button class="btn btn-danger  all-btn" @click="deleteAds(ads.id)">Delete</button>
+                        <div class="row col-12 mt-2">
+                            <div class="col-4 col-offset-4 pl-3">
+                                 <router-link :to="{name: 'editadvertisement', params: { id: ads.id }}" class="btn edit-borderbtn">編集</router-link>
+                                <button class="btn delete-borderbtn" @click="deleteAds(ads.id)">削除</button>
 
                             </div>
                         </div>

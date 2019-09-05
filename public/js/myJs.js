@@ -50,6 +50,19 @@ $('path').on("click", function(e) {
         $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
     }
 
+    function closevideo() {
+       
+        var file = document.getElementById("upload_file").files[0];
+        var file_path = 'upload/videos/'+file.name;
 
-
-
+        var url = "http://localhost:8000/api/customer/deletevideo";
+        $.ajax({
+            type:'post',
+            data:{"fiel_path":file_path},
+            url:url,
+            success:function(data){
+               $('#video-area').remove();
+            }
+        });
+        
+    }

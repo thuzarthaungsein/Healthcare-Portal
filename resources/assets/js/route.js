@@ -29,10 +29,16 @@ import medicalacceptancelist from './components/medicalacceptancelist.vue';
 import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
 import HospitalHistory from './components/HospitalHistory.vue';
+import NursingHistory from './components/NursingHistory.vue';
+import HospitalProfile from './components/HospitalProfile.vue';
+import NursingProfile from './components/NursingProfile.vue';
+import VideoUpload from './components/VideoUpload.vue';
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
-// import advertisementlist from './components/advertisementlist.vue';
-// import editadvertisement from './components/editadvertisement.vue';
+import advertisementlist from './components/advertisementlist.vue';
+import editadvertisement from './components/editadvertisement.vue';
+import comment from './components/Comment.vue';
+
 export const routes = [
       {
         name: 'home',
@@ -166,7 +172,6 @@ export const routes = [
       path: '/profilepublish',
       component: ProfilePublish
     },
-
       {
       name: 'hospital_history',
       path: '/hospital_history',
@@ -209,15 +214,40 @@ export const routes = [
         path:'/typelist',
         component:typelist
       },
-   
-    // {
-    //     name: 'ads',
-    //     path: '/ads',
-    //     component: advertisementlist
-    // },
-    // {
-    //     name: 'editadvertisement',
-    //     path: '/editads',
-    //     component: editadvertisement
-    // }
+
+     {
+         name: 'ads',
+         path: '/ads',
+         component: advertisementlist
+     },
+     {
+         name: 'editadvertisement',
+         path: '/editads',
+        component: editadvertisement
+    },
+    {
+      name: 'nursing_history',
+      path: '/nursing_history',
+      component: NursingHistory
+    },
+    {
+      name: 'hospital_profile',
+      path: '/hospital_profile',
+      component: HospitalProfile
+     },
+    {
+      name: 'nursing_profile',
+      path: '/nursing_profile',
+      component: NursingProfile
+     },
+      {
+        name: 'videoupload',
+        path: '/videoupload',
+        component: VideoUpload
+      },
+      {
+        name: 'comment',
+        path: '/comment',
+        component: comment
+      }
 ];
