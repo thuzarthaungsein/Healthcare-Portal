@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
        
-        $news_list = Post::all()->toArray();
+       $news_list = Post::all()->toArray();
        return response()->json(array_reverse($news_list));
 
     }
@@ -106,7 +106,7 @@ class PostController extends Controller
             'main_point' => $request->input('main_point'),
             'body' => $request->input('body'),
             'photo' => $request->image->getClientOriginalName(),
-            'category_id' =>1,
+            'category_id' =>$request->input('category_id'),
             'user_id' => 1,
             'recordstatus' => 1
         );

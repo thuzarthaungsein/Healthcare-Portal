@@ -40,7 +40,7 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
-        console.log("close");
+        this.files.remove();
     }
 
     function showImg(c,event) {

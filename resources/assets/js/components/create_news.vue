@@ -14,11 +14,11 @@
                                     <form @submit.prevent="add" class="col-md-12">
                                         <div class="form-group">
                                             <label>題名:<span class="error">*</span></label>
-                                            <input type="text" class="form-control" placeholder="題名を入力してください。" v-model="news.title">
+                                            <input type="text" class="form-control" placeholder="題名を入力してください。" v-model="news.title" required>
                                         </div>
                                         <div class="form-group">
                                             <label>主な情報:<span class="error">*</span></label>
-                                            <input type="text" class="form-control"  placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point">
+                                            <input type="text" class="form-control"  placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point" required>
                                         </div>
                                         <div class="btn-group">
                                             <button class="btn main-bg-color white all-btn" type="button">
@@ -29,8 +29,8 @@
                                             <!-- <div  v-for="category in categories" :key="category.id">
                                                <label> {{category.name}}</label>
                                              </div> -->
-                                            <select v-model="category_id" class="form-control" @change='getstates()'>
-                                                <!-- <option v-bind:value="-1">選択してください。</option> -->
+                                            <select v-model="category_id" id="categories" class="form-control" @change='getstates()' required>
+                                                <option v-bind:value="-1">選択してください。</option>
                                              <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                                     {{category.name}}
                                                 </option>
@@ -39,7 +39,7 @@
                                         <div class="form-group">
                                             <br>
                                             <label>内容:<span class="error">*</span></label>
-                                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
+                                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body" required></textarea>
                                         </div>
                                         <div class="col-sm-2 imgUp">
                                             <br>
@@ -47,14 +47,19 @@
                                             <br>
                                             <label>
                                                     写真/画像を投稿する
-                                                 <input type="file" accept="image/*" @change ="onFileSelected" id="file" ref="file">
+                                                 <!-- <input type="file" accept="image/*" @change ="onFileSelected" id="file" ref="file"> -->
+                                                 <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();">
+
+                                        <div class="col-md-12">
+                                                <div class="row" id="image_preview"></div>
+                                        </div>
                                             </label>
                                             <!-- <div class="imagePreview"></div> -->
                                         </div>
                                     <div class="row">
                                             <br>
+                                            <router-link :to="{name: 'news_list'}" class="btn btn-warning">戻る</router-link>
                                             <button class="btn news-post-btn all-btn" type="submit"> ニュースを投稿する</button>
-                                            <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
                                     </div>
                                     </form>
                                 </div>
@@ -68,7 +73,7 @@
 export default {
     data(){
         return{
-            category_id: '',
+            category_id: '-1',
              errors: [],
             news:{
                 title: '',
@@ -79,8 +84,7 @@ export default {
                 recordstatus: '',
                 image: ''
             },
-            // User: -1,
-            // Userdrp: "選択してください。",
+            Userdrp: "選択してください。",
               categories:{
                   id: '',
                   name: ''
@@ -95,6 +99,7 @@ export default {
               .then(function (response) {
 
                  this.categories = response.data;
+                console.log('cat',this.categories)
 
               }.bind(this));
 
@@ -102,27 +107,32 @@ export default {
 
 
     methods: {
-         onFileSelected(event){
-            this.news.image = event.target.files[0]
+        //  onFileSelected(event){
+        //     this.news.image = event.target.files[0]
+        // },
+        preview_image() 
+                {   
+                        $('#image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-news-img'></div>");
+                        this.news.image = event.target.files[0]
+                },
+        add(){
+            let fData = new FormData();
+            fData.append('image',this.news.image)
+            fData.append('title',this.news.title)
+            fData.append('main_point',this.news.main_point)
+            fData.append('body',this.news.body)
+            fData.append('category_id',this.news.category_id)
+            axios.post('http://localhost:8000/api/new/add', fData)
+                        .then(response => {
+
+                            this.$router.push({name: 'news_list'})
+                            console.log(response);
+                            alert('Successfully Created')
+                        })
+                        .catch(error => console.log(error))
+                        .finally(() => this.loading = false)
+
         },
-    add(){
-         let fData = new FormData();
-        fData.append('image',this.news.image)
-        fData.append('title',this.news.title)
-        fData.append('main_point',this.news.main_point)
-        fData.append('body',this.news.body)
-        fData.append('category_id',this.news.category_id)
-        axios.post('http://localhost:8000/api/new/add', fData)
-                    .then(response => {
-
-                        this.$router.push({name: 'news_list'})
-                         console.log(response);
-                         alert('Successfully Created')
-                    })
-                    .catch(error => console.log(error))
-                    .finally(() => this.loading = false)
-
-       },
        getstates: function(){
 
            this.news.category_id = this.category_id;
