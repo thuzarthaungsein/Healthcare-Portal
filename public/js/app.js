@@ -55125,45 +55125,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        data: function data() {
-                return {
-                        errors: [],
+    data: function data() {
+        return {
+            errors: [],
 
-                        jobApply: {
-                                name: '',
-                                birthday: '',
-                                address: '',
-                                phone: '',
-                                email: '',
-                                work_time: '',
-                                fields: [{
-                                        skills: [],
-                                        id: ''
-                                }]
-                        }
+            jobApply: {
+                name: '',
+                birthday: '',
+                address: '',
+                phone: '',
+                email: '',
+                work_time: '',
+                fields: [{
+                    skills: [],
+                    id: ''
+                }]
+            }
 
-                };
-        },
-        created: function created() {
-                var _this = this;
+        };
+    },
+    created: function created() {
+        var _this = this;
 
-                this.axios.get('http://localhost:8000/api/getskill').then(function (response) {
-                        _this.jobApply.fields = response.data;
-                });
-        },
+        this.axios.get('http://localhost:8000/api/getskill').then(function (response) {
+            _this.jobApply.fields = response.data;
+        });
+    },
 
-        methods: {
-                apply: function apply() {
-                        var _this2 = this;
+    methods: {
+        apply: function apply() {
+            var _this2 = this;
 
-                        this.axios.post('http://localhost:8000/api/jobapply', this.jobApply).then(function (response) {
-                                alert('Successful Apply');
-                                console.log(response);
-                                //console.log(this.jobApply.toString());
-                                _this2.jobApply = response.data;
-                        });
-                }
+            this.axios.post('http://localhost:8000/api/jobapply', this.jobApply).then(function (response) {
+                alert('Successful Apply');
+                console.log(response);
+                //console.log(this.jobApply.toString());
+                _this2.jobApply = response.data;
+            });
         }
+    }
 });
 
 /***/ }),
@@ -55625,6 +55625,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -55686,30 +55687,30 @@ var render = function() {
               [
                 _c("div", { staticClass: "card-body news-post" }, [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(1, true),
+                    _c("div", { staticClass: "col-md-2" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "/images/" + customer.logo, alt: "cust" }
+                      })
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row col-md-10" }, [
-                      _vm._m(2, true),
+                      _vm._m(1, true),
                       _c("div", { staticClass: "col-md-10" }, [
                         _vm._v(_vm._s(customer.name))
                       ]),
                       _vm._v(" "),
-                      _vm._m(3, true),
+                      _vm._m(2, true),
                       _c("div", { staticClass: "col-md-10" }, [
                         _vm._v(_vm._s(customer.email))
                       ]),
                       _vm._v(" "),
-                      _vm._m(4, true),
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _vm._v(_vm._s(customer.logo))
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(5, true),
+                      _vm._m(3, true),
                       _c("div", { staticClass: "col-md-10" }, [
                         _vm._v(_vm._s(customer.phone))
                       ]),
                       _vm._v(" "),
-                      _vm._m(6, true),
+                      _vm._m(4, true),
                       _c("div", { staticClass: "col-md-10" }, [
                         _vm._v(_vm._s(customer.address))
                       ]),
@@ -55796,17 +55797,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "/images/hospitalpage.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 max-width12" }, [
       _c("strong", [_vm._v("Name:")])
     ])
@@ -55817,14 +55807,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 max-width12" }, [
       _c("strong", [_vm._v("Email:")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 max-width12" }, [
-      _c("strong", [_vm._v("Logo:")])
     ])
   },
   function() {
@@ -60656,49 +60638,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        data: function data() {
-                return {
+    data: function data() {
+        return {
 
-                        errors: [],
-                        customer: {
-                                name: '',
-                                email: '',
-                                password: '',
-                                phone: '',
-                                address: '',
-                                user_id: '',
-                                type_id: '',
-                                recordstatus: '',
-                                logo: ''
+            errors: [],
+            customer: {
+                name: '',
+                email: '',
+                password: '',
+                phone: '',
+                address: '',
+                user_id: '',
+                type_id: '',
+                recordstatus: '',
+                logo: ''
 
-                        }
-                };
+            }
+        };
+    },
+
+
+    methods: {
+        onFileSelected: function onFileSelected(event) {
+            this.customer.logo = event.target.files[0];
         },
+        add: function add() {
+            var _this = this;
 
+            var fd = new FormData();
+            fd.append('logo', this.customer.logo);
+            fd.append('name', this.customer.name);
+            fd.append('email', this.customer.email);
+            fd.append('password', this.customer.password);
+            fd.append('phone', this.customer.phone);
+            fd.append('address', this.customer.address);
 
-        methods: {
-                onFileSelected: function onFileSelected(event) {
-                        this.customer.logo = event.target.files[0];
-                },
-                add: function add() {
-                        var _this = this;
-
-                        var fd = new FormData();
-                        fd.append('logo', this.customer.logo);
-                        fd.append('name', this.customer.name);
-                        fd.append('email', this.customer.email);
-                        fd.append('password', this.customer.password);
-                        fd.append('phone', this.customer.phone);
-                        fd.append('address', this.customer.address);
-
-                        axios.post('http://localhost:8000/api/customer/add', fd).then(function (response) {
-                                console.log(response);
-                                alert('Successfully Created');
-                                console.log(response);
-                                _this.$router.push({ name: '/' });
-                        });
-                }
+            axios.post('http://localhost:8000/api/customer/add', fd).then(function (response) {
+                console.log(response);
+                alert('Successfully Created');
+                console.log(response);
+                _this.$router.push({ name: '/' });
+            });
         }
+    }
 
 });
 
@@ -65075,7 +65057,7 @@ module.exports = Component.exports
 jQuery(document).ready(function ($) {
 
     // $('a[href*=#]:not([href=#])').click(function() {
-    // 	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+    // 	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
     // 		|| location.hostname == this.hostname) {
 
     // 		var target = $(this.hash);
@@ -68621,30 +68603,6 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-<<<<<<< HEAD
-        { staticClass: "scrolldiv col-12" },
-        _vm._l(_vm.advertisements, function(ads) {
-          return _c(
-            "div",
-            { key: ads.id, staticClass: "card card-default m-b-20" },
-            [
-              _c("div", { staticClass: "card-body news-post" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-2" }, [
-                    _c("img", {
-                      staticClass: "col-md-12",
-                      attrs: {
-                        src: "/upload/advertisement/" + ads.photo,
-                        alt: "no_image"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-10" }, [
-                    _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
-                      _c("a", [
-                        _c("strong", [_vm._v("Title    :")]),
-=======
         { staticClass: "scrolldiv col-12 border-style" },
         [
           _c("h5", { staticClass: "main-color header" }, [_vm._v("広告")]),
@@ -68669,7 +68627,6 @@ var render = function() {
                     _c("div", { staticClass: "row col-md-10" }, [
                       _vm._m(1, true),
                       _c("div", { staticClass: "col-md-10" }, [
->>>>>>> 7157bdf4bc371856bd05a13f59282aea5c2af74d
                         _vm._v(_vm._s(ads.title))
                       ]),
                       _vm._v(" "),

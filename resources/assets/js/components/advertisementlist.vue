@@ -27,17 +27,13 @@
             <div class="card-body news-post">
                  <div class="row">
                     <div class="col-md-2" >
-<<<<<<< HEAD
-                        <img :src="'/upload/advertisement/'+ ads.photo" class="col-md-12" alt="no_image">
-=======
                         <img :src="'/upload/advertisement/'+ ads.photo" class="img-fluid" alt="ads">
->>>>>>> 7157bdf4bc371856bd05a13f59282aea5c2af74d
 
                     </div>
                     <div class="row col-md-10">
                         <div class="col-md-2 max-width16"><strong>Title :</strong></div><div class="col-md-10">{{ads.title}}</div>
                         <div class="col-md-2 max-width16"><strong>Description :</strong></div><div class="col-md-10">{{ads.description}}</div>
-                        
+
 
                         <div class="row col-12 mt-2">
                             <div class="col-4 col-offset-4 pl-3">
