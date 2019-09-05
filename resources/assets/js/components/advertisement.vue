@@ -1,68 +1,55 @@
-<template>
- <div class="container">
-      <div class="row">
-          <div class="col-sm-12 card text-dark">
-                    <div class="text-center">
-                        <h4 style="padding-top: 20px;" class="header"> Advertisements </h4>
-                    </div>
-                    <div class="card-body ">
+<template> 
+    <div class="row">
+        <div class="col-12">
+            <div class="card">                    
+                    <div class="card-body">                        
                         <div class="row">
-                                <div class="col-sm-10">
-                                    <form @submit.prevent ="add" class="m-t-16">
-                                            <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                    <label for="title"><strong>Title :</strong></label>
-                                                </div>
-                                                <div class="col-sm-10">
-                                                     <input type="title" class="form-control box" id="title"  name="title" v-model="ads.title" required>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                    <label for="description"><strong>Description :</strong></label>
-                                                </div>
-                                                <div class="col-sm-10">
-                                                    <textarea name="description" class="form-control" cols="50" rows="5" v-model="ads.description"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                        <label for ="location" ><strong> Location :</strong>  </label>
-                                                </div>
-                                                 <div class="col-sm-9">
-                                                  <label> <input type = "checkbox" value ="topbar"  name="top_bar" v-model="ads.location" > <strong>Top Bar </strong> (200 円)</label><br/>
-                                                  <label> <input type = "checkbox"  value ="sidebar"  name="side_bar" v-model="ads.location"><strong> Side Bar </strong>(300 円) </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                        <label for ="photo" ><strong> Photo/Image :</strong>  </label>
-                                                </div>
-                                                <div class="custom-file col-sm-10">
-                                                        <input type="file" id="upload" accept="image/*" @change ="uploadImage" >
-                                                        <!-- <label class="" for="file">No file chosen</label> -->
-                                                </div>
-                                                 <div class="col-md-12" id = "par">
-                                                    <div class="row image_preview" ></div>
-                                                 </div>
+                            <div class="col-12">
+                                <h4 class="page-header header"> Advertisements </h4>
+                            </div>
+                            <div class="col-12">
+                                <form @submit.prevent ="add">
+                                    <div class="form-group">
+                                      
+                                            <label for="title"><strong>Title :</strong></label>
+                                        
+                                                <input type="title" class="form-control box" id="title"  name="title" v-model="ads.title" required>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                            <label for="description"><strong>Description :</strong></label>
+                                       
+                                            <textarea name="description" class="form-control" cols="50" rows="5" v-model="ads.description"></textarea>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label for ="location" ><strong> Location :</strong>  </label><br>
+                                       
+                                            <label> <input type = "checkbox" value ="topbar"  name="top_bar" v-model="ads.location" > <strong>Top Bar </strong> (200 円)</label><br/>
+                                            <label> <input type = "checkbox"  value ="sidebar"  name="side_bar" v-model="ads.location"><strong> Side Bar </strong>(300 円) </label>
+                                        
+                                    </div>
+                                    <div class="form-group">                                        
+                                        <label for ="photo" ><strong> Photo/Image :</strong>  </label><br>
+                                        <input type="file" id="upload" accept="image/*" @change ="uploadImage" >
+                                            <!-- <label class="" for="file">No file chosen</label> -->                                       
+                                        <div class="col-md-12" id = "par">
+                                            <div class="row image_preview" ></div>
                                         </div>
-                                            <div class="form-group ">
-                                        <div class="form-group row">
-                                            <div class="col-1 pad-free">
-                                                <button class="btn news-post-btn">Create</button>
-                                            </div>
-                                            <div class="col-1">
-                                                <router-link class="btn btn-warning" to="/ads" > Cancel </router-link>
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <div class="form-group">                                       
+                                        <router-link class="btn btn-danger all-btn" to="/ads" > Cancel </router-link>
+                                        <router-link class="btn news-post-btn all-btn" to="/ads" > create </router-link>                                            
                                     </div>
                                     </form>
                                 </div>
                         </div>
                    </div>
                 </div>
-             </div>
-         </div>
+        </div>
+          
+    </div>
 </template>
 
 <script>
