@@ -27,8 +27,8 @@ class CreateHospitalProfilesTable extends Migration
             $table->text('website')->nullable();
             $table->text('special_features')->nullable();
             $table->text('congestion')->nullable();
-            $table->double('latitude',8,10)->nullable();
-            $table->double('longitude',8,10)->nullable();
+            $table->double('latitude',10,8)->nullable();
+            $table->double('longitude',10,8)->nullable();
             $table->timestamps();
         });
     }
