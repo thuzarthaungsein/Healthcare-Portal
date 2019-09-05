@@ -40,6 +40,9 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
+        var image_x = document.getElementById('x-image');
+        image_x.parentNode.removeChild(image_x);
+        document.getElementById('showimage').style.display = 'block';
         console.log("close");
     }
 
@@ -73,3 +76,47 @@ $('path').on("click", function(e) {
         label.find(".label-desc").html(selection);
           
       });  
+    function closevideo() {
+       
+        var file = document.getElementById("upload_file").files[0];
+        var file_path = 'upload/videos/'+file.name;
+
+        var url = "http://localhost:8000/api/customer/deletevideo";
+        $.ajax({
+            type:'post',
+            data:{"fiel_path":file_path},
+            url:url,
+            success:function(data){
+               $('#video-area').remove();
+            }
+        });
+        
+    }
+/*select check
+
+*/
+$(document).ready(function(){
+    $('#select_all').on('click',function(){
+        if(this.checked){
+            $('.checkbox').each(function(){
+                this.checked = true;
+            });
+        }else{
+             $('.checkbox').each(function(){
+                this.checked = false;
+            });
+        }
+    });
+    
+    $('.checkbox').on('click',function(){
+        if($('.checkbox:checked').length == $('.checkbox').length){
+            $('#select_all').prop('checked',true);
+        }else{
+            $('#select_all').prop('checked',false);
+        }
+    });
+});
+
+/*select check
+
+*/

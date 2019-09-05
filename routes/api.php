@@ -89,11 +89,12 @@ Route::get('job_details', 'JobDetailController@index');
 
 Route::group(['prefix' => 'customer'], function () {
     Route::post('add', 'CustomerController@add');
+    Route::post('uploadvideo', 'CustomerController@uploadvideo');
+    Route::post('deletevideo', 'CustomerController@deletevideo');
     Route::get('edit/{id}', 'CustomerController@edit');
     Route::post('update/{id}','CustomerController@update');
     Route::delete('delete/{id}','CustomerController@destroy');
 });
-
 
 
 Route::group(['prefix' => 'category'], function () {
@@ -103,6 +104,7 @@ Route::group(['prefix' => 'category'], function () {
     Route::get('edit/{id}', 'CategoryController@edit');
     Route::post('update/{id}', 'CategoryController@update');
     Route::delete('delete/{id}', 'CategoryController@destroy');
+    Route::post('search', 'CategoryController@search');
 });
 
 Route::get('job_details', 'JobDetailController@index');
@@ -132,6 +134,9 @@ Route::get('job_details/{id}', 'JobDetailController@show');
 // Guest Hospital History
 Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
 
+// Guest Nursing History
+Route::get('nursing_history', 'CustomerProfileContoller@getNursingHistory');
+
 Route::group(['prefix' => 'medical'], function () {
     Route::post('add', 'MedicalController@add');
     Route::get('medicalacceptance', 'MedicalController@index');
@@ -148,11 +153,7 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::post('update/{id}', 'AdvertisementController@update');
     Route::delete('delete/{id}','AdvertisementController@destroy');
 });
-
-    
-   
-
-    Route::group(['prefix' => 'hospital'], function () {
+ Route::group(['prefix' => 'hospital'], function () {
        
         Route::get('favourite_list', 'HospitalProfileController@index');
         Route::delete('delete/{id}', 'HospitalProfileController@destroy');

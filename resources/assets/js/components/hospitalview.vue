@@ -39,28 +39,30 @@
 
                             <div class="col-md-2  m-t-15">
 
-		
+                                
 
                                     
                                     <button class="btn btn-danger all-btn" @click="deletehospital(favourite.id)" >削除</button>
 
                                         <button class="btn main-bg-color white all-btn m-t-30 form-check"><label class="form-check-label" for="check2">
-                                                <input type="checkbox" class="form-check-input" id="check2" name="acs" value="予約">予約
+                                                <input type="checkbox" class="form-check-input checkbox" value="1">予約
                                         </label></button>
 
                                         <button class="btn secondary-bg-color all-btn white m-t-30 form-check"><label class="form-check-label" for="check3">
-                                                    <input type="checkbox" class="form-check-input" id="check3" style="margin-left:-14px;" name="acs" value="書類請求"> 書類請求
+                                                    <input type="checkbox" class="form-check-input checkbox" style="margin-left:-14px;" value="2"> 書類請求
                                         </label></button>
 
-                                      <div class="m-t-22"> 
-                                        <input type="button" class="btn" @click='selectAll()' value="すべて選択" style="border:1px solid black;"/>
-                                        <input type="button" class="btn m-t-15" @click='UnSelectAll()' value="すべて選択解除" style="border:1px solid black;"/>
-                                      </div>
+                                      <div class=""> 
+                                       
+                                    </div>
                                      
                             </div>
                             
                             <div class="col-md-5" style="">
-                                
+                                <button class="btn btn-danger m-b-20 m-t-15">
+                                           <input type="checkbox" value="すべて選択" style="border:1px solid black;" id="select_all" />すべての見学予資料請求にチェックを入れる
+                                       </button>
+                                    
                                     <table class="table table-secondary table-striped table-bordered " >
                                             <tr>
                                                 <td width="130px">アクセス</td>

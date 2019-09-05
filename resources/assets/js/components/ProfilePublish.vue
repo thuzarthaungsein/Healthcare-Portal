@@ -54,7 +54,7 @@
                       <h2 style="text-align:center;">Section 2</h2>
                     </div> -->
                    
-                       <div class="col-md-12"><img src="images/h10.jpg" class="img-fluid img-thumbnail" alt=""></div>
+                    <div class="col-md-12"><img src="images/h10.jpg" class="img-fluid img-thumbnail" alt=""></div>
                    
                     <div class="row" style="padding-left:20px;padding-right:20px;">
                         <h2>Our Plan</h2>
@@ -75,8 +75,6 @@
                         <h2>Our Skills</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>  
                     </div>
-                   
-            
             </div>
         </section>
 

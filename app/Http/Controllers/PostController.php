@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-       
+
         $news_list = Post::all()->toArray();
        return response()->json(array_reverse($news_list));
 
@@ -23,7 +23,7 @@ class PostController extends Controller
     // add news
     public function add(Request $request)
     {
-        
+
         $imageName = $request->image->getClientOriginalName();
         $request->image->move(public_path('images'), $imageName);
         $post = new Post([
@@ -36,13 +36,13 @@ class PostController extends Controller
             
             'recordstatus' => 1
         ]);
-      
+
         $post->save();
-          
+
         // return response()->json('The New successfully added');
     }
 
-   
+
     /**
      * Show the form for creating a new resource.
      *
@@ -86,7 +86,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-      
+
         $posts = Post::find($id);
         return response()->json($posts);
     }
@@ -100,6 +100,7 @@ class PostController extends Controller
      */
     public function update($id, Request $request)
     {
+
         $imageName = $request->image->getClientOriginalName();
         $request->image->move(public_path('images'), $imageName);
         $formData = array(

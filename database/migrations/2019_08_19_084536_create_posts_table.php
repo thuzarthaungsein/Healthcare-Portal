@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('main_point');
             $table->text('body');
             $table->integer('category_id');
+            $table->string('related_news')->nullable();
             $table->integer('user_id');
             $table->integer('recordstatus')->default(1);
             $table->timestamps();
