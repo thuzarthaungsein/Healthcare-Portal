@@ -1,17 +1,17 @@
 <template>
-<div class="card profile">
-    <form class="col-md-12">                         
+<div class="card profile" style="border:none;">
+    <form class="col-md-12 form-class">                         
             <div class="col-md-12 pad-free">
                     <div class="form-group">
-                            <label>Name<span class="error">*</span></label>
+                            <label>名前<span class="error">*</span></label>
                             <input type="text" class="form-control" placeholder="Name">
                     </div>
                     <div class="form-group">
-                            <label>Email<span class="error">*</span></label>
+                            <label>メールアドレス<span class="error">*</span></label>
                             <input type="text" class="form-control"  placeholder="Email">
                     </div>                
                     <div class="form-group">
-                            <label>Phone<span class="error">*</span></label>
+                            <label>電話番号<span class="error">*</span></label>
                             <input type="text" class="form-control"  placeholder="Phone">
                     </div>
                     
@@ -30,131 +30,167 @@
                                     <div class="row" id="gallery"></div>
                             </div>                                        
                     </div>
+                    <div class="form-group">
+                            <label>ビデオ</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">+</span>
+                            <div class="col-md-12">
+                                    <div class="row" id="gallery-video"></div>
+                            </div>                                        
+                    </div>
 
                     <div class="form-group">
-                            <label>Medical Department<span class="error">*</span></label>
+                            <label>診療科目<span class="error">*</span></label>
                             <textarea name="medicaldepartment" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
-                            <label>Specialist<span class="error">*</span></label>
+                            <label>専門医<span class="error">*</span></label>
                             <textarea name="specialist" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
-                            <label>Details Information<span class="error">*</span></label>
+                            <label>医院からのお知らせ<span class="error">*</span></label>
                             <textarea name="detailsinfo" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
-                            <label>Clinic Subject<span class="error">*</span></label>
+                            <label>診療科目<span class="error">*</span></label>
                             <textarea name="subject" class="form-control"></textarea>
                     </div>
 
-                    <!-- Consultation -->
-
-                    <span class="btn all-btn main-bg-color m-b-20" @click="scheduletogglediv()">Consultation Hours</span>
-
-                    <div class="schedule-toggle-div toggle-div">
-                            <table class="table table-striped table-bordered">
-                                    <tr>
-                                            <th>&nbsp;</th>
-                                            <th>A.M</th>
-                                            <th>P.M</th>
-                                            <th>Other</th>
-                                    </tr>
-                                    <tr>
-                                            <td>Monday</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                    </tr>
-                                    <tr>
-                                            <td>Tuesday</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                    </tr>
-                                    <tr>
-                                            <td>Wed</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                    </tr>
-                                    <tr>
-                                            <td>Thu</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                    </tr>
-                                    <tr>
-                                            <td>Friday</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                    </tr>
-                                    <tr>
-                                            <td>Sat</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                    </tr>
-                                    <tr>
-                                            <td>Sunday</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                    </tr>
-                            </table>
-                    </div>
-
-                    <!-- End Consultation -->
-                    
                     <div class="form-group">
-                            <label>Closed Days</label>
-                            <textarea name="close-day" class="form-control"></textarea>
-                    </div>
-
-                    <!-- Facilities -->
-                    <span class="btn all-btn main-bg-color m-b-20" @click="factogglediv()">Facilities</span>
-
-                    <div class="col-md-12 hos-fac-toggle-div toggle-div">
-                            <div class="row">
-                                    <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
-                                            <label>
-                                            <input type="checkbox">
-                                            {{fac.description}}
-                                            </label>
-                                    </div>
-                            </div>                                        
-                    </div>
-                    <!-- End Facilities -->
-
-                    <div class="form-group">
-                            <label>Official Website</label>
+                            <label>公式サイト</label>
                             <input type="text" name="official-website" class="form-control">
                     </div>
 
                     <div class="form-group">
-                            <label>Congestion</label>
+                            <label>混雑状況</label>
                             <textarea name="congestion" class="form-control"></textarea>
                     </div>
 
-                    <!-- Map -->
-                    <span class="btn all-btn main-bg-color m-b-20" @click="maptogglediv()">Map</span>
+                    <div class="form-group">
+                        <label for="">診療時間</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="scheduletogglediv()"><i class="fas fa-sort-down"></i></span>
 
-                    <div class="map-toggle-div toggle-div">
-                            Map Area Here
-
-                            <div class="form-group">
-                                    <label>住所<span class="error">*</span></label>
-                                    <textarea name="address" rows="10" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                    <label>交通<span class="error">*</span></label>
-                                    <textarea name="address" rows="10" class="form-control"></textarea>
-                            </div>
+                        <div class="schedule-toggle-div toggle-div m-t-10">
+                                <table class="table table-striped table-bordered">
+                                        <tr>
+                                                <th>&nbsp;</th>
+                                                <th>A.M</th>
+                                                <th>P.M</th>
+                                                <th>Other</th>
+                                        </tr>
+                                        <tr>
+                                                <td>Monday</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                        </tr>
+                                        <tr>
+                                                <td>Tuesday</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                        </tr>
+                                        <tr>
+                                                <td>Wed</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                        </tr>
+                                        <tr>
+                                                <td>Thu</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                        </tr>
+                                        <tr>
+                                                <td>Friday</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                        </tr>
+                                        <tr>
+                                                <td>Sat</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                        </tr>
+                                        <tr>
+                                                <td>Sunday</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                        </tr>
+                                </table>
+                        </div>
                     </div>
+
+                    <div class="form-group">
+                        <label>休診日</label>
+                        <textarea name="close-day" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">施設情報</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="factogglediv()"><i class="fas fa-sort-down"></i></span>
+
+                        <div class="col-md-12 hos-fac-toggle-div toggle-div">
+                                <div class="row">
+                                        <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
+                                                <label>
+                                                <input type="checkbox">
+                                                {{fac.description}}
+                                                </label>
+                                        </div>
+                                </div>                                        
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>こだわりの特長<span class="error">*</span></label>
+                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
+
+                        <div class="col-md-12 pad-free" id="special-features"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">地図</label> 
+                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down"></i></span>
+
+                        <div class="map-toggle-div toggle-div">
+                                <div class="col-md-12">
+                                    <img src="/images/g-map.png" alt="" style="width:100%;">
+                                </div>
+
+                                <div class="form-group">
+                                        <label>住所<span class="error">*</span></label>
+                                        <textarea name="address" rows="10" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                        <label>交通 / アクセス<span class="error">*</span></label>
+                                        <textarea name="address" rows="10" class="form-control"></textarea>
+                                </div>
+                        </div>
+                    </div>
+
+                    <!-- Consultation -->
+
+                    
+
+                    <!-- End Consultation -->
+                    
+                    
+
+                    <!-- Facilities -->
+                    
+                    <!-- End Facilities -->
+
+                    <!-- <hr class="hor-line m-t-30"> -->
+                    
+
+                    <!-- <hr class="hor-line m-t-30"> -->
+                    
+
+                    <!-- Map -->
+                    
                     <!-- End Map -->
 
                     <div class="row">
@@ -204,9 +240,18 @@ export default {
                     var c = "'"+classname+"'";
                     $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
             },
+            galleryVideoAdd() {
+                    var date = new Date;
+                    var s = date.getMilliseconds();
+                    var m = date.getMinutes();
+                    var h = date.getHours();
+                    var classname = "class"+h+m+s;
+                    var c = "'"+classname+"'";
+                    $("#gallery-video").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
+            },
             
             specialFeAdd() {
-                $("#special-features").append('<div class="col-md-12 m-t-15 pad-free"><input type="text" class="form-control" name="specialfeature[]"></div>');
+                $("#special-features").append('<div class="row m-t-15"><div class="col-md-10"><input type="text" class="form-control" name="specialfeature[]"></div><div class="col-md-2"><span class="btn text-danger delete-borderbtn">Delete</span></div></div>');
             },
 
         }
