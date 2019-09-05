@@ -40,13 +40,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('approve/{id}','registerController@approve');
+    // Route::get('authget','ProfileController@index');
 
 });
 // login route api end
 
 
 
-
+Route::get('authget','ProfileController@index');
 
 
 Route::get('getReset','registerController@getReset');
@@ -107,7 +108,6 @@ Route::group(['prefix' => 'category'], function () {
     Route::post('search', 'CategoryController@search');
 });
 
-Route::get('job_details', 'JobDetailController@index');
 // Home Page
 Route::get('home', 'HomeController@index');
 Route::get('posts/{cat_id}', 'HomeController@getPosts');
@@ -117,7 +117,6 @@ Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
-Route::get('jobs', 'JobController@index');
 Route::get('news_list', 'PostController@index');
 
 

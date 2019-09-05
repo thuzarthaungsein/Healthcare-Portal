@@ -62664,7 +62664,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         type: 'hospital'
                 };
         },
-        created: function created() {},
+        created: function created() {
+                this.axios.get('http://localhost:8000/api/authget').then(function (response) {
+                        console.log(response);
+                        // this.fac_list = response.data;
+                });
+        },
 
         methods: {
                 changeType: function changeType() {
