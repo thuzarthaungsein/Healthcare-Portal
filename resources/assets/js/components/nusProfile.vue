@@ -1,7 +1,7 @@
 <template>
 <div class="card profile" style="border:none;">
         <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
-        <div class="card-body scrolldiv2">
+        <div class="card-body">
                 <div class="form-group">
                         <!-- <label>Type<span class="error">*</span></label> -->
                         <label for="hospital" class="typelabel" id="hospital-lbl">

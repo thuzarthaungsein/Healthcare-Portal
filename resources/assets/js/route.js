@@ -34,6 +34,9 @@ import NursingHistory from './components/NursingHistory.vue';
 import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
 import VideoUpload from './components/VideoUpload.vue';
+
+import GoogleMap from './components/GoogleMap.vue';
+
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
@@ -235,6 +238,11 @@ export const routes = [
       name: 'nursing_history',
       path: '/nursing_history',
       component: NursingHistory
+    },
+    {
+      name: 'google_map',
+      path: '/google_map',
+      component: GoogleMap
     },
     {
       name: 'hospital_profile',
