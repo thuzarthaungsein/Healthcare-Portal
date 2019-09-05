@@ -19,8 +19,8 @@
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="type == 'nursing'">
-                             Public View
-                             <span @click = "callLocal()">Local</span>
+                             <!-- <profilePublish></profilePublish> -->
+                             Profile Page View
                         </div>                
                         
                 </form>
@@ -31,10 +31,12 @@
 <script>
 import hospitalProfile from './HospitalProfile.vue'
 import nursingProfile from './NursingProfile.vue'
+import profilePublish from './ProfilePublish.vue'
 export default {
         components: {
               hospitalProfile,
               nursingProfile,
+              profilePublish,
         },
        data() {
                 return {

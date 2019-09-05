@@ -31,11 +31,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-
-
-
-
-
 // login route api start
 Route::group(['middleware' => ['auth']], function() {
 
@@ -57,7 +52,6 @@ Route::get('authget','ProfileController@index');
 
 
 Route::get('getReset','registerController@getReset');
-
 
 
 Route::get('jobs', 'JobController@index');
@@ -132,6 +126,19 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
+//Route::post('add','AdvertisementController@store');
+Route::group(['prefix' => 'advertisement'], function () {
+    Route::post('add', 'AdvertisementController@store');
+});
+
+Route::group(['prefix' => 'types'], function () {
+    Route::get('typelist', 'TypeController@TypeList');
+    Route::get('type', 'TypeController@index');
+    Route::post('add', 'TypeController@store');
+    Route::get('edit/{id}', 'TypeController@edit');
+    Route::post('update/{id}', 'TypeController@update');
+    Route::delete('delete/{id}', 'TypeController@destroy');
+});
 // Guest Hospital History
 Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
 
@@ -153,4 +160,13 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::get('ads', 'AdvertisementController@index');
     Route::post('update/{id}', 'AdvertisementController@update');
     Route::delete('delete/{id}','AdvertisementController@destroy');
+});
+
+
+Route::group(['prefix' => 'comments'], function () {
+    Route::post('add', 'CommentController@store');
+    Route::get('edit/{id}', 'CommentController@edit');
+    Route::get('ads', 'CommentController@index');
+    Route::post('update/{id}', 'CommentController@update');
+    Route::delete('delete/{id}','CommentController@destroy');
 });

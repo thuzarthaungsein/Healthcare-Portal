@@ -75,5 +75,3 @@ $('#feature').summernote({
         });
         
     }
-
-    
