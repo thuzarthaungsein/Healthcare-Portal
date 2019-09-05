@@ -47,7 +47,7 @@
                                         
                                     </div>
                                 <div class="form-group">
-                                        <router-link to="/create_news" class="btn btn-danger all-btn">キャンセル</router-link>
+                                        <router-link to="/news_list" class="btn btn-danger all-btn">キャンセル</router-link>
                                         <router-link to="/news_list" class="btn news-post-btn all-btn">セーブ</router-link>
                                         <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
                                 </div>

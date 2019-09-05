@@ -62445,7 +62445,7 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "btn btn-danger all-btn",
-                        attrs: { to: "/create_news" }
+                        attrs: { to: "/news_list" }
                       },
                       [_vm._v("キャンセル")]
                     ),
