@@ -16,6 +16,7 @@
                                     <span class="caret"></span>
                                 </button>
                                 <select v-model="category_id" class="form-control" id="selectBox" @change="searchbyCategory()">
+                                   <option value=''>All</option> 
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                         {{category.name}}
                                     </option>
