@@ -1823,17 +1823,14 @@ ul.main-tab li:after{
 }
 /* End for Hospital History */
 /* Summernote */
-#feature .card-header.note-toolbar {
-    background: #efefef;
-}
 
-#feature .note-editor.note-frame .note-statusbar .note-resizebar {
-    background: #efefef;
-}
-
-#feature .btn-light {
+.note-editor .btn-light {
     color: #212529;
-    background-color: #fff;
-    border-color: #ccd1d6;
+    background-color: #fff !important;
+    border-color: #ccd1d6 !important;
+}
+
+.note-popover .popover-content, .card-header.note-toolbar {
+    padding: 5px 0 10px 10px !important;
 }
 /* End Summernote */

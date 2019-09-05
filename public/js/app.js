@@ -57199,39 +57199,20 @@ var render = function() {
                 _c(
                   "select",
                   {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.category_id,
-                        expression: "category_id"
-                      }
-                    ],
                     staticClass: "form-control",
                     attrs: { id: "selectBox" },
                     on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.category_id = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        },
-                        function($event) {
-                          return _vm.searchbyCategory()
-                        }
-                      ]
+                      change: function($event) {
+                        return _vm.searchbyCategory()
+                      }
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "" } }, [_vm._v("All")]),
+                    _c(
+                      "option",
+                      { attrs: { selected: "selected", value: "" } },
+                      [_vm._v("All")]
+                    ),
                     _vm._v(" "),
                     _vm._l(_vm.categories, function(category) {
                       return _c(
@@ -64816,119 +64797,123 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card profile" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "card-body scrolldiv2" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c(
-          "label",
-          {
-            staticClass: "typelabel",
-            attrs: { for: "hospital", id: "hospital-lbl" }
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.type,
-                  expression: "type"
-                }
-              ],
-              attrs: {
-                type: "radio",
-                value: "hospital",
-                name: "type",
-                id: "hospital"
-              },
-              domProps: { checked: _vm._q(_vm.type, "hospital") },
-              on: {
-                change: [
-                  function($event) {
-                    _vm.type = "hospital"
-                  },
-                  function($event) {
-                    return _vm.changeType()
-                  }
-                ]
-              }
-            }),
-            _vm._v(" Create\r\n                        ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "typelabel dim-btn",
-            attrs: { for: "nursing", id: "nursing-lbl" }
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.type,
-                  expression: "type"
-                }
-              ],
-              attrs: {
-                type: "radio",
-                value: "nursing",
-                name: "type",
-                id: "nursing"
-              },
-              domProps: { checked: _vm._q(_vm.type, "nursing") },
-              on: {
-                change: [
-                  function($event) {
-                    _vm.type = "nursing"
-                  },
-                  function($event) {
-                    return _vm.changeType()
-                  }
-                ]
-              }
-            }),
-            _vm._v(" View\r\n                        ")
-          ]
-        )
-      ]),
+  return _c(
+    "div",
+    { staticClass: "card profile", staticStyle: { border: "none" } },
+    [
+      _vm._m(0),
       _vm._v(" "),
-      _c("form", { staticClass: "col-md-12" }, [
-        _vm.type == "hospital"
-          ? _c(
-              "div",
-              { staticClass: "col-md-12 pad-free" },
-              [_c("nursingProfile")],
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.type == "nursing"
-          ? _c("div", { staticClass: "col-md-12 pad-free" }, [
-              _vm._v(
-                "\r\n                             Public View\r\n                             "
-              ),
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      return _vm.callLocal()
-                    }
+      _c("div", { staticClass: "card-body scrolldiv2" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "label",
+            {
+              staticClass: "typelabel",
+              attrs: { for: "hospital", id: "hospital-lbl" }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.type,
+                    expression: "type"
                   }
+                ],
+                attrs: {
+                  type: "radio",
+                  value: "hospital",
+                  name: "type",
+                  id: "hospital"
                 },
-                [_vm._v("Local")]
+                domProps: { checked: _vm._q(_vm.type, "hospital") },
+                on: {
+                  change: [
+                    function($event) {
+                      _vm.type = "hospital"
+                    },
+                    function($event) {
+                      return _vm.changeType()
+                    }
+                  ]
+                }
+              }),
+              _vm._v(" Create\r\n                        ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "typelabel dim-btn",
+              attrs: { for: "nursing", id: "nursing-lbl" }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.type,
+                    expression: "type"
+                  }
+                ],
+                attrs: {
+                  type: "radio",
+                  value: "nursing",
+                  name: "type",
+                  id: "nursing"
+                },
+                domProps: { checked: _vm._q(_vm.type, "nursing") },
+                on: {
+                  change: [
+                    function($event) {
+                      _vm.type = "nursing"
+                    },
+                    function($event) {
+                      return _vm.changeType()
+                    }
+                  ]
+                }
+              }),
+              _vm._v(" View\r\n                        ")
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("form", { staticClass: "col-md-12" }, [
+          _vm.type == "hospital"
+            ? _c(
+                "div",
+                { staticClass: "col-md-12 pad-free" },
+                [_c("nursingProfile")],
+                1
               )
-            ])
-          : _vm._e()
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.type == "nursing"
+            ? _c("div", { staticClass: "col-md-12 pad-free" }, [
+                _vm._v(
+                  "\r\n                             Public View\r\n                             "
+                ),
+                _c(
+                  "span",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.callLocal()
+                      }
+                    }
+                  },
+                  [_vm._v("Local")]
+                )
+              ])
+            : _vm._e()
+        ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {

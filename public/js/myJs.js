@@ -22,6 +22,10 @@ $('#feature').summernote({
     placeholder: 'Write Feature',
     height: 200,
   });
+// $('#method-textarea').summernote({
+//     placeholder: 'Write Feature',
+//     height: 200,
+//   });
 
     var dynamicInput = [];
     var ct = 1;
