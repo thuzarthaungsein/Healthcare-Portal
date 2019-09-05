@@ -8,7 +8,7 @@
                     <h4 class="main-color"> 広告検索</h4>
                     <div class="row">
                         <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="検索">
+                            <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchAdvertisment()">
                         </div>
                         <div class="col-md-2">
                             <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
@@ -62,8 +62,6 @@ export default {
                 .get('http://localhost:8000/api/advertisement/ads')
                 .then(response => {
                     this.advertisements = response.data;
-
-
                 });
     },
 
@@ -79,8 +77,18 @@ export default {
                         let a = this.advertisements.map(item => item.id).indexOf(id);
                         this.advertisements.splice(a, 1)
                     });
+                }
+            },
+
+            searchAdvertisment() {
+                var search_word = $('#search-item').val();
+                let fd = new FormData();
+                    fd.append('search_word', search_word)
+                this.axios.post('http://localhost:8000/api/advertisement/search', fd)
+                    .then(response => {
+                        this.advertisements = response.data;
+                    });
             }
-         }
 
         }
 }
