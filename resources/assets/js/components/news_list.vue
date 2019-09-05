@@ -15,8 +15,8 @@
                                 <button class="btn main-bg-color white dropdown-toggle all-btn" type="button" data-toggle="dropdown"> 種類
                                     <span class="caret"></span>
                                 </button>
-                                <select v-model="category_id" class="form-control" id="selectBox" @change="searchbyCategory()">
-                                   <option value=''>All</option> 
+                                <select class="form-control" id="selectBox" @change="searchbyCategory()">
+                                    <option selected="selected" value="">All</option> 
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                         {{category.name}}
                                     </option>
