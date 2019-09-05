@@ -64906,20 +64906,19 @@ module.exports = Component.exports
 // Fixed Nav
 jQuery(document).ready(function ($) {
 
-    // $('a[href*=#]:not([href=#])').click(function() {
-    // 	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
-    // 		|| location.hostname == this.hostname) {
+    $('.onepage').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 
-    // 		var target = $(this.hash);
-    // 		target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-    // 		if (target.length) {
-    // 			$('html,body').animate({
-    // 				scrollTop: target.offset().top - 32
-    // 			}, 1000);
-    // 			return false;
-    // 		}
-    // 	}
-    // });
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top - 32
+                }, 1000);
+                return false;
+            }
+        }
+    });
 
     $(window).scroll(function () {
 
@@ -64987,27 +64986,35 @@ var staticRenderFns = [
               _c("nav", { staticClass: "nav_menu" }, [
                 _c("ul", [
                   _c("li", [
-                    _c("a", { attrs: { href: "#section1" } }, [
-                      _vm._v("section 1")
-                    ])
+                    _c(
+                      "a",
+                      { staticClass: "onepage", attrs: { href: "#section1" } },
+                      [_vm._v("section 1")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("li", [
-                    _c("a", { attrs: { href: "#section2" } }, [
-                      _vm._v("section 2")
-                    ])
+                    _c(
+                      "a",
+                      { staticClass: "onepage", attrs: { href: "#section2" } },
+                      [_vm._v("section 2")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("li", [
-                    _c("a", { attrs: { href: "#section3" } }, [
-                      _vm._v("section 3")
-                    ])
+                    _c(
+                      "a",
+                      { staticClass: "onepage", attrs: { href: "#section3" } },
+                      [_vm._v("section 3")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("li", [
-                    _c("a", { attrs: { href: "#section4" } }, [
-                      _vm._v("section 4")
-                    ])
+                    _c(
+                      "a",
+                      { staticClass: "onepage", attrs: { href: "#section4" } },
+                      [_vm._v("section 4")]
+                    )
                   ])
                 ])
               ])
@@ -69191,6 +69198,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('http://localhost:8000/api/comments/add', this.comments).then(function (response) {
                 _this.name = '';
                 alert('Successfully Created');
+
+                emailjs.send(service_id, template_id, template_params);
                 console.log(response);
                 // this.$router.push({name: 'categorylist'});
             }).catch(function (error) {
@@ -69231,7 +69240,8 @@ var render = function() {
               _c(
                 "form",
                 {
-                  staticClass: "m-t-16",
+                  staticClass: "m-t-16 sendEmail",
+                  attrs: { method: "post" },
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
@@ -69294,7 +69304,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { name: "comment", cols: "50", rows: "5" },
+                        attrs: {
+                          name: "comment",
+                          id: "comment",
+                          cols: "50",
+                          rows: "5"
+                        },
                         domProps: { value: _vm.comments.comment },
                         on: {
                           input: function($event) {
@@ -69473,13 +69488,13 @@ var render = function() {
                               expression: "comments.gender"
                             }
                           ],
-                          attrs: { type: "radio", value: "male" },
+                          attrs: { type: "radio", value: "0" },
                           domProps: {
-                            checked: _vm._q(_vm.comments.gender, "male")
+                            checked: _vm._q(_vm.comments.gender, "0")
                           },
                           on: {
                             change: function($event) {
-                              return _vm.$set(_vm.comments, "gender", "male")
+                              return _vm.$set(_vm.comments, "gender", "0")
                             }
                           }
                         }),
@@ -69496,13 +69511,13 @@ var render = function() {
                               expression: "comments.gender"
                             }
                           ],
-                          attrs: { type: "radio", value: "female" },
+                          attrs: { type: "radio", value: "1" },
                           domProps: {
-                            checked: _vm._q(_vm.comments.gender, "female")
+                            checked: _vm._q(_vm.comments.gender, "1")
                           },
                           on: {
                             change: function($event) {
-                              return _vm.$set(_vm.comments, "gender", "female")
+                              return _vm.$set(_vm.comments, "gender", "1")
                             }
                           }
                         }),

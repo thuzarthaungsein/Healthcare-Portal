@@ -9,13 +9,13 @@
                         <div class="row">
                          <div class="col-sm-1"></div>
                          <div class="col-sm-9">
-                                <form @submit.prevent ="add" class="m-t-16">
+                                <form @submit.prevent ="add" class="m-t-16 sendEmail"  method="post">
                                         <div class="form-group row">
                                             <div class="col-sm-3 text-right">
                                                 <label for ="title"  ><strong> Title : <span class="error">*</span></strong>   </label>
                                             </div>
                                              <div class="col-sm-9">
-                                                <input type="title" class="form-control box" id="title"  name="title" v-model="comments.title">
+                                                <input type="title"  class="form-control box" id="title"  name="title" v-model="comments.title">
                                              </div>    
                                         </div> 
                                          <div class="form-group row">
@@ -31,7 +31,7 @@
                                                         <label for ="comment" ><strong> Comment : <span class="error">*</span></strong>  </label>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <textarea name="comment" class="form-control" cols="50" rows="5" v-model="comments.comment"></textarea>
+                                                    <textarea name="comment" id="comment" class="form-control" cols="50" rows="5" v-model="comments.comment"></textarea>
                                                 </div>
                                         </div>
                                         <div class="form-group row">
@@ -47,7 +47,7 @@
                                                         <label for ="email" ><strong> Email : <span class="error">*</span></strong>  </label>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                      <input type="email" class="form-control box" id="email"  name="email" v-model="comments.email">
+                                                      <input type="email"  class="form-control box" id="email"  name="email" v-model="comments.email">
                                                 </div>
                                         </div>
                                         <div class="form-group row">
@@ -92,8 +92,8 @@
                                                 <label for ="gender"  ><strong> Gender : <span class="error">*</span></strong>   </label>
                                             </div>
                                              <div class="col-sm-9">
-                                                   <label> <input type="radio"  v-model="comments.gender" value="male" > Male </label>
-                                                   <label> <input type="radio" v-model="comments.gender" value="female" >Female </label>
+                                                   <label> <input type="radio"  v-model="comments.gender" value="0" > Male </label>
+                                                   <label> <input type="radio" v-model="comments.gender" value="1" >Female </label>
                                              </div>    
                                         </div> 
                                         
@@ -168,6 +168,8 @@ export default {
                     .then((response) => {
                         this.name = ''
                     alert('Successfully Created')
+
+                    emailjs.send(service_id,template_id,template_params);
                     console.log(response);
                     // this.$router.push({name: 'categorylist'});
                     }).catch(error=>{
@@ -187,6 +189,7 @@ export default {
          }
      
 }
+
 </script>
 
 

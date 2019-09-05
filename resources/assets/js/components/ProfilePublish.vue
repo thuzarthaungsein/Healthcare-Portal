@@ -7,10 +7,10 @@
             <div class="" id="profile" style="z-index:1000;overflow: hidden;">
                <nav class="nav_menu">
                 <ul>
-                    <li><a href="#section1">section 1</a></li>
-                    <li><a href="#section2">section 2</a></li>
-                    <li><a href="#section3">section 3</a></li>
-                    <li><a href="#section4">section 4</a></li>
+                    <li><a href="#section1" class="onepage">section 1</a></li>
+                    <li><a href="#section2" class="onepage">section 2</a></li>
+                    <li><a href="#section3" class="onepage">section 3</a></li>
+                    <li><a href="#section4" class="onepage">section 4</a></li>
                 </ul>
                 </nav>
             </div>
@@ -159,20 +159,20 @@ function myFunction() {
 // Fixed Nav
 jQuery(document).ready(function ($) {
 
-    // $('a[href*=#]:not([href=#])').click(function() {
-	// 	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
-	// 		|| location.hostname == this.hostname) {
+    $('.onepage').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+			|| location.hostname == this.hostname) {
 
-	// 		var target = $(this.hash);
-	// 		target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	// 		if (target.length) {
-	// 			$('html,body').animate({
-	// 				scrollTop: target.offset().top - 32
-	// 			}, 1000);
-	// 			return false;
-	// 		}
-	// 	}
-	// });
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+				$('html,body').animate({
+					scrollTop: target.offset().top - 32
+				}, 1000);
+				return false;
+			}
+		}
+	});
     
 	$(window).scroll(function(){
        

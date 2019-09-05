@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class CommentController extends Controller
 {
@@ -27,10 +29,11 @@ class CommentController extends Controller
         // $request->validate([
         //     'title' => 'required|unique:jobs',
         //     'comment' =>'required',
-        //     'email' => 'required',
+        //     'email' => 'required|email|unique:comments',
         //     'zipcode' => 'required',        
         // ]);
-        return $request;
+
+        $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
 
         $comment = new Comment ([
 
@@ -40,15 +43,17 @@ class CommentController extends Controller
             'name' =>  $request->input('name'),
             'year' => $request->input('year'),
             'gender' => $request->input('gender'),
-            'zipcode' =>  $request->input('zipcode'),
+            'zipcode' =>  $zipcode,
             'customer_id' => 1,
             'status' => 0,  
             'recordstatus' => 2
-
+            
         ]);
+        $comment ->save();
+        \Mail::to($request->email)->send(new SendMailable($request->comment));
 
+        return response()->json(['success'=>'Done!']);
 
-        $job ->comment();
     }
 
    
