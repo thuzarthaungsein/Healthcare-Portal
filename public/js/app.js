@@ -52893,10 +52893,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         cats: [],
                         posts: [],
                         latest_post: [],
-                        latest_post_all_cats: []
+                        latest_post_all_cats: [],
+                        l_storage_hos_history: [],
+                        l_storage_nus_history: [],
+                        l_storage_hos_fav: [],
+                        l_storage_nus_fav: []
                 };
         },
         created: function created() {
+                // Push data
+                this.l_storage_hos_fav.push(1);
+                this.l_storage_nus_fav.push(1);
+                this.l_storage_hos_history.push(2);
+                this.l_storage_nus_history.push(1);
+
+                // Set LocalStorage data
+                localStorage.setItem("hospital_history", this.l_storage_hos_history);
+                localStorage.setItem("nursing_history", this.l_storage_nus_history);
+                localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
+                localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
+
                 this.getAllCat();
                 this.getPostByFirstCat();
                 this.getLatestPostByFirstCatID();
@@ -52946,6 +52962,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 _this6.latest_post_all_cats = response.data;
                         });
                 }
+                // callLocal(){
+                //         console.log(localStorage.getItem("hospital_history"));
+                // },
         }
 
 });
@@ -54143,6 +54162,18 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "span",
+      {
+        on: {
+          click: function($event) {
+            return _vm.callLocal()
+          }
+        }
+      },
+      [_vm._v("Local")]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "tab-content tab-content1 tabs" }, [
       _c(
@@ -57147,8 +57178,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         searchbyCategory: function searchbyCategory() {
             var _this3 = this;
 
+            var search_word = $('#search-item').val();
             var selected_category = document.getElementById("selectBox").value;
             var fd = new FormData();
+            fd.append('search_word', search_word);
             fd.append('selected_category', selected_category);
             this.axios.post('http://localhost:8000/api/news_list/search', fd).then(function (response) {
                 _this3.news_list = response.data;
@@ -57173,11 +57206,21 @@ var render = function() {
           _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース検索")]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _vm._m(0),
+            _c("div", { staticClass: "col-md-8" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-item" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchbyCategory()
+                  }
+                }
+              })
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-4" }, [
               _c("div", { staticClass: "btn-group" }, [
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
                   "select",
@@ -57350,17 +57393,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-8" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "検索" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -64783,6 +64815,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HospitalProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__HospitalProfile_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue__);
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+//
 //
 //
 //
@@ -64841,6 +64876,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 document.getElementById("nursing-lbl").classList.add("dim-btn");
                                 document.getElementById("hospital-lbl").classList.remove("dim-btn");
                         }
+                },
+                callLocal: function callLocal() {
+                        console.log(_typeof(localStorage.getItem("hospital_history")));
+                        console.log(localStorage.getItem("hospital_history"));
                 }
         }
 });
@@ -64948,7 +64987,18 @@ var render = function() {
         _vm.type == "nursing"
           ? _c("div", { staticClass: "col-md-12 pad-free" }, [
               _vm._v(
-                "\r\n                             Public View\r\n                        "
+                "\r\n                             Public View\r\n                             "
+              ),
+              _c(
+                "span",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.callLocal()
+                    }
+                  }
+                },
+                [_vm._v("Local")]
               )
             ])
           : _vm._e()
