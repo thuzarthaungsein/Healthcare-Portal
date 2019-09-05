@@ -14,7 +14,9 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-        //
+
+        $ads =Advertisement::all()->toArray();
+        return array_reverse($ads);
     }
 
     /**
@@ -49,12 +51,12 @@ class AdvertisementController extends Controller
         //   }
         $imageName = $request->photo->getClientOriginalName();
         $request->photo->move(public_path('upload/advertisement'), $imageName);
-
         $ads = new Advertisement([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             //'location'=>$adstring,
             'location'=>$request->input('location'),
+             //'photo' =>$request->input('photo'),
             //'location' =>implode("," , $request->input('location')),
             'photo' => $request->photo->getClientOriginalName(),
             'user_id' => 1,
@@ -86,6 +88,9 @@ class AdvertisementController extends Controller
     public function edit($id)
     {
         //
+         $ads = Advertisement::find($id);
+
+         return response()->json($ads);
     }
 
     /**
@@ -95,9 +100,21 @@ class AdvertisementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id,Request $request)
     {
-        //
+
+        $imageName = $request->photo->getClientOriginalName();
+        $request->photo->move(public_path('upload/advertisement'), $imageName);
+          $uploadData = array(
+              'title' => $request->input('title'),
+              'description' => $request->input('description'),
+              'photo' => $request->photo->getClientOriginalName(),
+              'user_id' => 1,
+              'recordstatus' => 2
+         );
+          $ads = Advertisement::find($id);
+          $ads->update($uploadData);
+          return response()->json(' Successfully updated');
     }
 
     /**
@@ -109,5 +126,8 @@ class AdvertisementController extends Controller
     public function destroy($id)
     {
         //
+        $ads = Advertisement::find($id);
+        $ads->delete();
+        return response()->json('The successfully deleted');
     }
 }

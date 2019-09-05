@@ -82,6 +82,9 @@
 /* End News List */
 
 /* Profile */
+.hor-line {
+    border-top: 2px solid #ccc;
+}
 .btn-editProfile{
     background: #0f6064;
     color: white;
@@ -138,7 +141,30 @@
     border-bottom: 2px solid #eee;
     padding: 20px 0px;
 }
-
+.collapse-icon {
+    min-width: 0px;
+    font-size:1.5em;
+    color:#aaa;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    padding: 0px 10px;
+}
+.collapse-icon-down {
+    padding-bottom: 3px;
+}
+.collapse-icon-up {
+    padding-top: 3px;
+}
+.collapse-icon:hover {
+    color: blue;
+    border-color: blue;
+}
+.accept-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 7px;
+    border-radius: 3px;
+}
 /* End Profile */
 
 /* Login */
@@ -183,7 +209,8 @@
             position: absolute;
             left: 0;
             bottom: 0.5%;
-            width: 100%;
+            /* top: 35%;
+            width: 100%; */
 		}
 		.form_container {
 			margin-top: 100px;
@@ -222,6 +249,96 @@
 		.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
 			background-color: #2ba7c0 !important;
         }
+         /*radio check*/
+        /* input[type=radio]+.custom-radio {
+            position: relative;
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            padding-left: 27px;
+            cursor: pointer;
+        }
+        input[type=radio]:checked+.custom-radio:before {
+            border: 1px solid #ff9500;
+            background-color: #ff9500;
+            box-shadow: none;
+        }
+        input[type=radio]+.custom-radio:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            box-shadow: 0 6px 6px -7px #dbdbdb inset;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #dedcd7;
+            border-radius: 3px;
+            background-color: white;
+        }
+        input[type=radio]:checked+.custom-radio:after {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            background: url('') no-repeat;
+        } */
+        .sample{
+            padding-left: 30px;
+        }
+        .sample label:before{
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            background: #bdc3c7;
+            border-radius: 50%;
+        }
+        .sample input{
+            display: none;
+        }
+        .sample label{
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+            padding: 10px;
+            border-radius: 2px;
+            color: #3e4956;
+            font-size: 14px;
+            text-align: center;
+            line-height: 1;
+        }
+        .sample label:before{
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: -9px;
+            width: 15px;
+            height: 15px;
+            margin-top: -9px;
+            background: #f5f5f5;
+            border-radius: 50%;
+        }
+        
+        .sample input[type="radio"]:checked + label:after {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: -6px;
+            width: 9px;
+            height: 9px;
+            margin-top: -6px;
+            border-radius: 50%;
+            background: #118063;
+        }
+        /*end radio check*/
         .links a{
             color:#d2cfcf !important;
         }
@@ -240,6 +357,19 @@
         }
 /* End Login */
 /* Register form*/
+
+
+.hide{
+    display: none;
+}
+.show{
+    display:inline-flex;
+}
+.form-check-inline.show{
+    display: inline-flex;
+}
+
+
 .registerform_container{
     margin-top: 80px;
 }
@@ -248,17 +378,17 @@
     height: auto;
     padding: 20px;
 }
-/* .user_registercard form label{
+.user_registercard form label{
     color: #fff;
     align-self: flex-end;
 }
-.form-type-managed-file {
+
+/* .form-type-managed-file {
     position: relative;
     overflow: hidden;
-  }
-/* input[type=file] {
+  } */
+ .inputfile > input[type=file] {
     display: inline-block;
-    width: 100%;
     padding: 35px 0 0 0;
     height: 20px;
     overflow: hidden;
@@ -266,8 +396,9 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background-size: 60px 60px;
-    background-color: #ecede1 ;
-  } */
+    
+  } 
+
 .register_btn {
     color: white !important;
     width: 120px;
@@ -431,6 +562,8 @@
             letter-spacing: 2px;
             text-align: justify;
             color: white;
+            max-height: 60px;
+            overflow: hidden;
 
         }
 
@@ -464,11 +597,8 @@
               bottom: 0;
               left: 42%;
               /* border-bottom: 1px solid #42b698; */
-          }
-        .m-l-14
-        {
-            margin-left: -12px;
-        }
+          }        
+
         .fit-image2{
             width: 350px;
             object-fit: cover;
@@ -563,6 +693,8 @@ p {
 .imgUp {
     margin-bottom: 15px;
 }
+
+
 
 .del {
     position: absolute;
@@ -790,7 +922,7 @@ div.b{
     top: -0.2rem;
     max-height: 45px;
 }
-    
+
 .ads-title{
     font-size: 12px;
     line-height: 1.357;
@@ -912,8 +1044,10 @@ div.b{
         padding-left: 25px;
         margin-top: 2px;        
     }   
-    
- }
+
+}
+
+
 /*for search for,*/
 .toggle-input{
     display: block;
@@ -935,7 +1069,15 @@ div.b{
 
 /*/////////////////////////// setup////////////////////// */
 /* setup class */
-
+.green {
+    color: green;
+}
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
 .p-lr-0 {
     padding-left:0px !important;
     padding-right:0px !important;
@@ -965,8 +1107,11 @@ div.b{
 .m-t-15{
     margin-top: 15px !important;
 }
+.m-t-20 {
+    margin-top:20px;
+}
 .m-t-30 {
-    margin-top:32px;
+    margin-top:30px;
 }
 
 .m-b-20 {
@@ -984,6 +1129,15 @@ div.b{
 .m-b-30{
     margin-bottom: 30px !important;
 }
+.m-r-15 {
+    margin-right: 15px;
+}
+.m-r-5{
+    margin-right: 5px;
+}
+.m-l-14{
+    margin-left: 14px;
+}
 /* .m-r-2per{
     margin-right: 2% !important;
 } */
@@ -996,7 +1150,12 @@ div.b{
 .p-b-5{
     padding-bottom: 5px ;
 }
-
+.max-width12{
+    max-width:12%;
+}
+.max-width16{
+    max-width:16%;
+}
 .main-color {
     color: #333;
 }
@@ -1014,12 +1173,44 @@ div.b{
 .secondary-bg-color{
     background-color: #f27a24 !important;
 }
+
 .all-btn{
     color: #fff !important;
     border:none !important;
     min-width: 100px;
     cursor: pointer;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+}
+.edit-borderbtn{
+    border: 1px solid #ffc107 !important;
+    color: #ffc107;
+    background: #fff;    
+    box-shadow: none !important;
+    min-width: 70px;
+}
+.delete-borderbtn{
+    border: 1px solid #dc3545 !important;
+    color: #dc3545;
+    background: #fff;    
+    box-shadow: none !important;
+    min-width: 60px;
+}
+.confirm-borderbtn{
+    border: 1px solid #6cb2eb !important;
+    color: #6cb2eb;
+    background: #fff;    
+    box-shadow: none !important;
+    min-width: 60px;
+}
+.border-style{
+    border: 1px solid #eee;
+}
+.create-btn{
+    color: #fff !important;
+    text-align: center;
+    background: #b7dad2;
+    border-radius: 5px;
+    padding: 10px;
 }
 .login-register-btn{
     background-color: transparent;
@@ -1066,7 +1257,7 @@ div.b{
     min-height: 252px; */
     /* width: 49%; */
 }
-li.userprofile-name{   
+li.userprofile-name{
     text-align:right;
 }
 li.userprofile-name:hover{
@@ -1088,7 +1279,14 @@ li.userprofile-name > a {
     padding: 13px !important;/*for no scroll*/
     background: white;
     border: 1px solid #eee;
+   
+}
+.tab-content1{
     min-height: 350px;
+    max-height: 900px;
+}
+.tab-content2{
+    height: 320px !important;
 }
 .tab-card-header{
     background-color: #b7dad2 !important;
@@ -1096,9 +1294,9 @@ li.userprofile-name > a {
 .nav-link{
     color: #095c5f !important;
 }
-.router-link-active{
+/* .router-link-active{
     color: #fff !important;
-}
+} */
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
     border-color:transparent !important;
 }
@@ -1157,12 +1355,13 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 /*user view sidebar*/
 .userview-sidebar{
-   background-color: #f5f5f5;
-   height: 91vh;
-   padding-top: 35%;
-   padding-left: 22px;
-   padding-right: 7px;  
-   margin-top: 4px; 
+    background-color: #f5f5f5;
+    height: 91vh;
+    padding-top: 35%;
+    padding-left: 22px;
+    padding-right: 7px; 
+    margin-top: 4px;
+
 }
 .adminview-sidebar{
     height: 92vh;
@@ -1172,9 +1371,118 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 .custom-sidebar{
     /* height: 100vh; scroll */
     /* background: #b7dad2; */
-
-
 }
+
+
+
+/* profilepublish css start */
+
+
+#header {
+    padding: 30px 0;
+    height: 92px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 997;
+  }
+
+  #header.header-scrolled {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px 0;
+    height: 72px;
+    transition: all 0.5s;
+  }
+
+.section-header h3 {
+    font-size: 32px;
+    color: #111;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .section-header h3::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+  }
+
+  .section-header h3::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #18d26e;
+    bottom: 0;
+    left: calc(50% - 20px);
+  }
+
+  .section-header p {
+    text-align: center;
+    padding-bottom: 30px;
+    color: #333;
+  }
+
+.nav_menu {
+  margin: 0;
+  padding: 0;
+  background:#6cb7a6;
+  overflow: hidden;
+}
+.nav_menu ul {
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+}
+.nav_menu ul li {
+  display: inline-block;
+  margin: 0 -4px;
+  padding: 5px 0;
+}
+.nav_menu ul li a {
+  padding: 10px 10px 10px 10px;
+  font: normal 1em / normal 'Open Sans Condensed', sans-serif;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.nav_menu ul li a:hover,
+.nav_menu ul li a.active {
+  background: #343434;
+}
+.section {
+  padding: 20px;
+  font: normal 2em / normal 'Open Sans Condensed', sans-serif;
+}
+.section#section1,
+.section#section3 {
+  background: #343434;
+  color: #eee;
+}
+.section#section2,
+.section#section4 {
+  background: #666;
+  color: #eee;
+}
+
+
+/* profilepublish css end */
+
+
+
 
 .custom-sidebar ul li{
     border-bottom: 1px dashed #eee;
@@ -1360,6 +1668,7 @@ ul.main-tab li:after{
     .news-wrapper::-webkit-scrollbar,
     body::-webkit-scrollbar,
     .scrolldiv::-webkit-scrollbar,
+    .scroll2::-webkit-scrollbar,
     .scrolldiv2::-webkit-scrollbar,
     .main-wrap::-webkit-scrollbar {
     width: 6px!important;
@@ -1369,6 +1678,7 @@ ul.main-tab li:after{
   .news-wrapper::-webkit-scrollbar-track,
    body::-webkit-scrollbar-track,
    .scrolldiv::-webkit-scrollbar-track,
+   .scroll2::-webkit-scrollbar-track,
    .scrolldiv2::-webkit-scrollbar-track,
    .main-wrap::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)!important;
@@ -1378,6 +1688,7 @@ ul.main-tab li:after{
   .news-wrapper::-webkit-scrollbar-thumb,
   .main-wrap::-webkit-scrollbar-thumb,
   .scrolldiv::-webkit-scrollbar-thumb,
+  .scroll2::-webkit-scrollbar-thumb,
   .scrolldiv2::-webkit-scrollbar-thumb,
   body::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)!important;
@@ -1438,3 +1749,22 @@ ul.main-tab li:after{
 .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
 
 /*end for jssor*/
+
+/* Hospital History */
+.fac_container {
+    width: 100%;
+}
+.equipment {
+    list-style: none;
+}
+.equipment>li {
+    width:100%;
+    color: #4650db;
+    background: #a3cee1;
+    border: 1px solid #4650db;
+    padding: 5px;
+    margin: 0 0.5% 1px 0;
+    text-align: center;
+    border-radius: 2px;
+}
+/* End for Hospital History */

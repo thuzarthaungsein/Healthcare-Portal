@@ -1,9 +1,9 @@
 <template>
  <div class="container">
-      <div class="col-md-12 ">
-          <div class="card text-dark">
-                    <div class="card-header text-center">
-                        <h4 style="padding-top: 20px;"> Advertisements </h4>
+      <div class="row">
+          <div class="col-sm-12 card text-dark">
+                    <div class="text-center">
+                        <h4 style="padding-top: 20px;" class="header"> Advertisements </h4>
                     </div>
                     <div class="card-body ">
                         <div class="row">
@@ -39,13 +39,23 @@
                                                         <label for ="photo" ><strong> Photo/Image :</strong>  </label>
                                                 </div>
                                                 <div class="custom-file col-sm-10">
-                                                        <input type="file" accept="" @change ="uploadImage" id="file" >
+                                                        <input type="file" id="upload" accept="image/*" @change ="uploadImage" >
                                                         <!-- <label class="" for="file">No file chosen</label> -->
                                                 </div>
+                                                 <div class="col-md-12" id = "par">
+                                                    <div class="row image_preview" ></div>
+                                                 </div>
+                                        </div>
+                                            <div class="form-group ">
+                                        <div class="form-group row">
+                                            <div class="col-1 pad-free">
+                                                <button class="btn news-post-btn">Create</button>
                                             </div>
-                                            <div class="text-center">
-                                                    <button type="submit" class="btn main-bg-color white all-btn ">Submit</button>
+                                            <div class="col-1">
+                                                <router-link class="btn btn-warning" to="/ads" > Cancel </router-link>
                                             </div>
+                                        </div>
+                                    </div>
                                     </form>
                                 </div>
                         </div>
@@ -70,9 +80,12 @@ export default {
 
     },
     methods:{
-             uploadImage(event) {
-                this.ads.photo = event.target.files[0]
-             },
+             uploadImage() {
+                            $('.image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+                            this.ads.photo = event.target.files[0]
+
+         },
+
 
 
         add() {
@@ -81,13 +94,16 @@ export default {
              adsData.append('description',this.ads.description)
              adsData.append('location',this.ads.location)
              adsData.append('photo',this.ads.photo)
+             //adsData.append ("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
 
                 this.axios.post('http://localhost:8000/api/advertisement/add',adsData)
                     .then((response) => {
-                    alert('Successfully')
+                    alert('Successfully Created')
                     console.log(response);
-                    this.ads = response.data;
+                    this.$router.push({name: 'ads'});
                     })
+                    .catch(error => console.log(error))
+                    .finally(() => this.loading = false)
             },
 
     }

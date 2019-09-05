@@ -1,51 +1,48 @@
 <template>
     <!-- Page Content  -->
-    <div id="content">
-        <div class="container">
+    <div id="content" class="row">
+        <div class="col-12">
             <div class="card card-default m-b-20">
 
                 <div class="card-body">
-                    <h4 class="main-color">ニュース役職の検索</h4>
+                    <h4 class="main-color">ニュース検索</h4>
                     <div class="row">
                         <div class="col-md-10">
                             <input type="text" class="form-control" placeholder="検索">
                         </div>
-                        <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white">検索</button>
+                        <div class="col-md-2 text-right">
+                            <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="row m-b-15">
+            <div class="row m-b-15 m-r-5">
                 <div class="col-md-12">
-                    <router-link to="/create_news" class="float-right" style="color: blue;">Create New Post</router-link>
+                    <router-link to="/create_news" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle"></i> 新しい投稿を作成</router-link>
                 </div>
                 <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
             </div>
-            <div class="col-md-12 scrolldiv">
+            <div class="col-md-12 scrolldiv border-style">
+                <h5 class="main-color header">ニュース一覧</h5>
                 <div v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2">
 
-                                <img :src="'/images/'+ newsList.photo" class="col-md-12" alt=""> 
+                                <img :src="'/images/'+ newsList.photo" alt="" class="img-fluid"> 
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <div class="col-sm-8 pad-free mb-2"><b>
                                     <router-link :to="{name: 'newdetails', params:{id:newsList.id}}" class="mr-auto">{{newsList.title}}</router-link>
                                     <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
                                     <!-- <a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
                                     </b></div>
-                                <p>{{newsList.main_point}}</p>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <small><router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="mr-auto text-warning">編集</router-link></small> &nbsp;
-                                        <small><a class="mr-auto text-danger" @click="deletePost(newsList.id)">削除</a></small>
-                                    </div>
-
-                                </div>
-
+                                <p>{{newsList.main_point}}</p>   
+                            </div>
+                            <div class="col-sm-2 align-self-center">
+                                <router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="btn edit-borderbtn">編集</router-link>&nbsp;
+                                <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a>
                             </div>
                         </div>
                     </div> 

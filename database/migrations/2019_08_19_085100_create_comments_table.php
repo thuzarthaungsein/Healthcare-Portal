@@ -17,8 +17,13 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->text('title');
             $table->text('comment');
-            $table->string('made_by');
+            $table->string('email');
+            $table->string('name');
+            $table->string('year');
+            $table->integer('gender');
+            $table->string('zipcode')->nullable();
             $table->integer('customer_id');
+            $table->integer('status')->default(0);
             $table->integer('recordstatus')->default(1);
             $table->timestamps();
         });

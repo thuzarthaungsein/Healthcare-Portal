@@ -8,40 +8,55 @@
                     <div class="card-body ">
                         <div class="row">
                          <div class="col-sm-1"></div>
-                         <div class="col-sm-10">
+                         <div class="col-sm-9">
                                 <form @submit.prevent ="add" class="m-t-16">
                                         <div class="form-group row">
-                                            <div class="col-sm-2 text-right">
-                                                <label for ="title"  ><strong> Title :</strong>  </label>
+                                            <div class="col-sm-3 text-right">
+                                                <label for ="title"  ><strong> Title : <span class="error">*</span></strong>   </label>
                                             </div>
-                                             <div class="col-sm-10">
-                                                <input type="title" class="form-control box" id="title"  name="title" v-model="joboffer.title" required>
-                                             </div>
-                                        </div>
-
+                                             <div class="col-sm-9">
+                                                <input type="title" class="form-control box" id="title"  name="title" v-model="joboffer.title">
+                                             </div>    
+                                        </div> 
+                                         <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>  
+                                                </div>
+                                         </div>
+                                         
+                                         
                                         <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                        <label for ="description" ><strong> Description :</strong>  </label>
+                                                <div class="col-sm-3 text-right">
+                                                        <label for ="description" ><strong> Description : <span class="error">*</span></strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
-                                                    <textarea name="description" class="form-control" cols="50" rows="5" v-model="joboffer.description" required></textarea>
+                                                <div class="col-sm-9">
+                                                    <textarea name="description" class="form-control" cols="50" rows="5" v-model="joboffer.description"></textarea>
                                                 </div>
                                         </div>
+                                        <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                     <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
+                                                </div>
+                                         </div>
+                                         
                                          <div class="mb-1 row">
-                                            <div class = "col-sm-2"></div>
-                                            <div class = "col-sm-10">
-                                            <!-- <span id="addnew"><a href="javascript:new_link()" class="btn btn-sm main-bg-color all-btn white">  Add New Skill  </a></span> -->
+                                            <div class = "col-sm-3"></div>
+                                            <div class = "col-sm-9">
+                                             <!-- <span id="addnew"><a href="javascript:new_link()" class="btn btn-sm main-bg-color all-btn white">  Add New Skill  </a></span> -->
                                              <a class="btn btn-success"  @click="addRow">Add New Skill</a>
                                              <a class="btn btn-danger"   @click="delRow">Delete</a>
                                             </div>
-
                                         </div>
 
                                         <div class="form-group row sk" id="newlinktpl"  v-for="field in joboffer.fields" :key="field.id">
-                                            <div class="col-sm-2 text-right">
+                                            <div class="col-sm-3 text-right">
                                                 <label for ="skill"><strong> Skill : </strong></label>
                                             </div>
-                                            <div class="col-sm-10"  >
+                                            <div class="col-sm-9"  >
                                                  <input type="text" class="form-control" v-model="field.skills">
                                                 <!-- <input type="text" class="form-control"  v-model="joboffer.skills" >  -->
                                             </div>
@@ -53,106 +68,138 @@
                                         <div id="newlink" ></div>
 
                                          <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                        <label for ="location" ><strong> Location :</strong>  </label>
+                                                <div class="col-sm-3 text-right">
+                                                        <label for ="location" ><strong> Location : <span class="error">*</span></strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
-                                                    <textarea name="location" class="form-control" cols="50" rows="5" v-model="joboffer.location"  required></textarea>
+                                                <div class="col-sm-9">
+                                                    <textarea name="location" class="form-control" cols="50" rows="5" v-model="joboffer.location"></textarea>
                                                 </div>
                                         </div>
+                                         <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                     <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+                                                </div>
+                                         </div>
+                                       
 
                                         <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
+                                                <div class="col-sm-3 text-right">
                                                         <label for ="neareststation" ><strong> Nearest Station :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="neareststation" class="form-control" cols="50" rows="5" v-model="joboffer.nearest_station" ></textarea>
                                                 </div>
                                         </div>
 
 
-                                        <div class="form-group row" v-for="emstatus in joboffer.employment_status" :key="emstatus.id">
-                                                <div class="col-sm-2 text-right">
+                                        <div class="form-group row" v-for="emstatus in joboffer.employment_status" :key="emstatus.id" >
+                                                <div class="col-sm-3 text-right">
                                                         <label for ="neareststation" ><strong> Employment Status :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
-                                                  <label> <input type = "checkbox"  value = "Part" name = "part_time" v-model="emstatus.pchecked"  > <strong>Part Time </strong></label>
-                                                  <label> <input type = "checkbox"  value= "Full" name = "full-time" v-model="emstatus.fchecked" ><strong> Full Time </strong> </label>
-                                                </div>
+                                                <div class="col-sm-9" >                                             
+                                                    <label> <input type = "checkbox" id = "pcheck" value = "Part" name = "part_time" v-model="emstatus.pchecked" > <strong>Part Time </strong></label>
+                                                    <label> <input type = "checkbox" id = "fcheck" value= "Full" name = "full_time" v-model="emstatus.fchecked" ><strong> Full Time </strong> </label>    
+                                                </div>                                  
                                         </div>
+                                         <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                     <span v-if="errors.employment_status" class="error">{{errors.employment_status[0]}}</span>
+                                                </div>
+                                         </div>
+                                      
 
                                         <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                        <label for ="salary" ><strong> Salary :</strong>  </label>
+                                                <div class="col-sm-3 text-right">
+                                                        <label for ="salary" ><strong> Salary : <span class="error">*</span></strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
-                                                     <input type = "text" class="form-control"  v-model="joboffer.salary" name = "salary" required>
+                                                <div class="col-sm-9">
+                                                     <input type = "text" class="form-control"  v-model="joboffer.salary" name = "salary">
                                                 </div>
                                         </div>
+                                          <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                      <span v-if="errors.salary" class="error">{{errors.salary[0]}}</span>
+                                                </div>
+                                         </div>
+                                         
 
                                          <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
+                                                <div class="col-sm-3 text-right">
                                                         <label for ="allowance" ><strong> Allowance :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="allowance" class="form-control" cols="50" rows="5" v-model="joboffer.allowances"></textarea>
                                                 </div>
                                         </div>
 
                                           <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
+                                                <div class="col-sm-3 text-right">
                                                         <label for ="insurance" ><strong> Insurance :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="insurance" class="form-control" cols="50" rows="5" v-model="joboffer.insurance" ></textarea>
                                                 </div>
                                         </div>
 
                                           <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                        <label for ="workhour" ><strong> Working Hours :</strong>  </label>
+                                                <div class="col-sm-3 text-right">
+                                                        <label for ="workhour" ><strong> Working Hours : <span class="error">*</span></strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
-                                                     <input type = "workhour" class="form-control"  name = "workhour" v-model="joboffer.working_hours" required>
+                                                <div class="col-sm-9">
+                                                     <input type = "workhour" class="form-control"  name = "workhour" v-model="joboffer.working_hours">
                                                 </div>
                                         </div>
+                                        <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                       <span v-if="errors.working_hours" class="error">{{errors.working_hours[0]}}</span>
+                                                </div>
+                                         </div>
+                                      
 
                                           <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
+                                                <div class="col-sm-3 text-right">
                                                         <label for ="holiday" ><strong> Holidays :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-9">
                                                     <textarea name="holiday" class="form-control" cols="50" rows="5" v-model="joboffer.holidays" ></textarea>
                                                 </div>
-                                        </div>
+                                         </div>
+                                        
 
                                         <div class="form- group row">
-                                            <div class="col-sm-2"></div>
+                                            <div class="col-sm-3"></div>
                                         </div>
 
 
                                         <button class="btn news-post-btn">Create</button>
                                         <!-- <button type = "button" class="btn btn-md main-bg-color  all-btn white" id = "submit"> Submit </button>   -->
-
                                 </form>
-                           </div>
+                             </div>
                             <div class="col-sm-2"></div>
-
                        </div>
-
                      </div>
                 </div>
              </div>
          </div>
-
-
 </template>
 
 <script>
 export default {
+    
 
           data() {
+             
             return {
+                errors:[
+                ],
                 joboffer: {
                         title: '',
                         customer_id: '',
@@ -161,7 +208,6 @@ export default {
                             skills:'',
                             id:''
                         }],
-                        // skills :'',
                         location : '',
                         nearest_station : '',
                         employment_status : [{
@@ -179,6 +225,7 @@ export default {
                     ischeck:''
 
             }
+          
         },
          created() {
 
@@ -213,23 +260,40 @@ export default {
 
          methods: {
             add() {
+              
 
                 if( `${this.$route.params.id}` == "undefined")
-                {
+                {   
+                    
+                 
                     axios.post('http://localhost:8000/api/job/add', this.joboffer)
-                    .then((response) => {
+                    .then((response) => {   
+                        this.title = '',
+                        this.description = '',
+                        this.location = '',
+                        this.salary = '',
+                        this.working_hours = '',
+                        this.employment_status = ''
+
+                    
                     alert('Successfully Created')
                     console.log(response);
                     this.$router.push({name: 'jobofferlist'});
                     this.$route.params.id = null;
 
-                    })
+                    }).catch(error=>{
+                        
+                    if(error.response.status == 422){
+                      
+                        this.errors = error.response.data.errors       
+                          
+                    }
+                })       
 
                 }
                 else{
 
                      this.updateJob();
-
                 }
             },
             addRow: function() {
@@ -255,14 +319,12 @@ export default {
                if(check == "Full"){
                  this.joboffer.employment_status.push({
                             fchecked: 1,
-                            pchecked:0
-                                        });
+                            pchecked:0   });
                }
                else if(check == "Part"){
                     this.joboffer.employment_status.push({
                             fchecked: 0,
-                            pchecked:1
-                                        });
+                            pchecked:1  });
                }
                else{
                     this.joboffer.employment_status.push({
@@ -278,10 +340,24 @@ export default {
                 this.axios
                     .post(`http://localhost:8000/api/job/update/${this.$route.params.id}`, this.joboffer)
                     .then((response) => {
+                         this.title = '',
+                        this.description = '',
+                        this.location = '',
+                        this.salary = '',
+                        this.working_hours = '',
+                        this.employment_status = ''
                           alert('Successfully Updated!')
                         this.$router.push({name: 'jobofferlist'});
-                    });
-            },
+                    }).catch(error=>{
+                        
+                    if(error.response.status == 422){
+                      
+                        this.errors = error.response.data.errors       
+                          
+                    }
+                })     
+            }
+            
 
 
 

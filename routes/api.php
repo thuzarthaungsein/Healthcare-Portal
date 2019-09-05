@@ -19,13 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-// public route api start 
+// public route api start
 
-    // ........ 
+    // ........
 
-// public route api end 
- 
-
+// public route api end
 
 
 
@@ -36,13 +34,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-// login route api start 
+
+
+// login route api start
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('approve/{id}','registerController@approve');
-    
+
 });
-// login route api end 
+// login route api end
 
 
 
@@ -89,11 +89,12 @@ Route::get('job_details', 'JobDetailController@index');
 
 Route::group(['prefix' => 'customer'], function () {
     Route::post('add', 'CustomerController@add');
+    Route::post('uploadvideo', 'CustomerController@uploadvideo');
+    Route::post('deletevideo', 'CustomerController@deletevideo');
     Route::get('edit/{id}', 'CustomerController@edit');
     Route::post('update/{id}','CustomerController@update');
     Route::delete('delete/{id}','CustomerController@destroy');
 });
-
 
 
 Route::group(['prefix' => 'category'], function () {
@@ -103,6 +104,7 @@ Route::group(['prefix' => 'category'], function () {
     Route::get('edit/{id}', 'CategoryController@edit');
     Route::post('update/{id}', 'CategoryController@update');
     Route::delete('delete/{id}', 'CategoryController@destroy');
+    Route::post('search', 'CategoryController@search');
 });
 
 Route::get('job_details', 'JobDetailController@index');
@@ -129,9 +131,11 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
-
 // Guest Hospital History
 Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
+
+// Guest Nursing History
+Route::get('nursing_history', 'CustomerProfileContoller@getNursingHistory');
 
 Route::group(['prefix' => 'medical'], function () {
     Route::post('add', 'MedicalController@add');
@@ -144,6 +148,8 @@ Route::group(['prefix' => 'medical'], function () {
 //Route::post('add','AdvertisementController@store');
 Route::group(['prefix' => 'advertisement'], function () {
     Route::post('add', 'AdvertisementController@store');
+    Route::get('edit/{id}', 'AdvertisementController@edit');
+    Route::get('ads', 'AdvertisementController@index');
+    Route::post('update/{id}', 'AdvertisementController@update');
+    Route::delete('delete/{id}','AdvertisementController@destroy');
 });
-
-

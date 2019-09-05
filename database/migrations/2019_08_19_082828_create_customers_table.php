@@ -19,9 +19,10 @@ class CreateCustomersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('logo');
-            $table->integer('type_id');
             $table->string('phone');
             $table->text('address');
+            $table->integer('type_id')->default(1);
+            $table->integer('townships_id');
             $table->integer('user_id')->nullable();
             $table->integer('confirm_user_id')->nullable();
             $table->integer('status')->default(0);

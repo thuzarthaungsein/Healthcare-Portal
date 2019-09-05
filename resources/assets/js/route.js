@@ -23,17 +23,24 @@ import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import profile from './components/Profile.vue';
 import JobOfferList from './components/JobOfferList.vue';
+import ProfilePublish from './components/ProfilePublish.vue';
 import advertisement from './components/advertisement.vue';
-
 import createmedicalacceptance from './components/createmedicalacceptance.vue';
 import medicalacceptancelist from './components/medicalacceptancelist.vue';
 import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
-
 import HospitalHistory from './components/HospitalHistory.vue';
+import NursingHistory from './components/NursingHistory.vue';
+import HospitalProfile from './components/HospitalProfile.vue';
+import NursingProfile from './components/NursingProfile.vue';
+import VideoUpload from './components/VideoUpload.vue';
 
+import type from './components/Type.vue';
+import typelist from './components/TypeList.vue';
+import advertisementlist from './components/advertisementlist.vue';
+import editadvertisement from './components/editadvertisement.vue';
 export const routes = [
- 
+
       {
         name: 'home',
         path: '/',
@@ -70,6 +77,11 @@ export const routes = [
       path: '/customersearchlist',
       component: CustomerSearchListComponent
     },
+    {
+        name: 'custedit',
+        path: '/custsedit',
+        component: custedit
+      },
     {
       name: 'jobsearchlist',
       path: '/jobsearchlist',
@@ -157,6 +169,11 @@ export const routes = [
       component: JobOfferList
     },
     {
+      name: 'profilepublish',
+      path: '/profilepublish',
+      component: ProfilePublish
+    },
+      {
       name: 'hospital_history',
       path: '/hospital_history',
       component: HospitalHistory
@@ -187,5 +204,46 @@ export const routes = [
         name: 'advertisement',
         path: '/advertisement',
         component: advertisement
-      }
+      },
+      {
+        name:'type',
+        path:'/type',
+        component: type
+      },
+      {
+        name:'typelist',
+        path:'/typelist',
+        component:typelist
+      },
+
+     {
+         name: 'ads',
+         path: '/ads',
+         component: advertisementlist
+     },
+     {
+         name: 'editadvertisement',
+         path: '/editads',
+        component: editadvertisement
+    },
+    {
+      name: 'nursing_history',
+      path: '/nursing_history',
+      component: NursingHistory
+    },
+    {
+      name: 'hospital_profile',
+      path: '/hospital_profile',
+      component: HospitalProfile
+     },
+    {
+      name: 'nursing_profile',
+      path: '/nursing_profile',
+      component: NursingProfile
+     },
+    {
+      name: 'videoupload',
+      path: '/videoupload',
+      component: VideoUpload
+  }
 ];

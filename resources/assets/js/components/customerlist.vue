@@ -89,13 +89,13 @@
             <div class="card card-default m-b-20">
 
             <div class="card-body">
-                    <h4 class="main-color">ニュース記事を検索</h4>
+                    <h4 class="main-color">事業者検索</h4>
                     <div class="row">
                         <div class="col-md-10">
                             <input type="text" class="form-control" placeholder="検索">
                         </div>
-                        <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white">検索</button>
+                        <div class="col-md-2 text-right">
+                            <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
                         </div>
                     </div>
             </div>
@@ -104,28 +104,27 @@
             <h4 style="padding-top:20px;">Customer List </h4>
         </div><br/> -->
 
-        <div class="scrolldiv col-12">
+        <div class="scrolldiv col-12 border-style">
+            <h5 class="main-color header">事業者</h5>
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
                 <div class="card-body news-post">
                     <div class="row">
                         <div class="col-md-2" >
-                            <img src="/images/hospitalpage.jpg" class="col-md-12 " alt=" " style="height:150px;" >
+                            <img src="/images/hospitalpage.jpg" alt="" class="img-fluid">
                             <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
                         </div>
-                        <div class="col-md-10">
-                        <div class="col-sm-8 pad-free mb-2">
-                            <a><strong>Name     :</strong>{{customer.name}}</a><br/>
-                            <a><strong>Email    :</strong>{{customer.email}}</a><br/>
-                            <a><strong>Logo     :</strong>{{customer.logo}}</a><br/>
-                            <a><strong>Phone    :</strong>{{customer.phone}}</a><br/>
-                            <a><strong>Address  :</strong>{{customer.address}}</a><br/>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-5 pl-3">
-                                <button class="btn btn-danger  all-btn" @click="deleteCustomer(customer.id)">Delete</button>
+                        <div class="row col-md-10">
+                        <div class="col-md-2 max-width12"><strong>Name:</strong></div><div class="col-md-10">{{customer.name}}</div>
+                        <div class="col-md-2 max-width12"><strong>Email:</strong></div><div class="col-md-10">{{customer.email}}</div>
+                        <div class="col-md-2 max-width12"><strong>Logo:</strong></div><div class="col-md-10">{{customer.logo}}</div>
+                        <div class="col-md-2 max-width12"><strong>Phone:</strong></div><div class="col-md-10">{{customer.phone}}</div>
+                        <div class="col-md-2 max-width12"><strong>Address:</strong></div><div class="col-md-10">{{customer.address}}</div>                      
+                        <div class="row col-12 mt-2">
+                            <div class="col-4 col-offset-4 pl-3">
+                                <button class="btn delete-borderbtn" @click="deleteCustomer(customer.id)">削除</button>
                                  <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
-                                 <button class="btn btn-info all-btn" v-if="customer.status != 0">Confirmed</button>
-                                <button class="btn btn-info all-btn" v-else @click="comfirm(customer.id)">Confirm</button>
+                                 <button class="btn confirm-borderbtn" v-if="customer.status != 0">確認済</button>
+                                <button class="btn confirm-borderbtn" v-else @click="comfirm(customer.id)">確認</button>
 
                             </div>
                         </div>

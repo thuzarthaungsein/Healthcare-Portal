@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Advertisement extends Model
 {
-    //
+    public $table = 'advertisements';
     public $fillable = ['title','description','location','photo','user_id','recordstatus'];
 
 }

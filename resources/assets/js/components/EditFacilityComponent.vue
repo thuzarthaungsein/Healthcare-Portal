@@ -5,7 +5,6 @@
               <div class="card-body">
                 <div class="col-md-12">
                     <div class="row">
-
                         <div class="col-md-12">
                             <h4 class="page-header">Edit Facility</h4>
                             <br>
@@ -14,7 +13,8 @@
                              <form @submit.prevent="updateFacility">
                             <div class="form-group">
                                 <label>Facility Name :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="facility.description"  required>
+                                <input type="text" class="form-control"  v-model="facility.description"  >
+                                  <span v-if="errors.description" class="error">{{errors.description[0]}}</span>  
                             </div>
 
                             <div class="form-group ">
@@ -60,9 +60,17 @@ export default {
                 this.axios
                     .post(`http://localhost:8000/api/facility/update/${this.$route.params.id}`, this.facility)
                     .then((response) => {
+                        this.description = ''
                           alert('Successfully Updated!')
                         this.$router.push({name: 'facilitieslist'});
-                    });
+                    }).catch(error=>{
+                        
+                    if(error.response.status == 422){
+                      
+                        this.errors = error.response.data.errors       
+                          
+                    }
+                })  ;
             }
 
         }
