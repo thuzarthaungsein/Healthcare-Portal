@@ -22,6 +22,30 @@ class CustomerController extends Controller
         return array_reverse($customers);
     }
 
+    public function uploadvideo(Request $request)
+    {
+        $request = $request->all();
+        $video_file = $request['file'];
+        $video_name = $request['name'];
+
+        $destination = 'upload/videos/'.$video_name; 
+        if (move_uploaded_file($video_file, $destination)) { 
+            return response()->json(['success'=>'Done!']);
+        } else {
+           echo "File was not uploaded";
+        }
+    }
+
+    public function deletevideo(Request $request) 
+    {
+        $request = $request->all();
+        $file_path = $request['fiel_path'];
+    
+        unlink($file_path);
+        return response()->json(['success'=>'Done!']);
+
+    }
+
     public function add(Request $request)
     {
         $request->validate([
