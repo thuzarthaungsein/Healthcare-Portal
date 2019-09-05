@@ -82,8 +82,26 @@
 /* End News List */
 
 /* Profile */
+.typelabel {
+    background: #118063;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+}
+.dim-btn {
+    background: #ccc !important;
+}
+.typelabel input[type="radio"] {
+    display: none;
+}
+.form-class{
+    padding: 15px;
+}
 .hor-line {
-    border-top: 2px solid #ccc;
+    border-top: 2px solid #eee;
 }
 .btn-editProfile{
     background: #0f6064;
@@ -131,14 +149,14 @@
 .profile .card-header {
     padding-top: 20px !important;
 }
-#gallery {
+#gallery, #gallery-video {
     border-radius: 5px;
     padding: 20px;
     border: 1px solid #eee;
     margin-top: 15px;
 }
 .method-box {
-    border-bottom: 2px solid #eee;
+    /* border-bottom: 2px solid #eee; */
     padding: 20px 0px;
 }
 .collapse-icon {
@@ -164,6 +182,12 @@
     padding: 10px;
     margin-bottom: 7px;
     border-radius: 3px;
+}
+.hos-fac-toggle-div {
+    padding-top: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 /* End Profile */
 
@@ -368,7 +392,9 @@
 .form-check-inline.show{
     display: inline-flex;
 }
-
+.collapse.show{
+    display: block;
+}
 
 .registerform_container{
     margin-top: 80px;
@@ -397,8 +423,33 @@
     box-sizing: border-box;
     background-size: 60px 60px;
     
-  } 
-
+} 
+/* #file {
+    position: relative;
+    top: 150px;
+    font-family: calibri;
+    width: 150px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px dashed #BBB;
+    text-align: center;
+    background-color: #DDD;
+    cursor: pointer;
+  } */
+  ::-webkit-file-upload-button {
+    padding:5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px dashed #BBB;
+    text-align: center;
+    background-color: #DDD;
+    cursor: pointer;
+    
+  }
+  :focus {
+    outline: -webkit-focus-ring-color auto 0px;
+    }
 .register_btn {
     color: white !important;
     width: 120px;
@@ -597,11 +648,8 @@
               bottom: 0;
               left: 42%;
               /* border-bottom: 1px solid #42b698; */
-          }
-        .m-l-14
-        {
-            margin-left: -12px;
-        }
+          }        
+
         .fit-image2{
             width: 350px;
             object-fit: cover;
@@ -1135,6 +1183,12 @@ div.b{
 .m-r-15 {
     margin-right: 15px;
 }
+.m-r-5{
+    margin-right: 5px;
+}
+.m-l-14{
+    margin-left: 14px;
+}
 /* .m-r-2per{
     margin-right: 2% !important;
 } */
@@ -1147,7 +1201,12 @@ div.b{
 .p-b-5{
     padding-bottom: 5px ;
 }
-
+.max-width12{
+    max-width:12%;
+}
+.max-width16{
+    max-width:16%;
+}
 .main-color {
     color: #333;
 }
@@ -1165,12 +1224,40 @@ div.b{
 .secondary-bg-color{
     background-color: #f27a24 !important;
 }
+
 .all-btn{
     color: #fff !important;
     border:none !important;
     min-width: 100px;
     cursor: pointer;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+}
+.all-btn:hover{
+    text-decoration: none;
+}
+.edit-borderbtn{
+    border: 1px solid #ffc107 !important;
+    color: #ffc107;
+    background: #fff;    
+    box-shadow: none !important;
+    min-width: 70px;
+}
+.delete-borderbtn{
+    border: 1px solid #dc3545 !important;
+    color: #dc3545;
+    background: #fff;    
+    box-shadow: none !important;
+    min-width: 60px;
+}
+.confirm-borderbtn{
+    border: 1px solid #6cb2eb !important;
+    color: #6cb2eb;
+    background: #fff;    
+    box-shadow: none !important;
+    min-width: 60px;
+}
+.border-style{
+    border: 1px solid #eee;
 }
 .create-btn{
     color: #fff !important;
@@ -1322,12 +1409,12 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-l
 }
 /*user view sidebar*/
 .userview-sidebar{
-   background-color: #f5f5f5;
-   height: 91vh;
-   padding-top: 35%;
-   padding-left: 22px;
-   padding-right: 7px;  
-   margin-top: 4px; 
+    background-color: #f5f5f5;
+    height: 91vh;
+    padding-top: 35%;
+    padding-left: 22px;
+    padding-right: 7px; 
+    margin-top: 4px;
 
 }
 .adminview-sidebar{
@@ -1716,3 +1803,22 @@ ul.main-tab li:after{
 .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
 
 /*end for jssor*/
+
+/* Hospital History */
+.fac_container {
+    width: 100%;
+}
+.equipment {
+    list-style: none;
+}
+.equipment>li {
+    width:100%;
+    color: #4650db;
+    background: #a3cee1;
+    border: 1px solid #4650db;
+    padding: 5px;
+    margin: 0 0.5% 1px 0;
+    text-align: center;
+    border-radius: 2px;
+}
+/* End for Hospital History */

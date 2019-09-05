@@ -40,13 +40,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('approve/{id}','registerController@approve');
-
+    // Route::get('authget','ProfileController@index');
+    
 });
 // login route api end
 
+Route::group(['prefix' => 'job'], function () {
+    Route::post('add', 'JobController@store');
+    Route::get('index', 'JobController@index');
+    Route::get('edit/{id}', 'JobController@edit');
+    Route::post('update/{id}', 'JobController@update');
+    Route::delete('delete/{id}', 'JobController@destroy');
+});
 
-
-
+Route::get('authget','ProfileController@index');
 
 
 Route::get('getReset','registerController@getReset');
@@ -78,13 +85,7 @@ Route::group(['prefix' => 'facility'], function () {
 });
 
 
-Route::group(['prefix' => 'job'], function () {
-    Route::post('add', 'JobController@store');
-    Route::get('index', 'JobController@index');
-    Route::get('edit/{id}', 'JobController@edit');
-    Route::post('update/{id}', 'JobController@update');
-    Route::delete('delete/{id}', 'JobController@destroy');
-});
+
 
 Route::get('job_details', 'JobDetailController@index');
 
@@ -108,7 +109,6 @@ Route::group(['prefix' => 'category'], function () {
     Route::post('search', 'CategoryController@search');
 });
 
-Route::get('job_details', 'JobDetailController@index');
 // Home Page
 Route::get('home', 'HomeController@index');
 Route::get('posts/{cat_id}', 'HomeController@getPosts');
@@ -118,7 +118,6 @@ Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
-Route::get('jobs', 'JobController@index');
 Route::get('news_list', 'PostController@index');
 Route::post('news_list/search', 'PostController@search');
 
@@ -136,6 +135,9 @@ Route::get('job_details/{id}', 'JobDetailController@show');
 // Guest Hospital History
 Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
 
+// Guest Nursing History
+Route::get('nursing_history', 'CustomerProfileContoller@getNursingHistory');
+
 Route::group(['prefix' => 'medical'], function () {
     Route::post('add', 'MedicalController@add');
     Route::get('medicalacceptance', 'MedicalController@index');
@@ -152,5 +154,3 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::post('update/{id}', 'AdvertisementController@update');
     Route::delete('delete/{id}','AdvertisementController@destroy');
 });
-
-

@@ -40,6 +40,9 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
+        var image_x = document.getElementById('x-image');
+        image_x.parentNode.removeChild(image_x);
+        document.getElementById('showimage').style.display = 'block';
         console.log("close");
     }
 
