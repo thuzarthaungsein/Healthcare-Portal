@@ -58141,10 +58141,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 text-right" }, [
-      _c("button", { staticClass: "btn secondary-bg-color all-btn white" }, [
-        _c("i", { staticClass: "fas fa-search" }),
-        _vm._v(" 検索")
-      ])
+      _c(
+        "button",
+        {
+          staticClass: "btn secondary-bg-color all-btn white",
+          staticStyle: { width: "100%" }
+        },
+        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+      )
     ])
   }
 ]
@@ -58262,9 +58266,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58312,78 +58313,76 @@ var render = function() {
     _c("div", { staticClass: "col-12" }, [
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "row" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.add($event)
-                      }
+          _c("div", { staticClass: "row" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.add($event)
                     }
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.category.name,
-                            expression: "category.name"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "カテゴリ 名" },
-                        domProps: { value: _vm.category.name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.category, "name", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.name
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.name[0]))
-                          ])
-                        : _vm._e()
-                    ]),
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(1),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group " }, [
-                      _c("div", { staticClass: "form-group row" }, [
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-1 pad-free" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-warning",
-                                attrs: { to: "/categorylist" }
-                              },
-                              [_vm._v(" キャンセル ")]
-                            )
-                          ],
-                          1
-                        )
-                      ])
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.category.name,
+                          expression: "category.name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "カテゴリ 名" },
+                      domProps: { value: _vm.category.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.category, "name", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.name
+                      ? _c("span", { staticClass: "error" }, [
+                          _vm._v(_vm._s(_vm.errors.name[0]))
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group " }, [
+                    _c("div", { staticClass: "form-group row" }, [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 pad-free" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "btn btn-danger all-btn",
+                              attrs: { to: "/categorylist" }
+                            },
+                            [_vm._v(" キャンセル ")]
+                          )
+                        ],
+                        1
+                      )
                     ])
-                  ]
-                )
-              ])
+                  ])
+                ]
+              )
             ])
           ])
         ])
@@ -58397,7 +58396,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header" }, [_vm._v("カテゴリを作成")]),
+      _c("h4", { staticClass: "page-header header" }, [_vm._v("カテゴリ作成")]),
       _vm._v(" "),
       _c("br")
     ])
@@ -58415,8 +58414,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1 pad-free" }, [
-      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Create")])
+    return _c("div", { staticClass: "col-2 pad-free" }, [
+      _c("button", { staticClass: "btn news-post-btn all-btn" }, [
+        _vm._v("カテゴリを投稿する")
+      ])
     ])
   }
 ]
@@ -60472,15 +60473,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -60530,87 +60522,83 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "content" } }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card  text-dark" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c(
-                    "form",
-                    {
-                      on: {
-                        submit: function($event) {
-                          $event.preventDefault()
-                          return _vm.updateCategory($event)
-                        }
+  return _c("div", { staticClass: "row", attrs: { id: "content" } }, [
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "card  text-dark" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "row" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                staticClass: "col-md-12",
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.updateCategory($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.category.name,
+                        expression: "category.name"
                       }
-                    },
-                    [
-                      _c("div", { staticClass: "form-group" }, [
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.category.name,
-                              expression: "category.name"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text" },
-                          domProps: { value: _vm.category.name },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.category,
-                                "name",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.errors.name
-                          ? _c("span", { staticClass: "error" }, [
-                              _vm._v(_vm._s(_vm.errors.name[0]))
-                            ])
-                          : _vm._e()
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group row" }, [
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-3 pad-free" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-warning",
-                                attrs: { to: "/categorylist" }
-                              },
-                              [_vm._v("Cancel")]
-                            )
-                          ],
-                          1
-                        )
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", placeholder: "種別名" },
+                    domProps: { value: _vm.category.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.category, "name", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.name
+                    ? _c("span", { staticClass: "error" }, [
+                        _vm._v(_vm._s(_vm.errors.name[0]))
                       ])
-                    ]
-                  )
-                ])
-              ])
-            ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-danger all-btn",
+                        attrs: { to: "/categorylist" }
+                      },
+                      [_vm._v("キャンセル")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn news-post-btn all-btn",
+                        attrs: { to: "/categorylist" }
+                      },
+                      [_vm._v("更新")]
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
           ])
         ])
       ])
@@ -60623,9 +60611,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header" }, [_vm._v("Edit Category")]),
-      _vm._v(" "),
-      _c("br")
+      _c("h4", { staticClass: "page-header header" }, [
+        _vm._v("カテゴリを編集")
+      ])
     ])
   },
   function() {
@@ -60633,16 +60621,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("Category Name :"),
+      _vm._v("種別名:"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1 pad-free" }, [
-      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Update")])
     ])
   }
 ]

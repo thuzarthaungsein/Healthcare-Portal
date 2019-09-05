@@ -2,12 +2,10 @@
  <div class="row">
       <div class="col-12">
           <div class="card">
-              <div class="card-body">
-                <div class="col-md-12">
+              <div class="card-body">                
                     <div class="row">
-
                         <div class="col-md-12">
-                            <h4 class="page-header">カテゴリを作成</h4>
+                            <h4 class="page-header header">カテゴリ作成</h4>
                             <br>
                         </div>
                         <div class="col-md-12">
@@ -20,11 +18,11 @@
 
                             <div class="form-group ">
                                 <div class="form-group row">
-                                    <div class="col-1 pad-free">
-                                        <button class="btn news-post-btn">Create</button>
+                                    <div class="col-2 pad-free">
+                                        <button class="btn news-post-btn all-btn">カテゴリを投稿する</button>
                                     </div>
-                                    <div class="col-1 pad-free">
-                                        <router-link class="btn btn-warning" to="/categorylist" > キャンセル </router-link>
+                                    <div class="col-2 pad-free">
+                                        <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
                                     </div>
 
                                     <!-- <div class="row"> -->
@@ -46,8 +44,7 @@
                                 </form>
                             </div>
                          </div>
-                    </div>
-                </div>
+                    </div>                
             </div>
           </div>
       </div>

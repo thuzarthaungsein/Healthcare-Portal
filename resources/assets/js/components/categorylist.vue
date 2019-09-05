@@ -10,7 +10,7 @@
                                 <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchCategory()">
                             </div>
                             <div class="col-md-2 text-right">
-                                <button class="btn secondary-bg-color all-btn white"><i class="fas fa-search"></i> 検索</button>
+                                <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
                             </div>
                         </div>
                 </div>
