@@ -8,7 +8,7 @@
                     <h4 class="main-color">ニュース検索</h4>
                     <div class="row">
                         <div class="col-md-8">
-                            <input type="text" class="form-control" placeholder="検索">
+                            <input type="text" class="form-control" placeholder="検索" id="search-item"  @keyup="searchbyCategory()">
                         </div>
                         <div class="col-md-4">
                             <div class="btn-group">
@@ -166,8 +166,10 @@ export default {
                
             },
             searchbyCategory() {
+                var search_word = $('#search-item').val();
                 var selected_category  = document.getElementById("selectBox").value;
                 let fd = new FormData();
+                    fd.append('search_word', search_word)
                     fd.append('selected_category' ,selected_category )
                 this.axios.post('http://localhost:8000/api/news_list/search', fd)
                     .then(response => {
