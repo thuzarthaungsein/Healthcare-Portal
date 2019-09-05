@@ -147,9 +147,9 @@
     margin-bottom: 15px;
 }
 .profile .card-header {
-    padding-top: 20px !important;
+    /* padding-top: 20px !important; */
 }
-#gallery, #gallery-video {
+#gallery, #gallery-video, #special-features {
     border-radius: 5px;
     padding: 20px;
     border: 1px solid #eee;
@@ -1822,3 +1822,18 @@ ul.main-tab li:after{
     border-radius: 2px;
 }
 /* End for Hospital History */
+/* Summernote */
+#feature .card-header.note-toolbar {
+    background: #efefef;
+}
+
+#feature .note-editor.note-frame .note-statusbar .note-resizebar {
+    background: #efefef;
+}
+
+#feature .btn-light {
+    color: #212529;
+    background-color: #fff;
+    border-color: #ccd1d6;
+}
+/* End Summernote */

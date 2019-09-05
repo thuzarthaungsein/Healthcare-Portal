@@ -118,7 +118,7 @@
  
  <script>
 $(document).ready(function(){
-    
+     
 
   
 });
@@ -129,95 +129,95 @@ $(document).ready(function(){
 
 // Fixed Nav
 jQuery(document).ready(function ($) {
-      window.onscroll = function() {myFunction()};
 
-var profile = document.getElementById("profile");
+    window.onscroll = function() {myFunction()};
+
+var profile = document.getElementById("publicProfile");
 var sticky = profile.offsetTop;
 
 function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    profile.classList.add("sticky")
-  } else {
-    profile.classList.remove("sticky");
-  }
+ if (window.pageYOffset >= sticky) {
+   profile.classList.add("sticky")
+ } else {
+   profile.classList.remove("sticky");
+ }
 }
 
-  $(".onepage").on('click', function(event) {
+ $(".onepage").on('click', function(event) {
+alert('a');
+   if (this.hash !== "") {
 
+     event.preventDefault();
 
-    if (this.hash !== "") {
-
-      event.preventDefault();
-
-   
-      var hash = this.hash;
-
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-     
-        window.location.hash = hash;
-      });
-    } 
-  });
-
-    $('.onepage').click(function() {
-		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
-			|| location.hostname == this.hostname) {
-
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			if (target.length) {
-				$('html,body').animate({
-					scrollTop: target.offset().top - 32
-				}, 1000);
-				return false;
-			}
-		}
-	});
-    
-	$(window).scroll(function(){
-       
-		var scrollTop = 152;
-		if($(window).scrollTop() >= scrollTop){
-			$('.nav_menu').css({
-				position : 'fixed',
-                top : '0',
-                width:'57.12%',
-            });
-       
-		}
-		if($(window).scrollTop() < scrollTop){
-            $('.nav_menu').removeAttr('style');	
-            
-    }
-    
-	})
   
-    // Active Nav Link
-    $('.nav_menu ul li onepage').click(function(){
-         $('.nav_menu ul li onepage').removeClass('active');
-         $(this).addClass('active');
-    });
+     var hash = this.hash;
+
+     $('html, body').animate({
+       scrollTop: $(hash).offset().top
+     }, 900, function(){
+  
+    
+       window.location.hash = hash;
+     });
+   } 
+ });
+
+   $('.onepage').click(function() {
+       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+           || location.hostname == this.hostname) {
+
+           var target = $(this.hash);
+           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+           if (target.length) {
+               $('html,body').animate({
+                   scrollTop: target.offset().top - 32
+               }, 1000);
+               return false;
+           }
+       }
+   });
+   
+   $(window).scroll(function(){
+      
+       var scrollTop = 152;
+       if($(window).scrollTop() >= scrollTop){
+           $('.nav_menu').css({
+               position : 'fixed',
+               top : '0',
+               width:'57.12%',
+           });
+      
+       }
+       if($(window).scrollTop() < scrollTop){
+           $('.nav_menu').removeAttr('style');	
+           
+   }
+   
+   })
+ 
+   // Active Nav Link
+   $('.nav_menu ul li onepage').click(function(){
+        $('.nav_menu ul li onepage').removeClass('active');
+        $(this).addClass('active');
+   });
 
 
-    $(document).on("scroll", onScroll);
-    function onScroll(event){
-        var scrollPos = $(document).scrollTop();
-        $('.nav_menu a.onepage').each(function () {
-            var currLink = $(this);
+   $(document).on("scroll", onScroll);
+   function onScroll(event){
+       var scrollPos = $(document).scrollTop();
+       $('.nav_menu a.onepage').each(function () {
+           var currLink = $(this);
 
-            var refElement = $(currLink.attr("href"));
-            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                $('.nav_menu ul li a.onepage').removeClass("active");
-                currLink.addClass("active");
-            }
-            else{
-                currLink.removeClass("active");
-            }
-        });
-    }
+           var refElement = $(currLink.attr("href"));
+           if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+               $('.nav_menu ul li onepage').removeClass("active");
+               currLink.addClass("active");
+           }
+           else{
+               currLink.removeClass("active");
+           }
+       });
+   }
 });
 
 

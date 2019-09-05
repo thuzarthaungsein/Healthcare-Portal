@@ -8,7 +8,6 @@
         <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
         <!--end menu tabs-->
-         
         <!-- Tab panes -->
               <div class="tab-content tab-content1 tabs">
                <div role="tabpanel" class="tab-pane in active" id="tab1"> 
@@ -43,10 +42,7 @@ export default {
      News,
      hospitalSearch,
      nursingSearch,
-     jobSearch,
-     ProfilePublish
-
-
+     jobSearch
     },
      mounted() {
             console.log('Component mounted.')
@@ -57,10 +53,32 @@ export default {
                 cats: [],
                 posts: [],
                 latest_post: [],
-                latest_post_all_cats: []
+                latest_post_all_cats: [],
+                
+                l_storage_hos_history: [],
+                l_storage_nus_history: [],
+                l_storage_hos_fav: [],
+                l_storage_nus_fav: [],
             }
         },
         created() {
+                // Push data
+                this.l_storage_hos_fav.push(1);
+                this.l_storage_nus_fav.push(1);
+                this.l_storage_hos_history.push(2);
+                this.l_storage_nus_history.push(1);
+
+                this.l_storage_hos_fav.push(2);
+                this.l_storage_nus_fav.push(2);
+                this.l_storage_hos_history.push(1);
+                this.l_storage_nus_history.push(2);
+
+                // Set LocalStorage data
+               localStorage.setItem("hospital_history",this.l_storage_hos_history);
+               localStorage.setItem("nursing_history",this.l_storage_nus_history);
+               localStorage.setItem("hospital_fav",this.l_storage_hos_fav);
+               localStorage.setItem("nursing_fav",this.l_storage_nus_fav);
+                
             this.getAllCat();
             this.getPostByFirstCat();
             this.getLatestPostByFirstCatID();
@@ -104,7 +122,7 @@ export default {
                         .then(response => {
                                 this.latest_post_all_cats = response.data;
                         });
-                }
+                },
         }
 
 }

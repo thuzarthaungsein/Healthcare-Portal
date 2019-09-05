@@ -20,7 +20,8 @@ import editcategory from './components/editcategory.vue';
 import createcustomer from './components/CreateCustomer.vue';
 import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
-import profile from './components/Profile.vue';
+import hosProfile from './components/hosProfile.vue';
+import nusProfile from './components/nusProfile.vue';
 import JobOfferList from './components/JobOfferList.vue';
 import ProfilePublish from './components/ProfilePublish.vue';
 import advertisement from './components/advertisement.vue';
@@ -158,9 +159,14 @@ export const routes = [
       component: map
     },
     {
-      name: 'profile',
-      path: '/profile',
-      component: profile
+      name: 'hos_profile',
+      path: '/hos_profile',
+      component: hosProfile
+    },
+    {
+      name: 'nus_profile',
+      path: '/nus_profile',
+      component: nusProfile
     },
     {
       name: 'jobofferlist',
