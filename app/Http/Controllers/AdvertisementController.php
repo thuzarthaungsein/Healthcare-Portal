@@ -103,7 +103,20 @@ class AdvertisementController extends Controller
           $ads = Advertisement::find($id);
           $ads->update($uploadData);
           return response()->json(' Successfully updated');
+
     }
+    // public function updatedele($id){
+    //     $ads = Advertisement::find($id);
+    //     if(Input::hasFile('photo')){
+    //         $file = Input::file('photo');
+    //         $name = time() . '-' . $file->getClientOriginalName();
+    //         $file = $file->move(public_path() . 'upload/advertisement/', $name);
+    //         $ads->file= $name;
+    //     }
+    //     $ads->save();
+    //     return "success";
+
+    // }
 
 
     /**
