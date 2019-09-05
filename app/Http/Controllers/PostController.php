@@ -131,12 +131,23 @@ class PostController extends Controller
     public function search(Request $request)
     {
         $request = $request->all();
-        $category_id = $request['selected_category'];
+
+        $query = Post::query();
+
+        if(isset($request['selected_category'])) {
+            $category_id = $request['selected_category'];
+            $query = $query->where('category_id', $category_id);
+        } 
+
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
         
-        $news_by_categories = Post::query()
-                            ->where('category_id', $category_id) 
-                            ->get()
-                            ->toArray();
-        return $news_by_categories;
+            $query = $query->where(function($qu) use ($search_word){
+                            $qu->where('title', 'LIKE', "%{$search_word}%")
+                                ->orWhere('main_point', 'LIKE', "%{$search_word}%");
+                        });
+        } 
+        $query = $query->get();
+        return $query;
     }
 }
