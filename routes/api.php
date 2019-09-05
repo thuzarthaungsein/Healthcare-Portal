@@ -41,11 +41,17 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('approve/{id}','registerController@approve');
     // Route::get('authget','ProfileController@index');
-
+    
 });
 // login route api end
 
-
+Route::group(['prefix' => 'job'], function () {
+    Route::post('add', 'JobController@store');
+    Route::get('index', 'JobController@index');
+    Route::get('edit/{id}', 'JobController@edit');
+    Route::post('update/{id}', 'JobController@update');
+    Route::delete('delete/{id}', 'JobController@destroy');
+});
 
 Route::get('authget','ProfileController@index');
 
@@ -78,13 +84,7 @@ Route::group(['prefix' => 'facility'], function () {
 });
 
 
-Route::group(['prefix' => 'job'], function () {
-    Route::post('add', 'JobController@store');
-    Route::get('index', 'JobController@index');
-    Route::get('edit/{id}', 'JobController@edit');
-    Route::post('update/{id}', 'JobController@update');
-    Route::delete('delete/{id}', 'JobController@destroy');
-});
+
 
 Route::get('job_details', 'JobDetailController@index');
 
