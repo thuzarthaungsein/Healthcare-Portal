@@ -144,6 +144,7 @@ class AdvertisementController extends Controller
         $search_categories = Advertisement::query()
                             ->where('title', 'LIKE', "%{$search_word}%") 
                             ->orwhere('description', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
                             ->get()
                             ->toArray();
         return $search_categories;
