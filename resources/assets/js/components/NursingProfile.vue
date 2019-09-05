@@ -4,34 +4,34 @@
 
             <div class="col-md-12 pad-free">
                     <div class="form-group">
-                            <label>名前<span class="error">*</span></label>
+                            <label class="heading-lbl">名前<span class="error">*</span></label>
                             <input type="text" class="form-control" placeholder="Name">
                     </div>
                     <div class="form-group">
-                            <label>メールアドレス<span class="error">*</span></label>
+                            <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
                             <input type="text" class="form-control"  placeholder="Email">
                     </div>                
                     <div class="form-group">
-                            <label>電話番号<span class="error">*</span></label>
+                            <label class="heading-lbl">電話番号<span class="error">*</span></label>
                             <input type="text" class="form-control"  placeholder="Phone">
                     </div>                               
 
                     <div class="form-group">
-                            <label>フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">+</span>
+                            <label class="heading-lbl">フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">+</span>
                             <div class="col-md-12">
                                     <div class="row" id="gallery"></div>
                             </div>                                        
                     </div>
 
                     <div class="form-group">
-                            <label>ビデオ</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">+</span>
+                            <label class="heading-lbl">動画</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">+</span>
                             <div class="col-md-12">
                                     <div class="row" id="gallery-video"></div>
                             </div>                                        
                     </div>
 
                     <div class="form-group">
-                            <label>特長<span class="error">*</span></label>
+                            <label class="heading-lbl">特長<span class="error">*</span></label>
                             <!-- <textarea name="feature" class="form-control"></textarea> -->
                             <div id="feature" name = "body"></div>
                     </div>
@@ -41,11 +41,11 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-                                        <label>費用</label>
+                                        <label class="heading-lbl">費用</label>
                                 </div>
 
                                 <div class="form-group">
-                                        <label>支払い方法<span class="error">*</span></label>
+                                        <label class="heading-lbl">支払い方法<span class="error">*</span></label>
                                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="methodAdd()">+</span>
 
                                         <div class="col-md-12 pad-free" id="methods"></div>
@@ -55,7 +55,8 @@
 
                         <tr>
                             <td>
-                                <span class="btn all-btn main-bg-color m-b-20" @click="nurseFacToggleDiv()">施設の概要</span>
+                                <label class="heading-lbl">施設の概要</label> 
+                                <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="nurseFacToggleDiv()"><i class="fas fa-sort-down"></i></span>
 
                                 <div class="nurse-fac-toggle-div toggle-div">
                                         <table class="table table-striped table-bordered">
@@ -127,7 +128,7 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-                                        <label>協力医療機関<span class="error">*</span></label>
+                                        <label class="heading-lbl">協力医療機関<span class="error">*</span></label>
                                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="cooperateAdd()">+</span>                                        
                                         <div class="col-md-12 pad-free" id="cooperate-medical"></div>
                                 </div>
@@ -137,7 +138,8 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-                                    <span class="btn all-btn main-bg-color m-b-20" @click="acceptanceList()">医療面の受入れ</span>
+                                        <label class="heading-lbl">医療面の受入れ</label> 
+                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="acceptanceList()"><i class="fas fa-sort-down"></i></span>
                                     <div class="col-md-12 accept-toggle-div toggle-div pad-free">
                                             <label for="" class="m-r-15"><i class="fas fa-check green"></i> 受入れ可</label>
                                             <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
@@ -165,7 +167,8 @@
 
                         <tr>
                             <td>
-                                <span class="btn all-btn main-bg-color m-b-20" @click="staffToggleDiv()">職員体制</span>
+                                <label class="heading-lbl">職員体制</label> 
+                                <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="staffToggleDiv()"><i class="fas fa-sort-down"></i></span>
 
                                 <div class="staff-toggle-div toggle-div">
                                         <table class="table table-striped table-bordered">
@@ -194,7 +197,7 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-                                    <label>こだわりの特長<span class="error">*</span></label>
+                                    <label class="heading-lbl">こだわりの特長<span class="error">*</span></label>
                                     <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
 
                                     <div class="col-md-12 pad-free" id="special-features"></div>
@@ -204,7 +207,8 @@
 
                         <tr>
                             <td>
-                                <span class="btn all-btn main-bg-color m-b-20" @click="maptogglediv()">地図</span>
+                                <label class="heading-lbl">地図</label> 
+                                <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down"></i></span>
 
                                 <div class="map-toggle-div toggle-div">
                                         <div class="col-md-12">
@@ -252,6 +256,13 @@
 </template>
 
 <script>
+$(document).ready(function(){
+        $('#feature').summernote({
+        placeholder: 'Write Feature',
+        height: 200,
+        });
+});
+
 export default {
        data() {
                 return {

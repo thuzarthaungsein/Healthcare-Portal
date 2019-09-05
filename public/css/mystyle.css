@@ -82,6 +82,10 @@
 /* End News List */
 
 /* Profile */
+.heading-lbl {
+    font-weight: bold;
+    font-size: 1em;
+}
 .typelabel {
     background: #118063;
     padding: 8px 15px;
@@ -717,22 +721,22 @@ p {
 .error {
     color: #FF0000;
 }
-
+.show-news-img {
+    height: 100px;
+    margin: 15px 0px;
+    border-radius: 5px;
+    padding: 0px;
+}
+.preview {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
 
 /* body {
     background-color: #f5f5f5;
 } */
 
-.imagePreview {
-    width: 300%;
-    height: 200px;
-    background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
-    background-color: #fff;
-    background-size: cover;
-    position: relative;
-    right: 15px;
-    background-position: center;
-}
 
 .btn-primary {
     display: block;

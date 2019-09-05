@@ -29,6 +29,13 @@
 </template>
 
 <script>
+$(document).ready(function(){
+        $('#feature').summernote({
+        placeholder: 'Write Feature',
+        height: 200,
+        });
+});
+
 import hospitalProfile from './HospitalProfile.vue'
 import nursingProfile from './NursingProfile.vue'
 import profilePublish from './ProfilePublish.vue'
