@@ -110,15 +110,16 @@
                 <div class="card-body news-post">
                     <div class="row">
                         <div class="col-md-2" >
-                            <img src="/images/hospitalpage.jpg" alt="" class="img-fluid">
+                            <!-- <img src="/images/hospitalpage.jpg" alt="" class="img-fluid"> -->
                             <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
+                            <img :src="'/images/'+ customer.logo" class="img-fluid" alt="cust">
                         </div>
                         <div class="row col-md-10">
                         <div class="col-md-2 max-width12"><strong>Name:</strong></div><div class="col-md-10">{{customer.name}}</div>
                         <div class="col-md-2 max-width12"><strong>Email:</strong></div><div class="col-md-10">{{customer.email}}</div>
-                        <div class="col-md-2 max-width12"><strong>Logo:</strong></div><div class="col-md-10">{{customer.logo}}</div>
+                        <!-- <div class="col-md-2 max-width12"><strong>Logo:</strong></div><div class="col-md-10">{{customer.logo}}</div> -->
                         <div class="col-md-2 max-width12"><strong>Phone:</strong></div><div class="col-md-10">{{customer.phone}}</div>
-                        <div class="col-md-2 max-width12"><strong>Address:</strong></div><div class="col-md-10">{{customer.address}}</div>                      
+                        <div class="col-md-2 max-width12"><strong>Address:</strong></div><div class="col-md-10">{{customer.address}}</div>
                         <div class="row col-12 mt-2">
                             <div class="col-4 col-offset-4 pl-3">
                                 <button class="btn delete-borderbtn" @click="deleteCustomer(customer.id)">削除</button>
