@@ -6,7 +6,7 @@
                         <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h4 class="page-header header">ニュース投稿を作成</h4>
+                                        <h4 class="page-header header">ニュース作成</h4>
                                     </div>
 
                                     <form @submit.prevent="add" class="col-md-12">

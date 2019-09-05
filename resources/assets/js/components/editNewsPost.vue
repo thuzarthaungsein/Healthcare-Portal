@@ -6,7 +6,7 @@
                     <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h4 class="page-header header">ニュース投稿を作成</h4>
+                                    <h4 class="page-header header">ニュースを編集</h4>
                                 </div>
                                 <form @submit.prevent="updatePost" class="col-md-12">
                                     <div class="form-group">
@@ -48,7 +48,7 @@
                                     </div>
                                 <div class="form-group">
                                         <router-link to="/create_news" class="btn btn-danger all-btn">キャンセル</router-link>
-                                        <router-link to="/news_list" class="btn news-post-btn all-btn">キャンセル</router-link>
+                                        <router-link to="/news_list" class="btn news-post-btn all-btn">セーブ</router-link>
                                         <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
                                 </div>
                                 </form>

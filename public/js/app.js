@@ -57696,9 +57696,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header header" }, [
-        _vm._v("ニュース投稿を作成")
-      ])
+      _c("h4", { staticClass: "page-header header" }, [_vm._v("ニュース作成")])
     ])
   },
   function() {
@@ -62458,7 +62456,7 @@ var render = function() {
                         staticClass: "btn news-post-btn all-btn",
                         attrs: { to: "/news_list" }
                       },
-                      [_vm._v("キャンセル")]
+                      [_vm._v("セーブ")]
                     )
                   ],
                   1
@@ -62478,7 +62476,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
       _c("h4", { staticClass: "page-header header" }, [
-        _vm._v("ニュース投稿を作成")
+        _vm._v("ニュースを編集")
       ])
     ])
   },
