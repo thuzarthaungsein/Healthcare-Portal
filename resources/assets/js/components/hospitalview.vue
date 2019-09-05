@@ -30,26 +30,23 @@
 
                                 <img src="images/h5.jpg" class="col-md-12" alt="image" width="5600px" height="250px"> 
 
-                            <div class="m-t-30" style="text-align:center;">
-                                <a href="#">病院プロフィール</a>
-                            </div>
+                                <div class="m-t-30" style="text-align:center;">
+                                    <a href="#">病院プロフィール</a>
+                                </div>
                                
                             </div>
                             
 
                             <div class="col-md-2  m-t-15">
-
-                                
-
-                                    
-                                    <button class="btn btn-danger all-btn" @click="deletehospital(favourite.id)" >削除</button>
+                                       
+                                       <button class="btn btn-danger all-btn" @click="deletehospital(favourite.id)" >削除</button>
 
                                         <button class="btn main-bg-color white all-btn m-t-30 form-check"><label class="form-check-label" for="check2">
-                                                <input type="checkbox" class="form-check-input checkbox" value="1">予約
+                                                <input type="checkbox" class="form-check-input checkbox" value="1">見学予約
                                         </label></button>
 
                                         <button class="btn secondary-bg-color all-btn white m-t-30 form-check"><label class="form-check-label" for="check3">
-                                                    <input type="checkbox" class="form-check-input checkbox" style="margin-left:-14px;" value="2"> 書類請求
+                                                    <input type="checkbox" class="form-check-input checkbox" style="margin-left:-14px;" value="2"> 資料請求
                                         </label></button>
 
                                       <div class=""> 
@@ -60,7 +57,7 @@
                             
                             <div class="col-md-5" style="">
                                 <button class="btn btn-danger m-b-20 m-t-15">
-                                           <input type="checkbox" value="すべて選択" style="border:1px solid black;" id="select_all" />すべての見学予資料請求にチェックを入れる
+                                           <input type="checkbox" value="すべて選択" style="border:1px solid black;" class="select_all" />すべての見学予約 資料請求にチェックを入れる
                                        </button>
                                     
                                     <table class="table table-secondary table-striped table-bordered " >
@@ -114,25 +111,12 @@
                                             </tr>
                                            
                                         </table>
-
-                                
-                                
-                               
-                              
-                           
-                           
-                               
-                                
-                            
-                                
-                                
-
-                            </div>
+                          </div>
                         </div>
                     </div> 
                 </div>
                  <h2 style="text-align:left;text-decoration:none;" class="am-l-10">資料請求される方について</h2>
-                <div class="row"  style="padding:23px;">
+                 <div class="row"  style="padding:23px;">
                    
                     <!-- <div class="col-md-2">
                        <p class="m-t-15">お名前:<span class="error">*</span></p>
@@ -218,9 +202,15 @@
                                    
                                   
                                    
-                                        </div><br>
+                            </div><br>
 
-                                        <label class="m-t-30">郵便番号:<span class="error">*</span></label>
+                                <label class="m-t-30">市区町村、番地（建物名）:<span class="error">*</span></label>
+                                        <div class="form-group">
+                                            <!-- <label>題名:<span class="error">*</span></label> -->
+                                            <input type="text" class="form-control" placeholder="市区町村、番地（建物名）を入力してください。" style="height:45px;width:89%;" required>
+                                        </div>
+                                    
+                                    <label class="m-t-30">郵便番号:<span class="error">*</span></label>
                                         <a href="https://www.post.japanpost.jp/zipcode/" target="blank">郵便番号検索</a>
                                         <div class="form-group">
                                             <!-- <label>題名:<span class="error">*</span></label> -->
@@ -244,7 +234,7 @@
                                             <div class="form-check">
                                         <label class="form-check-label">
                                             <input type="checkbox" class="form-check-input" value="" required>「早分かり用語集」プレゼントを希望する
-                                        </label>
+                                    </label>
                                     </div>
                                         </div>
 
@@ -289,21 +279,19 @@
                                                       <td width="50px"><input type="radio" class="form-check-input" id="sex" name="sex" value="夫婦" required>夫婦</td>
                                                  </tr>
                                                 
-                                            </table>
-                                         
-                                        
+                                            </table> 
                                     </div>
                                 </div>
                             <!-- radio -->
                               <!--select-->
-                    <label class="m-t-22">年齢:<span class="error">*</span></label>
-                                         <div class="btn-group">
+                 <label class="m-t-22">年齢:<span class="error">*</span></label>
+                    <div class="btn-group">
 
-                                            <select class="mR10" style="margin-left:17px;" required>
-                        <option value="">選択してください</option>
-                        <optgroup label="50代">
+                        <select class="mR10" style="margin-left:17px;" required>
+                            <option value="">選択してください</option>
+                            <optgroup label="50代">
                             <option value="50">50</option>
-               	             <option value="51">51</option>
+               	            <option value="51">51</option>
                             <option value="52">52</option>
                             <option value="53">53</option>
                             <option value="54">54</option>
@@ -446,14 +434,7 @@
                           
                     </div> -->
                 </div>
-                
-    
-            
-            
-
-
-            </div>
-            
+            </div> 
         </div>
     </div>
     <!-- Page Content end  -->

@@ -1,14 +1,12 @@
 <template>
 <!-- Page Content  -->
-        <div id="content">
-            <div class="container">
+        <div id="content" class="row">           
                 <div class="col-md-12">
                     <div class="card  text-dark">
                         <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h4 class="page-header">ニュース投稿を作成</h4>
-                                        <br>
+                                        <h4 class="page-header header">ニュース作成</h4>
                                     </div>
 
                                     <form @submit.prevent="add" class="col-md-12">
@@ -20,11 +18,12 @@
                                             <label>主な情報:<span class="error">*</span></label>
                                             <input type="text" class="form-control"  placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point">
                                         </div>
-                                        <div class="btn-group">
-                                            <button class="btn main-bg-color white all-btn" type="button">
+                                        <div class="form-group">
+                                            <label>種類:<span class="error">*</span></label>
+                                            <!-- <button class="btn main-bg-color white all-btn" type="button">
                                                     種類
                                                 <span class="caret"></span>
-                                            </button>
+                                            </button> -->
 
                                             <!-- <div  v-for="category in categories" :key="category.id">
                                                <label> {{category.name}}</label>
@@ -36,32 +35,33 @@
                                                 </option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <br>
+                                        <div class="form-group">                                            
                                             <label>内容:<span class="error">*</span></label>
                                             <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                         </div>
-                                        <div class="col-sm-2 imgUp">
-                                            <br>
-                                            <label class="menu-pos">メディア:<span class="error">*</span></label>
-                                            <br>
-                                            <label>
-                                                    写真/画像を投稿する
-                                                 <input type="file" accept="image/*" @change ="onFileSelected" id="file" ref="file">
-                                            </label>
-                                            <!-- <div class="imagePreview"></div> -->
+                                        <div class="form-group">                                            
+                                            <label>メディア:<span class="error">*</span></label>                                           
+                                            <div>                                                
+                                                <input type="file" accept="image/*" @change ="onFileSelected" id="file" ref="file" class="">                                                                                      
+                                            <!-- <div class="imagePreview"></div>  -->
+                                            </div>  
+                                            <!-- <div class="custom-file">
+                                                <input type="file"  @change ="onFileSelected" class="custom-file-input" id="file" ref="file">
+                                                <label class="custom-file-label" for="file" data-browse="Choose image">Upload image...</label>
+                                            </div>                                          -->
+                                            
                                         </div>
-                                    <div class="row">
-                                            <br>
-                                            <button class="btn news-post-btn all-btn" type="submit"> ニュースを投稿する</button>
+                                    <div class="form-group">
+                                        <router-link to="/news_list" class="btn btn-danger all-btn">キャンセル</router-link>
+                                        <router-link to="/news_list" class="btn news-post-btn all-btn">ニュースを投稿する</router-link>                                                                    
+                                     
                                             <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
                                     </div>
                                     </form>
                                 </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>            
         </div>
 </template>
 <script>

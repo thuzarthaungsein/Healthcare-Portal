@@ -96,7 +96,7 @@ $('path').on("click", function(e) {
 
 */
 $(document).ready(function(){
-    $('#select_all').on('click',function(){
+    $('.select_all').on('click',function(){
         if(this.checked){
             $('.checkbox').each(function(){
                 this.checked = true;
@@ -110,9 +110,9 @@ $(document).ready(function(){
     
     $('.checkbox').on('click',function(){
         if($('.checkbox:checked').length == $('.checkbox').length){
-            $('#select_all').prop('checked',true);
+            $('.select_all').prop('checked',true);
         }else{
-            $('#select_all').prop('checked',false);
+            $('.select_all').prop('checked',false);
         }
     });
 });
