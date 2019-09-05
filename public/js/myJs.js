@@ -40,10 +40,12 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
-        var image_x = document.getElementById('x-image');
+        if(confirm("Are you sure you want to delete?")){
+            var image_x = document.getElementById('x-image');
         image_x.parentNode.removeChild(image_x);
         document.getElementById('showimage').style.display = 'block';
         console.log("close");
+        }
     }
 
     function showImg(c,event) {
