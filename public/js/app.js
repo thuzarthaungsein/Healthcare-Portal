@@ -52870,7 +52870,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -52883,7 +52882,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 hospitalSearch: __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue___default.a,
                 nursingSearch: __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default.a,
                 jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a
-
         },
         mounted: function mounted() {
                 console.log('Component mounted.');
@@ -52894,6 +52892,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         posts: [],
                         latest_post: [],
                         latest_post_all_cats: [],
+
                         l_storage_hos_history: [],
                         l_storage_nus_history: [],
                         l_storage_hos_fav: [],
@@ -52906,6 +52905,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.l_storage_nus_fav.push(1);
                 this.l_storage_hos_history.push(2);
                 this.l_storage_nus_history.push(1);
+
+                this.l_storage_hos_fav.push(2);
+                this.l_storage_nus_fav.push(2);
+                this.l_storage_hos_history.push(1);
+                this.l_storage_nus_history.push(2);
 
                 // Set LocalStorage data
                 localStorage.setItem("hospital_history", this.l_storage_hos_history);
@@ -52962,9 +52966,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 _this6.latest_post_all_cats = response.data;
                         });
                 }
-                // callLocal(){
-                //         console.log(localStorage.getItem("hospital_history"));
-                // },
         }
 
 });
@@ -54164,18 +54165,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "span",
-      {
-        on: {
-          click: function($event) {
-            return _vm.callLocal()
-          }
-        }
-      },
-      [_vm._v("Local")]
-    ),
     _vm._v(" "),
     _c("div", { staticClass: "tab-content tab-content1 tabs" }, [
       _c(
@@ -64814,7 +64803,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         },
         created: function created() {
                 this.axios.get('http://localhost:8000/api/authget').then(function (response) {
-                        console.log(response);
+                        //  console.log(response);
                         // this.fac_list = response.data;
                 });
         },
