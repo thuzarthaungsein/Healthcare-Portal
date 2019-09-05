@@ -36,6 +36,8 @@ import userPasswordResetList from './components/userPasswordResetList.vue';
 import HospitalHistory from './components/HospitalHistory.vue';
 import NursingHistory from './components/NursingHistory.vue';
 
+import GoogleMap from './components/GoogleMap.vue';
+
 export const routes = [
 
       {
@@ -212,5 +214,10 @@ export const routes = [
       name: 'nursing_history',
       path: '/nursing_history',
       component: NursingHistory
+    },
+    {
+      name: 'google_map',
+      path: '/google_map',
+      component: GoogleMap
     }
 ];
