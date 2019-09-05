@@ -32,7 +32,8 @@
 
                     <div class="form-group">
                             <label>特長<span class="error">*</span></label>
-                            <textarea name="feature" class="form-control"></textarea>
+                            <!-- <textarea name="feature" class="form-control"></textarea> -->
+                            <div id="feature" name = "body"></div>
                     </div>
 
                     <!-- <hr class="hor-line m-t-30"> -->
