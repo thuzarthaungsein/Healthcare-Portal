@@ -65598,6 +65598,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -65614,7 +65618,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         uploadImage: function uploadImage() {
-            $('.image_preview').append("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
+            $('.image_preview').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
             this.ads.photo = event.target.files[0];
         },
         add: function add() {
@@ -65681,12 +65685,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control box",
-                        attrs: {
-                          type: "title",
-                          id: "title",
-                          name: "title",
-                          required: ""
-                        },
+                        attrs: { type: "title", id: "title", name: "title" },
                         domProps: { value: _vm.ads.title },
                         on: {
                           input: function($event) {
@@ -68879,7 +68878,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         fileSelected: function fileSelected() {
 
-            $('.image_show').append("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
+            $('.image_show').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
+
             this.advertisement.photo = event.target.files[0];
         },
         updateselected: function updateselected() {
@@ -68893,7 +68893,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             adsData.append('title', this.advertisement.title);
             adsData.append('description', this.advertisement.description);
             adsData.append('photo', this.advertisement.photo);
-
+            //ads.photo=this.advertisement.photo
             this.axios.post('http://localhost:8000/api/advertisement/update/' + this.$route.params.id, adsData).then(function (response) {
                 alert('Successfully Updated!');
                 _this2.$router.push({ name: 'ads' });

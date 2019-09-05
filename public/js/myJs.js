@@ -40,10 +40,15 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
-        var image_x = document.getElementById('x-image');
-        image_x.parentNode.removeChild(image_x);
-        document.getElementById('showimage').style.display = 'block';
-        console.log("close");
+        if(confirm("Are you sure you want to delete?"))
+        {
+            var image_x = document.getElementById('x-image');
+            image_x.parentNode.removeChild(image_x);
+            document.getElementById('showimage').style.display = 'block';
+            console.log("close");
+        }
+
+
     }
 
     function showImg(c,event) {
@@ -51,7 +56,7 @@ $('path').on("click", function(e) {
     }
 
     function closevideo() {
-       
+
         var file = document.getElementById("upload_file").files[0];
         var file_path = 'upload/videos/'+file.name;
 
@@ -64,5 +69,5 @@ $('path').on("click", function(e) {
                $('#video-area').remove();
             }
         });
-        
+
     }
