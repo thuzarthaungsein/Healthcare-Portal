@@ -148,7 +148,7 @@
                         <label>こだわりの特長<span class="error">*</span></label>
                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
 
-                        <div class="col-md-12 pad-free" id="special-features"></div>
+                        <div class="col-md-12" id="special-features"></div>
                     </div>
 
                     <div class="form-group">

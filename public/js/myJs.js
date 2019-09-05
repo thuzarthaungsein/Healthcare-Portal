@@ -18,6 +18,11 @@ $('path').on("click", function(e) {
 
 });
 
+$('#feature').summernote({
+    placeholder: 'Write Feature',
+    height: 200,
+  });
+
     var dynamicInput = [];
     var ct = 1;
     function new_link()
@@ -66,3 +71,5 @@ $('path').on("click", function(e) {
         });
         
     }
+
+    

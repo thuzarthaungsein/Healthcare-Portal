@@ -57110,6 +57110,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57229,20 +57230,24 @@ var render = function() {
                       ]
                     }
                   },
-                  _vm._l(_vm.categories, function(category) {
-                    return _c(
-                      "option",
-                      { key: category.id, domProps: { value: category.id } },
-                      [
-                        _vm._v(
-                          "\n                                    " +
-                            _vm._s(category.name) +
-                            "\n                                "
-                        )
-                      ]
-                    )
-                  }),
-                  0
+                  [
+                    _c("option", { attrs: { value: "" } }, [_vm._v("All")]),
+                    _vm._v(" "),
+                    _vm._l(_vm.categories, function(category) {
+                      return _c(
+                        "option",
+                        { key: category.id, domProps: { value: category.id } },
+                        [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(category.name) +
+                              "\n                                "
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
                 )
               ])
             ])
@@ -63168,7 +63173,7 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("div", {
-              staticClass: "col-md-12 pad-free",
+              staticClass: "col-md-12",
               attrs: { id: "special-features" }
             })
           ]),
@@ -63527,6 +63532,7 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -64230,10 +64236,7 @@ var staticRenderFns = [
         _c("span", { staticClass: "error" }, [_vm._v("*")])
       ]),
       _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "feature" }
-      })
+      _c("div", { attrs: { id: "feature", name: "body" } })
     ])
   },
   function() {
