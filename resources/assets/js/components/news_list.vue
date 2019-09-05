@@ -7,11 +7,21 @@
                 <div class="card-body">
                     <h4 class="main-color">ニュース検索</h4>
                     <div class="row">
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="検索">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="検索" id="search-item"  @keyup="searchbyCategory()">
                         </div>
-                        <div class="col-md-2 text-right">
-                            <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
+                        <div class="col-md-4">
+                            <div class="btn-group">
+                                <button class="btn main-bg-color white dropdown-toggle all-btn" type="button" data-toggle="dropdown"> 種類
+                                    <span class="caret"></span>
+                                </button>
+                                <select class="form-control" id="selectBox" @change="searchbyCategory()">
+                                    <option selected="selected" value="">All</option> 
+                                    <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
+                                        {{category.name}}
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -59,7 +69,11 @@ export default {
        
         data() {
             return {
-                news_list:[]
+                news_list:[],
+                categories:{
+                  id: '',
+                  name: ''
+              }
             }
         },
         created(){
@@ -68,6 +82,13 @@ export default {
                  .then(response=>{
                      this.news_list = response.data;
                  });
+        },
+        mounted() {
+            this.axios
+                .get('http://localhost:8000/api/category/category_list')
+                .then(function(response) {
+                    this.categories = response.data;
+                }.bind(this));
         },
          methods: {
             deletePost(id) {
@@ -82,6 +103,17 @@ export default {
                     });
                 }
                
+            },
+            searchbyCategory() {
+                var search_word = $('#search-item').val();
+                var selected_category  = document.getElementById("selectBox").value;
+                let fd = new FormData();
+                    fd.append('search_word', search_word)
+                    fd.append('selected_category' ,selected_category )
+                this.axios.post('http://localhost:8000/api/news_list/search', fd)
+                    .then(response => {
+                        this.news_list = response.data;
+                    });
             }
         }
 

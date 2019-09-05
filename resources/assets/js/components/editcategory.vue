@@ -1,40 +1,31 @@
 <template>
-      <div id="content">
-            <div class="container">
+      <div id="content" class="row">           
                 <div class="col-md-12">
                     <div class="card  text-dark">
-                        <div class="card-body">
-                            <div class="col-md-12">
+                        <div class="card-body">                            
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h4 class="page-header">Edit Category</h4>
-                                        <br>
+                                        <h4 class="page-header header">カテゴリを編集</h4>
                                     </div>
-                                    <div class="col-md-12">
-                                        <form @submit.prevent = "updateCategory">
+                                    
+                                    <form @submit.prevent = "updateCategory" class="col-md-12">
                                         <div class="form-group">
-                                            <label>Category Name :<span class="error">*</span></label>
-                                            <input type="text" class="form-control" v-model="category.name" >
+                                            <label>種別名:<span class="error">*</span></label>
+                                            <input type="text" class="form-control" v-model="category.name" placeholder="種別名">
                                               <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                                         </div>
                                    
-                                        <div class="form-group row">
-                                            <div class="col-1 pad-free">
-                                                <button class="btn news-post-btn">Update</button>
-                                            </div>
-                                            <div class="col-3 pad-free">
-                                                <!-- <a href="categorylist" class="btn btn-warning">Cancel</a> -->
-                                                <router-link to="/categorylist" class="btn btn-warning">Cancel</router-link>
-                                            </div>
+                                        <div class="form-group">
+                                            <router-link to="/categorylist" class="btn btn-danger all-btn">キャンセル</router-link>                                              
+                                            <router-link to="/categorylist" class="btn news-post-btn all-btn">更新</router-link>
+                                            <!-- <a href="categorylist" class="btn btn-warning">Cancel</a> -->
+                                                                                   
                                         </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                                    </form>                                    
+                                </div>                            
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>            
         </div>
     
 </template>

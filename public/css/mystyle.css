@@ -82,8 +82,26 @@
 /* End News List */
 
 /* Profile */
+.typelabel {
+    background: #118063;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+}
+.dim-btn {
+    background: #ccc !important;
+}
+.typelabel input[type="radio"] {
+    display: none;
+}
+.form-class{
+    padding: 15px;
+}
 .hor-line {
-    border-top: 2px solid #ccc;
+    border-top: 2px solid #eee;
 }
 .btn-editProfile{
     background: #0f6064;
@@ -129,16 +147,16 @@
     margin-bottom: 15px;
 }
 .profile .card-header {
-    padding-top: 20px !important;
+    /* padding-top: 20px !important; */
 }
-#gallery {
+#gallery, #gallery-video, #special-features {
     border-radius: 5px;
     padding: 20px;
     border: 1px solid #eee;
     margin-top: 15px;
 }
 .method-box {
-    border-bottom: 2px solid #eee;
+    /* border-bottom: 2px solid #eee; */
     padding: 20px 0px;
 }
 .collapse-icon {
@@ -164,6 +182,12 @@
     padding: 10px;
     margin-bottom: 7px;
     border-radius: 3px;
+}
+.hos-fac-toggle-div {
+    padding-top: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 /* End Profile */
 
@@ -1798,3 +1822,18 @@ ul.main-tab li:after{
     border-radius: 2px;
 }
 /* End for Hospital History */
+/* Summernote */
+#feature .card-header.note-toolbar {
+    background: #efefef;
+}
+
+#feature .note-editor.note-frame .note-statusbar .note-resizebar {
+    background: #efefef;
+}
+
+#feature .btn-light {
+    color: #212529;
+    background-color: #fff;
+    border-color: #ccd1d6;
+}
+/* End Summernote */

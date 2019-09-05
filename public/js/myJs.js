@@ -18,6 +18,11 @@ $('path').on("click", function(e) {
 
 });
 
+$('#feature').summernote({
+    placeholder: 'Write Feature',
+    height: 200,
+  });
+
     var dynamicInput = [];
     var ct = 1;
     function new_link()
@@ -53,7 +58,7 @@ $('path').on("click", function(e) {
     }
 
     function closevideo() {
-       
+        alert('Are you sure to delete?');
         var file = document.getElementById("upload_file").files[0];
         var file_path = 'upload/videos/'+file.name;
 
@@ -68,3 +73,5 @@ $('path').on("click", function(e) {
         });
         
     }
+
+    
