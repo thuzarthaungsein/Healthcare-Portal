@@ -52838,6 +52838,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__);
 //
 //
 //
@@ -52870,6 +52872,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
@@ -52881,7 +52885,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 News: __WEBPACK_IMPORTED_MODULE_0__News_vue___default.a,
                 hospitalSearch: __WEBPACK_IMPORTED_MODULE_1__hospitalSearch_vue___default.a,
                 nursingSearch: __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default.a,
-                jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a
+                jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a,
+                ProfilePublish: __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue___default.a
 
         },
         mounted: function mounted() {
@@ -54162,7 +54167,7 @@ var render = function() {
           staticClass: "tab-pane fade",
           attrs: { role: "tabpanel", id: "tab2" }
         },
-        [_c("hospitalSearch")],
+        [_c("ProfilePublish")],
         1
       ),
       _vm._v(" "),
@@ -65028,90 +65033,92 @@ module.exports = Component.exports
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 // Fixed Nav
 jQuery(document).ready(function ($) {
+  window.onscroll = function () {
+    myFunction();
+  };
 
-    $('.onepage').click(function () {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+  var profile = document.getElementById("profile");
+  var sticky = profile.offsetTop;
 
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html,body').animate({
-                    scrollTop: target.offset().top - 32
-                }, 1000);
-                return false;
-            }
-        }
-    });
-
-    $(window).scroll(function () {
-
-        var scrollTop = 152;
-        if ($(window).scrollTop() >= scrollTop) {
-            $('.nav_menu').css({
-                position: 'fixed',
-                top: '0',
-                width: '57.12%'
-            });
-        }
-        if ($(window).scrollTop() < scrollTop) {
-            $('.nav_menu').removeAttr('style');
-        }
-    });
-
-    // Active Nav Link
-    $('.nav_menu ul li a').click(function () {
-        $('.nav_menu ul li a').removeClass('active');
-        $(this).addClass('active');
-    });
-
-    $(document).on("scroll", onScroll);
-    function onScroll(event) {
-        var scrollPos = $(document).scrollTop();
-        $('.nav_menu a').each(function () {
-            var currLink = $(this);
-
-            var refElement = $(currLink.attr("href"));
-            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                $('.nav_menu ul li a').removeClass("active");
-                currLink.addClass("active");
-            } else {
-                currLink.removeClass("active");
-            }
-        });
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      profile.classList.add("sticky");
+    } else {
+      profile.classList.remove("sticky");
     }
+  }
+
+  $(".onepage").on('click', function (event) {
+
+    if (this.hash !== "") {
+
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function () {
+
+        window.location.hash = hash;
+      });
+    }
+  });
+
+  $('.onepage').click(function () {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - 32
+        }, 1000);
+        return false;
+      }
+    }
+  });
+
+  $(window).scroll(function () {
+
+    var scrollTop = 152;
+    if ($(window).scrollTop() >= scrollTop) {
+      $('.nav_menu').css({
+        position: 'fixed',
+        top: '0',
+        width: '57.12%'
+      });
+    }
+    if ($(window).scrollTop() < scrollTop) {
+      $('.nav_menu').removeAttr('style');
+    }
+  });
+
+  // Active Nav Link
+  $('.nav_menu ul li onepage').click(function () {
+    $('.nav_menu ul li onepage').removeClass('active');
+    $(this).addClass('active');
+  });
+
+  $(document).on("scroll", onScroll);
+  function onScroll(event) {
+    var scrollPos = $(document).scrollTop();
+    $('.nav_menu a.onepage').each(function () {
+      var currLink = $(this);
+
+      var refElement = $(currLink.attr("href"));
+      if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+        $('.nav_menu ul li a.onepage').removeClass("active");
+        currLink.addClass("active");
+      } else {
+        currLink.removeClass("active");
+      }
+    });
+  }
 });
 
 /***/ }),

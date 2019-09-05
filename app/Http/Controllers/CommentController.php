@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMailable;
+use App\Mail\SendMailComment;
 
 class CommentController extends Controller
 {
@@ -50,7 +50,8 @@ class CommentController extends Controller
             
         ]);
         $comment ->save();
-        \Mail::to($request->email)->send(new SendMailable($request->comment));
+        $getComment = Comment::findOrFail($comment->id);
+        \Mail::to($getComment)->send(new SendMailComment($getComment));
 
         return response()->json(['success'=>'Done!']);
 
