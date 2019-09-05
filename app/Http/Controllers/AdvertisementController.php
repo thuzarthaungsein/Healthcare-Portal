@@ -37,15 +37,15 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'description'=>'required',
-        //     'location'=>'required',
-        //     'photo'=>'required',
+         $request->validate([
+             'title' => 'required',
+             'description'=>'required',
+             'location'=>'required',
+             'photo'=>'required',
         //     'user_id'=>'required',
         //     'recordstatus'=>'required',
 
-        // ]);
+         ]);
 
         $imageName = $request->photo->getClientOriginalName();
         $request->photo->move(public_path('upload/advertisement'), $imageName);

@@ -65469,6 +65469,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -65502,9 +65503,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(response);
                 _this.$router.push({ name: 'ads' });
             }).catch(function (error) {
-                return console.log(error);
-            }).finally(function () {
-                return _this.loading = false;
+
+                if (error.response.status == 422) {
+
+                    _this.errors = error.response.data.errors;
+                }
             });
         }
     }
@@ -65562,7 +65565,13 @@ var render = function() {
                             _vm.$set(_vm.ads, "title", $event.target.value)
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _vm.errors.title
+                        ? _c("span", { staticClass: "error" }, [
+                            _vm._v(_vm._s(_vm.errors.title[0]))
+                          ])
+                        : _vm._e()
                     ])
                   ]),
                   _vm._v(" "),
@@ -65594,7 +65603,13 @@ var render = function() {
                             )
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _vm.errors.description
+                        ? _c("span", { staticClass: "error" }, [
+                            _vm._v(_vm._s(_vm.errors.description[0]))
+                          ])
+                        : _vm._e()
                     ])
                   ]),
                   _vm._v(" "),
@@ -65712,7 +65727,13 @@ var render = function() {
                         }),
                         _c("strong", [_vm._v(" Side Bar ")]),
                         _vm._v("(300 円) ")
-                      ])
+                      ]),
+                      _vm._v(" "),
+                      _vm.errors.location
+                        ? _c("span", { staticClass: "error" }, [
+                            _vm._v(_vm._s(_vm.errors.location[0]))
+                          ])
+                        : _vm._e()
                     ])
                   ]),
                   _vm._v(" "),
@@ -65727,7 +65748,13 @@ var render = function() {
                           accept: "image/*"
                         },
                         on: { change: _vm.uploadImage }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _vm.errors.photo
+                        ? _c("span", { staticClass: "error" }, [
+                            _vm._v(_vm._s(_vm.errors.photo[0]))
+                          ])
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _vm._m(5)
@@ -68399,10 +68426,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -68485,25 +68508,13 @@ var render = function() {
                 _c("div", { staticClass: "card-body news-post" }, [
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-2" }, [
-                      _vm._v("\n<<<<<<< HEAD\n                        "),
-                      _c("img", {
-                        staticClass: "col-md-12",
-                        attrs: {
-                          src: "/upload/advertisement/" + ads.photo,
-                          alt: "no_image"
-                        }
-                      }),
-                      _vm._v("\n=======\n                        "),
                       _c("img", {
                         staticClass: "img-fluid",
                         attrs: {
                           src: "/upload/advertisement/" + ads.photo,
                           alt: "ads"
                         }
-                      }),
-                      _vm._v(
-                        "\n>>>>>>> 0d5a358a21e6f47607d130970157076bd76a9f68\n\n                    "
-                      )
+                      })
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row col-md-10" }, [
