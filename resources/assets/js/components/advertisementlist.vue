@@ -27,13 +27,17 @@
             <div class="card-body news-post">
                  <div class="row">
                     <div class="col-md-2" >
+<<<<<<< HEAD
                         <img :src="'/upload/advertisement/'+ ads.photo" class="col-md-12" alt="no_image">
+=======
+                        <img :src="'/upload/advertisement/'+ ads.photo" class="img-fluid" alt="ads">
+>>>>>>> 0d5a358a21e6f47607d130970157076bd76a9f68
 
                     </div>
                     <div class="row col-md-10">
                         <div class="col-md-2 max-width16"><strong>Title :</strong></div><div class="col-md-10">{{ads.title}}</div>
                         <div class="col-md-2 max-width16"><strong>Description :</strong></div><div class="col-md-10">{{ads.description}}</div>
-                        
+
 
                         <div class="row col-12 mt-2">
                             <div class="col-4 col-offset-4 pl-3">
@@ -71,9 +75,10 @@ export default {
             deleteAds(id) {
                 if(confirm("Are you sure you want to delete?"))
                 {
-                this.axios
+                    this.axios
                     .delete(`http://localhost:8000/api/advertisement/delete/${id}`)
                     .then(response => {
+
                         alert('Delete Successfully!');
                         let a = this.advertisements.map(item => item.id).indexOf(id);
                         this.advertisements.splice(a, 1)
