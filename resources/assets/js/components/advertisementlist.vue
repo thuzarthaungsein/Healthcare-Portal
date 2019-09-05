@@ -33,7 +33,7 @@
                     <div class="row col-md-10">
                         <div class="col-md-2 max-width16"><strong>Title :</strong></div><div class="col-md-10">{{ads.title}}</div>
                         <div class="col-md-2 max-width16"><strong>Description :</strong></div><div class="col-md-10">{{ads.description}}</div>
-                        
+
 
                         <div class="row col-12 mt-2">
                             <div class="col-4 col-offset-4 pl-3">
@@ -71,9 +71,10 @@ export default {
             deleteAds(id) {
                 if(confirm("Are you sure you want to delete?"))
                 {
-                this.axios
+                    this.axios
                     .delete(`http://localhost:8000/api/advertisement/delete/${id}`)
                     .then(response => {
+
                         alert('Delete Successfully!');
                         let a = this.advertisements.map(item => item.id).indexOf(id);
                         this.advertisements.splice(a, 1)

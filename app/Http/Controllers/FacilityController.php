@@ -73,4 +73,16 @@ class FacilityController extends Controller
         $facility->delete();
         return response()->json('The Facility successfully deleted');
     }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+        
+        $search_facilities = Facility::query()
+                            ->where('description', 'LIKE', "%{$search_word}%") 
+                            ->get()
+                            ->toArray();
+        return $search_facilities;
+    }
 }

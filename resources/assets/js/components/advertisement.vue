@@ -68,7 +68,7 @@ export default {
     },
     methods:{
              uploadImage() {
-                            $('.image_preview').append("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+                            $('.image_preview').append("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
                             this.ads.photo = event.target.files[0]
 
          },
@@ -81,7 +81,6 @@ export default {
              adsData.append('description',this.ads.description)
              adsData.append('location',this.ads.location)
              adsData.append('photo',this.ads.photo)
-             //adsData.append ("<div class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='show-img'></div>");
 
                 this.axios.post('http://localhost:8000/api/advertisement/add',adsData)
                     .then((response) => {
