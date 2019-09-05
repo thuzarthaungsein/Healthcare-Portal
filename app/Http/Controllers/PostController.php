@@ -147,7 +147,8 @@ class PostController extends Controller
                                 ->orWhere('main_point', 'LIKE', "%{$search_word}%");
                         });
         } 
-        $query = $query->get();
+        $query = $query->orderBy('id','DESC')
+                        ->get();
         return $query;
     }
 }
