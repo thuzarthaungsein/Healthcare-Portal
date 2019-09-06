@@ -17,6 +17,7 @@ class CreateNursingProfilesTable extends Migration
             $table->increments('id');
             $table->integer('customer_id');
             $table->text('access')->nullable();
+            $table->text('website')->nullable();
             $table->string('gallery')->nullable();
             $table->text('feature')->nullable();
             $table->text('business_entity')->nullable();
@@ -40,6 +41,8 @@ class CreateNursingProfilesTable extends Migration
             $table->text('dementia')->nullable();
             $table->text('staff_system')->nullable();
             $table->text('special_features')->nullable();
+            $table->double('latitude',10,8)->nullable();
+            $table->double('longitude',10,8)->nullable();
             $table->timestamps();
         });
     }

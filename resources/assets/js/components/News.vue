@@ -23,23 +23,23 @@
 
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
-                                                        <router-link :to="'/newsdetails/' + latest_post.id">
-                                                               
-                                                                        <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" >
+                                                                <router-link :to="'/newsdetails/'+latest_post.id">
+                                                                        <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
                                                                         <p class="source-title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle">
-                                                                                 <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
+                                                                                <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
                                                                         </p>
-                                                                
-                                                        </router-link>       
+                                                                </router-link>
                                                         </div>
                                                         <div class="col-md-8 news-wrapper">
                                                                 <ul class="list-group list-group-flush" v-for="post in posts" :key="post.id">
                                                                         <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
-                                                                                <a v-bind:href="'/newsdetails/' + post.id">
+                                                                                 <router-link :to="'/newsdetails/'+ post.id">
+                                                                                
                                                                                         <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                                 <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
-                                                                                </a>
+                                                                               
+                                                                                </router-link>
                                                                         </li>
                                                                 </ul>
                                                         </div>
@@ -51,13 +51,15 @@
                                                
                 <div class="row m-lr-0">
                         <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
-                        <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
+                        <div class="row col-md-12">
+                                <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                 <div class="hovereffect fit-image">
                                         <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
                                         <img class="img-responsive fit-image" v-bind:src="'/images/' + latest_post_all_cat.photo" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <a class="btn btn-sm all-btn secondary-bg-color" v-bind:href="'/newsdetails/' + latest_post_all_cat.id">{{ latest_post_all_cat.title }}</a>
+                                                <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">{{ latest_post_all_cat.title }}</router-link>
+                                                <!-- <a class="btn btn-sm all-btn secondary-bg-color" v-bind:href="'/newsdetails/' + latest_post_all_cat.id"></a> -->
                                         </div>
                                         <div class="info">
                                                 <div class="row">
@@ -69,6 +71,7 @@
                                                 </div>
                                         </div>
                                 </div>
+                        </div>
                         </div>
                 </div>                             
         </div>   

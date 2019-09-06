@@ -127,7 +127,7 @@ class DatabaseSeeder extends Seeder
             $cus->name = $faker->sentence();
             $cus->email = "customer@gmail.com";
             $cus->password = bcrypt("123123");
-            $cus->logo = $faker->sentence();
+            $cus->logo = "day1.jpg";
             $cus->type_id = rand(1, 3);
             $cus->townships_id = rand(1, 10);
             $cus->phone = "09-20102010";

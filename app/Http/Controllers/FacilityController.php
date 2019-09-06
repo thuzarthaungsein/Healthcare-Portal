@@ -17,15 +17,18 @@ class FacilityController extends Controller
     //add facility
     public function add(Request $request)
     {
-        if($request != null && $request != "")
-        {
-            $facility = new Facility([
-                'description' => $request->input('description')
-            ]);
-            $facility->save();
-            return response()->json('The Facility successfully added');
+        $request->validate([
+            'description' => 'required|unique:facilities',
+      
+        ]);
+        
+        $facility = new Facility([
+            'description' => $request->input('description')
+        ]);
+        $facility->save();
+        return response()->json('The Facility successfully added');
           
-        }
+        
  
     }
 
@@ -53,6 +56,10 @@ class FacilityController extends Controller
    
     public function update($id, Request $request)
     {
+        $request->validate([
+            'description' => 'required',
+      
+        ]);
         $facility = Facility::find($id);
         $facility->update($request->all());
         
@@ -65,5 +72,17 @@ class FacilityController extends Controller
         $facility = Facility::find($id);
         $facility->delete();
         return response()->json('The Facility successfully deleted');
+    }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+        
+        $search_facilities = Facility::query()
+                            ->where('description', 'LIKE', "%{$search_word}%") 
+                            ->get()
+                            ->toArray();
+        return $search_facilities;
     }
 }

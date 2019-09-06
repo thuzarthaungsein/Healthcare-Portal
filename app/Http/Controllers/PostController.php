@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-       
+
         $news_list = Post::all()->toArray();
        return response()->json(array_reverse($news_list));
 
@@ -23,7 +23,7 @@ class PostController extends Controller
     // add news
     public function add(Request $request)
     {
-        
+
         $imageName = $request->image->getClientOriginalName();
         $request->image->move(public_path('images'), $imageName);
         $post = new Post([
@@ -35,13 +35,13 @@ class PostController extends Controller
             'user_id' => 1,
             'recordstatus' => 1
         ]);
-      
+
         $post->save();
-          
+
         // return response()->json('The New successfully added');
     }
 
-   
+
     /**
      * Show the form for creating a new resource.
      *
@@ -85,7 +85,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-      
+
         $posts = Post::find($id);
         return response()->json($posts);
     }
@@ -99,6 +99,7 @@ class PostController extends Controller
      */
     public function update($id, Request $request)
     {
+
         $imageName = $request->image->getClientOriginalName();
         $request->image->move(public_path('images'), $imageName);
         $formData = array(
@@ -126,5 +127,29 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->delete();
         return response()->json('The news post successfully deleted');
+    }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+
+        $query = Post::query();
+
+        if(isset($request['selected_category'])) {
+            $category_id = $request['selected_category'];
+            $query = $query->where('category_id', $category_id);
+        } 
+
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
+        
+            $query = $query->where(function($qu) use ($search_word){
+                            $qu->where('title', 'LIKE', "%{$search_word}%")
+                                ->orWhere('main_point', 'LIKE', "%{$search_word}%");
+                        });
+        } 
+        $query = $query->orderBy('id','DESC')
+                        ->get();
+        return $query;
     }
 }
