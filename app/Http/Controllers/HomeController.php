@@ -73,8 +73,6 @@ class HomeController extends Controller
         $query = $query->orderBy('created_at','DESC')
                         ->get()
                         ->toArray();
-
-        //print_r($query);exit;
         return $query;
     }
 }
