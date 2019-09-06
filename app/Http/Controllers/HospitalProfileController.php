@@ -14,13 +14,24 @@ class HospitalProfileController extends Controller
      */
     public function index()
     {
-        $favourite_list = HospitalProfile::all()->toArray();
-        return response()->json(array_reverse($favourite_list));
+        // $test = value;
+        // foreach($test as $test){
+        //     $favourite_list = HospitalProfile::where('id',$test)->get();
+        // }
+        
+        // return response()->json(array_reverse($favourite_list));
     }
 
-    public function showFav($id,Request $request)
+    public function showFav(Request $request)
     {
-         dd($request);
+        // return response()->json('success data');
+       
+        // $data = array("aa" => $request);
+        
+        return response()->json($request
+    );
+        // $favourite_list = HospitalProfile::whereIn('id',$localFav)->get();
+        // return response()->json($str);
     //     $news_list = Post::find($post);
     //     $data = array("news_list" => $news_list);
     //    return response()->json($data);

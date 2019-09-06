@@ -1,7 +1,7 @@
 <template>
-<div class="card profile">
+<div class="card profile" style="border:none;">
         <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
-        <div class="card-body scrolldiv2">
+        <div class="card-body">
                 <div class="form-group">
                         <!-- <label>Type<span class="error">*</span></label> -->
                         <label for="hospital" class="typelabel" id="hospital-lbl">
@@ -19,8 +19,8 @@
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="type == 'nursing'">
-                             Public View
-                             <span @click = "callLocal()">Local</span>
+                             <!-- <profilePublish></profilePublish> -->
+                             Profile Page View
                         </div>                
                         
                 </form>
@@ -29,12 +29,21 @@
 </template>
 
 <script>
+$(document).ready(function(){
+        $('#feature').summernote({
+        placeholder: 'Write Feature',
+        height: 200,
+        });
+});
+
 import hospitalProfile from './HospitalProfile.vue'
 import nursingProfile from './NursingProfile.vue'
+import profilePublish from './ProfilePublish.vue'
 export default {
         components: {
               hospitalProfile,
               nursingProfile,
+              profilePublish,
         },
        data() {
                 return {

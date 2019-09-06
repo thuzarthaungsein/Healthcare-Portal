@@ -1,6 +1,5 @@
 import home from './components/home.vue';
 import Newsdetails from './components/Newsdetails.vue';
-
 import hospitalSearch from './components/hospitalSearch.vue';
 import JobApply from './components/JobApply.vue';
 import customerlist from './components/customerlist.vue';
@@ -37,13 +36,16 @@ import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
 import VideoUpload from './components/VideoUpload.vue';
 
+import GoogleMap from './components/GoogleMap.vue';
+
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
 import favouriteBtn from './components/favouriteBtn.vue';
-export const routes = [
+import comment from './components/Comment.vue';
 
+export const routes = [
       {
         name: 'home',
         path: '/',
@@ -249,6 +251,11 @@ export const routes = [
       component: NursingHistory
     },
     {
+      name: 'google_map',
+      path: '/google_map',
+      component: GoogleMap
+    },
+    {
       name: 'hospital_profile',
       path: '/hospital_profile',
       component: HospitalProfile
@@ -258,14 +265,19 @@ export const routes = [
       path: '/nursing_profile',
       component: NursingProfile
      },
-    {
-      name: 'videoupload',
-      path: '/videoupload',
-      component: VideoUpload
-  },
   {
     name: 'favouriteBtn',
     path: '/favouriteBtn',
     component: favouriteBtn
-}
+},
+      {
+        name: 'videoupload',
+        path: '/videoupload',
+        component: VideoUpload
+      },
+      {
+        name: 'comment',
+        path: '/comment',
+        component: comment
+      }
 ];

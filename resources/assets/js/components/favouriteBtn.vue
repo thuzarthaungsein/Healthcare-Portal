@@ -9,15 +9,16 @@
 
 <script>
 export default {
+ created(){
+            
+                 console.log('local',localStorage.getItem('hospital_fav'))
+        },
 methods:{
     favList(){
-        let favData = localStorage.getItem('hospital_fav');
-       
-         console.log('fav',localStorage.getItem('hospital_fav'))
+        let favData = localStorage.getItem('hospital_fav');        
          axios.post('http://localhost:8000/api/hospital/favData', favData)
                     .then(response => { 
                          console.log(response);
-                         alert('Successfully Created')
                     })
 
        }
