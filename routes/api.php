@@ -140,10 +140,11 @@ Route::group(['prefix' => 'types'], function () {
     Route::delete('delete/{id}', 'TypeController@destroy');
 });
 // Guest Hospital History
-Route::get('hospital_history', 'CustomerProfileContoller@getHospitalHistory');
+Route::post('hospital_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
 
 // Guest Nursing History
-Route::get('nursing_history', 'CustomerProfileContoller@getNursingHistory');
+// Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
+Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
 
 Route::group(['prefix' => 'medical'], function () {
     Route::post('add', 'MedicalController@add');
