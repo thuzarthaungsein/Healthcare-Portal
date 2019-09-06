@@ -18,10 +18,11 @@ $('path').on("click", function(e) {
 
 });
 
-$('#feature').summernote({
-    placeholder: 'Write Feature',
-    height: 200,
-  });
+
+// $('#method-textarea').summernote({
+//     placeholder: 'Write Feature',
+//     height: 200,
+//   });
 
     var dynamicInput = [];
     var ct = 1;
@@ -45,10 +46,12 @@ $('#feature').summernote({
     }
 
     function closebtn(){
-        var image_x = document.getElementById('x-image');
+        if(confirm("Are you sure you want to delete?")){
+            var image_x = document.getElementById('x-image');
         image_x.parentNode.removeChild(image_x);
         document.getElementById('showimage').style.display = 'block';
         console.log("close");
+        }
     }
 
     function showImg(c,event) {
@@ -71,5 +74,3 @@ $('#feature').summernote({
         });
         
     }
-
-    

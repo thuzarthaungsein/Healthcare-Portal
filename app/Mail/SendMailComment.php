@@ -10,15 +10,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class SendMailable extends Mailable
 {
     use Queueable, SerializesModels;
-    public $getCustomer;
+    public $getComment;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($getCustomer)
+    public function __construct($getComment)
     {
-        $this->getCustomer = $getCustomer;
+        $this->getComment = $getComment;
     }
 
     /**
