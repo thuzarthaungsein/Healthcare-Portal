@@ -1,17 +1,59 @@
+var timeout;
+$(".path").hover(
+  function() {
+    clearTimeout(timeout);
+    $('#info-box').css({
+      'display':'block',
+      'position':'fixed',
+      'top':"175px",
+      'left':'1350px'
+    });
+    $('#info-box').html($(this).data('info'));
+  },
+  function(){
+  	timeout = setTimeout(function(){
+    	$('#info-box').css('display','none');
+      },1000);
+  });
+
+var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+if(ios) {
+  $('abbr').on('click touchend', function() { 
+    var link = $(this).attr('href');   
+    window.open(link,'_blank');
+    return false;
+  });
+}
+
+
 $('path').on("click", function(e) {
     e.preventDefault();
     $('path.selected').attr("class", "");
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
-     console.log(e);
+    //  console.log(e);
     var url = "http://localhost:8000/api/getmap";
     $.ajax({
-        type:'get',
+        type:'post',
         data:{"title":title,"id":id},
         url:url,
         success:function(data){
-            console.log(data.title);
+            console.log(data);
+            $('#select').css({'display':'block'});
+            $('#checkbox').empty();
+            $('#select').empty();
+            var city = data.getCity;
+            var townships = data.getTownships;
+            $.each(city,function(k,v){
+              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>')
+            });
+            $.each(townships,function(k,v){
+                console.log(v);
+                $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+            });
+           
+           
         }
     });
 

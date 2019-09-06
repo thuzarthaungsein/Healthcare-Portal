@@ -31,6 +31,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
+Route::post('getmap','SearchMapController@getMap');
+Route::get('getCity','SearchMapController@getCity');
+
 
 
 
@@ -63,13 +66,13 @@ Route::get('getReset','registerController@getReset');
 Route::get('jobs', 'JobController@index');
 Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
-Route::post('getmap','adminController@getMap');
+
 Route::get('customers','CustomerController@index');
 Route::get('categories','CategoryController@index');
 Route::get('custedit','CustomerController@edit');
 Route::get('newdetails/{id}', 'PostController@show');
 
-Route::post('getmap','adminController@getMap');
+
 Route::get('customers','CustomerController@index');
 Route::get('categories','CategoryController@index');
 Route::get('confirm/{id}','CustomerController@confirm');
