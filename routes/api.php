@@ -90,6 +90,7 @@ Route::group(['prefix' => 'customer'], function () {
     Route::get('edit/{id}', 'CustomerController@edit');
     Route::post('update/{id}','CustomerController@update');
     Route::delete('delete/{id}','CustomerController@destroy');
+    Route::post('search', 'CustomerController@search');
 });
 
 

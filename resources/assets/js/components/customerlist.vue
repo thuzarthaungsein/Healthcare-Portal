@@ -92,7 +92,7 @@
                     <h4 class="main-color">事業者検索</h4>
                     <div class="row">
                         <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="検索">
+                            <input type="text" class="form-control" placeholder="検索" id="search-word" @keyup="searchCustomer()">
                         </div>
                         <div class="col-md-2 text-right">
                             <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
@@ -171,6 +171,16 @@ export default {
                     flash('Successfully Send Mail.', 'success');
                     console.log(response.data);
                 })
+            },
+
+            searchCustomer() {
+                var search_word = $('#search-word').val();
+                let fd = new FormData();
+                    fd.append('search_word', search_word)
+                this.axios.post('http://localhost:8000/api/customer/search', fd)
+                    .then(response => {
+                        this.customers = response.data;
+                });
             }
         }
 }

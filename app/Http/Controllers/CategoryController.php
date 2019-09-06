@@ -106,7 +106,8 @@ class CategoryController extends Controller
         $search_word = $request['search_word'];
         
         $search_categories = Category::query()
-                            ->where('name', 'LIKE', "%{$search_word}%") 
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
                             ->get()
                             ->toArray();
         return $search_categories;
