@@ -14,11 +14,11 @@
                              <form @submit.prevent="updateAds">
                             <div class="form-group">
                                 <label>Title :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="advertisement.title"  required>
+                                <input type="text" class="form-control"  v-model="advertisement.title" required>
                             </div>
                             <div class="form-group">
-                                <label>Description :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="advertisement.description"  required>
+                                <label>Description :<span class="error"></span></label>
+                                <input type="text" class="form-control"  v-model="advertisement.description">
                             </div>
                              <div class="form-group" style="display:none" id="showimage">
 
@@ -74,7 +74,7 @@ export default {
         },
         created() {
             this.axios
-                .get(`http://localhost:8000/api/advertisement/edit/${this.$route.params.id}`)
+                .get(`/api/advertisement/edit/${this.$route.params.id}`)
                 .then((response) => {
                     this.advertisement = response.data;
                     this.updateselected();
@@ -85,7 +85,8 @@ export default {
          methods: {
               fileSelected(){
 
-                     $('.image_show').append("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+                     $('.image_show').html("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+
                      this.advertisement.photo = event.target.files[0]
 
               },
@@ -97,10 +98,10 @@ export default {
              let adsData = new FormData();
 
               adsData.append('title',this.advertisement.title)
-              adsData.append('description',this.advertisement.description)
-              adsData.append('photo',this.advertisement.photo)
-
-                this.axios.post(`http://localhost:8000/api/advertisement/update/${this.$route.params.id}`, adsData)
+             adsData.append('description',this.advertisement.description)
+             adsData.append('photo',this.advertisement.photo)
+            //ads.photo=this.advertisement.photo
+                this.axios.post(`/api/advertisement/update/${this.$route.params.id}`, adsData)
                     .then((response) => {
                           alert('Successfully Updated!')
                         this.$router.push({name: 'ads'});

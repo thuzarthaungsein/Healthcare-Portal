@@ -1,83 +1,79 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        //
+
+           
+        // $request->validate([
+        //     'title' => 'required|unique:jobs',
+        //     'comment' =>'required',
+        //     'email' => 'required|email|unique:comments',
+        //     'zipcode' => 'required',        
+        // ]);
+
+        $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
+
+        $comment = new Comment ([
+
+            'title' => $request->input('title'),
+            'comment' => $request->input('comment'),
+            'email' => $request->input('email'),
+            'name' =>  $request->input('name'),
+            'year' => $request->input('year'),
+            'gender' => $request->input('gender'),
+            'zipcode' =>  $zipcode,
+            'customer_id' => 1,
+            'status' => 0,  
+            'recordstatus' => 2
+            
+        ]);
+        $comment ->save();
+        \Mail::to($request->email)->send(new SendMailable($request->comment));
+
+        return response()->json(['success'=>'Done!']);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show(Comment $comment)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Comment $comment)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Comment $comment)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Comment $comment)
     {
         //

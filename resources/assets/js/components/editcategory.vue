@@ -10,7 +10,7 @@
                                     
                                     <form @submit.prevent = "updateCategory" class="col-md-12">
                                         <div class="form-group">
-                                            <label>種別名:<span class="error">*</span></label>
+                                            <label>カテゴリ名:<span class="error">*</span></label>
                                             <input type="text" class="form-control" v-model="category.name" placeholder="種別名">
                                               <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                                         </div>
@@ -44,7 +44,7 @@ export default {
         },
         created() {
             this.axios
-                .get(`http://localhost:8000/api/category/edit/${this.$route.params.id}`)
+                .get(`/api/category/edit/${this.$route.params.id}`)
                 .then((response) => {
                     this.category = response.data;
                    
@@ -54,7 +54,7 @@ export default {
          methods: {
             updateCategory() {
                 this.axios
-                    .post(`http://localhost:8000/api/category/update/${this.$route.params.id}`, this.category)
+                    .post(`/api/category/update/${this.$route.params.id}`, this.category)
                     .then((response) => {
                         this.name = ''
                           alert('Successfully Updated!')

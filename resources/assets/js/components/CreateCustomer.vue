@@ -97,7 +97,7 @@ export default {
                  fd.append('address',this.customer.address)
 
 
-                 axios.post('http://localhost:8000/api/customer/add', fd )
+                 axios.post('/api/customer/add', fd )
                     .then((response) => {
                         console.log(response);
                     alert('Successfully Created')
