@@ -14,11 +14,11 @@
                              <form @submit.prevent="updateAds">
                             <div class="form-group">
                                 <label>Title :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="advertisement.title"  required>
+                                <input type="text" class="form-control"  v-model="advertisement.title" required>
                             </div>
                             <div class="form-group">
-                                <label>Description :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="advertisement.description"  required>
+                                <label>Description :<span class="error"></span></label>
+                                <input type="text" class="form-control"  v-model="advertisement.description">
                             </div>
                              <div class="form-group" style="display:none" id="showimage">
 
