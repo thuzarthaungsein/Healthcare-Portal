@@ -43,7 +43,7 @@
                                                                         </li>
                                                                 </ul>
 
-                                                                <ul class="list-group list-group-flush" v-for="post in search_posts" :key="post.id">
+                                                                <ul class="list-group list-group-flush search-item" v-for="post in search_posts" :key="post.id">
                                                                         <li  class="list-group-item p-t-5 p-b-5" >
                                                                                  <router-link :to="'/newsdetails/'+ post.id">
                                                                                 
@@ -159,6 +159,7 @@ export default {
                         });
                 },
                 getPostByCatID: function(cat_id) {
+                        $('.search-item').css('display','none');
                         this.categoryId = cat_id;
                         axios.get("http://localhost:8000/api/posts/" + cat_id)
                         .then(response => {
@@ -172,6 +173,8 @@ export default {
                         });
                 },
                 getLatestPostByCatID: function(cat_id) {
+                        $('.search-item').css('display','none');
+                        this.categoryId = cat_id;
                         axios.get("http://localhost:8000/api/get_latest_post/" + cat_id)
                         .then(response => {
                                 this.latest_post = response.data;
