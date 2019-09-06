@@ -10,7 +10,7 @@
                                     
                                     <form @submit.prevent = "updateCategory" class="col-md-12">
                                         <div class="form-group">
-                                            <label>種別名:<span class="error">*</span></label>
+                                            <label>カテゴリ名:<span class="error">*</span></label>
                                             <input type="text" class="form-control" v-model="category.name" placeholder="種別名">
                                               <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                                         </div>

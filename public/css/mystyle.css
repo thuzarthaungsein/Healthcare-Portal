@@ -588,8 +588,20 @@
 
 /* End Search News List */
 
-/*new_details*/
+/*filter*/
+/* .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+} */
+/*end filter*/
 
+/*new_details*/
 
         .img_2
         {
@@ -1183,6 +1195,9 @@ div.b{
 }
 .m-b-30{
     margin-bottom: 30px !important;
+}
+.m-b-0{
+    margin-bottom: 0px !important;
 }
 .m-r-15 {
     margin-right: 15px;
