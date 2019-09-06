@@ -129,4 +129,28 @@ class PostController extends Controller
         $post->delete();
         return response()->json('The news post successfully deleted');
     }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+
+        $query = Post::query();
+
+        if(isset($request['selected_category'])) {
+            $category_id = $request['selected_category'];
+            $query = $query->where('category_id', $category_id);
+        } 
+
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
+        
+            $query = $query->where(function($qu) use ($search_word){
+                            $qu->where('title', 'LIKE', "%{$search_word}%")
+                                ->orWhere('main_point', 'LIKE', "%{$search_word}%");
+                        });
+        } 
+        $query = $query->orderBy('id','DESC')
+                        ->get();
+        return $query;
+    }
 }

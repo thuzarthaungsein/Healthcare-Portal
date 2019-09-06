@@ -82,8 +82,26 @@
 /* End News List */
 
 /* Profile */
+.typelabel {
+    background: #118063;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+}
+.dim-btn {
+    background: #ccc !important;
+}
+.typelabel input[type="radio"] {
+    display: none;
+}
+.form-class{
+    padding: 15px;
+}
 .hor-line {
-    border-top: 2px solid #ccc;
+    border-top: 2px solid #eee;
 }
 .btn-editProfile{
     background: #0f6064;
@@ -129,16 +147,16 @@
     margin-bottom: 15px;
 }
 .profile .card-header {
-    padding-top: 20px !important;
+    /* padding-top: 20px !important; */
 }
-#gallery {
+#gallery, #gallery-video, #special-features {
     border-radius: 5px;
     padding: 20px;
     border: 1px solid #eee;
     margin-top: 15px;
 }
 .method-box {
-    border-bottom: 2px solid #eee;
+    /* border-bottom: 2px solid #eee; */
     padding: 20px 0px;
 }
 .collapse-icon {
@@ -164,6 +182,12 @@
     padding: 10px;
     margin-bottom: 7px;
     border-radius: 3px;
+}
+.hos-fac-toggle-div {
+    padding-top: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 /* End Profile */
 
@@ -1187,20 +1211,17 @@ div.b{
 .p-b-5{
     padding-bottom: 5px ;
 }
-<<<<<<< HEAD
 .m-r-10{
     margin-right: 10px;
 }
 
 
-=======
 .max-width12{
     max-width:12%;
 }
 .max-width16{
     max-width:16%;
 }
->>>>>>> bbe5ff5d0b54225537c44c91a978cd6648f21f90
 .main-color {
     color: #333;
 }
@@ -1834,3 +1855,21 @@ ul.main-tab li:after{
     border-radius: 2px;
 }
 /* End for Hospital History */
+<<<<<<< HEAD
+=======
+/* Summernote */
+#feature .card-header.note-toolbar {
+    background: #efefef;
+}
+
+#feature .note-editor.note-frame .note-statusbar .note-resizebar {
+    background: #efefef;
+}
+
+#feature .btn-light {
+    color: #212529;
+    background-color: #fff;
+    border-color: #ccd1d6;
+}
+/* End Summernote */
+>>>>>>> 13da39896d3c4415b4b8b2984ea2358714330c48

@@ -456,25 +456,10 @@ export default {
                  .then(response=>{
                      this.favourite_list = response.data;
                  });
+                 console.log('local',localStorage.getItem('hospital_fav'))
         },
 
-         methods: {
-
-              selectAll(){
-				var items=document.getElementsByName('acs');
-				for(var i=0; i<items.length; i++){
-					if(items[i].type=='checkbox')
-						items[i].checked=true;
-				}
-			},
-			
-			UnSelectAll(){
-				var items=document.getElementsByName('acs');
-				for(var i=0; i<items.length; i++){
-					if(items[i].type=='checkbox')
-						items[i].checked=false;
-				}
-			},		
+         methods: {		
             
             deletehospital(id) {
                 if(confirm("Are you sure you want to delete?"))

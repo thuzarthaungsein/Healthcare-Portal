@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\HospitalProfile;
 
-class HospitalProfileController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,16 +13,9 @@ class HospitalProfileController extends Controller
      */
     public function index()
     {
-        $favourite_list = HospitalProfile::all()->toArray();
-        return response()->json(array_reverse($favourite_list));
-    }
-
-    public function showFav($id,Request $request)
-    {
-         dd($request);
-    //     $news_list = Post::find($post);
-    //     $data = array("news_list" => $news_list);
-    //    return response()->json($data);
+        $user = auth()->user();
+        // $data = array('user'->$user);
+        return auth()->user();
     }
 
     /**
@@ -89,8 +81,6 @@ class HospitalProfileController extends Controller
      */
     public function destroy($id)
     {
-        $favourite_list = HospitalProfile::find($id);
-        $favourite_list->delete();
-        return response()->json('The successfully deleted');
+        //
     }
 }
