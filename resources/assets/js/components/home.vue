@@ -85,38 +85,38 @@ export default {
         methods: {
                 getAllCat: function() {
                      this.axios
-                        .get('http://192.168.10.111:8000/api/home')
+                        .get('/api/home')
                         .then(response => {
                                 this.cats = response.data;
                         });   
                 },
                 getPostByFirstCat: function() {
-                         axios.get("http://192.168.10.111:8000/api/posts/1")
+                         axios.get("/api/posts/1")
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getPostByCatID: function(cat_id) {
-                        axios.get("http://192.168.10.111:8000/api/posts/" + cat_id)
+                        axios.get("/api/posts/" + cat_id)
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getLatestPostByFirstCatID: function() {
-                        axios.get("http://192.168.10.111:8000/api/get_latest_post/1")
+                        axios.get("/api/get_latest_post/1")
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostByCatID: function(cat_id) {
-                        axios.get("http://192.168.10.111:8000/api/get_latest_post/" + cat_id)
+                        axios.get("/api/get_latest_post/" + cat_id)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostFromAllCat: function() {
                         this.axios
-                        .get('http://192.168.10.111:8000/api/get_latest_post_all_cat')
+                        .get('/api/get_latest_post_all_cat')
                         .then(response => {
                                 this.latest_post_all_cats = response.data;
                         });
