@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('approve/{id}','registerController@approve');
     // Route::get('authget','ProfileController@index');
-    
+
 });
 // login route api end
 

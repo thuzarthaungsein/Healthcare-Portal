@@ -11,35 +11,14 @@
                         <div class="col-md-12">
                              <form @submit.prevent="add">
                             <div class="form-group">
-                                <label>カテゴリ 名 :<span class="error">*</span></label>
+                                <label>カテゴリ名 :<span class="error">*</span></label>
                                 <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリ 名" >
                                   <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                             </div>
 
                             <div class="form-group ">
-                                <div class="form-group row">
-                                    <div class="col-2 pad-free">
-                                        <button class="btn news-post-btn all-btn">カテゴリを投稿する</button>
-                                    </div>
-                                    <div class="col-2 pad-free">
-                                        <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
-                                    </div>
-
-                                    <!-- <div class="row"> -->
-                                        <!-- <div class="col-md-12">
-                                                <div class="form-group row">
-                                                    <div class="col-1 pad-free">
-                                                        <button class="btn news-post-btn">Create</button>
-                                                    </div>
-                                                    <div class="col-3 pad-free">
-
-                                                        <router-link to="/categorylist" class="btn btn-warning">Cancel</router-link>
-                                                    </div>
-                                                </div>
-                                        </div> -->
-                                    <!-- </div> -->
-
-                                </div>
+                                <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
+                                <router-link class="btn news-post-btn all-btn" to="/categorylist" >カテゴリを投稿する</router-link>                                
                             </div>
                                 </form>
                             </div>
@@ -65,7 +44,7 @@ export default {
 
          methods: {
             add() {
-                axios.post('http://localhost:8000/api/category/add', this.category)
+                axios.post('/api/category/add', this.category)
                     .then((response) => {
                         this.name = ''
                     alert('Successfully Created')

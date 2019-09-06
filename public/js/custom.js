@@ -4,7 +4,7 @@
               $AutoPlay: 1,
               $AutoPlaySteps: 5,
               $SlideDuration: 160,
-              $SlideWidth: 200,
+              $SlideWidth: 240,
               $SlideSpacing: 3,
               $ArrowNavigatorOptions: {
                 $Class: $JssorArrowNavigator$,

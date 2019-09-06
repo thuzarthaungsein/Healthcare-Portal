@@ -59,7 +59,7 @@ export default {
         methods: {
                 getAllCustomer: function() {
                      this.axios
-                        .get('http://localhost:8000/api/hospital_history')
+                        .get('/api/hospital_history')
                         .then(response => {
                                 this.hos_profiles = response.data;
                         });

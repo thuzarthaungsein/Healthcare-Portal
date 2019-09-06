@@ -57,7 +57,7 @@ export default {
                                 fd.append('file' ,this.file )
                                 fd.append('name',Vname)
 
-                       axios.post('http://localhost:8000/api/customer/uploadvideo', fd)
+                       axios.post('/api/customer/uploadvideo', fd)
                             .then(response => {
                                 console.log(response); 
                             $('#video_preview').append("<div class='col-md-6' id='video-area'><span onClick='closevideo()'>X</span><video src='upload/videos/"+Vname+"' controls></video></div>");

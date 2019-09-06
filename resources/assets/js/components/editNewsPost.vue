@@ -86,7 +86,7 @@
             },
             created() {
                 this.axios
-                    .get(`http://localhost:8000/api/new/editPost/${this.$route.params.id}`)
+                    .get(`/api/new/editPost/${this.$route.params.id}`)
                     .then((response) => {
                         this.news = response.data;
                         console.log(this.news.photo);
@@ -95,7 +95,7 @@
             },
             mounted() {
                 this.axios
-                    .get(`http://localhost:8000/api/category/category_list`)
+                    .get(`/api/category/category_list`)
                     .then(function(response) {
                         this.categories = response.data;
                         for (var i = 0; i <= this.categories.length; i++) {
@@ -124,7 +124,7 @@
                         fData.append('body', this.news.body)
                         fData.append('category_id', this.news.category_id)
 
-                        axios.post(`http://localhost:8000/api/new/update/${this.$route.params.id}`, fData)
+                        axios.post(`/api/new/update/${this.$route.params.id}`, fData)
                             .then((response) => {
                                 alert('Successfully Updated!')
                                 this.$router.push({

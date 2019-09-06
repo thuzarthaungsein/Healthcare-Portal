@@ -43,7 +43,7 @@ export default {
         methods: {
                 getLatestPostFromAllCat: function() {
                         this.axios
-                        .get('http://localhost:8000/api/get_latest_post_all_cat')
+                        .get('/api/get_latest_post_all_cat')
                         .then(response => {
                                 this.latest_post_all_cats = response.data;
                         });
