@@ -27,6 +27,7 @@
               </div>
             <!--end Tab panes-->                              
         </div>   
+        <!-- {{ l_storage_hos_history }} -->
 </template>
 
 <script>
@@ -43,8 +44,8 @@ export default {
      jobSearch
     },
      mounted() {
-            console.log('Component mounted.')
-           
+            console.log('Component mounted.');
+                // console.log[l_storage_hos_history];
         },
         data() {
             return {
@@ -76,6 +77,13 @@ export default {
                localStorage.setItem("nursing_history",this.l_storage_nus_history);
                localStorage.setItem("hospital_fav",this.l_storage_hos_fav);
                localStorage.setItem("nursing_fav",this.l_storage_nus_fav);
+
+        //        localStorage.setItem('name', 'SNY');
+        //        const person = {
+        //                name: "SNY",
+        //                location: "Ygn",
+        //        }
+        //        localStorage.setItem('user', JSON.stringify(person));
                 
             this.getAllCat();
             this.getPostByFirstCat();
