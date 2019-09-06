@@ -61336,6 +61336,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -66162,13 +66163,7 @@ var render = function() {
                             )
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.description
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.description[0]))
-                          ])
-                        : _vm._e()
+                      })
                     ])
                   ]),
                   _vm._v(" "),
@@ -69306,6 +69301,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -69314,15 +69329,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             advertisement: {
                 title: '',
                 description: '',
+                location: [{
+                    topbars: false,
+                    sidebars: false
+                }],
                 photo: ''
-            }
+            },
+            ischeck: ''
         };
     },
     created: function created() {
         var _this = this;
 
         this.axios.get('http://localhost:8000/api/advertisement/edit/' + this.$route.params.id).then(function (response) {
-            _this.advertisement = response.data;
+            _this.advertisement.title = response.data.title;
+            _this.advertisement.description = response.data.description;
+            _this.ischeck = response.data.location;
+            _this.updateCheck(_this.ischeck);
+            _this.advertisement.photo = response.data.photo;
             _this.updateselected();
         });
     },
@@ -69338,15 +69362,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         updateselected: function updateselected() {
             $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/advertisement/" + this.advertisement.photo + " class='show-img''></div>");
         },
+
+
+        updateCheck: function updateCheck(check) {
+            this.advertisement.location.shift();
+            if (check == "topbar") {
+                this.advertisement.location.push({
+                    topbars: 1,
+                    sidebars: 0 });
+            } else if (check == "sidebar") {
+                this.advertisement.location.push({
+                    topbars: 0,
+                    sidebars: 1 });
+            } else {
+                this.advertisement.location.push({
+                    topbars: 1,
+                    sidebars: 1
+                });
+            }
+        },
         updateAds: function updateAds() {
             var _this2 = this;
 
             var adsData = new FormData();
-
+            var arr = this.advertisement.location;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i]['topbars'] == 1 && arr[i]['sidebars'] == 0) {
+                    adsData.append('location', 'topbar');
+                } else if (arr[i]['sidebars'] == 1 && arr[i]['topbars'] == 0) {
+                    adsData.append('location', 'sidebar');
+                } else if (arr[i]['sidebars'] == 1 && arr[i]['topbars'] == 1) {
+                    adsData.append('location', 'sidebar,topbar');
+                }
+            }
             adsData.append('title', this.advertisement.title);
             adsData.append('description', this.advertisement.description);
             adsData.append('photo', this.advertisement.photo);
-            //ads.photo=this.advertisement.photo
+            console.log(adsData);
             this.axios.post('http://localhost:8000/api/advertisement/update/' + this.$route.params.id, adsData).then(function (response) {
                 alert('Successfully Updated!');
                 _this2.$router.push({ name: 'ads' });
@@ -69383,65 +69435,233 @@ var render = function() {
                     }
                   },
                   [
-                    _c("div", { staticClass: "form-group" }, [
+                    _c("div", { staticClass: "form-group row" }, [
                       _vm._m(1),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.advertisement.title,
-                            expression: "advertisement.title"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", required: "" },
-                        domProps: { value: _vm.advertisement.title },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c("div", { staticClass: "col-sm-10" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.advertisement.title,
+                              expression: "advertisement.title"
                             }
-                            _vm.$set(
-                              _vm.advertisement,
-                              "title",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control box",
+                          attrs: {
+                            type: "title",
+                            id: "title",
+                            name: "title",
+                            required: ""
+                          },
+                          domProps: { value: _vm.advertisement.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.advertisement,
+                                "title",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      })
+                        }),
+                        _vm._v(" "),
+                        _vm.errors.title
+                          ? _c("span", { staticClass: "error" }, [
+                              _vm._v(_vm._s(_vm.errors.title[0]))
+                            ])
+                          : _vm._e()
+                      ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
+                    _c("div", { staticClass: "form-group row" }, [
                       _vm._m(2),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.advertisement.description,
-                            expression: "advertisement.description"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: _vm.advertisement.description },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c("div", { staticClass: "col-sm-10" }, [
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.advertisement.description,
+                              expression: "advertisement.description"
                             }
-                            _vm.$set(
-                              _vm.advertisement,
-                              "description",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "description", cols: "50", rows: "5" },
+                          domProps: { value: _vm.advertisement.description },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.advertisement,
+                                "description",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      })
+                        })
+                      ])
                     ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group row" },
+                      [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _vm._l(_vm.advertisement.location, function(
+                          advertisements
+                        ) {
+                          return _c(
+                            "div",
+                            { key: advertisements.id, staticClass: "col-sm-9" },
+                            [
+                              _c("label", [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: advertisements.topbars,
+                                      expression: "advertisements.topbars"
+                                    }
+                                  ],
+                                  attrs: {
+                                    type: "checkbox",
+                                    value: "topbar",
+                                    id: "tbar",
+                                    name: "top_bar"
+                                  },
+                                  domProps: {
+                                    checked: Array.isArray(
+                                      advertisements.topbars
+                                    )
+                                      ? _vm._i(
+                                          advertisements.topbars,
+                                          "topbar"
+                                        ) > -1
+                                      : advertisements.topbars
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = advertisements.topbars,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = "topbar",
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              advertisements,
+                                              "topbars",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              advertisements,
+                                              "topbars",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(advertisements, "topbars", $$c)
+                                      }
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("strong", [_vm._v("Top Bar ")]),
+                                _vm._v(" (200 円)")
+                              ]),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("label", [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: advertisements.sidebars,
+                                      expression: "advertisements.sidebars"
+                                    }
+                                  ],
+                                  attrs: {
+                                    type: "checkbox",
+                                    value: "sidebar",
+                                    id: "sbar",
+                                    name: "side_bar"
+                                  },
+                                  domProps: {
+                                    checked: Array.isArray(
+                                      advertisements.sidebars
+                                    )
+                                      ? _vm._i(
+                                          advertisements.sidebars,
+                                          "sidebar"
+                                        ) > -1
+                                      : advertisements.sidebars
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = advertisements.sidebars,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = "sidebar",
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              advertisements,
+                                              "sidebars",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              advertisements,
+                                              "sidebars",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(
+                                          advertisements,
+                                          "sidebars",
+                                          $$c
+                                        )
+                                      }
+                                    }
+                                  }
+                                }),
+                                _c("strong", [_vm._v(" Side Bar ")]),
+                                _vm._v("(300 円) ")
+                              ]),
+                              _vm._v(" "),
+                              _vm.errors.location
+                                ? _c("span", { staticClass: "error" }, [
+                                    _vm._v(_vm._s(_vm.errors.location[0]))
+                                  ])
+                                : _vm._e()
+                            ]
+                          )
+                        })
+                      ],
+                      2
+                    ),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -69451,7 +69671,7 @@ var render = function() {
                         attrs: { id: "showimage" }
                       },
                       [
-                        _vm._m(3),
+                        _vm._m(4),
                         _c("br"),
                         _vm._v(" "),
                         _c("div", { staticClass: "custom-file col-sm-10" }, [
@@ -69468,11 +69688,11 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "image_show" }),
                     _vm._v(" "),
-                    _vm._m(4),
+                    _vm._m(5),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group " }, [
                       _c("div", { staticClass: "form-group row" }, [
-                        _vm._m(5),
+                        _vm._m(6),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -69516,18 +69736,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("Title :"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    return _c("div", { staticClass: "col-sm-2 text-right" }, [
+      _c("label", { attrs: { for: "title" } }, [
+        _c("strong", [_vm._v("Title :")])
+      ])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("Description :"),
-      _c("span", { staticClass: "error" })
+    return _c("div", { staticClass: "col-sm-2 text-right" }, [
+      _c("label", { attrs: { for: "description" } }, [
+        _c("strong", [_vm._v("Description :")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2 text-right" }, [
+      _c("label", { attrs: { for: "location" } }, [
+        _c("strong", [_vm._v(" Location :")])
+      ])
     ])
   },
   function() {

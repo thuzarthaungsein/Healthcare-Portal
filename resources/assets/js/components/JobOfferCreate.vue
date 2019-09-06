@@ -6,6 +6,7 @@
                         <h4 style="padding-top: 20px;"> Job Create </h4>
                     </div>
                     <div class="card-body ">
+
                         <div class="row">
                          <div class="col-sm-1"></div>
                          <div class="col-sm-9">
@@ -16,17 +17,17 @@
                                             </div>
                                              <div class="col-sm-9">
                                                 <input type="title" class="form-control box" id="title"  name="title" v-model="joboffer.title">
-                                             </div>    
-                                        </div> 
+                                             </div>
+                                        </div>
                                          <div class="form-group row">
                                                 <div class="col-sm-3">
                                                 </div>
                                                 <div class="col-sm-9">
-                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>  
+                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
                                                 </div>
                                          </div>
-                                         
-                                         
+
+
                                         <div class="form-group row">
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="description" ><strong> Description : <span class="error">*</span></strong>  </label>
@@ -42,7 +43,7 @@
                                                      <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
                                                 </div>
                                          </div>
-                                         
+
                                          <div class="mb-1 row">
                                             <div class = "col-sm-3"></div>
                                             <div class = "col-sm-9">
@@ -82,7 +83,7 @@
                                                      <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
                                                 </div>
                                          </div>
-                                       
+
 
                                         <div class="form-group row">
                                                 <div class="col-sm-3 text-right">
@@ -98,10 +99,10 @@
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="neareststation" ><strong> Employment Status :</strong>  </label>
                                                 </div>
-                                                <div class="col-sm-9" >                                             
+                                                <div class="col-sm-9" >
                                                     <label> <input type = "checkbox" id = "pcheck" value = "Part" name = "part_time" v-model="emstatus.pchecked" > <strong>Part Time </strong></label>
-                                                    <label> <input type = "checkbox" id = "fcheck" value= "Full" name = "full_time" v-model="emstatus.fchecked" ><strong> Full Time </strong> </label>    
-                                                </div>                                  
+                                                    <label> <input type = "checkbox" id = "fcheck" value= "Full" name = "full_time" v-model="emstatus.fchecked" ><strong> Full Time </strong> </label>
+                                                </div>
                                         </div>
                                          <div class="form-group row">
                                                 <div class="col-sm-3">
@@ -110,7 +111,7 @@
                                                      <span v-if="errors.employment_status" class="error">{{errors.employment_status[0]}}</span>
                                                 </div>
                                          </div>
-                                      
+
 
                                         <div class="form-group row">
                                                 <div class="col-sm-3 text-right">
@@ -127,7 +128,7 @@
                                                       <span v-if="errors.salary" class="error">{{errors.salary[0]}}</span>
                                                 </div>
                                          </div>
-                                         
+
 
                                          <div class="form-group row">
                                                 <div class="col-sm-3 text-right">
@@ -162,7 +163,7 @@
                                                        <span v-if="errors.working_hours" class="error">{{errors.working_hours[0]}}</span>
                                                 </div>
                                          </div>
-                                      
+
 
                                           <div class="form-group row">
                                                 <div class="col-sm-3 text-right">
@@ -172,7 +173,7 @@
                                                     <textarea name="holiday" class="form-control" cols="50" rows="5" v-model="joboffer.holidays" ></textarea>
                                                 </div>
                                          </div>
-                                        
+
 
                                         <div class="form- group row">
                                             <div class="col-sm-3"></div>
@@ -193,10 +194,10 @@
 
 <script>
 export default {
-    
+
 
           data() {
-             
+
             return {
                 errors:[
                 ],
@@ -225,7 +226,7 @@ export default {
                     ischeck:''
 
             }
-          
+
         },
          created() {
 
@@ -260,14 +261,14 @@ export default {
 
          methods: {
             add() {
-              
+
 
                 if( `${this.$route.params.id}` == "undefined")
-                {   
-                    
-                 
+                {
+
+
                     axios.post('http://localhost:8000/api/job/add', this.joboffer)
-                    .then((response) => {   
+                    .then((response) => {
                         this.title = '',
                         this.description = '',
                         this.location = '',
@@ -275,20 +276,20 @@ export default {
                         this.working_hours = '',
                         this.employment_status = ''
 
-                    
+
                     alert('Successfully Created')
                     console.log(response);
                     this.$router.push({name: 'jobofferlist'});
                     this.$route.params.id = null;
 
                     }).catch(error=>{
-                        
+
                     if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
+
+                        this.errors = error.response.data.errors
+
                     }
-                })       
+                })
 
                 }
                 else{
@@ -349,15 +350,15 @@ export default {
                           alert('Successfully Updated!')
                         this.$router.push({name: 'jobofferlist'});
                     }).catch(error=>{
-                        
+
                     if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
+
+                        this.errors = error.response.data.errors
+
                     }
-                })     
+                })
             }
-            
+
 
 
 

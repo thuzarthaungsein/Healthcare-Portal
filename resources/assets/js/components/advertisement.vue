@@ -24,7 +24,7 @@
                                                 </div>
                                                 <div class="col-sm-10">
                                                     <textarea name="description" class="form-control" cols="50" rows="5" v-model="ads.description"></textarea>
-                                                    <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
+
                                                 </div>
                                             </div>
                                             <div class="form-group row">
