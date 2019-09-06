@@ -1,13 +1,13 @@
 <template>
 <div class="row justify-content-md-center">                                
                 <div class="col-12">
-                        <form class="form-inline col-lg-5 form-inline mb-2 pad-free"><input type="search" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control"> 
+                        <form class="form-inline col-lg-5 form-inline mb-2 pad-free"><input type="search" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" @keyup="searchCategory()"> 
                                 <button type="submit" class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary"><i class="fas fa-search"></i> 検索</button>
                         </form>
                         <div class="card">
                                 <div class="card-header tab-card-header">
                                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
+                                                <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
                                                         <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
                                                                 {{ cat.name }}</a>
                                                 
@@ -32,7 +32,7 @@
                                                                 </router-link>
                                                         </div>
                                                         <div class="col-md-8 news-wrapper">
-                                                                <ul class="list-group list-group-flush" v-for="post in posts" :key="post.id">
+                                                                <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
                                                                         <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
                                                                                  <router-link :to="'/newsdetails/'+ post.id">
                                                                                 
@@ -42,6 +42,19 @@
                                                                                 </router-link>
                                                                         </li>
                                                                 </ul>
+
+                                                                <ul class="list-group list-group-flush" v-for="post in search_posts" :key="post.id">
+                                                                        <li  class="list-group-item p-t-5 p-b-5" >
+                                                                                 <router-link :to="'/newsdetails/'+ post.id">
+                                                                                
+                                                                                        <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
+                                                                                                <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
+                                                                               
+                                                                                </router-link>
+                                                                        </li>
+                                                                </ul>
+
+
                                                         </div>
                                                 </div>
                                         </div>
@@ -120,7 +133,8 @@ export default {
                 cats: [],
                 posts: [],
                 latest_post: [],
-                latest_post_all_cats: []
+                latest_post_all_cats: [],
+                search_posts:[]
             }
         },
         created() {
@@ -128,6 +142,7 @@ export default {
             this.getPostByFirstCat();
             this.getLatestPostByFirstCatID();
             this.getLatestPostFromAllCat();
+            this.categoryId();
         },
         methods: {
                 getAllCat: function() {
@@ -144,6 +159,7 @@ export default {
                         });
                 },
                 getPostByCatID: function(cat_id) {
+                        this.categoryId = cat_id;
                         axios.get("http://localhost:8000/api/posts/" + cat_id)
                         .then(response => {
                                 this.posts = response.data;
@@ -166,6 +182,25 @@ export default {
                         .get('http://localhost:8000/api/get_latest_post_all_cat')
                         .then(response => {
                                 this.latest_post_all_cats = response.data;
+                        });
+                },
+
+                searchCategory() {
+                        var search_word = $('#search-word').val();
+                        if(this.categoryId) { 
+                                var categoryId = this.categoryId;
+                        } else {
+                                var categoryId = 1;
+                        }
+
+                        let fd = new FormData();
+                                fd.append('search_word', search_word)
+                                fd.append('selected_category', categoryId)
+                                
+                        this.axios.post('http://localhost:8000/api/search', fd)
+                                .then(response => {
+                                        $('.all-item').css('display','none');
+                                        this.search_posts = response.data;
                         });
                 }
         }

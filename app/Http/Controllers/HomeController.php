@@ -36,8 +36,9 @@ class HomeController extends Controller
         return view("home");
     }
 
-    public function getPosts($cat_id)
+    public function getPosts($cat_id, Request $request)
     {
+
         $posts = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->get();
         return response()->json($posts);
     }
@@ -52,5 +53,28 @@ class HomeController extends Controller
     {
         $latest_post_all_cat = Post::orderBy('created_at', 'desc')->limit('4')->get();
         return response()->json($latest_post_all_cat);
+    }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $category_id = $request['selected_category'];
+
+        $query = Post::query()
+                    ->where('category_id', $category_id);
+
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
+        
+            $query = $query->where(function($qu) use ($search_word){
+                            $qu->where('title', 'LIKE', "%{$search_word}%");
+                        });
+        } 
+        $query = $query->orderBy('created_at','DESC')
+                        ->get()
+                        ->toArray();
+
+        //print_r($query);exit;
+        return $query;
     }
 }

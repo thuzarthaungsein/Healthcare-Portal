@@ -109,13 +109,13 @@ Route::get('home', 'HomeController@index');
 Route::get('posts/{cat_id}', 'HomeController@getPosts');
 Route::get('get_latest_post/{cat_id}', 'HomeController@getLatestPost');
 Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
+Route::post('search', 'HomeController@search');
 
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
 Route::get('news_list', 'PostController@index');
 Route::post('news_list/search', 'PostController@search');
-
 
 Route::group(['prefix' => 'new'], function () {
     Route::post('add', 'PostController@add');
