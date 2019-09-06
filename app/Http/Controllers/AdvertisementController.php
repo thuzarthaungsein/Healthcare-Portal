@@ -52,10 +52,7 @@ class AdvertisementController extends Controller
         $ads = new Advertisement([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            //'location'=>$adstring,
             'location'=>$request->input('location'),
-             //'photo' =>$request->input('photo'),
-            //'location' =>implode("," , $request->input('location')),
             'photo' => $request->photo->getClientOriginalName(),
             'user_id' => 1,
             'recordstatus' => 2
@@ -100,6 +97,7 @@ class AdvertisementController extends Controller
      */
     public function update($id,Request $request)
     {
+
         $imageName = $request->photo->getClientOriginalName();
         $request->photo->move(public_path('upload/advertisement/'), $imageName);
           $uploadData = array(

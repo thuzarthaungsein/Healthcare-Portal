@@ -70360,7 +70360,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", required: "" },
+                        attrs: { type: "text" },
                         domProps: { value: _vm.advertisement.description },
                         on: {
                           input: function($event) {
@@ -70461,7 +70461,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("Description :"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
+      _c("span", { staticClass: "error" })
     ])
   },
   function() {
