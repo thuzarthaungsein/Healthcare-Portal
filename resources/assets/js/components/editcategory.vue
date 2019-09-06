@@ -44,7 +44,7 @@ export default {
         },
         created() {
             this.axios
-                .get(`http://localhost:8000/api/category/edit/${this.$route.params.id}`)
+                .get(`/api/category/edit/${this.$route.params.id}`)
                 .then((response) => {
                     this.category = response.data;
                    
@@ -54,7 +54,7 @@ export default {
          methods: {
             updateCategory() {
                 this.axios
-                    .post(`http://localhost:8000/api/category/update/${this.$route.params.id}`, this.category)
+                    .post(`/api/category/update/${this.$route.params.id}`, this.category)
                     .then((response) => {
                         this.name = ''
                           alert('Successfully Updated!')

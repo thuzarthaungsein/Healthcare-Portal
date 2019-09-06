@@ -88,7 +88,7 @@
         },
         created(){
             this.axios
-                 .get(`http://localhost:8000/api/job_details/${this.$route.params.id}`)
+                 .get(`/api/job_details/${this.$route.params.id}`)
                  .then(response=>{
                      console.log(response.data);
                      this.job_details = response.data;

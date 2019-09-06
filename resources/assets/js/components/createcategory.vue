@@ -65,7 +65,7 @@ export default {
 
          methods: {
             add() {
-                axios.post('http://localhost:8000/api/category/add', this.category)
+                axios.post('/api/category/add', this.category)
                     .then((response) => {
                         this.name = ''
                     alert('Successfully Created')

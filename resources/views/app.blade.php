@@ -369,7 +369,7 @@
 
     var csrf = "{{ csrf_token() }}";
     $.ajax({
-        url: 'http://localhost:8000/api/get_latest_post_all_cat',
+        url: '/api/get_latest_post_all_cat',
         type: 'GET',
         data: {'_token': csrf},
 

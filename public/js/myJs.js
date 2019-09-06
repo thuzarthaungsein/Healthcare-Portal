@@ -5,7 +5,7 @@ $('path').on("click", function(e) {
     var title = $(this).attr("title");
     var id = $(this).attr("id");
      console.log(e);
-    var url = "http://localhost:8000/api/getmap";
+    var url = "/api/getmap";
     $.ajax({
         type:'get',
         data:{"title":title,"id":id},
@@ -66,7 +66,7 @@ $('path').on("click", function(e) {
         var file = document.getElementById("upload_file").files[0];
         var file_path = 'upload/videos/'+file.name;
 
-        var url = "http://localhost:8000/api/customer/deletevideo";
+        var url = "/api/customer/deletevideo";
         $.ajax({
             type:'post',
             data:{"fiel_path":file_path},

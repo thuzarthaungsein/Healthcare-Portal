@@ -57,7 +57,7 @@ export default {
         methods: {
                 getAllCustomer: function() {
                      this.axios
-                        .get('http://localhost:8000/api/nursing_history')
+                        .get('/api/nursing_history')
                         .then(response => {
                                 this.nur_profiles = response.data;
                         });

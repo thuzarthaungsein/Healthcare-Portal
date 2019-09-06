@@ -50,7 +50,7 @@ export default {
        
          methods: {
             add() {
-                axios.post('http://localhost:8000/api/facility/add', this.facility)
+                axios.post('/api/facility/add', this.facility)
                     .then((response) => {
                         this.description = ''
                     alert('Successfully Created')

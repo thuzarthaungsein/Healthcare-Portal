@@ -78,14 +78,14 @@ export default {
         },
         created(){
             this.axios
-                 .get('http://localhost:8000/api/news_list')
+                 .get('/api/news_list')
                  .then(response=>{
                      this.news_list = response.data;
                  });
         },
         mounted() {
             this.axios
-                .get('http://localhost:8000/api/category/category_list')
+                .get('/api/category/category_list')
                 .then(function(response) {
                     this.categories = response.data;
                 }.bind(this));
@@ -95,7 +95,7 @@ export default {
                 if(confirm("Are you sure you want to delete?"))
                 {
                      this.axios
-                    .delete(`http://localhost:8000/api/new/delete/${id}`)
+                    .delete(`/api/new/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
                         let i = this.news_list.map(item => item.id).indexOf(id); // find index of your object
@@ -110,7 +110,7 @@ export default {
                 let fd = new FormData();
                     fd.append('search_word', search_word)
                     fd.append('selected_category' ,selected_category )
-                this.axios.post('http://localhost:8000/api/news_list/search', fd)
+                this.axios.post('/api/news_list/search', fd)
                     .then(response => {
                         this.news_list = response.data;
                     });

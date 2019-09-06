@@ -23,7 +23,7 @@
 
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
-                                                                <router-link :to="'/newsdetails/'+latest_post.id">
+                                                                <router-link :to="{name:'newdetails', params: {id:latest_post.id}}">
                                                                         <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
                                                                         <p class="source-title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle">
@@ -34,7 +34,7 @@
                                                         <div class="col-md-8 news-wrapper">
                                                                 <ul class="list-group list-group-flush" v-for="post in posts" :key="post.id">
                                                                         <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
-                                                                                 <router-link :to="'/newsdetails/'+ post.id">
+                                                                                 <router-link :to="{name:'newdetails', params: {id:post.id}}">
                                                                                 
                                                                                         <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
                                                                                                 <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
@@ -132,38 +132,38 @@ export default {
         methods: {
                 getAllCat: function() {
                      this.axios
-                        .get('http://localhost:8000/api/home')
+                        .get('/api/home')
                         .then(response => {
                                 this.cats = response.data;
                         });   
                 },
                 getPostByFirstCat: function() {
-                         axios.get("http://localhost:8000/api/posts/1")
+                         axios.get("/api/posts/1")
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getPostByCatID: function(cat_id) {
-                        axios.get("http://localhost:8000/api/posts/" + cat_id)
+                        axios.get("/api/posts/" + cat_id)
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getLatestPostByFirstCatID: function() {
-                        axios.get("http://localhost:8000/api/get_latest_post/1")
+                        axios.get("/api/get_latest_post/1")
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostByCatID: function(cat_id) {
-                        axios.get("http://localhost:8000/api/get_latest_post/" + cat_id)
+                        axios.get("/api/get_latest_post/" + cat_id)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostFromAllCat: function() {
                         this.axios
-                        .get('http://localhost:8000/api/get_latest_post_all_cat')
+                        .get('/api/get_latest_post_all_cat')
                         .then(response => {
                                 this.latest_post_all_cats = response.data;
                         });
