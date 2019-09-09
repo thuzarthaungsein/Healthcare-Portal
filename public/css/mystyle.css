@@ -688,7 +688,7 @@ p {
 .main-header {
     position: fixed;
     width: 83.3%;
-    height: 70px;
+    height: 80px;
     background-color: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
     z-index: 99;
@@ -1082,7 +1082,7 @@ div.b {
     }
     .userview-sidebar {
         background-color: #f5f5f5;
-        height: 91vh;
+        /* height: 91vh; */
         padding-top: 35%;
         padding-left: 25px;
         margin-top: 2px;
@@ -1176,6 +1176,9 @@ div.b {
 }
 .m-r-5 {
     margin-right: 5px;
+}
+.m-r-20{
+    margin-right: 20px;
 }
 .m-l-14 {
     margin-left: 14px;
@@ -1291,6 +1294,16 @@ div.b {
 .btn.focus, .btn:focus{
     box-shadow: none !important;
 }
+.fav-item{
+    font-size: 12px;
+    padding: 5px;    
+}
+.fav-color{    
+    background-color: #f5807f;    
+}
+.history-color{
+    background-color: #7586c6;
+}
 .card-header {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
@@ -1326,7 +1339,7 @@ li.userprofile-name > a {
 }
 .maintab-content {
     padding: 7px; /*for no scroll*/
-    margin: 75px 0 0 0;
+    margin: 85px 0 0 0;
 }
 
 
@@ -1415,23 +1428,23 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link,
 /*user view sidebar*/
 .userview-sidebar {
     background-color: #f5f5f5;
-    height: 91vh;
-    padding-top: 64%;
+    padding-top: 67.8%;
+    height: 100vh;
     padding-left: 22px;
     padding-right: 7px;
     margin-top: 4px;
 }
 .adminview-sidebar {
     position: fixed;
-    top: 70px;
+    top: 80px;
     width: 13%;
     height: 100%;
     background: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 .custom-sidebar {
-    /* height: 100vh; scroll */
-    /* background: #b7dad2; */
+    /* height: 100vh;*/
+    /* background: #b7dad2;  */
 }
 
 /* profilepublish css start */
