@@ -43,7 +43,7 @@
                                             <div class="col-sm-2 text-right">
                                                 <label for ="header"><strong> Header : </strong></label>
                                             </div>
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-10"> 
                                                 <input type="text" class="form-control box" id="header" name="header" > 
                                             </div>         
                                         </div>

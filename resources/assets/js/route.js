@@ -1,6 +1,5 @@
 import home from './components/home.vue';
 import Newsdetails from './components/Newsdetails.vue';
-
 import hospitalSearch from './components/hospitalSearch.vue';
 import JobApply from './components/JobApply.vue';
 import customerlist from './components/customerlist.vue';
@@ -31,27 +30,32 @@ import medicalacceptancelist from './components/medicalacceptancelist.vue';
 import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
 import HospitalHistory from './components/HospitalHistory.vue';
+import hospitalview from './components/hospitalview.vue';
 import NursingHistory from './components/NursingHistory.vue';
 import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
 import VideoUpload from './components/VideoUpload.vue';
 
+import GoogleMap from './components/GoogleMap.vue';
+
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
+import favouriteBtn from './components/favouriteBtn.vue';
+import comment from './components/Comment.vue';
+import passport from './components/passport.vue';
 export const routes = [
-
       {
         name: 'home',
         path: '/',
         component: home
       },
-      // {
-      //   name: 'home',
-      //   path: '/home',
-      //   component: home
-      // },
+      {
+        name: 'passport',
+        path: '/passport',
+        component: passport
+      },
 
     {
         name: 'newdetails',
@@ -211,6 +215,15 @@ export const routes = [
         path: '/advertisement',
         component: advertisement
       },
+
+      {
+        name: 'hospitalview',
+        path: '/hospitalview',
+        component: hospitalview
+      },
+
+      
+  
       {
         name:'type',
         path:'/type',
@@ -238,6 +251,11 @@ export const routes = [
       component: NursingHistory
     },
     {
+      name: 'google_map',
+      path: '/google_map',
+      component: GoogleMap
+    },
+    {
       name: 'hospital_profile',
       path: '/hospital_profile',
       component: HospitalProfile
@@ -247,9 +265,19 @@ export const routes = [
       path: '/nursing_profile',
       component: NursingProfile
      },
-    {
-      name: 'videoupload',
-      path: '/videoupload',
-      component: VideoUpload
-  }
+  {
+    name: 'favouriteBtn',
+    path: '/favouriteBtn',
+    component: favouriteBtn
+},
+      {
+        name: 'videoupload',
+        path: '/videoupload',
+        component: VideoUpload
+      },
+      {
+        name: 'comment',
+        path: '/comment',
+        component: comment
+      }
 ];

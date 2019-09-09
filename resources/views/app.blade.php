@@ -157,7 +157,9 @@
       <!-- login menu  -->
       <div class="adminview-sidebar" id="navbarSupportedContent">
       <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
-
+      @can('isAdmin')
+      <li><router-link to="/passport" class="nav-link"><i class="fa fa-list"></i>&nbsp; Passport </router-link></li>
+      @endcan
       @can('role-list')
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
@@ -215,48 +217,61 @@
         <!--slider for ads-->
         <div class="col-md-auto">
         <!--jssor carousel-->
-        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1115pxpx;height:100px;overflow:hidden;visibility:hidden;margin-bottom:10px;">
+        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:-110px;width:1200px;height:100px;overflow:hidden;visibility:hidden;margin-bottom:10px;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="images/spin.svg" />
         </div>
-        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:120px;overflow:hidden;">
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1200px;height:120px;overflow:hidden;">        
             <div>
-                <img data-u="image" src="/images/day2.jpg" />
+                <span class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/21">
+                    <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital1.jpg">
+                    <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
+                </span>
             </div>
             <div>
-                <img data-u="image" src="/images/day3.jpg" />
+                <span class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/21">
+                    <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/home1.jpg">
+                    <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
+                </span>
             </div>
             <div>
-                <img data-u="image" src="/images/day4.jpg" />
+                <span class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/21">
+                    <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital2.jpg">
+                    <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
+                </span>
             </div>
             <div>
-                <img data-u="image" src="/images/day5.jpg" />
+                <span class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/21">
+                    <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital3.jpg">
+                    <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
+                </span>
             </div>
             <div>
-                <img data-u="image" src="/images/day4.jpg" />
+                <span class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/21">
+                    <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital4.jpg">
+                    <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
+                </span>
             </div>
             <div>
-                <img data-u="image" src="/images/hospital1.jpg" />
+                <span class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/21">
+                    <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital5.jpg">
+                    <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
+                </span>
             </div>
             <div>
-                <img data-u="image" src="/images/hospital3.jpg" />
+                <span class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/21">
+                    <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital6.jpg">
+                    <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
+                </span>
             </div>
             <div>
-                <img data-u="image" src="/images/hospital4.jpg" />
+                <span class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/21">
+                    <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/h7.jpg">
+                    <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
+                </span>
             </div>
-            <div>
-                <img data-u="image" src="/images/hospital5.jpg" />
-            </div>
-            <div>
-                <img data-u="image" src="/images/h5.jpg" />
-            </div>
-            <div>
-                <img data-u="image" src="/images/home1.jpg" />
-            </div>
-            <div>
-                <img data-u="image" src="/images/h7.jpg" />
-            </div>
+            
         </div>
         <!-- Bullet Navigator -->
         <!-- <div data-u="navigator" class="jssorb057" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
@@ -285,7 +300,7 @@
       <div class="row justify-content-md-center">
         <div class="col-10 tab">
           <!-- vue component -->
-              <router-view></router-view>
+              <router-view  :key="$route.fullPath"></router-view>
 
           <!-- vue component -->
 
@@ -298,9 +313,9 @@
                 <div class="card m-b-10 ads-card">
                 <!--ads slider-->
                 <div style="display: block; overflow: hidden;">
-                    <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:167px; overflow: hidden;">
+                    <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:130px; overflow: hidden;">
                     <!-- Slides Container -->
-                        <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 167px; overflow: hidden;">
+                        <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 130px; overflow: hidden;">
                             <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/> </div>
                             <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/> </div>
                             <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/> </div>
@@ -359,15 +374,18 @@
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
+
+
 <script type="text/javascript">
  $(document).ready(function() {
+    
     $('.DataTable').DataTable();
     jssor_1_slider_init();
     jssor_slider2_init();
 
     var csrf = "{{ csrf_token() }}";
     $.ajax({
-        url: 'http://localhost:8000/api/get_latest_post_all_cat',
+        url: '/api/get_latest_post_all_cat',
         type: 'GET',
         data: {'_token': csrf},
 
@@ -381,6 +399,8 @@
         }
     });
 });
+
+        
 </script>
 
 </body>

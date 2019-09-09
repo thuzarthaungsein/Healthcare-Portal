@@ -14,7 +14,7 @@
                                         <form @submit.prevent = "updatemedical">
                                         <div class="form-group">
                                             <label>Medicalacceptance Name :<span class="error">*</span></label>
-                                            <input type="text" class="form-control" v-model="medical.name">
+                                            <input type="text" class="form-control" v-model="medical.name" required>
                                         </div>
                                    
                                         <div class="form-group row">
@@ -52,7 +52,7 @@ export default {
         },
         created() {
             this.axios
-                .get(`http://localhost:8000/api/medical/edit/${this.$route.params.id}`)
+                .get(`/api/medical/edit/${this.$route.params.id}`)
                 .then((response) => {
                     this.medical = response.data;
                    
@@ -62,7 +62,7 @@ export default {
          methods: {
             updatemedical() {
                 this.axios
-                    .post(`http://localhost:8000/api/medical/update/${this.$route.params.id}`, this.medical)
+                    .post(`/api/medical/update/${this.$route.params.id}`, this.medical)
                     .then((response) => {
                           alert('Successfully Updated!')
                         this.$router.push({name: 'medicalacceptancelist'});

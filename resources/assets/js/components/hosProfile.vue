@@ -1,5 +1,5 @@
 <template>
-<div class="card profile">
+<div class="card profile" style="border:none;">
         <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
         <div class="card-body scrolldiv2">
                 <div class="form-group">
@@ -21,7 +21,7 @@
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="type == 'nursing'">
-                             Public View
+                             Profile Page View
                         </div>                
                         
                 </form>
@@ -44,7 +44,7 @@ export default {
         },
         created(){
               this.axios
-                .get('http://localhost:8000/api/authget')
+                .get('/api/authget')
                 .then(response=>{
                  console.log(response);
                 // this.fac_list = response.data;

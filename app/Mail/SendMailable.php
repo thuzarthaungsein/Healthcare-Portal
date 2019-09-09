@@ -28,6 +28,6 @@ class SendMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.mail');
+        return $this->view('mail.comment');
     }
 }

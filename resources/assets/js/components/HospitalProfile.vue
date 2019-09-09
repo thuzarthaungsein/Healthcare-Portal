@@ -3,15 +3,15 @@
     <form class="col-md-12 form-class">                         
             <div class="col-md-12 pad-free">
                     <div class="form-group">
-                            <label>名前<span class="error">*</span></label>
+                            <label class="heading-lbl">名前<span class="error">*</span></label>
                             <input type="text" class="form-control" placeholder="Name">
                     </div>
                     <div class="form-group">
-                            <label>メールアドレス<span class="error">*</span></label>
+                            <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
                             <input type="text" class="form-control"  placeholder="Email">
                     </div>                
                     <div class="form-group">
-                            <label>電話番号<span class="error">*</span></label>
+                            <label class="heading-lbl">電話番号<span class="error">*</span></label>
                             <input type="text" class="form-control"  placeholder="Phone">
                     </div>
                     
@@ -25,50 +25,42 @@
                     </div> -->
 
                     <div class="form-group">
-                            <label>フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">+</span>
+                            <label class="heading-lbl">フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">+</span>
                             <div class="col-md-12">
                                     <div class="row" id="gallery"></div>
                             </div>                                        
                     </div>
                     <div class="form-group">
-                            <label>ビデオ</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">+</span>
+                            <label class="heading-lbl">動画</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">+</span>
                             <div class="col-md-12">
                                     <div class="row" id="gallery-video"></div>
                             </div>                                        
                     </div>
 
                     <div class="form-group">
-                            <label>診療科目<span class="error">*</span></label>
+                            <label class="heading-lbl">診療科目<span class="error">*</span></label>
                             <textarea name="medicaldepartment" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
-                            <label>専門医<span class="error">*</span></label>
+                            <label class="heading-lbl">専門医<span class="error">*</span></label>
                             <textarea name="specialist" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
-                            <label>医院からのお知らせ<span class="error">*</span></label>
+                            <label class="heading-lbl">医院からのお知らせ<span class="error">*</span></label>
                             <textarea name="detailsinfo" class="form-control"></textarea>
                     </div>
 
-                    <div class="form-group">
-                            <label>診療科目<span class="error">*</span></label>
+                    <!-- <div class="form-group">
+                            <label class="heading-lbl">診療科目<span class="error">*</span></label>
                             <textarea name="subject" class="form-control"></textarea>
-                    </div>
+                    </div> -->
+
+                    
 
                     <div class="form-group">
-                            <label>公式サイト</label>
-                            <input type="text" name="official-website" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                            <label>混雑状況</label>
-                            <textarea name="congestion" class="form-control"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">診療時間</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="scheduletogglediv()"><i class="fas fa-sort-down"></i></span>
+                        <label  class="heading-lbl">診療時間</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="scheduletogglediv()"><i class="fas fa-sort-down"></i></span>
 
                         <div class="schedule-toggle-div toggle-div m-t-10">
                                 <table class="table table-striped table-bordered">
@@ -125,12 +117,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label>休診日</label>
+                        <label class="heading-lbl">休診日</label>
                         <textarea name="close-day" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="">施設情報</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="factogglediv()"><i class="fas fa-sort-down"></i></span>
+                        <label  class="heading-lbl">施設情報</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="factogglediv()"><i class="fas fa-sort-down"></i></span>
 
                         <div class="col-md-12 hos-fac-toggle-div toggle-div">
                                 <div class="row">
@@ -145,14 +137,24 @@
                     </div>
 
                     <div class="form-group">
-                        <label>こだわりの特長<span class="error">*</span></label>
+                        <label class="heading-lbl">こだわりの特長<span class="error">*</span></label>
                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
 
                         <div class="col-md-12" id="special-features"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="">地図</label> 
+                            <label class="heading-lbl">公式サイト</label>
+                            <input type="text" name="official-website" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                            <label class="heading-lbl">混雑状況</label>
+                            <textarea name="congestion" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="heading-lbl">地図</label> 
                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down"></i></span>
 
                         <div class="map-toggle-div toggle-div">
@@ -211,7 +213,7 @@ export default {
         },
         created(){
                 this.axios
-                .get('http://localhost:8000/api/facilities')
+                .get('/api/facilities')
                 .then(response=>{
                 //  console.log(response);
                 this.fac_list = response.data;

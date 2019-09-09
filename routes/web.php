@@ -20,7 +20,7 @@ Route::get('ajax-type','registerController@getType');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
-    Route::resource('categories','CategoryController');
+  
     // admin home page
 
 });

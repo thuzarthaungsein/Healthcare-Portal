@@ -54,9 +54,14 @@ export default {
         },
         created() {
             this.axios
-                .get('http://localhost:8000/api/job/index')
+                .get('/api/job/index')
                 .then(response => {
                     this.jobs = response.data;
+                });
+                this.axios
+                .get('/api/user')
+                .then(response => {
+                    console.log(response.data.id)
                 });
         },
         methods:{
@@ -64,7 +69,7 @@ export default {
                 if(confirm("Are you sure you want to delete?"))
                 {
                      this.axios
-                    .delete(`http://localhost:8000/api/job/delete/${id}`)
+                    .delete(`/api/job/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
                         let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
