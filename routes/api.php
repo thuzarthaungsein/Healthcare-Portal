@@ -21,18 +21,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // public route api start
 
-    // ........
+    Route::post('getmap','SearchMapController@getMap');
+    Route::get('getCity','SearchMapController@getCity');
 
 // public route api end
 
 
-
-
-
-
-
-Route::post('getmap','SearchMapController@getMap');
-Route::get('getCity','SearchMapController@getCity');
 
 
 
@@ -43,6 +37,7 @@ Route::get('getCity','SearchMapController@getCity');
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
+    
     Route::group(['prefix' => 'category'], function () {
         Route::get('category_list','CategoryController@list');
         Route::get('categories', 'CategoryController@index');
@@ -75,13 +70,13 @@ Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
 
 Route::get('customers','CustomerController@index');
-Route::get('categories','CategoryController@index');
+
 Route::get('custedit','CustomerController@edit');
 Route::get('newdetails/{id}', 'PostController@show');
 
 
 Route::get('customers','CustomerController@index');
-Route::get('categories','CategoryController@index');
+
 Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
 
@@ -134,10 +129,7 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
-//Route::post('add','AdvertisementController@store');
-Route::group(['prefix' => 'advertisement'], function () {
-    Route::post('add', 'AdvertisementController@store');
-});
+
 
 Route::group(['prefix' => 'types'], function () {
     Route::get('typelist', 'TypeController@TypeList');
