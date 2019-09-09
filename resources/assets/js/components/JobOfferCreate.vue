@@ -216,7 +216,6 @@ export default {
                             fchecked:false
                         }],
                         salary : '',
-                        allowances:'',
                         insurance : '',
                         working_hours : '',
                         holidays : '',
@@ -231,7 +230,7 @@ export default {
          created() {
 
             this.axios
-                .get(`http://localhost:8000/api/job/edit/${this.$route.params.id}`)
+                .get(`/api/job/edit/${this.$route.params.id}`)
                 .then((response) => {
 
                     this.joboffer.title = response.data.title;
@@ -267,7 +266,7 @@ export default {
                 {
 
 
-                    axios.post('http://localhost:8000/api/job/add', this.joboffer)
+                    axios.post('/api/job/add', this.joboffer)
                     .then((response) => {
                         this.title = '',
                         this.description = '',
@@ -339,7 +338,7 @@ export default {
 
              updateJob() {
                 this.axios
-                    .post(`http://localhost:8000/api/job/update/${this.$route.params.id}`, this.joboffer)
+                    .post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
                     .then((response) => {
                          this.title = '',
                         this.description = '',

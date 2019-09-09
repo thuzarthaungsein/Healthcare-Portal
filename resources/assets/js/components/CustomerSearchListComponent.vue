@@ -47,7 +47,7 @@ export default {
         methods: {
                 getAllCustomer: function() {
                      this.axios
-                        .get('http://localhost:8000/api/customers')
+                        .get('/api/customers')
                         .then(response => {
                                 this.customers = response.data;
                         });

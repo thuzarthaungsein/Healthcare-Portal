@@ -99,7 +99,7 @@ export default {
         },
         created() {
             this.axios
-                .get(`http://localhost:8000/api/advertisement/edit/${this.$route.params.id}`)
+                .get(`/api/advertisement/edit/${this.$route.params.id}`)
                 .then((response) => {
                      this.advertisement.title = response.data.title;
                      this.advertisement.description = response.data.description;
@@ -166,8 +166,8 @@ export default {
              adsData.append('title',this.advertisement.title)
              adsData.append('description',this.advertisement.description)
              adsData.append('photo',this.advertisement.photo)
-             console.log(adsData);
-                this.axios.post(`http://localhost:8000/api/advertisement/update/${this.$route.params.id}`, adsData)
+            //ads.photo=this.advertisement.photo
+                this.axios.post(`/api/advertisement/update/${this.$route.params.id}`, adsData)
                     .then((response) => {
                           alert('Successfully Updated!')
                         this.$router.push({name: 'ads'});

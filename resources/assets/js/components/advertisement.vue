@@ -1,11 +1,8 @@
 <template>
- <div class="container">
-      <div class="row">
-          <div class="col-sm-12 card text-dark">
-                    <div class="text-center">
-                        <h4 style="padding-top: 20px;" class="header"> Advertisements </h4>
-                    </div>
-                    <div class="card-body ">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                    <div class="card-body">
                         <div class="row">
                                 <div class="col-sm-10">
                                     <form @submit.prevent ="add" class="m-t-16">
@@ -51,23 +48,19 @@
                                                     <div class="row image_preview" ></div>
                                                  </div>
                                         </div>
-                                            <div class="form-group ">
-                                        <div class="form-group row">
-                                            <div class="col-1 pad-free">
-                                                <button class="btn news-post-btn">Create</button>
-                                            </div>
-                                            <div class="col-1">
-                                                <router-link class="btn btn-warning" to="/ads" > Cancel </router-link>
-                                            </div>
-                                        </div>
+
+                                    <div class="form-group">
+                                        <router-link class="btn btn-danger all-btn" to="/ads" > Cancel </router-link>
+                                        <button class="btn news-post-btn all-btn"> Create </button>
                                     </div>
                                     </form>
                                 </div>
                         </div>
                    </div>
                 </div>
-             </div>
-         </div>
+        </div>
+
+    </div>
 </template>
 
 <script>
@@ -97,7 +90,7 @@ export default {
              adsData.append('location',this.ads.location)
              adsData.append('photo',this.ads.photo)
 
-                this.axios.post('http://localhost:8000/api/advertisement/add',adsData)
+                this.axios.post('/api/advertisement/add',adsData)
                     .then((response) => {
                     alert('Successfully Created')
                     console.log(response);

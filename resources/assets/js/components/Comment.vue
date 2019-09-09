@@ -3,7 +3,7 @@
       <div class="col-12">
           <div class="card ">
                     <div class="card-header text-center">
-                        <h4 style="padding-top: 20px;"> Job Create </h4>
+                        <h4 style="padding-top: 20px;"> Comment Create </h4>
                     </div>
                     <div class="card-body ">
                         <div class="row">
@@ -16,13 +16,13 @@
                                             </div>
                                              <div class="col-sm-9">
                                                 <input type="title"  class="form-control box" id="title"  name="title" v-model="comments.title">
-                                             </div>    
-                                        </div> 
+                                             </div>
+                                        </div>
                                          <div class="form-group row">
                                                 <div class="col-sm-3">
                                                 </div>
                                                 <div class="col-sm-9">
-                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>  
+                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
                                                 </div>
                                          </div>
 
@@ -64,28 +64,28 @@
                                             </div>
                                              <div class="col-sm-9">
                                                 <input type="name" class="form-control box" id="name"  name="name" v-model="comments.name">
-                                             </div>    
-                                        </div> 
+                                             </div>
+                                        </div>
                                          <div class="form-group row">
                                                 <div class="col-sm-3">
                                                 </div>
                                                 <div class="col-sm-9">
-                                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
+                                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                                                 </div>
                                          </div>
 
-                                         
+
                                          <div class="form-group row">
                                             <div class="col-sm-3 text-right">
                                                 <label for ="year"  ><strong> Year : <span class="error">*</span></strong>   </label>
                                             </div>
-                                             <div class="col-sm-9">     
+                                             <div class="col-sm-9">
                                                 <select id="dob"  v-model="selectedValue" @change="getYear()">
                                                     <option value="0">Choose Year:</option>
                                                     <option v-for="year in years" :key="year.id"  :value="year">{{ year }}</option>
                                                     </select>
-                                             </div>    
-                                        </div> 
+                                             </div>
+                                        </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-3 text-right">
@@ -94,9 +94,9 @@
                                              <div class="col-sm-9">
                                                    <label> <input type="radio"  v-model="comments.gender" value="0" > Male </label>
                                                    <label> <input type="radio" v-model="comments.gender" value="1" >Female </label>
-                                             </div>    
-                                        </div> 
-                                        
+                                             </div>
+                                        </div>
+
 
                                           <div class="form-group row"  v-for="field in comments.fields" :key="field.id">
                                             <div class="col-sm-3 text-right">
@@ -104,20 +104,20 @@
                                             </div>
                                              <div class="col-sm-2">
                                                  <input type="text" class="form-control box" value="firstzip" v-model="field.fzipcode">
-                                              
-                                             </div>   
+
+                                             </div>
                                                <div class="col-sm-2">
-                                                 <input type="text" class="form-control box" value="secondzip" v-model="field.lzipcode">      
-                                             </div>   
-                                        </div> 
+                                                 <input type="text" class="form-control box" value="secondzip" v-model="field.lzipcode">
+                                             </div>
+                                        </div>
                                          <div class="form-group row">
                                                 <div class="col-sm-3">
                                                 </div>
                                                 <div class="col-sm-9">
-                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>  
+                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
                                                 </div>
                                          </div>
-                                        <button class="btn news-post-btn">Create</button>    
+                                        <button class="btn news-post-btn">Create</button>
                                   </form>
                              </div>
                             <div class="col-sm-2"></div>
@@ -130,7 +130,7 @@
 
 <script>
 export default {
-          data() {        
+          data() {
             return {
                 errors:[],
                 comments: {
@@ -148,10 +148,10 @@ export default {
                         status:'',
                         recordstatus:'',
 
-                    },    
-                    selectedValue:0,  
+                    },
+                    selectedValue:0,
             }
-          
+
         },
         computed : {
             years () {
@@ -163,8 +163,8 @@ export default {
 
          methods: {
             add() {
-                
-                axios.post('http://localhost:8000/api/comments/add', this.comments)
+
+                axios.post('/api/comments/add', this.comments)
                     .then((response) => {
                         this.name = ''
                     alert('Successfully Created')
@@ -173,13 +173,13 @@ export default {
                     console.log(response);
                     // this.$router.push({name: 'categorylist'});
                     }).catch(error=>{
-                        
+
                     if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
+
+                        this.errors = error.response.data.errors
+
                     }
-                })   
+                })
             },
              getYear: function(){
 
@@ -187,7 +187,7 @@ export default {
 
            },
          }
-     
+
 }
 
 </script>

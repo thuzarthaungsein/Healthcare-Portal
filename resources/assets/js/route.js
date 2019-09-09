@@ -34,11 +34,15 @@ import NursingHistory from './components/NursingHistory.vue';
 import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
 import VideoUpload from './components/VideoUpload.vue';
+
+import GoogleMap from './components/GoogleMap.vue';
+
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
 import comment from './components/Comment.vue';
+import commentlist from './components/commentlist.vue';
 
 export const routes = [
       {
@@ -237,6 +241,11 @@ export const routes = [
       component: NursingHistory
     },
     {
+      name: 'google_map',
+      path: '/google_map',
+      component: GoogleMap
+    },
+    {
       name: 'hospital_profile',
       path: '/hospital_profile',
       component: HospitalProfile
@@ -255,5 +264,10 @@ export const routes = [
         name: 'comment',
         path: '/comment',
         component: comment
+      },
+      {
+        name: 'commentlist',
+        path: '/commentlist',
+        component: commentlist
       }
 ];

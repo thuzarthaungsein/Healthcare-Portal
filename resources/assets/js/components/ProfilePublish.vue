@@ -118,7 +118,7 @@
  
  <script>
 $(document).ready(function(){
-      window.onscroll = function() {myFunction()};
+window.onscroll = function() {myFunction()};
 
 var profile = document.getElementById("profile");
 var sticky = profile.offsetTop;
