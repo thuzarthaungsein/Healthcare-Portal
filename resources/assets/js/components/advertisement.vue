@@ -5,15 +5,16 @@
                     <div class="card-body">                        
                         <div class="row">
                             <div class="col-12">
-                                <h4 class="page-header header"> Advertisements </h4>
+                                <h4 class="page-header header">広告</h4>
                             </div>
                             <div class="col-12">
                                 <form @submit.prevent ="add">
                                     <div class="form-group">
                                       
-                                            <label for="title"><strong>Title :</strong></label>
+                                            <label for="title"><strong>タイトル :</strong></label>
                                         
-                                                <input type="title" class="form-control box" id="title"  name="title" v-model="ads.title" required>
+                                                <input type="title" class="form-control box" id="title"  name="title" v-model="ads.title">
+                                                <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
                                         
                                     </div>
                                     <div class="form-group">
@@ -21,6 +22,7 @@
                                             <label for="description"><strong>Description :</strong></label>
                                        
                                             <textarea name="description" class="form-control" cols="50" rows="5" v-model="ads.description"></textarea>
+                                            <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
                                         
                                     </div>
                                     <div class="form-group">
@@ -28,11 +30,12 @@
                                        
                                             <label> <input type = "checkbox" value ="topbar"  name="top_bar" v-model="ads.location" > <strong>Top Bar </strong> (200 円)</label><br/>
                                             <label> <input type = "checkbox"  value ="sidebar"  name="side_bar" v-model="ads.location"><strong> Side Bar </strong>(300 円) </label>
-                                        
+                                            <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
                                     </div>
                                     <div class="form-group">                                        
                                         <label for ="photo" ><strong> Photo/Image :</strong>  </label><br>
                                         <input type="file" id="upload" accept="image/*" @change ="uploadImage" >
+                                        <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span>
                                             <!-- <label class="" for="file">No file chosen</label> -->                                       
                                         <div class="col-md-12" id = "par">
                                             <div class="row image_preview" ></div>
@@ -40,7 +43,7 @@
                                     </div>
                                     <div class="form-group">                                       
                                         <router-link class="btn btn-danger all-btn" to="/ads" > Cancel </router-link>
-                                        <router-link class="btn news-post-btn all-btn" to="/ads" > create </router-link>                                            
+                                        <button class="btn news-post-btn all-btn" to="/ads" > create </button>                                            
                                     </div>
                                     </form>
                                 </div>
@@ -68,13 +71,10 @@ export default {
     },
     methods:{
              uploadImage() {
-                            $('.image_preview').append("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+                            $('.image_preview').html("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
                             this.ads.photo = event.target.files[0]
 
          },
-
-
-
         add() {
              let adsData = new FormData();
              adsData.append('title',this.ads.title)
@@ -87,9 +87,15 @@ export default {
                     alert('Successfully Created')
                     console.log(response);
                     this.$router.push({name: 'ads'});
-                    })
-                    .catch(error => console.log(error))
-                    .finally(() => this.loading = false)
+                    }).catch(error=>{
+
+                    if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                    }
+                })
+
             },
 
     }
