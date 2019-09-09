@@ -31,15 +31,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
+Route::post('getmap','SearchMapController@getMap');
+Route::get('getCity','SearchMapController@getCity');
+
+
+
+
+
+
 // login route api start
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
-    // Route::get('authget','ProfileController@index');
+    
 
 });
 // login route api end
-
+Route::group(['prefix' => 'category'], function () {
+    Route::get('category_list','CategoryController@list');
+    Route::get('categories', 'CategoryController@index');
+    Route::post('add', 'CategoryController@add');
+    Route::get('edit/{id}', 'CategoryController@edit');
+    Route::post('update/{id}', 'CategoryController@update');
+    Route::delete('delete/{id}', 'CategoryController@destroy');
+    Route::post('search', 'CategoryController@search');
+});
 Route::group(['prefix' => 'job'], function () {
     Route::post('add', 'JobController@store');
     Route::get('index', 'JobController@index');
@@ -57,13 +73,13 @@ Route::get('getReset','registerController@getReset');
 Route::get('jobs', 'JobController@index');
 Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
-Route::post('getmap','adminController@getMap');
+
 Route::get('customers','CustomerController@index');
 Route::get('categories','CategoryController@index');
 Route::get('custedit','CustomerController@edit');
 Route::get('newdetails/{id}', 'PostController@show');
 
-Route::post('getmap','adminController@getMap');
+
 Route::get('customers','CustomerController@index');
 Route::get('categories','CategoryController@index');
 Route::get('confirm/{id}','CustomerController@confirm');
@@ -93,15 +109,7 @@ Route::group(['prefix' => 'customer'], function () {
 });
 
 
-Route::group(['prefix' => 'category'], function () {
-    Route::get('category_list','CategoryController@list');
-    Route::get('categories', 'CategoryController@index');
-    Route::post('add', 'CategoryController@add');
-    Route::get('edit/{id}', 'CategoryController@edit');
-    Route::post('update/{id}', 'CategoryController@update');
-    Route::delete('delete/{id}', 'CategoryController@destroy');
-    Route::post('search', 'CategoryController@search');
-});
+
 
 // Home Page
 Route::get('home', 'HomeController@index');
