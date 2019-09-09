@@ -544,32 +544,32 @@ html {
     border-right: 1px solid #fff;
 }
 div.scroll2 {
-    height: 350px;
+    /* height: 350px;
     float: left;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: thin; */
 }
 div.scroll,
 .home-scroll {
-    height: 765px;
+    /* height: 765px;
     float: left;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: thin; */
 }
 .scrolldiv {
-    height: 550px;
+    /* height: 550px;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: thin;*/
     background: white;
-    padding-top: 15px;
+    padding-top: 15px; 
 }
 
 .scrolldiv2 {
-    height: 700px;
+    /* height: 700px;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: thin;*/
     background: white;
-    padding-top: 15px;
+    padding-top: 15px; 
 }
 
 /* End Search News List */
@@ -686,9 +686,12 @@ p {
     color: #000;
 }
 .main-header {
+    position: fixed;
+    width: 83.3%;
+    height: 70px;
     background-color: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
-    height: 8vh;
+    z-index: 99;
     /* margin-left: 100px;
     margin-right: 100px; */
 }
@@ -1318,7 +1321,9 @@ li.userprofile-name > a {
 }
 .maintab-content {
     padding: 7px; /*for no scroll*/
+    margin: 75px 0 0 0;
 }
+
 
 .tab-content {
     /* padding: 15px !important; */
@@ -1328,10 +1333,10 @@ li.userprofile-name > a {
 }
 .tab-content1 {
     min-height: 350px;
-    max-height: 900px;
+    /* max-height: 900px; */
 }
 .tab-content2 {
-    height: 320px !important;
+    /* height: 320px !important; */
 }
 .tab-card-header {
     background-color: #b7dad2 !important;
@@ -1412,7 +1417,10 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link,
     margin-top: 4px;
 }
 .adminview-sidebar {
-    height: 92vh;
+    position: fixed;
+    top: 70px;
+    width: 13%;
+    height: 100%;
     background: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
@@ -1655,10 +1663,7 @@ ul.main-tab li:after {
     text-align: center;
     line-height: 20px;
     padding: 10px;
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
+    width: 100%; 
 }
 
 /* Hospital Search */
@@ -1869,8 +1874,10 @@ body::-webkit-scrollbar-thumb {
         height: auto;
     }
     .ads-img {
-        float: none;
         display: block;
+        float: none;
+        max-width: 100%;
+        width: auto;
         margin: 0 auto;
     }
     .today .adslist-card .smallads-title {

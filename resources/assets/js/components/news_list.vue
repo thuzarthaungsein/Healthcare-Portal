@@ -8,7 +8,7 @@
                 </div>
                 <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
             </div>
-            <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style" style="height:700px;">                
+            <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">                
                  <h4 class="main-color">ニュース検索</h4>                 
                     <div class="row">
                         <div class="col-md-12 m-b-10">
