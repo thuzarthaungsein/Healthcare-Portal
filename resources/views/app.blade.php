@@ -262,7 +262,7 @@
       </ul>
   </div>
 
-  <div class="col-lg-10 col-md-12 col-sm-12 pad-free">
+  <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 pad-free">
     <div class="maintab-content" id="v-pills-tabContent">
       <!--section one-->
       <section>
@@ -352,7 +352,7 @@
       <!--end slider for ads-->
 
       <div class="row justify-content-md-center">
-        <div class="col-10 tab">
+        <div class="col-12 col-lg-10 col-md-8 tab">
           <!-- vue component -->
               <router-view></router-view>
 
@@ -362,7 +362,7 @@
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div> -->
       </div>
 
-      <div class="col-2">
+      <div class="col-12 col-lg-2 col-md-4">
                 <!--related news-->
                 <div class="card m-b-10 ads-card">
                 <!--ads slider-->
