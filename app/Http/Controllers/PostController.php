@@ -136,17 +136,43 @@ class PostController extends Controller
             'category_id.required' => 'ニュースのカテゴリーが必須です。',
             'body.required' => 'ニュースの内容が必須です。',
         ]);
-        $imageName = $request->photo->getClientOriginalName();
-        $request->photo->move(public_path('/upload/news'), $imageName);
-        $formData = array(
-            'title' => $request->input('title'),
-            'main_point' => $request->input('main_point'),
-            'body' => $request->input('body'),
-            'photo' => $request->photo->getClientOriginalName(),
-            'category_id' =>$request->input('category_id'),
-            'user_id' => 1,
-            'recordstatus' => 1
-        );
+
+        if($request->photo != null && $request->photo != "")
+        {
+            $imageName = $request->photo->getClientOriginalName();
+            $request->photo->move(public_path('/upload/news'), $imageName);
+            $post = new Post([
+                'title' => $request->input('title'),
+                'main_point' => $request->input('main_point'),
+                'body' => $request->input('body'),
+                'photo' =>$imageName,
+                'category_id' =>$request->input('category_id'),
+                'user_id' => 1,
+                'recordstatus' => 1
+            ]);
+        }
+        else{
+            $post = new Post([
+                'title' => $request->input('title'),
+                'main_point' => $request->input('main_point'),
+                'body' => $request->input('body'),
+                'category_id' =>$request->input('category_id'),
+                'user_id' => 1,
+                'recordstatus' => 1
+            ]);
+        }
+
+        // $imageName = $request->photo->getClientOriginalName();
+        // $request->photo->move(public_path('/upload/news'), $imageName);
+        // $formData = array(
+        //     'title' => $request->input('title'),
+        //     'main_point' => $request->input('main_point'),
+        //     'body' => $request->input('body'),
+        //     'photo' => $request->photo->getClientOriginalName(),
+        //     'category_id' =>$request->input('category_id'),
+        //     'user_id' => 1,
+        //     'recordstatus' => 1
+        // );
         $post = Post::find($id);
         $file= $post->photo;
         $filename = public_path().'/upload/news/'.$file;
