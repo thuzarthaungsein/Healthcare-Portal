@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\HospitalProfile;
+use DB;
 
 class HospitalProfileController extends Controller
 {
@@ -22,19 +23,18 @@ class HospitalProfileController extends Controller
         // return response()->json(array_reverse($favourite_list));
     }
 
-    public function showFav(Request $request)
-    {
-        // return response()->json('success data');
-       
-        // $data = array("aa" => $request);
-        
-        return response()->json($request
-    );
-        // $favourite_list = HospitalProfile::whereIn('id',$localFav)->get();
-        // return response()->json($str);
-    //     $news_list = Post::find($post);
-    //     $data = array("news_list" => $news_list);
-    //    return response()->json($data);
+    function getFavouriteHospital($local_sto) {
+        $query = "SELECT hospital_profiles.* ,customers.*, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
+                    JOIN customers ON hospital_profiles.customer_id = customers.id
+                    JOIN townships ON townships.id = customers.townships_id
+                    JOIN cities ON townships.city_id = cities.id
+                    WHERE hospital_profiles.id IN (" . $local_sto . ")";
+        $fav_hospital = DB::select($query);
+        foreach($fav_hospital as $fav) {
+            $fea_arr = explode(",", $fav->special_features);
+            $fav->special_features = $fea_arr;
+        }
+        return $fav_hospital;
     }
 
     /**

@@ -44,7 +44,7 @@ export default {
         },
         created(){
               this.axios
-                .get('http://localhost:8000/api/authget')
+                .get('/api/authget')
                 .then(response=>{
                  console.log(response);
                 // this.fac_list = response.data;

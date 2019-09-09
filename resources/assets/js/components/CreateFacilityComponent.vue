@@ -2,37 +2,28 @@
  <div class="row">
       <div class="col-12">  
           <div class="card">
-              <div class="card-body">
-                <div class="col-md-12">
+              <div class="card-body">                
                     <div class="row">
                          
                         <div class="col-md-12">
-                            <h4 class="page-header">Create Facility</h4>
-                            <br>
+                            <h4 class="page-header header">施設一作成</h4>
                         </div>
                         <div class="col-md-12">
                              <form @submit.prevent="add">
                             <div class="form-group">
-                                <label>Facility Name :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="facility.description"  placeholder="Facility Name" >
+                                <label>施設一名:<span class="error">*</span></label>
+                                <input type="text" class="form-control"  v-model="facility.description"  placeholder="施設一名" >
                                    <span v-if="errors.description" class="error">{{errors.description[0]}}</span>  
                             </div>
                         
-                            <div class="form-group ">
-                                <div class="form-group row">
-                                    <div class="col-1 pad-free">
-                                        <button class="btn news-post-btn">Create</button>
-                                    </div>
-                                    <div class="col-1 pad-free">
-                                        <router-link class="btn btn-warning" to="/facilitieslist" >  Cancel </router-link>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <router-link to="/facilitieslist" class="btn btn-danger all-btn">キャンセル</router-link>                                              
+                                <router-link to="/facilitieslist" class="btn news-post-btn all-btn">更新</router-link>                                
                             </div>  
                                 </form>  
                             </div>
                          </div>       
-                    </div>
-                </div>
+                    </div>               
             </div>
           </div>   
       </div>
@@ -50,7 +41,7 @@ export default {
        
          methods: {
             add() {
-                axios.post('http://localhost:8000/api/facility/add', this.facility)
+                axios.post('/api/facility/add', this.facility)
                     .then((response) => {
                         this.description = ''
                     alert('Successfully Created')

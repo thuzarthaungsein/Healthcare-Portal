@@ -84,7 +84,7 @@ export default {
         },
          created() {
             
-             axios.get('http://localhost:8000/api/types/typelist')
+             axios.get('/api/types/typelist')
               .then(function (response) {                
                    this.TypeList = response.data;
              
@@ -92,7 +92,7 @@ export default {
         },
         mounted() {
              this.axios
-               .get(`http://localhost:8000/api/types/edit/${this.$route.params.id}`)
+               .get(`/api/types/edit/${this.$route.params.id}`)
                 .then((response) => {
 
                     if( `${this.$route.params.id}` == "undefined")
@@ -117,7 +117,7 @@ export default {
             add() {
                 if( `${this.$route.params.id}` == "undefined")
                 {         
-                    axios.post('http://localhost:8000/api/types/add', this.Type)
+                    axios.post('/api/types/add', this.Type)
                         .then((response) => {
                             this.name = ''
                         alert('Successfully Created')
@@ -144,7 +144,7 @@ export default {
            updateType() {
                
                 this.axios
-                    .post(`http://localhost:8000/api/types/update/${this.$route.params.id}`, this.Type)
+                    .post(`/api/types/update/${this.$route.params.id}`, this.Type)
                     .then((response) => {
                         this.name = ''
                           alert('Successfully Updated!')

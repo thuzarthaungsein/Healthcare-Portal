@@ -47,7 +47,7 @@ export default {
         },
         created() {
             this.axios
-                .get('http://localhost:8000/api/jobs')
+                .get('/api/jobs')
                 .then(response => {
                     this.jobs = response.data;
                 });

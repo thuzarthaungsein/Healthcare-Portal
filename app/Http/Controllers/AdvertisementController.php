@@ -37,16 +37,22 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
+         $request->validate([
+             'title' => 'required',
+             'description'=>'required',
+             'location'=>'required',
+             'photo'=>'required',
+        //     'user_id'=>'required',
+        //     'recordstatus'=>'required',
+
+         ]);
 
         $imageName = $request->photo->getClientOriginalName();
         $request->photo->move(public_path('upload/advertisement'), $imageName);
         $ads = new Advertisement([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            //'location'=>$adstring,
             'location'=>$request->input('location'),
-             //'photo' =>$request->input('photo'),
-            //'location' =>implode("," , $request->input('location')),
             'photo' => $request->photo->getClientOriginalName(),
             'user_id' => 1,
             'recordstatus' => 2
@@ -91,6 +97,7 @@ class AdvertisementController extends Controller
      */
     public function update($id,Request $request)
     {
+
         $imageName = $request->photo->getClientOriginalName();
         $request->photo->move(public_path('upload/advertisement/'), $imageName);
           $uploadData = array(
@@ -101,24 +108,13 @@ class AdvertisementController extends Controller
               'recordstatus' => 2
          );
           $ads = Advertisement::find($id);
+           $file= $ads->photo;
+           $filename = public_path().'/upload/advertisement/'.$file;
+           \File::delete($filename);
           $ads->update($uploadData);
           return response()->json(' Successfully updated');
 
     }
-    // public function updatedele($id){
-    //     $ads = Advertisement::find($id);
-    //     if(Input::hasFile('photo')){
-    //         $file = Input::file('photo');
-    //         $name = time() . '-' . $file->getClientOriginalName();
-    //         $file = $file->move(public_path() . 'upload/advertisement/', $name);
-    //         $ads->file= $name;
-    //     }
-    //     $ads->save();
-    //     return "success";
-
-    // }
-
-
     /**
      * Remove the specified resource from storage.
      *

@@ -50,16 +50,19 @@
 export default {
         data() {
             return {
-                hos_profiles: []
+                hos_profiles: [],
+                local_sto: '',
             }
         },
         created() {
-                this.getAllCustomer();
+                this.local_sto = localStorage.getItem("hospital_history");
+                this.getAllCustomer(this.local_sto);
+                console.log('dkasjf',this.local_sto)
         },
         methods: {
-                getAllCustomer: function() {
+                getAllCustomer: function(local_storage) {
                      this.axios
-                        .get('http://localhost:8000/api/hospital_history')
+                        .post('/api/hospital_history/' + local_storage)
                         .then(response => {
                                 this.hos_profiles = response.data;
                         });

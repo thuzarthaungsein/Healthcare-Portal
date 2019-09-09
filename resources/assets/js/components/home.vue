@@ -27,6 +27,7 @@
               </div>
             <!--end Tab panes-->                              
         </div>   
+        <!-- {{ l_storage_hos_history }} -->
 </template>
 
 <script>
@@ -43,8 +44,8 @@ export default {
      jobSearch
     },
      mounted() {
-            console.log('Component mounted.')
-           
+            console.log('Component mounted.');
+                // console.log[l_storage_hos_history];
         },
         data() {
             return {
@@ -76,6 +77,13 @@ export default {
                localStorage.setItem("nursing_history",this.l_storage_nus_history);
                localStorage.setItem("hospital_fav",this.l_storage_hos_fav);
                localStorage.setItem("nursing_fav",this.l_storage_nus_fav);
+
+        //        localStorage.setItem('name', 'SNY');
+        //        const person = {
+        //                name: "SNY",
+        //                location: "Ygn",
+        //        }
+        //        localStorage.setItem('user', JSON.stringify(person));
                 
             this.getAllCat();
             this.getPostByFirstCat();
@@ -85,38 +93,38 @@ export default {
         methods: {
                 getAllCat: function() {
                      this.axios
-                        .get('http://localhost:8000/api/home')
+                        .get('/api/home')
                         .then(response => {
                                 this.cats = response.data;
                         });   
                 },
                 getPostByFirstCat: function() {
-                         axios.get("http://localhost:8000/api/posts/1")
+                         axios.get("/api/posts/1")
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getPostByCatID: function(cat_id) {
-                        axios.get("http://localhost:8000/api/posts/" + cat_id)
+                        axios.get("/api/posts/" + cat_id)
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getLatestPostByFirstCatID: function() {
-                        axios.get("http://localhost:8000/api/get_latest_post/1")
+                        axios.get("/api/get_latest_post/1")
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostByCatID: function(cat_id) {
-                        axios.get("http://localhost:8000/api/get_latest_post/" + cat_id)
+                        axios.get("/api/get_latest_post/" + cat_id)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostFromAllCat: function() {
                         this.axios
-                        .get('http://localhost:8000/api/get_latest_post_all_cat')
+                        .get('/api/get_latest_post_all_cat')
                         .then(response => {
                                 this.latest_post_all_cats = response.data;
                         });

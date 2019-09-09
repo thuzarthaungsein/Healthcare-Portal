@@ -5,7 +5,7 @@ $('path').on("click", function(e) {
     var title = $(this).attr("title");
     var id = $(this).attr("id");
      console.log(e);
-    var url = "http://localhost:8000/api/getmap";
+    var url = "/api/getmap";
     $.ajax({
         type:'get',
         data:{"title":title,"id":id},
@@ -46,12 +46,15 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
-        if(confirm("Are you sure you want to delete?")){
+        if(confirm("Are you sure you want to delete?"))
+        {
             var image_x = document.getElementById('x-image');
-        image_x.parentNode.removeChild(image_x);
-        document.getElementById('showimage').style.display = 'block';
-        console.log("close");
+            image_x.parentNode.removeChild(image_x);
+            document.getElementById('showimage').style.display = 'block';
+            console.log("close");
         }
+
+
     }
 
     function showImg(c,event) {
@@ -89,7 +92,7 @@ $('path').on("click", function(e) {
         var file = document.getElementById("upload_file").files[0];
         var file_path = 'upload/videos/'+file.name;
 
-        var url = "http://localhost:8000/api/customer/deletevideo";
+        var url = "/api/customer/deletevideo";
         $.ajax({
             type:'post',
             data:{"fiel_path":file_path},
@@ -129,5 +132,5 @@ $(document).ready(function(){
 
 */
 
-    
-    
+
+

@@ -85,7 +85,7 @@
                 }
             },
             created() {
-                axios.get('http://localhost:8000/api/category/category_list')
+                axios.get('/api/category/category_list')
                     .then(function(response) {
                         this.categories = response.data;
                     }.bind(this));
@@ -102,7 +102,7 @@
                         fData.append('main_point', this.news.main_point)
                         fData.append('body', this.news.body)
                         fData.append('category_id', this.news.category_id)
-                        axios.post('http://localhost:8000/api/new/add', fData)
+                        axios.post('/api/new/add', fData)
                             .then(response => {
                                 this.$router.push({
                                     name: 'news_list'

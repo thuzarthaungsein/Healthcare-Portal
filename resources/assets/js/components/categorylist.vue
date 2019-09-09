@@ -62,7 +62,7 @@ export default {
     },
      created() {
             this.axios
-                .get('http://localhost:8000/api/category/categories')
+                .get('/api/category/categories')
                 .then(response => {
                     this.categories = response.data;
                 });
@@ -72,7 +72,7 @@ export default {
                 if(confirm("Are you sure you want to delete?"))
                 {
                      this.axios
-                    .delete(`http://localhost:8000/api/category/delete/${id}`)
+                    .delete(`/api/category/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
                         let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
@@ -86,7 +86,7 @@ export default {
                 var search_word = $('#search-item').val();
                 let fd = new FormData();
                     fd.append('search_word' ,search_word )
-                this.axios.post('http://localhost:8000/api/category/search', fd)
+                this.axios.post('/api/category/search', fd)
                     .then(response => {
                         this.categories = response.data;
                     });

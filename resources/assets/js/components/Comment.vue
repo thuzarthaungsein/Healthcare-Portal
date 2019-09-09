@@ -164,7 +164,7 @@ export default {
          methods: {
             add() {
                 
-                axios.post('http://localhost:8000/api/comments/add', this.comments)
+                axios.post('/api/comments/add', this.comments)
                     .then((response) => {
                         this.name = ''
                     alert('Successfully Created')

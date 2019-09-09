@@ -210,7 +210,7 @@ import jobSearch from './jobSearch.vue'
             this.getLatestPostByFirstCatID();
             this.getLatestPostFromAllCat();
             this.axios
-                 .get(`http://localhost:8000/api/newdetails/${this.$route.params.id}`)
+                 .get(`/api/newdetails/${this.$route.params.id}`)
                  .then(response=>{
                       console.log(response.data); 
                      this.newdetails = response.data;
@@ -287,7 +287,7 @@ import jobSearch from './jobSearch.vue'
 //         },
 //         created(){
 //             this.axios
-//                  .get(`http://localhost:8000/api/newdetails/${this.$route.params.id}`)
+//                  .get(`/api/newdetails/${this.$route.params.id}`)
 //                  .then(response=>{
                        
 //                      this.newdetails = response.data;
@@ -298,7 +298,7 @@ import jobSearch from './jobSearch.vue'
 //         // methods: {
 //         //         getPostById: function(id=1) {
 //         //                 this.axios
-//         //                 .get('http://localhost:8000/api/newdetails/'+id)
+//         //                 .get('/api/newdetails/'+id)
 //         //                 .then(response=>{
 //         //                         console.log(response.data.news_list);
 //         //                 this.newdetails = response.data.news_list;

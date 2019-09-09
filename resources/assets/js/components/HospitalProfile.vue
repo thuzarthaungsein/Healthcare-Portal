@@ -213,7 +213,7 @@ export default {
         },
         created(){
                 this.axios
-                .get('http://localhost:8000/api/facilities')
+                .get('/api/facilities')
                 .then(response=>{
                 //  console.log(response);
                 this.fac_list = response.data;
