@@ -1863,11 +1863,33 @@ body::-webkit-scrollbar-thumb {
 }
 /* End Summernote */
 
-.pc {
+/* .pc {
     display: block !important;
-}
+} */
 .sp {
     display: none !important;
+}
+@media only screen and (max-width: 1300px)  {
+    .adslist-card {
+        height: auto;
+    }
+    .ads-img {
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+    .today .adslist-card .smallads-title {
+        top: 7px;
+    }
+    /* #v-pills-tab li a {
+        display: block;
+        padding: 0;
+    } */
+    .sub-title > .ads-title {
+        position: unset;
+        margin: 10px 0 30px;
+    }
+    
 }
 @media only screen and (max-width: 980px) {
     .pc {
@@ -1893,5 +1915,13 @@ body::-webkit-scrollbar-thumb {
     .router-link-exact-active {
         border-left: 0px;
         background-color: transparent;
+    }
+    .ads-img {
+        float: left;
+        display: block;
+        margin: 0 auto;
+    }
+    .today .adslist-card .smallads-title {
+        top: 7px;
     }
 }

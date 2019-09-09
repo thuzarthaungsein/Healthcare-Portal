@@ -40678,6 +40678,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -40693,6 +40694,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         mounted: function mounted() {
                 console.log('Component mounted.');
+                // console.log[l_storage_hos_history];
         },
         data: function data() {
                 return {
@@ -40724,6 +40726,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 localStorage.setItem("nursing_history", this.l_storage_nus_history);
                 localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
                 localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
+
+                //        localStorage.setItem('name', 'SNY');
+                //        const person = {
+                //                name: "SNY",
+                //                location: "Ygn",
+                //        }
+                //        localStorage.setItem('user', JSON.stringify(person));
 
                 this.getAllCat();
                 this.getPostByFirstCat();
@@ -41742,7 +41751,7 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "tab-content tab-content2",
+            staticClass: "tab-content tab-content2 scroll2",
             attrs: { id: "myTabContent" }
           },
           [
@@ -54962,18 +54971,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
                 return {
-                        hos_profiles: []
+                        hos_profiles: [],
+                        local_sto: ''
                 };
         },
         created: function created() {
-                this.getAllCustomer();
+                this.local_sto = localStorage.getItem("hospital_history");
+                this.getAllCustomer(this.local_sto);
         },
 
         methods: {
-                getAllCustomer: function getAllCustomer() {
+                getAllCustomer: function getAllCustomer(local_storage) {
                         var _this = this;
 
-                        this.axios.get('/api/hospital_history').then(function (response) {
+                        this.axios.post('/api/hospital_history/' + local_storage).then(function (response) {
                                 _this.hos_profiles = response.data;
                         });
                 }
@@ -55274,18 +55285,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
         data: function data() {
                 return {
-                        nur_profiles: []
+                        nur_profiles: [],
+                        local_sto: ''
                 };
         },
         created: function created() {
-                this.getAllCustomer();
+                this.local_sto = localStorage.getItem("nursing_history");
+                this.getAllCustomer(this.local_sto);
         },
 
         methods: {
-                getAllCustomer: function getAllCustomer() {
+                getAllCustomer: function getAllCustomer(local_storage) {
                         var _this = this;
 
-                        this.axios.get('/api/nursing_history').then(function (response) {
+                        this.axios.post('/api/nursing_history/' + local_storage).then(function (response) {
                                 _this.nur_profiles = response.data;
                         });
                 }
@@ -55367,16 +55380,6 @@ var render = function() {
                     _c("br"),
                     _vm._v(" "),
                     _c("a", [
-                      _c("strong", [_vm._v("Location    :")]),
-                      _vm._v(
-                        _vm._s(nur_profile.township_name) +
-                          ", " +
-                          _vm._s(nur_profile.city_name)
-                      )
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
                       _c("strong", [_vm._v("Phone    :")]),
                       _vm._v(_vm._s(nur_profile.phone))
                     ]),
@@ -55397,6 +55400,16 @@ var render = function() {
                     _c("a", [
                       _c("strong", [_vm._v("Occupancy Condition  :")]),
                       _vm._v(_vm._s(nur_profile.occupancy_condition))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Location    :")]),
+                      _vm._v(
+                        _vm._s(nur_profile.township_name) +
+                          ", " +
+                          _vm._s(nur_profile.city_name)
+                      )
                     ]),
                     _c("br")
                   ])

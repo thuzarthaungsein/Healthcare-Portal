@@ -18,7 +18,7 @@
                                         </ul> 
                                 </div>
 
-                                <div class="tab-content tab-content2" id="myTabContent">
+                                <div class="tab-content tab-content2 scroll2" id="myTabContent">
                                         <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
 
                                                 <div class="row">
