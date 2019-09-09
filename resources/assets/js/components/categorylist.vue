@@ -67,6 +67,7 @@ export default {
                     this.categories = response.data;
                 });
         },
+
         methods: {
             deleteCategory(id) {
                 if(confirm("Are you sure you want to delete?"))

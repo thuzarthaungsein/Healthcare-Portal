@@ -42,7 +42,7 @@ import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
 import comment from './components/Comment.vue';
-import passport from '../../js/components/passport.vue';
+import passport from './components/passport.vue';
 export const routes = [
       {
         name: 'home',

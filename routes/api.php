@@ -40,10 +40,13 @@ Route::get('getCity','SearchMapController@getCity');
 
 
 // login route api start
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
     // Route::get('authget','ProfileController@index');
+    Route::get('/test', function() {
+        return Auth::user();
+    });
 
 });
 // login route api end

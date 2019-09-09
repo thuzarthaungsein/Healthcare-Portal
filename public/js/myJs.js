@@ -1,3 +1,5 @@
+Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+
 var timeout;
 $(".path").hover(
   function() {
