@@ -1861,9 +1861,9 @@ body::-webkit-scrollbar-thumb {
 }
 /* End Summernote */
 
-.pc {
+/* .pc {
     display: block !important;
-}
+} */
 .sp {
     display: none !important;
 }
