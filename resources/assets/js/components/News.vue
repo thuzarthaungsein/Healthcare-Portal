@@ -23,10 +23,10 @@
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
                                                                 <router-link :to="'/newsdetails/'+latest_post.id">
-                                                                        <img v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
+                                                                        <img v-if="latest_post.photo" v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
                                                                         <p class="source-title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle">
-                                                                                <img alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
+                                                                                <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
                                                                         </p>
                                                                 </router-link>
                                                         </div>
@@ -195,20 +195,27 @@ export default {
 
                 searchCategory() {
                         var search_word = $('#search-word').val();
-                        if(this.categoryId) { 
+                        if(this.categroyId) {
                                 var categoryId = this.categoryId;
                         } else {
-                                var categoryId = 1;
+                                var categoryId = '1';
                         }
-
+                       
                         let fd = new FormData();
                                 fd.append('search_word', search_word)
                                 fd.append('selected_category', categoryId)
                                 
                         this.axios.post('http://localhost:8000/api/search', fd)
                                 .then(response => {
-                                        this.posts = response.data;
-                                        this.latest_post = this.posts[0];
+                                        console.log();
+                                        if(response.data.length == '0') {
+                                                this.posts = [];
+                                                this.latest_post = [];
+                                                
+                                        } else {
+                                                this.posts = response.data;
+                                                this.latest_post = this.posts[0];
+                                        }
                         });
                 }
         }
