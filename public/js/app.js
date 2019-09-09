@@ -56988,66 +56988,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57145,7 +57085,7 @@ var render = function() {
           _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース検索")]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12 m-b-10" }, [
+            _c("div", { staticClass: "col-md-12" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("div", { staticClass: "col-6 float-left" }, [
                   _c("input", {
@@ -57238,15 +57178,20 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card-body news-post" }, [
                     _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-2" }, [
-                        _c("img", {
-                          staticClass: "img-fluid",
-                          attrs: { src: "/images/" + newsList.photo, alt: "" }
-                        })
-                      ]),
+                      newsList.photo
+                        ? _c("div", { staticClass: "col-md-2" }, [
+                            _c("img", {
+                              staticClass: "img-fluid",
+                              attrs: {
+                                src: "/upload/news/" + newsList.photo,
+                                alt: ""
+                              }
+                            })
+                          ])
+                        : _c("div", { staticClass: "col-md-2" }),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-md-7" }, [
-                        _c("div", { staticClass: "pad-free mb-2" }, [
+                      _c("div", { staticClass: "col-md-8" }, [
+                        _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
                           _c(
                             "b",
                             [
@@ -57446,13 +57391,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            category_id: '',
+            category_id: '-1',
             errors: [],
             news: {
                 title: '',
@@ -57463,26 +57406,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 recordstatus: '',
                 image: ''
             },
-            // User: -1,
-            // Userdrp: "選択してください。",
+            Userdrp: "選択してください。",
             categories: {
                 id: '',
                 name: ''
             }
-
         };
     },
     created: function created() {
-        console.log("I'm a littel teapot");
         axios.get('http://localhost:8000/api/category/category_list').then(function (response) {
-
             this.categories = response.data;
         }.bind(this));
     },
 
-
     methods: {
-        onFileSelected: function onFileSelected(event) {
+        preview_image: function preview_image() {
+            $('#image_preview').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-news-img'></div>");
             this.news.image = event.target.files[0];
         },
         add: function add() {
@@ -57495,14 +57434,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fData.append('body', this.news.body);
             fData.append('category_id', this.news.category_id);
             axios.post('http://localhost:8000/api/new/add', fData).then(function (response) {
-
-                _this.$router.push({ name: 'news_list' });
+                _this.$router.push({
+                    name: 'news_list'
+                });
                 console.log(response);
-                alert('Successfully Created');
             }).catch(function (error) {
-                return console.log(error);
-            }).finally(function () {
-                return _this.loading = false;
+
+                if (error.response.status == 422) {
+
+                    _this.errors = error.response.data.errors;
+                }
             });
         },
 
@@ -57567,7 +57508,13 @@ var render = function() {
                         _vm.$set(_vm.news, "title", $event.target.value)
                       }
                     }
-                  })
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.title
+                    ? _c("span", { staticClass: "error" }, [
+                        _vm._v(_vm._s(_vm.errors.title[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -57596,7 +57543,13 @@ var render = function() {
                         _vm.$set(_vm.news, "main_point", $event.target.value)
                       }
                     }
-                  })
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.main_point
+                    ? _c("span", { staticClass: "error" }, [
+                        _vm._v(_vm._s(_vm.errors.main_point[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -57614,6 +57567,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
+                      attrs: { id: "categories" },
                       on: {
                         change: [
                           function($event) {
@@ -57635,21 +57589,36 @@ var render = function() {
                         ]
                       }
                     },
-                    _vm._l(_vm.categories, function(category) {
-                      return _c(
-                        "option",
-                        { key: category.id, domProps: { value: category.id } },
-                        [
-                          _vm._v(
-                            "\r\n                                                    " +
-                              _vm._s(category.name) +
-                              "\r\n                                                "
-                          )
-                        ]
-                      )
-                    }),
-                    0
-                  )
+                    [
+                      _c("option", { domProps: { value: -1 } }, [
+                        _vm._v("選択してください。")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.categories, function(category) {
+                        return _c(
+                          "option",
+                          {
+                            key: category.id,
+                            domProps: { value: category.id }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(category.name) +
+                                "\n                                "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _vm.errors.category_id
+                    ? _c("span", { staticClass: "error" }, [
+                        _vm._v(_vm._s(_vm.errors.category_id[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -57679,19 +57648,34 @@ var render = function() {
                         _vm.$set(_vm.news, "body", $event.target.value)
                       }
                     }
-                  })
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.body
+                    ? _c("span", { staticClass: "error" }, [
+                        _vm._v(_vm._s(_vm.errors.body[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _vm._m(5),
+                  _c("label", {}, [_vm._v("メディア:")]),
                   _vm._v(" "),
                   _c("div", [
                     _c("input", {
-                      ref: "file",
-                      attrs: { type: "file", accept: "image/*", id: "file" },
-                      on: { change: _vm.onFileSelected }
+                      attrs: {
+                        type: "file",
+                        value: "Upload Photo",
+                        id: "upload_file"
+                      },
+                      on: {
+                        change: function($event) {
+                          return _vm.preview_image()
+                        }
+                      }
                     })
-                  ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5)
                 ]),
                 _vm._v(" "),
                 _c(
@@ -57702,18 +57686,18 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "btn btn-danger all-btn",
-                        attrs: { to: "/news_list" }
+                        attrs: { to: { name: "news_list" } }
                       },
-                      [_vm._v("キャンセル")]
+                      [_vm._v("戻る")]
                     ),
                     _vm._v(" "),
                     _c(
-                      "router-link",
+                      "button",
                       {
                         staticClass: "btn news-post-btn all-btn",
-                        attrs: { to: "/news_list" }
+                        attrs: { type: "submit" }
                       },
-                      [_vm._v("ニュースを投稿する")]
+                      [_vm._v(" ニュースを投稿する")]
                     )
                   ],
                   1
@@ -57732,7 +57716,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header header" }, [_vm._v("ニュース作成")])
+      _c("h4", { staticClass: "page-header header" }, [
+        _vm._v("ニュース投稿を作成")
+      ]),
+      _vm._v(" "),
+      _c("br")
     ])
   },
   function() {
@@ -57758,7 +57746,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("種類:"),
+      _vm._v(" カテゴリー:"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
@@ -57775,9 +57763,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("メディア:"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "row", attrs: { id: "image_preview" } })
     ])
   }
 ]
@@ -62134,18 +62121,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            category_id: '-1',
+            arr: [],
             errors: [],
             news: {
-                post_title: '',
-                post_mainPoint: '',
-                post_body: '',
+                title: '',
+                mainPoint: '',
+                body: '',
                 category_id: '',
                 category_name: '',
-                post_photo: ''
+                photo: ''
             },
             categories: {
                 id: '',
@@ -62158,31 +62152,58 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('http://localhost:8000/api/new/editPost/' + this.$route.params.id).then(function (response) {
             _this.news = response.data;
+            console.log(_this.news.photo);
+            _this.updateselected();
         });
     },
     mounted: function mounted() {
         this.axios.get('http://localhost:8000/api/category/category_list').then(function (response) {
             this.categories = response.data;
+            for (var i = 0; i <= this.categories.length; i++) {
+                if (this.news.category_id == this.categories[i].id) {
+                    this.news.category_name = this.categories[i].name;
+                }
+            }
         }.bind(this));
     },
 
     methods: {
-        onFileSelected: function onFileSelected(event) {
-            this.news.image = event.target.files[0];
+        fileSelected: function fileSelected() {
+
+            $('.image_show').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
+            this.news.photo = event.target.files[0];
         },
-        updatePost: function updatePost() {
+        updateselected: function updateselected() {
+            $('.image_update').html("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/news/" + this.news.photo + " class='show-img''></div>");
+        },
+        updatepost: function updatepost() {
             var _this2 = this;
 
             var fData = new FormData();
-            fData.append('image', this.news.image);
+
+            fData.append('photo', this.news.photo);
             fData.append('title', this.news.title);
             fData.append('main_point', this.news.main_point);
             fData.append('body', this.news.body);
+            fData.append('category_id', this.news.category_id);
+
             axios.post('http://localhost:8000/api/new/update/' + this.$route.params.id, fData).then(function (response) {
                 alert('Successfully Updated!');
-                _this2.$router.push({ name: 'news_list' });
+                _this2.$router.push({
+                    name: 'news_list'
+                });
                 console.log(response);
+            }).catch(function (error) {
+
+                if (error.response.status == 422) {
+
+                    _this2.errors = error.response.data.errors;
+                }
             });
+        },
+
+        getstates: function getstates() {
+            this.news.category_id = this.category_id;
         }
     }
 });
@@ -62209,7 +62230,7 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.updatePost($event)
+                    return _vm.updatepost($event)
                   }
                 }
               },
@@ -62240,7 +62261,13 @@ var render = function() {
                         _vm.$set(_vm.news, "title", $event.target.value)
                       }
                     }
-                  })
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.title
+                    ? _c("span", { staticClass: "error" }, [
+                        _vm._v(_vm._s(_vm.errors.title[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -62269,7 +62296,13 @@ var render = function() {
                         _vm.$set(_vm.news, "main_point", $event.target.value)
                       }
                     }
-                  })
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.main_point
+                    ? _c("span", { staticClass: "error" }, [
+                        _vm._v(_vm._s(_vm.errors.main_point[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -62288,36 +62321,56 @@ var render = function() {
                       ],
                       staticClass: "form-control",
                       on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.category_id = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        }
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.category_id = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          function($event) {
+                            return _vm.getstates()
+                          }
+                        ]
                       }
                     },
-                    _vm._l(_vm.categories, function(category) {
-                      return _c(
-                        "option",
-                        { key: category.id, domProps: { value: category.id } },
-                        [
-                          _vm._v(
-                            "\r\n                                                " +
-                              _vm._s(category.name) +
-                              "\r\n                                            "
-                          )
-                        ]
-                      )
-                    }),
-                    0
-                  )
+                    [
+                      _c("option", { domProps: { value: -1 } }, [
+                        _vm._v(_vm._s(_vm.news.category_name))
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.categories, function(category) {
+                        return _c(
+                          "option",
+                          {
+                            key: category.id,
+                            domProps: { value: category.id }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(category.name) +
+                                "\n                                "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _vm.errors.category_id
+                    ? _c("span", { staticClass: "error" }, [
+                        _vm._v(_vm._s(_vm.errors.category_id[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -62347,20 +62400,40 @@ var render = function() {
                         _vm.$set(_vm.news, "body", $event.target.value)
                       }
                     }
-                  })
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.body
+                    ? _c("span", { staticClass: "error" }, [
+                        _vm._v(_vm._s(_vm.errors.body[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _vm._m(5),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("input", {
-                      ref: "file",
-                      attrs: { type: "file", accept: "image/*", id: "file" },
-                      on: { change: _vm.onFileSelected }
-                    })
-                  ])
-                ]),
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    staticStyle: { display: "none" },
+                    attrs: { id: "showimage" }
+                  },
+                  [
+                    _c("label", {}, [_vm._v("メディア:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "custom-file col-sm-10" }, [
+                      _c("input", {
+                        ref: "file",
+                        attrs: { type: "file", accept: "image/*" },
+                        on: { change: _vm.fileSelected }
+                      })
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "image_show" }),
+                _vm._v(" "),
+                _vm._m(5),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -62370,19 +62443,14 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "btn btn-danger all-btn",
-                        attrs: { to: "/news_list" }
+                        attrs: { to: { name: "news_list" } }
                       },
-                      [_vm._v("キャンセル")]
+                      [_vm._v("戻る")]
                     ),
                     _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "btn news-post-btn all-btn",
-                        attrs: { to: "/news_list" }
-                      },
-                      [_vm._v("セーブ")]
-                    )
+                    _c("button", { staticClass: "btn news-post-btn all-btn" }, [
+                      _vm._v("更新")
+                    ])
                   ],
                   1
                 )
@@ -62401,7 +62469,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
       _c("h4", { staticClass: "page-header header" }, [
-        _vm._v("ニュースを編集")
+        _vm._v("ニュース投稿を作成")
       ])
     ])
   },
@@ -62428,7 +62496,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("種類:"),
+      _vm._v("カテゴリー:"),
       _c("span", { staticClass: "error" }, [_vm._v("*")])
     ])
   },
@@ -62445,10 +62513,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("メディア:"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
+    return _c(
+      "div",
+      { staticClass: "form-group image_update", attrs: { id: "x-image" } },
+      [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "row" })
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
