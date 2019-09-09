@@ -40,10 +40,18 @@ Route::get('getCity','SearchMapController@getCity');
 
 
 // login route api start
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
-    // Route::get('authget','ProfileController@index');
+    Route::group(['prefix' => 'category'], function () {
+        Route::get('category_list','CategoryController@list');
+        Route::get('categories', 'CategoryController@index');
+        Route::post('add', 'CategoryController@add');
+        Route::get('edit/{id}', 'CategoryController@edit');
+        Route::post('update/{id}', 'CategoryController@update');
+        Route::delete('delete/{id}', 'CategoryController@destroy');
+        Route::post('search', 'CategoryController@search');
+    });
 
 });
 // login route api end
@@ -101,15 +109,7 @@ Route::group(['prefix' => 'customer'], function () {
 });
 
 
-Route::group(['prefix' => 'category'], function () {
-    Route::get('category_list','CategoryController@list');
-    Route::get('categories', 'CategoryController@index');
-    Route::post('add', 'CategoryController@add');
-    Route::get('edit/{id}', 'CategoryController@edit');
-    Route::post('update/{id}', 'CategoryController@update');
-    Route::delete('delete/{id}', 'CategoryController@destroy');
-    Route::post('search', 'CategoryController@search');
-});
+
 
 // Home Page
 Route::get('home', 'HomeController@index');
