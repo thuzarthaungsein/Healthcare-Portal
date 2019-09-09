@@ -12,8 +12,8 @@ class CommentController extends Controller
 
     public function index()
     {
-        // $comment =Comment::all()->toArray();
-        // return array_reverse($comment);
+         $comment =Comment::all()->toArray();
+         return array_reverse($comment);
     }
 
 
@@ -75,8 +75,18 @@ class CommentController extends Controller
     }
 
 
-    public function destroy(Comment $comment)
+    public function destroy($id)
     {
         //
+        $comment = Comment::find($id);
+        $comment->delete();
+        return response()->json('Comment successfully deleted');
     }
+    public function confirm($id){
+        $comment =Comment::find($id);
+        $comment->status =1;
+        $comment->save();
+        return response()->json('Comment successfully confirmed');
+    }
+
 }
