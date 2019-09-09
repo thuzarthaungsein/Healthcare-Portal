@@ -60,14 +60,14 @@ export default {
             categories:[]
         }
     },
+
      created() {
             this.axios
-                .get('/api/category/categories')
+                .get('/api/user')
                 .then(response => {
-                    this.categories = response.data;
+                    console.log(response)
                 });
         },
-
         methods: {
             deleteCategory(id) {
                 if(confirm("Are you sure you want to delete?"))

@@ -43,9 +43,15 @@ Route::get('getCity','SearchMapController@getCity');
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
-    // Route::get('authget','ProfileController@index');
-    Route::get('/test', function() {
-        return Auth::user();
+    
+    Route::group(['prefix' => 'category'], function () {
+        Route::get('category_list','CategoryController@list');
+        Route::get('categories', 'CategoryController@index');
+        Route::post('add', 'CategoryController@add');
+        Route::get('edit/{id}', 'CategoryController@edit');
+        Route::post('update/{id}', 'CategoryController@update');
+        Route::delete('delete/{id}', 'CategoryController@destroy');
+        Route::post('search', 'CategoryController@search');
     });
 
 });
@@ -104,15 +110,7 @@ Route::group(['prefix' => 'customer'], function () {
 });
 
 
-Route::group(['prefix' => 'category'], function () {
-    Route::get('category_list','CategoryController@list');
-    Route::get('categories', 'CategoryController@index');
-    Route::post('add', 'CategoryController@add');
-    Route::get('edit/{id}', 'CategoryController@edit');
-    Route::post('update/{id}', 'CategoryController@update');
-    Route::delete('delete/{id}', 'CategoryController@destroy');
-    Route::post('search', 'CategoryController@search');
-});
+
 
 // Home Page
 Route::get('home', 'HomeController@index');
@@ -137,10 +135,7 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
-//Route::post('add','AdvertisementController@store');
-Route::group(['prefix' => 'advertisement'], function () {
-    Route::post('add', 'AdvertisementController@store');
-});
+
 
 Route::group(['prefix' => 'types'], function () {
     Route::get('typelist', 'TypeController@TypeList');
