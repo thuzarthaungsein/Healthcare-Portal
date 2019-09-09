@@ -42395,7 +42395,7 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "tab-content tab-content2",
+            staticClass: "tab-content tab-content2 scroll2",
             attrs: { id: "myTabContent" }
           },
           [
