@@ -70,7 +70,7 @@ export default {
     },
      created(){
         this.axios
-                .get('http://localhost:8000/api/getskill')
+                .get('/api/getskill')
                 .then(response => {
                  this.jobApply.fields = response.data;
 
@@ -80,7 +80,7 @@ export default {
     methods: {
             apply() {
 
-                this.axios.post('http://localhost:8000/api/jobapply', this.jobApply)
+                this.axios.post('/api/jobapply', this.jobApply)
                     .then((response) => {
                     alert('Successful Apply')
                     console.log(response);

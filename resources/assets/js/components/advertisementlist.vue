@@ -58,7 +58,7 @@ export default {
     },
     created(){
         this.axios
-                .get('http://localhost:8000/api/advertisement/ads')
+                .get('/api/advertisement/ads')
                 .then(response => {
                     this.advertisements = response.data;
 
@@ -71,7 +71,7 @@ export default {
                 if(confirm("Are you sure you want to delete?"))
                 {
                     this.axios
-                    .delete(`http://localhost:8000/api/advertisement/delete/${id}`)
+                    .delete(`/api/advertisement/delete/${id}`)
                     .then(response => {
 
                         alert('Delete Successfully!');

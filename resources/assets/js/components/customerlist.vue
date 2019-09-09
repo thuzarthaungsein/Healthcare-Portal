@@ -71,7 +71,7 @@ export default {
     },
     created(){
         this.axios
-                .get('http://localhost:8000/api/customers')
+                .get('/api/customers')
                 .then(response => {
                     this.customers = response.data;
 
@@ -81,7 +81,7 @@ export default {
     methods: {
             deleteCustomer(id) {
                 this.axios
-                    .delete(`http://localhost:8000/api/customer/delete/${id}`)
+                    .delete(`/api/customer/delete/${id}`)
                     .then(response => {
                         flash('Delete Success', 'success');
                         let a = this.customers.map(item => item.id).indexOf(id);
@@ -89,7 +89,7 @@ export default {
                     });
             },
             comfirm(id){
-                this.axios.get(`http://localhost:8000/api/confirm/${id}`)
+                this.axios.get(`/api/confirm/${id}`)
                 .then(response=>{
                     flash('Successfully Send Mail.', 'success');
                     console.log(response.data);

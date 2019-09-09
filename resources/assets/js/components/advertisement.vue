@@ -82,7 +82,7 @@ export default {
              adsData.append('location',this.ads.location)
              adsData.append('photo',this.ads.photo)
 
-                this.axios.post('http://localhost:8000/api/advertisement/add',adsData)
+                this.axios.post('/api/advertisement/add',adsData)
                     .then((response) => {
                     alert('Successfully Created')
                     console.log(response);

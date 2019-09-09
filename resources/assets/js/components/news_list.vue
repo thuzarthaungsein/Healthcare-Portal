@@ -44,8 +44,14 @@
                                 <img :src="'/upload/news/'+ newsList.photo" alt="" class="img-fluid"> 
                             </div>
                              <div class="col-md-2" v-else></div>
+<<<<<<< HEAD
                             <div class="col-md-8">
                                 <div class="col-sm-8 pad-free mb-2"><b>
+=======
+                            
+                            <div class="col-md-7">
+                                <div class="pad-free mb-2"><b>
+>>>>>>> f50f6b60bda9fedb228ff15251e546bc6a4283e5
                                     <router-link :to="{name: 'newdetails', params:{id:newsList.id}}" class="mr-auto">{{newsList.title}}</router-link>
                                     <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
                                     <!-- <a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
@@ -59,10 +65,41 @@
                         </div>
                     </div> 
                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> f50f6b60bda9fedb228ff15251e546bc6a4283e5
                 </div>
                 
 
+<<<<<<< HEAD
+=======
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="card card-default m-b-20">
+                    <div class="card-body news-post">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="/images/day3.jpg" class="col-md-12" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="col-sm-8 pad-free mb-2"><b><a href="../news/news_details.html" class="mr-auto">[介護] ベトナムから12人の介護実習生が来日</a></b></div>
+                                <p>医療事務、介護、保育サービスを提供する株式会社ソラストは4月24日、外国人技能実習制度に基づき、介護職種のベトナム人技能実習生（12人）の受け入れをスタートした。ベトナム人の実習生は、20歳代前半の女性9人、男性3人で、介護の仕事に就くことはもちろん、来日も初めてだという。</p>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <small><a href="" class="mr-auto text-warning">編集</a></small> &nbsp;
+                                        <small><a href="" class="mr-auto text-danger">削除</a></small>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+>>>>>>> f50f6b60bda9fedb228ff15251e546bc6a4283e5
             </div>
         </div>
     </div>
@@ -83,14 +120,14 @@ export default {
         },
         created(){
             this.axios
-                 .get('http://localhost:8000/api/news_list')
+                 .get('/api/news_list')
                  .then(response=>{
                      this.news_list = response.data;
                  });
         },
         mounted() {
             this.axios
-                .get('http://localhost:8000/api/category/category_list')
+                .get('/api/category/category_list')
                 .then(function(response) {
                     this.categories = response.data;
                 }.bind(this));
@@ -100,7 +137,7 @@ export default {
                 if(confirm("Are you sure you want to delete?"))
                 {
                      this.axios
-                    .delete(`http://localhost:8000/api/new/delete/${id}`)
+                    .delete(`/api/new/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
                         let i = this.news_list.map(item => item.id).indexOf(id); // find index of your object
@@ -115,7 +152,7 @@ export default {
                 let fd = new FormData();
                     fd.append('search_word', search_word)
                     fd.append('selected_category' ,selected_category )
-                this.axios.post('http://localhost:8000/api/news_list/search', fd)
+                this.axios.post('/api/news_list/search', fd)
                     .then(response => {
                         this.news_list = response.data;
                     });

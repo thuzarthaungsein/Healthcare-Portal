@@ -39,7 +39,7 @@ export default {
         },
         created() {
             this.axios
-                .get(`http://localhost:8000/api/facility/edit/${this.$route.params.id}`)
+                .get(`/api/facility/edit/${this.$route.params.id}`)
                 .then((response) => {
                     this.facility = response.data;
 
@@ -49,7 +49,7 @@ export default {
          methods: {
             updateFacility() {
                 this.axios
-                    .post(`http://localhost:8000/api/facility/update/${this.$route.params.id}`, this.facility)
+                    .post(`/api/facility/update/${this.$route.params.id}`, this.facility)
                     .then((response) => {
                         this.description = ''
                           alert('Successfully Updated!')

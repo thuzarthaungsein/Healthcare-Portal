@@ -40,8 +40,8 @@
     <flash message=""></flash>
   <!--navigation bar-->
   <nav class="navbar navbar-expand-lg navbar-dark main-header">
-  <a class="navbar-brand" href="#">
-      <img src="/images/trust_growth.png" alt="">
+  <a class="navbar-brand" href="/">
+      <img src="/images/trust_growth.png" alt="TRUST GROWTH">
  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -49,10 +49,10 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <form class="form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline">
-      <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control" type="search" placeholder="検索" aria-label="検索">
-      <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" type="submit"><i class="fas fa-search"></i> 検索</button>
+      <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control pc" type="search" placeholder="検索" aria-label="検索">
+      <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary pc" type="submit"><i class="fas fa-search"></i> 検索</button>
     </form>
-    <ul class="navbar-nav mr-auto col-lg-2 pad-free">
+    <ul class="navbar-nav mr-auto col-lg-2 pad-free pc">
     @guest
         <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
             <a class="nav-link pad-free" href="{{ route('login') }}">{{ __('事業者 ログイン') }}</a>
@@ -63,11 +63,67 @@
             <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
         </li>
     @else
-    <li class="nav-item btn login-register-btn col-lg-12 userprofile-name">
+    <li class="nav-item btn login-register-btn col-lg-12 userprofile-name pc">
             <img src="/images/user.png" alt="" class="userprofile-img">
             <a class="nav-link" href="#!">{{ Auth::user()->name }}</a>
         </li>
 
+    @endguest
+    </ul>
+    <ul class="sp-nav sp">
+    <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;&nbsp;ホーム</router-link></li>
+
+      @can('role-list')
+      <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;ニュース一覧</router-link></li>
+      <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;事業者</router-link></li>
+      <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;カテゴ一覧</router-link></li>
+      <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;施設一覧</router-link></li>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Pages</a>
+        <ul class="list-unstyled collapse" id="pageSubmenu" style="">
+            <li>
+                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link>
+            </li>
+            <li>
+                <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
+            </li>
+
+        </ul>
+    </li>
+
+      @endcan
+
+      @can('customer')
+      <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
+      <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
+      <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Hospital</router-link></li>
+      <li><router-link to="/nus_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Nursing</router-link></li>
+      @endcan
+
+      @can('role-list')
+      <li><router-link to="/ads" class="nav-link"><i class="fa fa-globe"></i>&nbsp;&nbsp;広告</router-link></li>
+      @endcan
+      @guest
+        <li>
+            <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;{{ __('事業者 ログイン') }}</a>
+        </li>
+        <li>
+            <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
+            <a class="nav-link pad-free" href="{{ url('registerForm') }}"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;{{ __('事業者 登録') }}</a>
+            <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
+        </li>
+        @else
+        <li>
+        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();"
+        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fa fa-sign-out-alt"></i>&nbsp;&nbsp;{{ __('ログアウト') }}
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        </a>
+      </li>
     @endguest
     </ul>
   </div>
@@ -155,7 +211,7 @@
     </div>
       @else
       <!-- login menu  -->
-      <div class="adminview-sidebar" id="navbarSupportedContent">
+      <div class="adminview-sidebar pc">
       <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
 
       @can('role-list')
@@ -382,7 +438,7 @@
 
     var csrf = "{{ csrf_token() }}";
     $.ajax({
-        url: 'http://localhost:8000/api/get_latest_post_all_cat',
+        url: '/api/get_latest_post_all_cat',
         type: 'GET',
         data: {'_token': csrf},
 

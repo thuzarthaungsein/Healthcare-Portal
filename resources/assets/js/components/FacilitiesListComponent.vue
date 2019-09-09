@@ -52,7 +52,7 @@ export default {
         },
         created() {
             this.axios
-                .get('http://localhost:8000/api/facility/facilities')
+                .get('/api/facility/facilities')
                 .then(response => {
                     this.facilities = response.data;
                 });
@@ -62,7 +62,7 @@ export default {
                 if(confirm("Are you sure you want to delete?"))
                 {
                      this.axios
-                    .delete(`http://localhost:8000/api/facility/delete/${id}`)
+                    .delete(`/api/facility/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
                         let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
@@ -76,7 +76,7 @@ export default {
                 var search_word = $('#search-item').val();
                 let fd = new FormData();
                     fd.append('search_word' , search_word )
-                this.axios.post('http://localhost:8000/api/facility/search', fd)
+                this.axios.post('/api/facility/search', fd)
                     .then(response => {
                         this.facilities = response.data;
                     });

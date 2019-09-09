@@ -52,7 +52,7 @@ export default {
        
          methods: {
            add() {
-               axios.post('http://localhost:8000/api/medical/add', this.medical)
+               axios.post('/api/medical/add', this.medical)
                     .then((response) => {
                     alert('Successfully Created')
                     console.log(response);

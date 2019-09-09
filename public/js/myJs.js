@@ -5,7 +5,7 @@ $('path').on("click", function(e) {
     var title = $(this).attr("title");
     var id = $(this).attr("id");
      console.log(e);
-    var url = "http://localhost:8000/api/getmap";
+    var url = "/api/getmap";
     $.ajax({
         type:'get',
         data:{"title":title,"id":id},
@@ -18,10 +18,11 @@ $('path').on("click", function(e) {
 
 });
 
-$('#feature').summernote({
-    placeholder: 'Write Feature',
-    height: 200,
-  });
+
+// $('#method-textarea').summernote({
+//     placeholder: 'Write Feature',
+//     height: 200,
+//   });
 
     var dynamicInput = [];
     var ct = 1;
@@ -45,12 +46,24 @@ $('#feature').summernote({
     }
 
     function closebtn(){
+<<<<<<< HEAD
         if(confirm("Are you sure you want to delete?")){
             var image_x = document.getElementById('x-image');
         image_x.parentNode.removeChild(image_x);
         document.getElementById('showimage').style.display = 'block';
         console.log("close");
         }
+=======
+        if(confirm("Are you sure you want to delete?"))
+        {
+            var image_x = document.getElementById('x-image');
+            image_x.parentNode.removeChild(image_x);
+            document.getElementById('showimage').style.display = 'block';
+            console.log("close");
+        }
+
+
+>>>>>>> f50f6b60bda9fedb228ff15251e546bc6a4283e5
     }
 
     function showImg(c,event) {
@@ -62,7 +75,7 @@ $('#feature').summernote({
         var file = document.getElementById("upload_file").files[0];
         var file_path = 'upload/videos/'+file.name;
 
-        var url = "http://localhost:8000/api/customer/deletevideo";
+        var url = "/api/customer/deletevideo";
         $.ajax({
             type:'post',
             data:{"fiel_path":file_path},
