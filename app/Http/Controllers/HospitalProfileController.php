@@ -37,6 +37,20 @@ class HospitalProfileController extends Controller
         return $fav_hospital;
     }
 
+    function getFavouriteNursing($local_sto) {
+        $query = "SELECT nursing_profiles.* ,customers.*, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
+                    JOIN customers ON nursing_profiles.customer_id = customers.id
+                    JOIN townships ON townships.id = customers.townships_id
+                    JOIN cities ON townships.city_id = cities.id
+                    WHERE nursing_profiles.id IN (" . $local_sto . ")";
+        $fav_nursing = DB::select($query);
+        foreach($fav_nursing as $nur) {
+            $fea_arr = explode(",", $nur->special_features);
+            $nur->special_features = $fea_arr;
+        }
+        return $fav_nursing;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

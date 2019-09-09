@@ -146,6 +146,7 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 // Guest Nursing History
 // Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
+Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
 
 Route::group(['prefix' => 'medical'], function () {
     Route::post('add', 'MedicalController@add');
