@@ -544,10 +544,10 @@ html {
     border-right: 1px solid #fff;
 }
 div.scroll2 {
-    height: 350px;
+    /* height: 350px;
     float: left;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: thin; */
 }
 div.scroll,
 .home-scroll {
@@ -557,11 +557,11 @@ div.scroll,
     scrollbar-width: thin;
 }
 .scrolldiv {
-    height: 550px;
+    /* height: 550px;
     overflow-y: auto;
     scrollbar-width: thin;
     background: white;
-    padding-top: 15px;
+    padding-top: 15px; */
 }
 
 .scrolldiv2 {
@@ -688,7 +688,7 @@ p {
 .main-header {
     background-color: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
-    height: 8vh;
+    /* height: 8vh; */
     /* margin-left: 100px;
     margin-right: 100px; */
 }
@@ -1079,7 +1079,7 @@ div.b {
     }
     .userview-sidebar {
         background-color: #f5f5f5;
-        height: 91vh;
+        /* height: 91vh; */
         padding-top: 35%;
         padding-left: 25px;
         margin-top: 2px;
@@ -1333,7 +1333,7 @@ li.userprofile-name > a {
 }
 .tab-content1 {
     min-height: 350px;
-    max-height: 900px;
+    /* max-height: 900px; */
 }
 .tab-content2 {
     height: 320px !important;
@@ -1410,20 +1410,20 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link,
 /*user view sidebar*/
 .userview-sidebar {
     background-color: #f5f5f5;
-    height: 91vh;
+    height: 100vh;
     padding-top: 35%;
     padding-left: 22px;
     padding-right: 7px;
     margin-top: 4px;
 }
 .adminview-sidebar {
-    height: 92vh;
-    background: #b7dad2;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    /* height: 92vh; */
+     background: #b7dad2;
+    /*box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1); */
 }
 .custom-sidebar {
-    /* height: 100vh; scroll */
-    /* background: #b7dad2; */
+    /* height: 100vh;*/
+    background: #b7dad2; 
 }
 
 /* profilepublish css start */
@@ -1661,7 +1661,7 @@ ul.main-tab li:after {
     line-height: 20px;
     padding: 10px;
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0px;
     right: 0px;
 }
