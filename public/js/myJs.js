@@ -23,7 +23,7 @@ $('#feature').summernote({
     height: 200,
   });
 
-    var dynamicInput = [];
+    var dynamicInput = [] ;
     var ct = 1;
     function new_link()
     {
@@ -68,7 +68,49 @@ $('#feature').summernote({
             success:function(data){
                $('#video-area').remove();
             }
-        });
-        
+        });    
     }
+
+scrollTab();
+
+function scrollTab(){
+    console.log("call");
+    // $("p").css('color','red');
+    if($('.detal_wrap').length){
+        console.log("detal_wrap");
+        $(".a_sp a[href^='#']").click(function () { 
+            console.log("a_sp");
+        var speed = 600;
+        var href = $(this).attr("href");
+        var target = $(href === "#" || href === "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+            //return false;
+        });
+    }
+}
+
+function changeType() {
+    if(this.type == 'nursing') {
+            document.getElementById("hospital-lbl").classList.add("dim-btn");
+            document.getElementById("nursing-lbl").classList.remove("dim-btn");
+            console.log("nn");
+            scrollTab();
+    }
+    else{
+           document.getElementById("nursing-lbl").classList.add("dim-btn"); 
+           document.getElementById("hospital-lbl").classList.remove("dim-btn");
+           console.log("nn");
+           scrollTab();
+    }
+}
+
+
+
+
+    
+    
+  
+
+
 

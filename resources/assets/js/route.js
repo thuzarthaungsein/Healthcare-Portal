@@ -40,18 +40,13 @@ import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
 import comment from './components/Comment.vue';
 
+
 export const routes = [
       {
         name: 'home',
         path: '/',
         component: home
       },
-      // {
-      //   name: 'home',
-      //   path: '/home',
-      //   component: home
-      // },
-
     {
         name: 'newdetails',
         path: '/newsdetails/:id',

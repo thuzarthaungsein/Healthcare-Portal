@@ -146,8 +146,8 @@ class CustomerController extends Controller
                 'model_type'=> 'App\User',
                 'model_id'=> $id,
             );
-             DB::table('model_has_roles')->insert($model_has_roles);
-             \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
+            DB::table('model_has_roles')->insert($model_has_roles);
+            \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
              return response()->json('success');
             
             

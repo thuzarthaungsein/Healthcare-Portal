@@ -26,12 +26,12 @@ class CommentController extends Controller
     {
 
            
-        // $request->validate([
-        //     'title' => 'required|unique:jobs',
-        //     'comment' =>'required',
-        //     'email' => 'required|email|unique:comments',
-        //     'zipcode' => 'required',        
-        // ]);
+        $request->validate([
+            'title' => 'required|unique:comments',
+            'comment' =>'required',
+            'email' => 'required|email|unique:comments',
+                
+        ]);
 
         $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
 
@@ -51,6 +51,14 @@ class CommentController extends Controller
         ]);
         $comment ->save();
         $getComment = Comment::findOrFail($comment->id);
+       
+        if($getComment->gender == 0 )
+        {
+            $getComment->gender = "Male";
+        }
+        else{
+            $getComment->gender = "Female";
+        }
         \Mail::to($getComment)->send(new SendMailComment($getComment));
 
         return response()->json(['success'=>'Done!']);

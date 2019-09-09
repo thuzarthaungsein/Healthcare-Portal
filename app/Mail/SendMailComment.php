@@ -16,6 +16,7 @@ class SendMailComment extends Mailable
      *
      * @return void
      */
+    
     public function __construct($getComment)
     {
         $this->getComment = $getComment;
