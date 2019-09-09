@@ -830,7 +830,7 @@ textarea.form-control, textarea{
 /* End Job Apply Form*/
 /* News Tab */
 .news-wrapper{
-    height: 310px;
+    height: 290px;
     overflow-y: auto;
     scrollbar-width: thin;
 }
