@@ -1,8 +1,8 @@
 <template>
 <div class="row justify-content-md-center">                                
                 <div class="col-12">
-                        <form class="form-inline col-lg-5 form-inline mb-2 pad-free"><input type="search" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" @keyup="searchCategory()"> 
-                                <button type="submit" class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary"><i class="fas fa-search"></i> 検索</button>
+                        <form class="form-inline col-lg-5 form-inline mb-2 pad-free"><input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" > 
+                                <span class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
                         </form>
                         <div class="card">
                                 <div class="card-header tab-card-header">
@@ -20,7 +20,6 @@
 
                                 <div class="tab-content tab-content2" id="myTabContent">
                                         <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
-
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
                                                                 <router-link :to="'/newsdetails/'+latest_post.id">
@@ -42,19 +41,6 @@
                                                                                 </router-link>
                                                                         </li>
                                                                 </ul>
-
-                                                                <ul class="list-group list-group-flush search-item" v-for="post in search_posts" :key="post.id">
-                                                                        <li  class="list-group-item p-t-5 p-b-5" >
-                                                                                 <router-link :to="'/newsdetails/'+ post.id">
-                                                                                
-                                                                                        <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
-                                                                                                <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
-                                                                               
-                                                                                </router-link>
-                                                                        </li>
-                                                                </ul>
-
-
                                                         </div>
                                                 </div>
                                         </div>
@@ -139,8 +125,8 @@ export default {
         },
         created() {
             this.getAllCat();
-            this.getPostByFirstCat();
-            this.getLatestPostByFirstCatID();
+            this.getPostByCatID();
+            this.getLatestPostByCatID();
             this.getLatestPostFromAllCat();
             this.categoryId();
         },
@@ -152,32 +138,51 @@ export default {
                                 this.cats = response.data;
                         });   
                 },
-                getPostByFirstCat: function() {
-                         axios.get("http://localhost:8000/api/posts/1")
+              
+                getPostByCatID: function(catId) {
+                        if($('#search-word').val()) {
+                                var search_word = $('#search-word').val();
+                        } else {
+                                var search_word = '';
+                        }
+                        if(catId) {
+                                var cat_id = catId;
+                        } else {
+                                var cat_id = 1;
+                        }
+                        let fd = new FormData();
+                                fd.append('search_word', search_word)
+                                fd.append('category_id', cat_id)
+                        
+                        $('.search-item').css('display','none');
+                        this.categoryId = cat_id;
+                        axios.post("http://localhost:8000/api/posts/" , fd)
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
-                getPostByCatID: function(cat_id) {
+
+                getLatestPostByCatID: function(catId) {
+                        if($('#search-word').val()) {
+                                var search_word = $('#search-word').val();
+                        } else {
+                                var search_word = '';
+                        }
+                        if(catId){
+                                var cat_id = catId;
+                        } else {
+                                var cat_id = 1;
+                        }
+                        let fd = new FormData();
+                                fd.append('search_word', search_word)
+                                fd.append('category_id', cat_id)
+
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.get("http://localhost:8000/api/posts/" + cat_id)
-                        .then(response => {
-                                this.posts = response.data;
-                        });
-                },
-                getLatestPostByFirstCatID: function() {
-                        axios.get("http://localhost:8000/api/get_latest_post/1")
+                        axios.post("http://localhost:8000/api/get_latest_post/" , fd)
                         .then(response => {
                                 this.latest_post = response.data;
-                        });
-                },
-                getLatestPostByCatID: function(cat_id) {
-                        $('.search-item').css('display','none');
-                        this.categoryId = cat_id;
-                        axios.get("http://localhost:8000/api/get_latest_post/" + cat_id)
-                        .then(response => {
-                                this.latest_post = response.data;
+                               
                         });
                 },
                 getLatestPostFromAllCat: function() {
@@ -202,8 +207,8 @@ export default {
                                 
                         this.axios.post('http://localhost:8000/api/search', fd)
                                 .then(response => {
-                                        $('.all-item').css('display','none');
-                                        this.search_posts = response.data;
+                                        this.posts = response.data;
+                                        this.latest_post = this.posts[0];
                         });
                 }
         }

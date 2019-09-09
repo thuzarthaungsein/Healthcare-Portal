@@ -36,16 +36,38 @@ class HomeController extends Controller
         return view("home");
     }
 
-    public function getPosts($cat_id, Request $request)
+    public function getPosts(Request $request)
     {
+        $request = $request->all();
+        $cat_id = $request['category_id'];
 
-        $posts = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->get();
+        $posts = Post::where("category_id",$cat_id);
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
+            $posts = $posts->where(function($qu) use ($search_word){
+                $qu->where('title', 'LIKE', "%{$search_word}%");
+            });
+        }
+        $posts = $posts->orderBy('created_at', 'desc')->get();
         return response()->json($posts);
     }
 
-    public function getLatestPost($cat_id)
+    public function getLatestPost(Request $request)
     {
-        $latest_post = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->first();
+        // $latest_post = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->first();
+        $request = $request->all();
+        $cat_id = $request['category_id'];
+
+        $latest_post = Post::where("category_id",$cat_id);
+        // $search_word = $request['search_word']; 
+
+        if(isset($request['search_word'])) {
+            $search_word = $request['search_word'];
+            $latest_post = $latest_post->where(function($qu) use ($search_word){
+                $qu->where('title', 'LIKE', "%{$search_word}%");
+            });
+        }
+        $latest_post = $latest_post->orderBy('created_at', 'desc')->first();
         return response()->json($latest_post);
     }
 
