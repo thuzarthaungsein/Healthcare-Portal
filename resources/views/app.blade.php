@@ -48,10 +48,16 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="form-inline my-2 my-lg-0 col-lg-10 container-fluid form-inline">
+    <form class="form-inline my-2 my-lg-0 col-lg-8 container-fluid form-inline">
       <input class="form-control col-lg mr-sm-3 d-flex p-2 form-control pc" type="search" placeholder="検索" aria-label="検索">
       <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary pc" type="submit"><i class="fas fa-search"></i> 検索</button>
     </form>
+    <ul class="navbar-nav mr-auto col-lg-2 pad-free pc">
+    <li class="fav-item fav-color btn all-btn m-r-15"><i class="fa fa-star m-r-5"></i><span class="list">2</span>件<br>検討リスト   
+    </li>
+    <li class="fav-item history-color btn all-btn m-r-20"><i class="fa fa-bookmark m-r-5"></i><span class="list">10</span>件<br>最近見た施設    
+    </li>
+    </ul>
     <ul class="navbar-nav mr-auto col-lg-2 pad-free pc">
     @guest
         <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
@@ -364,12 +370,12 @@
 
       <div class="col-12 col-lg-2 col-md-4">
                 <!--related news-->
-                <div class="card m-b-10 ads-card">
+                <div class="m-b-10 ads-card">
                 <!--ads slider-->
-                <div style="display: block; overflow: hidden;">
-                    <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:167px; overflow: hidden;">
+                <div style="display: block; overflow: hidden;border-radius:0.25rem;">
+                    <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:100%; overflow: hidden;">
                     <!-- Slides Container -->
-                        <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 167px; overflow: hidden;">
+                        <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 100%; overflow: hidden;">
                             <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/> </div>
                             <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/> </div>
                             <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/> </div>

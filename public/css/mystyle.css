@@ -551,25 +551,25 @@ div.scroll2 {
 }
 div.scroll,
 .home-scroll {
-    height: 765px;
+    /* height: 765px;
     float: left;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: thin; */
 }
 .scrolldiv {
     /* height: 550px;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: thin;*/
     background: white;
-    padding-top: 15px; */
+    padding-top: 15px; 
 }
 
 .scrolldiv2 {
-    height: 700px;
+    /* height: 700px;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: thin;*/
     background: white;
-    padding-top: 15px;
+    padding-top: 15px; 
 }
 
 /* End Search News List */
@@ -686,9 +686,12 @@ p {
     color: #000;
 }
 .main-header {
+    position: fixed;
+    width: 83.3%;
+    height: 80px;
     background-color: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
-    /* height: 8vh; */
+    z-index: 99;
     /* margin-left: 100px;
     margin-right: 100px; */
 }
@@ -1174,6 +1177,9 @@ div.b {
 .m-r-5 {
     margin-right: 5px;
 }
+.m-r-20{
+    margin-right: 20px;
+}
 .m-l-14 {
     margin-left: 14px;
 }
@@ -1288,6 +1294,16 @@ div.b {
 .btn.focus, .btn:focus{
     box-shadow: none !important;
 }
+.fav-item{
+    font-size: 12px;
+    padding: 5px;    
+}
+.fav-color{    
+    background-color: #f5807f;    
+}
+.history-color{
+    background-color: #7586c6;
+}
 .card-header {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
@@ -1323,7 +1339,9 @@ li.userprofile-name > a {
 }
 .maintab-content {
     padding: 7px; /*for no scroll*/
+    margin: 85px 0 0 0;
 }
+
 
 .tab-content {
     /* padding: 15px !important; */
@@ -1336,7 +1354,7 @@ li.userprofile-name > a {
     /* max-height: 900px; */
 }
 .tab-content2 {
-    height: 320px !important;
+    /* height: 320px !important; */
 }
 .tab-card-header {
     background-color: #b7dad2 !important;
@@ -1417,13 +1435,16 @@ div.tabs > .card-head-tab > .nav-tabs .nav-item.show .nav-link,
     margin-top: 4px;
 }
 .adminview-sidebar {
-    /* height: 92vh; */
-     background: #b7dad2;
-    /*box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1); */
+    position: fixed;
+    top: 70px;
+    width: 13%;
+    height: 100%;
+    background: #b7dad2;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 .custom-sidebar {
     /* height: 100vh;*/
-    background: #b7dad2; 
+    /* background: #b7dad2;  */
 }
 
 /* profilepublish css start */
@@ -1660,10 +1681,7 @@ ul.main-tab li:after {
     text-align: center;
     line-height: 20px;
     padding: 10px;
-    width: 100%;
-    /* position: fixed; */
-    bottom: 0px;
-    right: 0px;
+    width: 100%; 
 }
 
 /* Hospital Search */
@@ -1874,8 +1892,10 @@ body::-webkit-scrollbar-thumb {
         height: auto;
     }
     .ads-img {
-        float: none;
         display: block;
+        float: none;
+        max-width: 100%;
+        width: auto;
         margin: 0 auto;
     }
     .today .adslist-card .smallads-title {
