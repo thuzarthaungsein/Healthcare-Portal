@@ -6,8 +6,7 @@
                         <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
                                 <li class="breadcrumb-item"><a href="../news/news_details.html"> 新しい詳細</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                                就職活動リスト</li>
+                                <li class="breadcrumb-item active" aria-current="page"> 就職活動リスト</li>
                         </ol>
                 </nav>
         </div>
@@ -18,7 +17,7 @@
                                 <div class="row">
                                         <div class="col-md-3" >
                                                 <img class="col-md-12" v-bind:src="'/images/' + hos_profile.logo" alt="" style="">
-                                                <button class="btn btn-danger all-btn" @click="removeFav(fav)" style="margin-top: 10px;margin-left: 15px;display:block;align:center;width: 200px;">最近見た施設から削除 </button>
+                                                <button class="btn btn-danger all-btn" @click="removeFav(hos_profile.customer_id)" style="margin-top: 10px;margin-left: 15px;display:block;align:center;width: 200px;">最近見た施設から削除 </button>
                                         </div>
                                         <div class="col-md-5">
                                                 <div class="pad-free mb-2 ">
@@ -60,17 +59,9 @@
                 }
             },
             created() {
-                this.local_sto = localStorage.getItem("hospital_fav");
+                    
+                this.local_sto = localStorage.getItem("hospital_fav");                
                 this.getAllFavourite(this.local_sto);
-            },
-            mounted(){
-                    if(localStorage.getItem('hospital_fav')){
-                            try{
-                                    this.fav_hospital = JSON.parse(localStorage.getItem('hospital_fav'));
-                            }catch(e){
-                                    localStorage.removeItem('hospital_fav');
-                            }
-                    }
             },
 
             methods: {
@@ -78,43 +69,22 @@
                     this.axios
                         .post('/api/favHospital/' + local_storage)
                         .then(response => {
-                            console.log(response);
                             this.fav_hospital = response.data;
                            
                         });
                 },
                 removeFav(fav) {
-                if(confirm("Are you sure you want to delete?"))
-                {
-                     this.fav_hospital.splice(fav,1);
-                     
-                     this.saveFav();
-                }
+                        if(confirm("Are you sure you want to delete?"))
+                        {
+                        var splitarray = this.local_sto.split(",");
+                        splitarray = splitarray.splice(fav.toString(),1);
+                        localStorage.setItem('hospital_fav',splitarray);
+                        
+                        }
 
-            },
-            saveFav(){
-                // localStorage.removeItem(fav);
-                const parsed = JSON.stringify(this.fav_hospital);
-                localStorage.setItem('hospital_fav',parsed);
+                },
+            
             }
-            }
-
-        //  methods: {		
-
-        //     deletehospital(id) {
-        //         if(confirm("Are you sure you want to delete?"))
-        //         {
-        //              this.axios
-        //             .delete(`http://localhost:8000/api/hospital/delete/${id}`)
-        //             .then(response => {
-        //                 alert('Delete Successfully!');
-        //                 let i = this.favourite_list.map(item => item.id).indexOf(id); // find index of your object
-        //                 this.favourite_list.splice(i, 1)
-        //             });
-        //         }
-
-        //     }
-        // }
 
     }
 </script>
