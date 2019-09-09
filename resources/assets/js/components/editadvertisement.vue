@@ -2,12 +2,11 @@
      <div class="row">
       <div class="col-12">
           <div class="card">
-              <div class="card-body">
-                <div class="col-md-12">
+              <div class="card-body">             
                     <div class="row">
 
                         <div class="col-md-12">
-                            <h4 class="page-header">Edit Advertisement</h4>
+                            <h4 class="page-header header">Edit Advertisement</h4>
                             <br>
                         </div>
                         <div class="col-md-12">
@@ -22,9 +21,9 @@
                             </div>
                              <div class="form-group" style="display:none" id="showimage">
 
-                                <label for ="photo" ><strong> Photo/Image :</strong>  </label><br/>
+                                <label for ="photo" ><strong>メディア:</strong>  </label><br/>
 
-                                <div class="custom-file col-sm-10">
+                                <div class="custom-file">
                                     <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
                                 </div>
 
@@ -35,27 +34,18 @@
                             <div class="image_show"></div>
                             <div class="form-group image_update" id="x-image">
                                    <div class="col-md-12">
-                                        <div class="row">
-
-                                        </div>
+                                        
                                     </div>
                             </div>
 
-                            <div class="form-group ">
-                                <div class="form-group row">
-                                    <div class="col-1 pad-free">
-                                        <button class="btn news-post-btn">Update</button>
-                                    </div>
-                                    <div class="col-1 pad-free">
-                                        <router-link class="btn btn-warning" to="/ads" > Cancel </router-link>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <router-link to="/ads" class="btn btn-danger all-btn">戻る</router-link>
+                                <button class="btn news-post-btn all-btn">更新</button>                                
                             </div>
                                 </form>
                             </div>
                          </div>
-                    </div>
-                </div>
+                    </div>               
             </div>
           </div>
       </div>

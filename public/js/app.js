@@ -44049,83 +44049,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -44172,92 +44095,114 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
-      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "scrolldiv col-12 border-style" },
+        {
+          staticClass:
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
+          staticStyle: { height: "750px" }
+        },
         [
-          _c("h5", { staticClass: "main-color header" }, [_vm._v("事業者")]),
+          _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
           _vm._v(" "),
-          _vm._l(_vm.customers, function(customer) {
-            return _c(
-              "div",
-              { key: customer.id, staticClass: "card card-default m-b-20" },
-              [
-                _c("div", { staticClass: "card-body news-post" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-2" }, [
-                      _c("img", {
-                        staticClass: "img-fluid",
-                        attrs: { src: "/images/" + customer.logo, alt: "cust" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row col-md-10" }, [
-                      _vm._m(1, true),
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _vm._v(_vm._s(customer.name))
+          _vm._m(0),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h5", { staticClass: "header" }, [_vm._v("事業者")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "scrolldiv col-12",
+              staticStyle: { height: "580px" }
+            },
+            _vm._l(_vm.customers, function(customer) {
+              return _c(
+                "div",
+                { key: customer.id, staticClass: "card card-default m-b-20" },
+                [
+                  _c("div", { staticClass: "card-body news-post" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-2" }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: {
+                            src: "/images/" + customer.logo,
+                            alt: "cust"
+                          }
+                        })
                       ]),
                       _vm._v(" "),
-                      _vm._m(2, true),
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _vm._v(_vm._s(customer.email))
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(3, true),
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _vm._v(_vm._s(customer.phone))
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(4, true),
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _vm._v(_vm._s(customer.address))
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "row col-12 mt-2" }, [
-                        _c("div", { staticClass: "col-4 col-offset-4 pl-3" }, [
+                      _c("div", { staticClass: "row col-md-10" }, [
+                        _vm._m(1, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(customer.name))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(customer.email))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(3, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(customer.phone))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(4, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(customer.address))
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row col-12 mt-2" }, [
                           _c(
-                            "button",
-                            {
-                              staticClass: "btn delete-borderbtn",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteCustomer(customer.id)
-                                }
-                              }
-                            },
-                            [_vm._v("削除")]
-                          ),
-                          _vm._v(" "),
-                          customer.status != 0
-                            ? _c(
-                                "button",
-                                { staticClass: "btn confirm-borderbtn" },
-                                [_vm._v("確認済")]
-                              )
-                            : _c(
+                            "div",
+                            { staticClass: "col-4 col-offset-4 pl-3" },
+                            [
+                              _c(
                                 "button",
                                 {
-                                  staticClass: "btn confirm-borderbtn",
+                                  staticClass: "btn delete-borderbtn",
                                   on: {
                                     click: function($event) {
-                                      return _vm.comfirm(customer.id)
+                                      return _vm.deleteCustomer(customer.id)
                                     }
                                   }
                                 },
-                                [_vm._v("確認")]
-                              )
+                                [_vm._v("削除")]
+                              ),
+                              _vm._v(" "),
+                              customer.status != 0
+                                ? _c(
+                                    "button",
+                                    { staticClass: "btn confirm-borderbtn" },
+                                    [_vm._v("確認済")]
+                                  )
+                                : _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn confirm-borderbtn",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.comfirm(customer.id)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("確認")]
+                                  )
+                            ]
+                          )
                         ])
                       ])
                     ])
                   ])
-                ])
-              ]
-            )
-          })
-        ],
-        2
+                ]
+              )
+            }),
+            0
+          )
+        ]
       )
     ])
   ])
@@ -44267,29 +44212,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-default m-b-20" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-10" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "検索" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-2 text-right" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn secondary-bg-color all-btn white",
-                staticStyle: { width: "100%" }
-              },
-              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-            )
-          ])
-        ])
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "検索" }
+        })
       ])
     ])
   },
@@ -44297,7 +44225,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 max-width12" }, [
+    return _c("div", { staticClass: "col-md-2 max-width13" }, [
       _c("strong", [_vm._v("Name:")])
     ])
   },
@@ -44305,7 +44233,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 max-width12" }, [
+    return _c("div", { staticClass: "col-md-2 max-width13" }, [
       _c("strong", [_vm._v("Email:")])
     ])
   },
@@ -44313,7 +44241,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 max-width12" }, [
+    return _c("div", { staticClass: "col-md-2 max-width13" }, [
       _c("strong", [_vm._v("Phone:")])
     ])
   },
@@ -44321,7 +44249,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 max-width12" }, [
+    return _c("div", { staticClass: "col-md-2 max-width13" }, [
       _c("strong", [_vm._v("Address:")])
     ])
   }
@@ -45527,65 +45455,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45650,7 +45519,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "row m-b-10 m-r-5" }, [
+      _c("div", { staticClass: "row m-b-10" }, [
         _c(
           "div",
           { staticClass: "col-md-12" },
@@ -45682,7 +45551,7 @@ var render = function() {
           _c("h4", { staticClass: "main-color" }, [_vm._v("ニュース検索")]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12 m-b-10" }, [
+            _c("div", { staticClass: "col-md-12" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("div", { staticClass: "col-6 float-left" }, [
                   _c("input", {
@@ -45700,45 +45569,57 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-6 float-right" }, [
-                  _c(
-                    "select",
-                    {
-                      staticClass: "form-control",
-                      attrs: { id: "selectBox" },
-                      on: {
-                        change: function($event) {
-                          return _vm.searchbyCategory()
-                        }
-                      }
-                    },
-                    [
+                _c(
+                  "div",
+                  { staticClass: "col-6 float-right row align-items-baseline" },
+                  [
+                    _c(
+                      "label",
+                      { attrs: { for: "selectBox col-2 col-form-label" } },
+                      [_vm._v("カテゴリー")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-10" }, [
                       _c(
-                        "option",
-                        { attrs: { selected: "selected", value: "" } },
-                        [_vm._v("カテゴリ")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.categories, function(category) {
-                        return _c(
-                          "option",
-                          {
-                            key: category.id,
-                            domProps: { value: category.id }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                        " +
-                                _vm._s(category.name) +
-                                "\n                                    "
+                        "select",
+                        {
+                          staticClass: "form-control",
+                          attrs: { id: "selectBox" },
+                          on: {
+                            change: function($event) {
+                              return _vm.searchbyCategory()
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "option",
+                            { attrs: { selected: "selected", value: "" } },
+                            [_vm._v("全て")]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.categories, function(category) {
+                            return _c(
+                              "option",
+                              {
+                                key: category.id,
+                                domProps: { value: category.id }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(category.name) +
+                                    "\n                                    "
+                                )
+                              ]
                             )
-                          ]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ])
+                          })
+                        ],
+                        2
+                      )
+                    ])
+                  ]
+                )
               ])
             ])
           ]),
@@ -45769,8 +45650,8 @@ var render = function() {
                           ])
                         : _c("div", { staticClass: "col-md-2" }),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-md-7" }, [
-                        _c("div", { staticClass: "pad-free mb-2" }, [
+                      _c("div", { staticClass: "col-md-8" }, [
+                        _c("div", { staticClass: "col-sm-8 pad-free mb-2" }, [
                           _c(
                             "b",
                             [
@@ -46454,16 +46335,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -46516,29 +46387,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "card card-default m-b-20" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h4", { staticClass: "main-color" }, [_vm._v("カテゴ一覧 検索")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-10" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "text", placeholder: "検索", id: "search-item" },
-                on: {
-                  keyup: function($event) {
-                    return _vm.searchCategory()
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row m-b-15 m-r-5" }, [
+      _c("div", { staticClass: "row m-b-10" }, [
         _c(
           "div",
           { staticClass: "col-md-12" },
@@ -46561,35 +46410,55 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col-md-12 scrolldiv border-style" },
+        {
+          staticClass:
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
+          staticStyle: { height: "700px" }
+        },
         [
-          _c("h5", { staticClass: "main-color header" }, [
-            _vm._v("カテゴ一覧")
+          _c("h4", { staticClass: "main-color" }, [_vm._v("カテゴ一覧 検索")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-item" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchCategory()
+                  }
+                }
+              })
+            ])
           ]),
           _vm._v(" "),
-          _vm._l(_vm.categories, function(category) {
-            return _c(
-              "div",
-              { key: category.id, staticClass: "container-fuid" },
-              [
-                _c("div", { staticClass: "card card-default m-b-20" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-10 m-t-8" }, [
-                        _vm._v(
-                          "\n                                " +
-                            _vm._s(category.name) +
-                            "\n                            "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col-md-2 pad-free",
-                          staticStyle: { "margin-top": "8px" }
-                        },
-                        [
+          _c("hr"),
+          _vm._v(" "),
+          _c("h5", { staticClass: "header" }, [_vm._v("カテゴ一覧")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-md-12 scrolldiv",
+              staticStyle: { height: "500px" }
+            },
+            _vm._l(_vm.categories, function(category) {
+              return _c(
+                "div",
+                { key: category.id, staticClass: "container-fuid" },
+                [
+                  _c("div", { staticClass: "card card-default m-b-20" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-10 m-t-8" }, [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(category.name) +
+                              "\n                            "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-2 pad-free" }, [
                           _c(
                             "small",
                             [
@@ -46624,37 +46493,21 @@ var render = function() {
                               [_vm._v(" 削除")]
                             )
                           ])
-                        ]
-                      )
+                        ])
+                      ])
                     ])
                   ])
-                ])
-              ]
-            )
-          })
-        ],
-        2
+                ]
+              )
+            }),
+            0
+          )
+        ]
       )
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 text-right" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn secondary-bg-color all-btn white",
-          staticStyle: { width: "100%" }
-        },
-        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -47003,11 +46856,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47060,29 +46908,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "card m-b-20" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h4", { staticClass: "main-color" }, [_vm._v("施設一覧検索")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-10" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "text", placeholder: "検索", id: "search-item" },
-                on: {
-                  keyup: function($event) {
-                    return _vm.searchFacility()
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row m-b-15 m-r-5" }, [
+      _c("div", { staticClass: "row m-b-15" }, [
         _c(
           "div",
           { staticClass: "col-md-12" },
@@ -47106,89 +46932,102 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col-md-12 scrolldiv border-style" },
+        {
+          staticClass:
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
+          staticStyle: { height: "700px" }
+        },
         [
-          _c("h5", { staticClass: "main-color header" }, [_vm._v("施設一覧")]),
+          _c("h4", { staticClass: "main-color" }, [_vm._v("施設一覧検索")]),
           _vm._v(" "),
-          _vm._l(_vm.facilities, function(facility) {
-            return _c(
-              "div",
-              { key: facility.id, staticClass: "container-fuid" },
-              [
-                _c("div", { staticClass: "card card-default m-b-20" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-10 m-t-8" }, [
-                        _c("p", [
-                          _vm._v(" " + _vm._s(facility.description) + " ")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col-md-2",
-                          staticStyle: { "margin-top": "8px" }
-                        },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "btn edit-borderbtn",
-                              attrs: {
-                                to: {
-                                  name: "editfacility",
-                                  params: { id: facility.id }
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-item" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchFacility()
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h5", { staticClass: "header" }, [_vm._v("施設一覧")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-md-12 scrolldiv",
+              staticStyle: { height: "525px" }
+            },
+            _vm._l(_vm.facilities, function(facility) {
+              return _c(
+                "div",
+                { key: facility.id, staticClass: "container-fuid" },
+                [
+                  _c("div", { staticClass: "card card-default m-b-20" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-10 m-t-8" }, [
+                          _c("p", [
+                            _vm._v(" " + _vm._s(facility.description) + " ")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "col-md-2",
+                            staticStyle: { "margin-top": "8px" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn edit-borderbtn",
+                                attrs: {
+                                  to: {
+                                    name: "editfacility",
+                                    params: { id: facility.id }
+                                  }
                                 }
-                              }
-                            },
-                            [_vm._v("編集")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn delete-borderbtn",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteFacility(facility.id)
+                              },
+                              [_vm._v("編集")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn delete-borderbtn",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteFacility(facility.id)
+                                  }
                                 }
-                              }
-                            },
-                            [_vm._v("削除")]
-                          )
-                        ],
-                        1
-                      )
+                              },
+                              [_vm._v("削除")]
+                            )
+                          ],
+                          1
+                        )
+                      ])
                     ])
                   ])
-                ])
-              ]
-            )
-          })
-        ],
-        2
+                ]
+              )
+            }),
+            0
+          )
+        ]
       )
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn secondary-bg-color all-btn white",
-          staticStyle: { width: "100%" }
-        },
-        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -50742,11 +50581,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -51040,7 +50874,7 @@ var render = function() {
                   [
                     _c("label", {}, [_vm._v("メディア:")]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "custom-file col-sm-10" }, [
+                    _c("div", { staticClass: "custom-file" }, [
                       _c("input", {
                         ref: "file",
                         attrs: { type: "file", accept: "image/*" },
@@ -51049,8 +50883,6 @@ var render = function() {
                     ])
                   ]
                 ),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }),
                 _vm._v(" "),
                 _c("div", { staticClass: "image_show" }),
                 _vm._v(" "),
@@ -51137,11 +50969,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "form-group image_update", attrs: { id: "x-image" } },
-      [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "row" })
-        ])
-      ]
+      [_c("div", { staticClass: "col-md-12" })]
     )
   }
 ]
@@ -54481,14 +54309,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -54545,11 +54365,12 @@ var render = function() {
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-body" }, [
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-10" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12" }, [
               _c(
                 "form",
                 {
-                  staticClass: "m-t-16",
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
@@ -54558,223 +54379,205 @@ var render = function() {
                   }
                 },
                 [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.ads.title,
-                            expression: "ads.title"
-                          }
-                        ],
-                        staticClass: "form-control box",
-                        attrs: { type: "title", id: "title", name: "title" },
-                        domProps: { value: _vm.ads.title },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.ads, "title", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.title
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.title[0]))
-                          ])
-                        : _vm._e()
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "form-group" }, [
                     _vm._m(1),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("textarea", {
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.ads.title,
+                          expression: "ads.title"
+                        }
+                      ],
+                      staticClass: "form-control box",
+                      attrs: { type: "title", id: "title", name: "title" },
+                      domProps: { value: _vm.ads.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.ads, "title", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.title
+                      ? _c("span", { staticClass: "error" }, [
+                          _vm._v(_vm._s(_vm.errors.title[0]))
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.ads.description,
+                          expression: "ads.description"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "description", cols: "50", rows: "5" },
+                      domProps: { value: _vm.ads.description },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.ads, "description", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.description
+                      ? _c("span", { staticClass: "error" }, [
+                          _vm._v(_vm._s(_vm.errors.description[0]))
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(3),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("label", [
+                      _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.ads.description,
-                            expression: "ads.description"
+                            value: _vm.ads.location,
+                            expression: "ads.location"
                           }
                         ],
-                        staticClass: "form-control",
-                        attrs: { name: "description", cols: "50", rows: "5" },
-                        domProps: { value: _vm.ads.description },
+                        attrs: {
+                          type: "checkbox",
+                          value: "topbar",
+                          name: "top_bar"
+                        },
+                        domProps: {
+                          checked: Array.isArray(_vm.ads.location)
+                            ? _vm._i(_vm.ads.location, "topbar") > -1
+                            : _vm.ads.location
+                        },
                         on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          change: function($event) {
+                            var $$a = _vm.ads.location,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = "topbar",
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.ads,
+                                    "location",
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.ads,
+                                    "location",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(_vm.ads, "location", $$c)
                             }
-                            _vm.$set(
-                              _vm.ads,
-                              "description",
-                              $event.target.value
-                            )
                           }
                         }
                       }),
                       _vm._v(" "),
-                      _vm.errors.description
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.description[0]))
-                          ])
-                        : _vm._e()
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _vm._m(2),
+                      _c("strong", [_vm._v("Top Bar ")]),
+                      _vm._v(" (200 円)")
+                    ]),
+                    _c("br"),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("label", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.ads.location,
-                              expression: "ads.location"
-                            }
-                          ],
-                          attrs: {
-                            type: "checkbox",
-                            value: "topbar",
-                            name: "top_bar"
-                          },
-                          domProps: {
-                            checked: Array.isArray(_vm.ads.location)
-                              ? _vm._i(_vm.ads.location, "topbar") > -1
-                              : _vm.ads.location
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.ads.location,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = "topbar",
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.ads,
-                                      "location",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.ads,
-                                      "location",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(_vm.ads, "location", $$c)
-                              }
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Top Bar ")]),
-                        _vm._v(" (200 円)")
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("label", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.ads.location,
-                              expression: "ads.location"
-                            }
-                          ],
-                          attrs: {
-                            type: "checkbox",
-                            value: "sidebar",
-                            name: "side_bar"
-                          },
-                          domProps: {
-                            checked: Array.isArray(_vm.ads.location)
-                              ? _vm._i(_vm.ads.location, "sidebar") > -1
-                              : _vm.ads.location
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.ads.location,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = "sidebar",
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.ads,
-                                      "location",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.ads,
-                                      "location",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(_vm.ads, "location", $$c)
-                              }
-                            }
-                          }
-                        }),
-                        _c("strong", [_vm._v(" Side Bar ")]),
-                        _vm._v("(300 円) ")
-                      ]),
-                      _vm._v(" "),
-                      _vm.errors.location
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.location[0]))
-                          ])
-                        : _vm._e()
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "custom-file col-sm-10" }, [
+                    _c("label", [
                       _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.ads.location,
+                            expression: "ads.location"
+                          }
+                        ],
                         attrs: {
-                          type: "file",
-                          id: "upload",
-                          accept: "image/*"
+                          type: "checkbox",
+                          value: "sidebar",
+                          name: "side_bar"
                         },
-                        on: { change: _vm.uploadImage }
+                        domProps: {
+                          checked: Array.isArray(_vm.ads.location)
+                            ? _vm._i(_vm.ads.location, "sidebar") > -1
+                            : _vm.ads.location
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.ads.location,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = "sidebar",
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.ads,
+                                    "location",
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.ads,
+                                    "location",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(_vm.ads, "location", $$c)
+                            }
+                          }
+                        }
                       }),
-                      _vm._v(" "),
-                      _vm.errors.photo
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.photo[0]))
-                          ])
-                        : _vm._e()
+                      _c("strong", [_vm._v(" Side Bar ")]),
+                      _vm._v("(300 円) ")
                     ]),
                     _vm._v(" "),
-                    _vm._m(4)
+                    _vm.errors.location
+                      ? _c("span", { staticClass: "error" }, [
+                          _vm._v(_vm._s(_vm.errors.location[0]))
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(4),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: { type: "file", id: "upload", accept: "image/*" },
+                      on: { change: _vm.uploadImage }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.photo
+                      ? _c("span", { staticClass: "error" }, [
+                          _vm._v(_vm._s(_vm.errors.photo[0]))
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._m(5)
                   ]),
                   _vm._v(" "),
                   _c(
@@ -54787,13 +54590,16 @@ var render = function() {
                           staticClass: "btn btn-danger all-btn",
                           attrs: { to: "/ads" }
                         },
-                        [_vm._v(" Cancel ")]
+                        [_vm._v(" キャンセル ")]
                       ),
                       _vm._v(" "),
                       _c(
                         "button",
-                        { staticClass: "btn news-post-btn all-btn" },
-                        [_vm._v(" Create ")]
+                        {
+                          staticClass: "btn news-post-btn all-btn",
+                          attrs: { to: "/ads" }
+                        },
+                        [_vm._v("作る")]
                       )
                     ],
                     1
@@ -54812,40 +54618,40 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-2 text-right" }, [
-      _c("label", { attrs: { for: "title" } }, [
-        _c("strong", [_vm._v("Title :")])
-      ])
+    return _c("div", { staticClass: "col-12" }, [
+      _c("h4", { staticClass: "page-header header" }, [_vm._v("広告")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-2 text-right" }, [
-      _c("label", { attrs: { for: "description" } }, [
-        _c("strong", [_vm._v("Description :")])
-      ])
+    return _c("label", { attrs: { for: "title" } }, [
+      _c("strong", [_vm._v("タイトル :")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-2 text-right" }, [
-      _c("label", { attrs: { for: "location" } }, [
-        _c("strong", [_vm._v(" Location :")])
-      ])
+    return _c("label", { attrs: { for: "description" } }, [
+      _c("strong", [_vm._v("描写:")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-2 text-right" }, [
-      _c("label", { attrs: { for: "photo" } }, [
-        _c("strong", [_vm._v(" Photo/Image :")])
-      ])
+    return _c("label", { attrs: { for: "location" } }, [
+      _c("strong", [_vm._v(" ロケーション :")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "photo" } }, [
+      _c("strong", [_vm._v(" メディア :")])
     ])
   },
   function() {
@@ -57689,7 +57495,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57734,9 +57539,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "row m-b-15 m-r-5" }, [
+      _c("div", { staticClass: "row m-b-15" }, [
         _c(
           "div",
           { staticClass: "col-md-12" },
@@ -57760,81 +57563,98 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "scrolldiv col-12 border-style" },
+        {
+          staticClass:
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
+          staticStyle: { height: "700px" }
+        },
         [
-          _c("h5", { staticClass: "main-color header" }, [_vm._v("広告")]),
+          _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
           _vm._v(" "),
-          _vm._l(_vm.advertisements, function(ads) {
-            return _c(
-              "div",
-              { key: ads.id, staticClass: "card card-default m-b-20" },
-              [
-                _c("div", { staticClass: "card-body news-post" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-2" }, [
-                      _c("img", {
-                        staticClass: "img-fluid",
-                        attrs: {
-                          src: "/upload/advertisement/" + ads.photo,
-                          alt: "ads"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row col-md-10" }, [
-                      _vm._m(1, true),
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _vm._v(_vm._s(ads.title))
+          _vm._m(0),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h5", { staticClass: "header" }, [_vm._v("広告")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "scrolldiv col-12",
+              staticStyle: { height: "500px" }
+            },
+            _vm._l(_vm.advertisements, function(ads) {
+              return _c(
+                "div",
+                { key: ads.id, staticClass: "card card-default m-b-20" },
+                [
+                  _c("div", { staticClass: "card-body news-post" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-2" }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: {
+                            src: "/upload/advertisement/" + ads.photo,
+                            alt: "ads"
+                          }
+                        })
                       ]),
                       _vm._v(" "),
-                      _vm._m(2, true),
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _vm._v(_vm._s(ads.description))
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "row col-12 mt-2" }, [
-                        _c(
-                          "div",
-                          { staticClass: "col-4 col-offset-4 pl-3" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn edit-borderbtn",
-                                attrs: {
-                                  to: {
-                                    name: "editadvertisement",
-                                    params: { id: ads.id }
+                      _c("div", { staticClass: "row col-md-10" }, [
+                        _vm._m(1, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(ads.title))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(ads.description))
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row col-12 mt-2" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col-4 col-offset-4 pl-3" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn edit-borderbtn",
+                                  attrs: {
+                                    to: {
+                                      name: "editadvertisement",
+                                      params: { id: ads.id }
+                                    }
                                   }
-                                }
-                              },
-                              [_vm._v("編集")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn delete-borderbtn",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.deleteAds(ads.id)
+                                },
+                                [_vm._v("編集")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn delete-borderbtn",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteAds(ads.id)
+                                    }
                                   }
-                                }
-                              },
-                              [_vm._v("削除")]
-                            )
-                          ],
-                          1
-                        )
+                                },
+                                [_vm._v("削除")]
+                              )
+                            ],
+                            1
+                          )
+                        ])
                       ])
                     ])
                   ])
-                ])
-              ]
-            )
-          })
-        ],
-        2
+                ]
+              )
+            }),
+            0
+          )
+        ]
       )
     ])
   ])
@@ -57844,29 +57664,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-default m-b-20" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-10" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "検索" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-2" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn secondary-bg-color all-btn white",
-                staticStyle: { width: "100%" }
-              },
-              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-            )
-          ])
-        ])
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "検索" }
+        })
       ])
     ])
   },
@@ -58001,16 +57804,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58072,133 +57865,131 @@ var render = function() {
     _c("div", { staticClass: "col-12" }, [
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "row" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.updateAds($event)
-                      }
+          _c("div", { staticClass: "row" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.updateAds($event)
                     }
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.advertisement.title,
-                            expression: "advertisement.title"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", required: "" },
-                        domProps: { value: _vm.advertisement.title },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.advertisement,
-                              "title",
-                              $event.target.value
-                            )
-                          }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.advertisement.title,
+                          expression: "advertisement.title"
                         }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.advertisement.description,
-                            expression: "advertisement.description"
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", required: "" },
+                      domProps: { value: _vm.advertisement.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: _vm.advertisement.description },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.advertisement,
-                              "description",
-                              $event.target.value
-                            )
-                          }
+                          _vm.$set(
+                            _vm.advertisement,
+                            "title",
+                            $event.target.value
+                          )
                         }
-                      })
-                    ]),
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(2),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "form-group",
-                        staticStyle: { display: "none" },
-                        attrs: { id: "showimage" }
-                      },
-                      [
-                        _vm._m(3),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "custom-file col-sm-10" }, [
-                          _c("input", {
-                            ref: "file",
-                            attrs: { type: "file", accept: "image/*" },
-                            on: { change: _vm.fileSelected }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "image_show" }),
-                    _vm._v(" "),
-                    _vm._m(4),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group " }, [
-                      _c("div", { staticClass: "form-group row" }, [
-                        _vm._m(5),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-1 pad-free" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-warning",
-                                attrs: { to: "/ads" }
-                              },
-                              [_vm._v(" Cancel ")]
-                            )
-                          ],
-                          1
-                        )
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.advertisement.description,
+                          expression: "advertisement.description"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.advertisement.description },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.advertisement,
+                            "description",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group",
+                      staticStyle: { display: "none" },
+                      attrs: { id: "showimage" }
+                    },
+                    [
+                      _vm._m(3),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "custom-file" }, [
+                        _c("input", {
+                          ref: "file",
+                          attrs: { type: "file", accept: "image/*" },
+                          on: { change: _vm.fileSelected }
+                        })
                       ])
-                    ])
-                  ]
-                )
-              ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "image_show" }),
+                  _vm._v(" "),
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn btn-danger all-btn",
+                          attrs: { to: "/ads" }
+                        },
+                        [_vm._v("戻る")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        { staticClass: "btn news-post-btn all-btn" },
+                        [_vm._v("更新")]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
             ])
           ])
         ])
@@ -58212,7 +58003,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header" }, [_vm._v("Edit Advertisement")]),
+      _c("h4", { staticClass: "page-header header" }, [
+        _vm._v("Edit Advertisement")
+      ]),
       _vm._v(" "),
       _c("br")
     ])
@@ -58240,7 +58033,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "photo" } }, [
-      _c("strong", [_vm._v(" Photo/Image :")])
+      _c("strong", [_vm._v("メディア:")])
     ])
   },
   function() {
@@ -58250,20 +58043,8 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "form-group image_update", attrs: { id: "x-image" } },
-      [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "row" })
-        ])
-      ]
+      [_c("div", { staticClass: "col-md-12" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1 pad-free" }, [
-      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Update")])
-    ])
   }
 ]
 render._withStripped = true

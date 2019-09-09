@@ -46,6 +46,14 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
+<<<<<<< HEAD
+        if(confirm("Are you sure you want to delete?")){
+            var image_x = document.getElementById('x-image');
+        image_x.parentNode.removeChild(image_x);
+        document.getElementById('showimage').style.display = 'block';
+        console.log("close");
+        }
+=======
         if(confirm("Are you sure you want to delete?"))
         {
             var image_x = document.getElementById('x-image');
@@ -55,6 +63,7 @@ $('path').on("click", function(e) {
         }
 
 
+>>>>>>> f50f6b60bda9fedb228ff15251e546bc6a4283e5
     }
 
     function showImg(c,event) {
