@@ -1879,10 +1879,10 @@ body::-webkit-scrollbar-thumb {
     .today .adslist-card .smallads-title {
         top: 7px;
     }
-    #v-pills-tab li a {
+    /* #v-pills-tab li a {
         display: block;
         padding: 0;
-    }
+    } */
     .sub-title > .ads-title {
         position: unset;
         margin: 10px 0 30px;
