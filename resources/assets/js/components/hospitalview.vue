@@ -1,5 +1,6 @@
 <template>
- <div class="row">
+    <!-- Page Content  -->
+    <div class="row">
         <div class="col-12">
                 <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -12,13 +13,12 @@
         </div>
 
         <div class=" col-12 scrolldiv2">
-                <div v-for="hos_profile in hos_profiles" :key="hos_profile.id" class="card card-default m-b-20 scrolldiv">
+                <div v-for="hos_profile in fav_hospital" :key="hos_profile.id" class="card card-default m-b-20 scrolldiv">
                         <div class="card-body news-post">
                                 <div class="row">
                                         <div class="col-md-3" >
                                                 <img class="col-md-12" v-bind:src="'/images/' + hos_profile.logo" alt="" style="">
-                                                <button class="btn btn-danger all-btn" style="margin-top: 10px;margin-left: 15px;display:block;align:center;width: 200px;">最近見た施設から削除 </button>
-                                                <button class="btn btn-info all-btn" style="margin-top: 10px; margin-left: 15px;width: 200px;">検討リストに追加</button>
+                                                <button class="btn btn-danger all-btn" @click="removeFav(fav)" style="margin-top: 10px;margin-left: 15px;display:block;align:center;width: 200px;">最近見た施設から削除 </button>
                                         </div>
                                         <div class="col-md-5">
                                                 <div class="pad-free mb-2 ">
@@ -45,31 +45,76 @@
                 </div>
         </div>
  </div>
+                
+    <!-- Page Content end  -->
+
 </template>
+
 <script>
-export default {
+    export default {
+
         data() {
-            return {
-                hos_profiles: [],
-                local_sto: '',
-            }
-        },
-        created() {
-                this.local_sto = localStorage.getItem("hospital_history");
-                this.getAllCustomer(this.local_sto);
-                console.log('dkasjf',this.local_sto)
-        },
-        methods: {
-                getAllCustomer: function(local_storage) {
-                     this.axios
-                        .post('/api/hospital_history/' + local_storage)
-                        .then(response => {
-                                this.hos_profiles = response.data;
-                        });
+                return {
+                    fav_hospital: [],
+                    local_sto: '',
                 }
-        }
+            },
+            created() {
+                this.local_sto = localStorage.getItem("hospital_fav");
+                this.getAllFavourite(this.local_sto);
+            },
+            mounted(){
+                    if(localStorage.getItem('hospital_fav')){
+                            try{
+                                    this.fav_hospital = JSON.parse(localStorage.getItem('hospital_fav'));
+                            }catch(e){
+                                    localStorage.removeItem('hospital_fav');
+                            }
+                    }
+            },
 
-        
-}
+            methods: {
+                getAllFavourite: function(local_storage) {
+                    this.axios
+                        .post('/api/favHospital/' + local_storage)
+                        .then(response => {
+                            console.log(response);
+                            this.fav_hospital = response.data;
+                           
+                        });
+                },
+                removeFav(fav) {
+                if(confirm("Are you sure you want to delete?"))
+                {
+                     this.fav_hospital.splice(fav,1);
+                     
+                     this.saveFav();
+                }
 
+            },
+            saveFav(){
+                // localStorage.removeItem(fav);
+                const parsed = JSON.stringify(this.fav_hospital);
+                localStorage.setItem('hospital_fav',parsed);
+            }
+            }
+
+        //  methods: {		
+
+        //     deletehospital(id) {
+        //         if(confirm("Are you sure you want to delete?"))
+        //         {
+        //              this.axios
+        //             .delete(`http://localhost:8000/api/hospital/delete/${id}`)
+        //             .then(response => {
+        //                 alert('Delete Successfully!');
+        //                 let i = this.favourite_list.map(item => item.id).indexOf(id); // find index of your object
+        //                 this.favourite_list.splice(i, 1)
+        //             });
+        //         }
+
+        //     }
+        // }
+
+    }
 </script>

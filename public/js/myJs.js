@@ -61,6 +61,32 @@ $('path').on("click", function(e) {
         $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
     }
 
+    $("select").on("click" , function() {
+  
+        $(this).parent(".select-box").toggleClass("open");
+        
+      });
+      
+      $(document).mouseup(function (e)
+      {
+          var container = $(".select-box");
+      
+          if (container.has(e.target).length === 0)
+          {
+              container.removeClass("open");
+          }
+      });
+      
+      
+      $("select").on("change" , function() {
+        
+        var selection = $(this).find("option:selected").text(),
+            labelFor = $(this).attr("id"),
+            label = $("[for='" + labelFor + "']");
+          
+        label.find(".label-desc").html(selection);
+          
+      });  
     function closevideo() {
         alert('Are you sure to delete?');
         var file = document.getElementById("upload_file").files[0];
@@ -75,6 +101,36 @@ $('path').on("click", function(e) {
                $('#video-area').remove();
             }
         });
-
+        
     }
+/*select check
+
+*/
+$(document).ready(function(){
+    $('.select_all').on('click',function(){
+        if(this.checked){
+            $('.checkbox').each(function(){
+                this.checked = true;
+            });
+        }else{
+             $('.checkbox').each(function(){
+                this.checked = false;
+            });
+        }
+    });
+    
+    $('.checkbox').on('click',function(){
+        if($('.checkbox:checked').length == $('.checkbox').length){
+            $('.select_all').prop('checked',true);
+        }else{
+            $('.select_all').prop('checked',false);
+        }
+    });
+});
+
+/*select check
+
+*/
+
+
 

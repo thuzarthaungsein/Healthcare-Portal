@@ -298,7 +298,7 @@
       <div class="row justify-content-md-center">
         <div class="col-10 tab">
           <!-- vue component -->
-              <router-view></router-view>
+              <router-view  :key="$route.fullPath"></router-view>
 
           <!-- vue component -->
 

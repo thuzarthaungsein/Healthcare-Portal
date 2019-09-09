@@ -816,6 +816,13 @@ p {
     position: relative;
     left: 15px;
 }
+
+.news-post-btn-blue {
+    background-color: #007cdb !important;
+    color: white !important;
+    position: relative;
+    left: 15px;
+}
 /* End Create News */
 
 
@@ -1181,6 +1188,9 @@ div.b{
     margin-top:30px;
 }
 
+.m-t-55 {
+    margin-top:55px;
+}
 .m-b-20 {
     margin-bottom: 20px;
 }
@@ -1220,6 +1230,11 @@ div.b{
 .p-b-5{
     padding-bottom: 5px ;
 }
+.m-r-10{
+    margin-right: 10px;
+}
+
+
 .max-width12{
     max-width:12%;
 }
@@ -1823,6 +1838,24 @@ ul.main-tab li:after{
 
 /*end for jssor*/
 
+/*view*/
+    .m-t-l{
+        margin-left: 85px;
+        font-size: 16px;
+        text-decoration: none;
+        color: black;
+    }
+   .view1{
+    margin-left:42px;
+    letter-spacing: 2px;
+    }
+    .am-l-10
+    {
+        margin-left:20px;
+    }
+/*view*/
+
+
 /* Hospital History */
 .fac_container {
     width: 100%;
@@ -1841,6 +1874,8 @@ ul.main-tab li:after{
     border-radius: 2px;
 }
 /* End for Hospital History */
+<<<<<<< HEAD
+=======
 /* Summernote */
 
 .note-editor .btn-light {
@@ -1853,3 +1888,4 @@ ul.main-tab li:after{
     padding: 5px 0 10px 10px !important;
 }
 /* End Summernote */
+>>>>>>> 13da39896d3c4415b4b8b2984ea2358714330c48
