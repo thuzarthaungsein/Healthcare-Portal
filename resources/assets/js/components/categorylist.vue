@@ -7,7 +7,7 @@
                 </div>               
             </div>        
         <!--card-->
-        <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style" style="height:700px;">
+        <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
             <h4 class="main-color">カテゴ一覧 検索</h4>
             <div class="row">
                 <div class="col-md-12">
@@ -19,7 +19,7 @@
             </div>
             <hr>
             <h5 class="header">カテゴ一覧</h5>
-            <div class="col-md-12 scrolldiv" style="height:500px;">                
+            <div class="col-md-12 scrolldiv">                
                 <div class="container-fuid" v-for="category in categories" :key="category.id">
                     <div class="card card-default m-b-20">
 

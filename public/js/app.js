@@ -44099,8 +44099,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
-          staticStyle: { height: "750px" }
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
         },
         [
           _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
@@ -44113,10 +44112,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "scrolldiv col-12",
-              staticStyle: { height: "580px" }
-            },
+            { staticClass: "scrolldiv col-12" },
             _vm._l(_vm.customers, function(customer) {
               return _c(
                 "div",
@@ -46412,8 +46408,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
-          staticStyle: { height: "700px" }
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
         },
         [
           _c("h4", { staticClass: "main-color" }, [_vm._v("カテゴ一覧 検索")]),
@@ -46438,10 +46433,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "col-md-12 scrolldiv",
-              staticStyle: { height: "500px" }
-            },
+            { staticClass: "col-md-12 scrolldiv" },
             _vm._l(_vm.categories, function(category) {
               return _c(
                 "div",
@@ -46934,8 +46926,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
-          staticStyle: { height: "700px" }
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
         },
         [
           _c("h4", { staticClass: "main-color" }, [_vm._v("施設一覧検索")]),
@@ -46960,10 +46951,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "col-md-12 scrolldiv",
-              staticStyle: { height: "525px" }
-            },
+            { staticClass: "col-md-12 scrolldiv" },
             _vm._l(_vm.facilities, function(facility) {
               return _c(
                 "div",
@@ -57565,8 +57553,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
-          staticStyle: { height: "700px" }
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
         },
         [
           _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
@@ -57579,10 +57566,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "scrolldiv col-12",
-              staticStyle: { height: "500px" }
-            },
+            { staticClass: "scrolldiv col-12" },
             _vm._l(_vm.advertisements, function(ads) {
               return _c(
                 "div",

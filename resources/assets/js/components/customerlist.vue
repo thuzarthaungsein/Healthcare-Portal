@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div> -->      
-        <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style" style="height:750px;">
+        <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <h4 class="main-color">事業者検索</h4>
         <div class="row">
             <div class="col-md-12">
@@ -26,7 +26,7 @@
         </div>
         <hr>
         <h5 class="header">事業者</h5>
-        <div class="scrolldiv col-12" style="height:580px;">           
+        <div class="scrolldiv col-12">           
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
                 <div class="card-body news-post">
                     <div class="row">
