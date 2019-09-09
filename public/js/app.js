@@ -57105,10 +57105,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  {
-                    staticClass:
-                      "col-6 form-group float-right row align-items-baseline"
-                  },
+                  { staticClass: "col-6 float-right row align-items-baseline" },
                   [
                     _c(
                       "label",
@@ -62121,11 +62118,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62419,7 +62411,7 @@ var render = function() {
                   [
                     _c("label", {}, [_vm._v("メディア:")]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "custom-file col-sm-10" }, [
+                    _c("div", { staticClass: "custom-file" }, [
                       _c("input", {
                         ref: "file",
                         attrs: { type: "file", accept: "image/*" },
@@ -62428,8 +62420,6 @@ var render = function() {
                     ])
                   ]
                 ),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }),
                 _vm._v(" "),
                 _c("div", { staticClass: "image_show" }),
                 _vm._v(" "),
@@ -62516,11 +62506,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "form-group image_update", attrs: { id: "x-image" } },
-      [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "row" })
-        ])
-      ]
+      [_c("div", { staticClass: "col-md-12" })]
     )
   }
 ]
@@ -66163,7 +66149,7 @@ var render = function() {
                           staticClass: "btn btn-danger all-btn",
                           attrs: { to: "/ads" }
                         },
-                        [_vm._v(" Cancel ")]
+                        [_vm._v(" キャンセル ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -66172,7 +66158,7 @@ var render = function() {
                           staticClass: "btn news-post-btn all-btn",
                           attrs: { to: "/ads" }
                         },
-                        [_vm._v(" create ")]
+                        [_vm._v("作る")]
                       )
                     ],
                     1
@@ -66208,7 +66194,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "description" } }, [
-      _c("strong", [_vm._v("Description :")])
+      _c("strong", [_vm._v("描写:")])
     ])
   },
   function() {
@@ -66216,7 +66202,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "location" } }, [
-      _c("strong", [_vm._v(" Location :")])
+      _c("strong", [_vm._v(" ロケーション :")])
     ])
   },
   function() {
@@ -66224,7 +66210,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "photo" } }, [
-      _c("strong", [_vm._v(" Photo/Image :")])
+      _c("strong", [_vm._v(" メディア :")])
     ])
   },
   function() {
@@ -68801,7 +68787,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -68846,9 +68831,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "row m-b-15 m-r-5" }, [
+      _c("div", { staticClass: "row m-b-15" }, [
         _c(
           "div",
           { staticClass: "col-md-12" },
@@ -68872,81 +68855,98 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "scrolldiv col-12 border-style" },
+        {
+          staticClass:
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
+          staticStyle: { height: "700px" }
+        },
         [
-          _c("h5", { staticClass: "main-color header" }, [_vm._v("広告")]),
+          _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
           _vm._v(" "),
-          _vm._l(_vm.advertisements, function(ads) {
-            return _c(
-              "div",
-              { key: ads.id, staticClass: "card card-default m-b-20" },
-              [
-                _c("div", { staticClass: "card-body news-post" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-2" }, [
-                      _c("img", {
-                        staticClass: "img-fluid",
-                        attrs: {
-                          src: "/upload/advertisement/" + ads.photo,
-                          alt: "ads"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row col-md-10" }, [
-                      _vm._m(1, true),
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _vm._v(_vm._s(ads.title))
+          _vm._m(0),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h5", { staticClass: "header" }, [_vm._v("広告")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "scrolldiv col-12",
+              staticStyle: { height: "500px" }
+            },
+            _vm._l(_vm.advertisements, function(ads) {
+              return _c(
+                "div",
+                { key: ads.id, staticClass: "card card-default m-b-20" },
+                [
+                  _c("div", { staticClass: "card-body news-post" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-2" }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: {
+                            src: "/upload/advertisement/" + ads.photo,
+                            alt: "ads"
+                          }
+                        })
                       ]),
                       _vm._v(" "),
-                      _vm._m(2, true),
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _vm._v(_vm._s(ads.description))
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "row col-12 mt-2" }, [
-                        _c(
-                          "div",
-                          { staticClass: "col-4 col-offset-4 pl-3" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn edit-borderbtn",
-                                attrs: {
-                                  to: {
-                                    name: "editadvertisement",
-                                    params: { id: ads.id }
+                      _c("div", { staticClass: "row col-md-10" }, [
+                        _vm._m(1, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(ads.title))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(ads.description))
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row col-12 mt-2" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col-4 col-offset-4 pl-3" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn edit-borderbtn",
+                                  attrs: {
+                                    to: {
+                                      name: "editadvertisement",
+                                      params: { id: ads.id }
+                                    }
                                   }
-                                }
-                              },
-                              [_vm._v("編集")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn delete-borderbtn",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.deleteAds(ads.id)
+                                },
+                                [_vm._v("編集")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn delete-borderbtn",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteAds(ads.id)
+                                    }
                                   }
-                                }
-                              },
-                              [_vm._v("削除")]
-                            )
-                          ],
-                          1
-                        )
+                                },
+                                [_vm._v("削除")]
+                              )
+                            ],
+                            1
+                          )
+                        ])
                       ])
                     ])
                   ])
-                ])
-              ]
-            )
-          })
-        ],
-        2
+                ]
+              )
+            }),
+            0
+          )
+        ]
       )
     ])
   ])
@@ -68956,29 +68956,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-default m-b-20" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-10" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "検索" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-2" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn secondary-bg-color all-btn white",
-                staticStyle: { width: "100%" }
-              },
-              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-            )
-          ])
-        ])
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "検索" }
+        })
       ])
     ])
   },
@@ -69113,16 +69096,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -69184,133 +69157,131 @@ var render = function() {
     _c("div", { staticClass: "col-12" }, [
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "row" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.updateAds($event)
-                      }
+          _c("div", { staticClass: "row" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.updateAds($event)
                     }
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.advertisement.title,
-                            expression: "advertisement.title"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", required: "" },
-                        domProps: { value: _vm.advertisement.title },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.advertisement,
-                              "title",
-                              $event.target.value
-                            )
-                          }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.advertisement.title,
+                          expression: "advertisement.title"
                         }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.advertisement.description,
-                            expression: "advertisement.description"
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", required: "" },
+                      domProps: { value: _vm.advertisement.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: _vm.advertisement.description },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.advertisement,
-                              "description",
-                              $event.target.value
-                            )
-                          }
+                          _vm.$set(
+                            _vm.advertisement,
+                            "title",
+                            $event.target.value
+                          )
                         }
-                      })
-                    ]),
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(2),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "form-group",
-                        staticStyle: { display: "none" },
-                        attrs: { id: "showimage" }
-                      },
-                      [
-                        _vm._m(3),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "custom-file col-sm-10" }, [
-                          _c("input", {
-                            ref: "file",
-                            attrs: { type: "file", accept: "image/*" },
-                            on: { change: _vm.fileSelected }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "image_show" }),
-                    _vm._v(" "),
-                    _vm._m(4),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group " }, [
-                      _c("div", { staticClass: "form-group row" }, [
-                        _vm._m(5),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-1 pad-free" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-warning",
-                                attrs: { to: "/ads" }
-                              },
-                              [_vm._v(" Cancel ")]
-                            )
-                          ],
-                          1
-                        )
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.advertisement.description,
+                          expression: "advertisement.description"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.advertisement.description },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.advertisement,
+                            "description",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group",
+                      staticStyle: { display: "none" },
+                      attrs: { id: "showimage" }
+                    },
+                    [
+                      _vm._m(3),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "custom-file" }, [
+                        _c("input", {
+                          ref: "file",
+                          attrs: { type: "file", accept: "image/*" },
+                          on: { change: _vm.fileSelected }
+                        })
                       ])
-                    ])
-                  ]
-                )
-              ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "image_show" }),
+                  _vm._v(" "),
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn btn-danger all-btn",
+                          attrs: { to: "/ads" }
+                        },
+                        [_vm._v("戻る")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        { staticClass: "btn news-post-btn all-btn" },
+                        [_vm._v("更新")]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
             ])
           ])
         ])
@@ -69324,7 +69295,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header" }, [_vm._v("Edit Advertisement")]),
+      _c("h4", { staticClass: "page-header header" }, [
+        _vm._v("Edit Advertisement")
+      ]),
       _vm._v(" "),
       _c("br")
     ])
@@ -69352,7 +69325,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "photo" } }, [
-      _c("strong", [_vm._v(" Photo/Image :")])
+      _c("strong", [_vm._v("メディア:")])
     ])
   },
   function() {
@@ -69362,20 +69335,8 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "form-group image_update", attrs: { id: "x-image" } },
-      [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "row" })
-        ])
-      ]
+      [_c("div", { staticClass: "col-md-12" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1 pad-free" }, [
-      _c("button", { staticClass: "btn news-post-btn" }, [_vm._v("Update")])
-    ])
   }
 ]
 render._withStripped = true

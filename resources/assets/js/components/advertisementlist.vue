@@ -1,28 +1,26 @@
 
 <template>
    <div class="row">
-       <div class="col-12">
-           <div class="card card-default m-b-20">
-
-            <div class="card-body">
-                    <h4 class="main-color"> 広告検索</h4>
-                    <div class="row">
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="検索">
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
-                        </div>
-                    </div>
+       <div class="col-12">           
+        <div class="row m-b-15">
+            <div class="col-md-12">
+            <router-link to="/advertisement" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle"></i> 広告を作成する</router-link>
             </div>
         </div>
-    <div class="row m-b-15 m-r-5">
-        <div class="col-md-12">
-        <router-link to="/advertisement" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle"></i> 広告を作成する</router-link>
+    
+    <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style" style="height:700px;">
+    <h4 class="main-color"> 広告検索</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="検索">
+            </div>
+            <!-- <div class="col-md-2">
+                <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
+            </div> -->
         </div>
-    </div>
-    <div class="scrolldiv col-12 border-style">
-        <h5 class="main-color header">広告</h5>
+    <hr>
+    <h5 class="header">広告</h5>
+    <div class="scrolldiv col-12" style="height:500px;">       
             <div v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
             <div class="card-body news-post">
                  <div class="row">
@@ -47,6 +45,7 @@
             </div>
         </div>
     </div>
+    </div>    
    </div>
    </div>
 </template>

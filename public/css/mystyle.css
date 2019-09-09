@@ -1306,6 +1306,9 @@ div.b{
     font-weight: bold;
     text-decoration: underline;
 }
+.invalid-feedback{
+    font-size: 75%;
+}
 .btn.focus, .btn:focus{
     box-shadow: none !important;
 }

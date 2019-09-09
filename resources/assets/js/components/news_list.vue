@@ -19,7 +19,7 @@
                                 <div class="col-6 float-left">
                                      <input type="text" class="form-control" placeholder="検索" id="search-item"  @keyup="searchbyCategory()">
                                 </div>
-                                <div class="col-6 form-group float-right row align-items-baseline">
+                                <div class="col-6 float-right row align-items-baseline">
                                     <label for="selectBox col-2 col-form-label">カテゴリー</label> 
                                     <div class="col-10">
                                         <select class="form-control" id="selectBox" @change="searchbyCategory()" >
