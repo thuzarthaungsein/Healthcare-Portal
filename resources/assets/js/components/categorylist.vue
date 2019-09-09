@@ -62,9 +62,9 @@ export default {
     },
      created() {
             this.axios
-                .get('/api/category/categories')
+                .get('/api/user')
                 .then(response => {
-                    this.categories = response.data;
+                    console.log(response)
                 });
         },
         methods: {

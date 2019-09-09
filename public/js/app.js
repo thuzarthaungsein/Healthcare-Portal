@@ -47188,35 +47188,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     created: function created() {
-        var _this = this;
-
-        this.axios.get('/api/category/categories').then(function (response) {
-            _this.categories = response.data;
+        this.axios.get('/api/user').then(function (response) {
+            console.log(response);
         });
     },
 
     methods: {
         deleteCategory: function deleteCategory(id) {
-            var _this2 = this;
+            var _this = this;
 
             if (confirm("Are you sure you want to delete?")) {
                 this.axios.delete('/api/category/delete/' + id).then(function (response) {
                     alert('Delete Successfully!');
-                    var i = _this2.categories.map(function (item) {
+                    var i = _this.categories.map(function (item) {
                         return item.id;
                     }).indexOf(id); // find index of your object
-                    _this2.categories.splice(i, 1);
+                    _this.categories.splice(i, 1);
                 });
             }
         },
         searchCategory: function searchCategory() {
-            var _this3 = this;
+            var _this2 = this;
 
             var search_word = $('#search-item').val();
             var fd = new FormData();
             fd.append('search_word', search_word);
             this.axios.post('/api/category/search', fd).then(function (response) {
-                _this3.categories = response.data;
+                _this2.categories = response.data;
             });
         }
     }
