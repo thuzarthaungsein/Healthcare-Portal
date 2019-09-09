@@ -1,3 +1,5 @@
+
+
 var timeout;
 $(".path").hover(
   function() {
@@ -32,7 +34,6 @@ $('path').on("click", function(e) {
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
-     console.log(e);
     var url = "/api/getmap";
     $.ajax({
         type:'post',

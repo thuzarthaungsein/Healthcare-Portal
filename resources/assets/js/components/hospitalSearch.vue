@@ -85,7 +85,6 @@ export default {
           }
       },
       created(){
-            console.log("I'm a littel teapot");
              axios.get('http://localhost:8000/api/category/category_list')
               .then(function (response) {
 

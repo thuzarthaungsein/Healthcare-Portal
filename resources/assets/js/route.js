@@ -44,19 +44,19 @@ import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
 import favouriteBtn from './components/favouriteBtn.vue';
 import comment from './components/Comment.vue';
-
+import passport from './components/passport.vue';
 export const routes = [
       {
         name: 'home',
         path: '/',
         component: home
       },
-      // {
-      //   name: 'home',
-      //   path: '/home',
-      //   component: home
-      // },
- 
+      {
+        name: 'passport',
+        path: '/passport',
+        component: passport
+      },
+
     {
         name: 'newdetails',
         path: '/newsdetails/:id',
