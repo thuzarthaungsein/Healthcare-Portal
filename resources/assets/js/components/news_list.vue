@@ -2,7 +2,7 @@
     <!-- Page Content  -->
     <div class="row">
         <div class="col-12">            
-            <div class="row m-b-10 m-r-5">
+            <div class="row m-b-10">
                 <div class="col-md-12">
                     <router-link to="/create_news" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle"></i> 新しい投稿を作成</router-link>
                 </div>
@@ -19,20 +19,23 @@
                                 <div class="col-6 float-left">
                                      <input type="text" class="form-control" placeholder="検索" id="search-item"  @keyup="searchbyCategory()">
                                 </div>
-                                <div class="col-6 float-right">                                   
-                                    <select class="form-control" id="selectBox" @change="searchbyCategory()" >
-                                        <option selected="selected" value="">カテゴリ</option> 
+                                <div class="col-6 form-group float-right row align-items-baseline">
+                                    <label for="selectBox col-2 col-form-label">カテゴリー</label> 
+                                    <div class="col-10">
+                                        <select class="form-control" id="selectBox" @change="searchbyCategory()" >
+                                        <option selected="selected" value="">全て</option> 
                                         <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                             {{category.name}}
                                         </option>
                                     </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 <hr>
                 <h5 class="header">ニュース一覧</h5>
-                <div class="col-12 scrolldiv">
+                <div class="col-12 scrolldiv" style="height:500px;">
                     <div v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
