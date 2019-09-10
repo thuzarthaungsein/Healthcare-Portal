@@ -1,6 +1,6 @@
 <template>
-<div class="row">
-    <div class="col-12">
+<div class="row">     
+    <!-- <div class="col-12"> -->
          <!-- <div class="card card-default m-b-20">
             <div class="card-body">
                 <h4 class="main-color">事業者検索</h4>
@@ -12,9 +12,27 @@
                         <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
                     </div>
                 </div>
+        </div>
+
+        </div>
+    </div> -->
+    <div class="col-12">
+
+            <div class="card card-default m-b-20">
+
+            <div class="card-body">
+                    <h4 class="main-color">事業者検索</h4>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="検索" id="search-word" @keyup="searchCustomer()">
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
+                        </div>
+                    </div>
             </div>
-        </div> -->
-        <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style" style="height:750px;">
+        </div> -->      
+        <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <h4 class="main-color">事業者検索</h4>
         <div class="row">
             <div class="col-md-12">
@@ -26,7 +44,7 @@
         </div>
         <hr>
         <h5 class="header">事業者</h5>
-        <div class="scrolldiv col-12" style="height:580px;">
+        <div class="scrolldiv col-12">           
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
                 <div class="card-body news-post">
                     <div class="row">
@@ -94,7 +112,18 @@ export default {
                     flash('Successfully Send Mail.', 'success');
                     console.log(response.data);
                 })
+            },
+
+            searchCustomer() {
+                var search_word = $('#search-word').val();
+                let fd = new FormData();
+                    fd.append('search_word', search_word)
+                this.axios.post('http://localhost:8000/api/customer/search', fd)
+                    .then(response => {
+                        this.customers = response.data;
+                });
             }
         }
 }
 </script>
+ 

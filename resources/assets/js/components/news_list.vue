@@ -8,8 +8,8 @@
                 </div>
                 <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
             </div>
-            <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style" style="height:700px;">
-                 <h4 class="main-color">ニュース検索</h4>
+            <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">                
+                 <h4 class="main-color">ニュース検索</h4>                 
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -19,8 +19,8 @@
                                 <div class="col-6 float-left">
                                      <input type="text" class="form-control" placeholder="検索" id="search-item"  @keyup="searchbyCategory()">
                                 </div>
-                                <div class="col-6 form-group float-right row align-items-baseline">
-                                    <label for="selectBox col-2 col-form-label">カテゴリー</label>
+                                <div class="col-6 float-right row align-items-baseline">
+                                    <label for="selectBox col-2 col-form-label">カテゴリー</label> 
                                     <div class="col-10">
                                         <select class="form-control" id="selectBox" @change="searchbyCategory()" >
                                         <option selected="selected" value="">全て</option>
@@ -35,7 +35,7 @@
                     </div>
                 <hr>
                 <h5 class="header">ニュース一覧</h5>
-                <div class="col-12 scrolldiv" style="height:500px;">
+                <div class="col-12 scrolldiv">
                     <div v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
@@ -48,7 +48,7 @@
                                 <div class="col-sm-8 pad-free mb-2"><b>
                                     <router-link :to="{name: 'newdetails', params:{id:newsList.id}}" class="mr-auto">{{newsList.title}}</router-link>
                                     <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
-                                    <!-- <a href="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
+                                    <!-- <a hrဖef="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
                                     </b></div>
                                 <p>{{newsList.main_point}}</p>
                             </div>
@@ -60,7 +60,6 @@
                     </div>
                 </div>
                 </div>
-
 
             </div>
         </div>

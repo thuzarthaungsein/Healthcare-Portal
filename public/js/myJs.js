@@ -1,7 +1,4 @@
 
-
-<<<<<<< HEAD
-=======
 var timeout;
 $(".path").hover(
   function() {
@@ -29,11 +26,10 @@ if(ios) {
   });
 }
 
->>>>>>> 9dfb9f295b26286be3deba9e2967d523d2752724
-
 $('path').on("click", function(e) {
     e.preventDefault();
-    $('path.selected').attr("class", "");
+    
+    $('.path.selected').attr("class", "");
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
@@ -94,7 +90,6 @@ $('path').on("click", function(e) {
     }
 
     function closebtn(){
-
         if(confirm("Are you sure you want to delete?"))
         {
             var image_x = document.getElementById('x-image');
@@ -147,12 +142,7 @@ $('path').on("click", function(e) {
             success:function(data){
                $('#video-area').remove();
             }
-<<<<<<< HEAD
         });    
-=======
-        });
-        
->>>>>>> 9dfb9f295b26286be3deba9e2967d523d2752724
     }
 /*select check
 

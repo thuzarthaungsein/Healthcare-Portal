@@ -52,7 +52,7 @@ class CategoryController extends Controller
     {
        
         $category_list = Category::select('id','name')->get()->toArray(); 
-        return $category_list;
+        return response()->json($category_list);
 
     }
 
@@ -111,7 +111,8 @@ class CategoryController extends Controller
         $search_word = $request['search_word'];
         
         $search_categories = Category::query()
-                            ->where('name', 'LIKE', "%{$search_word}%") 
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
                             ->get()
                             ->toArray();
         return $search_categories;

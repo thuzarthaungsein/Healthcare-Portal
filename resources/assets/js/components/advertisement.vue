@@ -18,22 +18,22 @@
 
                                     </div>
                                     <div class="form-group">
-
-                                            <label for="description"><strong>Description :</strong></label>
-
+                                        
+                                            <label for="description"><strong>描写:</strong></label>
+                                       
                                             <textarea name="description" class="form-control" cols="50" rows="5" v-model="ads.description"></textarea>
                                             <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
 
                                     </div>
                                     <div class="form-group">
-                                        <label for ="location" ><strong> Location :</strong>  </label><br>
-
+                                        <label for ="location" ><strong> ロケーション :</strong>  </label><br>
+                                       
                                             <label> <input type = "checkbox" value ="topbar"  name="top_bar" v-model="ads.location" > <strong>Top Bar </strong> (200 円)</label><br/>
                                             <label> <input type = "checkbox"  value ="sidebar"  name="side_bar" v-model="ads.location"><strong> Side Bar </strong>(300 円) </label>
                                             <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
                                     </div>
-                                    <div class="form-group">
-                                        <label for ="photo" ><strong> Photo/Image :</strong>  </label><br>
+                                    <div class="form-group">                                        
+                                        <label for ="photo" ><strong> メディア :</strong>  </label><br>
                                         <input type="file" id="upload" accept="image/*" @change ="uploadImage" >
                                         <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span>
                                             <!-- <label class="" for="file">No file chosen</label> -->
@@ -41,9 +41,9 @@
                                             <div class="row image_preview" ></div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <router-link class="btn btn-danger all-btn" to="/ads" > Cancel </router-link>
-                                        <button class="btn news-post-btn all-btn" to="/ads" > create </button>
+                                    <div class="form-group">                                       
+                                        <router-link class="btn btn-danger all-btn" to="/ads" > キャンセル </router-link>
+                                        <button class="btn news-post-btn all-btn" to="/ads" >作る</button>                                            
                                     </div>
                                     </form>
                                 </div>

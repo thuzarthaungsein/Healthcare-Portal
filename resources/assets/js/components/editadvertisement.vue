@@ -2,80 +2,61 @@
      <div class="row">
       <div class="col-12">
           <div class="card">
-              <div class="card-body">
-                <div class="col-md-12">
+              <div class="card-body">             
                     <div class="row">
 
                         <div class="col-md-12">
-                            <h4 class="page-header">Edit Advertisement</h4>
+                            <h4 class="page-header header">Edit Advertisement</h4>
                             <br>
                         </div>
                         <div class="col-md-12">
                              <form @submit.prevent="updateAds">
                             <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                    <label for="title"><strong>Title :</strong></label>
-                                                </div>
-                                                <div class="col-sm-10">
-                                                     <input type="title" class="form-control box" id="title"  name="title" v-model="advertisement.title" required>
-                                                      <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-2 text-right">
-                                                    <label for="description"><strong>Description :</strong></label>
-                                                </div>
-                                                <div class="col-sm-10">
-                                                    <textarea name="description" class="form-control" cols="50" rows="5" v-model="advertisement.description"></textarea>
-
-                                                </div>
-                                            </div>
+                                <div class="col-sm-2 text-right">
+                                    <label for="title"><strong>Title :</strong></label>
+                                </div>
+                                <div class="col-sm-10">
+                                        <input type="title" class="form-control box" id="title"  name="title" v-model="advertisement.title" required>
+                                        <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
+                                </div>
+                            </div>
                             <div class="form-group row">
-                                    <div class="col-sm-2 text-right">
-                                                        <label for ="location" ><strong> Location :</strong>  </label>
-                                    </div>
-                                    <div class="col-sm-9" v-for="advertisements in advertisement.location" :key="advertisements.id">
-                                                  <label> <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (200 円)</label><br/>
-                                                  <label> <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(300 円) </label>
-                                                    <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
-                                    </div>
+                                <div class="col-sm-2 text-right">
+                                    <label for="description"><strong>Description :</strong></label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <textarea name="description" class="form-control" cols="50" rows="5" v-model="advertisement.description"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-2 text-right">
+                                    <label for ="location" ><strong> Location :</strong>  </label>
+                                </div>
+                                <div class="col-sm-9" v-for="advertisements in advertisement.location" :key="advertisements.id">
+                                    <label> <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (200 円)</label><br/>
+                                    <label> <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(300 円) </label>
+                                    <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+                                </div>
                             </div>
                              <div class="form-group" style="display:none" id="showimage">
+                                <label for ="photo" ><strong>メディア:</strong>  </label><br/>
 
-                                <label for ="photo" ><strong> Photo/Image :</strong>  </label><br/>
-
-                                <div class="custom-file col-sm-10">
+                                <div class="custom-file">
                                     <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
                                 </div>
-
-                            </div>
-                            <div class="form-group">
-
                             </div>
                             <div class="image_show"></div>
-                            <div class="form-group image_update" id="x-image">
-                                   <div class="col-md-12">
-                                        <div class="row">
+                            <div class="form-group image_update" id="x-image"> </div>
 
-                                        </div>
-                                    </div>
-                            </div>
-
-                            <div class="form-group ">
-                                <div class="form-group row">
-                                    <div class="col-1 pad-free">
-                                        <button class="btn news-post-btn" >Update</button>
-                                    </div>
-                                    <div class="col-1 pad-free">
-                                        <router-link class="btn btn-warning" to="/ads" > Cancel </router-link>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <router-link to="/ads" class="btn btn-danger all-btn">戻る</router-link>
+                                <button class="btn news-post-btn all-btn">更新</button>                                
                             </div>
                                 </form>
                             </div>
                          </div>
-                    </div>
-                </div>
+                    </div>               
             </div>
           </div>
       </div>

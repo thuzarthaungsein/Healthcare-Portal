@@ -1,5 +1,5 @@
 <template>
- <div class="row">
+   <div class="row">
      <div class="col-12">
          <div class="row m-b-15">
             <div class="col-md-12">
@@ -19,24 +19,49 @@
             <div class="container-fuid" v-for="comment in comments" :key="comment.id">
                 <div class="card card-default m-b-20">
                     <div class="card-body">
-                            <div class=" row col-md-10 ">
-                                <div class="col-md-2 max-width16"><strong>Title :</strong></div><div class="col-md-10">{{comment.title}}</div>
-                                <div class="col-md-2 max-width16"><strong>Comment :</strong></div><div class="col-md-10">{{comment.comment}}</div>
-                                <div class="col-md-2 max-width16"><strong>Email :</strong></div><div class="col-md-10">{{comment.email}}</div>
-                                <div class="col-md-2 max-width16"><strong>Name :</strong></div><div class="col-md-10">{{comment.name}}</div>
-                            <div class="row col-12 mt-2">
-                                <div class="col-4 col-offset-4 pl-3">
-                                 <!-- <router-link  :to="{name: '/', params: { id: comment.id }}" class="btn confirm-borderbtn">Confirm</router-link> -->
-                                  <button class="btn confirm-borderbtn" v-if="comment.status != 0">Confirmed</button>
-                                <router-link to='/comment'  class="btn confirm-borderbtn" v-else @click="commentcomfirm(comment.id)">View</router-link>
-                                <button class="btn delete-borderbtn" @click="deleteComment(comment.id)" >Delete</button>
+                            <div class=" row">
+                                <div class="col-md-8 m-t-8">
+                                    <strong>Title :</strong> {{comment.title}}
+                                </div>
+                                <div class="col-md-4" style="margin-top: 8px;">
+                                    <button class="btn edit-borderbtn" type="button" data-toggle="collapse" :data-target="'#showDetails' + comment.id" >View</button>
+                                    <!-- <button class="btn edit-borderbtn" @click="show(comment.id)">View</button> -->
+                                    <span v-if="comment.status != 0">Confirm</span>
+                                    <button class="btn confirm-borderbtn" v-else @click="commentConfirm(comment.id)">Confirm</button>
+                                    <button class="btn delete-borderbtn" @click="deleteComment(comment.id)" >Delete</button>
 
+                                </div>
                             </div>
                         </div>
-                            </div>
-                        </div>
-
                     </div>
+                         <div class="collapse card-body" :id="'showDetails' + comment.id">
+                                <!-- <div class="col-md-10 m-t-8 "><strong>Title :</strong>{{comment.title}}</div>
+                                <div class="col-md-12  "><strong>Comment :</strong>{{comment.comment}}</div>
+                                <div class="col-md-10 m-t-8 "><strong>Email :</strong>{{comment.email}}</div>
+                                <div class="col-md-10 m-t-8"><strong>Name :</strong>{{comment.name}}</div> -->
+                                <table class="table table-striped table-bordered">
+                                                <tr>
+                                                        <td style="width:30%">Title : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{comment.title}}</div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:30%">Comment :</td>
+                                                        <td style="width:70%"><div class="col-md-12  ">{{comment.comment}}</div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:30%">Email :</td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{comment.email}}</div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:30%">Name :</td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{comment.name}}</div></td>
+                                                </tr>
+                                </table>
+
+                         </div>
+
+
+
                 </div>
             </div>
         </div>
@@ -74,13 +99,16 @@ export default {
                     });
             }
          },
-         commentconfirm(id){
-             this.axios.get(`/api/comments/confirm/${id}`)
+         commentConfirm(id){
+             this.axios.get(`/api/comments/comfirm/${id}`)
                 .then(response=>{
-                    flash('Successfully Confirmed', 'success');
-                    console.log(response.data);
+                    this.comments = response.data.comments;
+
+                    // alert('Successfully Confirm!');
+                    // console.log(response.data);
                 })
-         },
+         }
+
     }
 }
 </script>

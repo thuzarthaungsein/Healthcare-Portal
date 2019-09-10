@@ -1,6 +1,6 @@
-<template>    
+<template>
  <div class="row">
-      <div class="col-12">          
+      <div class="col-12">
         <div class="row m-b-15">
             <div class="col-md-12">
                 <router-link class="float-right main-bg-color create-btn all-btn" style="color: blue;" to="/createfacility" ><i class="fas fa-plus-circle"></i> 新しい施設を作る</router-link>
@@ -9,7 +9,7 @@
         </div>
            
         <!--card-->        
-        <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style" style="height:700px;">
+        <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <h4 class="main-color">施設一覧検索</h4>
         <div class="row">
             <div class="col-md-12">
@@ -21,9 +21,9 @@
         </div>
         <hr>
         <h5 class="header">施設一覧</h5>
-        <div class="col-md-12 scrolldiv" style="height:525px;">           
+        <div class="col-md-12 scrolldiv">           
             <div class="container-fuid" v-for="facility in facilities" :key="facility.id" >
-                <div class="card card-default m-b-20">                    
+                <div class="card card-default m-b-20">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-10 m-t-8">
@@ -31,7 +31,7 @@
                             </div>
                             <div class="col-md-2" style="margin-top: 8px;">
                                     <router-link :to="{name: 'editfacility', params: { id: facility.id }}" class="btn edit-borderbtn">編集</router-link>
-                                
+
                                 <button class="btn delete-borderbtn"  @click="deleteFacility(facility.id)">削除</button>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ export default {
                         this.facilities.splice(i, 1)
                     });
                 }
-               
+
             },
 
             searchFacility() {
@@ -80,7 +80,7 @@ export default {
                     .then(response => {
                         this.facilities = response.data;
                     });
-               
+
 
             }
         }
