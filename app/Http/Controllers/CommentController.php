@@ -60,7 +60,7 @@ class CommentController extends Controller
         }
         \Mail::to($getComment)->send(new SendMailComment($getComment));
 
-        return response()->json(['success'=>'Done!']);
+        // return response()->json(['success'=>'Done!']);
 
     }
 

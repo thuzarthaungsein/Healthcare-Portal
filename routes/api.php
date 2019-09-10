@@ -27,12 +27,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // public route api end
 
 
-
-
-
-
-
-
 // login route api start
 Route::group(['middleware' => ['auth:api']], function() {
 

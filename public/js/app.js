@@ -59036,6 +59036,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59079,8 +59097,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.post('/api/comments/add', this.comments).then(function (response) {
-
-                alert('Successfully Created');
+                alert('Mail Sent Successfully !');
 
                 // this.$router.push({name: 'categorylist'});
             }).catch(function (error) {
@@ -59307,6 +59324,7 @@ var render = function() {
                               expression: "selectedValue"
                             }
                           ],
+                          staticClass: "form-control",
                           attrs: { id: "dob" },
                           on: {
                             change: [
@@ -59361,6 +59379,7 @@ var render = function() {
                               expression: "comments.gender"
                             }
                           ],
+                          staticClass: "custom-radio",
                           attrs: { type: "radio", value: "0" },
                           domProps: {
                             checked: _vm._q(_vm.comments.gender, "0")
@@ -59384,6 +59403,7 @@ var render = function() {
                               expression: "comments.gender"
                             }
                           ],
+                          staticClass: "custom-radio",
                           attrs: { type: "radio", value: "1" },
                           domProps: {
                             checked: _vm._q(_vm.comments.gender, "1")
@@ -59457,9 +59477,9 @@ var render = function() {
                     )
                   }),
                   _vm._v(" "),
-                  _c("button", { staticClass: "btn news-post-btn" }, [
-                    _vm._v("Create")
-                  ])
+                  _vm._m(8),
+                  _vm._v(" "),
+                  _vm._m(9)
                 ],
                 2
               )
@@ -59560,6 +59580,42 @@ var staticRenderFns = [
       _c("label", { attrs: { for: "zipcode" } }, [
         _c("strong", [_vm._v(" Zipcode : ")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "form-group row", staticStyle: { "padding-top": "60px" } },
+      [
+        _c("div", { staticClass: "col-sm-5" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("strong", [_vm._v(" Terms and Conditions ")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-3" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("div", { staticClass: "col-sm-3" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-5" }, [
+        _c("button", { staticClass: "btn news-post-btn btn-md" }, [
+          _vm._v(" Send ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" })
     ])
   }
 ]

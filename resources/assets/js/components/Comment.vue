@@ -73,7 +73,7 @@
                                                 <label for ="year"  ><strong> Year : </strong>   </label>
                                             </div>
                                              <div class="col-sm-9">     
-                                                <select id="dob"  v-model="selectedValue" @change="getYear()">
+                                                <select id="dob" class="form-control"  v-model="selectedValue" @change="getYear()">
                                                     <option value="0">Choose Year:</option>
                                                     <option v-for="year in years" :key="year.id"  :value="year">{{ year }}</option>
                                                     </select>
@@ -85,8 +85,8 @@
                                                 <label for ="gender"  ><strong> Gender : </strong>   </label>
                                             </div>
                                              <div class="col-sm-9">
-                                                   <label> <input type="radio"  v-model="comments.gender" value="0"  > Male </label>
-                                                   <label> <input type="radio" v-model="comments.gender" value="1" >Female </label>
+                                                   <label> <input type="radio" class="custom-radio" v-model="comments.gender" value="0"  > Male </label>
+                                                   <label> <input type="radio" class="custom-radio" v-model="comments.gender" value="1" >Female </label>
                                              </div>    
                                         </div> 
                                         
@@ -103,8 +103,26 @@
                                                  <input type="text" class="form-control box" value="secondzip" v-model="field.lzipcode">      
                                              </div>   
                                         </div> 
+
+                                        <div class="form-group row" style="padding-top:60px;">
+                                            <div class="col-sm-5"></div>
+                                            <div class="col-sm-4">     
+                                              <a href="#" ><strong> Terms and Conditions </strong></a>      
+                                            </div>
+                                            <div class="col-sm-3"></div>
+                                          
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-3"></div>
+                                            <div class="col-sm-5">
+                                                 <button class="btn news-post-btn btn-md"> Send </button>   
+                                            </div>
+                                            <div class="col-sm-4"></div>
+                                         
+                                        </div>
                                         
-                                        <button class="btn news-post-btn">Create</button>    
+                                        
                                   </form>
                              </div>
                             <div class="col-sm-2"></div>
@@ -155,9 +173,8 @@ export default {
             add() {
                 
                 axios.post('/api/comments/add', this.comments)
-                    .then((response) => {
-                       
-                    alert('Successfully Created')
+                    .then((response) => {   
+                    alert('Mail Sent Successfully !') 
 
                     // this.$router.push({name: 'categorylist'});
                     }).catch(error=>{
