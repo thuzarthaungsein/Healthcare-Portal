@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // public route api start
 
     Route::post('getmap','SearchMapController@getMap');
-    Route::get('getCity','SearchMapController@getCity');
+    Route::post('getCity','SearchMapController@getCity');
 
 // public route api end
 
@@ -31,13 +31,11 @@ Route::group(['middleware' => ['auth:api']], function() {
     
     // Category
     Route::group(['prefix' => 'category'], function () {
-        Route::get('category_list','CategoryController@list');
         Route::get('categories', 'CategoryController@index');
         Route::post('add', 'CategoryController@add');
         Route::get('edit/{id}', 'CategoryController@edit');
         Route::post('update/{id}', 'CategoryController@update');
         Route::delete('delete/{id}', 'CategoryController@destroy');
-        Route::post('search', 'CategoryController@search');
     });
     // End Category
 
@@ -69,7 +67,6 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'FacilityController@edit');
         Route::post('update/{id}', 'FacilityController@update');
         Route::delete('delete/{id}', 'FacilityController@destroy');
-        Route::post('search', 'FacilityController@search');
     });
     // End Facility
 
@@ -81,7 +78,6 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'CustomerController@edit');
         Route::post('update/{id}','CustomerController@update');
         Route::delete('delete/{id}','CustomerController@destroy');
-        Route::post('search', 'CustomerController@search');
     });
     // End Customer
 
@@ -108,15 +104,32 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::group(['prefix' => 'advertisement'], function () {
         Route::post('add', 'AdvertisementController@store');
         Route::get('edit/{id}', 'AdvertisementController@edit');
-        Route::get('ads', 'AdvertisementController@index');
+        // Route::get('ads', 'AdvertisementController@index');
         Route::post('update/{id}', 'AdvertisementController@update');
         Route::delete('delete/{id}','AdvertisementController@destroy');
-        Route::post('search', 'AdvertisementController@search');
     });
     // End Advertisement 
 
 });
 // login route api end
+
+Route::group(['prefix' => 'category'], function () {
+    Route::get('category_list','CategoryController@list');
+    Route::post('search', 'CategoryController@search');
+});
+
+Route::group(['prefix' => 'advertisement'], function () {
+    Route::post('search', 'AdvertisementController@search');
+    Route::get('ads', 'AdvertisementController@index');
+});
+
+Route::group(['prefix' => 'facility'], function () {    
+    Route::post('search', 'FacilityController@search');
+});
+
+Route::group(['prefix' => 'customer'], function () {   
+    Route::post('search', 'CustomerController@search');
+});
 
 Route::get('getReset','registerController@getReset'); 
 Route::get('getskill', 'JobApplyController@getSkills');
@@ -145,8 +158,6 @@ Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
 Route::post('news_list/search', 'PostController@search');
 
-
-
 Route::post('jobapply','JobApplyController@store');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
@@ -173,8 +184,4 @@ Route::group(['prefix' => 'comments'], function () {
     Route::get('comfirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
-});
-
-Route::group(['prefix' => 'advertisement'], function () {
-    Route::get('ads', 'AdvertisementController@index');
 });

@@ -11,14 +11,13 @@
 export default {
  created(){
             
-                 console.log('local',localStorage.getItem('hospital_fav'))
         },
 methods:{
     favList(){
         let favData = localStorage.getItem('hospital_fav');        
          axios.post('/api/hospital/favData', favData)
                     .then(response => { 
-                         console.log(response);
+                        //  console.log(response);
                     })
 
        }

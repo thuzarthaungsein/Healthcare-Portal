@@ -121,7 +121,6 @@ export default {
                         .then((response) => {
                             this.name = ''
                         alert('Successfully Created')
-                        console.log(response);
                         this.$router.push({name: 'typelist'});
                         }).catch(error=>{
                         

@@ -55,7 +55,6 @@
             approve(id){
                 this.axios.get(`/api/approve/${id}`)
                 .then(response=>{
-                    console.log(response.data);
                     ajax.reload();
                 })
             }

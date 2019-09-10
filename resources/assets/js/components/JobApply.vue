@@ -83,7 +83,6 @@ export default {
                 this.axios.post('/api/jobapply', this.jobApply)
                     .then((response) => {
                     alert('Successful Apply')
-                    console.log(response);
                     //console.log(this.jobApply.toString());
                     this.jobApply = response.data;
                     })
