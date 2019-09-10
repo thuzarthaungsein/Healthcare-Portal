@@ -212,7 +212,6 @@ import jobSearch from './jobSearch.vue'
             this.axios
                  .get(`/api/newdetails/${this.$route.params.id}`)
                  .then(response=>{
-                      console.log(response.data); 
                      this.newdetails = response.data;
                 //        console.log(response.data);
                  });

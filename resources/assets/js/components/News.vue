@@ -111,7 +111,6 @@ export default {
 
     },
      mounted() {
-            console.log('Component mounted.')
            
         },
         data() {
@@ -120,7 +119,8 @@ export default {
                 posts: [],
                 latest_post: [],
                 latest_post_all_cats: [],
-                search_posts:[]
+                search_posts:[],
+                categoryId: 1,
             }
         },
         created() {
@@ -128,7 +128,7 @@ export default {
             this.getPostByCatID();
             this.getLatestPostByCatID();
             this.getLatestPostFromAllCat();
-            this.categoryId();
+        //     this.categoryId();
         },
         methods: {
                 getAllCat: function() {

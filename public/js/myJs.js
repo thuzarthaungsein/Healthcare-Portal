@@ -39,7 +39,6 @@ $('path').on("click", function(e) {
         data:{"title":title,"id":id},
         url:url,
         success:function(data){
-            console.log(data);
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
@@ -49,7 +48,6 @@ $('path').on("click", function(e) {
               $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>')
             });
             $.each(townships,function(k,v){
-                console.log(v);
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
             });
            
@@ -95,7 +93,6 @@ $('path').on("click", function(e) {
             var image_x = document.getElementById('x-image');
             image_x.parentNode.removeChild(image_x);
             document.getElementById('showimage').style.display = 'block';
-            console.log("close");
         }
     }
 
