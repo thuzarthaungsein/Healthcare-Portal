@@ -40,8 +40,13 @@ class CategoryController extends Controller
     //index category
     public function index()
     {
+
+        $categories = Category::select('name')->whereIn('id',array(1,2));
+        return $categories;
         $categories = Category::all()->toArray();
         return array_reverse($categories);
+
+
     }
     public function list()
     {
@@ -106,7 +111,8 @@ class CategoryController extends Controller
         $search_word = $request['search_word'];
         
         $search_categories = Category::query()
-                            ->where('name', 'LIKE', "%{$search_word}%") 
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
                             ->get()
                             ->toArray();
         return $search_categories;

@@ -159,25 +159,30 @@ class DatabaseSeeder extends Seeder
         // }
 
         $category = new Category();
-        $category->name = "国内";
+        $category->name = "病院";
         $category->user_id = 1;
         $category->save();
 
         $category = new Category();
-        $category->name = "海外";
+        $category->name = "特養";
         $category->user_id = 1;
         $category->save();
 
         $category = new Category();
-        $category->name = "経済";
+        $category->name = "有料老人ホーム";
         $category->user_id = 1;
         $category->save();
 
         $category = new Category();
-        $category->name = "テック";
+        $category->name = "訪問介護・看護";
         $category->user_id = 1;
         $category->save();
 
+        $category = new Category();
+        $category->name = "デイサービス等";
+        $category->user_id = 1;
+        $category->save();
+        
         $type = new Type();
         $type->name = "病院";
         $type->user_id = 1;

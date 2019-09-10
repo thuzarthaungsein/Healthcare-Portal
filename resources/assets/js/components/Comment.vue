@@ -60,24 +60,17 @@
 
                                          <div class="form-group row">
                                             <div class="col-sm-3 text-right">
-                                                <label for ="name"  ><strong> Name : <span class="error">*</span></strong>   </label>
+                                                <label for ="name"  ><strong> Name : </strong>   </label>
                                             </div>
                                              <div class="col-sm-9">
                                                 <input type="name" class="form-control box" id="name"  name="name" v-model="comments.name">
                                              </div>    
                                         </div> 
-                                         <div class="form-group row">
-                                                <div class="col-sm-3">
-                                                </div>
-                                                <div class="col-sm-9">
-                                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
-                                                </div>
-                                         </div>
-
+                                         
                                          
                                          <div class="form-group row">
                                             <div class="col-sm-3 text-right">
-                                                <label for ="year"  ><strong> Year : <span class="error">*</span></strong>   </label>
+                                                <label for ="year"  ><strong> Year : </strong>   </label>
                                             </div>
                                              <div class="col-sm-9">     
                                                 <select id="dob"  v-model="selectedValue" @change="getYear()">
@@ -89,10 +82,10 @@
 
                                         <div class="form-group row">
                                             <div class="col-sm-3 text-right">
-                                                <label for ="gender"  ><strong> Gender : <span class="error">*</span></strong>   </label>
+                                                <label for ="gender"  ><strong> Gender : </strong>   </label>
                                             </div>
                                              <div class="col-sm-9">
-                                                   <label> <input type="radio"  v-model="comments.gender" value="0" > Male </label>
+                                                   <label> <input type="radio"  v-model="comments.gender" value="0"  > Male </label>
                                                    <label> <input type="radio" v-model="comments.gender" value="1" >Female </label>
                                              </div>    
                                         </div> 
@@ -100,7 +93,7 @@
 
                                           <div class="form-group row"  v-for="field in comments.fields" :key="field.id">
                                             <div class="col-sm-3 text-right">
-                                                <label for ="zipcode"  ><strong> Zipcode : <span class="error">*</span></strong>   </label>
+                                                <label for ="zipcode"  ><strong> Zipcode : </strong>   </label>
                                             </div>
                                              <div class="col-sm-2">
                                                  <input type="text" class="form-control box" value="firstzip" v-model="field.fzipcode">
@@ -110,13 +103,7 @@
                                                  <input type="text" class="form-control box" value="secondzip" v-model="field.lzipcode">      
                                              </div>   
                                         </div> 
-                                         <div class="form-group row">
-                                                <div class="col-sm-3">
-                                                </div>
-                                                <div class="col-sm-9">
-                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>  
-                                                </div>
-                                         </div>
+                                        
                                         <button class="btn news-post-btn">Create</button>    
                                   </form>
                              </div>
@@ -159,6 +146,9 @@ export default {
             return Array.from({length: year - 1900}, (value, index) => 1901 + index)
             }
         },
+        created(){
+            this.comments.gender = 0;
+        },
 
 
          methods: {
@@ -166,11 +156,9 @@ export default {
                 
                 axios.post('/api/comments/add', this.comments)
                     .then((response) => {
-                        this.name = ''
+                       
                     alert('Successfully Created')
 
-                    emailjs.send(service_id,template_id,template_params);
-                    console.log(response);
                     // this.$router.push({name: 'categorylist'});
                     }).catch(error=>{
                         
@@ -186,6 +174,10 @@ export default {
                this.comments.year = this.selectedValue;
 
            },
+            //  changetype()
+            // {
+            //    this.comments.gender = this.comments.gender;
+            // },
          }
      
 }

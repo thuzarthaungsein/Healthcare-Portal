@@ -35,21 +35,16 @@
                                 <span v-if="errors.body" class="error">{{errors.body[0]}}</span>
                             </div>
                             <div class="form-group" style="display:none" id="showimage">
-
                                 <label class="">メディア:</label>
-
-                                <div class="custom-file col-sm-10">
+                                <div class="custom-file">
                                     <input type="file" ref="file" accept="image/*" @change="fileSelected">
                                 </div>
                             </div>
-                            <div class="form-group">
-                            </div>
+                            
                             <div class="image_show"></div>
                             <div class="form-group image_update" id="x-image">
                                 <div class="col-md-12">
-                                    <div class="row">
-
-                                    </div>
+                                   
                                 </div>
                             </div>
                             <div class="form-group">

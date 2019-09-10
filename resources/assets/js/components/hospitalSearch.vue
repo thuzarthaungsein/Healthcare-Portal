@@ -51,7 +51,14 @@
                      <a href="#!" id="19" data-info="<div>Yamanashi</div>" class="path btn btn-info" >Yamanashi</a>
                      <a href="#!" id="6" data-info="<div>Yamagata</div>" class="path btn btn-info" >Yamagata</a>
                    </div>
-                   
+                   <div class="card-body">
+                        <div >
+                                <select name="" id="select" class="form-control custom-select">
+                                        <option ></option>
+                                </select>
+                        </div>
+                        <div id="checkbox" class="row"></div>
+                   </div>
                 </div>
         </div>
         <div class="col-sm-6">
@@ -109,34 +116,7 @@
  </div>
 </div>
 </template>
-<script>
-export default {
-  mounted() {
-    console.log('Component mounted.')
-    },
-      data() {
-          return {
-            getCity:{
-              id:'',
-              city_name:''
-            }
-          }
-      },
-      created(){
-             axios.get('http://localhost:8000/api/category/category_list')
-              .then(function (response) {
 
-                 this.categories = response.data;
-
-              }.bind(this));
-
-        },
-        methods: {
-          
-      }
-
-    }
-</script>
 <style type="text/css">
     .path {
     cursor: pointer;
