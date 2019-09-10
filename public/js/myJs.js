@@ -1,5 +1,3 @@
-
-
 var timeout;
 $(".path").hover(
   function() {
@@ -26,11 +24,12 @@ if(ios) {
     return false;
   });
 }
+ 
 
-
-$('path').on("click", function(e) {
+$('.path').on("click", function(e) {
     e.preventDefault();
-    $('path.selected').attr("class", "");
+    
+    $('.path.selected').attr("class", "");
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
