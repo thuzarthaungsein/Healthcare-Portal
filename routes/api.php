@@ -174,3 +174,7 @@ Route::group(['prefix' => 'comments'], function () {
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
 });
+
+Route::group(['prefix' => 'advertisement'], function () {
+    Route::get('ads', 'AdvertisementController@index');
+});
