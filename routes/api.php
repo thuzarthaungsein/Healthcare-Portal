@@ -29,17 +29,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-
-
-
-
 // login route api start
 Route::group(['middleware' => ['auth:api']], function() {
-
+    Route::get('category_list','CategoryController@list');
     Route::get('approve/{id}','registerController@approve');
-    
     Route::group(['prefix' => 'category'], function () {
-        Route::get('category_list','CategoryController@list');
         Route::get('categories', 'CategoryController@index');
         Route::post('add', 'CategoryController@add');
         Route::get('edit/{id}', 'CategoryController@edit');
@@ -47,6 +41,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::delete('delete/{id}', 'CategoryController@destroy');
         Route::post('search', 'CategoryController@search');
     });
+    
 
 });
 // login route api end
