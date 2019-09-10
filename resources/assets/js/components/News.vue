@@ -24,8 +24,8 @@
                                                         <div class="active-users col-md-4">
                                                                 <router-link :to="'/newsdetails/'+latest_post.id">
                                                                         <img v-if="latest_post.photo" v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
-                                                                        <p class="source-title" aria-label="">{{ latest_post.title }}</p>
-                                                                        <p class="source-subtitle">
+                                                                        <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
+                                                                        <p class="source-subtitle" v-if="latest_post.created_at">
                                                                                 <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
                                                                         </p>
                                                                 </router-link>
@@ -182,7 +182,6 @@ export default {
                         axios.post("http://localhost:8000/api/get_latest_post/" , fd)
                         .then(response => {
                                 this.latest_post = response.data;
-                               
                         });
                 },
                 getLatestPostFromAllCat: function() {
@@ -194,20 +193,18 @@ export default {
                 },
 
                 searchCategory() {
+                        $('ul#myTab li a').removeClass('active');
+                        $('ul#myTab li:first-child a').addClass('active');
+
                         var search_word = $('#search-word').val();
-                        if(this.categroyId) {
-                                var categoryId = this.categoryId;
-                        } else {
-                                var categoryId = '1';
-                        }
-                       
+                        var categoryId = '1';
+
                         let fd = new FormData();
                                 fd.append('search_word', search_word)
                                 fd.append('selected_category', categoryId)
                                 
                         this.axios.post('http://localhost:8000/api/search', fd)
                                 .then(response => {
-                                        console.log();
                                         if(response.data.length == '0') {
                                                 this.posts = [];
                                                 this.latest_post = [];
