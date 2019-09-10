@@ -56,7 +56,7 @@ export default {
         },
         created() {
             this.axios
-                .get('http://localhost:8000/api/types/type')
+                .get('/api/types/type')
                 .then(response => {
                     this.types = response.data;
                 });
@@ -66,7 +66,7 @@ export default {
                 if(confirm("Are you sure you want to delete?"))
                 {
                      this.axios
-                    .delete(`http://localhost:8000/api/types/delete/${id}`)
+                    .delete(`/api/types/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
                         let i = this.types.map(item => item.id).indexOf(id); // find index of your object

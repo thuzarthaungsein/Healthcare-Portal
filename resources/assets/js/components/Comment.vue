@@ -85,7 +85,7 @@
                                                 <label for ="gender"  ><strong> Gender : </strong>   </label>
                                             </div>
                                              <div class="col-sm-9">
-                                                   <label> <input type="radio"  v-model="comments.gender" value="0" > Male </label>
+                                                   <label> <input type="radio"  v-model="comments.gender" value="0"  > Male </label>
                                                    <label> <input type="radio" v-model="comments.gender" value="1" >Female </label>
                                              </div>    
                                         </div> 
@@ -146,12 +146,15 @@ export default {
             return Array.from({length: year - 1900}, (value, index) => 1901 + index)
             }
         },
+        created(){
+            this.comments.gender = 0;
+        },
 
 
          methods: {
             add() {
                 
-                axios.post('http://localhost:8000/api/comments/add', this.comments)
+                axios.post('/api/comments/add', this.comments)
                     .then((response) => {
                        
                     alert('Successfully Created')
@@ -171,6 +174,10 @@ export default {
                this.comments.year = this.selectedValue;
 
            },
+            //  changetype()
+            // {
+            //    this.comments.gender = this.comments.gender;
+            // },
          }
      
 }

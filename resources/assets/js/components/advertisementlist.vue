@@ -27,11 +27,7 @@
             <div class="card-body news-post">
                  <div class="row">
                     <div class="col-md-2" >
-<<<<<<< HEAD
-                        <img :src="'/upload/advertisement/'+ ads.photo" class="col-md-12" alt="no_image">
-=======
                         <img :src="'/upload/advertisement/'+ ads.photo" class="img-fluid" alt="ads">
->>>>>>> 0d5a358a21e6f47607d130970157076bd76a9f68
 
                     </div>
                     <div class="row col-md-10">
@@ -63,7 +59,7 @@ export default {
     },
     created(){
         this.axios
-                .get('http://localhost:8000/api/advertisement/ads')
+                .get('/api/advertisement/ads')
                 .then(response => {
                     this.advertisements = response.data;
 
@@ -76,7 +72,7 @@ export default {
                 if(confirm("Are you sure you want to delete?"))
                 {
                     this.axios
-                    .delete(`http://localhost:8000/api/advertisement/delete/${id}`)
+                    .delete(`/api/advertisement/delete/${id}`)
                     .then(response => {
 
                         alert('Delete Successfully!');

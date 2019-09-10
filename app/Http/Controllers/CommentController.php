@@ -23,9 +23,7 @@ class CommentController extends Controller
 
    
     public function store(Request $request)
-    {
-
-           
+    {   
         $request->validate([
             'title' => 'required|unique:comments',
             'comment' =>'required',

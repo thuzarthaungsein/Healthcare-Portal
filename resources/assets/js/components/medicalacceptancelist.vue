@@ -55,7 +55,7 @@ export default {
     },
      created() {
             this.axios
-                .get('http://localhost:8000/api/medical/medicalacceptance')
+                .get('/api/medical/medicalacceptance')
                 .then(response => {
                     this.medical_acceptance = response.data;
                      console.log(response.data);
@@ -67,7 +67,7 @@ export default {
                 if(confirm("Are you sure you want to delete?"))
                 {
                      this.axios
-                    .delete(`http://localhost:8000/api/medical/delete/${id}`)
+                    .delete(`/api/medical/delete/${id}`)
                     .then(response => {
                         alert('Delete Successfully!');
                         let i = this.medical_acceptance.map(item => item.id).indexOf(id); // find index of your object

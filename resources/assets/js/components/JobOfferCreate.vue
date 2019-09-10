@@ -48,7 +48,7 @@
                                             <div class = "col-sm-9">
                                              <!-- <span id="addnew"><a href="javascript:new_link()" class="btn btn-sm main-bg-color all-btn white">  Add New Skill  </a></span> -->
                                              <a class="btn btn-success"  @click="addRow">Add New Skill</a>
-                                             <a class="btn btn-danger"   @click="delRow">Delete</a>
+                                             <a class="btn btn-danger"   @click="delRow()">Delete</a>
                                             </div>
                                         </div>
 
@@ -230,7 +230,7 @@ export default {
          created() {
 
             this.axios
-                .get(`http://localhost:8000/api/job/edit/${this.$route.params.id}`)
+                .get(`/api/job/edit/${this.$route.params.id}`)
                 .then((response) => {
 
                     this.joboffer.title = response.data.title;
@@ -266,7 +266,7 @@ export default {
                 {   
                     
                  
-                    axios.post('http://localhost:8000/api/job/add', this.joboffer)
+                    axios.post('/api/job/add', this.joboffer)
                     .then((response) => {   
                         this.title = '',
                         this.description = '',
@@ -338,7 +338,7 @@ export default {
 
              updateJob() {
                 this.axios
-                    .post(`http://localhost:8000/api/job/update/${this.$route.params.id}`, this.joboffer)
+                    .post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
                     .then((response) => {
                          this.title = '',
                         this.description = '',

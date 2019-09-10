@@ -24,11 +24,11 @@
                                                 <div class="pad-free mb-2 ">
                                                         <h4> <a href="#"> {{nur_profile.name}} </a></h4>
                                                         <strong>Website  :</strong><a href=""> {{nur_profile.website}}</a><br/>
-                                                        <a><strong>Location    :</strong>{{nur_profile.township_name}}, {{nur_profile.city_name}}</a><br/>
                                                         <a><strong>Phone    :</strong>{{nur_profile.phone}}</a><br/>
                                                         <a><strong>Access  :</strong>{{nur_profile.access}}</a><br/>
                                                         <a><strong>Email  :</strong>{{nur_profile.email}}</a><br/>
                                                         <a><strong>Occupancy Condition  :</strong>{{nur_profile.occupancy_condition}}</a><br/>
+                                                        <a><strong>Location    :</strong>{{nur_profile.township_name}}, {{nur_profile.city_name}}</a><br/>
                                                 </div>
                                         </div>
                                         <div class="col-md-4">
@@ -48,16 +48,18 @@
 export default {
         data() {
             return {
-                nur_profiles: []
+                nur_profiles: [],
+                local_sto: '',
             }
         },
         created() {
-                this.getAllCustomer();
+                this.local_sto = localStorage.getItem("nursing_history");
+                this.getAllCustomer(this.local_sto);
         },
         methods: {
-                getAllCustomer: function() {
+                getAllCustomer: function(local_storage) {
                      this.axios
-                        .get('http://localhost:8000/api/nursing_history')
+                        .post('/api/nursing_history/' + local_storage)
                         .then(response => {
                                 this.nur_profiles = response.data;
                         });

@@ -1,6 +1,25 @@
-<template>    
+<style>
+        .header{
+            width:100%;
+            height:50px;
+        }
+        .fixed {
+            position: fixed;
+            top: 20;
+            width: 50.5%;
+            z-index: 1000;
+        }
+        .sticky {
+            position:fixed;
+            top:30;
+            width: 51.1%;
+            z-index: 1000;
+            }
+</style>
+
+<template class="temp">    
  <div class="row">
-      <div class="col-12 detal_wrap" >
+      <div class="col-12 detal_wrap" id="dw" >
           <div class="card "> 
             <!-- <div class="pagelink_s" id="a_sp">
                 <nav class="nav_menu">
@@ -11,18 +30,18 @@
                 </ul>
                 </nav>
             </div>  -->
-
-            <div class="pagelink_s a_sp">
-            <nav class="nav_menu">
-                <ul class="tfacilitydetaildetail">
-                    <li><a href="#sp_a1">section 1</a></li>
-                    <li><a href="#sp_a2">section 2</a></li>
-                    <li><a href="#sp_a3">section 3</a></li>
-                    
-                </ul>
-            </nav>
+            <div class="header">
+                <div class="pagelink_s a_sp">
+                    <nav class="nav_menu" id="profilePublish">
+                        <ul class="tfacilitydetaildetail">
+                            <li><a href="#sp_a1" id="a">section 1</a></li>
+                            <li><a href="#sp_a2" id="a">section 2</a></li>
+                            <li><a href="#sp_a3" id="a">section 3</a></li>
+                            
+                        </ul>
+                    </nav>
+                </div>
             </div>
-
          <section id="sp_a1" class="section-header wow fadeInUp">
             <div class="container">     
                 <h3>section 1</h3>
@@ -38,16 +57,7 @@
             </div>                  
         </section>
 
-        <div class="pagelink_s a_sp" id="a_sp">
-        <nav class="nav_menu">
-            <ul>
-                <li><a href="#sp_a1">section 1</a></li>
-                <li><a href="#sp_a2">section 2</a></li>
-                <li><a href="#sp_a3">section 3</a></li>
-               
-            </ul>
-            </nav>
-        </div>
+        
         <section id="sp_a2">
             <div class="container">
               
@@ -71,16 +81,7 @@
             </div>
         </section>
 
-            <div class="pagelink_s a_sp" id="a_sp">
-               <nav class="nav_menu">
-                <ul>
-                    <li><a href="#sp_a1">section 1</a></li>
-                    <li><a href="#sp_a2">section 2</a></li>
-                    <li><a href="#sp_a3">section 3</a></li>
-                   
-                </ul>
-                </nav>
-            </div>
+           
         <section id="sp_a3">
             <div class="container">
               
@@ -95,11 +96,9 @@
                         <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                        
                        <h2>Our Plan</h2>
-                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                       
+                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>                  
                       
-                    </div>
-                    
+                    </div>            
             </div>
         </section>
 
@@ -109,8 +108,8 @@
 
 </template>
 
+
 <script>
-export default {
-    
-}
+
+
 </script>
