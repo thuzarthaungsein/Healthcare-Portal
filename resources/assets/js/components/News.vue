@@ -191,7 +191,7 @@ export default {
                                 this.latest_post_all_cats = response.data;
                         });
                 },
-
+ 
                 searchCategory() {
                         $('ul#myTab li a').removeClass('active');
                         $('ul#myTab li:first-child a').addClass('active');

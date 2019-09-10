@@ -26,9 +26,8 @@ if(ios) {
   });
 }
 
-$('path').on("click", function(e) {
+$('.path').on("click", function(e) {
     e.preventDefault();
-    
     $('.path.selected').attr("class", "");
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
@@ -42,22 +41,40 @@ $('path').on("click", function(e) {
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
-            var city = data.getCity;
+            var getCity = data.getCity;
             var townships = data.getTownships;
+            var city = data.city;
+           
             $.each(city,function(k,v){
-              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>')
+              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>').attr('selected',true);
             });
+            $.each(getCity,function(k,v){
+              $('#select option[value="'+v.id+'"]').attr("selected",true);
+            })
             $.each(townships,function(k,v){
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
-            });
-           
-           
+            }); 
         }
     });
-
-
 });
-
+$('#select').on('change',function(){
+  var id = this.value;
+  var url = "/api/getCity";
+  $.ajax({
+    type:'post',
+    url:url,
+    data:{"id":id},
+    success:function(data){
+      $('#checkbox').empty();
+      $.each(data,function(k,v){
+        $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+      })
+    },
+    error:function(error){
+      console.log(error);
+    }
+  })
+})
 
 
 

@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // public route api start
 
     Route::post('getmap','SearchMapController@getMap');
-    Route::get('getCity','SearchMapController@getCity');
+    Route::post('getCity','SearchMapController@getCity');
 
 // public route api end
 
