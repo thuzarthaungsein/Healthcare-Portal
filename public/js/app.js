@@ -64824,9 +64824,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         commentConfirm: function commentConfirm(id) {
+            var _this3 = this;
+
             this.axios.get('/api/comments/comfirm/' + id).then(function (response) {
-                alert('Successfully Confirm!');
-                console.log(response.data);
+                _this3.comments = response.data.comments;
+
+                // alert('Successfully Confirm!');
+                // console.log(response.data);
             });
         }
     }
@@ -64942,11 +64946,7 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             comment.status != 0
-                              ? _c(
-                                  "button",
-                                  { staticClass: "btn confirm-borderbtn" },
-                                  [_vm._v("Confirm")]
-                                )
+                              ? _c("span", [_vm._v("Confirm")])
                               : _c(
                                   "button",
                                   {

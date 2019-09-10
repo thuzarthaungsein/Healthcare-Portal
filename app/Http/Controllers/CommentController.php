@@ -49,6 +49,7 @@ class CommentController extends Controller
 
         ]);
         $comment ->save();
+
         $getComment = Comment::findOrFail($comment->id);
        
         if($getComment->gender == 0 )
@@ -96,7 +97,10 @@ class CommentController extends Controller
             $comment =Comment::find($id);
             $comment->status =1;
             $comment->save();
-            return response()->json('Comment successfully confirmed');
+
+            $comment =Comment::all()->toArray();
+            $data = array("comments"=> $comment, "success", "Comment successfully confirmed");
+            return response()->json($data);
     }
 
 }

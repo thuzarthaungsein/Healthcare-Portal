@@ -26,7 +26,7 @@
                                 <div class="col-md-4" style="margin-top: 8px;">
                                     <button class="btn edit-borderbtn" type="button" data-toggle="collapse" :data-target="'#showDetails' + comment.id" >View</button>
                                     <!-- <button class="btn edit-borderbtn" @click="show(comment.id)">View</button> -->
-                                    <button class="btn confirm-borderbtn" v-if="comment.status != 0">Confirm</button>
+                                    <span v-if="comment.status != 0">Confirm</span>
                                     <button class="btn confirm-borderbtn" v-else @click="commentConfirm(comment.id)">Confirm</button>
                                     <button class="btn delete-borderbtn" @click="deleteComment(comment.id)" >Delete</button>
 
@@ -102,8 +102,10 @@ export default {
          commentConfirm(id){
              this.axios.get(`/api/comments/comfirm/${id}`)
                 .then(response=>{
-                    alert('Successfully Confirm!');
-                    console.log(response.data);
+                    this.comments = response.data.comments;
+
+                    // alert('Successfully Confirm!');
+                    // console.log(response.data);
                 })
          }
 
