@@ -12,7 +12,7 @@
 
 <!-- Tab panes -->
 <div class="tab-content tab-content1 tabs">
-        <div role="tabpanel" class="tab-pane in active" id="tab1" style="height: 691px;"> 
+        <div role="tabpanel" class="tab-pane in active" id="tab1"> 
                 <div class="row col-sm-12">
                         <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -22,7 +22,7 @@
                                 </ol>
                         </nav>
                 </div>
-                <div class="justify-content-md-center scrolldiv2" style="height:677px;">
+                <div class="justify-content-md-center scrolldiv2">
                 <div class="col-md-12">                        
                         <div class="row m-lr-0 mb-3">
                                 <div class="col-md-12" >

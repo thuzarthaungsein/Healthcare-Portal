@@ -9,9 +9,11 @@
                    </div>
                    <div class="card-body">
                         <div >
-                                <select name="" id="select" class="form-control custom-select">
+                                <select name="" id="select" class="form-control custom-select" v-model="selected">
+                                        <option value="" disabled>Select a category</option>
                                         <option v-for="City in getCity" :key="City.id" v-bind:value="City.id">{{City.city_name}}</option>
                                 </select>
+                                <span>selected{{ sayHi }}</span>
                         </div>
                         <div id="checkbox" class="row"></div>
                    </div>
@@ -79,10 +81,12 @@ export default {
     },
       data() {
           return {
+            selected: '',
             getCity:{
               id:'',
               city_name:''
-            }
+            },
+           
           }
       },
       created(){
@@ -96,6 +100,11 @@ export default {
         },
         methods: {
           
+      },
+      computed:{
+        sayHi:function(){
+         
+        }
       }
 
     }
