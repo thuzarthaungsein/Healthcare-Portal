@@ -1,8 +1,20 @@
 <template>
 <div class="row justify-content-md-center">                                
                 <div class="col-12">
-                        <form class="form-inline col-lg-5 form-inline mb-2 pad-free"><input type="search" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control"> 
+                        <!-- <form class="form-inline col-lg-5 form-inline mb-2 pad-free"><input type="search" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control"> 
                                 <button type="submit" class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary"><i class="fas fa-search"></i> 検索</button>
+                        </form> -->
+                        <form class="mb-2 pad-free">
+                            <div style="width:70%;max-width:320px;float:left;margin-right:10px;">
+                                <input type="search" placeholder="検索" aria-label="検索" class="form-control" />
+                            </div>   
+                            <button
+                            type="submit"
+                            class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary"
+                            >
+                            <i class="fas fa-search"></i> 検索
+                            </button>
+
                         </form>
                         <div class="card">
                                 <div class="card-header tab-card-header">

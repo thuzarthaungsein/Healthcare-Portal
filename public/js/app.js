@@ -41616,6 +41616,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -42589,26 +42601,38 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "form",
-      { staticClass: "form-inline col-lg-5 form-inline mb-2 pad-free" },
-      [
-        _c("input", {
-          staticClass: "form-control col-lg mr-sm-3 d-flex p-2 form-control",
-          attrs: { type: "search", placeholder: "検索", "aria-label": "検索" }
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
-            attrs: { type: "submit" }
-          },
-          [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-        )
-      ]
-    )
+    return _c("form", { staticClass: "mb-2 pad-free" }, [
+      _c(
+        "div",
+        {
+          staticStyle: {
+            width: "70%",
+            "max-width": "320px",
+            float: "left",
+            "margin-right": "10px"
+          }
+        },
+        [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "search", placeholder: "検索", "aria-label": "検索" }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
+          attrs: { type: "submit" }
+        },
+        [
+          _c("i", { staticClass: "fas fa-search" }),
+          _vm._v(" 検索\r\n                            ")
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
