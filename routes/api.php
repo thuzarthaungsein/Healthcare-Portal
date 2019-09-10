@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
     
+    // Category
     Route::group(['prefix' => 'category'], function () {
         Route::get('category_list','CategoryController@list');
         Route::get('categories', 'CategoryController@index');
@@ -47,64 +48,102 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::delete('delete/{id}', 'CategoryController@destroy');
         Route::post('search', 'CategoryController@search');
     });
+    // End Category
+
+    // Type
+    Route::group(['prefix' => 'types'], function () {
+        Route::get('typelist', 'TypeController@TypeList');
+        Route::get('type', 'TypeController@index');
+        Route::post('add', 'TypeController@store');
+        Route::get('edit/{id}', 'TypeController@edit');
+        Route::post('update/{id}', 'TypeController@update');
+        Route::delete('delete/{id}', 'TypeController@destroy');
+    });
+    // End Type
+
+    // Job
+    Route::group(['prefix' => 'job'], function () {
+        Route::post('add', 'JobController@store');
+        Route::get('index', 'JobController@index');
+        Route::get('edit/{id}', 'JobController@edit');
+        Route::post('update/{id}', 'JobController@update');
+        Route::delete('delete/{id}', 'JobController@destroy');
+    });
+    // End Job
+
+    // Facility
+    Route::group(['prefix' => 'facility'], function () {
+        Route::post('add', 'FacilityController@add');
+        Route::get('facilities', 'FacilityController@index');
+        Route::get('edit/{id}', 'FacilityController@edit');
+        Route::post('update/{id}', 'FacilityController@update');
+        Route::delete('delete/{id}', 'FacilityController@destroy');
+        Route::post('search', 'FacilityController@search');
+    });
+    // End Facility
+
+    // Customer
+    Route::group(['prefix' => 'customer'], function () {
+        Route::post('add', 'CustomerController@add');
+        Route::post('uploadvideo', 'CustomerController@uploadvideo');
+        Route::post('deletevideo', 'CustomerController@deletevideo');
+        Route::get('edit/{id}', 'CustomerController@edit');
+        Route::post('update/{id}','CustomerController@update');
+        Route::delete('delete/{id}','CustomerController@destroy');
+    });
+    // End Customer
+
+    // News 
+    Route::group(['prefix' => 'new'], function () {
+        Route::post('add', 'PostController@add');
+        Route::get('editPost/{id}', 'PostController@edit');
+        Route::post('update/{id}', 'PostController@update');
+        Route::delete('delete/{id}', 'PostController@delete');
+    });
+    // End News 
+
+    // Medical
+    Route::group(['prefix' => 'medical'], function () {
+        Route::post('add', 'MedicalController@add');
+        Route::get('medicalacceptance', 'MedicalController@index');
+        Route::delete('delete/{id}', 'MedicalController@destroy');
+        Route::get('edit/{id}', 'MedicalController@edit');
+        Route::post('update/{id}', 'MedicalController@update');
+    });
+    // End Medical
+
+    // Advertisement 
+    Route::group(['prefix' => 'advertisement'], function () {
+        Route::post('add', 'AdvertisementController@store');
+        Route::get('edit/{id}', 'AdvertisementController@edit');
+        Route::get('ads', 'AdvertisementController@index');
+        Route::post('update/{id}', 'AdvertisementController@update');
+        Route::delete('delete/{id}','AdvertisementController@destroy');
+    });
+    // End Advertisement 
 
 });
 // login route api end
 
-Route::group(['prefix' => 'job'], function () {
-    Route::post('add', 'JobController@store');
-    Route::get('index', 'JobController@index');
-    Route::get('edit/{id}', 'JobController@edit');
-    Route::post('update/{id}', 'JobController@update');
-    Route::delete('delete/{id}', 'JobController@destroy');
-});
 
-Route::get('authget','ProfileController@index');
 
 
 Route::get('getReset','registerController@getReset');
 
 
-Route::get('jobs', 'JobController@index');
 Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
 
-Route::get('customers','CustomerController@index');
 
-Route::get('custedit','CustomerController@edit');
 Route::get('newdetails/{id}', 'PostController@show');
 
-
 Route::get('customers','CustomerController@index');
-
+Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
+
 Route::get('facilities', 'FacilityController@index');
 
-Route::group(['prefix' => 'facility'], function () {
-    Route::post('add', 'FacilityController@add');
-    Route::get('facilities', 'FacilityController@index');
-    Route::get('edit/{id}', 'FacilityController@edit');
-    Route::post('update/{id}', 'FacilityController@update');
-    Route::delete('delete/{id}', 'FacilityController@destroy');
-    Route::post('search', 'FacilityController@search');
-});
-
-
-
-
 Route::get('job_details', 'JobDetailController@index');
-
-Route::group(['prefix' => 'customer'], function () {
-    Route::post('add', 'CustomerController@add');
-    Route::post('uploadvideo', 'CustomerController@uploadvideo');
-    Route::post('deletevideo', 'CustomerController@deletevideo');
-    Route::get('edit/{id}', 'CustomerController@edit');
-    Route::post('update/{id}','CustomerController@update');
-    Route::delete('delete/{id}','CustomerController@destroy');
-});
-
-
-
 
 // Home Page
 Route::get('home', 'HomeController@index');
@@ -115,30 +154,16 @@ Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
-Route::get('news_list', 'PostController@index');
 Route::post('news_list/search', 'PostController@search');
 
 
-Route::group(['prefix' => 'new'], function () {
-    Route::post('add', 'PostController@add');
-    Route::get('editPost/{id}', 'PostController@edit');
-    Route::post('update/{id}', 'PostController@update');
-    Route::delete('delete/{id}', 'PostController@delete');
-});
+
 Route::post('jobapply','JobApplyController@store');
-Route::get('jobs', 'JobController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
 
 
-Route::group(['prefix' => 'types'], function () {
-    Route::get('typelist', 'TypeController@TypeList');
-    Route::get('type', 'TypeController@index');
-    Route::post('add', 'TypeController@store');
-    Route::get('edit/{id}', 'TypeController@edit');
-    Route::post('update/{id}', 'TypeController@update');
-    Route::delete('delete/{id}', 'TypeController@destroy');
-});
+
 // Guest Hospital History
 Route::post('hospital_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
 Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHospital');
@@ -147,35 +172,19 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 // Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
 
-Route::group(['prefix' => 'medical'], function () {
-    Route::post('add', 'MedicalController@add');
-    Route::get('medicalacceptance', 'MedicalController@index');
-    Route::delete('delete/{id}', 'MedicalController@destroy');
-    Route::get('edit/{id}', 'MedicalController@edit');
-    Route::post('update/{id}', 'MedicalController@update');
-});
+
 
 //Route::post('add','AdvertisementController@store');
-Route::group(['prefix' => 'advertisement'], function () {
-    Route::post('add', 'AdvertisementController@store');
-    Route::get('edit/{id}', 'AdvertisementController@edit');
-    Route::get('ads', 'AdvertisementController@index');
-    Route::post('update/{id}', 'AdvertisementController@update');
-    Route::delete('delete/{id}','AdvertisementController@destroy');
-});
- Route::group(['prefix' => 'hospital'], function () {
-       
-        Route::get('favourite_list', 'HospitalProfileController@index');
-        
-        Route::delete('delete/{id}', 'HospitalProfileController@destroy');
-       
-    });
 
+ Route::group(['prefix' => 'hospital'], function () {       
+    Route::get('favourite_list', 'HospitalProfileController@index');        
+    Route::delete('delete/{id}', 'HospitalProfileController@destroy');
+       
+});
 
 Route::group(['prefix' => 'comments'], function () {
     Route::post('add', 'CommentController@store');
     Route::get('edit/{id}', 'CommentController@edit');
-    Route::get('ads', 'CommentController@index');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
 });
