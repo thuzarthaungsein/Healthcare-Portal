@@ -1,4 +1,3 @@
-
 var timeout;
 $(".path").hover(
   function() {
@@ -38,7 +37,6 @@ $('.path').on("click", function(e) {
         data:{"title":title,"id":id},
         url:url,
         success:function(data){
-            //console.log(data);
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
@@ -53,8 +51,7 @@ $('.path').on("click", function(e) {
               $('#select option[value="'+v.id+'"]').attr("selected",true);
             })
             $.each(townships,function(k,v){
-                //console.log(v);
-                $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+                $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
             }); 
         }
     });
@@ -69,7 +66,7 @@ $('#select').on('change',function(){
     success:function(data){
       $('#checkbox').empty();
       $.each(data,function(k,v){
-        $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+        $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
       })
     },
     error:function(error){
