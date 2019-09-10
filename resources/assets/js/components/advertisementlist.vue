@@ -7,6 +7,7 @@
             <router-link to="/advertisement" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle"></i> 広告を作成する</router-link>
             </div>
         </div>
+<<<<<<< HEAD
     
     <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <h4 class="main-color"> 広告検索</h4>
@@ -17,6 +18,11 @@
             <div class="col-md-2">
                 <button class="btn secondary-bg-color all-btn white" style="width:100%;"><i class="fas fa-search"></i> 検索</button>
             </div>
+=======
+    <div class="row m-b-15 m-r-5">
+        <div class="col-md-12">
+        <router-link to="/advertisement" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle" ></i> 広告を作成する</router-link>
+>>>>>>> 30f6c23051083a35b661d894c79c8025881a5920
         </div>
     <hr>
     <h5 class="header">広告</h5>
@@ -88,8 +94,13 @@ export default {
                         this.advertisements = response.data;
                     });
             }
+<<<<<<< HEAD
 
         }
+=======
+         },
+    }
+>>>>>>> 30f6c23051083a35b661d894c79c8025881a5920
 }
 </script>
 

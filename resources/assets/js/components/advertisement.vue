@@ -1,8 +1,8 @@
-<template> 
+<template>
     <div class="row">
         <div class="col-12">
-            <div class="card">                    
-                    <div class="card-body">                        
+            <div class="card">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-12">
                                 <h4 class="page-header header">広告</h4>
@@ -10,12 +10,12 @@
                             <div class="col-12">
                                 <form @submit.prevent ="add">
                                     <div class="form-group">
-                                      
+
                                             <label for="title"><strong>タイトル :</strong></label>
-                                        
+
                                                 <input type="title" class="form-control box" id="title"  name="title" v-model="ads.title">
                                                 <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         
@@ -23,7 +23,7 @@
                                        
                                             <textarea name="description" class="form-control" cols="50" rows="5" v-model="ads.description"></textarea>
                                             <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         <label for ="location" ><strong> ロケーション :</strong>  </label><br>
@@ -36,7 +36,7 @@
                                         <label for ="photo" ><strong> メディア :</strong>  </label><br>
                                         <input type="file" id="upload" accept="image/*" @change ="uploadImage" >
                                         <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span>
-                                            <!-- <label class="" for="file">No file chosen</label> -->                                       
+                                            <!-- <label class="" for="file">No file chosen</label> -->
                                         <div class="col-md-12" id = "par">
                                             <div class="row image_preview" ></div>
                                         </div>
@@ -51,7 +51,7 @@
                    </div>
                 </div>
         </div>
-          
+
     </div>
 </template>
 

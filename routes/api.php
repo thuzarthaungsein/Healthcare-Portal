@@ -151,8 +151,6 @@ Route::post('jobapply','JobApplyController@store');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
 
-
-
 // Guest Hospital History
 Route::post('hospital_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
 Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHospital');
@@ -161,19 +159,18 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 // Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
 
-
-
 //Route::post('add','AdvertisementController@store');
 
  Route::group(['prefix' => 'hospital'], function () {       
     Route::get('favourite_list', 'HospitalProfileController@index');        
-    Route::delete('delete/{id}', 'HospitalProfileController@destroy');
-       
+    Route::delete('delete/{id}', 'HospitalProfileController@destroy');       
 });
 
 Route::group(['prefix' => 'comments'], function () {
     Route::post('add', 'CommentController@store');
     Route::get('edit/{id}', 'CommentController@edit');
+    Route::get('comment', 'CommentController@index');
+    Route::get('comfirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
 });

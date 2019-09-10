@@ -44,6 +44,8 @@ import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
 import favouriteBtn from './components/favouriteBtn.vue';
 import comment from './components/Comment.vue';
+import commentlist from './components/commentlist.vue';
+
 import passport from './components/passport.vue';
 export const routes = [
       {
@@ -222,8 +224,8 @@ export const routes = [
         component: hospitalview
       },
 
-      
-  
+
+
       {
         name:'type',
         path:'/type',
@@ -279,5 +281,10 @@ export const routes = [
         name: 'comment',
         path: '/comment',
         component: comment
+      },
+      {
+        name: 'commentlist',
+        path: '/commentlist',
+        component: commentlist
       }
 ];

@@ -18,9 +18,10 @@
                     </ol>
                   </nav> -->
                   <News></News>
+               
         
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab2">   <ProfilePublish></ProfilePublish></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
@@ -35,6 +36,7 @@ import News from './News.vue'
 import hospitalSearch from './hospitalSearch.vue'
 import nursingSearch from './nursingSearch.vue'
 import jobSearch from './jobSearch.vue'
+import ProfilePublish from './ProfilePublish.vue'
   
 export default {
     components: {
