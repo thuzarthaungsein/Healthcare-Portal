@@ -23,10 +23,10 @@
                                 <div class="col-md-8 m-t-8">
                                     <strong>Title :</strong> {{comment.title}}
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 ">
                                     <button class="btn edit-borderbtn" type="button" data-toggle="collapse" :data-target="'#showDetails' + comment.id" >View</button>
                                     <!-- <button class="btn edit-borderbtn" @click="show(comment.id)">View</button> -->
-                                    <span   v-if="comment.status != 0">Confirm</span>
+                                    <button class="btn confirm-borderbtn confirmed"  v-if="comment.status != 0" >Confirm</button>
                                     <button class="btn confirm-borderbtn" v-else @click="commentConfirm(comment.id)">Confirm</button>
                                     <button class="btn delete-borderbtn" @click="deleteComment(comment.id)" >Delete</button>
 
@@ -100,12 +100,16 @@ export default {
             }
          },
          commentConfirm(id){
-             this.axios.get(`/api/comments/comfirm/${id}`)
+             if(confirm("Are you sure you want to delete?"))
+             {
+                 this.axios.get(`/api/comments/comfirm/${id}`)
                 .then(response=>{
                     this.comments = response.data.comments;
                      alert('Successfully Confirm!');
                     //console.log(this.comments);
                 })
+             }
+
          }
 
     }
