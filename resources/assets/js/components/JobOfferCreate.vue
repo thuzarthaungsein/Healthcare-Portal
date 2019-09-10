@@ -49,21 +49,21 @@
                                             <div class = "col-sm-9">
                                              <!-- <span id="addnew"><a href="javascript:new_link()" class="btn btn-sm main-bg-color all-btn white">  Add New Skill  </a></span> -->
                                              <a class="btn btn-success"  @click="addRow">Add New Skill</a>
-                                             <a class="btn btn-danger"   @click="delRow">Delete</a>
+                                             <!-- <a class="btn btn-danger"   @click="delRow">Delete</a> -->
                                             </div>
                                         </div>
 
-                                        <div class="form-group row sk" id="newlinktpl"  v-for="field in joboffer.fields" :key="field.id">
+                                        <div class="form-group row sk" id="newlinktpl"  v-for="(field,id) in joboffer.fields" :key="id">
                                             <div class="col-sm-3 text-right">
                                                 <label for ="skill"><strong> Skill : </strong></label>
                                             </div>
-                                            <div class="col-sm-9"  >
+                                            <div class="col-sm-7"  >
                                                  <input type="text" class="form-control" v-model="field.skills">
                                                 <!-- <input type="text" class="form-control"  v-model="joboffer.skills" >  -->
                                             </div>
-                                            <!-- <div class="col-sm-1">
-                                                 <a class="text-danger" style="padding-top: 1px;" href = "#" @click="delRow">delete</a>
-                                            </div> -->
+                                            <div class="col-sm-2">
+                                                 <a class="text-danger" style="padding-top: 1px;" href = "#" @click="delRow(id)">delete</a>
+                                            </div>
                                         </div>
 
                                         <div id="newlink" ></div>
@@ -296,13 +296,15 @@ export default {
                      this.updateJob();
                 }
             },
+           
             addRow: function() {
                 this.joboffer.fields.push({
                 skills: '',
                 id:''  });
             },
-            delRow: function() {
-                this.joboffer.fields.pop();
+            delRow: function(id) {
+                this.joboffer.fields.splice(id, 1);
+                // this.joboffer.fields.pop();
             },
             createskill: function(arr){
                 this.joboffer.fields.shift()
@@ -310,6 +312,7 @@ export default {
 
                       this.joboffer.fields.push({
                         skills: arr[i],
+                        id: arr[i]
 
                             });
                     }

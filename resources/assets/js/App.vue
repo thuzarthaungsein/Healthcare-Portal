@@ -63,6 +63,7 @@
             <div class="col-2">
                        <relatedNews></relatedNews>
             </div>
+          
           </div>
 
         </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMailable;
+use App\Mail\SendMailComment;
 
 class CommentController extends Controller
 {
@@ -24,15 +24,13 @@ class CommentController extends Controller
 
 
     public function store(Request $request)
-    {
-
-
-        // $request->validate([
-        //     'title' => 'required|unique:jobs',
-        //     'comment' =>'required',
-        //     'email' => 'required|email|unique:comments',
-        //     'zipcode' => 'required',
-        // ]);
+    {   
+        $request->validate([
+            'title' => 'required|unique:comments',
+            'comment' =>'required',
+            'email' => 'required|email|unique:comments',
+                
+        ]);
 
         $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
 
@@ -51,7 +49,16 @@ class CommentController extends Controller
 
         ]);
         $comment ->save();
-        \Mail::to($request->email)->send(new SendMailable($request->comment));
+        $getComment = Comment::findOrFail($comment->id);
+       
+        if($getComment->gender == 0 )
+        {
+            $getComment->gender = "Male";
+        }
+        else{
+            $getComment->gender = "Female";
+        }
+        \Mail::to($getComment)->send(new SendMailComment($getComment));
 
         return response()->json(['success'=>'Done!']);
 

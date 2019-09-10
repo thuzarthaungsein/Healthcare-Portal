@@ -15147,6 +15147,10 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(254)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(137)
@@ -15155,7 +15159,7 @@ var __vue_template__ = __webpack_require__(138)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -15368,6 +15372,7 @@ __webpack_require__(31);
 // window.Vue = require('vue');
 
 // import App from './App.vue';
+
 
 
 
@@ -41364,6 +41369,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__);
 //
 //
 //
@@ -41396,6 +41403,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
@@ -43296,7 +43305,7 @@ var render = function() {
           staticClass: "tab-pane fade",
           attrs: { role: "tabpanel", id: "tab2" }
         },
-        [_c("hospitalSearch")],
+        [_c("ProfilePublish")],
         1
       ),
       _vm._v(" "),
@@ -50273,20 +50282,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
 
+
         addRow: function addRow() {
             this.joboffer.fields.push({
                 skills: '',
                 id: '' });
         },
-        delRow: function delRow() {
-            this.joboffer.fields.pop();
+        delRow: function delRow(id) {
+            this.joboffer.fields.splice(id, 1);
+            // this.joboffer.fields.pop();
         },
         createskill: function createskill(arr) {
             this.joboffer.fields.shift();
             for (var i = 0; i < arr.length; i++) {
 
                 this.joboffer.fields.push({
-                    skills: arr[i]
+                    skills: arr[i],
+                    id: arr[i]
 
                 });
             }
@@ -50453,31 +50465,22 @@ var render = function() {
                           on: { click: _vm.addRow }
                         },
                         [_vm._v("Add New Skill")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-danger",
-                          on: { click: _vm.delRow }
-                        },
-                        [_vm._v("Delete")]
                       )
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._l(_vm.joboffer.fields, function(field) {
+                  _vm._l(_vm.joboffer.fields, function(field, id) {
                     return _c(
                       "div",
                       {
-                        key: field.id,
+                        key: id,
                         staticClass: "form-group row sk",
                         attrs: { id: "newlinktpl" }
                       },
                       [
                         _vm._m(3, true),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-9" }, [
+                        _c("div", { staticClass: "col-sm-7" }, [
                           _c("input", {
                             directives: [
                               {
@@ -50499,6 +50502,23 @@ var render = function() {
                               }
                             }
                           })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-2" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "text-danger",
+                              staticStyle: { "padding-top": "1px" },
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.delRow(id)
+                                }
+                              }
+                            },
+                            [_vm._v("delete")]
+                          )
                         ])
                       ]
                     )
@@ -53729,38 +53749,66 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ProfilePublish_vue__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ProfilePublish_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__ProfilePublish_vue__);
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 $(document).ready(function () {
         $('#feature').summernote({
@@ -53773,37 +53821,107 @@ $(document).ready(function () {
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+        ready: function ready() {
+                // this.scrollTab();
+                var profilePublish = $("#profilePublish");
+                stickyDiv = "sticky";
+                header = $('.header').height();
+
+                $('.scrolldiv2').scroll(function () {
+                        if ($(this).scrollTop() > header) {
+                                profilePublish.addClass(stickyDiv);
+                        } else {
+                                profilePublish.removeClass(stickyDiv);
+                        }
+                });
+
+                $(".a_sp a[href^='#']").click(function () {
+                        var speed = 600;
+                        var href = $(this).attr("href");
+                        var target = $(href === "#" || href === "" ? 'html' : href);
+                        var position = target.offset().top;
+                        $("html, body, .scrolldiv2").animate({ scrollTop: position - 60 }, speed, "swing");
+                });
+        },
         components: {
                 hospitalProfile: __WEBPACK_IMPORTED_MODULE_0__HospitalProfile_vue___default.a,
                 nursingProfile: __WEBPACK_IMPORTED_MODULE_1__NursingProfile_vue___default.a,
                 profilePublish: __WEBPACK_IMPORTED_MODULE_2__ProfilePublish_vue___default.a
+
         },
         data: function data() {
                 return {
+                        //  type: 'nursing',
                         type: 'hospital'
                 };
         },
         created: function created() {
-                this.axios.get('/api/authget').then(function (response) {
-                        //  console.log(response);
+
+                //       this.scrollSection();
+                this.axios.get('http://localhost:8000/api/authget').then(function (response) {
+                        //   console.log(response);
                         // this.fac_list = response.data;
                 });
+                this.scrollTab();
         },
 
         methods: {
-                changeType: function changeType() {
-                        if (this.type == 'nursing') {
-                                document.getElementById("hospital-lbl").classList.add("dim-btn");
-                                document.getElementById("nursing-lbl").classList.remove("dim-btn");
-                        } else {
-                                document.getElementById("nursing-lbl").classList.add("dim-btn");
-                                document.getElementById("hospital-lbl").classList.remove("dim-btn");
-                        }
+                getType: function getType(aa) {
+                        alert('a');
+                        console.log(aa);
                 },
-                callLocal: function callLocal() {
-                        console.log(_typeof(localStorage.getItem("hospital_history")));
-                        console.log(localStorage.getItem("hospital_history"));
+                scrollTab: function scrollTab() {
+                        console.log('scroll');
+                        // $("p").css('color','red');
+                        $('#a').on('click', function () {
+                                console.log('onclick');
+                        });
+
+                        if ($('.detal_wrap').length) {
+                                console.log('Hello');
+                                $(".a_sp a[href^='#']").click(function () {
+                                        console.log("a_sp");
+                                        var speed = 600;
+                                        var href = $(this).attr("href");
+                                        var target = $(href === "#" || href === "" ? 'html' : href);
+                                        var position = target.offset().top;
+                                        $("html, body, .scrolldiv2").animate({ scrollTop: position - 60 }, speed, "swing");
+                                        //return false;
+                                });
+                        }
                 }
+                // changeType() {
+                //         console.log('change');
+                //         if(this.type == 'nursing') {
+
+                //                 document.getElementById("hospital-lbl").classList.add("dim-btn");
+                //                 document.getElementById("nursing-lbl").classList.remove("dim-btn");
+                //                 this.scrollSection();
+                //         }
+                //         else{
+                //                document.getElementById("nursing-lbl").classList.add("dim-btn"); 
+                //                document.getElementById("hospital-lbl").classList.remove("dim-btn");
+                //                this.scrollSection();
+                //         }
+                // },
+                // callLocal(){
+                //         console.log(typeof(localStorage.getItem("hospital_history")));
+                //         console.log(localStorage.getItem("hospital_history"));
+                // },
+                // scrollSection() {
+                //         if($('.detal_wrap').length){
+
+                //                 $(".a_sp a[href^='#']").click(function () { 
+                //                 var speed = 600;
+                //                 var href = $(this).attr("href");
+                //                 var target = $(href === "#" || href === "" ? 'html' : href);
+                //                 var position = target.offset().top;
+                //                 $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+                //                 //return false;
+                //                 });
+                //         }
+                // }
+
         }
 });
 
@@ -53922,107 +54040,6 @@ $(document).ready(function () {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-// Fixed Nav
-jQuery(document).ready(function ($) {
-
-    $('.onepage').click(function () {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html,body').animate({
-                    scrollTop: target.offset().top - 32
-                }, 1000);
-                return false;
-            }
-        }
-    });
-
-    $(window).scroll(function () {
-
-        var scrollTop = 152;
-        if ($(window).scrollTop() >= scrollTop) {
-            $('.nav_menu').css({
-                position: 'fixed',
-                top: '0',
-                width: '57.12%'
-            });
-        }
-        if ($(window).scrollTop() < scrollTop) {
-            $('.nav_menu').removeAttr('style');
-        }
-    });
-
-    // Active Nav Link
-    $('.nav_menu ul li a').click(function () {
-        $('.nav_menu ul li a').removeClass('active');
-        $(this).addClass('active');
-    });
-
-    $(document).on("scroll", onScroll);
-    function onScroll(event) {
-        var scrollPos = $(document).scrollTop();
-        $('.nav_menu a').each(function () {
-            var currLink = $(this);
-
-            var refElement = $(currLink.attr("href"));
-            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                $('.nav_menu ul li a').removeClass("active");
-                currLink.addClass("active");
-            } else {
-                currLink.removeClass("active");
-            }
-        });
-    }
-});
 
 /***/ }),
 /* 138 */
@@ -54040,56 +54057,44 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "col-12 detal_wrap", attrs: { id: "dw" } }, [
         _c("div", { staticClass: "card " }, [
-          _c(
-            "div",
-            {
-              staticStyle: { "z-index": "1000", overflow: "hidden" },
-              attrs: { id: "profile" }
-            },
-            [
-              _c("nav", { staticClass: "nav_menu" }, [
-                _c("ul", [
-                  _c("li", [
-                    _c(
-                      "a",
-                      { staticClass: "onepage", attrs: { href: "#section1" } },
-                      [_vm._v("section 1")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c(
-                      "a",
-                      { staticClass: "onepage", attrs: { href: "#section2" } },
-                      [_vm._v("section 2")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c(
-                      "a",
-                      { staticClass: "onepage", attrs: { href: "#section3" } },
-                      [_vm._v("section 3")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c(
-                      "a",
-                      { staticClass: "onepage", attrs: { href: "#section4" } },
-                      [_vm._v("section 4")]
-                    )
+          _c("div", { staticClass: "header" }, [
+            _c("div", { staticClass: "pagelink_s a_sp" }, [
+              _c(
+                "nav",
+                { staticClass: "nav_menu", attrs: { id: "profilePublish" } },
+                [
+                  _c("ul", { staticClass: "tfacilitydetaildetail" }, [
+                    _c("li", [
+                      _c("a", { attrs: { href: "#sp_a1", id: "a" } }, [
+                        _vm._v("section 1")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#sp_a2", id: "a" } }, [
+                        _vm._v("section 2")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#sp_a3", id: "a" } }, [
+                        _vm._v("section 3")
+                      ])
+                    ])
                   ])
-                ])
-              ])
-            ]
-          ),
+                ]
+              )
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "section",
-            { staticClass: "section-header", attrs: { id: "section1" } },
+            {
+              staticClass: "section-header wow fadeInUp",
+              attrs: { id: "sp_a1" }
+            },
             [
               _c("div", { staticClass: "container" }, [
                 _c("h3", [_vm._v("section 1")]),
@@ -54117,65 +54122,13 @@ var staticRenderFns = [
                       _vm._v(
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                       )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("At vero eos et accusamus")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("h2", [_vm._v("We are professional")]),
                     _vm._v(" "),
                     _c("p", [
                       _vm._v(
-                        "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut."
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Temporibus autem quibusdam")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium."
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Nam libero tempore")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum."
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                       )
                     ])
                   ]
@@ -54184,209 +54137,91 @@ var staticRenderFns = [
             ]
           ),
           _vm._v(" "),
-          _c(
-            "section",
-            {
-              staticStyle: { "padding-top": "72px" },
-              attrs: { id: "section2" }
-            },
-            [
-              _c("div", { staticClass: "container" }, [
-                _c("header", { staticClass: "section-header" }, [
-                  _c("h3", [_vm._v("section 2 ")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("img", {
-                    staticClass: "img-fluid img-thumbnail",
-                    attrs: { src: "images/h10.jpg", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Our Plan")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        " Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Our Mission")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        " Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Our Vision")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        " Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Our Skills")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
-                      )
-                    ])
-                  ]
-                )
-              ])
-            ]
-          ),
+          _c("section", { attrs: { id: "sp_a2" } }, [
+            _c("div", { staticClass: "container" }, [
+              _c("header", { staticClass: "section-header wow fadeInUp" }, [
+                _c("h3", [_vm._v("section 2 ")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("img", {
+                  staticClass: "img-fluid img-thumbnail",
+                  attrs: { src: "images/h10.jpg", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row",
+                  staticStyle: {
+                    "padding-left": "20px",
+                    "padding-right": "20px"
+                  }
+                },
+                [
+                  _c("h2", [_vm._v("Our Plan")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      " Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Our Plan")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      " Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                    )
+                  ])
+                ]
+              )
+            ])
+          ]),
           _vm._v(" "),
-          _c(
-            "section",
-            {
-              staticStyle: { "padding-top": "20px" },
-              attrs: { id: "section3" }
-            },
-            [
-              _c("div", { staticClass: "container" }, [
-                _c("header", { staticClass: "section-header wow fadeInUp" }, [
-                  _c("h3", [_vm._v("section 3 ")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("img", {
-                    staticClass: "img-fluid img-thumbnail",
-                    attrs: { src: "images/11.JPG", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Our Plan")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        " Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Our Mission")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        " Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Our Vision")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        " Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "row",
-                    staticStyle: {
-                      "padding-left": "20px",
-                      "padding-right": "20px"
-                    }
-                  },
-                  [
-                    _c("h2", [_vm._v("Our Skills")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
-                      )
-                    ])
-                  ]
-                )
-              ])
-            ]
-          )
+          _c("section", { attrs: { id: "sp_a3" } }, [
+            _c("div", { staticClass: "container" }, [
+              _c("header", { staticClass: "section-header wow fadeInUp" }, [
+                _c("h3", [_vm._v("section 3 ")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("img", {
+                  staticClass: "img-fluid img-thumbnail",
+                  attrs: { src: "images/11.JPG", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row",
+                  staticStyle: {
+                    "padding-left": "20px",
+                    "padding-right": "20px"
+                  }
+                },
+                [
+                  _c("h2", [_vm._v("Our Plan")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      " Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Our Plan")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      " Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                    )
+                  ])
+                ]
+              )
+            ])
+          ])
         ])
       ])
     ])
@@ -54416,11 +54251,50 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-content scrolldiv2",
+            attrs: { id: "myTabContent" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade  ",
+                attrs: {
+                  id: "home",
+                  role: "tabpanel",
+                  "aria-labelledby": "home-tab"
+                }
+              },
+              [_c("nursingProfile")],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade show active",
+                attrs: {
+                  id: "profile",
+                  role: "tabpanel",
+                  "aria-labelledby": "profile-tab"
+                }
+              },
+              [_c("profilePublish")],
+              1
+            )
+          ]
+        ),
+        _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c(
             "label",
             {
-              staticClass: "typelabel",
+              staticClass: "typelabel ",
               attrs: { for: "hospital", id: "hospital-lbl" }
             },
             [
@@ -54436,19 +54310,15 @@ var render = function() {
                 attrs: {
                   type: "radio",
                   value: "hospital",
+                  onChange: "changeType()",
                   name: "type",
                   id: "hospital"
                 },
                 domProps: { checked: _vm._q(_vm.type, "hospital") },
                 on: {
-                  change: [
-                    function($event) {
-                      _vm.type = "hospital"
-                    },
-                    function($event) {
-                      return _vm.changeType()
-                    }
-                  ]
+                  change: function($event) {
+                    _vm.type = "hospital"
+                  }
                 }
               }),
               _vm._v(" Create\r\n                        ")
@@ -54474,42 +54344,31 @@ var render = function() {
                 attrs: {
                   type: "radio",
                   value: "nursing",
+                  onChange: "changeType()",
                   name: "type",
                   id: "nursing"
                 },
                 domProps: { checked: _vm._q(_vm.type, "nursing") },
                 on: {
-                  change: [
-                    function($event) {
-                      _vm.type = "nursing"
-                    },
-                    function($event) {
-                      return _vm.changeType()
-                    }
-                  ]
+                  change: function($event) {
+                    _vm.type = "nursing"
+                  }
                 }
               }),
               _vm._v(" View\r\n                        ")
             ]
           )
-        ]),
-        _vm._v(" "),
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
         _c("form", { staticClass: "col-md-12" }, [
           _vm.type == "hospital"
-            ? _c(
-                "div",
-                { staticClass: "col-md-12 pad-free" },
-                [_c("nursingProfile")],
-                1
-              )
+            ? _c("div", { staticClass: "col-md-12 pad-free" })
             : _vm._e(),
           _vm._v(" "),
           _vm.type == "nursing"
-            ? _c("div", { staticClass: "col-md-12 pad-free" }, [
-                _vm._v(
-                  "\r\n                             Profile Page View\r\n                        "
-                )
-              ])
+            ? _c("div", { staticClass: "col-md-12 pad-free" })
             : _vm._e()
         ])
       ])
@@ -54524,6 +54383,59 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-header" }, [
       _c("h4", { staticClass: "col-md-12" }, [_vm._v("マイページ")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "nav nav-tabs", attrs: { id: "myTab", role: "tablist" } },
+      [
+        _c("li", { staticClass: "nav-item" }, [
+          _c("input", {
+            staticStyle: { display: "none" },
+            attrs: { type: "text", id: "a1", value: "text_1" }
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "nav-link ",
+              attrs: {
+                id: "home-tab",
+                "data-toggle": "tab",
+                href: "#home",
+                role: "tab",
+                "aria-controls": "home",
+                "aria-selected": "true"
+              }
+            },
+            [_vm._v("Hospital")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c("input", { attrs: { type: "text", id: "a2", value: "text_2" } }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "profile-tab",
+                "data-toggle": "tab",
+                href: "#profile",
+                role: "tab",
+                "aria-controls": "profile",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("ProfilePublish")]
+          )
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -59115,19 +59027,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59161,17 +59060,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         }
     },
+    created: function created() {
+        this.comments.gender = 0;
+    },
+
 
     methods: {
         add: function add() {
             var _this = this;
 
             axios.post('/api/comments/add', this.comments).then(function (response) {
-                _this.name = '';
+
                 alert('Successfully Created');
 
-                emailjs.send(service_id, template_id, template_params);
-                console.log(response);
                 // this.$router.push({name: 'categorylist'});
             }).catch(function (error) {
 
@@ -59186,6 +59087,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.comments.year = this.selectedValue;
         }
+        //  changetype()
+        // {
+        //    this.comments.gender = this.comments.gender;
+        // },
     }
 
 });
@@ -59379,18 +59284,6 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-sm-3" }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _vm.errors.name
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.name[0]))
-                          ])
-                        : _vm._e()
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
                     _vm._m(5),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-9" }, [
@@ -59555,18 +59448,6 @@ var render = function() {
                     )
                   }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-sm-3" }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _vm.errors.title
-                        ? _c("span", { staticClass: "error" }, [
-                            _vm._v(_vm._s(_vm.errors.title[0]))
-                          ])
-                        : _vm._e()
-                    ])
-                  ]),
-                  _vm._v(" "),
                   _c("button", { staticClass: "btn news-post-btn" }, [
                     _vm._v("Create")
                   ])
@@ -59589,7 +59470,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header text-center" }, [
       _c("h4", { staticStyle: { "padding-top": "20px" } }, [
-        _vm._v(" Comment Create ")
+        _vm._v(" Job Create ")
       ])
     ])
   },
@@ -59638,10 +59519,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-3 text-right" }, [
       _c("label", { attrs: { for: "name" } }, [
-        _c("strong", [
-          _vm._v(" Name : "),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ])
+        _c("strong", [_vm._v(" Name : ")])
       ])
     ])
   },
@@ -59651,10 +59529,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-3 text-right" }, [
       _c("label", { attrs: { for: "year" } }, [
-        _c("strong", [
-          _vm._v(" Year : "),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ])
+        _c("strong", [_vm._v(" Year : ")])
       ])
     ])
   },
@@ -59664,10 +59539,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-3 text-right" }, [
       _c("label", { attrs: { for: "gender" } }, [
-        _c("strong", [
-          _vm._v(" Gender : "),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ])
+        _c("strong", [_vm._v(" Gender : ")])
       ])
     ])
   },
@@ -59677,10 +59549,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-3 text-right" }, [
       _c("label", { attrs: { for: "zipcode" } }, [
-        _c("strong", [
-          _vm._v(" Zipcode : "),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ])
+        _c("strong", [_vm._v(" Zipcode : ")])
       ])
     ])
   }
@@ -65035,6 +64904,46 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-2b3f5829", module.exports)
   }
 }
+
+/***/ }),
+/* 254 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(255);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("7e6388e0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b65423c6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfilePublish.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b65423c6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfilePublish.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 255 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.header{\n    width:100%;\n    height:50px;\n}\n.fixed {\n    position: fixed;\n    top: 20;\n    width: 50.5%;\n    z-index: 1000;\n}\n.sticky {\n    position:fixed;\n    top:30;\n    width: 51.1%;\n    z-index: 1000;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

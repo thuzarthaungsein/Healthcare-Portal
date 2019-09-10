@@ -1,5 +1,7 @@
 
 
+<<<<<<< HEAD
+=======
 var timeout;
 $(".path").hover(
   function() {
@@ -27,6 +29,7 @@ if(ios) {
   });
 }
 
+>>>>>>> 9dfb9f295b26286be3deba9e2967d523d2752724
 
 $('path').on("click", function(e) {
     e.preventDefault();
@@ -62,12 +65,14 @@ $('path').on("click", function(e) {
 });
 
 
+
+
 // $('#method-textarea').summernote({
 //     placeholder: 'Write Feature',
 //     height: 200,
 //   });
 
-    var dynamicInput = [];
+    var dynamicInput = [] ;
     var ct = 1;
     function new_link()
     {
@@ -142,8 +147,12 @@ $('path').on("click", function(e) {
             success:function(data){
                $('#video-area').remove();
             }
+<<<<<<< HEAD
+        });    
+=======
         });
         
+>>>>>>> 9dfb9f295b26286be3deba9e2967d523d2752724
     }
 /*select check
 
@@ -173,6 +182,89 @@ $(document).ready(function(){
 /*select check
 
 */
+
+
+
+
+// function scrollTab(){
+//     console.log('scroll');
+//     // $("p").css('color','red');
+//     $('#a').on('click',function(){
+//         console.log('onclick');
+//     });
+  
+//     if($('.detal_wrap').length){    
+//         $(".a_sp a[href^='#']").click(function () { 
+//             console.log("a_sp");
+//         var speed = 600;
+//         var href = $(this).attr("href");
+//         var target = $(href === "#" || href === "" ? 'html' : href);
+//         var position = target.offset().top;
+//         $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+//             //return false;
+//         });
+//     }
+// }
+
+
+
+
+//  function changeType() {
+
+//     if(this.type == 'nursing') {
+        
+//             document.getElementById("hospital-lbl").classList.add("dim-btn");
+//             document.getElementById("nursing-lbl").classList.remove("dim-btn");
+           
+//             scrollTab();
+           
+//     }
+//     else{
+//            document.getElementById("nursing-lbl").classList.add("dim-btn"); 
+//            document.getElementById("hospital-lbl").classList.remove("dim-btn");
+         
+//            scrollTab();
+//     }
+// }
+
+// $('nav-item').on('change',function(e){
+//     e.preventDefault();
+//     console.log($('#a1').val());
+// })
+
+// jQuery(document).ready(function($) {
+
+//     var profilePublish = $("#profilePublish");
+//     stickyDiv = "sticky";
+//     header = $('.header').height();
+   
+
+// $('.scrolldiv2').scroll(function() {
+//   if( $(this).scrollTop() > header ) {
+//     profilePublish.addClass(stickyDiv);
+//   } else {
+//     profilePublish.removeClass(stickyDiv);
+//   }
+// });
+    
+//     $(".a_sp a[href^='#']").click(function () { 
+//     var speed = 600;
+//     var href = $(this).attr("href");
+//     var target = $(href === "#" || href === "" ? 'html' : href);
+//     var position = target.offset().top;
+//     $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+    
+//     });
+// });
+
+
+
+
+
+
+    
+    
+  
 
 
 
