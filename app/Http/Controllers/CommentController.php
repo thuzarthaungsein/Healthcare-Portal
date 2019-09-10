@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
- 
+
 use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -9,19 +9,20 @@ use App\Mail\SendMailComment;
 
 class CommentController extends Controller
 {
- 
+
     public function index()
     {
-        //
+         $comment =Comment::all()->toArray();
+         return array_reverse($comment);
     }
 
-  
+
     public function create()
     {
         //
     }
 
-   
+
     public function store(Request $request)
     {   
         $request->validate([
@@ -43,9 +44,9 @@ class CommentController extends Controller
             'gender' => $request->input('gender'),
             'zipcode' =>  $zipcode,
             'customer_id' => 1,
-            'status' => 0,  
+            'status' => 0,
             'recordstatus' => 2
-            
+
         ]);
         $comment ->save();
         $getComment = Comment::findOrFail($comment->id);
@@ -63,7 +64,7 @@ class CommentController extends Controller
 
     }
 
-   
+
     public function show(Comment $comment)
     {
         //
@@ -74,15 +75,25 @@ class CommentController extends Controller
         //
     }
 
-    
+
     public function update(Request $request, Comment $comment)
     {
         //
     }
 
 
-    public function destroy(Comment $comment)
+    public function destroy($id)
     {
         //
+        $comment = Comment::find($id);
+        $comment->delete();
+        return response()->json('Comment successfully deleted');
     }
+    public function confirm($id){
+        $comment =Comment::find($id);
+        $comment->status =1;
+        $comment->save();
+        return response()->json('Comment successfully confirmed');
+    }
+
 }

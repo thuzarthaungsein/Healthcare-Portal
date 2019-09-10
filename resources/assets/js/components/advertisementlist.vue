@@ -18,7 +18,7 @@
         </div>
     <div class="row m-b-15 m-r-5">
         <div class="col-md-12">
-        <router-link to="/advertisement" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle"></i> 広告を作成する</router-link>
+        <router-link to="/advertisement" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle" ></i> 広告を作成する</router-link>
         </div>
     </div>
     <div class="scrolldiv col-12 border-style">
@@ -80,9 +80,8 @@ export default {
                         this.advertisements.splice(a, 1)
                     });
             }
-         }
-
-        }
+         },
+    }
 }
 </script>
 

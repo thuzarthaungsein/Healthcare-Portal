@@ -45,6 +45,8 @@ import editadvertisement from './components/editadvertisement.vue';
 import favouriteBtn from './components/favouriteBtn.vue';
 import comment from './components/Comment.vue';
 import passport from './components/passport.vue';
+import commentlist from './components/commentlist.vue';
+
 export const routes = [
       {
         name: 'home',
@@ -279,5 +281,10 @@ export const routes = [
         name: 'comment',
         path: '/comment',
         component: comment
+      },
+      {
+        name: 'commentlist',
+        path: '/commentlist',
+        component: commentlist
       }
 ];

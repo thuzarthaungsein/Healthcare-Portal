@@ -155,7 +155,6 @@ Route::group(['prefix' => 'medical'], function () {
     Route::post('update/{id}', 'MedicalController@update');
 });
 
-//Route::post('add','AdvertisementController@store');
 Route::group(['prefix' => 'advertisement'], function () {
     Route::post('add', 'AdvertisementController@store');
     Route::get('edit/{id}', 'AdvertisementController@edit');
@@ -175,7 +174,8 @@ Route::group(['prefix' => 'advertisement'], function () {
 Route::group(['prefix' => 'comments'], function () {
     Route::post('add', 'CommentController@store');
     Route::get('edit/{id}', 'CommentController@edit');
-    Route::get('ads', 'CommentController@index');
+    Route::get('comment', 'CommentController@index');
+    Route::get('confirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
 });
