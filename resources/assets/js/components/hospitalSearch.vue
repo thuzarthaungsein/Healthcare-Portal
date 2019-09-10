@@ -3,18 +3,55 @@
   <div class="row">
         <div class="col-sm-6">
                 <div class="card">
-                   <div class="card-header">
+                   <div class="card-body">
                      <a href="#!" id="23" data-info="<div>Aichi</div>" class="path btn btn-info" >Aichi</a>
                      <a href="#!" id="5" data-info="<div>Akita</div>" class="path btn btn-info" >Akita</a>
+                     <a href="#!" id="2" data-info="<div>Aomori</div>" class="path btn btn-info" >Aomori</a>
+                     <a href="#!" id="12" data-info="<div>Chiba</div>" class="path btn btn-info" >Chiba</a>
+                     <a href="#!" id="38" data-info="<div>Ehime</div>" class="path btn btn-info" >Ehime</a>
+                     <a href="#!" id="18" data-info="<div>Fukui</div>" class="path btn btn-info" >Fukui</a>
+                     <a href="#!" id="40" data-info="<div>Fukuoka</div>" class="path btn btn-info" >Fukuoka</a>
+                     <a href="#!" id="7" data-info="<div>Fukushima</div>" class="path btn btn-info" >Fukushima</a>
+                     <a href="#!" id="21" data-info="<div>Gifu</div>" class="path btn btn-info" >Gifu</a>
+                     <a href="#!" id="10" data-info="<div>Gunma</div>" class="path btn btn-info" >Gunma</a>
+                     <a href="#!" id="28" data-info="<div>Hyogo</div>" class="path btn btn-info" >Hyogo</a>
+                     <a href="#!" id="1" data-info="<div>Hokkaido</div>" class="path btn btn-info" >Hokkaido</a>
+                     <a href="#!" id="34" data-info="<div>Hiroshima</div>" class="path btn btn-info" >Hiroshima</a>
+                     <a href="#!" id="8" data-info="<div>Ibaraki</div>" class="path btn btn-info" >Ibaraki</a>
+                     <a href="#!" id="17" data-info="<div>Ishikawa</div>" class="path btn btn-info" >Ishikawa</a>
+                     <a href="#!" id="39" data-info="<div>Kochi</div>" class="path btn btn-info" >Kochi</a>
+                     <a href="#!" id="37" data-info="<div>Kagawa</div>" class="path btn btn-info" >Kagawa</a>
+                     <a href="#!" id="43" data-info="<div>Kumamoto</div>" class="path btn btn-info" >Kumamoto</a>
+                     <a href="#!" id="14" data-info="<div>Kanagawa</div>" class="path btn btn-info" >Kanagawa</a>
+                     <a href="#!" id="46" data-info="<div>Kagoshima</div>" class="path btn btn-info" >Kagoshima</a>
+                     <a href="#!" id="26" data-info="<div>Kyoto</div>" class="path btn btn-info" >Kyoto</a>
+                     <a href="#!" id="24" data-info="<div>Mie</div>" class="path btn btn-info" >Mie</a>
+                     <a href="#!" id="4" data-info="<div>Miyagi</div>" class="path btn btn-info" >Miyagi</a>
+                     <a href="#!" id="45" data-info="<div>Miyazaki</div>" class="path btn btn-info" >Miyazaki</a>
+                     <a href="#!" id="15" data-info="<div>Niigata</div>" class="path btn btn-info" >Niigata</a>
+                     <a href="#!" id="20" data-info="<div>Nagano</div>" class="path btn btn-info" >Nagano</a>
+                     <a href="#!" id="29" data-info="<div>Nara</div>" class="path btn btn-info" >Nara</a>
+                     <a href="#!" id="42" data-info="<div>Nagasaki</div>" class="path btn btn-info" >Nagasaki</a>
+                     <a href="#!" id="47" data-info="<div>Okinawa</div>" class="path btn btn-info" >Okinawa</a>
+                     <a href="#!" id="27" data-info="<div>Osaka</div>" class="path btn btn-info" >Osaka</a>
+                     <a href="#!" id="33" data-info="<div>Okayama</div>" class="path btn btn-info" >Okayama</a>
+                     <a href="#!" id="44" data-info="<div>Oita</div>" class="path btn btn-info" >Oita</a>
+                     <a href="#!" id="41" data-info="<div>Saga</div>" class="path btn btn-info" >Saga</a>
+                     <a href="#!" id="25" data-info="<div>Shiga</div>" class="path btn btn-info" >Shiga</a>
+                     <a href="#!" id="32" data-info="<div>Shimane</div>" class="path btn btn-info" >Shimane</a>
+                     <a href="#!" id="11" data-info="<div>Saitama</div>" class="path btn btn-info" >Saitama</a>
+                     <a href="#!" id="22" data-info="<div>Shizuoka</div>" class="path btn btn-info" >Shizuoka</a>
+                     <a href="#!" id="9" data-info="<div>Tochigi</div>" class="path btn btn-info" >Tochigi</a>
+                     <a href="#!" id="13" data-info="<div>Tokyo</div>" class="path btn btn-info" >Tokyo</a>
+                     <a href="#!" id="36" data-info="<div>Tokushima</div>" class="path btn btn-info" >Tokushima</a>
+                     <a href="#!" id="31" data-info="<div>Tottori</div>" class="path btn btn-info" >Tottori</a>
+                     <a href="#!" id="16" data-info="<div>Toyama</div>" class="path btn btn-info" >Toyama</a>
+                     <a href="#!" id="30" data-info="<div>Wakayama</div>" class="path btn btn-info" >Wakayama</a>
+                     <a href="#!" id="35" data-info="<div>Yamaguchi</div>" class="path btn btn-info" >Yamaguchi</a>
+                     <a href="#!" id="19" data-info="<div>Yamanashi</div>" class="path btn btn-info" >Yamanashi</a>
+                     <a href="#!" id="6" data-info="<div>Yamagata</div>" class="path btn btn-info" >Yamagata</a>
                    </div>
-                   <div class="card-body">
-                        <div >
-                                <select name="" id="select" class="form-control custom-select">
-                                        <option v-for="City in getCity" :key="City.id" v-bind:value="City.id">{{City.city_name}}</option>
-                                </select>
-                        </div>
-                        <div id="checkbox" class="row"></div>
-                   </div>
+                   
                 </div>
         </div>
         <div class="col-sm-6">

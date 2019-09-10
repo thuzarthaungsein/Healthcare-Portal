@@ -40996,28 +40996,34 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_userPasswordResetList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30__components_userPasswordResetList_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_HospitalHistory_vue__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_HospitalHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_HospitalHistory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_NursingHistory_vue__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_NursingHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_NursingHistory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_HospitalProfile_vue__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_HospitalProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_HospitalProfile_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_NursingProfile_vue__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_NursingProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_NursingProfile_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_VideoUpload_vue__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_VideoUpload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_VideoUpload_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_GoogleMap_vue__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_GoogleMap_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_GoogleMap_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_Type_vue__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_Type_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_Type_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_TypeList_vue__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_TypeList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__components_TypeList_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_advertisementlist_vue__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_advertisementlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39__components_advertisementlist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_editadvertisement_vue__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_editadvertisement_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40__components_editadvertisement_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_Comment_vue__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41__components_Comment_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_passport_vue__ = __webpack_require__(188);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_passport_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42__components_passport_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_hospitalview_vue__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_hospitalview_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_hospitalview_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_HospitalProfile_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_HospitalProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_HospitalProfile_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_NursingProfile_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_NursingProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_NursingProfile_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_VideoUpload_vue__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_VideoUpload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_VideoUpload_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_GoogleMap_vue__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_GoogleMap_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_GoogleMap_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_Type_vue__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_Type_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__components_Type_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_TypeList_vue__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_TypeList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39__components_TypeList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_advertisementlist_vue__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_advertisementlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40__components_advertisementlist_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_editadvertisement_vue__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_editadvertisement_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41__components_editadvertisement_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_favouriteBtn_vue__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_favouriteBtn_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42__components_favouriteBtn_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_Comment_vue__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_43__components_Comment_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_passport_vue__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_passport_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_44__components_passport_vue__);
+
+
 
 
 
@@ -41070,7 +41076,7 @@ var routes = [{
 }, {
   name: 'passport',
   path: '/passport',
-  component: __WEBPACK_IMPORTED_MODULE_42__components_passport_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_44__components_passport_vue___default.a
 }, {
   name: 'newdetails',
   path: '/newsdetails/:id',
@@ -41196,45 +41202,53 @@ var routes = [{
   path: '/advertisement',
   component: __WEBPACK_IMPORTED_MODULE_26__components_advertisement_vue___default.a
 }, {
+  name: 'hospitalview',
+  path: '/hospitalview',
+  component: __WEBPACK_IMPORTED_MODULE_32__components_hospitalview_vue___default.a
+}, {
   name: 'type',
   path: '/type',
-  component: __WEBPACK_IMPORTED_MODULE_37__components_Type_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_38__components_Type_vue___default.a
 }, {
   name: 'typelist',
   path: '/typelist',
-  component: __WEBPACK_IMPORTED_MODULE_38__components_TypeList_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_39__components_TypeList_vue___default.a
 }, {
   name: 'ads',
   path: '/ads',
-  component: __WEBPACK_IMPORTED_MODULE_39__components_advertisementlist_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_40__components_advertisementlist_vue___default.a
 }, {
   name: 'editadvertisement',
   path: '/editads',
-  component: __WEBPACK_IMPORTED_MODULE_40__components_editadvertisement_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_41__components_editadvertisement_vue___default.a
 }, {
   name: 'nursing_history',
   path: '/nursing_history',
-  component: __WEBPACK_IMPORTED_MODULE_32__components_NursingHistory_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_33__components_NursingHistory_vue___default.a
 }, {
   name: 'google_map',
   path: '/google_map',
-  component: __WEBPACK_IMPORTED_MODULE_36__components_GoogleMap_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_37__components_GoogleMap_vue___default.a
 }, {
   name: 'hospital_profile',
   path: '/hospital_profile',
-  component: __WEBPACK_IMPORTED_MODULE_33__components_HospitalProfile_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_34__components_HospitalProfile_vue___default.a
 }, {
   name: 'nursing_profile',
   path: '/nursing_profile',
-  component: __WEBPACK_IMPORTED_MODULE_34__components_NursingProfile_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_35__components_NursingProfile_vue___default.a
+}, {
+  name: 'favouriteBtn',
+  path: '/favouriteBtn',
+  component: __WEBPACK_IMPORTED_MODULE_42__components_favouriteBtn_vue___default.a
 }, {
   name: 'videoupload',
   path: '/videoupload',
-  component: __WEBPACK_IMPORTED_MODULE_35__components_VideoUpload_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_36__components_VideoUpload_vue___default.a
 }, {
   name: 'comment',
   path: '/comment',
-  component: __WEBPACK_IMPORTED_MODULE_41__components_Comment_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_43__components_Comment_vue___default.a
 }];
 
 /***/ }),
@@ -41822,6 +41836,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -41856,33 +41907,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "search-map  card-body" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", [
-              _c(
-                "select",
-                {
-                  staticClass: "form-control custom-select",
-                  attrs: { name: "", id: "select" }
-                },
-                _vm._l(_vm.getCity, function(City) {
-                  return _c(
-                    "option",
-                    { key: City.id, domProps: { value: City.id } },
-                    [_vm._v(_vm._s(City.city_name))]
-                  )
-                }),
-                0
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row", attrs: { id: "checkbox" } })
-          ])
-        ])
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-6" }, [
         _c("div", { attrs: { id: "info-box" } }),
@@ -42426,24 +42451,476 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c(
-        "a",
-        {
-          staticClass: "path btn btn-info",
-          attrs: { href: "#!", id: "23", "data-info": "<div>Aichi</div>" }
-        },
-        [_vm._v("Aichi")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "path btn btn-info",
-          attrs: { href: "#!", id: "5", "data-info": "<div>Akita</div>" }
-        },
-        [_vm._v("Akita")]
-      )
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "23", "data-info": "<div>Aichi</div>" }
+            },
+            [_vm._v("Aichi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "5", "data-info": "<div>Akita</div>" }
+            },
+            [_vm._v("Akita")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "2", "data-info": "<div>Aomori</div>" }
+            },
+            [_vm._v("Aomori")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "12", "data-info": "<div>Chiba</div>" }
+            },
+            [_vm._v("Chiba")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "38", "data-info": "<div>Ehime</div>" }
+            },
+            [_vm._v("Ehime")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "18", "data-info": "<div>Fukui</div>" }
+            },
+            [_vm._v("Fukui")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "40", "data-info": "<div>Fukuoka</div>" }
+            },
+            [_vm._v("Fukuoka")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "7",
+                "data-info": "<div>Fukushima</div>"
+              }
+            },
+            [_vm._v("Fukushima")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "21", "data-info": "<div>Gifu</div>" }
+            },
+            [_vm._v("Gifu")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "10", "data-info": "<div>Gunma</div>" }
+            },
+            [_vm._v("Gunma")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "28", "data-info": "<div>Hyogo</div>" }
+            },
+            [_vm._v("Hyogo")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "1", "data-info": "<div>Hokkaido</div>" }
+            },
+            [_vm._v("Hokkaido")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "34",
+                "data-info": "<div>Hiroshima</div>"
+              }
+            },
+            [_vm._v("Hiroshima")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "8", "data-info": "<div>Ibaraki</div>" }
+            },
+            [_vm._v("Ibaraki")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "17",
+                "data-info": "<div>Ishikawa</div>"
+              }
+            },
+            [_vm._v("Ishikawa")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "39", "data-info": "<div>Kochi</div>" }
+            },
+            [_vm._v("Kochi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "37", "data-info": "<div>Kagawa</div>" }
+            },
+            [_vm._v("Kagawa")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "43",
+                "data-info": "<div>Kumamoto</div>"
+              }
+            },
+            [_vm._v("Kumamoto")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "14",
+                "data-info": "<div>Kanagawa</div>"
+              }
+            },
+            [_vm._v("Kanagawa")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "46",
+                "data-info": "<div>Kagoshima</div>"
+              }
+            },
+            [_vm._v("Kagoshima")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "26", "data-info": "<div>Kyoto</div>" }
+            },
+            [_vm._v("Kyoto")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "24", "data-info": "<div>Mie</div>" }
+            },
+            [_vm._v("Mie")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "4", "data-info": "<div>Miyagi</div>" }
+            },
+            [_vm._v("Miyagi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "45",
+                "data-info": "<div>Miyazaki</div>"
+              }
+            },
+            [_vm._v("Miyazaki")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "15", "data-info": "<div>Niigata</div>" }
+            },
+            [_vm._v("Niigata")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "20", "data-info": "<div>Nagano</div>" }
+            },
+            [_vm._v("Nagano")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "29", "data-info": "<div>Nara</div>" }
+            },
+            [_vm._v("Nara")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "42",
+                "data-info": "<div>Nagasaki</div>"
+              }
+            },
+            [_vm._v("Nagasaki")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "47", "data-info": "<div>Okinawa</div>" }
+            },
+            [_vm._v("Okinawa")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "27", "data-info": "<div>Osaka</div>" }
+            },
+            [_vm._v("Osaka")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "33", "data-info": "<div>Okayama</div>" }
+            },
+            [_vm._v("Okayama")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "44", "data-info": "<div>Oita</div>" }
+            },
+            [_vm._v("Oita")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "41", "data-info": "<div>Saga</div>" }
+            },
+            [_vm._v("Saga")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "25", "data-info": "<div>Shiga</div>" }
+            },
+            [_vm._v("Shiga")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "32", "data-info": "<div>Shimane</div>" }
+            },
+            [_vm._v("Shimane")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "11", "data-info": "<div>Saitama</div>" }
+            },
+            [_vm._v("Saitama")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "22",
+                "data-info": "<div>Shizuoka</div>"
+              }
+            },
+            [_vm._v("Shizuoka")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "9", "data-info": "<div>Tochigi</div>" }
+            },
+            [_vm._v("Tochigi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "13", "data-info": "<div>Tokyo</div>" }
+            },
+            [_vm._v("Tokyo")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "36",
+                "data-info": "<div>Tokushima</div>"
+              }
+            },
+            [_vm._v("Tokushima")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "31", "data-info": "<div>Tottori</div>" }
+            },
+            [_vm._v("Tottori")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "16", "data-info": "<div>Toyama</div>" }
+            },
+            [_vm._v("Toyama")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "30",
+                "data-info": "<div>Wakayama</div>"
+              }
+            },
+            [_vm._v("Wakayama")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "35",
+                "data-info": "<div>Yamaguchi</div>"
+              }
+            },
+            [_vm._v("Yamaguchi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "19",
+                "data-info": "<div>Yamanashi</div>"
+              }
+            },
+            [_vm._v("Yamanashi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "6", "data-info": "<div>Yamagata</div>" }
+            },
+            [_vm._v("Yamagata")]
+          )
+        ])
+      ])
     ])
   }
 ]
@@ -43750,62 +44227,127 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        hospitalSearch: __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue___default.a,
-        nursingSearch: __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue___default.a,
-        jobSearch: __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue___default.a
-    },
+        components: {
+                hospitalSearch: __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue___default.a,
+                nursingSearch: __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue___default.a,
+                jobSearch: __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue___default.a
+        },
 
-    data: function data() {
-        return {
-            newdetails: []
-        };
-    },
-    created: function created() {
-        var _this = this;
+        data: function data() {
+                return {
+                        newdetails: [],
+                        cats: [],
+                        posts: [],
+                        latest_post: [],
+                        latest_post_all_cats: []
+                };
+        },
+        created: function created() {
+                var _this = this;
 
-        this.axios.get('/api/newdetails/' + this.$route.params.id).then(function (response) {
+                this.getAllCat();
+                this.getPostByFirstCat();
+                this.getLatestPostByFirstCatID();
+                this.getLatestPostFromAllCat();
+                this.axios.get('/api/newdetails/' + this.$route.params.id).then(function (response) {
+                        console.log(response.data);
+                        _this.newdetails = response.data;
+                        //        console.log(response.data);
+                });
+        },
 
-            _this.newdetails = response.data;
-            console.log(response.data);
-        });
-    }
+
+        methods: {
+                getAllCat: function getAllCat() {
+                        var _this2 = this;
+
+                        this.axios.get('http://localhost:8000/api/home').then(function (response) {
+                                _this2.cats = response.data;
+                        });
+                },
+                getPostByFirstCat: function getPostByFirstCat() {
+                        var _this3 = this;
+
+                        axios.get("http://localhost:8000/api/posts/1").then(function (response) {
+                                _this3.posts = response.data;
+                        });
+                },
+                getPostByCatID: function getPostByCatID(cat_id) {
+                        var _this4 = this;
+
+                        axios.get("http://localhost:8000/api/posts/" + cat_id).then(function (response) {
+                                _this4.posts = response.data;
+                        });
+                },
+                getLatestPostByFirstCatID: function getLatestPostByFirstCatID() {
+                        var _this5 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/1").then(function (response) {
+                                _this5.latest_post = response.data;
+                        });
+                },
+                getLatestPostByCatID: function getLatestPostByCatID(cat_id) {
+                        var _this6 = this;
+
+                        axios.get("http://localhost:8000/api/get_latest_post/" + cat_id).then(function (response) {
+                                _this6.latest_post = response.data;
+                        });
+                },
+                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
+                        var _this7 = this;
+
+                        this.axios.get('http://localhost:8000/api/get_latest_post_all_cat/').then(function (response) {
+                                //console.log(response);
+                                _this7.latest_post_all_cats = response.data;
+                        });
+                }
+        }
+
+        //     export default {
+
+        //         data() {
+        //             return {
+        //                 newdetails:[]
+        //             }
+        //         },
+        //         created(){
+        //             this.axios
+        //                  .get(`/api/newdetails/${this.$route.params.id}`)
+        //                  .then(response=>{
+
+        //                      this.newdetails = response.data;
+        //                        console.log(response.data);
+        //                  });
+
+        //         }
+        //         // methods: {
+        //         //         getPostById: function(id=1) {
+        //         //                 this.axios
+        //         //                 .get('/api/newdetails/'+id)
+        //         //                 .then(response=>{
+        //         //                         console.log(response.data.news_list);
+        //         //                 this.newdetails = response.data.news_list;
+        //         //                 });
+        //         //         },
+        //         // }
+
+
+        //     }
+        // 
+
 });
-//     export default {
-
-//         data() {
-//             return {
-//                 newdetails:[]
-//             }
-//         },
-//         created(){
-//             this.axios
-//                  .get(`/api/newdetails/${this.$route.params.id}`)
-//                  .then(response=>{
-
-//                      this.newdetails = response.data;
-//                        console.log(response.data);
-//                  });
-
-//         }
-//         // methods: {
-//         //         getPostById: function(id=1) {
-//         //                 this.axios
-//         //                 .get('/api/newdetails/'+id)
-//         //                 .then(response=>{
-//         //                         console.log(response.data.news_list);
-//         //                 this.newdetails = response.data.news_list;
-//         //                 });
-//         //         },
-//         // }
-
-
-//     }
 
 /***/ }),
 /* 72 */
@@ -43897,14 +44439,91 @@ var render = function() {
                       [_vm._v("関連ニュース")]
                     ),
                     _vm._v(" "),
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _vm._m(4)
+                    _vm._m(2)
                   ]),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _c(
+                    "div",
+                    { staticClass: "row m-lr-0" },
+                    [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _vm._l(_vm.latest_post_all_cats, function(
+                        latest_post_all_cat
+                      ) {
+                        return _c(
+                          "div",
+                          {
+                            key: latest_post_all_cat.id,
+                            staticClass: "col-sm-3  col-md-3 mt-2"
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "hovereffect fit-image" },
+                              [
+                                _c("img", {
+                                  staticClass: "img-responsive fit-image",
+                                  attrs: {
+                                    src: "/images/" + latest_post_all_cat.photo,
+                                    alt: ""
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "overlay" },
+                                  [
+                                    _c("h2"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass:
+                                          "btn btn-sm all-btn secondary-bg-color",
+                                        attrs: {
+                                          to:
+                                            "/newsdetails/" +
+                                            latest_post_all_cat.id
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(latest_post_all_cat.title)
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("a", {
+                                      attrs: { href: "'/newsdetails" }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "info" }, [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c("div", { staticClass: "col-12" }, [
+                                      _c("p", { staticClass: " p_3" }, [
+                                        _vm._v(
+                                          "\r\n                                                                        " +
+                                            _vm._s(
+                                              latest_post_all_cat.main_point
+                                            ) +
+                                            "\r\n                                                                "
+                                        )
+                                      ])
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
                 ])
               ])
             ]
@@ -44068,180 +44687,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticStyle: { color: "#000" }, attrs: { href: "#" } }, [
-      _c("p", { staticClass: "img_2" }, [
-        _vm._v("動く美術館」都大路進む 京都・祇園祭の山鉾巡行 "),
-        _c("br"),
-        _vm._v(" "),
-        _c("span", [
-          _c("time", { attrs: { datetime: "2012-01-04" } }, [
-            _vm._v("2012年1月4日")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticStyle: { color: "#000" }, attrs: { href: "#" } }, [
-      _c("p", { staticClass: "img_2" }, [
-        _vm._v("警察学校教官がナイフで巡査刺す　犯人確保訓練中に "),
-        _c("br"),
-        _vm._v(" "),
-        _c("span", [
-          _c("time", { attrs: { datetime: "2012-01-04" } }, [
-            _vm._v("2012年1月4日")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row m-lr-0 pad-free" }, [
-      _c("div", { staticClass: "col-md-12 text-center" }, [
-        _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "/images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                                紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・"
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "/images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "news_details.html" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "/images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3  col-md-3 mt-2" }, [
-        _c("div", { staticClass: "hovereffect fit-image" }, [
-          _c("img", {
-            staticClass: "img-responsive fit-image",
-            attrs: { src: "/images/day1.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }, [
-            _c("h2"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-sm all-btn secondary-bg-color",
-                attrs: { href: "/" }
-              },
-              [_vm._v("詳細を見る")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("p", { staticClass: " p_3" }, [
-                  _vm._v(
-                    "\r\n                                                                                        一般的な信念に反して、単なるランダムテキストではありません。\r\n                                                                                        紀元前45年からの古典的なラテン文学の一部にルーツがあり、2ンプデン・\r\n                                                                                "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
+      _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
     ])
   }
 ]
@@ -46334,6 +46781,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/news_list').then(function (response) {
             _this.news_list = response.data;
+            console.log(localStorage.getItem("hospital_fav"));
         });
     },
     mounted: function mounted() {
@@ -56286,7 +56734,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text" },
+                          attrs: { type: "text", required: "" },
                           domProps: { value: _vm.medical.name },
                           on: {
                             input: function($event) {
@@ -56684,6 +57132,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         created: function created() {
                 this.local_sto = localStorage.getItem("hospital_history");
                 this.getAllCustomer(this.local_sto);
+                console.log('dkasjf', this.local_sto);
         },
 
         methods: {
@@ -57488,10 +57937,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: "GoogleMap",
   data: function data() {
     return {
-      markers: [{ position: { lat: 16.9239, lng: 96.2270 } }],
+      markers: [{ position: { lat: 35.6803997, lng: 139.76901739 } }],
       addresses: [],
       places: [],
-      center: { lat: 16.9239, lng: 96.2270 },
+      center: { lat: 35.6803997, lng: 139.76901739 },
       selected: '',
       new_lat: '',
       new_long: ''
@@ -57533,6 +57982,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     //Auto complete Search
     addMarker: function addMarker() {
+
       this.markers.shift();
       if (this.currentPlace) {
         var marker = {
@@ -57543,6 +57993,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.places.push(this.currentPlace);
         this.center = marker;
         this.currentPlace = null;
+
+        this.new_lat = marker.lat;
+        this.new_long = marker.lng;
       }
     },
 
@@ -64136,6 +64589,440 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(246)
+/* template */
+var __vue_template__ = __webpack_require__(247)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/hospitalview.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b6015c14", Component.options)
+  } else {
+    hotAPI.reload("data-v-b6015c14", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 246 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            fav_hospital: [],
+            local_sto: ''
+        };
+    },
+    created: function created() {
+
+        this.local_sto = localStorage.getItem("hospital_fav");
+        this.getAllFavourite(this.local_sto);
+    },
+
+
+    methods: {
+        getAllFavourite: function getAllFavourite(local_storage) {
+            var _this = this;
+
+            this.axios.post('/api/favHospital/' + local_storage).then(function (response) {
+                _this.fav_hospital = response.data;
+            });
+        },
+        removeFav: function removeFav(fav) {
+            if (confirm("Are you sure you want to delete?")) {
+                var splitarray = this.local_sto.split(",");
+                splitarray = splitarray.splice(fav.toString(), 1);
+                localStorage.setItem('hospital_fav', splitarray);
+            }
+        }
+    }
+
+});
+
+/***/ }),
+/* 247 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: " col-12 scrolldiv2" },
+      _vm._l(_vm.fav_hospital, function(hos_profile) {
+        return _c(
+          "div",
+          {
+            key: hos_profile.id,
+            staticClass: "card card-default m-b-20 scrolldiv"
+          },
+          [
+            _c("div", { staticClass: "card-body news-post" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("img", {
+                    staticClass: "col-md-12",
+                    attrs: { src: "/images/" + hos_profile.logo, alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger all-btn",
+                      staticStyle: {
+                        "margin-top": "10px",
+                        "margin-left": "15px",
+                        display: "block",
+                        align: "center",
+                        width: "200px"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.removeFav(hos_profile.customer_id)
+                        }
+                      }
+                    },
+                    [_vm._v("最近見た施設から削除 ")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-5" }, [
+                  _c("div", { staticClass: "pad-free mb-2 " }, [
+                    _c("h4", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v(" " + _vm._s(hos_profile.name) + " ")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("strong", [_vm._v("Website  :")]),
+                    _c("a", { attrs: { href: "" } }, [
+                      _vm._v(" " + _vm._s(hos_profile.website))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Medical Department    :")]),
+                      _vm._v(_vm._s(hos_profile.medical_department))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Phone    :")]),
+                      _vm._v(_vm._s(hos_profile.phone))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Access  :")]),
+                      _vm._v(_vm._s(hos_profile.access))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Email  :")]),
+                      _vm._v(_vm._s(hos_profile.email))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Details  :")]),
+                      _vm._v(_vm._s(hos_profile.details_info))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Subjects  :")]),
+                      _vm._v(_vm._s(hos_profile.subject))
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Location    :")]),
+                      _vm._v(
+                        _vm._s(hos_profile.township_name) +
+                          ", " +
+                          _vm._s(hos_profile.city_name)
+                      )
+                    ]),
+                    _c("br")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-md-4" },
+                  _vm._l(hos_profile.special_features, function(feature) {
+                    return _c(
+                      "div",
+                      { key: feature.id, staticClass: "fac_container" },
+                      [
+                        _c("ul", { staticClass: "equipment" }, [
+                          _c("li", [_vm._v(_vm._s(feature))])
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            ])
+          ]
+        )
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+        _c("ol", { staticClass: "breadcrumb" }, [
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "breadcrumb-item" }, [
+            _c("a", { attrs: { href: "../news/news_details.html" } }, [
+              _vm._v(" 新しい詳細")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "breadcrumb-item active",
+              attrs: { "aria-current": "page" }
+            },
+            [_vm._v(" 就職活動リスト")]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b6015c14", module.exports)
+  }
+}
+
+/***/ }),
+/* 248 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(249)
+/* template */
+var __vue_template__ = __webpack_require__(250)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/favouriteBtn.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-49fe550a", Component.options)
+  } else {
+    hotAPI.reload("data-v-49fe550a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 249 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    created: function created() {
+
+        console.log('local', localStorage.getItem('hospital_fav'));
+    },
+
+    methods: {
+        favList: function favList() {
+            var favData = localStorage.getItem('hospital_fav');
+            axios.post('http://localhost:8000/api/hospital/favData', favData).then(function (response) {
+                console.log(response);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "app" } }, [
+    _c("h2", [_vm._v("Favourite Testing")]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        staticClass: "col-md-12",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.favList($event)
+          }
+        }
+      },
+      [_c("button", { staticClass: "btn btn-success" }, [_vm._v("Favourite")])]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-49fe550a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

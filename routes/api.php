@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // public route api start
 
     Route::post('getmap','SearchMapController@getMap');
-    Route::get('getCity','SearchMapController@getCity');
+    Route::post('getCity','SearchMapController@getCity');
 
 // public route api end
 
@@ -136,6 +136,7 @@ Route::group(['prefix' => 'types'], function () {
 });
 // Guest Hospital History
 Route::post('hospital_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
+Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHospital');
 
 // Guest Nursing History
 // Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
@@ -157,6 +158,13 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::post('update/{id}', 'AdvertisementController@update');
     Route::delete('delete/{id}','AdvertisementController@destroy');
 });
+ Route::group(['prefix' => 'hospital'], function () {
+       
+        Route::get('favourite_list', 'HospitalProfileController@index');
+        
+        Route::delete('delete/{id}', 'HospitalProfileController@destroy');
+       
+    });
 
 
 Route::group(['prefix' => 'comments'], function () {

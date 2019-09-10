@@ -28,7 +28,6 @@ if(ios) {
 
 $('.path').on("click", function(e) {
     e.preventDefault();
-    
     $('.path.selected').attr("class", "");
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
@@ -39,27 +38,46 @@ $('.path').on("click", function(e) {
         data:{"title":title,"id":id},
         url:url,
         success:function(data){
-            console.log(data);
+            //console.log(data);
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
-            var city = data.getCity;
+            var getCity = data.getCity;
             var townships = data.getTownships;
+            var city = data.city;
+           
             $.each(city,function(k,v){
-              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>')
+              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>').attr('selected',true);
             });
+            $.each(getCity,function(k,v){
+              $('#select option[value="'+v.id+'"]').attr("selected",true);
+            })
+            
             $.each(townships,function(k,v){
-                console.log(v);
+                //console.log(v);
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
-            });
-           
-           
+            }); 
         }
     });
-
-
 });
-
+$('#select').on('change',function(){
+  var id = this.value;
+  var url = "/api/getCity";
+  $.ajax({
+    type:'post',
+    url:url,
+    data:{"id":id},
+    success:function(data){
+      $('#checkbox').empty();
+      $.each(data,function(k,v){
+        $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+      })
+    },
+    error:function(error){
+      console.log(error);
+    }
+  })
+})
 
 // $('#method-textarea').summernote({
 //     placeholder: 'Write Feature',
@@ -103,6 +121,32 @@ $('.path').on("click", function(e) {
         $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
     }
 
+    $("select").on("click" , function() {
+  
+        $(this).parent(".select-box").toggleClass("open");
+        
+      });
+      
+      $(document).mouseup(function (e)
+      {
+          var container = $(".select-box");
+      
+          if (container.has(e.target).length === 0)
+          {
+              container.removeClass("open");
+          }
+      });
+      
+      
+      $("select").on("change" , function() {
+        
+        var selection = $(this).find("option:selected").text(),
+            labelFor = $(this).attr("id"),
+            label = $("[for='" + labelFor + "']");
+          
+        label.find(".label-desc").html(selection);
+          
+      });  
     function closevideo() {
         alert('Are you sure to delete?');
         var file = document.getElementById("upload_file").files[0];
@@ -117,6 +161,36 @@ $('.path').on("click", function(e) {
                $('#video-area').remove();
             }
         });
-
+        
     }
+/*select check
+
+*/
+$(document).ready(function(){
+    $('.select_all').on('click',function(){
+        if(this.checked){
+            $('.checkbox').each(function(){
+                this.checked = true;
+            });
+        }else{
+             $('.checkbox').each(function(){
+                this.checked = false;
+            });
+        }
+    });
+    
+    $('.checkbox').on('click',function(){
+        if($('.checkbox:checked').length == $('.checkbox').length){
+            $('.select_all').prop('checked',true);
+        }else{
+            $('.select_all').prop('checked',false);
+        }
+    });
+});
+
+/*select check
+
+*/
+
+
 
