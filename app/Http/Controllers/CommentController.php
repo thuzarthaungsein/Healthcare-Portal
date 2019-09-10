@@ -24,12 +24,12 @@ class CommentController extends Controller
 
 
     public function store(Request $request)
-    {   
+    {
         $request->validate([
             'title' => 'required|unique:comments',
             'comment' =>'required',
             'email' => 'required|email|unique:comments',
-                
+
         ]);
 
         $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
@@ -51,7 +51,7 @@ class CommentController extends Controller
         $comment ->save();
 
         $getComment = Comment::findOrFail($comment->id);
-       
+
         if($getComment->gender == 0 )
         {
             $getComment->gender = "Male";
@@ -97,7 +97,6 @@ class CommentController extends Controller
             $comment =Comment::find($id);
             $comment->status =1;
             $comment->save();
-
             $comment =Comment::all()->toArray();
             $data = array("comments"=> $comment, "success", "Comment successfully confirmed");
             return response()->json($data);
