@@ -153,8 +153,19 @@ class CustomerController extends Controller
             
             
         }
-        
-        
        
+    }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+        
+        $search_customer = Customer::query()
+                            ->where('name', 'LIKE' , "%{$search_word}%")
+                            ->orderBy('id','DESC')
+                            ->get()
+                            ->toArray();
+        return $search_customer;
     }
 }

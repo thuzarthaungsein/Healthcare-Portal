@@ -41727,7 +41727,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -41750,14 +41749,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         cats: [],
                         posts: [],
                         latest_post: [],
-                        latest_post_all_cats: []
+                        latest_post_all_cats: [],
+                        search_posts: []
                 };
         },
         created: function created() {
                 this.getAllCat();
-                this.getPostByFirstCat();
-                this.getLatestPostByFirstCatID();
+                this.getPostByCatID();
+                this.getLatestPostByCatID();
                 this.getLatestPostFromAllCat();
+                this.categoryId();
         },
 
         methods: {
@@ -41768,39 +41769,83 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 _this.cats = response.data;
                         });
                 },
-                getPostByFirstCat: function getPostByFirstCat() {
+
+                getPostByCatID: function getPostByCatID(catId) {
                         var _this2 = this;
 
-                        axios.get("/api/posts/1").then(function (response) {
+                        if ($('#search-word').val()) {
+                                var search_word = $('#search-word').val();
+                        } else {
+                                var search_word = '';
+                        }
+                        if (catId) {
+                                var cat_id = catId;
+                        } else {
+                                var cat_id = 1;
+                        }
+                        var fd = new FormData();
+                        fd.append('search_word', search_word);
+                        fd.append('category_id', cat_id);
+
+                        $('.search-item').css('display', 'none');
+                        this.categoryId = cat_id;
+                        axios.post("http://localhost:8000/api/posts/", fd).then(function (response) {
                                 _this2.posts = response.data;
                         });
                 },
-                getPostByCatID: function getPostByCatID(cat_id) {
+
+                getLatestPostByCatID: function getLatestPostByCatID(catId) {
                         var _this3 = this;
 
-                        axios.get("/api/posts/" + cat_id).then(function (response) {
-                                _this3.posts = response.data;
-                        });
-                },
-                getLatestPostByFirstCatID: function getLatestPostByFirstCatID() {
-                        var _this4 = this;
+                        if ($('#search-word').val()) {
+                                var search_word = $('#search-word').val();
+                        } else {
+                                var search_word = '';
+                        }
+                        if (catId) {
+                                var cat_id = catId;
+                        } else {
+                                var cat_id = 1;
+                        }
+                        var fd = new FormData();
+                        fd.append('search_word', search_word);
+                        fd.append('category_id', cat_id);
 
-                        axios.get("/api/get_latest_post/1").then(function (response) {
-                                _this4.latest_post = response.data;
-                        });
-                },
-                getLatestPostByCatID: function getLatestPostByCatID(cat_id) {
-                        var _this5 = this;
-
-                        axios.get("/api/get_latest_post/" + cat_id).then(function (response) {
-                                _this5.latest_post = response.data;
+                        $('.search-item').css('display', 'none');
+                        this.categoryId = cat_id;
+                        axios.post("http://localhost:8000/api/get_latest_post/", fd).then(function (response) {
+                                _this3.latest_post = response.data;
                         });
                 },
                 getLatestPostFromAllCat: function getLatestPostFromAllCat() {
-                        var _this6 = this;
+                        var _this4 = this;
 
                         this.axios.get('/api/get_latest_post_all_cat').then(function (response) {
-                                _this6.latest_post_all_cats = response.data;
+                                _this4.latest_post_all_cats = response.data;
+                        });
+                },
+
+                searchCategory: function searchCategory() {
+                        var _this5 = this;
+
+                        $('ul#myTab li a').removeClass('active');
+                        $('ul#myTab li:first-child a').addClass('active');
+
+                        var search_word = $('#search-word').val();
+                        var categoryId = '1';
+
+                        var fd = new FormData();
+                        fd.append('search_word', search_word);
+                        fd.append('selected_category', categoryId);
+
+                        this.axios.post('http://localhost:8000/api/search', fd).then(function (response) {
+                                if (response.data.length == '0') {
+                                        _this5.posts = [];
+                                        _this5.latest_post = [];
+                                } else {
+                                        _this5.posts = response.data;
+                                        _this5.latest_post = _this5.posts[0];
+                                }
                         });
                 }
         }
@@ -43153,7 +43198,35 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-md-center" }, [
     _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
+      _c(
+        "form",
+        { staticClass: "form-inline col-lg-5 form-inline mb-2 pad-free" },
+        [
+          _c("input", {
+            staticClass: "form-control col-lg mr-sm-3 d-flex p-2 form-control",
+            attrs: {
+              type: "text",
+              placeholder: "検索",
+              "aria-label": "検索",
+              id: "search-word"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass:
+                "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
+              on: {
+                click: function($event) {
+                  return _vm.searchCategory()
+                }
+              }
+            },
+            [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header tab-card-header" }, [
@@ -43169,6 +43242,7 @@ var render = function() {
                 {
                   key: cat.id,
                   staticClass: "nav-item nav-line",
+                  attrs: { id: "category-id", value: cat.id },
                   on: {
                     click: function($event) {
                       _vm.getPostByCatID(cat.id)
@@ -43254,40 +43328,43 @@ var render = function() {
                     [
                       _c(
                         "router-link",
-                        {
-                          attrs: {
-                            to: {
-                              name: "newdetails",
-                              params: { id: _vm.latest_post.id }
-                            }
-                          }
-                        },
+                        { attrs: { to: "/newsdetails/" + _vm.latest_post.id } },
                         [
-                          _c("img", {
-                            staticClass: "source-img img-responsive",
-                            staticStyle: { width: "100%", height: "200px" },
-                            attrs: { src: "/images/" + _vm.latest_post.photo }
-                          }),
+                          _vm.latest_post.photo
+                            ? _c("img", {
+                                staticClass: "source-img img-responsive",
+                                staticStyle: { width: "100%", height: "200px" },
+                                attrs: {
+                                  src: "/images/" + _vm.latest_post.photo
+                                }
+                              })
+                            : _vm._e(),
                           _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              staticClass: "source-title",
-                              attrs: { "aria-label": "" }
-                            },
-                            [_vm._v(_vm._s(_vm.latest_post.title))]
-                          ),
+                          _vm.latest_post.title
+                            ? _c(
+                                "p",
+                                {
+                                  staticClass: "source-title",
+                                  attrs: { "aria-label": "" }
+                                },
+                                [_vm._v(_vm._s(_vm.latest_post.title))]
+                              )
+                            : _vm._e(),
                           _vm._v(" "),
-                          _c("p", { staticClass: "source-subtitle" }, [
-                            _c("img", {
-                              staticClass: "source-img",
-                              attrs: { alt: "", src: "/images/5.png" }
-                            }),
-                            _vm._v(
-                              _vm._s(_vm.latest_post.created_at) +
-                                "\r\n                                                                        "
-                            )
-                          ])
+                          _vm.latest_post.created_at
+                            ? _c("p", { staticClass: "source-subtitle" }, [
+                                _vm.latest_post.created_at
+                                  ? _c("img", {
+                                      staticClass: "source-img",
+                                      attrs: { alt: "", src: "/images/5.png" }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(
+                                  _vm._s(_vm.latest_post.created_at) +
+                                    "\r\n                                                                        "
+                                )
+                              ])
+                            : _vm._e()
                         ]
                       )
                     ],
@@ -43302,7 +43379,7 @@ var render = function() {
                         "ul",
                         {
                           key: post.id,
-                          staticClass: "list-group list-group-flush"
+                          staticClass: "list-group list-group-flush all-item"
                         },
                         [
                           _vm.posts[0].id != post.id
@@ -43359,7 +43436,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "row m-lr-0" }, [
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "div",
@@ -43422,31 +43499,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "form",
-      { staticClass: "form-inline col-lg-5 form-inline mb-2 pad-free" },
-      [
-        _c("input", {
-          staticClass: "form-control col-lg mr-sm-3 d-flex p-2 form-control",
-          attrs: { type: "search", placeholder: "検索", "aria-label": "検索" }
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
-            attrs: { type: "submit" }
-          },
-          [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-        )
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44856,6 +44908,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -44888,6 +44958,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 flash('Successfully Send Mail.', 'success');
                 console.log(response.data);
             });
+        },
+        searchCustomer: function searchCustomer() {
+            var _this3 = this;
+
+            var search_word = $('#search-word').val();
+            var fd = new FormData();
+            fd.append('search_word', search_word);
+            this.axios.post('http://localhost:8000/api/customer/search', fd).then(function (response) {
+                _this3.customers = response.data;
+            });
         }
     }
 });
@@ -44902,6 +44982,28 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "card card-default m-b-20" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-10" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-word" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchCustomer()
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ])
+      ]),
+      _vm._v(" -->      \r\n        "),
       _c(
         "div",
         {
@@ -44911,7 +45013,7 @@ var render = function() {
         [
           _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
           _vm._v(" "),
-          _vm._m(0),
+          _vm._m(1),
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
@@ -44938,22 +45040,22 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "row col-md-10" }, [
-                        _vm._m(1, true),
+                        _vm._m(2, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.name))
                         ]),
                         _vm._v(" "),
-                        _vm._m(2, true),
+                        _vm._m(3, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.email))
                         ]),
                         _vm._v(" "),
-                        _vm._m(3, true),
+                        _vm._m(4, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.phone))
                         ]),
                         _vm._v(" "),
-                        _vm._m(4, true),
+                        _vm._m(5, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.address))
                         ]),
@@ -45011,6 +45113,21 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 text-right" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn secondary-bg-color all-btn white",
+          staticStyle: { width: "100%" }
+        },
+        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+      )
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -58631,6 +58748,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this2.advertisements.splice(a, 1);
                 });
             }
+        },
+        searchAdvertisment: function searchAdvertisment() {
+            var _this3 = this;
+
+            var search_word = $('#search-item').val();
+            var fd = new FormData();
+            fd.append('search_word', search_word);
+            this.axios.post('http://localhost:8000/api/advertisement/search', fd).then(function (response) {
+                _this3.advertisements = response.data;
+            });
         }
     }
 });
@@ -58676,7 +58803,21 @@ var render = function() {
         [
           _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-10" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-item" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchAdvertisment()
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]),
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
@@ -58766,13 +58907,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", placeholder: "検索" }
-        })
-      ])
+    return _c("div", { staticClass: "col-md-2" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn secondary-bg-color all-btn white",
+          staticStyle: { width: "100%" }
+        },
+        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+      )
     ])
   },
   function() {
