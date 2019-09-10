@@ -36,11 +36,11 @@ export default {
   data () {
     return {
       markers: [
-        { position: { lat: 16.9239, lng: 96.2270 } }
+        { position: { lat: 35.6803997, lng: 139.76901739 } }
       ],
       addresses: [],
       places: [],
-      center: { lat: 16.9239, lng: 96.2270 },
+      center: { lat: 35.6803997, lng: 139.76901739 },
       selected: '',
       new_lat: '',
       new_long: ''
@@ -79,6 +79,7 @@ export default {
 
     //Auto complete Search
     addMarker() {
+      
       this.markers.shift()
       if (this.currentPlace) {
         const marker = {
@@ -89,6 +90,10 @@ export default {
         this.places.push(this.currentPlace);
         this.center = marker;
         this.currentPlace = null;
+
+        this.new_lat = marker.lat;
+        this.new_long = marker.lng;
+        
       }
     },
     geolocate: function() {

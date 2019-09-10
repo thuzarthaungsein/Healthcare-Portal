@@ -57,6 +57,7 @@ export default {
         created() {
                 this.local_sto = localStorage.getItem("hospital_history");
                 this.getAllCustomer(this.local_sto);
+                console.log('dkasjf',this.local_sto)
         },
         methods: {
                 getAllCustomer: function(local_storage) {

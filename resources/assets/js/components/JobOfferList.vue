@@ -58,6 +58,11 @@ export default {
                 .then(response => {
                     this.jobs = response.data;
                 });
+                this.axios
+                .get('/api/user')
+                .then(response => {
+                    console.log(response.data.id)
+                });
         },
         methods:{
                    deleteJob(id) {
