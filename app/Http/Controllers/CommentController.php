@@ -58,14 +58,14 @@ class CommentController extends Controller
     }
 
 
-    public function show(Comment $comment)
+    public function show($id)
     {
         //
     }
 
     public function edit(Comment $comment)
     {
-        //
+
     }
 
 
@@ -78,15 +78,18 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+
         $comment = Comment::find($id);
         $comment->delete();
         return response()->json('Comment successfully deleted');
     }
-    public function confirm($id){
-        $comment =Comment::find($id);
-        $comment->status =1;
-        $comment->save();
-        return response()->json('Comment successfully confirmed');
+    public function confirm($id)
+     {
+
+            $comment =Comment::find($id);
+            $comment->status =1;
+            $comment->save();
+            return response()->json('Comment successfully confirmed');
     }
 
 }

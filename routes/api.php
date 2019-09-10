@@ -158,6 +158,7 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::get('ads', 'AdvertisementController@index');
     Route::post('update/{id}', 'AdvertisementController@update');
     Route::delete('delete/{id}','AdvertisementController@destroy');
+
 });
 
 
@@ -165,7 +166,7 @@ Route::group(['prefix' => 'comments'], function () {
     Route::post('add', 'CommentController@store');
     Route::get('edit/{id}', 'CommentController@edit');
     Route::get('comment', 'CommentController@index');
-    Route::get('confirm/{id}','CommentController@confirm');
+    Route::get('comfirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
 });
