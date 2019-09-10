@@ -1,0 +1,90 @@
+<template>
+    <!-- Page Content  -->
+    <div class="row">
+        <div class="col-12">
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
+                                <li class="breadcrumb-item"><a href="../news/news_details.html"> 新しい詳細</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"> 就職活動リスト</li>
+                        </ol>
+                </nav>
+        </div>
+
+        <div class=" col-12 scrolldiv2">
+                <div v-for="hos_profile in fav_hospital" :key="hos_profile.id" class="card card-default m-b-20 scrolldiv">
+                        <div class="card-body news-post">
+                                <div class="row">
+                                        <div class="col-md-3" >
+                                                <img class="col-md-12" v-bind:src="'/images/' + hos_profile.logo" alt="" style="">
+                                                <button class="btn btn-danger all-btn" @click="removeFav(hos_profile.customer_id)" style="margin-top: 10px;margin-left: 15px;display:block;align:center;width: 200px;">最近見た施設から削除 </button>
+                                        </div>
+                                        <div class="col-md-5">
+                                                <div class="pad-free mb-2 ">
+                                                        <h4> <a href="#"> {{hos_profile.name}} </a></h4>
+                                                        <strong>Website  :</strong><a href=""> {{hos_profile.website}}</a><br/>
+                                                        <a><strong>Medical Department    :</strong>{{hos_profile.medical_department}}</a><br/>
+                                                        <a><strong>Phone    :</strong>{{hos_profile.phone}}</a><br/>
+                                                        <a><strong>Access  :</strong>{{hos_profile.access}}</a><br/>
+                                                        <a><strong>Email  :</strong>{{hos_profile.email}}</a><br/>
+                                                        <a><strong>Details  :</strong>{{hos_profile.details_info}}</a><br/>
+                                                        <a><strong>Subjects  :</strong>{{hos_profile.subject}}</a><br/>
+                                                        <a><strong>Location    :</strong>{{hos_profile.township_name}}, {{hos_profile.city_name}}</a><br/>
+                                                </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                                <div class="fac_container" v-for="feature in hos_profile.special_features" :key="feature.id">
+                                                        <ul class="equipment">
+                                                                <li>{{ feature }}</li>
+                                                        </ul>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+ </div>
+                
+    <!-- Page Content end  -->
+
+</template>
+
+<script>
+    export default {
+
+        data() {
+                return {
+                    fav_hospital: [],
+                    local_sto: '',
+                }
+            },
+            created() {
+                    
+                this.local_sto = localStorage.getItem("hospital_fav");                
+                this.getAllFavourite(this.local_sto);
+            },
+
+            methods: {
+                getAllFavourite: function(local_storage) {
+                    this.axios
+                        .post('/api/favHospital/' + local_storage)
+                        .then(response => {
+                            this.fav_hospital = response.data;
+                           
+                        });
+                },
+                removeFav(fav) {
+                        if(confirm("Are you sure you want to delete?"))
+                        {
+                        var splitarray = this.local_sto.split(",");
+                        splitarray = splitarray.splice(fav.toString(),1);
+                        localStorage.setItem('hospital_fav',splitarray);
+                        
+                        }
+
+                },
+            
+            }
+
+    }
+</script>

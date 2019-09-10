@@ -1,5 +1,35 @@
 
 
+<<<<<<< HEAD
+=======
+var timeout;
+$(".path").hover(
+  function() {
+    clearTimeout(timeout);
+    $('#info-box').css({
+      'display':'block',
+      'position':'fixed',
+      'top':"175px",
+      'left':'1350px'
+    });
+    $('#info-box').html($(this).data('info'));
+  },
+  function(){
+  	timeout = setTimeout(function(){
+    	$('#info-box').css('display','none');
+      },1000);
+  });
+
+var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+if(ios) {
+  $('abbr').on('click touchend', function() { 
+    var link = $(this).attr('href');   
+    window.open(link,'_blank');
+    return false;
+  });
+}
+
+>>>>>>> 9dfb9f295b26286be3deba9e2967d523d2752724
 
 $('path').on("click", function(e) {
     e.preventDefault();
@@ -7,14 +37,27 @@ $('path').on("click", function(e) {
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
-     console.log(e);
     var url = "/api/getmap";
     $.ajax({
-        type:'get',
+        type:'post',
         data:{"title":title,"id":id},
         url:url,
         success:function(data){
-            console.log(data.title);
+            console.log(data);
+            $('#select').css({'display':'block'});
+            $('#checkbox').empty();
+            $('#select').empty();
+            var city = data.getCity;
+            var townships = data.getTownships;
+            $.each(city,function(k,v){
+              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>')
+            });
+            $.each(townships,function(k,v){
+                console.log(v);
+                $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+            });
+           
+           
         }
     });
 
@@ -66,6 +109,32 @@ $('path').on("click", function(e) {
         $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
     }
 
+    $("select").on("click" , function() {
+  
+        $(this).parent(".select-box").toggleClass("open");
+        
+      });
+      
+      $(document).mouseup(function (e)
+      {
+          var container = $(".select-box");
+      
+          if (container.has(e.target).length === 0)
+          {
+              container.removeClass("open");
+          }
+      });
+      
+      
+      $("select").on("change" , function() {
+        
+        var selection = $(this).find("option:selected").text(),
+            labelFor = $(this).attr("id"),
+            label = $("[for='" + labelFor + "']");
+          
+        label.find(".label-desc").html(selection);
+          
+      });  
     function closevideo() {
         alert('Are you sure to delete?');
         var file = document.getElementById("upload_file").files[0];
@@ -79,8 +148,43 @@ $('path').on("click", function(e) {
             success:function(data){
                $('#video-area').remove();
             }
+<<<<<<< HEAD
         });    
+=======
+        });
+        
+>>>>>>> 9dfb9f295b26286be3deba9e2967d523d2752724
     }
+/*select check
+
+*/
+$(document).ready(function(){
+    $('.select_all').on('click',function(){
+        if(this.checked){
+            $('.checkbox').each(function(){
+                this.checked = true;
+            });
+        }else{
+             $('.checkbox').each(function(){
+                this.checked = false;
+            });
+        }
+    });
+    
+    $('.checkbox').on('click',function(){
+        if($('.checkbox:checked').length == $('.checkbox').length){
+            $('.select_all').prop('checked',true);
+        }else{
+            $('.select_all').prop('checked',false);
+        }
+    });
+});
+
+/*select check
+
+*/
+
+
 
 
 // function scrollTab(){
