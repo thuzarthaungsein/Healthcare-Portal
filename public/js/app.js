@@ -44943,16 +44943,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45003,7 +44993,206 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "card card-default m-b-20" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-10" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-word" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchCustomer()
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ])
+      ]),
+      _vm._v(" -->      \r\n        "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
+        },
+        [
+          _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h5", { staticClass: "header" }, [_vm._v("事業者")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "scrolldiv col-12" },
+            _vm._l(_vm.customers, function(customer) {
+              return _c(
+                "div",
+                { key: customer.id, staticClass: "card card-default m-b-20" },
+                [
+                  _c("div", { staticClass: "card-body news-post" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-2" }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: {
+                            src: "/images/" + customer.logo,
+                            alt: "cust"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row col-md-10" }, [
+                        _vm._m(2, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(customer.name))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(3, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(customer.email))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(4, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(customer.phone))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(5, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(customer.address))
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row col-12 mt-2" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col-4 col-offset-4 pl-3" },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn delete-borderbtn",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteCustomer(customer.id)
+                                    }
+                                  }
+                                },
+                                [_vm._v("削除")]
+                              ),
+                              _vm._v(" "),
+                              customer.status != 0
+                                ? _c(
+                                    "button",
+                                    { staticClass: "btn confirm-borderbtn" },
+                                    [_vm._v("確認済")]
+                                  )
+                                : _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn confirm-borderbtn",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.comfirm(customer.id)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("確認")]
+                                  )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 text-right" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn secondary-bg-color all-btn white",
+          staticStyle: { width: "100%" }
+        },
+        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "検索" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 max-width13" }, [
+      _c("strong", [_vm._v("Name:")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 max-width13" }, [
+      _c("strong", [_vm._v("Email:")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 max-width13" }, [
+      _c("strong", [_vm._v("Phone:")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 max-width13" }, [
+      _c("strong", [_vm._v("Address:")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
@@ -58393,15 +58582,280 @@ module.exports = Component.exports
 
 /***/ }),
 /* 183 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: C:/xampp/htdocs/Healthcare-Portal/resources/assets/js/components/advertisementlist.vue: Unexpected token, expected , (97:0)\n\n\u001b[0m \u001b[90m  95 | \u001b[39m                    })\u001b[33m;\u001b[39m\n \u001b[90m  96 | \u001b[39m            }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  97 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m     | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  98 | \u001b[39m\n \u001b[90m  99 | \u001b[39m        }\n \u001b[90m 100 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n");
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            advertisements: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('/api/advertisement/ads').then(function (response) {
+            _this.advertisements = response.data;
+        });
+    },
+
+
+    methods: {
+        deleteAds: function deleteAds(id) {
+            var _this2 = this;
+
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.delete('/api/advertisement/delete/' + id).then(function (response) {
+
+                    alert('Delete Successfully!');
+                    var a = _this2.advertisements.map(function (item) {
+                        return item.id;
+                    }).indexOf(id);
+                    _this2.advertisements.splice(a, 1);
+                });
+            }
+        },
+        searchAdvertisment: function searchAdvertisment() {
+            var _this3 = this;
+
+            var search_word = $('#search-item').val();
+            var fd = new FormData();
+            fd.append('search_word', search_word);
+            this.axios.post('http://localhost:8000/api/advertisement/search', fd).then(function (response) {
+                _this3.advertisements = response.data;
+            });
+        }
+    }
+});
 
 /***/ }),
 /* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "row m-b-15" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "float-right main-bg-color create-btn all-btn",
+                staticStyle: { color: "blue" },
+                attrs: { to: "/advertisement" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-plus-circle" }),
+                _vm._v(" 広告を作成する")
+              ]
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
+        },
+        [
+          _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-10" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-item" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchAdvertisment()
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h5", { staticClass: "header" }, [_vm._v("広告")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "scrolldiv col-12" },
+            _vm._l(_vm.advertisements, function(ads) {
+              return _c(
+                "div",
+                { key: ads.id, staticClass: "card card-default m-b-20" },
+                [
+                  _c("div", { staticClass: "card-body news-post" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-2" }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: {
+                            src: "/upload/advertisement/" + ads.photo,
+                            alt: "ads"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row col-md-10" }, [
+                        _vm._m(1, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(ads.title))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2, true),
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _vm._v(_vm._s(ads.description))
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row col-12 mt-2" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col-4 col-offset-4 pl-3" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn edit-borderbtn",
+                                  attrs: {
+                                    to: {
+                                      name: "editadvertisement",
+                                      params: { id: ads.id }
+                                    }
+                                  }
+                                },
+                                [_vm._v("編集")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn delete-borderbtn",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteAds(ads.id)
+                                    }
+                                  }
+                                },
+                                [_vm._v("削除")]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn secondary-bg-color all-btn white",
+          staticStyle: { width: "100%" }
+        },
+        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 max-width16" }, [
+      _c("strong", [_vm._v("Title :")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 max-width16" }, [
+      _c("strong", [_vm._v("Description :")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {

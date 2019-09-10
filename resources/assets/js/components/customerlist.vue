@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 <div class="row">     
     <!-- <div class="col-12"> -->
          <!-- <div class="card card-default m-b-20">
@@ -34,11 +33,6 @@
             </div>
         </div> -->      
         <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
-=======
-<div class="row">
-    <div class="col-12">
-        <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style" style="height:750px;">
->>>>>>> 30f6c23051083a35b661d894c79c8025881a5920
         <h4 class="main-color">事業者検索</h4>
         <div class="row">
             <div class="col-md-12">
@@ -50,11 +44,7 @@
         </div>
         <hr>
         <h5 class="header">事業者</h5>
-<<<<<<< HEAD
         <div class="scrolldiv col-12">           
-=======
-        <div class="scrolldiv col-12" style="height:580px;">
->>>>>>> 30f6c23051083a35b661d894c79c8025881a5920
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
                 <div class="card-body news-post">
                     <div class="row">
