@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '管理者',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin'),
+                'type'=>'admin',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '顧客',
                 'email' => 'customer@gmail.com',
                 'password' => bcrypt('customer'),
+                'type'=>'user',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]

@@ -219,7 +219,9 @@
       <!-- login menu  -->
       <div class="adminview-sidebar pc">
       <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
-
+      @can('isAdmin')
+      <li><router-link to="/passport" class="nav-link"><i class="fa fa-list"></i>&nbsp; Passport </router-link></li>
+      @endcan
       @can('role-list')
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
@@ -438,6 +440,7 @@
 
 <script type="text/javascript">
  $(document).ready(function() {
+    
     $('.DataTable').DataTable();
     jssor_1_slider_init();
     jssor_slider2_init();
@@ -458,6 +461,8 @@
         }
     });
 });
+
+        
 </script>
 
 </body>

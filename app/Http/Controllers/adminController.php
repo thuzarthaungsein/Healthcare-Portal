@@ -13,6 +13,7 @@ class adminController extends Controller
      */
     public function login()
     {
+
             return view('auth.login');
     }
     public function getMap(Request $request){

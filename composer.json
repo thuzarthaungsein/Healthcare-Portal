@@ -9,7 +9,7 @@
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.5",
         "laravel/framework": "5.6.*",
-        "laravel/passport": "^7.3",
+        "laravel/passport": "^7.4",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.5",
         "snowfire/beautymail": "dev-master",
