@@ -17,8 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-
 // public route api start
 
     Route::post('getmap','SearchMapController@getMap');
@@ -26,19 +24,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // public route api end
 
-
-
-
 // login route api start
 Route::group(['middleware' => ['auth:api']], function() {
-    Route::get('category_list','CategoryController@list');
+
     Route::get('approve/{id}','registerController@approve');
-<<<<<<< HEAD
     
     // Category
-=======
->>>>>>> 6729ad900eea8aa8749037656eff5a435cac7286
     Route::group(['prefix' => 'category'], function () {
+        Route::get('category_list','CategoryController@list');
         Route::get('categories', 'CategoryController@index');
         Route::post('add', 'CategoryController@add');
         Route::get('edit/{id}', 'CategoryController@edit');
@@ -46,7 +39,6 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::delete('delete/{id}', 'CategoryController@destroy');
         Route::post('search', 'CategoryController@search');
     });
-<<<<<<< HEAD
     // End Category
 
     // Type
@@ -120,19 +112,11 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::delete('delete/{id}','AdvertisementController@destroy');
     });
     // End Advertisement 
-=======
-    
->>>>>>> 6729ad900eea8aa8749037656eff5a435cac7286
 
 });
 // login route api end
 
-
-
-
-Route::get('getReset','registerController@getReset');
-
-
+Route::get('getReset','registerController@getReset'); 
 Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
 
