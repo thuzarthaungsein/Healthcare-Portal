@@ -26,7 +26,7 @@
                                 <div class="col-md-4 ">
                                     <button class="btn edit-borderbtn" type="button" data-toggle="collapse" :data-target="'#showDetails' + comment.id" >View</button>
                                     <!-- <button class="btn edit-borderbtn" @click="show(comment.id)">View</button> -->
-                                    <button class="btn confirm-borderbtn confirmed"  v-if="comment.status != 0" >Confirm</button>
+                                    <button class="btn confirm-borderbtn confirmed"  v-if="comment.status != 0" >Confirmed</button>
                                     <button class="btn confirm-borderbtn" v-else @click="commentConfirm(comment.id)">Confirm</button>
                                     <button class="btn delete-borderbtn" @click="deleteComment(comment.id)" >Delete</button>
 

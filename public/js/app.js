@@ -60543,7 +60543,7 @@ var render = function() {
                                 {
                                   staticClass: "btn confirm-borderbtn confirmed"
                                 },
-                                [_vm._v("Confirm")]
+                                [_vm._v("Confirmed")]
                               )
                             : _c(
                                 "button",
