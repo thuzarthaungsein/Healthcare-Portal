@@ -1025,6 +1025,20 @@ div.b {
     bottom: 4px;
     position: absolute;
 }
+
+.side_slider_lbl {
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    top: 70px;
+    background-color: #2a2d2cb0;
+    color: #fff;
+    text-align: justify !important;
+}
+.side_slider_lbl p {
+    color: #fff;
+    font-size: 12px;
+}
 /*End Ad*/
 /* Media Queries*/
 @media (max-width: 1024px) and (min-width: 320px) {
