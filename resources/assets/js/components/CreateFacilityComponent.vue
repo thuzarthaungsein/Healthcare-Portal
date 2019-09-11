@@ -45,7 +45,6 @@ export default {
                     .then((response) => {
                         this.description = ''
                     alert('Successfully Created')
-                    console.log(response);
                      this.$router.push({name: 'facilitieslist'});
                     }).catch(error=>{
                         

@@ -59,7 +59,6 @@ export default {
 
                        axios.post('/api/customer/uploadvideo', fd)
                             .then(response => {
-                                console.log(response); 
                             $('#video_preview').append("<div class='col-md-6' id='video-area'><span onClick='closevideo()'>X</span><video src='upload/videos/"+Vname+"' controls></video></div>");
                             }).catch(error=>{
                                 console.log(error);

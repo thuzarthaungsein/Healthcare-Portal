@@ -275,7 +275,6 @@ export default {
 
 
                     alert('Successfully Created')
-                    console.log(response);
                     this.$router.push({name: 'jobofferlist'});
                     this.$route.params.id = null;
 

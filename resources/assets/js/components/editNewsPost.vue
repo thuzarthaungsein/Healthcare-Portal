@@ -84,7 +84,6 @@
                     .get(`/api/new/editPost/${this.$route.params.id}`)
                     .then((response) => {
                         this.news = response.data;
-                        console.log(this.news.photo);
                         this.updateselected();
                     });
             },
@@ -125,7 +124,6 @@
                                 this.$router.push({
                                     name: 'news_list'
                                 });
-                                console.log(response);
                             }).catch(error=>{
                         
                     if(error.response.status == 422){
