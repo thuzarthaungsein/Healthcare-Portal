@@ -64219,7 +64219,7 @@ var render = function() {
           },
           [
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Aichi",
               attrs: {
                 id: "23",
                 "data-info": "Aichi",
@@ -64231,7 +64231,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Akita",
               attrs: {
                 id: "5",
                 "data-info": "Akita",
@@ -64255,7 +64255,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Chiba",
               attrs: {
                 id: "12",
                 "data-info": "Chiba",
@@ -64267,7 +64267,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Ehime",
               attrs: {
                 id: "38",
                 "data-info": "Ehime",
@@ -64279,7 +64279,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Fukui",
               attrs: {
                 id: "18",
                 "data-info": "Fukui",
@@ -64291,7 +64291,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Fukuoka",
               attrs: {
                 id: "40",
                 "data-info": "Fukuoka",
@@ -64303,7 +64303,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Fukushima",
               attrs: {
                 id: "7",
                 "data-info": "Fukushima",
@@ -64315,7 +64315,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Gifu",
               attrs: {
                 id: "21",
                 "data-info": "Gifu",
@@ -64327,7 +64327,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Gunma",
               attrs: {
                 id: "10",
                 "data-info": "Gunma",
@@ -64363,7 +64363,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Hiroshima",
               attrs: {
                 id: "34",
                 "data-info": "Hiroshima",
@@ -64387,7 +64387,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Ishikawa",
               attrs: {
                 id: "17",
                 "data-info": "Ishikawa",
@@ -64399,7 +64399,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Iwate",
               attrs: {
                 id: "3",
                 "data-info": "Iwate",
@@ -64411,7 +64411,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Kochi",
               attrs: {
                 id: "39",
                 "data-info": "Kochi",
@@ -64423,7 +64423,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Kagawa",
               attrs: {
                 id: "37",
                 "data-info": "Kagawa",
@@ -64435,7 +64435,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Kumamoto",
               attrs: {
                 id: "43",
                 "data-info": "Kumamoto",
@@ -64447,7 +64447,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Kanagawa",
               attrs: {
                 id: "14",
                 "data-info": "Kanagawa",
@@ -64459,7 +64459,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Kagoshima",
               attrs: {
                 id: "46",
                 "data-info": "Kagoshima",
@@ -64471,7 +64471,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Kyoto",
               attrs: {
                 id: "26",
                 "data-info": "Kyoto",
@@ -64483,7 +64483,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Mie",
               attrs: {
                 id: "24",
                 "data-info": "Mie",
@@ -64495,7 +64495,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Miyagi",
               attrs: {
                 id: "4",
                 "data-info": "Miyagi",
@@ -64507,7 +64507,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Miyazaki",
               attrs: {
                 id: "45",
                 "data-info": "Miyazaki",
@@ -64519,7 +64519,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Niigata",
               attrs: {
                 id: "15",
                 "data-info": "Niigata",
@@ -64531,7 +64531,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Nagano",
               attrs: {
                 id: "20",
                 "data-info": "Nagano",
@@ -64543,7 +64543,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Nara",
               attrs: {
                 id: "29",
                 "data-info": "Nara",
@@ -64555,7 +64555,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Nagasaki",
               attrs: {
                 id: "42",
                 "data-info": "Nagasaki",
@@ -64567,7 +64567,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Okinawa",
               attrs: {
                 id: "47",
                 "data-info": "Okinawa",
@@ -64579,7 +64579,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Osaka",
               attrs: {
                 id: "27",
                 "data-info": "Osaka",
@@ -64591,7 +64591,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Okayama",
               attrs: {
                 id: "33",
                 "data-info": "Okayama",
@@ -64603,7 +64603,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Oita",
               attrs: {
                 id: "44",
                 "data-info": "Oita",
@@ -64615,7 +64615,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Saga",
               attrs: {
                 id: "41",
                 "data-info": "Saga",
@@ -64627,7 +64627,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Shiga",
               attrs: {
                 id: "25",
                 "data-info": "Shiga",
@@ -64639,7 +64639,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Shimane",
               attrs: {
                 id: "32",
                 "data-info": "Shimane",
@@ -64651,7 +64651,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Saitama",
               attrs: {
                 id: "11",
                 "data-info": "Saitama",
@@ -64663,7 +64663,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Shizuoka",
               attrs: {
                 id: "22",
                 "data-info": "Shizuoka",
@@ -64675,7 +64675,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Tochigi",
               attrs: {
                 id: "9",
                 "data-info": "Tochigi",
@@ -64687,7 +64687,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Tokyo",
               attrs: {
                 id: "13",
                 "data-info": "Tokyo",
@@ -64711,7 +64711,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Tottori",
               attrs: {
                 id: "31",
                 "data-info": "Tottori",
@@ -64723,7 +64723,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Toyama",
               attrs: {
                 id: "16",
                 "data-info": "Toyama",
@@ -64735,7 +64735,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Wakayama",
               attrs: {
                 id: "30",
                 "data-info": "Wakayama",
@@ -64747,7 +64747,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Yamaguchi",
               attrs: {
                 id: "35",
                 "data-info": "Yamaguchi",
@@ -64759,7 +64759,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Yamanashi",
               attrs: {
                 id: "19",
                 "data-info": "Yamanashi",
@@ -64771,7 +64771,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Yamagata",
               attrs: {
                 id: "6",
                 "data-info": "Yamagata",
@@ -64848,10 +64848,10 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path iwate card-text",
-                      attrs: { href: "#!", id: "3", "data-info": "iwate" }
+                      staticClass: "path Iwate card-text",
+                      attrs: { href: "#!", id: "3", "data-info": "Iwate" }
                     },
-                    [_vm._v("iwate")]
+                    [_vm._v("Iwate")]
                   ),
                   _vm._v(" "),
                   _c(
