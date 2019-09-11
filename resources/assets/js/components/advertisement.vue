@@ -26,10 +26,18 @@
 
                                     </div>
                                     <div class="form-group">
+
+                                            <label for="link"><strong>リンク:</strong></label>
+
+                                            <input type="link" class="form-control box" id="link"  name="link" v-model="ads.link">
+                                            <span v-if="errors.link" class="error">{{errors.link[0]}}</span>
+
+                                    </div>
+                                    <div class="form-group">
                                         <label for ="location" ><strong> ロケーション :</strong>  </label><br>
 
-                                            <label> <input type = "checkbox" value ="topbar"  name="top_bar" v-model="ads.location" > <strong>Top Bar </strong> (200 円)</label><br/>
-                                            <label> <input type = "checkbox"  value ="sidebar"  name="side_bar" v-model="ads.location"><strong> Side Bar </strong>(300 円) </label>
+                                            <label> <input type = "checkbox" value ="topbar"  name="top_bar" v-model="ads.location" > <strong>Top Bar </strong> (240px*120px 300円)</label><br/>
+                                            <label> <input type = "checkbox"  value ="sidebar"  name="side_bar" v-model="ads.location"><strong> Side Bar </strong>(167px*100px 200円)</label>
                                             <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
                                     </div>
                                     <div class="form-group">
@@ -63,6 +71,7 @@ export default {
                 ads: {
                     title:'',
                     description:'',
+                    link:'',
                     location:[],
                     photo:''
                 }
@@ -79,6 +88,7 @@ export default {
              let adsData = new FormData();
              adsData.append('title',this.ads.title)
              adsData.append('description',this.ads.description)
+             adsData.append('link',this.ads.link)
              adsData.append('location',this.ads.location)
              adsData.append('photo',this.ads.photo)
 

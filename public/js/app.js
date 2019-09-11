@@ -56038,6 +56038,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56046,6 +56054,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             ads: {
                 title: '',
                 description: '',
+                link: '',
                 location: [],
                 photo: ''
             }
@@ -56063,6 +56072,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var adsData = new FormData();
             adsData.append('title', this.ads.title);
             adsData.append('description', this.ads.description);
+            adsData.append('link', this.ads.link);
             adsData.append('location', this.ads.location);
             adsData.append('photo', this.ads.photo);
 
@@ -56173,6 +56183,38 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _vm._m(3),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.ads.link,
+                          expression: "ads.link"
+                        }
+                      ],
+                      staticClass: "form-control box",
+                      attrs: { type: "link", id: "link", name: "link" },
+                      domProps: { value: _vm.ads.link },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.ads, "link", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.link
+                      ? _c("span", { staticClass: "error" }, [
+                          _vm._v(_vm._s(_vm.errors.link[0]))
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(4),
                     _c("br"),
                     _vm._v(" "),
                     _c("label", [
@@ -56226,7 +56268,7 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("strong", [_vm._v("Top Bar ")]),
-                      _vm._v(" (200 円)")
+                      _vm._v(" (240px*120px 300円)")
                     ]),
                     _c("br"),
                     _vm._v(" "),
@@ -56280,7 +56322,7 @@ var render = function() {
                         }
                       }),
                       _c("strong", [_vm._v(" Side Bar ")]),
-                      _vm._v("(300 円) ")
+                      _vm._v("(167px*100px 200円)")
                     ]),
                     _vm._v(" "),
                     _vm.errors.location
@@ -56291,7 +56333,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
-                    _vm._m(4),
+                    _vm._m(5),
                     _c("br"),
                     _vm._v(" "),
                     _c("input", {
@@ -56305,7 +56347,7 @@ var render = function() {
                         ])
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm._m(5)
+                    _vm._m(6)
                   ]),
                   _vm._v(" "),
                   _c(
@@ -56364,6 +56406,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "description" } }, [
       _c("strong", [_vm._v("描写:")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "link" } }, [
+      _c("strong", [_vm._v("リンク:")])
     ])
   },
   function() {
@@ -59456,7 +59506,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 max-width16" }, [
-      _c("strong", [_vm._v("Title :")])
+      _c("strong", [_vm._v("タイトル  :")])
     ])
   },
   function() {
@@ -59464,7 +59514,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 max-width16" }, [
-      _c("strong", [_vm._v("Description :")])
+      _c("strong", [_vm._v("描写  :")])
     ])
   }
 ]
@@ -59593,6 +59643,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59601,6 +59660,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             advertisement: {
                 title: '',
                 description: '',
+                link: '',
                 location: [{
                     topbars: false,
                     sidebars: false
@@ -59616,6 +59676,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.axios.get('/api/advertisement/edit/' + this.$route.params.id).then(function (response) {
             _this.advertisement.title = response.data.title;
             _this.advertisement.description = response.data.description;
+            _this.advertisement.link = response.data.link;
             _this.ischeck = response.data.location;
             _this.updateCheck(_this.ischeck);
             _this.advertisement.photo = response.data.photo;
@@ -59669,6 +59730,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
             adsData.append('title', this.advertisement.title);
             adsData.append('description', this.advertisement.description);
+            adsData.append('link', this.advertisement.link);
             adsData.append('photo', this.advertisement.photo);
             //ads.photo=this.advertisement.photo
             this.axios.post('/api/advertisement/update/' + this.$route.params.id, adsData).then(function (response) {
@@ -59781,11 +59843,43 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-10" }, [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.advertisement.link,
+                            expression: "advertisement.link"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "link", cols: "50", rows: "5" },
+                        domProps: { value: _vm.advertisement.link },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.advertisement,
+                              "link",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "form-group row" },
                     [
-                      _vm._m(3),
+                      _vm._m(4),
                       _vm._v(" "),
                       _vm._l(_vm.advertisement.location, function(
                         advertisements
@@ -59849,7 +59943,7 @@ var render = function() {
                               }),
                               _vm._v(" "),
                               _c("strong", [_vm._v("Top Bar ")]),
-                              _vm._v(" (200 円)")
+                              _vm._v(" (240px*120px 300円)")
                             ]),
                             _c("br"),
                             _vm._v(" "),
@@ -59911,7 +60005,7 @@ var render = function() {
                                 }
                               }),
                               _c("strong", [_vm._v(" Side Bar ")]),
-                              _vm._v("(300 円) ")
+                              _vm._v("(167px*100px 200円)")
                             ]),
                             _vm._v(" "),
                             _vm.errors.location
@@ -59934,7 +60028,7 @@ var render = function() {
                       attrs: { id: "showimage" }
                     },
                     [
-                      _vm._m(4),
+                      _vm._m(5),
                       _c("br"),
                       _vm._v(" "),
                       _c("div", { staticClass: "custom-file" }, [
@@ -59990,9 +60084,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "page-header header" }, [
-        _vm._v("Edit Advertisement")
-      ]),
+      _c("h4", { staticClass: "page-header header" }, [_vm._v("広告を編集")]),
       _vm._v(" "),
       _c("br")
     ])
@@ -60003,7 +60095,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-2 text-right" }, [
       _c("label", { attrs: { for: "title" } }, [
-        _c("strong", [_vm._v("Title :")])
+        _c("strong", [_vm._v("タイトル :")])
       ])
     ])
   },
@@ -60013,7 +60105,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-2 text-right" }, [
       _c("label", { attrs: { for: "description" } }, [
-        _c("strong", [_vm._v("Description :")])
+        _c("strong", [_vm._v("描写 :")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2 text-right" }, [
+      _c("label", { attrs: { for: "link" } }, [
+        _c("strong", [_vm._v("リンク :")])
       ])
     ])
   },
@@ -60023,7 +60125,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-2 text-right" }, [
       _c("label", { attrs: { for: "location" } }, [
-        _c("strong", [_vm._v(" Location :")])
+        _c("strong", [_vm._v(" ロケーション :")])
       ])
     ])
   },
