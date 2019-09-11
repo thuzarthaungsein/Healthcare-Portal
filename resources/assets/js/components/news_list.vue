@@ -1,7 +1,7 @@
 <template>
     <!-- Page Content  -->
     <div class="row">
-        <div class="col-12">            
+        <div class="col-12">
             <div class="row m-b-10">
                 <div class="col-md-12">
                     <router-link to="/create_news" class="float-right main-bg-color create-btn all-btn" style="color: blue;"><i class="fas fa-plus-circle"></i> 新しい投稿を作成</router-link>
@@ -23,7 +23,7 @@
                                     <label for="selectBox col-2 col-form-label">カテゴリー</label> 
                                     <div class="col-10">
                                         <select class="form-control" id="selectBox" @change="searchbyCategory()" >
-                                        <option selected="selected" value="">全て</option> 
+                                        <option selected="selected" value="">全て</option>
                                         <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                             {{category.name}}
                                         </option>
@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-md-2" v-if="newsList.photo">
 
-                                <img :src="'/upload/news/'+ newsList.photo" alt="" class="img-fluid"> 
+                                <img :src="'/upload/news/'+ newsList.photo" alt="" class="img-fluid">
                             </div>
                              <div class="col-md-2" v-else></div>
                             <div class="col-md-8">
@@ -50,18 +50,16 @@
                                     <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
                                     <!-- <a hrဖef="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
                                     </b></div>
-                                <p>{{newsList.main_point}}</p>   
+                                <p>{{newsList.main_point}}</p>
                             </div>
                             <div class="col-sm-3 align-self-center text-right">
                                 <router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="btn edit-borderbtn">編集</router-link>&nbsp;
                                 <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
-
                 </div>
-                
 
             </div>
         </div>
@@ -71,7 +69,7 @@
 
 <script>
 export default {
-       
+
         data() {
             return {
                 news_list:[],
@@ -86,6 +84,7 @@ export default {
                  .get('/api/news_list')
                  .then(response=>{
                      this.news_list = response.data;
+                     console.log(localStorage.getItem("hospital_fav"));
                  });
         },
         mounted() {
@@ -107,10 +106,11 @@ export default {
                         this.news_list.splice(i, 1)
                     });
                 }
-               
+
             },
             searchbyCategory() {
                 var search_word = $('#search-item').val();
+
                 var selected_category  = document.getElementById("selectBox").value;
                 let fd = new FormData();
                     fd.append('search_word', search_word)

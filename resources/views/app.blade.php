@@ -247,6 +247,7 @@
       <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
       <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Hospital</router-link></li>
       <li><router-link to="/nus_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Nursing</router-link></li>
+      <li><router-link to="/profilepublish" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  profile publish</router-link></li>
       @endcan
 
       @can('role-list')
@@ -362,7 +363,7 @@
       <div class="row justify-content-md-center">
         <div class="col-12 col-lg-10 col-md-8 tab">
           <!-- vue component -->
-              <router-view></router-view>
+              <router-view  :key="$route.fullPath"></router-view>
 
           <!-- vue component -->
 

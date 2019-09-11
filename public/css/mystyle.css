@@ -794,6 +794,13 @@ p {
     position: relative;
     left: 15px;
 }
+
+.news-post-btn-blue {
+    background-color: #007cdb !important;
+    color: white !important;
+    position: relative;
+    left: 15px;
+}
 /* End Create News */
 
 /*Job Apply Form*/
@@ -807,8 +814,8 @@ textarea {
 
 /* End Job Apply Form*/
 /* News Tab */
-.news-wrapper {
-    height: 310px;
+.news-wrapper{
+    height: 290px;
     overflow-y: auto;
     scrollbar-width: thin;
 }
@@ -1125,7 +1132,9 @@ div.b {
 .pad-free {
     padding: 0px;
 }
-
+.pad-10{
+    padding: 10px !important;
+}
 .m-0 {
     margin: 0px;
 }
@@ -1153,6 +1162,9 @@ div.b {
     margin-top: 30px;
 }
 
+.m-t-55 {
+    margin-top:55px;
+}
 .m-b-20 {
     margin-bottom: 20px;
 }
@@ -1195,8 +1207,13 @@ div.b {
 .p-b-5 {
     padding-bottom: 5px;
 }
-.max-width12 {
-    max-width: 12%;
+.m-r-10{
+    margin-right: 10px;
+}
+
+
+.max-width12{
+    max-width:12%;
 }
 .max-width13{
     max-width:13%;
@@ -1849,8 +1866,22 @@ body::-webkit-scrollbar-thumb {
 
 /*end for jssor*/
 
-
-
+/*view*/
+    .m-t-l{
+        margin-left: 85px;
+        font-size: 16px;
+        text-decoration: none;
+        color: black;
+    }
+   .view1{
+    margin-left:42px;
+    letter-spacing: 2px;
+    }
+    .am-l-10
+    {
+        margin-left:20px;
+    }
+/*view*/
 
 .myBtn {
     -webkit-border-radius: 2px;
@@ -1925,6 +1956,16 @@ color:white;
 }
 /* End Summernote */
 
+/* Google Map  */
+#googlemap {
+    min-height: 300px;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+}
+.map-text > a{
+    color: #000 !important;
+}
+/* End Google Map  */
 
 /* .pc {
     display: block !important;

@@ -1,19 +1,18 @@
 <template>
-        <div>
-          <h2>Search and add a pin</h2>
-              <label>
+        <div class="col-md-12 pad-free m-t-15 m-b-20">
+          <h4>Search Your Place Here</h4>
+              <div class="col-md-12 pad-free">
                 <gmap-autocomplete
-                  @place_changed="setPlace">
+                  @place_changed="setPlace" class="form-control">
                 </gmap-autocomplete>
-                <button @click="addMarker">Add</button>
-              </label>
+                <!-- <span @click="addMarker">Add</span> -->
+              </div>
               <br/>
           <GmapMap
             id="googlemap"
             ref="map"
             :center="center"
             :zoom="10"
-            style="min-height: 300px;"
           >
             <GmapMarker
               v-for="(m, index) in markers"
@@ -24,10 +23,10 @@
               @click="center=m.position"
               @dragend="updateCoordinates"
             />
-        </GmapMap>
+          </GmapMap>
 
-        <input type="text" name="new_lat" v-model="new_lat" id="new_lat">
-        <input type="text" name="new_long" v-model="new_long" id="new_long">
+          <input type="hidden" name="new_lat" v-model="new_lat" id="new_lat">
+          <input type="hidden" name="new_long" v-model="new_long" id="new_long">
         </div>
 </template>
 <script>
@@ -36,18 +35,21 @@ export default {
   data () {
     return {
       markers: [
-        { position: { lat: 16.9239, lng: 96.2270 } }
+        { position: { lat: 35.6803997, lng: 139.76901739 } }
       ],
       addresses: [],
       places: [],
-      center: { lat: 16.9239, lng: 96.2270 },
+      center: { lat: 35.6803997, lng: 139.76901739 },
       selected: '',
       new_lat: '',
       new_long: ''
     }
   },
-  methods: {
-    
+  created() {
+    this.new_lat = 35.6803997;
+    this.new_long = 139.76901739;
+  },
+  methods: {    
     // receives a place object via the autocomplete component
     addressSelect: function (e) {
       // Add a new marker
@@ -75,6 +77,7 @@ export default {
 
     setPlace(place) {
       this.currentPlace = place;
+      this.addMarker();
     },
 
     //Auto complete Search
@@ -89,6 +92,10 @@ export default {
         this.places.push(this.currentPlace);
         this.center = marker;
         this.currentPlace = null;
+
+        this.new_lat = marker.lat;
+        this.new_long = marker.lng;
+        
       }
     },
     geolocate: function() {
