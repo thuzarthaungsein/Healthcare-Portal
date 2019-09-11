@@ -74,7 +74,7 @@
 
 <div id="app">
 
-    <div class="col-md-10 offset-md-1 main-content pad-free">
+    <div class="main-content pad-free">
 
         <flash message=""></flash>
 
