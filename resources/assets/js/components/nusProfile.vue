@@ -112,7 +112,7 @@ $('.scrolldiv2').scroll(function() {
              
         //       this.scrollSection();
               this.axios
-                .get('http://localhost:8000/api/authget')
+                .get('/api/authget')
                 .then(response=>{
                 //   console.log(response);
                 // this.fac_list = response.data;

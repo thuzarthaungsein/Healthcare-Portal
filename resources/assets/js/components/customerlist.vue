@@ -103,7 +103,7 @@ export default {
                 var search_word = $('#search-word').val();
                 let fd = new FormData();
                     fd.append('search_word', search_word)
-                this.axios.post('http://localhost:8000/api/customer/search', fd)
+                this.axios.post('/api/customer/search', fd)
                     .then(response => {
                         this.customers = response.data;
                 });
