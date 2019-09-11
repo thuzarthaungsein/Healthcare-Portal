@@ -41879,6 +41879,8 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { attrs: { id: "text" } }),
+        _vm._v(" "),
         _c("div", { attrs: { id: "info-box" } }),
         _vm._v(" "),
         _c(
@@ -42412,7 +42414,16 @@ var render = function() {
           ]
         )
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c("input", {
+      attrs: {
+        type: "button",
+        id: "save_value",
+        name: "save_value",
+        value: "Save"
+      }
+    })
   ])
 }
 var staticRenderFns = [
@@ -42891,16 +42902,14 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
-          _c("div", [
-            _c(
-              "select",
-              {
-                staticClass: "form-control custom-select",
-                attrs: { name: "", id: "select" }
-              },
-              [_c("option")]
-            )
-          ]),
+          _c(
+            "select",
+            {
+              staticClass: "form-control custom-select",
+              attrs: { name: "", id: "select" }
+            },
+            [_c("option")]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "row", attrs: { id: "checkbox" } })
         ])

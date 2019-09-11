@@ -40,6 +40,7 @@ $('.path').on("click", function(e) {
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
+            $('#text').empty();
             var getCity = data.getCity;
             var townships = data.getTownships;
             var city = data.city;
@@ -49,6 +50,7 @@ $('.path').on("click", function(e) {
             });
             $.each(getCity,function(k,v){
               $('#select option[value="'+v.id+'"]').attr("selected",true);
+              $('#text').append('<span>'+v.city_name+'</span>')
             })
             $.each(townships,function(k,v){
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
@@ -74,6 +76,30 @@ $('#select').on('change',function(){
     }
   })
 })
+$('#text').click(function() {
+  $('#checkbox').slideToggle("slow");
+  // Alternative animation for example
+  // slideToggle("fast");
+});
+
+// save button get value search map
+$('#save_value').click(function(){
+  var val = [];
+  $(':checkbox:checked').each(function(i){
+    val[i] = $(this).val();
+    console.log(val[i]);
+  });
+});
+// save button get value search map
+
+
+
+
+
+
+
+
+
 
 
 

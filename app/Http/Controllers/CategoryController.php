@@ -41,8 +41,6 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $categories = Category::select('name')->whereIn('id',array(1,2));
-        return $categories;
         $categories = Category::all()->toArray();
         return array_reverse($categories);
 
