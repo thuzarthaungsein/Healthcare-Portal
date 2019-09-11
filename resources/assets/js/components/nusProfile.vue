@@ -112,7 +112,7 @@ $('.scrolldiv2').scroll(function() {
              
         //       this.scrollSection();
               this.axios
-                .get('http://localhost:8000/api/authget')
+                .get('/api/authget')
                 .then(response=>{
                 //   console.log(response);
                 // this.fac_list = response.data;
@@ -122,20 +122,20 @@ $('.scrolldiv2').scroll(function() {
         methods: {
                 getType(aa){
                         alert('a');
-                        console.log(aa);
+                        // console.log(aa);
 
                 },
                 scrollTab(){
-                        console.log('scroll');
+                        // console.log('scroll');
                         // $("p").css('color','red');
                         $('#a').on('click',function(){
-                                console.log('onclick');
+                                // console.log('onclick');
                         });
                         
                         if($('.detal_wrap').length){   
-                                console.log('Hello'); 
+                                // console.log('Hello'); 
                                 $(".a_sp a[href^='#']").click(function () { 
-                                console.log("a_sp");
+                                // console.log("a_sp");
                                 var speed = 600;
                                 var href = $(this).attr("href");
                                 var target = $(href === "#" || href === "" ? 'html' : href);

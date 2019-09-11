@@ -47,7 +47,6 @@ class CategoryController extends Controller
     //index category
     public function index()
     {
-
         $categories = Category::all()->toArray();
         return array_reverse($categories);
 

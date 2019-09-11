@@ -41372,8 +41372,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__);
 //
 //
 //
@@ -41412,7 +41410,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
+// import ProfilePublish from './ProfilePublish.vue'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         components: {
@@ -41422,7 +41420,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a
         },
         mounted: function mounted() {
-                console.log('Component mounted.');
                 // console.log[l_storage_hos_history];
         },
         data: function data() {
@@ -41714,9 +41711,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a
 
         },
-        mounted: function mounted() {
-                console.log('Component mounted.');
-        },
+        mounted: function mounted() {},
         data: function data() {
                 return {
                         cats: [],
@@ -41724,7 +41719,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         latest_post: [],
                         latest_post_all_cats: [],
                         search_posts: [],
-                        categoryId: []
+                        categoryId: 1
                 };
         },
         created: function created() {
@@ -41732,7 +41727,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.getPostByCatID();
                 this.getLatestPostByCatID();
                 this.getLatestPostFromAllCat();
-                this.categoryId();
+                //     this.categoryId();
         },
 
         methods: {
@@ -41763,7 +41758,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         $('.search-item').css('display', 'none');
                         this.categoryId = cat_id;
-                        axios.post("http://localhost:8000/api/posts/", fd).then(function (response) {
+                        axios.post("/api/posts/", fd).then(function (response) {
                                 _this2.posts = response.data;
                         });
                 },
@@ -41787,7 +41782,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         $('.search-item').css('display', 'none');
                         this.categoryId = cat_id;
-                        axios.post("http://localhost:8000/api/get_latest_post/", fd).then(function (response) {
+                        axios.post("/api/get_latest_post/", fd).then(function (response) {
                                 _this3.latest_post = response.data;
                         });
                 },
@@ -41812,7 +41807,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         fd.append('search_word', search_word);
                         fd.append('selected_category', categoryId);
 
-                        this.axios.post('http://localhost:8000/api/search', fd).then(function (response) {
+                        this.axios.post('/api/search', fd).then(function (response) {
                                 if (response.data.length == '0') {
                                         _this5.posts = [];
                                         _this5.latest_post = [];
@@ -42033,10 +42028,10 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("path", {
-                staticClass: "path",
+                staticClass: "path Hokkaido",
                 attrs: {
                   id: "1",
-                  "data-info": "<div>Hokkaido</div>",
+                  "data-info": "Hokkaido",
                   title: "Hokkaido",
                   fill: "#ef7979",
                   d:
@@ -42506,12 +42501,8 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticClass: "path card-text",
-                    attrs: {
-                      href: "#!",
-                      id: "1",
-                      "data-info": "<div>Hokkaido</div>"
-                    }
+                    staticClass: "path Hokkaido card-text",
+                    attrs: { href: "#!", id: "1", "data-info": "Hokkaido" }
                   },
                   [_vm._v("Hokkaido")]
                 )
@@ -44004,7 +43995,7 @@ var render = function() {
                                 staticClass: "source-img img-responsive",
                                 staticStyle: { width: "100%", height: "200px" },
                                 attrs: {
-                                  src: "/images/" + _vm.latest_post.photo
+                                  src: "/upload/news/" + _vm.latest_post.photo
                                 }
                               })
                             : _vm._e(),
@@ -44104,7 +44095,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row m-lr-0" }, [
+    _c("div", { staticClass: "col-md-12 pad-free m-lr-0" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(
@@ -44122,7 +44113,7 @@ var render = function() {
                 _c("img", {
                   staticClass: "img-responsive fit-image",
                   attrs: {
-                    src: "/images/" + latest_post_all_cat.photo,
+                    src: "/upload/news/" + latest_post_all_cat.photo,
                     alt: ""
                   }
                 }),
@@ -44962,7 +44953,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.getLatestPostByFirstCatID();
                 this.getLatestPostFromAllCat();
                 this.axios.get('/api/newdetails/' + this.$route.params.id).then(function (response) {
-                        console.log(response.data);
                         _this.newdetails = response.data;
                         //        console.log(response.data);
                 });
@@ -45109,16 +45099,16 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
+                _c("div", { staticClass: "col-md-8" }, [
                   _c("p", { staticClass: "p5" }, [
                     _vm._v(_vm._s(_vm.newdetails.body))
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-6  mt-2 related-area" }, [
+                _c("div", { staticClass: "col-md-4 mt-2 related-area" }, [
                   _c("img", {
                     staticClass: "img-responsive img_2 news_photo",
-                    attrs: { src: "/images/" + _vm.newdetails.photo }
+                    attrs: { src: "/upload/news/" + _vm.newdetails.photo }
                   }),
                   _vm._v(" "),
                   _vm._m(1),
@@ -45155,7 +45145,8 @@ var render = function() {
                             _c("img", {
                               staticClass: "img-responsive fit-image",
                               attrs: {
-                                src: "/images/" + latest_post_all_cat.photo,
+                                src:
+                                  "/upload/news/" + latest_post_all_cat.photo,
                                 alt: ""
                               }
                             }),
@@ -45516,7 +45507,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         this.axios.post('/api/jobapply', this.jobApply).then(function (response) {
                                 alert('Successful Apply');
-                                console.log(response);
                                 //console.log(this.jobApply.toString());
                                 _this2.jobApply = response.data;
                         });
@@ -45911,20 +45901,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45955,7 +45931,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         comfirm: function comfirm(id) {
             this.axios.get('/api/confirm/' + id).then(function (response) {
                 flash('Successfully Send Mail.', 'success');
-                console.log(response.data);
             });
         },
         searchCustomer: function searchCustomer() {
@@ -45964,7 +45939,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var search_word = $('#search-word').val();
             var fd = new FormData();
             fd.append('search_word', search_word);
-            this.axios.post('http://localhost:8000/api/customer/search', fd).then(function (response) {
+            this.axios.post('/api/customer/search', fd).then(function (response) {
                 _this3.customers = response.data;
             });
         }
@@ -45981,28 +45956,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "card card-default m-b-20" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-10" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "text", placeholder: "検索", id: "search-word" },
-                on: {
-                  keyup: function($event) {
-                    return _vm.searchCustomer()
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ])
-        ])
-      ]),
-      _vm._v(" -->      \r\n        "),
       _c(
         "div",
         {
@@ -46012,7 +45965,19 @@ var render = function() {
         [
           _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-word" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchCustomer()
+                  }
+                }
+              })
+            ])
+          ]),
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
@@ -46039,22 +46004,22 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "row col-md-10" }, [
-                        _vm._m(2, true),
+                        _vm._m(0, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.name))
                         ]),
                         _vm._v(" "),
-                        _vm._m(3, true),
+                        _vm._m(1, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.email))
                         ]),
                         _vm._v(" "),
-                        _vm._m(4, true),
+                        _vm._m(2, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.phone))
                         ]),
                         _vm._v(" "),
-                        _vm._m(5, true),
+                        _vm._m(3, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.address))
                         ]),
@@ -46112,34 +46077,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 text-right" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn secondary-bg-color all-btn white",
-          staticStyle: { width: "100%" }
-        },
-        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", placeholder: "検索" }
-        })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -46931,7 +46868,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         this.axios.get("/api/job_details/" + this.$route.params.id).then(function (response) {
-            console.log(response.data);
             _this.job_details = response.data;
         });
     }
@@ -47388,7 +47324,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/news_list').then(function (response) {
             _this.news_list = response.data;
-            console.log(localStorage.getItem("hospital_fav"));
         });
     },
     mounted: function mounted() {
@@ -47816,7 +47751,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.$router.push({
                     name: 'news_list'
                 });
-                console.log(response);
             }).catch(function (error) {
 
                 if (error.response.status == 422) {
@@ -48540,7 +48474,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/api/category/add', this.category).then(function (response) {
                 _this.name = '';
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'categorylist' });
             }).catch(function (error) {
 
@@ -49053,7 +48986,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/api/facility/add', this.facility).then(function (response) {
                 _this.description = '';
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'facilitieslist' });
             }).catch(function (error) {
 
@@ -50978,9 +50910,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         fd.append('address', this.customer.address);
 
                         axios.post('/api/customer/add', fd).then(function (response) {
-                                console.log(response);
                                 alert('Successfully Created');
-                                console.log(response);
                                 _this.$router.push({ name: '/' });
                         });
                 }
@@ -51563,7 +51493,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this2.title = '', _this2.description = '', _this2.location = '', _this2.salary = '', _this2.working_hours = '', _this2.employment_status = '';
 
                     alert('Successfully Created');
-                    console.log(response);
                     _this2.$router.push({ name: 'jobofferlist' });
                     _this2.$route.params.id = null;
                 }).catch(function (error) {
@@ -52532,7 +52461,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/new/editPost/' + this.$route.params.id).then(function (response) {
             _this.news = response.data;
-            console.log(_this.news.photo);
             _this.updateselected();
         });
     },
@@ -52572,7 +52500,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this2.$router.push({
                     name: 'news_list'
                 });
-                console.log(response);
             }).catch(function (error) {
 
                 if (error.response.status == 422) {
@@ -53004,9 +52931,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
         ready: function ready() {
 
-                console.log("Ready");
+                // console.log("Ready");
                 Vue.nextTick(function () {
-                        console.log("Next Trick");
+                        // console.log("Next Trick");
                 }.bind(this));
         },
         components: {
@@ -55394,7 +55321,7 @@ $(document).ready(function () {
         created: function created() {
 
                 //       this.scrollSection();
-                this.axios.get('http://localhost:8000/api/authget').then(function (response) {
+                this.axios.get('/api/authget').then(function (response) {
                         //   console.log(response);
                         // this.fac_list = response.data;
                 });
@@ -55404,19 +55331,19 @@ $(document).ready(function () {
         methods: {
                 getType: function getType(aa) {
                         alert('a');
-                        console.log(aa);
+                        // console.log(aa);
                 },
                 scrollTab: function scrollTab() {
-                        console.log('scroll');
+                        // console.log('scroll');
                         // $("p").css('color','red');
                         $('#a').on('click', function () {
-                                console.log('onclick');
+                                // console.log('onclick');
                         });
 
                         if ($('.detal_wrap').length) {
-                                console.log('Hello');
+                                // console.log('Hello'); 
                                 $(".a_sp a[href^='#']").click(function () {
-                                        console.log("a_sp");
+                                        // console.log("a_sp");
                                         var speed = 600;
                                         var href = $(this).attr("href");
                                         var target = $(href === "#" || href === "" ? 'html' : href);
@@ -55786,7 +55713,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.jobs = response.data;
         });
         this.axios.get('/api/user').then(function (response) {
-            console.log(response.data.id);
+            //     console.log(response.data.id)
         });
     },
 
@@ -56098,7 +56025,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.axios.post('/api/advertisement/add', adsData).then(function (response) {
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'ads' });
             }).catch(function (error) {
 
@@ -56543,7 +56469,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.post('/api/medical/add', this.medical).then(function (response) {
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'medicalacceptancelist' });
             });
         }
@@ -56793,7 +56718,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/medical/medicalacceptance').then(function (response) {
             _this.medical_acceptance = response.data;
-            console.log(response.data);
         });
     },
 
@@ -57305,7 +57229,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         approve: function approve(id) {
             this.axios.get('/api/approve/' + id).then(function (response) {
-                console.log(response.data);
                 ajax.reload();
             });
         }
@@ -57510,7 +57433,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         created: function created() {
                 this.local_sto = localStorage.getItem("hospital_history");
                 this.getAllCustomer(this.local_sto);
-                console.log('dkasjf', this.local_sto);
         },
 
         methods: {
@@ -58448,7 +58370,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fd.append('name', Vname);
 
             axios.post('/api/customer/uploadvideo', fd).then(function (response) {
-                console.log(response);
                 $('#video_preview').append("<div class='col-md-6' id='video-area'><span onClick='closevideo()'>X</span><video src='upload/videos/" + Vname + "' controls></video></div>");
             }).catch(function (error) {
                 console.log(error);
@@ -58707,7 +58628,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 axios.post('/api/types/add', this.Type).then(function (response) {
                     _this2.name = '';
                     alert('Successfully Created');
-                    console.log(response);
                     _this2.$router.push({ name: 'typelist' });
                 }).catch(function (error) {
 
@@ -59305,9 +59225,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59345,7 +59262,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var search_word = $('#search-item').val();
             var fd = new FormData();
             fd.append('search_word', search_word);
-            this.axios.post('http://localhost:8000/api/advertisement/search', fd).then(function (response) {
+            this.axios.post('/api/advertisement/search', fd).then(function (response) {
                 _this3.advertisements = response.data;
             });
         }
@@ -59394,7 +59311,7 @@ var render = function() {
           _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-10" }, [
+            _c("div", { staticClass: "col-md-12" }, [
               _c("input", {
                 staticClass: "form-control",
                 attrs: { type: "text", placeholder: "検索", id: "search-item" },
@@ -59404,9 +59321,7 @@ var render = function() {
                   }
                 }
               })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
+            ])
           ]),
           _vm._v(" "),
           _c("hr"),
@@ -59434,12 +59349,12 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "row col-md-10" }, [
-                        _vm._m(1, true),
+                        _vm._m(0, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(ads.title))
                         ]),
                         _vm._v(" "),
-                        _vm._m(2, true),
+                        _vm._m(1, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(ads.description))
                         ]),
@@ -59493,21 +59408,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn secondary-bg-color all-btn white",
-          staticStyle: { width: "100%" }
-        },
-        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -60166,16 +60066,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    created: function created() {
-
-        console.log('local', localStorage.getItem('hospital_fav'));
-    },
+    created: function created() {},
 
     methods: {
         favList: function favList() {
             var favData = localStorage.getItem('hospital_fav');
             axios.post('/api/hospital/favData', favData).then(function (response) {
-                console.log(response);
+                //  console.log(response);
             });
         }
     }
