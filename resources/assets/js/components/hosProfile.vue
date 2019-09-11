@@ -36,9 +36,9 @@ import profilePublish from './ProfilePublish.vue'
 export default {
         ready: function() {
                 
-                console.log("Ready");
+                // console.log("Ready");
                 Vue.nextTick(function () {
-                        console.log("Next Trick");
+                        // console.log("Next Trick");
                 }.bind(this))
         },
         components: {

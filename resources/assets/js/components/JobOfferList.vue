@@ -61,7 +61,7 @@ export default {
                 this.axios
                 .get('/api/user')
                 .then(response => {
-                    console.log(response.data.id)
+                //     console.log(response.data.id)
                 });
         },
         methods:{

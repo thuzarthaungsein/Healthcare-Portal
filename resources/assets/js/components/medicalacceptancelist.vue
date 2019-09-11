@@ -58,7 +58,6 @@ export default {
                 .get('/api/medical/medicalacceptance')
                 .then(response => {
                     this.medical_acceptance = response.data;
-                     console.log(response.data);
                 });
         },
 
