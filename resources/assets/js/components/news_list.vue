@@ -145,7 +145,6 @@ export default {
                  .get('/api/news_list')
                  .then(response=>{
                      this.news_list = response.data;
-                     console.log(localStorage.getItem("hospital_fav"));
                  });
         },
         mounted() {

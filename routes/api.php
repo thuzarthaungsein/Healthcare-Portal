@@ -164,10 +164,8 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::delete('delete/{id}','AdvertisementController@destroy');
 });
  Route::group(['prefix' => 'hospital'], function () {
-       
-        Route::get('favourite_list', 'HospitalProfileController@index');
-        
-        Route::delete('delete/{id}', 'HospitalProfileController@destroy');
+        Route::get('postList', 'HospitalProfileController@getPostalList');
+        Route::get('citiesList', 'HospitalProfileController@getCitiesName');
        
     });
 

@@ -23,7 +23,7 @@ class HospitalProfileController extends Controller
         // return response()->json(array_reverse($favourite_list));
     }
 
-    function getFavouriteHospital($local_sto) {
+    public function getFavouriteHospital($local_sto) {
         $query = "SELECT hospital_profiles.* ,customers.*, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
                     JOIN customers ON hospital_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
@@ -35,6 +35,20 @@ class HospitalProfileController extends Controller
             $fav->special_features = $fea_arr;
         }
         return $fav_hospital;
+    }
+
+    public function getPostalList(){
+        $query = "SELECT  CONCAT(townships.postalcode,' ',cities.city_name,' ',townships.township_name) AS name,townships.id, townships.postalcode  FROM townships 
+                    JOIN cities ON townships.city_id = cities.id";
+        $postal_list = DB::select($query);
+        return $postal_list;
+        // return $postal_list;
+    }
+
+    public function getCitiesName() {
+        $query = "SELECT cities.id, cities.city_name FROM cities";
+        $city_list = DB::select($query);
+        return $city_list;
     }
 
     /**
