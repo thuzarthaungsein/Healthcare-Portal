@@ -38,6 +38,30 @@
 <div id="app">
 <div class="col-md-10 offset-md-1 main-content pad-free">
     <flash message=""></flash>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Hidden brand</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
   <!--navigation bar-->
   <nav class="navbar navbar-expand-lg navbar-dark main-header">
   <a class="navbar-brand" href="/">
@@ -53,10 +77,11 @@
       <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary pc" type="submit"><i class="fas fa-search"></i> 検索</button>
     </form>
     <ul class="navbar-nav mr-auto col-lg-2 pad-free pc">
-    <li class="fav-item fav-color btn all-btn m-r-15"><i class="fa fa-star m-r-5"></i><span class="list">2</span>件<br>検討リスト   
-    </li>
-    <li class="fav-item history-color btn all-btn m-r-20"><i class="fa fa-bookmark m-r-5"></i><span class="list">10</span>件<br>最近見た施設    
-    </li>
+        <li class="fav-item fav-color btn all-btn m-r-15"><i class="fa fa-star m-r-5"></i><br>
+        検討リスト   <span class="list">2</span>件
+        </li>
+        <li class="fav-item history-color btn all-btn m-r-20"><i class="fa fa-bookmark m-r-5"></i><span class="list">10</span>件<br>最近見た施設    
+        </li>
     </ul>
     <ul class="navbar-nav mr-auto col-lg-2 pad-free pc">
     @guest
@@ -219,7 +244,9 @@
       <!-- login menu  -->
       <div class="adminview-sidebar pc">
       <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
-
+      @can('isAdmin')
+      <li><router-link to="/passport" class="nav-link"><i class="fa fa-list"></i>&nbsp; Passport </router-link></li>
+      @endcan
       @can('role-list')
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
@@ -245,6 +272,7 @@
       <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
       <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Hospital</router-link></li>
       <li><router-link to="/nus_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Nursing</router-link></li>
+      <li><router-link to="/profilepublish" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  profile publish</router-link></li>
       @endcan
 
       @can('role-list')
@@ -366,7 +394,7 @@
       <div class="row justify-content-md-center">
         <div class="col-12 col-lg-10 col-md-8 tab">
           <!-- vue component -->
-              <router-view></router-view>
+              <router-view  :key="$route.fullPath"></router-view>
 
           <!-- vue component -->
 
@@ -444,6 +472,7 @@
 
 <script type="text/javascript">
  $(document).ready(function() {
+    
     $('.DataTable').DataTable();
     jssor_1_slider_init();
     jssor_slider2_init();
@@ -464,6 +493,8 @@
         }
     });
 });
+
+        
 </script>
 
 </body>

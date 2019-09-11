@@ -13,8 +13,10 @@ require('./bootstrap');
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
+
 import {routes} from './route';
 import * as VueGoogleMaps from "vue2-google-maps";
+
 
 window.events = new Vue();
 window.flash = function(message) {
@@ -30,6 +32,11 @@ Vue.use(VueGoogleMaps, {
       libraries: "places" // necessary for places input
     }
 });
+
+Vue.component('passport-clients',require('./components/passport/Clients.vue'));
+Vue.component('passport-authorized-clients',require('./components/passport/AuthorizedClients.vue'));
+Vue.component('passport-personal-access-tokens',require('./components/passport/PersonalAccessTokens.vue'));
+
 
 const router = new VueRouter({
     mode: 'history',

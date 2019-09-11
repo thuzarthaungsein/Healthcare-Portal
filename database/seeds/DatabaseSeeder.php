@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '管理者',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin'),
+                'type'=>'admin',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
                 'name' => '顧客',
                 'email' => 'customer@gmail.com',
                 'password' => bcrypt('customer'),
+                'type'=>'user',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -157,17 +159,17 @@ class DatabaseSeeder extends Seeder
         // }
 
         $category = new Category();
+        $category->name = "病院";
+        $category->user_id = 1;
+        $category->save();
+
+        $category = new Category();
         $category->name = "特養";
         $category->user_id = 1;
         $category->save();
 
         $category = new Category();
         $category->name = "有料老人ホーム";
-        $category->user_id = 1;
-        $category->save();
-
-        $category = new Category();
-        $category->name = "病院";
         $category->user_id = 1;
         $category->save();
 
@@ -180,7 +182,7 @@ class DatabaseSeeder extends Seeder
         $category->name = "デイサービス等";
         $category->user_id = 1;
         $category->save();
-
+        
         $type = new Type();
         $type->name = "病院";
         $type->user_id = 1;

@@ -39,7 +39,6 @@ class AdvertisementController extends Controller
     {
          $request->validate([
              'title' => 'required',
-             'description'=>'required',
              'location'=>'required',
              'photo'=>'required',
         //     'user_id'=>'required',
@@ -62,6 +61,7 @@ class AdvertisementController extends Controller
          return response()->json('Successfully ');
 
     }
+
 
     /**
      * Display the specified resource.
@@ -97,12 +97,12 @@ class AdvertisementController extends Controller
      */
     public function update($id,Request $request)
     {
-
         $imageName = $request->photo->getClientOriginalName();
         $request->photo->move(public_path('upload/advertisement/'), $imageName);
           $uploadData = array(
               'title' => $request->input('title'),
               'description' => $request->input('description'),
+              'location'=>$request->input('location'),
               'photo' => $request->photo->getClientOriginalName(),
               'user_id' => 1,
               'recordstatus' => 2
@@ -115,6 +115,17 @@ class AdvertisementController extends Controller
           return response()->json(' Successfully updated');
 
     }
+    // public function search(Request $request)
+    // {
+    //     $request = $request->all();
+    //     $search_word = $request['search_word'];
+    //     $search_advertisement = Advertisement::query()
+    //                         ->where('title', 'LIKE', "%{$search_word}%")
+    //                         ->get()
+    //                         ->toArray();
+    //     return $search_advertisement;
+    // }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -130,5 +141,20 @@ class AdvertisementController extends Controller
         \File::delete($filename);
         $ads->delete();
         return response()->json('The successfully deleted');
+    }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        
+        $search_word = $request['search_word'];
+        $search_categories = Advertisement::query()
+                            ->where('title', 'LIKE', "%{$search_word}%") 
+                            ->orwhere('description', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
+                            ->get()
+                            ->toArray();
+        return $search_categories;
+
     }
 }

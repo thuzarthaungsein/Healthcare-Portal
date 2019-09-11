@@ -30,6 +30,7 @@ import medicalacceptancelist from './components/medicalacceptancelist.vue';
 import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
 import HospitalHistory from './components/HospitalHistory.vue';
+import hospitalview from './components/hospitalview.vue';
 import NursingHistory from './components/NursingHistory.vue';
 import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
@@ -41,19 +42,22 @@ import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
+import favouriteBtn from './components/favouriteBtn.vue';
 import comment from './components/Comment.vue';
+import commentlist from './components/commentlist.vue';
 
+import passport from './components/passport.vue';
 export const routes = [
       {
         name: 'home',
         path: '/',
         component: home
       },
-      // {
-      //   name: 'home',
-      //   path: '/home',
-      //   component: home
-      // },
+      {
+        name: 'passport',
+        path: '/passport',
+        component: passport
+      },
 
     {
         name: 'newdetails',
@@ -213,6 +217,15 @@ export const routes = [
         path: '/advertisement',
         component: advertisement
       },
+
+      {
+        name: 'hospitalview',
+        path: '/hospitalview',
+        component: hospitalview
+      },
+
+
+
       {
         name:'type',
         path:'/type',
@@ -254,6 +267,11 @@ export const routes = [
       path: '/nursing_profile',
       component: NursingProfile
      },
+  {
+    name: 'favouriteBtn',
+    path: '/favouriteBtn',
+    component: favouriteBtn
+},
       {
         name: 'videoupload',
         path: '/videoupload',
@@ -263,5 +281,10 @@ export const routes = [
         name: 'comment',
         path: '/comment',
         component: comment
+      },
+      {
+        name: 'commentlist',
+        path: '/commentlist',
+        component: commentlist
       }
 ];

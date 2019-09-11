@@ -912,6 +912,13 @@ p {
     left: 15px;
 }
 
+.news-post-btn-blue {
+    background-color: #007cdb !important;
+    color: white !important;
+    position: relative;
+    left: 15px;
+}
+
 
 /* End Create News */
 
@@ -934,7 +941,7 @@ textarea {
 /* News Tab */
 
 .news-wrapper {
-    height: 310px;
+    height: 290px;
     overflow-y: auto;
     scrollbar-width: thin;
 }
@@ -1345,6 +1352,10 @@ div.b {
     margin-top: 30px;
 }
 
+.m-t-55 {
+    margin-top: 55px;
+}
+
 .m-b-20 {
     margin-bottom: 20px;
 }
@@ -1400,6 +1411,10 @@ div.b {
 
 .p-b-5 {
     padding-bottom: 5px;
+}
+
+.m-r-10 {
+    margin-right: 10px;
 }
 
 .max-width12 {
@@ -1585,7 +1600,7 @@ li.userprofile-name>a {
 }
 
 .tab-content1 {
-    /* min-height: 350px; */
+    min-height: 350px;
     /* max-height: 900px; */
 }
 
@@ -2231,7 +2246,74 @@ body::-webkit-scrollbar-thumb {
 
 /*end for jssor*/
 
+<<<<<<< HEAD=======
+/*view*/
 
+.m-t-l {
+    margin-left: 85px;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.view1 {
+    margin-left: 42px;
+    letter-spacing: 2px;
+}
+
+.am-l-10 {
+    margin-left: 20px;
+}
+
+
+/*view*/
+
+.myBtn {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+    padding: 6px 22px;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: 4px;
+    color: white;
+}
+
+.myBtn-success {
+    background-color: #4db197 !important;
+    border-color: #4db197 !important;
+}
+
+.btn-success:hover,
+.btn-success:focus {
+    background-color: #3ca512;
+    border-color: #3ca512;
+}
+
+>>>>>>>baaa74fd4de00a87b34d18fb6948c93328b3e096
 /* Hospital History */
 
 .fac_container {
@@ -2272,6 +2354,18 @@ body::-webkit-scrollbar-thumb {
 
 
 /* End Summernote */
+
+
+/* Google Map  */
+
+#googlemap {
+    min-height: 300px;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/* End Google Map  */
 
 
 /* .pc {
