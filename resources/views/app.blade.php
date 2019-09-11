@@ -579,7 +579,7 @@
                                             <img  src="images/spin.svg" />
 
                                         </div>
-                                        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1200px;height:120px;overflow:hidden;" class="top-ad-slider"> </div>
+                                        <div data-u="slides"  class="top-ad-slider"> </div>
                                         <!-- Bullet Navigator -->
 
                                         <!-- <div data-u="navigator" class="jssorb057" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
@@ -804,7 +804,7 @@
             var side_ad = "";
             for (var i = 0; i < data.length; i++) {
                 if(data[i].location == "topbar") {
-                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-fluid ads-img"  src="/upload/advertisement/' + data[i].photo + '" /><h3 class="smallads-title" >' + data[i].title + '</h3></a></div>';
+                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><div class="slide-img"><img class="img-fluid ads-img"  src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title" >' + data[i].title + '</h3></a></div>';
                 } else {
                     side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /></a></div>';
                 }
