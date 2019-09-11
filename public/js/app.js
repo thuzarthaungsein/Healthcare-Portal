@@ -59152,9 +59152,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -64840,9 +64837,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.axios.get('/api/comments/comfirm/' + id).then(function (response) {
                 _this3.comments = response.data.comments;
-
-                // alert('Successfully Confirm!');
-                // console.log(response.data);
+                alert('Successfully Confirm!');
+                //console.log(this.comments);
             });
         }
     }
@@ -64858,34 +64854,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "row m-b-15" }, [
-        _c(
-          "div",
-          { staticClass: "col-md-12" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "float-right main-bg-color create-btn all-btn",
-                staticStyle: { color: "blue" },
-                attrs: { to: "/comment" }
-              },
-              [
-                _c("i", { staticClass: "fas fa-plus-circle" }),
-                _vm._v(" Create Comment")
-              ]
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
-          staticStyle: { height: "700px" }
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
         },
         [
           _c("h4", { staticClass: "main-color" }, [
@@ -64916,10 +64889,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "col-md-12 scrolldiv",
-              staticStyle: { height: "525px" }
-            },
+            { staticClass: "col-md-12 scrolldiv" },
             _vm._l(_vm.comments, function(comment) {
               return _c(
                 "div",
@@ -64937,55 +64907,48 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "col-md-4",
-                            staticStyle: { "margin-top": "8px" }
-                          },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn edit-borderbtn",
-                                attrs: {
-                                  type: "button",
-                                  "data-toggle": "collapse",
-                                  "data-target": "#showDetails" + comment.id
-                                }
-                              },
-                              [_vm._v("View")]
-                            ),
-                            _vm._v(" "),
-                            comment.status != 0
-                              ? _c("span", [_vm._v("Confirm")])
-                              : _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn confirm-borderbtn",
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.commentConfirm(comment.id)
-                                      }
+                        _c("div", { staticClass: "col-md-4" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn edit-borderbtn",
+                              attrs: {
+                                type: "button",
+                                "data-toggle": "collapse",
+                                "data-target": "#showDetails" + comment.id
+                              }
+                            },
+                            [_vm._v("View")]
+                          ),
+                          _vm._v(" "),
+                          comment.status != 0
+                            ? _c("span", [_vm._v("Confirm")])
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "btn confirm-borderbtn",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.commentConfirm(comment.id)
                                     }
-                                  },
-                                  [_vm._v("Confirm")]
-                                ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn delete-borderbtn",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.deleteComment(comment.id)
                                   }
+                                },
+                                [_vm._v("Confirm")]
+                              ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn delete-borderbtn",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteComment(comment.id)
                                 }
-                              },
-                              [_vm._v("Delete")]
-                            )
-                          ]
-                        )
+                              }
+                            },
+                            [_vm._v("Delete")]
+                          )
+                        ])
                       ])
                     ])
                   ]),

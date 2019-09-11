@@ -121,16 +121,11 @@ Route::group(['middleware' => ['auth:api']], function() {
 Route::get('getReset','registerController@getReset'); 
 Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
-
-
 Route::get('newdetails/{id}', 'PostController@show');
-
 Route::get('customers','CustomerController@index');
 Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
-
 Route::get('facilities', 'FacilityController@index');
-
 Route::get('job_details', 'JobDetailController@index');
 
 // Home Page

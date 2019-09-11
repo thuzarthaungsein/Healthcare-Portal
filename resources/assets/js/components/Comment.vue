@@ -91,7 +91,7 @@
                                         </div> 
                                         
 
-                                          <div class="form-group row"  v-for="field in comments.fields" :key="field.id">
+                                        <div class="form-group row"  v-for="field in comments.fields" :key="field.id">
                                             <div class="col-sm-3 text-right">
                                                 <label for ="zipcode"  ><strong> Zipcode : </strong>   </label>
                                             </div>
@@ -118,11 +118,8 @@
                                             <div class="col-sm-5">
                                                  <button class="btn news-post-btn btn-md"> Send </button>   
                                             </div>
-                                            <div class="col-sm-4"></div>
-                                         
-                                        </div>
-                                        
-                                        
+                                            <div class="col-sm-4"></div>    
+                                        </div>             
                                   </form>
                              </div>
                             <div class="col-sm-2"></div>
