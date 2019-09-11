@@ -9,7 +9,10 @@ $(".path").hover(
       'top':"175px",
       'left':'1350px'
     });
+   
     $('#info-box').html($(this).data('info'));
+           
+       
   },
   function(){
   	timeout = setTimeout(function(){
@@ -41,6 +44,7 @@ $('.path').on("click", function(e) {
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
+            $('#text').empty();
             var getCity = data.getCity;
             var townships = data.getTownships;
             var city = data.city;
@@ -50,6 +54,7 @@ $('.path').on("click", function(e) {
             });
             $.each(getCity,function(k,v){
               $('#select option[value="'+v.id+'"]').attr("selected",true);
+              $('#text').append('<span>'+v.city_name+'</span>')
             })
             $.each(townships,function(k,v){
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
@@ -75,7 +80,9 @@ $('#select').on('change',function(){
     }
   })
 })
-
+$('#text').click(function() {
+  $('#checkbox').slideToggle("slow");
+});
 
 
 // $('#method-textarea').summernote({
