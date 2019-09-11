@@ -46848,7 +46848,8 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "col-sm-3 align-self-center text-right"
+                          staticClass:
+                            "col-sm-3 align-self-center text-right m-t-10"
                         },
                         [
                           _c(
@@ -60748,11 +60749,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         commentConfirm: function commentConfirm(id) {
             var _this3 = this;
 
-            this.axios.get('/api/comments/comfirm/' + id).then(function (response) {
-                _this3.comments = response.data.comments;
-                alert('Successfully Confirm!');
-                //console.log(this.comments);
-            });
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.get('/api/comments/comfirm/' + id).then(function (response) {
+                    _this3.comments = response.data.comments;
+                    alert('Successfully Confirm!');
+                    //console.log(this.comments);
+                });
+            }
         }
     }
 });
@@ -60820,7 +60823,7 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-md-4" }, [
+                        _c("div", { staticClass: "col-md-4 " }, [
                           _c(
                             "button",
                             {
@@ -60835,7 +60838,13 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           comment.status != 0
-                            ? _c("span", [_vm._v("Confirm")])
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn confirm-borderbtn confirmed"
+                                },
+                                [_vm._v("Confirmed")]
+                              )
                             : _c(
                                 "button",
                                 {

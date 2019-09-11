@@ -97,34 +97,30 @@ class AdvertisementController extends Controller
      */
     public function update($id,Request $request)
     {
-        $imageName = $request->photo->getClientOriginalName();
-        $request->photo->move(public_path('upload/advertisement/'), $imageName);
+        if(is_object($request->photo)) {
+            $imageName = $request->photo->getClientOriginalName();
+            $request->photo->move(public_path('upload/advertisement/'), $imageName);
+        } else {
+            $imageName = $request->photo;
+        }
           $uploadData = array(
               'title' => $request->input('title'),
               'description' => $request->input('description'),
               'location'=>$request->input('location'),
-              'photo' => $request->photo->getClientOriginalName(),
+              'photo' => $imageName,
               'user_id' => 1,
               'recordstatus' => 2
          );
           $ads = Advertisement::find($id);
-           $file= $ads->photo;
+          if(is_object($request->photo)) {
+            $file= $ads->photo;
            $filename = public_path().'/upload/advertisement/'.$file;
            \File::delete($filename);
+          }
           $ads->update($uploadData);
           return response()->json(' Successfully updated');
 
     }
-    // public function search(Request $request)
-    // {
-    //     $request = $request->all();
-    //     $search_word = $request['search_word'];
-    //     $search_advertisement = Advertisement::query()
-    //                         ->where('title', 'LIKE', "%{$search_word}%")
-    //                         ->get()
-    //                         ->toArray();
-    //     return $search_advertisement;
-    // }
 
     /**
      * Remove the specified resource from storage.
@@ -146,10 +142,10 @@ class AdvertisementController extends Controller
     public function search(Request $request)
     {
         $request = $request->all();
-        
+
         $search_word = $request['search_word'];
         $search_categories = Advertisement::query()
-                            ->where('title', 'LIKE', "%{$search_word}%") 
+                            ->where('title', 'LIKE', "%{$search_word}%")
                             ->orwhere('description', 'LIKE', "%{$search_word}%")
                             ->orderBy('id','DESC')
                             ->get()
