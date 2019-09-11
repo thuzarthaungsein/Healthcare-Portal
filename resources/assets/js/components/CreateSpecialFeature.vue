@@ -88,7 +88,7 @@ export default {
                     this.errors = error.response.data.errors       
                         
                 }
-             })  ;
+             }) ;
            }
 
         }
