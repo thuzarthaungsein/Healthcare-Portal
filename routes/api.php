@@ -110,6 +110,17 @@ Route::group(['middleware' => ['auth:api']], function() {
     });
     // End Advertisement 
 
+
+    //SpecialFeature
+    Route::group(['prefix' => 'feature'], function () {
+        Route::post('add', 'SpecialFeatureController@store');
+        Route::get('edit/{id}', 'SpecialFeatureController@edit');
+        Route::get('featurelist', 'SpecialFeatureController@index');
+        Route::post('update/{id}', 'SpecialFeatureController@update');
+        Route::delete('delete/{id}','SpecialFeatureController@destroy');
+    });
+    //End SpecialFeature
+
 });
 // login route api end
 
