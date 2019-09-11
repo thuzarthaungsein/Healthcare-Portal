@@ -1217,6 +1217,7 @@ div.b {
 
 @media (max-width: 1024px) and (min-width: 320px) {
     .main-header {
+        width: 100%;
         height: auto;
     }
     .maintab-content {
