@@ -1334,6 +1334,10 @@ div.b {
     padding: 0px;
 }
 
+.pad-10 {
+    padding: 10px !important;
+}
+
 .m-0 {
     margin: 0px;
 }

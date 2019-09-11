@@ -579,94 +579,7 @@
                                             <img  src="images/spin.svg" />
 
                                         </div>
-
-                                        <div data-u="slides" class="slider-content">        
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-                                                <div class="slide-img">
-                                                    <img class="img-fluid ads-img" src="../images/bdpresent.jpg">
-                                                </div>
-                                                
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
-
-                                            </div>
-
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" src="../images/home1.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
-
-                                            </div>
-
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" src="../images/hospital2.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
-
-                                            </div>
-
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" src="../images/hospital3.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
-
-                                            </div>
-
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" src="../images/hospital4.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
-
-                                            </div>
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" src="../images/hospital5.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
-
-                                            </div>
-
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" src="../images/hospital6.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
-
-                                            </div>
-
-
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" src="../images/h7.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
-
-                                            </div>
-
-                                            
-
-                                        </div>
-
+                                        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1200px;height:120px;overflow:hidden;" class="top-ad-slider"> </div>
                                         <!-- Bullet Navigator -->
 
                                         <!-- <div data-u="navigator" class="jssorb057" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
@@ -750,19 +663,7 @@
                                                 <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:100%; overflow: hidden;">
 
                                                 <!-- Slides Container -->
-
-                                                    <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 100%; overflow: hidden;">
-
-                                                        <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/> </div>
-
-                                                        <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/> </div>
-
-                                                        <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/> </div>
-
-                                                        <div><img data-u="image" src="/images/h4.jpg" style="width:100%"/> </div>
-
-                                                    </div>
-
+                                                    <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 100%; overflow: hidden;" class="side-ad-slider"> </div>
                                                 <!-- Trigger -->
 
                                                 </div>
@@ -866,13 +767,6 @@
     
 
     $('.DataTable').DataTable();
-
-    jssor_1_slider_init();
-
-    jssor_slider2_init();
-
-
-
     var csrf = "{{ csrf_token() }}";
 
     $.ajax({
@@ -890,10 +784,8 @@
 
 
             for (var i = 0; i < data.length; i++) {
-
-                var photo = '<li class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-responsivie ads-img" src="../images/' + data[i].photo + '" />';
-
-                var title = '<h3 class="smallads-title text-truncate">' + data[i].title + '</h3></li>';
+                var photo = '<li class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-responsivie ads-img" src="../upload/news/' + data[i].photo + '" />';
+                var title = '<h3 class="smallads-title">' + data[i].title + '</h3></li>';
 
                 $("#menu").append(photo + title);
 
@@ -903,6 +795,27 @@
 
     });
 
+    $.ajax({
+        url: '/api/advertisement/ads',
+        type: 'GET',
+        data: {'_token': csrf},
+        success: function( data ) {
+            var top_ad = "";
+            var side_ad = "";
+            for (var i = 0; i < data.length; i++) {
+                if(data[i].location == "topbar") {
+                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-fluid ads-img"  src="/upload/advertisement/' + data[i].photo + '" /><h3 class="smallads-title" >' + data[i].title + '</h3></a></div>';
+                } else {
+                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /></a></div>';
+                }
+                
+            }
+            $(".top-ad-slider").html(top_ad);
+            jssor_1_slider_init();
+            $(".side-ad-slider").html(side_ad);
+            jssor_slider2_init();
+        }
+    });
 });
 
 
@@ -910,9 +823,6 @@
         
 
 </script>
-
-
-
 </body>
 
 </html>
