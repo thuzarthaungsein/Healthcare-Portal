@@ -48,7 +48,7 @@
                         </div>
                 </div>
                                                
-                <div class="row m-lr-0">
+                <div class="col-md-12 pad-free m-lr-0">
                         <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
                         <div class="row col-md-12">
                                 <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">

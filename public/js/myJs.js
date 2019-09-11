@@ -8,17 +8,28 @@ $(".path").hover(
       'position':'fixed',
       'top':"175px",
       'left':'1350px'
-    });
+    });   
    
     $('#info-box').html($(this).data('info'));
-           
-       
+
+    $('.'+$(this).data('info')).css({
+      'background':'white',
+      'opacity': '0.25'
+    });      
+  
   },
   function(){
   	timeout = setTimeout(function(){
     	$('#info-box').css('display','none');
       },1000);
   });
+
+  $(".path").mouseout(function(){
+    $('.'+$(this).data('info')).css({
+      'background':'none',
+      'opacity':'1'
+    }); 
+  })
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if(ios) {

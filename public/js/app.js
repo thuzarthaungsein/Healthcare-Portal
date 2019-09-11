@@ -42070,10 +42070,10 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Hokkaido",
               attrs: {
                 id: "1",
-                "data-info": "<div>Hokkaido</div>",
+                "data-info": "Hokkaido",
                 title: "Hokkaido",
                 fill: "#ef7979",
                 d:
@@ -42530,12 +42530,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "1",
-                        "data-info": "<div>Hokkaido</div>"
-                      }
+                      staticClass: "path Hokkaido card-text",
+                      attrs: { href: "#!", id: "1", "data-info": "Hokkaido" }
                     },
                     [_vm._v("Hokkaido")]
                   )
@@ -44132,7 +44128,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row m-lr-0" }, [
+    _c("div", { staticClass: "col-md-12 pad-free m-lr-0" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(
