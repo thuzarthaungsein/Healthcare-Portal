@@ -5,20 +5,21 @@
               <div class="card-body">                
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="page-header header">カテゴリ作成</h4>
+                            <h4 class="page-header header">Feature Creation</h4>
                             <br>
                         </div>
                         <div class="col-md-12">
                              <form @submit.prevent="add">
                             <div class="form-group">
-                                <label>カテゴリ名 :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="カテゴリ 名" >
-                                  <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
+                                <label>Feature Name :<span class="error">*</span></label>
+                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="Feature Name" >
+                                <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                             </div>
 
                             <div class="form-group ">
-                                <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
-                                <router-link class="btn news-post-btn all-btn" to="/categorylist" >カテゴリを投稿する</router-link>                                
+                                <router-link class="btn btn-danger all-btn" to="/featurelist" > キャンセル </router-link>
+                                <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->
+                                <button class="btn news-post-btn all-btn">Create</button>                 
                             </div>
                                 </form>
                             </div>
@@ -35,29 +36,60 @@ export default {
             return {
                 errors: [],
                 feature: {
-                        name: ''
-                        // user_id:'',
-                        // recordstatus: ''
+                        name: '',
+                        user_id:'',
+                        recordstatus: ''
                     }
             }
         },
+          created() {
+            this.axios
+                .get(`/api/feature/edit/${this.$route.params.id}`)
+                .then((response) => {
+                    this.feature = response.data;
+
+                });
+        },
+
 
          methods: {
             add() {
-                axios.post('/api/category/add', this.category)
+                  if( `${this.$route.params.id}` == "undefined")
+                  {
+                            axios.post('/api/feature/add', this.feature)
                     .then((response) => {
                         this.name = ''
                     alert('Successfully Created')
-                     this.$router.push({name: 'categorylist'});
+                     this.$router.push({name: 'featurelist'});
                     }).catch(error=>{
                         
                     if(error.response.status == 422){
                       
-                        this.errors = error.response.data.errors       
-                          
-                    }
-                })   
-            }
+                        this.errors = error.response.data.errors                
+                     }
+                  }) 
+                }
+                else{
+                    this.updateFeature();
+                }
+                
+            },
+            updateFeature() {
+            this.axios
+                .post(`/api/feature/update/${this.$route.params.id}`, this.feature)
+                .then((response) => {
+                    this.name = ''
+                    alert('Successfully Updated!')
+                    this.$router.push({name: 'featurelist'});
+                }).catch(error=>{
+                    
+                if(error.response.status == 422){
+                    
+                    this.errors = error.response.data.errors       
+                        
+                }
+             })  ;
+           }
 
         }
 
