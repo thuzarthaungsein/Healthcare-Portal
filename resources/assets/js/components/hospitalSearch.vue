@@ -133,37 +133,10 @@
                           </p>
                         </div>
                       </div>  
-                    </div>                 
-                 
-                    
-                 
-                   <div class="card-body">
-<<<<<<< HEAD
-                            <select name="" id="select" class="form-control custom-select">
-                                    <option ></option>
-                            </select>
-                        
-                        <div id="checkbox" class="row"></div>
-=======
-                        <div class="row col-12">
-                          <select name="" id="select" class="form-control custom-select  m-b-10">
-                            <option ></option>
-                          </select>
-                                
-                        </div>
-                        <div id="checkbox" class="row col-12"></div>
->>>>>>> e594a12345ef44a5f8445c4f06a9a3722c7816a3
-                   </div>
-                  </div>
-                             
+                    </div>                               
         </div>
-<<<<<<< HEAD
-        <div class="col-sm-6">
-           <div id="text"></div>
-=======
         <div class="col-sm-5">
           <div id="text"></div>
->>>>>>> e594a12345ef44a5f8445c4f06a9a3722c7816a3
            <div id="info-box"></div>
            <svg class="map_svg" viewBox="100 0 400 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586" width="437.33432" height="516.01587"> 
                   <path id="23" data-info="<div>Aichi</div>" title="Aichi" class="path" fill="#79efdb" d="M274.27,277.6l-0.17,-0.npm run35l0.5,-1.77l-0.86,-1.4l0.11,-1.46l0.46,-1.37l-0.25,-0.32l-0.89,0.36l-1.14,-0.35l0,0l-0.97,-1.57l-0.32,-1.21l0,0l0.22,-2.19l1.69,-2.97l1.28,0.15l1.66,-0.5l1.48,-1.13l-0.02,0.57l1.18,0.87l-0.03,0.65l0.5,0.21l-0.09,0.48l0.27,0.32l0.32,0.15l0.3,-0.21l0.94,0.39l0.52,0.71l0.85,-0.17l0.92,-0.73l0.63,-0.01l0.75,0.47l-0.07,0.24l0.84,0.05l-0.02,0.31l0.99,0.5l1.72,-1.4l0.8,-0.08l0,0l-0.32,0.83l0.64,0.81l-0.01,0.51l1.26,-0.26l0.85,-0.55l1.56,0.3l0.22,0.39l0.84,-0.27l0,0l-0.31,0.98l0.52,0.5l-0.58,0.57l0.08,0.47l-0.46,0.24l-1.46,2l-0.03,1.06l-1.28,1.93l-2.75,1.53l-0.43,1.23l0.16,2.32l0,0l-3.41,0.79l-3.43,1.23l-2.03,0.27l-0.26,-0.21l0.8,-1.71l0.49,0.05l0.25,0.57l2.36,-1.02l0.86,-0.53l-0.1,-0.44l0.45,-0.36l0.48,0.15l0.22,-0.19l0.21,-1.14l-0.57,-0.7l-1.69,-0.31l-0.52,0.46l-0.24,0.93l-0.81,-0.57l-2.13,0.25l-1.42,-1.37l0.31,-1.08l-0.44,-0.19l-0.42,0.59l-0.27,2.22l1.02,0.93l0.15,0.88l-1.69,-0.6L274.27,277.6z"/>
@@ -216,6 +189,20 @@
            </svg>
         </div>
  </div>
+ <div id='loader' style='display: none;'>
+  <img src='images/ajax-loader.gif'>
+</div>
+ <div class="card-body">
+        <div class="row col-12">
+          <select name="" id="select" class="form-control custom-select  m-b-10">
+            <option ></option>
+          </select>
+                
+        </div>
+              <div id="checkbox" class="row col-12"></div>
+        </div>
+  </div>
+
  <input type="button" id="save_value" name="save_value" value="Save" />
 </div>
 
@@ -261,7 +248,7 @@
   opacity: 0.25;
 }
 
-.path:hover, polygon:hover {
+.path:hover, a:hover {
   fill: #20487c !important;
   stroke: #002868 !important;
   stroke-width:2px;

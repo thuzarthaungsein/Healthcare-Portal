@@ -14,7 +14,8 @@ $(".path").hover(
   	timeout = setTimeout(function(){
     	$('#info-box').css('display','none');
       },1000);
-  });
+});
+
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if(ios) {
@@ -36,6 +37,9 @@ $('.path').on("click", function(e) {
         type:'post',
         data:{"title":title,"id":id},
         url:url,
+        beforeSend: function(){
+          $("#loader").show();
+         },
         success:function(data){
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
@@ -55,7 +59,10 @@ $('.path').on("click", function(e) {
             $.each(townships,function(k,v){
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
             }); 
-        }
+        },
+        complete:function(data){
+          $("#loader").hide();
+         }
     });
 });
 $('#select').on('change',function(){
