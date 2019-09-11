@@ -2171,15 +2171,20 @@ body::-webkit-scrollbar-thumb {
     overflow: hidden;
 }
 
+.slider-content .slide-img {
+    width: 100px;
+}
+
 .slider-content .list-group-item {
     padding: 2px;
     height: 120px;
 }
 
-.slider-content .ads-img {
-    width: 130px;
+
+/* .slider-content .ads-img {
+    width: auto;
     margin-right: 13.2px;
-}
+} */
 
 .slider-content .list-group-item a {
     display: flex;

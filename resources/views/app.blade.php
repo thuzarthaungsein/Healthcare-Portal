@@ -584,38 +584,10 @@
 
 
                                             <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital1.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
-
-                                            </div>
-
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/home1.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
-
-                                            </div>
-
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital2.jpg">
-
-                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
-
-                                            </div>
-
-
-
-                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
-
-                                                <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital3.jpg">
+                                                <div class="slide-img">
+                                                    <img class="img-fluid ads-img" src="../images/bdpresent.jpg">
+                                                </div>
+                                                
 
                                                 <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
 
@@ -625,16 +597,27 @@
 
                                             <div class="list-group-item adslist-card"><a href="/newsdetails/21">
 
-                                                <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital4.jpg">
+                                                <img class="img-fluid ads-img" src="../images/home1.jpg">
 
                                                 <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
 
                                             </div>
 
 
+
                                             <div class="list-group-item adslist-card"><a href="/newsdetails/21">
 
-                                                <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital5.jpg">
+                                                <img class="img-fluid ads-img" src="../images/hospital2.jpg">
+
+                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
+
+                                            </div>
+
+
+
+                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
+
+                                                <img class="img-fluid ads-img" src="../images/hospital3.jpg">
 
                                                 <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
 
@@ -644,7 +627,26 @@
 
                                             <div class="list-group-item adslist-card"><a href="/newsdetails/21">
 
-                                                <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/hospital6.jpg">
+                                                <img class="img-fluid ads-img" src="../images/hospital4.jpg">
+
+                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
+
+                                            </div>
+
+
+                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
+
+                                                <img class="img-fluid ads-img" src="../images/hospital5.jpg">
+
+                                                <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
+
+                                            </div>
+
+
+
+                                            <div class="list-group-item adslist-card"><a href="/newsdetails/21">
+
+                                                <img class="img-fluid ads-img" src="../images/hospital6.jpg">
 
                                                 <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">韓国の次の法相に指名されているチョ・グク氏をめぐって、娘が虚偽の履歴書を使用していたという新たな疑惑が浮上した。</h3></a>
 
@@ -655,7 +657,7 @@
 
                                             <div class="list-group-item adslist-card"><a href="/newsdetails/21">
 
-                                                <img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="../images/h7.jpg">
+                                                <img class="img-fluid ads-img" src="../images/h7.jpg">
 
                                                 <h3 class="smallads-title" style="padding: 10px 0px;height: 90px;">挫折しない学習法を公開中</h3></a>
 
