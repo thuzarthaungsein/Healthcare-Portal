@@ -13,12 +13,14 @@ class SearchMapController extends Controller
 
         $getCityId = DB::table('cities')->where('id',$mapid)->select('id')->value('id');
         $getCity = DB::table('cities')->where('id',$mapid)->get();
+        $city = DB::table('cities')->get();
         $getTownships = DB::table('townships')->where('city_id',$getCityId)->get();
-         return response()->json(['getTownships'=>$getTownships,'getCity'=>$getCity]);
+         return response()->json(['getTownships'=>$getTownships,'getCity'=>$getCity,'city'=>$city]);
     }
-    public function getCity()
+    public function getCity(Request $request)
     {
-        $getCity = DB::table('cities')->get();
-        return response()->json($getCity);
+        $id = $request->id;
+        $getTownships = DB::table('townships')->where('city_id',$id)->get();
+        return response()->json($getTownships);
     }
 }

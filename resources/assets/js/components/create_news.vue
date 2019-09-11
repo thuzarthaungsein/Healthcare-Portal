@@ -107,7 +107,6 @@
                                 this.$router.push({
                                     name: 'news_list'
                                 })
-                                console.log(response);
                             }).catch(error=>{
                         
                     if(error.response.status == 422){

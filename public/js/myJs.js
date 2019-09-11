@@ -26,9 +26,8 @@ if(ios) {
   });
 }
 
-$('path').on("click", function(e) {
+$('.path').on("click", function(e) {
     e.preventDefault();
-    
     $('.path.selected').attr("class", "");
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
@@ -39,27 +38,43 @@ $('path').on("click", function(e) {
         data:{"title":title,"id":id},
         url:url,
         success:function(data){
-            console.log(data);
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
-            var city = data.getCity;
+            var getCity = data.getCity;
             var townships = data.getTownships;
+            var city = data.city;
+           
             $.each(city,function(k,v){
-              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>')
+              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>').attr('selected',true);
             });
+            $.each(getCity,function(k,v){
+              $('#select option[value="'+v.id+'"]').attr("selected",true);
+            })
             $.each(townships,function(k,v){
-                console.log(v);
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
-            });
-           
-           
+            }); 
         }
     });
-
-
 });
-
+$('#select').on('change',function(){
+  var id = this.value;
+  var url = "/api/getCity";
+  $.ajax({
+    type:'post',
+    url:url,
+    data:{"id":id},
+    success:function(data){
+      $('#checkbox').empty();
+      $.each(data,function(k,v){
+        $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+      })
+    },
+    error:function(error){
+      console.log(error);
+    }
+  })
+})
 
 
 
@@ -95,7 +110,6 @@ $('path').on("click", function(e) {
             var image_x = document.getElementById('x-image');
             image_x.parentNode.removeChild(image_x);
             document.getElementById('showimage').style.display = 'block';
-            console.log("close");
         }
     }
 
@@ -176,76 +190,76 @@ $(document).ready(function(){
 
 
 
-// function scrollTab(){
-//     console.log('scroll');
-//     // $("p").css('color','red');
-//     $('#a').on('click',function(){
-//         console.log('onclick');
-//     });
+function scrollTab(){
+    console.log('scroll');
+    // $("p").css('color','red');
+    $('#a').on('click',function(){
+        console.log('onclick');
+    });
   
-//     if($('.detal_wrap').length){    
-//         $(".a_sp a[href^='#']").click(function () { 
-//             console.log("a_sp");
-//         var speed = 600;
-//         var href = $(this).attr("href");
-//         var target = $(href === "#" || href === "" ? 'html' : href);
-//         var position = target.offset().top;
-//         $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
-//             //return false;
-//         });
-//     }
-// }
+    if($('.detal_wrap').length){    
+        $(".a_sp a[href^='#']").click(function () { 
+            console.log("a_sp");
+        var speed = 600;
+        var href = $(this).attr("href");
+        var target = $(href === "#" || href === "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+            //return false;
+        });
+    }
+}
 
 
 
 
-//  function changeType() {
+ function changeType() {
 
-//     if(this.type == 'nursing') {
+    if(this.type == 'nursing') {
         
-//             document.getElementById("hospital-lbl").classList.add("dim-btn");
-//             document.getElementById("nursing-lbl").classList.remove("dim-btn");
+            document.getElementById("hospital-lbl").classList.add("dim-btn");
+            document.getElementById("nursing-lbl").classList.remove("dim-btn");
            
-//             scrollTab();
+            scrollTab();
            
-//     }
-//     else{
-//            document.getElementById("nursing-lbl").classList.add("dim-btn"); 
-//            document.getElementById("hospital-lbl").classList.remove("dim-btn");
+    }
+    else{
+           document.getElementById("nursing-lbl").classList.add("dim-btn"); 
+           document.getElementById("hospital-lbl").classList.remove("dim-btn");
          
-//            scrollTab();
-//     }
-// }
+           scrollTab();
+    }
+}
 
-// $('nav-item').on('change',function(e){
-//     e.preventDefault();
-//     console.log($('#a1').val());
-// })
+$('nav-item').on('change',function(e){
+    e.preventDefault();
+    console.log($('#a1').val());
+})
 
-// jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
 
-//     var profilePublish = $("#profilePublish");
-//     stickyDiv = "sticky";
-//     header = $('.header').height();
+    var profilePublish = $("#profilePublish");
+    stickyDiv = "sticky";
+    header = $('.header').height();
    
 
-// $('.scrolldiv2').scroll(function() {
-//   if( $(this).scrollTop() > header ) {
-//     profilePublish.addClass(stickyDiv);
-//   } else {
-//     profilePublish.removeClass(stickyDiv);
-//   }
-// });
+$('.scrolldiv2').scroll(function() {
+  if( $(this).scrollTop() > header ) {
+    profilePublish.addClass(stickyDiv);
+  } else {
+    profilePublish.removeClass(stickyDiv);
+  }
+});
     
-//     $(".a_sp a[href^='#']").click(function () { 
-//     var speed = 600;
-//     var href = $(this).attr("href");
-//     var target = $(href === "#" || href === "" ? 'html' : href);
-//     var position = target.offset().top;
-//     $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+    $(".a_sp a[href^='#']").click(function () { 
+    var speed = 600;
+    var href = $(this).attr("href");
+    var target = $(href === "#" || href === "" ? 'html' : href);
+    var position = target.offset().top;
+    $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
     
-//     });
-// });
+    });
+});
 
 
 

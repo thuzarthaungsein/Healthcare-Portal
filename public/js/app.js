@@ -1082,7 +1082,7 @@ function injectStyle (ssrContext) {
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(65)
+var __vue_script__ = null
 /* template */
 var __vue_template__ = __webpack_require__(66)
 /* template functional */
@@ -41416,8 +41416,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__);
 //
 //
 //
@@ -41456,7 +41454,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
+// import ProfilePublish from './ProfilePublish.vue'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         components: {
@@ -41466,7 +41464,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a
         },
         mounted: function mounted() {
-                console.log('Component mounted.');
                 // console.log[l_storage_hos_history];
         },
         data: function data() {
@@ -41758,16 +41755,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a
 
         },
-        mounted: function mounted() {
-                console.log('Component mounted.');
-        },
+        mounted: function mounted() {},
         data: function data() {
                 return {
                         cats: [],
                         posts: [],
                         latest_post: [],
                         latest_post_all_cats: [],
-                        search_posts: []
+                        search_posts: [],
+                        categoryId: 1
                 };
         },
         created: function created() {
@@ -41775,7 +41771,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.getPostByCatID();
                 this.getLatestPostByCatID();
                 this.getLatestPostFromAllCat();
-                this.categoryId();
+                //     this.categoryId();
         },
 
         methods: {
@@ -41910,110 +41906,7 @@ exports.push([module.i, "\n.path {\n    cursor: pointer;\n    fill: grey\n}\n.se
 
 
 /***/ }),
-/* 65 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
-  data: function data() {
-    return {
-      getCity: {
-        id: '',
-        city_name: ''
-      }
-    };
-  },
-  created: function created() {
-    axios.get('/api/category/category_list').then(function (response) {
-
-      this.categories = response.data;
-    }.bind(this));
-  },
-
-  methods: {}
-
-});
-
-/***/ }),
+/* 65 */,
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -42023,33 +41916,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "search-map  card-body" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", [
-              _c(
-                "select",
-                {
-                  staticClass: "form-control custom-select",
-                  attrs: { name: "", id: "select" }
-                },
-                _vm._l(_vm.getCity, function(City) {
-                  return _c(
-                    "option",
-                    { key: City.id, domProps: { value: City.id } },
-                    [_vm._v(_vm._s(City.city_name))]
-                  )
-                }),
-                0
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row", attrs: { id: "checkbox" } })
-          ])
-        ])
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-6" }, [
         _c("div", { attrs: { id: "info-box" } }),
@@ -42593,24 +42460,491 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c(
-        "a",
-        {
-          staticClass: "path btn btn-info",
-          attrs: { href: "#!", id: "23", "data-info": "<div>Aichi</div>" }
-        },
-        [_vm._v("Aichi")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "path btn btn-info",
-          attrs: { href: "#!", id: "5", "data-info": "<div>Akita</div>" }
-        },
-        [_vm._v("Akita")]
-      )
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "23", "data-info": "<div>Aichi</div>" }
+            },
+            [_vm._v("Aichi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "5", "data-info": "<div>Akita</div>" }
+            },
+            [_vm._v("Akita")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "2", "data-info": "<div>Aomori</div>" }
+            },
+            [_vm._v("Aomori")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "12", "data-info": "<div>Chiba</div>" }
+            },
+            [_vm._v("Chiba")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "38", "data-info": "<div>Ehime</div>" }
+            },
+            [_vm._v("Ehime")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "18", "data-info": "<div>Fukui</div>" }
+            },
+            [_vm._v("Fukui")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "40", "data-info": "<div>Fukuoka</div>" }
+            },
+            [_vm._v("Fukuoka")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "7",
+                "data-info": "<div>Fukushima</div>"
+              }
+            },
+            [_vm._v("Fukushima")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "21", "data-info": "<div>Gifu</div>" }
+            },
+            [_vm._v("Gifu")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "10", "data-info": "<div>Gunma</div>" }
+            },
+            [_vm._v("Gunma")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "28", "data-info": "<div>Hyogo</div>" }
+            },
+            [_vm._v("Hyogo")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "1", "data-info": "<div>Hokkaido</div>" }
+            },
+            [_vm._v("Hokkaido")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "34",
+                "data-info": "<div>Hiroshima</div>"
+              }
+            },
+            [_vm._v("Hiroshima")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "8", "data-info": "<div>Ibaraki</div>" }
+            },
+            [_vm._v("Ibaraki")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "17",
+                "data-info": "<div>Ishikawa</div>"
+              }
+            },
+            [_vm._v("Ishikawa")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "39", "data-info": "<div>Kochi</div>" }
+            },
+            [_vm._v("Kochi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "37", "data-info": "<div>Kagawa</div>" }
+            },
+            [_vm._v("Kagawa")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "43",
+                "data-info": "<div>Kumamoto</div>"
+              }
+            },
+            [_vm._v("Kumamoto")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "14",
+                "data-info": "<div>Kanagawa</div>"
+              }
+            },
+            [_vm._v("Kanagawa")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "46",
+                "data-info": "<div>Kagoshima</div>"
+              }
+            },
+            [_vm._v("Kagoshima")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "26", "data-info": "<div>Kyoto</div>" }
+            },
+            [_vm._v("Kyoto")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "24", "data-info": "<div>Mie</div>" }
+            },
+            [_vm._v("Mie")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "4", "data-info": "<div>Miyagi</div>" }
+            },
+            [_vm._v("Miyagi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "45",
+                "data-info": "<div>Miyazaki</div>"
+              }
+            },
+            [_vm._v("Miyazaki")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "15", "data-info": "<div>Niigata</div>" }
+            },
+            [_vm._v("Niigata")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "20", "data-info": "<div>Nagano</div>" }
+            },
+            [_vm._v("Nagano")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "29", "data-info": "<div>Nara</div>" }
+            },
+            [_vm._v("Nara")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "42",
+                "data-info": "<div>Nagasaki</div>"
+              }
+            },
+            [_vm._v("Nagasaki")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "47", "data-info": "<div>Okinawa</div>" }
+            },
+            [_vm._v("Okinawa")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "27", "data-info": "<div>Osaka</div>" }
+            },
+            [_vm._v("Osaka")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "33", "data-info": "<div>Okayama</div>" }
+            },
+            [_vm._v("Okayama")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "44", "data-info": "<div>Oita</div>" }
+            },
+            [_vm._v("Oita")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "41", "data-info": "<div>Saga</div>" }
+            },
+            [_vm._v("Saga")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "25", "data-info": "<div>Shiga</div>" }
+            },
+            [_vm._v("Shiga")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "32", "data-info": "<div>Shimane</div>" }
+            },
+            [_vm._v("Shimane")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "11", "data-info": "<div>Saitama</div>" }
+            },
+            [_vm._v("Saitama")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "22",
+                "data-info": "<div>Shizuoka</div>"
+              }
+            },
+            [_vm._v("Shizuoka")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "9", "data-info": "<div>Tochigi</div>" }
+            },
+            [_vm._v("Tochigi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "13", "data-info": "<div>Tokyo</div>" }
+            },
+            [_vm._v("Tokyo")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "36",
+                "data-info": "<div>Tokushima</div>"
+              }
+            },
+            [_vm._v("Tokushima")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "31", "data-info": "<div>Tottori</div>" }
+            },
+            [_vm._v("Tottori")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "16", "data-info": "<div>Toyama</div>" }
+            },
+            [_vm._v("Toyama")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "30",
+                "data-info": "<div>Wakayama</div>"
+              }
+            },
+            [_vm._v("Wakayama")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "35",
+                "data-info": "<div>Yamaguchi</div>"
+              }
+            },
+            [_vm._v("Yamaguchi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: {
+                href: "#!",
+                id: "19",
+                "data-info": "<div>Yamanashi</div>"
+              }
+            },
+            [_vm._v("Yamanashi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "path btn btn-info",
+              attrs: { href: "#!", id: "6", "data-info": "<div>Yamagata</div>" }
+            },
+            [_vm._v("Yamagata")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", [
+            _c(
+              "select",
+              {
+                staticClass: "form-control custom-select",
+                attrs: { name: "", id: "select" }
+              },
+              [_c("option")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row", attrs: { id: "checkbox" } })
+        ])
+      ])
     ])
   }
 ]
@@ -43913,7 +44247,7 @@ var render = function() {
           staticClass: "tab-pane fade",
           attrs: { role: "tabpanel", id: "tab2" }
         },
-        [_c("ProfilePublish")],
+        [_c("hospitalSearch")],
         1
       ),
       _vm._v(" "),
@@ -44310,7 +44644,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.getLatestPostByFirstCatID();
                 this.getLatestPostFromAllCat();
                 this.axios.get('/api/newdetails/' + this.$route.params.id).then(function (response) {
-                        console.log(response.data);
                         _this.newdetails = response.data;
                         //        console.log(response.data);
                 });
@@ -44852,45 +45185,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            errors: [],
+        data: function data() {
+                return {
+                        errors: [],
 
-            jobApply: {
-                name: '',
-                birthday: '',
-                address: '',
-                phone: '',
-                email: '',
-                work_time: '',
-                fields: [{
-                    skills: [],
-                    id: ''
-                }]
-            }
+                        jobApply: {
+                                name: '',
+                                birthday: '',
+                                address: '',
+                                phone: '',
+                                email: '',
+                                work_time: '',
+                                fields: [{
+                                        skills: [],
+                                        id: ''
+                                }]
+                        }
 
-        };
-    },
-    created: function created() {
-        var _this = this;
+                };
+        },
+        created: function created() {
+                var _this = this;
 
-        this.axios.get('/api/getskill').then(function (response) {
-            _this.jobApply.fields = response.data;
-        });
-    },
+                this.axios.get('/api/getskill').then(function (response) {
+                        _this.jobApply.fields = response.data;
+                });
+        },
 
-    methods: {
-        apply: function apply() {
-            var _this2 = this;
+        methods: {
+                apply: function apply() {
+                        var _this2 = this;
 
-            this.axios.post('/api/jobapply', this.jobApply).then(function (response) {
-                alert('Successful Apply');
-                console.log(response);
-                //console.log(this.jobApply.toString());
-                _this2.jobApply = response.data;
-            });
+                        this.axios.post('/api/jobapply', this.jobApply).then(function (response) {
+                                alert('Successful Apply');
+                                //console.log(this.jobApply.toString());
+                                _this2.jobApply = response.data;
+                        });
+                }
         }
-    }
 });
 
 /***/ }),
@@ -45280,20 +45612,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45324,7 +45642,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         comfirm: function comfirm(id) {
             this.axios.get('/api/confirm/' + id).then(function (response) {
                 flash('Successfully Send Mail.', 'success');
-                console.log(response.data);
             });
         },
         searchCustomer: function searchCustomer() {
@@ -45350,28 +45667,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "card card-default m-b-20" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-10" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "text", placeholder: "検索", id: "search-word" },
-                on: {
-                  keyup: function($event) {
-                    return _vm.searchCustomer()
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ])
-        ])
-      ]),
-      _vm._v(" -->      \r\n        "),
       _c(
         "div",
         {
@@ -45381,7 +45676,19 @@ var render = function() {
         [
           _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-word" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchCustomer()
+                  }
+                }
+              })
+            ])
+          ]),
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
@@ -45408,22 +45715,22 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "row col-md-10" }, [
-                        _vm._m(2, true),
+                        _vm._m(0, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.name))
                         ]),
                         _vm._v(" "),
-                        _vm._m(3, true),
+                        _vm._m(1, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.email))
                         ]),
                         _vm._v(" "),
-                        _vm._m(4, true),
+                        _vm._m(2, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.phone))
                         ]),
                         _vm._v(" "),
-                        _vm._m(5, true),
+                        _vm._m(3, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.address))
                         ]),
@@ -45481,34 +45788,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 text-right" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn secondary-bg-color all-btn white",
-          staticStyle: { width: "100%" }
-        },
-        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", placeholder: "検索" }
-        })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -46300,7 +46579,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         this.axios.get("/api/job_details/" + this.$route.params.id).then(function (response) {
-            console.log(response.data);
             _this.job_details = response.data;
         });
     }
@@ -46757,7 +47035,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/news_list').then(function (response) {
             _this.news_list = response.data;
-            console.log(localStorage.getItem("hospital_fav"));
         });
     },
     mounted: function mounted() {
@@ -47185,7 +47462,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.$router.push({
                     name: 'news_list'
                 });
-                console.log(response);
             }).catch(function (error) {
 
                 if (error.response.status == 422) {
@@ -47636,9 +47912,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.axios.get('/api/category/categories').then(function (response) {
             _this.categories = response.data;
         });
-        this.axios.get('/api/user').then(function (response) {
-            console.log(response);
-        });
     },
 
     methods: {
@@ -47909,7 +48182,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/api/category/add', this.category).then(function (response) {
                 _this.name = '';
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'categorylist' });
             }).catch(function (error) {
 
@@ -48422,7 +48694,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/api/facility/add', this.facility).then(function (response) {
                 _this.description = '';
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'facilitieslist' });
             }).catch(function (error) {
 
@@ -50347,9 +50618,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         fd.append('address', this.customer.address);
 
                         axios.post('/api/customer/add', fd).then(function (response) {
-                                console.log(response);
                                 alert('Successfully Created');
-                                console.log(response);
                                 _this.$router.push({ name: '/' });
                         });
                 }
@@ -50932,7 +51201,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this2.title = '', _this2.description = '', _this2.location = '', _this2.salary = '', _this2.working_hours = '', _this2.employment_status = '';
 
                     alert('Successfully Created');
-                    console.log(response);
                     _this2.$router.push({ name: 'jobofferlist' });
                     _this2.$route.params.id = null;
                 }).catch(function (error) {
@@ -51901,7 +52169,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/new/editPost/' + this.$route.params.id).then(function (response) {
             _this.news = response.data;
-            console.log(_this.news.photo);
             _this.updateselected();
         });
     },
@@ -51941,7 +52208,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this2.$router.push({
                     name: 'news_list'
                 });
-                console.log(response);
             }).catch(function (error) {
 
                 if (error.response.status == 422) {
@@ -52373,9 +52639,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
         ready: function ready() {
 
-                console.log("Ready");
+                // console.log("Ready");
                 Vue.nextTick(function () {
-                        console.log("Next Trick");
+                        // console.log("Next Trick");
                 }.bind(this));
         },
         components: {
@@ -54773,19 +55039,19 @@ $(document).ready(function () {
         methods: {
                 getType: function getType(aa) {
                         alert('a');
-                        console.log(aa);
+                        // console.log(aa);
                 },
                 scrollTab: function scrollTab() {
-                        console.log('scroll');
+                        // console.log('scroll');
                         // $("p").css('color','red');
                         $('#a').on('click', function () {
-                                console.log('onclick');
+                                // console.log('onclick');
                         });
 
                         if ($('.detal_wrap').length) {
-                                console.log('Hello');
+                                // console.log('Hello'); 
                                 $(".a_sp a[href^='#']").click(function () {
-                                        console.log("a_sp");
+                                        // console.log("a_sp");
                                         var speed = 600;
                                         var href = $(this).attr("href");
                                         var target = $(href === "#" || href === "" ? 'html' : href);
@@ -55155,7 +55421,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.jobs = response.data;
         });
         this.axios.get('/api/user').then(function (response) {
-            console.log(response.data.id);
+            //     console.log(response.data.id)
         });
     },
 
@@ -55467,7 +55733,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.axios.post('/api/advertisement/add', adsData).then(function (response) {
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'ads' });
             }).catch(function (error) {
 
@@ -55912,7 +56177,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.post('/api/medical/add', this.medical).then(function (response) {
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'medicalacceptancelist' });
             });
         }
@@ -56162,7 +56426,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/medical/medicalacceptance').then(function (response) {
             _this.medical_acceptance = response.data;
-            console.log(response.data);
         });
     },
 
@@ -56674,7 +56937,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         approve: function approve(id) {
             this.axios.get('/api/approve/' + id).then(function (response) {
-                console.log(response.data);
                 ajax.reload();
             });
         }
@@ -56879,7 +57141,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         created: function created() {
                 this.local_sto = localStorage.getItem("hospital_history");
                 this.getAllCustomer(this.local_sto);
-                console.log('dkasjf', this.local_sto);
         },
 
         methods: {
@@ -57817,7 +58078,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fd.append('name', Vname);
 
             axios.post('/api/customer/uploadvideo', fd).then(function (response) {
-                console.log(response);
                 $('#video_preview').append("<div class='col-md-6' id='video-area'><span onClick='closevideo()'>X</span><video src='upload/videos/" + Vname + "' controls></video></div>");
             }).catch(function (error) {
                 console.log(error);
@@ -58076,7 +58336,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 axios.post('/api/types/add', this.Type).then(function (response) {
                     _this2.name = '';
                     alert('Successfully Created');
-                    console.log(response);
                     _this2.$router.push({ name: 'typelist' });
                 }).catch(function (error) {
 
@@ -58674,9 +58933,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58763,7 +59019,7 @@ var render = function() {
           _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-10" }, [
+            _c("div", { staticClass: "col-md-12" }, [
               _c("input", {
                 staticClass: "form-control",
                 attrs: { type: "text", placeholder: "検索", id: "search-item" },
@@ -58773,9 +59029,7 @@ var render = function() {
                   }
                 }
               })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
+            ])
           ]),
           _vm._v(" "),
           _c("hr"),
@@ -58803,12 +59057,12 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "row col-md-10" }, [
-                        _vm._m(1, true),
+                        _vm._m(0, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(ads.title))
                         ]),
                         _vm._v(" "),
-                        _vm._m(2, true),
+                        _vm._m(1, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(ads.description))
                         ]),
@@ -58862,21 +59116,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn secondary-bg-color all-btn white",
-          staticStyle: { width: "100%" }
-        },
-        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -59535,16 +59774,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    created: function created() {
-
-        console.log('local', localStorage.getItem('hospital_fav'));
-    },
+    created: function created() {},
 
     methods: {
         favList: function favList() {
             var favData = localStorage.getItem('hospital_fav');
             axios.post('/api/hospital/favData', favData).then(function (response) {
-                console.log(response);
+                //  console.log(response);
             });
         }
     }
