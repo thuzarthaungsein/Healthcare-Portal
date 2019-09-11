@@ -78,8 +78,6 @@ $('#select').on('change',function(){
 })
 $('#text').click(function() {
   $('#checkbox').slideToggle("slow");
-  // Alternative animation for example
-  // slideToggle("fast");
 });
 
 // save button get value search map
