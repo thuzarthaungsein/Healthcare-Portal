@@ -6,20 +6,30 @@ $(".path").hover(
     $('#info-box').css({
       'display':'block',
       'position':'fixed',
-      'top':'175px',
-      'left':'130px'
-      
-    });
-    
-    $('#info-box').html($(this).data('info'));   
-           
-       
+      'top':"175px",
+      'left':'1350px'
+    });   
+   
+    $('#info-box').html($(this).data('info'));
+
+    $('.'+$(this).data('info')).css({
+      'background':'white',
+      'opacity': '0.25'
+    });      
+  
   },
   function(){
   	timeout = setTimeout(function(){
     	$('#info-box').css('display','none');
       },1000);
   });
+
+  $(".path").mouseout(function(){
+    $('.'+$(this).data('info')).css({
+      'background':'none',
+      'opacity':'1'
+    }); 
+  })
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if(ios) {
@@ -42,7 +52,6 @@ $('.path').on("click", function(e) {
         data:{"title":title,"id":id},
         url:url,
         success:function(data){
-            //console.log(data);
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
@@ -59,7 +68,6 @@ $('.path').on("click", function(e) {
               $('#text').append('<span>'+v.city_name+'</span>')
             })
             $.each(townships,function(k,v){
-                //console.log(v);
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
             }); 
         }
@@ -120,7 +128,6 @@ $('#text').click(function() {
             var image_x = document.getElementById('x-image');
             image_x.parentNode.removeChild(image_x);
             document.getElementById('showimage').style.display = 'block';
-            console.log("close");
         }
     }
 
@@ -201,76 +208,76 @@ $(document).ready(function(){
 
 
 
-// function scrollTab(){
-//     console.log('scroll');
-//     // $("p").css('color','red');
-//     $('#a').on('click',function(){
-//         console.log('onclick');
-//     });
+function scrollTab(){
+    console.log('scroll');
+    // $("p").css('color','red');
+    $('#a').on('click',function(){
+        console.log('onclick');
+    });
   
-//     if($('.detal_wrap').length){    
-//         $(".a_sp a[href^='#']").click(function () { 
-//             console.log("a_sp");
-//         var speed = 600;
-//         var href = $(this).attr("href");
-//         var target = $(href === "#" || href === "" ? 'html' : href);
-//         var position = target.offset().top;
-//         $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
-//             //return false;
-//         });
-//     }
-// }
+    if($('.detal_wrap').length){    
+        $(".a_sp a[href^='#']").click(function () { 
+            console.log("a_sp");
+        var speed = 600;
+        var href = $(this).attr("href");
+        var target = $(href === "#" || href === "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+            //return false;
+        });
+    }
+}
 
 
 
 
-//  function changeType() {
+ function changeType() {
 
-//     if(this.type == 'nursing') {
+    if(this.type == 'nursing') {
         
-//             document.getElementById("hospital-lbl").classList.add("dim-btn");
-//             document.getElementById("nursing-lbl").classList.remove("dim-btn");
+            document.getElementById("hospital-lbl").classList.add("dim-btn");
+            document.getElementById("nursing-lbl").classList.remove("dim-btn");
            
-//             scrollTab();
+            scrollTab();
            
-//     }
-//     else{
-//            document.getElementById("nursing-lbl").classList.add("dim-btn"); 
-//            document.getElementById("hospital-lbl").classList.remove("dim-btn");
+    }
+    else{
+           document.getElementById("nursing-lbl").classList.add("dim-btn"); 
+           document.getElementById("hospital-lbl").classList.remove("dim-btn");
          
-//            scrollTab();
-//     }
-// }
+           scrollTab();
+    }
+}
 
-// $('nav-item').on('change',function(e){
-//     e.preventDefault();
-//     console.log($('#a1').val());
-// })
+$('nav-item').on('change',function(e){
+    e.preventDefault();
+    console.log($('#a1').val());
+})
 
-// jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
 
-//     var profilePublish = $("#profilePublish");
-//     stickyDiv = "sticky";
-//     header = $('.header').height();
+    var profilePublish = $("#profilePublish");
+    stickyDiv = "sticky";
+    header = $('.header').height();
    
 
-// $('.scrolldiv2').scroll(function() {
-//   if( $(this).scrollTop() > header ) {
-//     profilePublish.addClass(stickyDiv);
-//   } else {
-//     profilePublish.removeClass(stickyDiv);
-//   }
-// });
+$('.scrolldiv2').scroll(function() {
+  if( $(this).scrollTop() > header ) {
+    profilePublish.addClass(stickyDiv);
+  } else {
+    profilePublish.removeClass(stickyDiv);
+  }
+});
     
-//     $(".a_sp a[href^='#']").click(function () { 
-//     var speed = 600;
-//     var href = $(this).attr("href");
-//     var target = $(href === "#" || href === "" ? 'html' : href);
-//     var position = target.offset().top;
-//     $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+    $(".a_sp a[href^='#']").click(function () { 
+    var speed = 600;
+    var href = $(this).attr("href");
+    var target = $(href === "#" || href === "" ? 'html' : href);
+    var position = target.offset().top;
+    $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
     
-//     });
-// });
+    });
+});
 
 
 

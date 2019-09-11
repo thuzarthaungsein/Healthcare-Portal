@@ -85,7 +85,6 @@ export default {
                 this.axios.post('/api/advertisement/add',adsData)
                     .then((response) => {
                     alert('Successfully Created')
-                    console.log(response);
                     this.$router.push({name: 'ads'});
                     }).catch(error=>{
 

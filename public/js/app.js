@@ -41372,8 +41372,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nursingSearch_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__jobSearch_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__ProfilePublish_vue__);
 //
 //
 //
@@ -41412,7 +41410,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
+// import ProfilePublish from './ProfilePublish.vue'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         components: {
@@ -41422,7 +41420,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a
         },
         mounted: function mounted() {
-                console.log('Component mounted.');
                 // console.log[l_storage_hos_history];
         },
         data: function data() {
@@ -41714,9 +41711,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 jobSearch: __WEBPACK_IMPORTED_MODULE_3__jobSearch_vue___default.a
 
         },
-        mounted: function mounted() {
-                console.log('Component mounted.');
-        },
+        mounted: function mounted() {},
         data: function data() {
                 return {
                         cats: [],
@@ -41724,7 +41719,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         latest_post: [],
                         latest_post_all_cats: [],
                         search_posts: [],
-                        categoryId: []
+                        categoryId: 1
                 };
         },
         created: function created() {
@@ -41732,7 +41727,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.getPostByCatID();
                 this.getLatestPostByCatID();
                 this.getLatestPostFromAllCat();
-                this.categoryId();
+                //     this.categoryId();
         },
 
         methods: {
@@ -41763,7 +41758,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         $('.search-item').css('display', 'none');
                         this.categoryId = cat_id;
-                        axios.post("http://localhost:8000/api/posts/", fd).then(function (response) {
+                        axios.post("/api/posts/", fd).then(function (response) {
                                 _this2.posts = response.data;
                         });
                 },
@@ -41787,7 +41782,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         $('.search-item').css('display', 'none');
                         this.categoryId = cat_id;
-                        axios.post("http://localhost:8000/api/get_latest_post/", fd).then(function (response) {
+                        axios.post("/api/get_latest_post/", fd).then(function (response) {
                                 _this3.latest_post = response.data;
                         });
                 },
@@ -41812,7 +41807,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         fd.append('search_word', search_word);
                         fd.append('selected_category', categoryId);
 
-                        this.axios.post('http://localhost:8000/api/search', fd).then(function (response) {
+                        this.axios.post('/api/search', fd).then(function (response) {
                                 if (response.data.length == '0') {
                                         _this5.posts = [];
                                         _this5.latest_post = [];
@@ -42558,7 +42553,7 @@ var render = function() {
                                 staticClass: "source-img img-responsive",
                                 staticStyle: { width: "100%", height: "200px" },
                                 attrs: {
-                                  src: "/images/" + _vm.latest_post.photo
+                                  src: "/upload/news/" + _vm.latest_post.photo
                                 }
                               })
                             : _vm._e(),
@@ -42658,7 +42653,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row m-lr-0" }, [
+    _c("div", { staticClass: "col-md-12 pad-free m-lr-0" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(
@@ -42676,7 +42671,7 @@ var render = function() {
                 _c("img", {
                   staticClass: "img-responsive fit-image",
                   attrs: {
-                    src: "/images/" + latest_post_all_cat.photo,
+                    src: "/upload/news/" + latest_post_all_cat.photo,
                     alt: ""
                   }
                 }),
@@ -43516,7 +43511,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.getLatestPostByFirstCatID();
                 this.getLatestPostFromAllCat();
                 this.axios.get('/api/newdetails/' + this.$route.params.id).then(function (response) {
-                        console.log(response.data);
                         _this.newdetails = response.data;
                         //        console.log(response.data);
                 });
@@ -43663,16 +43657,16 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
+                _c("div", { staticClass: "col-md-8" }, [
                   _c("p", { staticClass: "p5" }, [
                     _vm._v(_vm._s(_vm.newdetails.body))
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-6  mt-2 related-area" }, [
+                _c("div", { staticClass: "col-md-4 mt-2 related-area" }, [
                   _c("img", {
                     staticClass: "img-responsive img_2 news_photo",
-                    attrs: { src: "/images/" + _vm.newdetails.photo }
+                    attrs: { src: "/upload/news/" + _vm.newdetails.photo }
                   }),
                   _vm._v(" "),
                   _vm._m(1),
@@ -43709,7 +43703,8 @@ var render = function() {
                             _c("img", {
                               staticClass: "img-responsive fit-image",
                               attrs: {
-                                src: "/images/" + latest_post_all_cat.photo,
+                                src:
+                                  "/upload/news/" + latest_post_all_cat.photo,
                                 alt: ""
                               }
                             }),
@@ -44070,7 +44065,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         this.axios.post('/api/jobapply', this.jobApply).then(function (response) {
                                 alert('Successful Apply');
-                                console.log(response);
                                 //console.log(this.jobApply.toString());
                                 _this2.jobApply = response.data;
                         });
@@ -44465,20 +44459,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -44509,7 +44489,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         comfirm: function comfirm(id) {
             this.axios.get('/api/confirm/' + id).then(function (response) {
                 flash('Successfully Send Mail.', 'success');
-                console.log(response.data);
             });
         },
         searchCustomer: function searchCustomer() {
@@ -44518,7 +44497,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var search_word = $('#search-word').val();
             var fd = new FormData();
             fd.append('search_word', search_word);
-            this.axios.post('http://localhost:8000/api/customer/search', fd).then(function (response) {
+            this.axios.post('/api/customer/search', fd).then(function (response) {
                 _this3.customers = response.data;
             });
         }
@@ -44535,28 +44514,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "card card-default m-b-20" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-10" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "text", placeholder: "検索", id: "search-word" },
-                on: {
-                  keyup: function($event) {
-                    return _vm.searchCustomer()
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
-          ])
-        ])
-      ]),
-      _vm._v(" -->      \r\n        "),
       _c(
         "div",
         {
@@ -44566,7 +44523,19 @@ var render = function() {
         [
           _c("h4", { staticClass: "main-color" }, [_vm._v("事業者検索")]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-word" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchCustomer()
+                  }
+                }
+              })
+            ])
+          ]),
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
@@ -44593,22 +44562,22 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "row col-md-10" }, [
-                        _vm._m(2, true),
+                        _vm._m(0, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.name))
                         ]),
                         _vm._v(" "),
-                        _vm._m(3, true),
+                        _vm._m(1, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.email))
                         ]),
                         _vm._v(" "),
-                        _vm._m(4, true),
+                        _vm._m(2, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.phone))
                         ]),
                         _vm._v(" "),
-                        _vm._m(5, true),
+                        _vm._m(3, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(customer.address))
                         ]),
@@ -44666,34 +44635,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 text-right" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn secondary-bg-color all-btn white",
-          staticStyle: { width: "100%" }
-        },
-        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", placeholder: "検索" }
-        })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -45485,7 +45426,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         this.axios.get("/api/job_details/" + this.$route.params.id).then(function (response) {
-            console.log(response.data);
             _this.job_details = response.data;
         });
     }
@@ -45942,7 +45882,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/news_list').then(function (response) {
             _this.news_list = response.data;
-            console.log(localStorage.getItem("hospital_fav"));
         });
     },
     mounted: function mounted() {
@@ -46370,7 +46309,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.$router.push({
                     name: 'news_list'
                 });
-                console.log(response);
             }).catch(function (error) {
 
                 if (error.response.status == 422) {
@@ -47094,7 +47032,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/api/category/add', this.category).then(function (response) {
                 _this.name = '';
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'categorylist' });
             }).catch(function (error) {
 
@@ -47607,7 +47544,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/api/facility/add', this.facility).then(function (response) {
                 _this.description = '';
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'facilitieslist' });
             }).catch(function (error) {
 
@@ -49532,9 +49468,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         fd.append('address', this.customer.address);
 
                         axios.post('/api/customer/add', fd).then(function (response) {
-                                console.log(response);
                                 alert('Successfully Created');
-                                console.log(response);
                                 _this.$router.push({ name: '/' });
                         });
                 }
@@ -50117,7 +50051,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this2.title = '', _this2.description = '', _this2.location = '', _this2.salary = '', _this2.working_hours = '', _this2.employment_status = '';
 
                     alert('Successfully Created');
-                    console.log(response);
                     _this2.$router.push({ name: 'jobofferlist' });
                     _this2.$route.params.id = null;
                 }).catch(function (error) {
@@ -51086,7 +51019,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/new/editPost/' + this.$route.params.id).then(function (response) {
             _this.news = response.data;
-            console.log(_this.news.photo);
             _this.updateselected();
         });
     },
@@ -51126,7 +51058,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this2.$router.push({
                     name: 'news_list'
                 });
-                console.log(response);
             }).catch(function (error) {
 
                 if (error.response.status == 422) {
@@ -51558,9 +51489,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
         ready: function ready() {
 
-                console.log("Ready");
+                // console.log("Ready");
                 Vue.nextTick(function () {
-                        console.log("Next Trick");
+                        // console.log("Next Trick");
                 }.bind(this));
         },
         components: {
@@ -53948,7 +53879,7 @@ $(document).ready(function () {
         created: function created() {
 
                 //       this.scrollSection();
-                this.axios.get('http://localhost:8000/api/authget').then(function (response) {
+                this.axios.get('/api/authget').then(function (response) {
                         //   console.log(response);
                         // this.fac_list = response.data;
                 });
@@ -53958,19 +53889,19 @@ $(document).ready(function () {
         methods: {
                 getType: function getType(aa) {
                         alert('a');
-                        console.log(aa);
+                        // console.log(aa);
                 },
                 scrollTab: function scrollTab() {
-                        console.log('scroll');
+                        // console.log('scroll');
                         // $("p").css('color','red');
                         $('#a').on('click', function () {
-                                console.log('onclick');
+                                // console.log('onclick');
                         });
 
                         if ($('.detal_wrap').length) {
-                                console.log('Hello');
+                                // console.log('Hello'); 
                                 $(".a_sp a[href^='#']").click(function () {
-                                        console.log("a_sp");
+                                        // console.log("a_sp");
                                         var speed = 600;
                                         var href = $(this).attr("href");
                                         var target = $(href === "#" || href === "" ? 'html' : href);
@@ -54340,7 +54271,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.jobs = response.data;
         });
         this.axios.get('/api/user').then(function (response) {
-            console.log(response.data.id);
+            //     console.log(response.data.id)
         });
     },
 
@@ -54652,7 +54583,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.axios.post('/api/advertisement/add', adsData).then(function (response) {
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'ads' });
             }).catch(function (error) {
 
@@ -55097,7 +55027,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.post('/api/medical/add', this.medical).then(function (response) {
                 alert('Successfully Created');
-                console.log(response);
                 _this.$router.push({ name: 'medicalacceptancelist' });
             });
         }
@@ -55347,7 +55276,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/medical/medicalacceptance').then(function (response) {
             _this.medical_acceptance = response.data;
-            console.log(response.data);
         });
     },
 
@@ -55859,7 +55787,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         approve: function approve(id) {
             this.axios.get('/api/approve/' + id).then(function (response) {
-                console.log(response.data);
                 ajax.reload();
             });
         }
@@ -56064,7 +55991,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         created: function created() {
                 this.local_sto = localStorage.getItem("hospital_history");
                 this.getAllCustomer(this.local_sto);
-                console.log('dkasjf', this.local_sto);
         },
 
         methods: {
@@ -57002,7 +56928,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fd.append('name', Vname);
 
             axios.post('/api/customer/uploadvideo', fd).then(function (response) {
-                console.log(response);
                 $('#video_preview').append("<div class='col-md-6' id='video-area'><span onClick='closevideo()'>X</span><video src='upload/videos/" + Vname + "' controls></video></div>");
             }).catch(function (error) {
                 console.log(error);
@@ -57261,7 +57186,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 axios.post('/api/types/add', this.Type).then(function (response) {
                     _this2.name = '';
                     alert('Successfully Created');
-                    console.log(response);
                     _this2.$router.push({ name: 'typelist' });
                 }).catch(function (error) {
 
@@ -57859,9 +57783,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57899,7 +57820,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var search_word = $('#search-item').val();
             var fd = new FormData();
             fd.append('search_word', search_word);
-            this.axios.post('http://localhost:8000/api/advertisement/search', fd).then(function (response) {
+            this.axios.post('/api/advertisement/search', fd).then(function (response) {
                 _this3.advertisements = response.data;
             });
         }
@@ -57948,7 +57869,7 @@ var render = function() {
           _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-10" }, [
+            _c("div", { staticClass: "col-md-12" }, [
               _c("input", {
                 staticClass: "form-control",
                 attrs: { type: "text", placeholder: "検索", id: "search-item" },
@@ -57958,9 +57879,7 @@ var render = function() {
                   }
                 }
               })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
+            ])
           ]),
           _vm._v(" "),
           _c("hr"),
@@ -57988,12 +57907,12 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "row col-md-10" }, [
-                        _vm._m(1, true),
+                        _vm._m(0, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(ads.title))
                         ]),
                         _vm._v(" "),
-                        _vm._m(2, true),
+                        _vm._m(1, true),
                         _c("div", { staticClass: "col-md-10" }, [
                           _vm._v(_vm._s(ads.description))
                         ]),
@@ -58047,21 +57966,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn secondary-bg-color all-btn white",
-          staticStyle: { width: "100%" }
-        },
-        [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -58720,16 +58624,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    created: function created() {
-
-        console.log('local', localStorage.getItem('hospital_fav'));
-    },
+    created: function created() {},
 
     methods: {
         favList: function favList() {
             var favData = localStorage.getItem('hospital_fav');
             axios.post('/api/hospital/favData', favData).then(function (response) {
-                console.log(response);
+                //  console.log(response);
             });
         }
     }
@@ -64300,6 +64201,8 @@ var render = function() {
       _c("div", { staticClass: "col-sm-5" }, [
         _c("div", { attrs: { id: "text" } }),
         _vm._v(" "),
+        _c("div", { attrs: { id: "info-box" } }),
+        _vm._v(" "),
         _c(
           "svg",
           {
@@ -64319,7 +64222,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "23",
-                "data-info": "<div>Aichi</div>",
+                "data-info": "Aichi",
                 title: "Aichi",
                 fill: "#79efdb",
                 d:
@@ -64331,7 +64234,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "5",
-                "data-info": "<div>Akita</div>",
+                "data-info": "Akita",
                 title: "Akita",
                 fill: "#FDE9AB",
                 d:
@@ -64340,10 +64243,10 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Aomori",
               attrs: {
                 id: "2",
-                "data-info": "<div>Aomori</div>",
+                "data-info": "Aomori",
                 title: "Aomori",
                 fill: "#FDE9AB",
                 d:
@@ -64355,7 +64258,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "12",
-                "data-info": "<div>Chiba</div>",
+                "data-info": "Chiba",
                 title: "Chiba",
                 fill: "#87ef79",
                 d:
@@ -64367,7 +64270,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "38",
-                "data-info": "<div>Ehime</div>",
+                "data-info": "Ehime",
                 title: "Ehime",
                 fill: "#cc79ef",
                 d:
@@ -64379,7 +64282,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "18",
-                "data-info": "<div>Fukui</div>",
+                "data-info": "Fukui",
                 title: "Fukui",
                 fill: "#79efdb",
                 d:
@@ -64391,7 +64294,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "40",
-                "data-info": "<div>Fukuoka</div>",
+                "data-info": "Fukuoka",
                 title: "Fukuoka",
                 fill: "#b4b4b4",
                 d:
@@ -64403,7 +64306,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "7",
-                "data-info": "<div>Fukushima</div>",
+                "data-info": "Fukushima",
                 title: "Fukushima",
                 fill: "#FDE9AB",
                 d:
@@ -64415,7 +64318,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "21",
-                "data-info": "<div>Gifu</div>",
+                "data-info": "Gifu",
                 title: "Gifu",
                 fill: "#79efdb",
                 d:
@@ -64427,7 +64330,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "10",
-                "data-info": "<div>Gunma</div>",
+                "data-info": "Gunma",
                 title: "Gunma",
                 fill: "#87ef79",
                 d:
@@ -64436,10 +64339,10 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Hyogo",
               attrs: {
                 id: "28",
-                "data-info": "<div>Hyogo</div>",
+                "data-info": "Hyogo",
                 title: "Hyogo",
                 fill: "#9579ef",
                 d:
@@ -64448,10 +64351,10 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Hokkaido",
               attrs: {
                 id: "1",
-                "data-info": "<span class='tooltip-info'>Hokkaido</span>",
+                "data-info": "Hokkaido",
                 title: "Hokkaido",
                 fill: "#ef7979",
                 d:
@@ -64463,7 +64366,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "34",
-                "data-info": "<div>Hiroshima</div>",
+                "data-info": "Hiroshima",
                 title: "Hiroshima",
                 fill: "#efb179",
                 d:
@@ -64472,10 +64375,10 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Ibaraki",
               attrs: {
                 id: "8",
-                "data-info": "<div>Ibaraki</div>",
+                "data-info": "Ibaraki",
                 title: "Ibaraki",
                 fill: "#87ef79",
                 d:
@@ -64487,7 +64390,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "17",
-                "data-info": "<div>Ishikawa</div>",
+                "data-info": "Ishikawa",
                 title: "Ishikawa",
                 fill: "#79efdb",
                 d:
@@ -64499,7 +64402,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "3",
-                "data-info": "<div>Iwate</div>",
+                "data-info": "Iwate",
                 title: "Iwate",
                 fill: "#FDE9AB",
                 d:
@@ -64511,7 +64414,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "39",
-                "data-info": "<div>Kochi</div>",
+                "data-info": "Kochi",
                 title: "Kochi",
                 fill: "#cc79ef",
                 d:
@@ -64523,7 +64426,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "37",
-                "data-info": "<div>Kagawa</div>",
+                "data-info": "Kagawa",
                 title: "Kagawa",
                 fill: "#cc79ef",
                 d:
@@ -64535,7 +64438,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "43",
-                "data-info": "<div>Kumamoto</div>",
+                "data-info": "Kumamoto",
                 title: "Kumamoto",
                 fill: "#b4b4b4",
                 d:
@@ -64547,7 +64450,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "14",
-                "data-info": "<div>Kanagawa</div>",
+                "data-info": "Kanagawa",
                 title: "Kanagawa",
                 fill: "#87ef79",
                 d:
@@ -64559,7 +64462,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "46",
-                "data-info": "<div>Kagoshima</div>",
+                "data-info": "Kagoshima",
                 title: "Kagoshima",
                 fill: "#b4b4b4",
                 d:
@@ -64571,7 +64474,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "26",
-                "data-info": "<div>Kyoto</div>",
+                "data-info": "Kyoto",
                 title: "Kyoto",
                 fill: "#9579ef",
                 d:
@@ -64583,7 +64486,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "24",
-                "data-info": "<div>Mie</div>",
+                "data-info": "Mie",
                 title: "Mie",
                 fill: "#9579ef",
                 d:
@@ -64595,7 +64498,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "4",
-                "data-info": "<div>Miyagi</div>",
+                "data-info": "Miyagi",
                 title: "Miyagi",
                 fill: "#FDE9AB",
                 d:
@@ -64607,7 +64510,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "45",
-                "data-info": "<div>Miyazaki</div>",
+                "data-info": "Miyazaki",
                 title: "Miyazaki",
                 fill: "#b4b4b4",
                 d:
@@ -64619,7 +64522,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "15",
-                "data-info": "<div>Niigata</div>",
+                "data-info": "Niigata",
                 title: "Niigata",
                 fill: "#79efdb",
                 d:
@@ -64631,7 +64534,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "20",
-                "data-info": "<div>Nagano</div>",
+                "data-info": "Nagano",
                 title: "Nagano",
                 fill: "#79efdb",
                 d:
@@ -64643,7 +64546,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "29",
-                "data-info": "<div>Nara</div>",
+                "data-info": "Nara",
                 title: "Nara",
                 fill: "#9579ef",
                 d:
@@ -64655,7 +64558,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "42",
-                "data-info": "<div>Nagasaki</div>",
+                "data-info": "Nagasaki",
                 title: "Nagasaki",
                 fill: "#b4b4b4",
                 d:
@@ -64667,7 +64570,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "47",
-                "data-info": "<div>Okinawa</div>",
+                "data-info": "Okinawa",
                 title: "Okinawa",
                 fill: "#b4b4b4",
                 d:
@@ -64679,7 +64582,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "27",
-                "data-info": "<div>Osaka</div>",
+                "data-info": "Osaka",
                 title: "Osaka",
                 fill: "#9579ef",
                 d:
@@ -64691,7 +64594,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "33",
-                "data-info": "<div>Okayama</div>",
+                "data-info": "Okayama",
                 title: "Okayama",
                 fill: "#efb179",
                 d:
@@ -64703,7 +64606,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "44",
-                "data-info": "<div>Oita</div>",
+                "data-info": "Oita",
                 title: "Oita",
                 fill: "#b4b4b4",
                 d:
@@ -64715,7 +64618,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "41",
-                "data-info": "<div>Saga</div>",
+                "data-info": "Saga",
                 title: "Saga",
                 fill: "#b4b4b4",
                 d:
@@ -64727,7 +64630,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "25",
-                "data-info": "<div>Shiga</div>",
+                "data-info": "Shiga",
                 title: "Shiga",
                 fill: "#9579ef",
                 d:
@@ -64739,7 +64642,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "32",
-                "data-info": "<div>Shimane</div>",
+                "data-info": "Shimane",
                 title: "Shimane",
                 fill: "#efb179",
                 d:
@@ -64751,7 +64654,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "11",
-                "data-info": "<div>Saitama</div>",
+                "data-info": "Saitama",
                 title: "Saitama",
                 fill: "#87ef79",
                 d:
@@ -64763,7 +64666,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "22",
-                "data-info": "<div>Shizuoka</div>",
+                "data-info": "Shizuoka",
                 title: "Shizuoka",
                 fill: "#79efdb",
                 d:
@@ -64775,7 +64678,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "9",
-                "data-info": "<div>Tochigi</div>",
+                "data-info": "Tochigi",
                 title: "Tochigi",
                 fill: "#87ef79",
                 d:
@@ -64787,7 +64690,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "13",
-                "data-info": "<div>Tokyo</div>",
+                "data-info": "Tokyo",
                 title: "Tokyo",
                 fill: "#87ef79",
                 d:
@@ -64799,7 +64702,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "36",
-                "data-info": "<div>Tokushima</div>",
+                "data-info": "Tokushima",
                 title: "Tokushima",
                 fill: "#cc79ef",
                 d:
@@ -64811,7 +64714,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "31",
-                "data-info": "<div>Tottori</div>",
+                "data-info": "Tottori",
                 title: "Tottori",
                 fill: "#efb179",
                 d:
@@ -64823,7 +64726,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "16",
-                "data-info": "<div>Toyama</div>",
+                "data-info": "Toyama",
                 title: "Toyama",
                 fill: "#79efdb",
                 d:
@@ -64835,7 +64738,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "30",
-                "data-info": "<div>Wakayama</div>",
+                "data-info": "Wakayama",
                 title: "Wakayama",
                 fill: "#9579ef",
                 d:
@@ -64847,7 +64750,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "35",
-                "data-info": "<div>Yamaguchi</div>",
+                "data-info": "Yamaguchi",
                 title: "Yamaguchi",
                 fill: "#efb179",
                 d:
@@ -64859,7 +64762,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "19",
-                "data-info": "<div>Yamanashi</div>",
+                "data-info": "Yamanashi",
                 title: "Yamanashi",
                 fill: "#79efdb",
                 d:
@@ -64871,7 +64774,7 @@ var render = function() {
               staticClass: "path",
               attrs: {
                 id: "6",
-                "data-info": "<div>Yamagata</div>",
+                "data-info": "Yamagata",
                 title: "Yamagata",
                 fill: "#FDE9AB",
                 d:
@@ -64908,12 +64811,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "1",
-                        "data-info": "<div>Hokkaido</div>"
-                      }
+                      staticClass: "path Hokkaido card-text",
+                      attrs: { href: "#!", id: "1", "data-info": "Hokkaido" }
                     },
                     [_vm._v("Hokkaido")]
                   )
@@ -64940,12 +64839,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "2",
-                        "data-info": "<div>Aomori</div>"
-                      }
+                      staticClass: "path Aomori card-text",
+                      attrs: { href: "#!", id: "2", "data-info": "Aomori" }
                     },
                     [_vm._v("Aomori")]
                   ),
@@ -64953,12 +64848,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "3",
-                        "data-info": "<div>iwate</div>"
-                      }
+                      staticClass: "path iwate card-text",
+                      attrs: { href: "#!", id: "3", "data-info": "iwate" }
                     },
                     [_vm._v("iwate")]
                   ),
@@ -64966,12 +64857,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "4",
-                        "data-info": "<div>Miyagi</div>"
-                      }
+                      staticClass: "path Miyagi card-text",
+                      attrs: { href: "#!", id: "4", "data-info": "Miyagi" }
                     },
                     [_vm._v("Miyagi")]
                   ),
@@ -64979,12 +64866,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "5",
-                        "data-info": "<div>Akita</div>"
-                      }
+                      staticClass: "path Akita card-text",
+                      attrs: { href: "#!", id: "5", "data-info": "Akita" }
                     },
                     [_vm._v("Akita")]
                   ),
@@ -64992,12 +64875,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "6",
-                        "data-info": "<div>Yamagata</div>"
-                      }
+                      staticClass: "path Yamagata card-text",
+                      attrs: { href: "#!", id: "6", "data-info": "Yamagata" }
                     },
                     [_vm._v("Yamagata")]
                   ),
@@ -65005,12 +64884,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "7",
-                        "data-info": "<div>Fukushima</div>"
-                      }
+                      staticClass: "path Fukushima card-text",
+                      attrs: { href: "#!", id: "7", "data-info": "Fukushima" }
                     },
                     [_vm._v("Fukushima")]
                   )
@@ -65037,12 +64912,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "8",
-                        "data-info": "<div>Ibaraki</div>"
-                      }
+                      staticClass: "path Ibaraki card-text",
+                      attrs: { href: "#!", id: "8", "data-info": "Ibaraki" }
                     },
                     [_vm._v("Ibaraki")]
                   ),
@@ -65050,12 +64921,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "9",
-                        "data-info": "<div>Tochigi</div>"
-                      }
+                      staticClass: "path Tochigi card-text",
+                      attrs: { href: "#!", id: "9", "data-info": "Tochigi" }
                     },
                     [_vm._v("Tochigi")]
                   ),
@@ -65063,12 +64930,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "10",
-                        "data-info": "<div>Gunma</div>"
-                      }
+                      staticClass: "path Gunma card-text",
+                      attrs: { href: "#!", id: "10", "data-info": "Gunma" }
                     },
                     [_vm._v("Gunma")]
                   ),
@@ -65076,12 +64939,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "11",
-                        "data-info": "<div>Saitama</div>"
-                      }
+                      staticClass: "path Saitama card-text",
+                      attrs: { href: "#!", id: "11", "data-info": "Saitama" }
                     },
                     [_vm._v("Saitama")]
                   ),
@@ -65089,12 +64948,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "12",
-                        "data-info": "<div>Chiba</div>"
-                      }
+                      staticClass: "path Chiba card-text",
+                      attrs: { href: "#!", id: "12", "data-info": "Chiba" }
                     },
                     [_vm._v("Chiba")]
                   ),
@@ -65102,12 +64957,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "13",
-                        "data-info": "<div>Tokyo</div>"
-                      }
+                      staticClass: "path Tokyo card-text",
+                      attrs: { href: "#!", id: "13", "data-info": "Tokyo" }
                     },
                     [_vm._v("Tokyo")]
                   ),
@@ -65115,12 +64966,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "14",
-                        "data-info": "<div>Kanagawa</div>"
-                      }
+                      staticClass: "path Kanagawa card-text",
+                      attrs: { href: "#!", id: "14", "data-info": "Kanagawa" }
                     },
                     [_vm._v("Kanagawa")]
                   )
@@ -65147,12 +64994,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "15",
-                        "data-info": "<div>Niigata</div>"
-                      }
+                      staticClass: "path Niigata card-text",
+                      attrs: { href: "#!", id: "15", "data-info": "Niigata" }
                     },
                     [_vm._v("Niigata")]
                   ),
@@ -65160,12 +65003,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "16",
-                        "data-info": "<div>Toyama</div>"
-                      }
+                      staticClass: "path Toyama card-text",
+                      attrs: { href: "#!", id: "16", "data-info": "Toyama" }
                     },
                     [_vm._v("Toyama")]
                   ),
@@ -65173,12 +65012,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "17",
-                        "data-info": "<div>Ishikawa</div>"
-                      }
+                      staticClass: "path Ishikawa card-text",
+                      attrs: { href: "#!", id: "17", "data-info": "Ishikawa" }
                     },
                     [_vm._v("Ishikawa")]
                   ),
@@ -65186,12 +65021,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "18",
-                        "data-info": "<div>Fukui</div>"
-                      }
+                      staticClass: "path Fukui card-text",
+                      attrs: { href: "#!", id: "18", "data-info": "Fukui" }
                     },
                     [_vm._v("Fukui")]
                   ),
@@ -65199,12 +65030,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "19",
-                        "data-info": "<div>Yamanashi</div>"
-                      }
+                      staticClass: "path Yamanashi card-text",
+                      attrs: { href: "#!", id: "19", "data-info": "Yamanashi" }
                     },
                     [_vm._v("Yamanashi")]
                   ),
@@ -65212,12 +65039,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "20",
-                        "data-info": "<div>Nagano</div>"
-                      }
+                      staticClass: "path Nagano card-text",
+                      attrs: { href: "#!", id: "20", "data-info": "Nagano" }
                     },
                     [_vm._v("Nagano")]
                   ),
@@ -65225,12 +65048,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "21",
-                        "data-info": "<div>Gifu</div>"
-                      }
+                      staticClass: "path Gifu card-text",
+                      attrs: { href: "#!", id: "21", "data-info": "Gifu" }
                     },
                     [_vm._v("Gifu")]
                   ),
@@ -65238,12 +65057,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "22",
-                        "data-info": "<div>Shizuoka</div>"
-                      }
+                      staticClass: "path Shizuoka card-text",
+                      attrs: { href: "#!", id: "22", "data-info": "Shizuoka" }
                     },
                     [_vm._v("Shizuoka")]
                   ),
@@ -65251,12 +65066,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "23",
-                        "data-info": "<div>Aichi</div>"
-                      }
+                      staticClass: "path Aichi card-text",
+                      attrs: { href: "#!", id: "23", "data-info": "Aichi" }
                     },
                     [_vm._v("Aichi")]
                   )
@@ -65283,12 +65094,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "24",
-                        "data-info": "<div>Mie</div>"
-                      }
+                      staticClass: "path Mie card-text",
+                      attrs: { href: "#!", id: "24", "data-info": "Mie" }
                     },
                     [_vm._v("Mie")]
                   ),
@@ -65296,12 +65103,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "25",
-                        "data-info": "<div>Shiga</div>"
-                      }
+                      staticClass: "path Shiga card-text",
+                      attrs: { href: "#!", id: "25", "data-info": "Shiga" }
                     },
                     [_vm._v("Shiga")]
                   ),
@@ -65309,12 +65112,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "26",
-                        "data-info": "<div>Kyoto</div>"
-                      }
+                      staticClass: "path Kyoto card-text",
+                      attrs: { href: "#!", id: "26", "data-info": "Kyoto" }
                     },
                     [_vm._v("Kyoto")]
                   ),
@@ -65322,12 +65121,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "27",
-                        "data-info": "<div>Osaka</div>"
-                      }
+                      staticClass: "path Osaka card-text",
+                      attrs: { href: "#!", id: "27", "data-info": "Osaka" }
                     },
                     [_vm._v("Osaka")]
                   ),
@@ -65335,12 +65130,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "28",
-                        "data-info": "<div>Hyogo</div>"
-                      }
+                      staticClass: "path Hyogo card-text",
+                      attrs: { href: "#!", id: "28", "data-info": "Hyogo" }
                     },
                     [_vm._v("Hyogo")]
                   ),
@@ -65348,12 +65139,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "29",
-                        "data-info": "<div>Nara</div>"
-                      }
+                      staticClass: "path Nara card-text",
+                      attrs: { href: "#!", id: "29", "data-info": "Nara" }
                     },
                     [_vm._v("Nara")]
                   ),
@@ -65361,12 +65148,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "30",
-                        "data-info": "<div>Wakayama</div>"
-                      }
+                      staticClass: "path Wakayama card-text",
+                      attrs: { href: "#!", id: "30", "data-info": "Wakayama" }
                     },
                     [_vm._v("Wakayama")]
                   )
@@ -65393,12 +65176,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "31",
-                        "data-info": "<div>Tottori</div>"
-                      }
+                      staticClass: "path Tottori card-text",
+                      attrs: { href: "#!", id: "31", "data-info": "Tottori" }
                     },
                     [_vm._v("Tottori")]
                   ),
@@ -65406,12 +65185,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "32",
-                        "data-info": "<div>Shimane</div>"
-                      }
+                      staticClass: "path Shimane card-text",
+                      attrs: { href: "#!", id: "32", "data-info": "Shimane" }
                     },
                     [_vm._v("Shimane")]
                   ),
@@ -65419,12 +65194,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "33",
-                        "data-info": "<div>Okayama</div>"
-                      }
+                      staticClass: "path Okayama card-text",
+                      attrs: { href: "#!", id: "33", "data-info": "Okayama" }
                     },
                     [_vm._v("Okayama")]
                   ),
@@ -65432,12 +65203,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "34",
-                        "data-info": "<div>Hiroshima</div>"
-                      }
+                      staticClass: "path Hiroshima card-text",
+                      attrs: { href: "#!", id: "34", "data-info": "Hiroshima" }
                     },
                     [_vm._v("Hiroshima")]
                   ),
@@ -65445,12 +65212,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "35",
-                        "data-info": "<div>Yamaguchi</div>"
-                      }
+                      staticClass: "path Yamaguchi card-text",
+                      attrs: { href: "#!", id: "35", "data-info": "Yamaguchi" }
                     },
                     [_vm._v("Yamaguchi")]
                   )
@@ -65477,12 +65240,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "36",
-                        "data-info": "<div>Tokushima</div>"
-                      }
+                      staticClass: "path Tokushima card-text",
+                      attrs: { href: "#!", id: "36", "data-info": "Tokushima" }
                     },
                     [_vm._v("Tokushima")]
                   ),
@@ -65490,12 +65249,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "37",
-                        "data-info": "<div>Kagawa</div>"
-                      }
+                      staticClass: "path Kagawa card-text",
+                      attrs: { href: "#!", id: "37", "data-info": "Kagawa" }
                     },
                     [_vm._v("Kagawa")]
                   ),
@@ -65503,12 +65258,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "38",
-                        "data-info": "<div>Ehime</div>"
-                      }
+                      staticClass: "path Ehime card-text",
+                      attrs: { href: "#!", id: "38", "data-info": "Ehime" }
                     },
                     [_vm._v("Ehime")]
                   ),
@@ -65516,12 +65267,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "39",
-                        "data-info": "<div>Kochi</div>"
-                      }
+                      staticClass: "path Kochi card-text",
+                      attrs: { href: "#!", id: "39", "data-info": "Kochi" }
                     },
                     [_vm._v("Kochi")]
                   )
@@ -65548,12 +65295,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "40",
-                        "data-info": "<div>Fukuoka</div>"
-                      }
+                      staticClass: "path Fukuoka card-text",
+                      attrs: { href: "#!", id: "40", "data-info": "Fukuoka" }
                     },
                     [_vm._v("Fukuoka")]
                   ),
@@ -65561,12 +65304,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "41",
-                        "data-info": "<div>Saga</div>"
-                      }
+                      staticClass: "path Saga card-text",
+                      attrs: { href: "#!", id: "41", "data-info": "Saga" }
                     },
                     [_vm._v("Saga")]
                   ),
@@ -65574,12 +65313,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "42",
-                        "data-info": "<div>Nagasaki</div>"
-                      }
+                      staticClass: "path Nagasaki card-text",
+                      attrs: { href: "#!", id: "42", "data-info": "Nagasaki" }
                     },
                     [_vm._v("Nagasaki")]
                   ),
@@ -65587,12 +65322,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "43",
-                        "data-info": "<div>Kumamoto</div>"
-                      }
+                      staticClass: "path Kumamoto card-text",
+                      attrs: { href: "#!", id: "43", "data-info": "Kumamoto" }
                     },
                     [_vm._v("Kumamoto")]
                   ),
@@ -65600,12 +65331,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "44",
-                        "data-info": "<div>Oita</div>"
-                      }
+                      staticClass: "path Oita card-text",
+                      attrs: { href: "#!", id: "44", "data-info": "Oita" }
                     },
                     [_vm._v("Oita")]
                   ),
@@ -65613,12 +65340,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "45",
-                        "data-info": "<div>Miyazaki</div>"
-                      }
+                      staticClass: "path Miyazaki card-text",
+                      attrs: { href: "#!", id: "45", "data-info": "Miyazaki" }
                     },
                     [_vm._v("Miyazaki")]
                   ),
@@ -65626,12 +65349,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "46",
-                        "data-info": "<div>Kagoshima</div>"
-                      }
+                      staticClass: "path Kagoshima card-text",
+                      attrs: { href: "#!", id: "46", "data-info": "Kagoshima" }
                     },
                     [_vm._v("Kagoshima")]
                   ),
@@ -65639,12 +65358,8 @@ var staticRenderFns = [
                   _c(
                     "a",
                     {
-                      staticClass: "path card-text",
-                      attrs: {
-                        href: "#!",
-                        id: "47",
-                        "data-info": "<div>Okinawa</div>"
-                      }
+                      staticClass: "path Okinawa card-text",
+                      attrs: { href: "#!", id: "47", "data-info": "Okinawa" }
                     },
                     [_vm._v("Okinawa")]
                   )

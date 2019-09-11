@@ -23,7 +23,7 @@
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
                                                                 <router-link :to="'/newsdetails/'+latest_post.id">
-                                                                        <img v-if="latest_post.photo" v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
+                                                                        <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
                                                                         <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle" v-if="latest_post.created_at">
                                                                                 <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
@@ -48,13 +48,13 @@
                         </div>
                 </div>
                                                
-                <div class="row m-lr-0">
+                <div class="col-md-12 pad-free m-lr-0">
                         <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
                         <div class="row col-md-12">
                                 <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                 <div class="hovereffect fit-image">
                                         <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
-                                        <img class="img-responsive fit-image" v-bind:src="'/images/' + latest_post_all_cat.photo" alt="">
+                                        <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
                                                 <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">{{ latest_post_all_cat.title }}</router-link>
@@ -111,7 +111,6 @@ export default {
 
     },
      mounted() {
-            console.log('Component mounted.')
            
         },
         data() {
@@ -121,7 +120,7 @@ export default {
                 latest_post: [],
                 latest_post_all_cats: [],
                 search_posts:[],
-                categoryId:[],
+                categoryId: 1,
             }
         },
         created() {
@@ -129,7 +128,7 @@ export default {
             this.getPostByCatID();
             this.getLatestPostByCatID();
             this.getLatestPostFromAllCat();
-            this.categoryId();
+        //     this.categoryId();
         },
         methods: {
                 getAllCat: function() {
@@ -157,7 +156,7 @@ export default {
                         
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("http://localhost:8000/api/posts/" , fd)
+                        axios.post("/api/posts/" , fd)
                         .then(response => {
                                 this.posts = response.data;
                         });
@@ -180,7 +179,7 @@ export default {
 
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("http://localhost:8000/api/get_latest_post/" , fd)
+                        axios.post("/api/get_latest_post/" , fd)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
@@ -204,7 +203,7 @@ export default {
                                 fd.append('search_word', search_word)
                                 fd.append('selected_category', categoryId)
                                 
-                        this.axios.post('http://localhost:8000/api/search', fd)
+                        this.axios.post('/api/search', fd)
                                 .then(response => {
                                         if(response.data.length == '0') {
                                                 this.posts = [];

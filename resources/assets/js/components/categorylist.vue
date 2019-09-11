@@ -57,11 +57,12 @@ export default {
                 .then(response => {
                     this.categories = response.data;
                 });
-                this.axios
+            this.axios
                 .get('/api/user')
-                .then(response => {  
-                    console.log(response)
+                .then(response => {
+                    console.log(response);
                 });
+                
         },
         methods: {
             deleteCategory(id) {
