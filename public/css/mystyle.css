@@ -561,7 +561,7 @@ div.scroll,
     overflow-y: auto;
     scrollbar-width: thin;*/
     background: white;
-    padding-top: 15px; 
+    padding-top: 15px;
 }
 
 .scrolldiv2 {
@@ -569,7 +569,7 @@ div.scroll,
     overflow-y: auto;
     scrollbar-width: thin;*/
     background: white;
-    padding-top: 15px; 
+    padding-top: 15px;
 }
 
 /* End Search News List */
@@ -1313,10 +1313,10 @@ div.b {
 }
 .fav-item{
     font-size: 12px;
-    padding: 5px;    
+    padding: 5px;
 }
-.fav-color{    
-    background-color: #f5807f;    
+.fav-color{
+    background-color: #f5807f;
 }
 .history-color{
     background-color: #7586c6;
@@ -1698,7 +1698,7 @@ ul.main-tab li:after {
     text-align: center;
     line-height: 20px;
     padding: 10px;
-    width: 100%; 
+    width: 100%;
 }
 
 /* Hospital Search */
@@ -1995,7 +1995,7 @@ color:white;
         position: unset;
         margin: 10px 0 30px;
     }
-    
+
 }
 @media only screen and (max-width: 980px) {
     .pc {
@@ -2013,7 +2013,7 @@ color:white;
     .sp-nav li {
         list-style: none;
         border-bottom: 1px solid #fff;
-        
+
     }
     .nav-link {
         padding: 0.5rem 0;
@@ -2031,4 +2031,9 @@ color:white;
         top: 7px;
     }
 }
-
+ /*  Start CommentList */
+button.confirmed  {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* End Commentlist */

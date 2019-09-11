@@ -110,6 +110,17 @@ Route::group(['middleware' => ['auth:api']], function() {
     });
     // End Advertisement 
 
+
+    //SpecialFeature
+    Route::group(['prefix' => 'feature'], function () {
+        Route::post('add', 'SpecialFeatureController@store');
+        Route::get('edit/{id}', 'SpecialFeatureController@edit');
+        Route::get('featurelist', 'SpecialFeatureController@index');
+        Route::post('update/{id}', 'SpecialFeatureController@update');
+        Route::delete('delete/{id}','SpecialFeatureController@destroy');
+    });
+    //End SpecialFeature
+
 });
 // login route api end
 
@@ -134,16 +145,11 @@ Route::group(['prefix' => 'customer'], function () {
 Route::get('getReset','registerController@getReset'); 
 Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
-
-
 Route::get('newdetails/{id}', 'PostController@show');
-
 Route::get('customers','CustomerController@index');
 Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
-
 Route::get('facilities', 'FacilityController@index');
-
 Route::get('job_details', 'JobDetailController@index');
 
 // Home Page

@@ -38131,7 +38131,7 @@ module.exports = function spread(callback) {
 
 "use strict";
 /*!
-  * vue-router v3.1.3
+  * vue-router v3.1.2
   * (c) 2019 Evan You
   * @license MIT
   */
@@ -38272,7 +38272,7 @@ var View = {
 
     return h(component, data, children)
   }
-};
+}
 
 function resolveProps (route, config) {
   switch (typeof config) {
@@ -38401,7 +38401,7 @@ function createRoute (
   redirectedFrom,
   router
 ) {
-  var stringifyQuery = router && router.options.stringifyQuery;
+  var stringifyQuery$$1 = router && router.options.stringifyQuery;
 
   var query = location.query || {};
   try {
@@ -38415,11 +38415,11 @@ function createRoute (
     hash: location.hash || '',
     query: query,
     params: location.params || {},
-    fullPath: getFullPath(location, stringifyQuery),
+    fullPath: getFullPath(location, stringifyQuery$$1),
     matched: record ? formatMatch(record) : []
   };
   if (redirectedFrom) {
-    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery);
+    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery$$1);
   }
   return Object.freeze(route)
 }
@@ -39246,24 +39246,7 @@ var Link = {
         // in case the <a> is a static node
         a.isStatic = false;
         var aData = (a.data = extend({}, a.data));
-        aData.on = aData.on || {};
-        // transform existing events in both objects into arrays so we can push later
-        for (var event in aData.on) {
-          var handler$1 = aData.on[event];
-          if (event in on) {
-            aData.on[event] = Array.isArray(handler$1) ? handler$1 : [handler$1];
-          }
-        }
-        // append new listeners for router-link
-        for (var event$1 in on) {
-          if (event$1 in aData.on) {
-            // on[event] is always a function
-            aData.on[event$1].push(on[event$1]);
-          } else {
-            aData.on[event$1] = handler;
-          }
-        }
-
+        aData.on = on;
         var aAttrs = (a.data.attrs = extend({}, a.data.attrs));
         aAttrs.href = href;
       } else {
@@ -39274,7 +39257,7 @@ var Link = {
 
     return h(this.tag, data, this.$slots.default)
   }
-};
+}
 
 function guardEvent (e) {
   // don't redirect with control keys
@@ -39389,18 +39372,6 @@ function createRouteMap (
       pathList.push(pathList.splice(i, 1)[0]);
       l--;
       i--;
-    }
-  }
-
-  if (true) {
-    // warn if routes do not include leading slashes
-    var found = pathList
-    // check for missing leading slash
-      .filter(function (path) { return path && path.charAt(0) !== '*' && path.charAt(0) !== '/'; });
-
-    if (found.length > 0) {
-      var pathNames = found.map(function (path) { return ("- " + path); }).join('\n');
-      warn(false, ("Non-nested routes must include a leading slash character. Fix the following routes: \n" + pathNames));
     }
   }
 
@@ -39759,28 +39730,6 @@ function resolveRecordPath (path, record) {
 
 /*  */
 
-// use User Timing api (if present) for more accurate key precision
-var Time =
-  inBrowser && window.performance && window.performance.now
-    ? window.performance
-    : Date;
-
-function genStateKey () {
-  return Time.now().toFixed(3)
-}
-
-var _key = genStateKey();
-
-function getStateKey () {
-  return _key
-}
-
-function setStateKey (key) {
-  return (_key = key)
-}
-
-/*  */
-
 var positionStore = Object.create(null);
 
 function setupScroll () {
@@ -39930,22 +39879,39 @@ function scrollToPosition (shouldScroll, position) {
 
 /*  */
 
-var supportsPushState =
-  inBrowser &&
-  (function () {
-    var ua = window.navigator.userAgent;
+var supportsPushState = inBrowser && (function () {
+  var ua = window.navigator.userAgent;
 
-    if (
-      (ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) &&
-      ua.indexOf('Mobile Safari') !== -1 &&
-      ua.indexOf('Chrome') === -1 &&
-      ua.indexOf('Windows Phone') === -1
-    ) {
-      return false
-    }
+  if (
+    (ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) &&
+    ua.indexOf('Mobile Safari') !== -1 &&
+    ua.indexOf('Chrome') === -1 &&
+    ua.indexOf('Windows Phone') === -1
+  ) {
+    return false
+  }
 
-    return window.history && 'pushState' in window.history
-  })();
+  return window.history && 'pushState' in window.history
+})();
+
+// use User Timing api (if present) for more accurate key precision
+var Time = inBrowser && window.performance && window.performance.now
+  ? window.performance
+  : Date;
+
+var _key = genKey();
+
+function genKey () {
+  return Time.now().toFixed(3)
+}
+
+function getStateKey () {
+  return _key
+}
+
+function setStateKey (key) {
+  _key = key;
+}
 
 function pushState (url, replace) {
   saveScrollPosition();
@@ -39954,9 +39920,10 @@ function pushState (url, replace) {
   var history = window.history;
   try {
     if (replace) {
-      history.replaceState({ key: getStateKey() }, '', url);
+      history.replaceState({ key: _key }, '', url);
     } else {
-      history.pushState({ key: setStateKey(genStateKey()) }, '', url);
+      _key = genKey();
+      history.pushState({ key: _key }, '', url);
     }
   } catch (e) {
     window.location[replace ? 'replace' : 'assign'](url);
@@ -40096,20 +40063,9 @@ function once (fn) {
 }
 
 var NavigationDuplicated = /*@__PURE__*/(function (Error) {
-  function NavigationDuplicated (normalizedLocation) {
-    Error.call(this);
+  function NavigationDuplicated () {
+    Error.call(this, 'Navigating to current location is not allowed');
     this.name = this._name = 'NavigationDuplicated';
-    // passing the message to super() doesn't seem to work in the transpiled version
-    this.message = "Navigating to current location (\"" + (normalizedLocation.fullPath) + "\") is not allowed";
-    // add a stack property so services like Sentry can correctly display it
-    Object.defineProperty(this, 'stack', {
-      value: new Error().stack,
-      writable: true,
-      configurable: true
-    });
-    // we could also have used
-    // Error.captureStackTrace(this, this.constructor)
-    // but it only exists on node and chrome
   }
 
   if ( Error ) NavigationDuplicated.__proto__ = Error;
@@ -40449,11 +40405,11 @@ function poll (
 
 /*  */
 
-var HTML5History = /*@__PURE__*/(function (History) {
+var HTML5History = /*@__PURE__*/(function (History$$1) {
   function HTML5History (router, base) {
     var this$1 = this;
 
-    History.call(this, router, base);
+    History$$1.call(this, router, base);
 
     var expectScroll = router.options.scrollBehavior;
     var supportsScroll = supportsPushState && expectScroll;
@@ -40481,8 +40437,8 @@ var HTML5History = /*@__PURE__*/(function (History) {
     });
   }
 
-  if ( History ) HTML5History.__proto__ = History;
-  HTML5History.prototype = Object.create( History && History.prototype );
+  if ( History$$1 ) HTML5History.__proto__ = History$$1;
+  HTML5History.prototype = Object.create( History$$1 && History$$1.prototype );
   HTML5History.prototype.constructor = HTML5History;
 
   HTML5History.prototype.go = function go (n) {
@@ -40537,9 +40493,9 @@ function getLocation (base) {
 
 /*  */
 
-var HashHistory = /*@__PURE__*/(function (History) {
+var HashHistory = /*@__PURE__*/(function (History$$1) {
   function HashHistory (router, base, fallback) {
-    History.call(this, router, base);
+    History$$1.call(this, router, base);
     // check history fallback deeplinking
     if (fallback && checkFallback(this.base)) {
       return
@@ -40547,8 +40503,8 @@ var HashHistory = /*@__PURE__*/(function (History) {
     ensureSlash();
   }
 
-  if ( History ) HashHistory.__proto__ = History;
-  HashHistory.prototype = Object.create( History && History.prototype );
+  if ( History$$1 ) HashHistory.__proto__ = History$$1;
+  HashHistory.prototype = Object.create( History$$1 && History$$1.prototype );
   HashHistory.prototype.constructor = HashHistory;
 
   // this is delayed until the app mounts
@@ -40702,15 +40658,15 @@ function replaceHash (path) {
 
 /*  */
 
-var AbstractHistory = /*@__PURE__*/(function (History) {
+var AbstractHistory = /*@__PURE__*/(function (History$$1) {
   function AbstractHistory (router, base) {
-    History.call(this, router, base);
+    History$$1.call(this, router, base);
     this.stack = [];
     this.index = -1;
   }
 
-  if ( History ) AbstractHistory.__proto__ = History;
-  AbstractHistory.prototype = Object.create( History && History.prototype );
+  if ( History$$1 ) AbstractHistory.__proto__ = History$$1;
+  AbstractHistory.prototype = Object.create( History$$1 && History$$1.prototype );
   AbstractHistory.prototype.constructor = AbstractHistory;
 
   AbstractHistory.prototype.push = function push (location, onComplete, onAbort) {
@@ -41005,7 +40961,7 @@ function createHref (base, fullPath, mode) {
 }
 
 VueRouter.install = install;
-VueRouter.version = '3.1.3';
+VueRouter.version = '3.1.2';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
@@ -41118,8 +41074,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_43__components_Comment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_commentlist_vue__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_commentlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_44__components_commentlist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_passport_vue__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_passport_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_45__components_passport_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_FeatureList_vue__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_FeatureList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_45__components_FeatureList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_passport_vue__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_passport_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_46__components_passport_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_CreateSpecialFeature_vue__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_CreateSpecialFeature_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_47__components_CreateSpecialFeature_vue__);
+
 
 
 
@@ -41176,7 +41137,7 @@ var routes = [{
 }, {
   name: 'passport',
   path: '/passport',
-  component: __WEBPACK_IMPORTED_MODULE_45__components_passport_vue___default.a
+  component: __WEBPACK_IMPORTED_MODULE_46__components_passport_vue___default.a
 }, {
   name: 'newdetails',
   path: '/newsdetails/:id',
@@ -41353,6 +41314,14 @@ var routes = [{
   name: 'commentlist',
   path: '/commentlist',
   component: __WEBPACK_IMPORTED_MODULE_44__components_commentlist_vue___default.a
+}, {
+  name: 'specialfeature',
+  path: '/specialfeature',
+  component: __WEBPACK_IMPORTED_MODULE_47__components_CreateSpecialFeature_vue___default.a
+}, {
+  name: 'featurelist',
+  path: '/featurelist',
+  component: __WEBPACK_IMPORTED_MODULE_45__components_FeatureList_vue___default.a
 }];
 
 /***/ }),
@@ -47215,7 +47184,8 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "col-sm-3 align-self-center text-right"
+                          staticClass:
+                            "col-sm-3 align-self-center text-right m-t-10"
                         },
                         [
                           _c(
@@ -60317,6 +60287,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -60360,8 +60353,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.post('/api/comments/add', this.comments).then(function (response) {
-
-                alert('Successfully Created');
+                alert('Mail Sent Successfully !');
 
                 // this.$router.push({name: 'categorylist'});
             }).catch(function (error) {
@@ -60376,13 +60368,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getYear: function getYear() {
 
             this.comments.year = this.selectedValue;
-        }
-        //  changetype()
-        // {
-        //    this.comments.gender = this.comments.gender;
-        // },
-    }
+        },
+        CheckFirstZipcode: function CheckFirstZipcode() {
+            var fzip = $('.fnumericzip').val();
+            var lzip = $('.lnumericzip').val();
 
+            if (!fzip.match('^(0|[1-9][0-9]*)$')) {
+
+                this.errors.fields = 'Zipcode must be numeric !';
+            } else if (fzip.match('^(0|[1-9][0-9]*)$') && lzip == '') {
+                this.errors.fields = '';
+            } else if (fzip.match('^(0|[1-9][0-9]*)$') && !lzip.match('^(0|[1-9][0-9]*)$')) {
+
+                this.errors.fields = 'Zipcode must be numeric !';
+            } else if (!fzip.match('^(0|[1-9][0-9]*)$') && lzip.match('^(0|[1-9][0-9]*)$')) {
+                this.errors.fields = 'Zipcode must be numeric !';
+            } else {
+                this.errors.fields = '';
+            }
+        }
+    }
 });
 
 /***/ }),
@@ -60588,6 +60593,7 @@ var render = function() {
                               expression: "selectedValue"
                             }
                           ],
+                          staticClass: "form-control",
                           attrs: { id: "dob" },
                           on: {
                             change: [
@@ -60642,6 +60648,7 @@ var render = function() {
                               expression: "comments.gender"
                             }
                           ],
+                          staticClass: "custom-radio",
                           attrs: { type: "radio", value: "0" },
                           domProps: {
                             checked: _vm._q(_vm.comments.gender, "0")
@@ -60665,6 +60672,7 @@ var render = function() {
                               expression: "comments.gender"
                             }
                           ],
+                          staticClass: "custom-radio",
                           attrs: { type: "radio", value: "1" },
                           domProps: {
                             checked: _vm._q(_vm.comments.gender, "1")
@@ -60697,10 +60705,15 @@ var render = function() {
                                 expression: "field.fzipcode"
                               }
                             ],
-                            staticClass: "form-control box",
-                            attrs: { type: "text", value: "firstzip" },
+                            staticClass: "form-control box fnumericzip",
+                            attrs: {
+                              type: "text",
+                              value: "firstzip",
+                              maxlength: "3"
+                            },
                             domProps: { value: field.fzipcode },
                             on: {
+                              keyup: _vm.CheckFirstZipcode,
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
@@ -60708,7 +60721,13 @@ var render = function() {
                                 _vm.$set(field, "fzipcode", $event.target.value)
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.fzipcode
+                            ? _c("span", { staticClass: "error" }, [
+                                _vm._v(_vm._s(_vm.errors.fzipcode[0]))
+                              ])
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-2" }, [
@@ -60721,10 +60740,15 @@ var render = function() {
                                 expression: "field.lzipcode"
                               }
                             ],
-                            staticClass: "form-control box",
-                            attrs: { type: "text", value: "secondzip" },
+                            staticClass: "form-control box lnumericzip",
+                            attrs: {
+                              type: "text",
+                              value: "secondzip",
+                              maxlength: "4"
+                            },
                             domProps: { value: field.lzipcode },
                             on: {
+                              keyup: _vm.CheckFirstZipcode,
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
@@ -60732,15 +60756,33 @@ var render = function() {
                                 _vm.$set(field, "lzipcode", $event.target.value)
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.lzipcode
+                            ? _c("span", { staticClass: "error" }, [
+                                _vm._v(_vm._s(_vm.errors.lzipcode[0]))
+                              ])
+                            : _vm._e()
                         ])
                       ]
                     )
                   }),
                   _vm._v(" "),
-                  _c("button", { staticClass: "btn news-post-btn" }, [
-                    _vm._v("Create")
-                  ])
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c("div", { staticClass: "col-sm-3" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-9" }, [
+                      _vm.errors.fields
+                        ? _c("span", { staticClass: "error" }, [
+                            _vm._v(_vm._s(_vm.errors.fields))
+                          ])
+                        : _vm._e()
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(8),
+                  _vm._v(" "),
+                  _vm._m(9)
                 ],
                 2
               )
@@ -60841,6 +60883,42 @@ var staticRenderFns = [
       _c("label", { attrs: { for: "zipcode" } }, [
         _c("strong", [_vm._v(" Zipcode : ")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "form-group row", staticStyle: { "padding-top": "60px" } },
+      [
+        _c("div", { staticClass: "col-sm-5" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("strong", [_vm._v(" Terms and Conditions ")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-3" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("div", { staticClass: "col-sm-3" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-5" }, [
+        _c("button", { staticClass: "btn news-post-btn btn-md" }, [
+          _vm._v(" Send ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" })
     ])
   }
 ]
@@ -61010,12 +61088,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         commentConfirm: function commentConfirm(id) {
             var _this3 = this;
 
-            this.axios.get('/api/comments/comfirm/' + id).then(function (response) {
-                _this3.comments = response.data.comments;
-
-                // alert('Successfully Confirm!');
-                // console.log(response.data);
-            });
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.get('/api/comments/comfirm/' + id).then(function (response) {
+                    _this3.comments = response.data.comments;
+                    alert('Successfully Confirm!');
+                    //console.log(this.comments);
+                });
+            }
         }
     }
 });
@@ -61030,34 +61109,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "row m-b-15" }, [
-        _c(
-          "div",
-          { staticClass: "col-md-12" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "float-right main-bg-color create-btn all-btn",
-                staticStyle: { color: "blue" },
-                attrs: { to: "/comment" }
-              },
-              [
-                _c("i", { staticClass: "fas fa-plus-circle" }),
-                _vm._v(" Create Comment")
-              ]
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style",
-          staticStyle: { height: "700px" }
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
         },
         [
           _c("h4", { staticClass: "main-color" }, [
@@ -61088,10 +61144,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "col-md-12 scrolldiv",
-              staticStyle: { height: "525px" }
-            },
+            { staticClass: "col-md-12 scrolldiv" },
             _vm._l(_vm.comments, function(comment) {
               return _c(
                 "div",
@@ -61109,55 +61162,54 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "col-md-4",
-                            staticStyle: { "margin-top": "8px" }
-                          },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn edit-borderbtn",
-                                attrs: {
-                                  type: "button",
-                                  "data-toggle": "collapse",
-                                  "data-target": "#showDetails" + comment.id
-                                }
-                              },
-                              [_vm._v("View")]
-                            ),
-                            _vm._v(" "),
-                            comment.status != 0
-                              ? _c("span", [_vm._v("Confirm")])
-                              : _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn confirm-borderbtn",
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.commentConfirm(comment.id)
-                                      }
+                        _c("div", { staticClass: "col-md-4 " }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn edit-borderbtn",
+                              attrs: {
+                                type: "button",
+                                "data-toggle": "collapse",
+                                "data-target": "#showDetails" + comment.id
+                              }
+                            },
+                            [_vm._v("View")]
+                          ),
+                          _vm._v(" "),
+                          comment.status != 0
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn confirm-borderbtn confirmed"
+                                },
+                                [_vm._v("Confirmed")]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass: "btn confirm-borderbtn",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.commentConfirm(comment.id)
                                     }
-                                  },
-                                  [_vm._v("Confirm")]
-                                ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn delete-borderbtn",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.deleteComment(comment.id)
                                   }
+                                },
+                                [_vm._v("Confirm")]
+                              ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn delete-borderbtn",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteComment(comment.id)
                                 }
-                              },
-                              [_vm._v("Delete")]
-                            )
-                          ]
-                        )
+                              }
+                            },
+                            [_vm._v("Delete")]
+                          )
+                        ])
                       ])
                     ])
                   ]),
@@ -65617,6 +65669,553 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(256)
+/* template */
+var __vue_template__ = __webpack_require__(257)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/CreateSpecialFeature.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-70e71250", Component.options)
+  } else {
+    hotAPI.reload("data-v-70e71250", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 256 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            errors: [],
+            feature: {
+                name: '',
+                user_id: '',
+                recordstatus: ''
+            }
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('/api/feature/edit/' + this.$route.params.id).then(function (response) {
+            _this.feature = response.data;
+        });
+    },
+
+
+    methods: {
+        add: function add() {
+            var _this2 = this;
+
+            if ('' + this.$route.params.id == "undefined") {
+                axios.post('/api/feature/add', this.feature).then(function (response) {
+                    _this2.name = '';
+                    alert('Successfully Created');
+                    _this2.$router.push({ name: 'featurelist' });
+                }).catch(function (error) {
+
+                    if (error.response.status == 422) {
+
+                        _this2.errors = error.response.data.errors;
+                    }
+                });
+            } else {
+                this.updateFeature();
+            }
+        },
+        updateFeature: function updateFeature() {
+            var _this3 = this;
+
+            this.axios.post('/api/feature/update/' + this.$route.params.id, this.feature).then(function (response) {
+                _this3.name = '';
+                alert('Successfully Updated!');
+                _this3.$router.push({ name: 'featurelist' });
+            }).catch(function (error) {
+
+                if (error.response.status == 422) {
+
+                    _this3.errors = error.response.data.errors;
+                }
+            });
+        }
+    }
+
+});
+
+/***/ }),
+/* 257 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "row" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.add($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.feature.name,
+                          expression: "feature.name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Feature Name" },
+                      domProps: { value: _vm.feature.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.feature, "name", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.name
+                      ? _c("span", { staticClass: "error" }, [
+                          _vm._v(_vm._s(_vm.errors.name[0]))
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group " },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn btn-danger all-btn",
+                          attrs: { to: "/featurelist" }
+                        },
+                        [_vm._v(" キャンセル ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        { staticClass: "btn news-post-btn all-btn" },
+                        [_vm._v("Create")]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h4", { staticClass: "page-header header" }, [
+        _vm._v("Feature Creation")
+      ]),
+      _vm._v(" "),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Feature Name :"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-70e71250", module.exports)
+  }
+}
+
+/***/ }),
+/* 258 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(259)
+/* template */
+var __vue_template__ = __webpack_require__(260)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/FeatureList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0a43a366", Component.options)
+  } else {
+    hotAPI.reload("data-v-0a43a366", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 259 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            features: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('/api/feature/featurelist').then(function (response) {
+            _this.features = response.data;
+        });
+    },
+
+    methods: {
+        deleteFeature: function deleteFeature(id) {
+            var _this2 = this;
+
+            if (confirm("Are you sure you want to delete?")) {
+                this.axios.delete('/api/feature/delete/' + id).then(function (response) {
+                    alert('Delete Successfully!');
+                    var i = _this2.features.map(function (item) {
+                        return item.id;
+                    }).indexOf(id); // find index of your object
+                    _this2.features.splice(i, 1);
+                });
+            }
+        },
+        searchFeature: function searchFeature() {
+            var _this3 = this;
+
+            var search_word = $('#search-item').val();
+            var fd = new FormData();
+            fd.append('search_word', search_word);
+            this.axios.post('/api/Feature/search', fd).then(function (response) {
+                _this3.categories = response.data;
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 260 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "row m-b-10" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "float-right main-bg-color create-btn all-btn",
+                attrs: { to: "/specialfeature" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-plus-circle" }),
+                _vm._v(" 新しいカテゴリを作成")
+              ]
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
+        },
+        [
+          _c("h4", { staticClass: "main-color" }, [
+            _vm._v("Feature List Search")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "検索", id: "search-item" },
+                on: {
+                  keyup: function($event) {
+                    return _vm.searchFeature()
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h5", { staticClass: "header" }, [_vm._v("Feature List")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-12 scrolldiv" },
+            _vm._l(_vm.features, function(feature) {
+              return _c(
+                "div",
+                { key: feature.id, staticClass: "container-fuid" },
+                [
+                  _c("div", { staticClass: "card card-default m-b-20" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-10 m-t-8" }, [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(feature.name) +
+                              "\n                            "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-2 pad-free" }, [
+                          _c(
+                            "small",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn edit-borderbtn",
+                                  attrs: {
+                                    to: {
+                                      name: "specialfeature",
+                                      params: { id: feature.id }
+                                    }
+                                  }
+                                },
+                                [_vm._v(" 編集")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v("  \n                                "),
+                          _c("small", [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn text-danger delete-borderbtn",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteFeature(feature.id)
+                                  }
+                                }
+                              },
+                              [_vm._v(" 削除")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0a43a366", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
