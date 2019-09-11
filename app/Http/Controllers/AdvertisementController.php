@@ -121,16 +121,6 @@ class AdvertisementController extends Controller
           return response()->json(' Successfully updated');
 
     }
-    // public function search(Request $request)
-    // {
-    //     $request = $request->all();
-    //     $search_word = $request['search_word'];
-    //     $search_advertisement = Advertisement::query()
-    //                         ->where('title', 'LIKE', "%{$search_word}%")
-    //                         ->get()
-    //                         ->toArray();
-    //     return $search_advertisement;
-    // }
 
     /**
      * Remove the specified resource from storage.

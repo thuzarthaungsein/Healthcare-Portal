@@ -44852,45 +44852,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        data: function data() {
-                return {
-                        errors: [],
+    data: function data() {
+        return {
+            errors: [],
 
-                        jobApply: {
-                                name: '',
-                                birthday: '',
-                                address: '',
-                                phone: '',
-                                email: '',
-                                work_time: '',
-                                fields: [{
-                                        skills: [],
-                                        id: ''
-                                }]
-                        }
+            jobApply: {
+                name: '',
+                birthday: '',
+                address: '',
+                phone: '',
+                email: '',
+                work_time: '',
+                fields: [{
+                    skills: [],
+                    id: ''
+                }]
+            }
 
-                };
-        },
-        created: function created() {
-                var _this = this;
+        };
+    },
+    created: function created() {
+        var _this = this;
 
-                this.axios.get('/api/getskill').then(function (response) {
-                        _this.jobApply.fields = response.data;
-                });
-        },
+        this.axios.get('/api/getskill').then(function (response) {
+            _this.jobApply.fields = response.data;
+        });
+    },
 
-        methods: {
-                apply: function apply() {
-                        var _this2 = this;
+    methods: {
+        apply: function apply() {
+            var _this2 = this;
 
-                        this.axios.post('/api/jobapply', this.jobApply).then(function (response) {
-                                alert('Successful Apply');
-                                console.log(response);
-                                //console.log(this.jobApply.toString());
-                                _this2.jobApply = response.data;
-                        });
-                }
+            this.axios.post('/api/jobapply', this.jobApply).then(function (response) {
+                alert('Successful Apply');
+                console.log(response);
+                //console.log(this.jobApply.toString());
+                _this2.jobApply = response.data;
+            });
         }
+    }
 });
 
 /***/ }),

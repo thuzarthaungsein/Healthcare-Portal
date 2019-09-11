@@ -4,7 +4,7 @@
     <div class="col-md-7 offset-md-3">
         <form @submit.prevent="apply">
         <div class="form-group">
-            <input type="text" class="form-control box" id="name" placeholder="name" v-model="jobApply.name" >
+            <input type="text" class="form-control box" id="name" placeholder="name" v-model="jobApply.name"  >
             <!-- <div v-if="errors && errors.name" class="text-danger">{{ errors.name[0] }}</div> -->
         </div>
         <div class="form-group">
@@ -32,7 +32,7 @@
             <div class="col-md-12" style=" columns: 2;-webkit-columns: 2;-moz-columns: 2;">
                     <div class="form-group" v-for="job in jobApply.fields" :key="job.id">
                         <label><input type="checkbox" v-bind:value="{ id: job.skill }"  v-model="job.skill" > {{job}}</label>
-        </div>
+                    </div>
             </div>
         </div>
 
