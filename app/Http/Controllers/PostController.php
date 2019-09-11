@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-       
+
        $news_list = Post::all()->toArray();
        return response()->json(array_reverse($news_list));
 
@@ -59,8 +59,8 @@ class PostController extends Controller
                 'recordstatus' => 1
             ]);
         }
-       
-      
+
+
 
         $post->save();
 
@@ -136,21 +136,28 @@ class PostController extends Controller
             'category_id.required' => 'ニュースのカテゴリーが必須です。',
             'body.required' => 'ニュースの内容が必須です。',
         ]);
-        $imageName = $request->photo->getClientOriginalName();
-        $request->photo->move(public_path('/upload/news'), $imageName);
+        if(is_object($request->photo)){
+            $imageName = $request->photo->getClientOriginalName();
+            $request->photo->move(public_path('/upload/news'), $imageName);
+        }else {
+            $imageName =$request->photo;
+        }
+
         $formData = array(
             'title' => $request->input('title'),
             'main_point' => $request->input('main_point'),
             'body' => $request->input('body'),
-            'photo' => $request->photo->getClientOriginalName(),
+            'photo' => $imageName,
             'category_id' =>$request->input('category_id'),
             'user_id' => 1,
             'recordstatus' => 1
         );
         $post = Post::find($id);
-        $file= $post->photo;
-        $filename = public_path().'/upload/news/'.$file;
-        \File::delete($filename);
+        if(is_object($request->photo)){
+            $file= $post->photo;
+            $filename = public_path().'/upload/news/'.$file;
+            \File::delete($filename);
+        }
         $post->update($formData);
         return response()->json('The news successfully updated');
     }
@@ -180,16 +187,16 @@ class PostController extends Controller
         if(isset($request['selected_category'])) {
             $category_id = $request['selected_category'];
             $query = $query->where('category_id', $category_id);
-        } 
+        }
 
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];
-        
+
             $query = $query->where(function($qu) use ($search_word){
                             $qu->where('title', 'LIKE', "%{$search_word}%")
                                 ->orWhere('main_point', 'LIKE', "%{$search_word}%");
                         });
-        } 
+        }
         $query = $query->orderBy('id','DESC')
                         ->get();
         return $query;

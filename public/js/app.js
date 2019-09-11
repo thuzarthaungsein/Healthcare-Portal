@@ -47244,7 +47244,8 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "col-sm-3 align-self-center text-right"
+                          staticClass:
+                            "col-sm-3 align-self-center text-right m-t-10"
                         },
                         [
                           _c(

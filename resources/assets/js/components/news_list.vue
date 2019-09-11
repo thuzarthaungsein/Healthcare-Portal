@@ -8,8 +8,8 @@
                 </div>
                 <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
             </div>
-            <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">                
-                 <h4 class="main-color">ニュース検索</h4>                 
+            <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
+                 <h4 class="main-color">ニュース検索</h4>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -20,7 +20,7 @@
                                      <input type="text" class="form-control" placeholder="検索" id="search-item"  @keyup="searchbyCategory()">
                                 </div>
                                 <div class="col-6 float-right row align-items-baseline">
-                                    <label for="selectBox col-2 col-form-label">カテゴリー</label> 
+                                    <label for="selectBox col-2 col-form-label">カテゴリー</label>
                                     <div class="col-10">
                                         <select class="form-control" id="selectBox" @change="searchbyCategory()" >
                                         <option selected="selected" value="">全て</option>
@@ -52,7 +52,7 @@
                                     </b></div>
                                 <p>{{newsList.main_point}}</p>
                             </div>
-                            <div class="col-sm-3 align-self-center text-right">
+                            <div class="col-sm-3 align-self-center text-right m-t-10">
                                 <router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="btn edit-borderbtn">編集</router-link>&nbsp;
                                 <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a>
                             </div>
