@@ -9,7 +9,7 @@ use App\Mail\SendMailComment;
 
 class CommentController extends Controller
 {
-
+    protected $zipcode;
     public function index()
     {
          $comment =Comment::all()->toArray();
@@ -25,15 +25,22 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
+       
         $request->validate([
             'title' => 'required',
             'comment' =>'required',
-            'email' => 'required|email',
-                
+            'email' => 'required|email',  
+            'fzipcode' => 'required|numeric',
+            'lzipcode' => 'required|numeric', 
+        ],[
+            'fzipcode.required' => 'First zipcode is required',
+            'lzipcode.required' => 'Second zipcode is required'
         ]);
+     
 
+    
         $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
-
+           
         $comment = new Comment ([
 
             'title' => $request->input('title'),

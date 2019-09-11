@@ -59962,6 +59962,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -60020,13 +60028,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getYear: function getYear() {
 
             this.comments.year = this.selectedValue;
-        }
-        //  changetype()
-        // {
-        //    this.comments.gender = this.comments.gender;
-        // },
-    }
+        },
+        CheckFirstZipcode: function CheckFirstZipcode() {
+            var fzip = $('.fnumericzip').val();
+            var lzip = $('.lnumericzip').val();
 
+            if (!fzip.match('^(0|[1-9][0-9]*)$')) {
+
+                this.errors.fields = 'Zipcode must be numeric !';
+            } else if (fzip.match('^(0|[1-9][0-9]*)$') && lzip == '') {
+                this.errors.fields = '';
+            } else if (fzip.match('^(0|[1-9][0-9]*)$') && !lzip.match('^(0|[1-9][0-9]*)$')) {
+
+                this.errors.fields = 'Zipcode must be numeric !';
+            } else if (!fzip.match('^(0|[1-9][0-9]*)$') && lzip.match('^(0|[1-9][0-9]*)$')) {
+                this.errors.fields = 'Zipcode must be numeric !';
+            } else {
+                this.errors.fields = '';
+            }
+        }
+    }
 });
 
 /***/ }),
@@ -60344,10 +60365,15 @@ var render = function() {
                                 expression: "field.fzipcode"
                               }
                             ],
-                            staticClass: "form-control box",
-                            attrs: { type: "text", value: "firstzip" },
+                            staticClass: "form-control box fnumericzip",
+                            attrs: {
+                              type: "text",
+                              value: "firstzip",
+                              maxlength: "3"
+                            },
                             domProps: { value: field.fzipcode },
                             on: {
+                              keyup: _vm.CheckFirstZipcode,
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
@@ -60355,7 +60381,13 @@ var render = function() {
                                 _vm.$set(field, "fzipcode", $event.target.value)
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.fzipcode
+                            ? _c("span", { staticClass: "error" }, [
+                                _vm._v(_vm._s(_vm.errors.fzipcode[0]))
+                              ])
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-2" }, [
@@ -60368,10 +60400,15 @@ var render = function() {
                                 expression: "field.lzipcode"
                               }
                             ],
-                            staticClass: "form-control box",
-                            attrs: { type: "text", value: "secondzip" },
+                            staticClass: "form-control box lnumericzip",
+                            attrs: {
+                              type: "text",
+                              value: "secondzip",
+                              maxlength: "4"
+                            },
                             domProps: { value: field.lzipcode },
                             on: {
+                              keyup: _vm.CheckFirstZipcode,
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
@@ -60379,11 +60416,29 @@ var render = function() {
                                 _vm.$set(field, "lzipcode", $event.target.value)
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.lzipcode
+                            ? _c("span", { staticClass: "error" }, [
+                                _vm._v(_vm._s(_vm.errors.lzipcode[0]))
+                              ])
+                            : _vm._e()
                         ])
                       ]
                     )
                   }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c("div", { staticClass: "col-sm-3" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-9" }, [
+                      _vm.errors.fields
+                        ? _c("span", { staticClass: "error" }, [
+                            _vm._v(_vm._s(_vm.errors.fields))
+                          ])
+                        : _vm._e()
+                    ])
+                  ]),
                   _vm._v(" "),
                   _vm._m(8),
                   _vm._v(" "),

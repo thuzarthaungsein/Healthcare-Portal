@@ -96,13 +96,21 @@
                                                 <label for ="zipcode"  ><strong> Zipcode : </strong>   </label>
                                             </div>
                                              <div class="col-sm-2">
-                                                 <input type="text" class="form-control box" value="firstzip" v-model="field.fzipcode">
-                                              
+                                                 <input type="text" class="form-control box fnumericzip" value="firstzip" v-model="field.fzipcode" maxlength="3" v-on:keyup="CheckFirstZipcode">
+                                              <span v-if="errors.fzipcode" class="error">{{errors.fzipcode[0]}}</span>
                                              </div>   
                                                <div class="col-sm-2">
-                                                 <input type="text" class="form-control box" value="secondzip" v-model="field.lzipcode">      
+                                                 <input type="text" class="form-control box lnumericzip" value="secondzip" v-model="field.lzipcode" maxlength="4" v-on:keyup="CheckFirstZipcode">      
+                                                  <span v-if="errors.lzipcode" class="error">{{errors.lzipcode[0]}}</span>
                                              </div>   
                                         </div> 
+                                        <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                     <span v-if="errors.fields" class="error">{{errors.fields}}</span>
+                                                </div>
+                                         </div>
 
                                         <div class="form-group row" style="padding-top:60px;">
                                             <div class="col-sm-5"></div>
@@ -168,8 +176,8 @@ export default {
 
          methods: {
             add() {
-                
-                axios.post('/api/comments/add', this.comments)
+
+                  axios.post('/api/comments/add', this.comments)
                     .then((response) => {   
                     alert('Mail Sent Successfully !') 
 
@@ -181,20 +189,47 @@ export default {
                         this.errors = error.response.data.errors       
                           
                     }
-                })   
+                }) 
+               
+                  
             },
              getYear: function(){
 
                this.comments.year = this.selectedValue;
 
            },
-            //  changetype()
-            // {
-            //    this.comments.gender = this.comments.gender;
-            // },
-         }
-     
+           CheckFirstZipcode(){
+               var fzip = $('.fnumericzip').val();
+               var lzip = $('.lnumericzip').val();
+               
+                if(!fzip.match('^(0|[1-9][0-9]*)$')){
+                  
+                   this.errors.fields = 'Zipcode must be numeric !'
+                }
+                else if(fzip.match('^(0|[1-9][0-9]*)$') && lzip == '' )
+                {
+                     this.errors.fields = ''
+                }
+                else if(fzip.match('^(0|[1-9][0-9]*)$') && !lzip.match('^(0|[1-9][0-9]*)$'))
+                {
+                  
+                     this.errors.fields = 'Zipcode must be numeric !'
+                }
+                else if(!fzip.match('^(0|[1-9][0-9]*)$') && lzip.match('^(0|[1-9][0-9]*)$'))
+                {  
+                     this.errors.fields = 'Zipcode must be numeric !'
+                }      
+                else{
+                    this.errors.fields = ''
+                }
+                    
+            }
+           
+          
+         }  
 }
+
+
 
 </script>
 
