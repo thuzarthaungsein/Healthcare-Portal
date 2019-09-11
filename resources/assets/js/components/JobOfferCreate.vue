@@ -263,7 +263,7 @@ export default {
 
                 if( `${this.$route.params.id}` == "undefined")
                 {
-                  
+
                     axios.post('/api/job/add', this.joboffer)
                     .then((response) => {
                         this.title = '',
@@ -293,7 +293,7 @@ export default {
                      this.updateJob();
                 }
             },
-           
+
             addRow: function() {
                 this.joboffer.fields.push({
                 skills: '',

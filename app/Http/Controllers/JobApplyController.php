@@ -37,18 +37,24 @@ class JobApplyController extends Controller
      */
     public function store(Request $request)
     {
-
+        $request->validate([
+            'name' => 'required',
+            'birthday' =>'required',
+             'address' => 'required',
+             'phone' => 'required',
+             'email' => 'required',
+        ]);
                 $string = '';
-                $count = count($request->fields);
+                $count = count($request->skills);
 
                 for($i = 0;$i< $count ;$i++)
                 {
 
                     if($i == $count-1)
                     {
-                        $string .= $request->fields[$i];
+                        $string .= $request->skills[$i];
                     }else{
-                        $string .= $request->fields[$i].',';
+                        $string .= $request->skills[$i].',';
                     }
 
                 }
