@@ -407,9 +407,9 @@
             var side_ad = "";
             for (var i = 0; i < data.length; i++) {
                 if(data[i].location == "topbar") {
-                    top_ad += '<div class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/'+data[i].id+'"><img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="upload/advertisement/' + data[i].photo + '" /><h3 class="smallads-title text-truncate" style="padding: 10px 0px;height: 90px;">' + data[i].title + '</h3></a></div>';
+                    top_ad += '<div class="list-group-item adslist-card" style="padding: 2px;height: 120px;"><a href="/newsdetails/'+data[i].id+'"><img class="img-fluid ads-img" style="width:130px;margin-right: 13.2px;" src="/upload/advertisement/' + data[i].photo + '" /><h3 class="smallads-title text-truncate" style="padding: 10px 0px;height: 90px;">' + data[i].title + '</h3></a></div>';
                 } else {
-                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="upload/advertisement/' + data[i].photo + '" /></a></div>';
+                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /></a></div>';
                 }
                 
             }

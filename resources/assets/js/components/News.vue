@@ -54,7 +54,7 @@
                                 <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                 <div class="hovereffect fit-image">
                                         <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
-                                        <img class="img-responsive fit-image" v-bind:src="'/images/' + latest_post_all_cat.photo" alt="">
+                                        <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
                                                 <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">{{ latest_post_all_cat.title }}</router-link>
@@ -156,7 +156,7 @@ export default {
                         
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("http://localhost:8000/api/posts/" , fd)
+                        axios.post("/api/posts/" , fd)
                         .then(response => {
                                 this.posts = response.data;
                         });
@@ -179,7 +179,7 @@ export default {
 
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("http://localhost:8000/api/get_latest_post/" , fd)
+                        axios.post("/api/get_latest_post/" , fd)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
@@ -203,7 +203,7 @@ export default {
                                 fd.append('search_word', search_word)
                                 fd.append('selected_category', categoryId)
                                 
-                        this.axios.post('http://localhost:8000/api/search', fd)
+                        this.axios.post('/api/search', fd)
                                 .then(response => {
                                         if(response.data.length == '0') {
                                                 this.posts = [];
