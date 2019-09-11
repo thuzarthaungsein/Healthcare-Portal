@@ -6,11 +6,12 @@ $(".path").hover(
     $('#info-box').css({
       'display':'block',
       'position':'fixed',
-      'top':"175px",
-      'left':'1350px'
+      'top':'175px',
+      'left':'130px'
+      
     });
-   
-    $('#info-box').html($(this).data('info'));
+    
+    $('#info-box').html($(this).data('info'));   
            
        
   },
