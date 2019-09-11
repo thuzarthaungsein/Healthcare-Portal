@@ -23,7 +23,7 @@
                                                 <div class="row">
                                                         <div class="active-users col-md-4">
                                                                 <router-link :to="'/newsdetails/'+latest_post.id">
-                                                                        <img v-if="latest_post.photo" v-bind:src="'/images/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
+                                                                        <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
                                                                         <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
                                                                         <p class="source-subtitle" v-if="latest_post.created_at">
                                                                                 <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}

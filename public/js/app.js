@@ -43685,7 +43685,7 @@ var render = function() {
                                 staticClass: "source-img img-responsive",
                                 staticStyle: { width: "100%", height: "200px" },
                                 attrs: {
-                                  src: "/images/" + _vm.latest_post.photo
+                                  src: "/upload/news/" + _vm.latest_post.photo
                                 }
                               })
                             : _vm._e(),
@@ -44394,7 +44394,6 @@ var render = function() {
         "div",
         {
           staticClass: "tab-pane in active",
-          staticStyle: { height: "691px" },
           attrs: { role: "tabpanel", id: "tab1" }
         },
         [
@@ -44424,139 +44423,120 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "justify-content-md-center scrolldiv2",
-              staticStyle: { height: "677px" }
-            },
-            [
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "row m-lr-0 mb-3" }, [
-                  _c("div", { staticClass: "col-md-12" }, [
-                    _c("h4", { staticClass: "h_4 header" }, [
-                      _vm._v(_vm._s(_vm.newdetails.title))
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "set-date" }, [
-                      _c("time", { attrs: { datetime: "2012-01-04" } }, [
-                        _vm._v(_vm._s(_vm.newdetails.created_at))
-                      ])
-                    ])
+          _c("div", { staticClass: "justify-content-md-center scrolldiv2" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "row m-lr-0 mb-3" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("h4", { staticClass: "h_4 header" }, [
+                    _vm._v(_vm._s(_vm.newdetails.title))
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("p", { staticClass: "p5" }, [
-                      _vm._v(_vm._s(_vm.newdetails.body))
+                  _c("p", { staticClass: "set-date" }, [
+                    _c("time", { attrs: { datetime: "2012-01-04" } }, [
+                      _vm._v(_vm._s(_vm.newdetails.created_at))
                     ])
-                  ]),
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-8" }, [
+                  _c("p", { staticClass: "p5" }, [
+                    _vm._v(_vm._s(_vm.newdetails.body))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4 mt-2 related-area" }, [
+                  _c("img", {
+                    staticClass: "img-responsive img_2 news_photo",
+                    attrs: { src: "/upload/news/" + _vm.newdetails.photo }
+                  }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6  mt-2 related-area" }, [
-                    _c("img", {
-                      staticClass: "img-responsive img_2 news_photo",
-                      attrs: { src: "/images/" + _vm.newdetails.photo }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "img_2 header",
-                        staticStyle: { "font-size": "22px" }
-                      },
-                      [_vm._v("関連ニュース")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(2)
-                  ]),
+                  _vm._m(1),
                   _vm._v(" "),
                   _c(
-                    "div",
-                    { staticClass: "row m-lr-0" },
-                    [
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _vm._l(_vm.latest_post_all_cats, function(
-                        latest_post_all_cat
-                      ) {
-                        return _c(
-                          "div",
-                          {
-                            key: latest_post_all_cat.id,
-                            staticClass: "col-sm-3  col-md-3 mt-2"
-                          },
-                          [
+                    "p",
+                    {
+                      staticClass: "img_2 header",
+                      staticStyle: { "font-size": "22px" }
+                    },
+                    [_vm._v("関連ニュース")]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(2)
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row m-lr-0" },
+                  [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _vm._l(_vm.latest_post_all_cats, function(
+                      latest_post_all_cat
+                    ) {
+                      return _c(
+                        "div",
+                        {
+                          key: latest_post_all_cat.id,
+                          staticClass: "col-sm-3  col-md-3 mt-2"
+                        },
+                        [
+                          _c("div", { staticClass: "hovereffect fit-image" }, [
+                            _c("img", {
+                              staticClass: "img-responsive fit-image",
+                              attrs: {
+                                src:
+                                  "/upload/news/" + latest_post_all_cat.photo,
+                                alt: ""
+                              }
+                            }),
+                            _vm._v(" "),
                             _c(
                               "div",
-                              { staticClass: "hovereffect fit-image" },
+                              { staticClass: "overlay" },
                               [
-                                _c("img", {
-                                  staticClass: "img-responsive fit-image",
-                                  attrs: {
-                                    src: "/images/" + latest_post_all_cat.photo,
-                                    alt: ""
-                                  }
-                                }),
+                                _c("h2"),
                                 _vm._v(" "),
                                 _c(
-                                  "div",
-                                  { staticClass: "overlay" },
-                                  [
-                                    _c("h2"),
-                                    _vm._v(" "),
-                                    _c(
-                                      "router-link",
-                                      {
-                                        staticClass:
-                                          "btn btn-sm all-btn secondary-bg-color",
-                                        attrs: {
-                                          to:
-                                            "/newsdetails/" +
-                                            latest_post_all_cat.id
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(latest_post_all_cat.title)
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("a", {
-                                      attrs: { href: "'/newsdetails" }
-                                    })
-                                  ],
-                                  1
+                                  "router-link",
+                                  {
+                                    staticClass:
+                                      "btn btn-sm all-btn secondary-bg-color",
+                                    attrs: {
+                                      to:
+                                        "/newsdetails/" + latest_post_all_cat.id
+                                    }
+                                  },
+                                  [_vm._v(_vm._s(latest_post_all_cat.title))]
                                 ),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "info" }, [
-                                  _c("div", { staticClass: "row" }, [
-                                    _c("div", { staticClass: "col-12" }, [
-                                      _c("p", { staticClass: " p_3" }, [
-                                        _vm._v(
-                                          "\r\n                                                                        " +
-                                            _vm._s(
-                                              latest_post_all_cat.main_point
-                                            ) +
-                                            "\r\n                                                                "
-                                        )
-                                      ])
-                                    ])
+                                _c("a", { attrs: { href: "'/newsdetails" } })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "info" }, [
+                              _c("div", { staticClass: "row" }, [
+                                _c("div", { staticClass: "col-12" }, [
+                                  _c("p", { staticClass: " p_3" }, [
+                                    _vm._v(
+                                      "\r\n                                                                        " +
+                                        _vm._s(latest_post_all_cat.main_point) +
+                                        "\r\n                                                                "
+                                    )
                                   ])
                                 ])
-                              ]
-                            )
-                          ]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ])
+                              ])
+                            ])
+                          ])
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
               ])
-            ]
-          )
+            ])
+          ])
         ]
       ),
       _vm._v(" "),
@@ -47559,6 +47539,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.axios.get('/api/category/categories').then(function (response) {
             _this.categories = response.data;
+        });
+        this.axios.get('/api/user').then(function (response) {
+            console.log(response);
         });
     },
 
