@@ -99,9 +99,7 @@ export default {
 
                  axios.post('/api/customer/add', fd )
                     .then((response) => {
-                        console.log(response);
                     alert('Successfully Created')
-                    console.log(response);
                      this.$router.push({name: '/'});
                     })
             }

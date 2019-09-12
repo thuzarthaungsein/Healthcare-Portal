@@ -261,11 +261,9 @@ export default {
          methods: {
             add() {
 
-
                 if( `${this.$route.params.id}` == "undefined")
                 {
-
-
+                  
                     axios.post('/api/job/add', this.joboffer)
                     .then((response) => {
                         this.title = '',
@@ -277,7 +275,6 @@ export default {
 
 
                     alert('Successfully Created')
-                    console.log(response);
                     this.$router.push({name: 'jobofferlist'});
                     this.$route.params.id = null;
 

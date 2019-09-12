@@ -9,7 +9,7 @@ use App\Mail\SendMailComment;
 
 class CommentController extends Controller
 {
-
+    protected $zipcode;
     public function index()
     {
          $comment =Comment::all()->toArray();
@@ -24,16 +24,23 @@ class CommentController extends Controller
 
 
     public function store(Request $request)
-    {   
+    {
+       
         $request->validate([
-            'title' => 'required|unique:comments',
+            'title' => 'required',
             'comment' =>'required',
-            'email' => 'required|email|unique:comments',
-                
+            'email' => 'required|email',  
+            'fzipcode' => 'required|numeric',
+            'lzipcode' => 'required|numeric', 
+        ],[
+            'fzipcode.required' => 'First zipcode is required',
+            'lzipcode.required' => 'Second zipcode is required'
         ]);
+     
 
+    
         $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
-
+           
         $comment = new Comment ([
 
             'title' => $request->input('title'),
@@ -51,7 +58,7 @@ class CommentController extends Controller
         $comment ->save();
 
         $getComment = Comment::findOrFail($comment->id);
-       
+
         if($getComment->gender == 0 )
         {
             $getComment->gender = "Male";
@@ -61,7 +68,7 @@ class CommentController extends Controller
         }
         \Mail::to($getComment)->send(new SendMailComment($getComment));
 
-        return response()->json(['success'=>'Done!']);
+        // return response()->json(['success'=>'Done!']);
 
     }
 
@@ -97,7 +104,6 @@ class CommentController extends Controller
             $comment =Comment::find($id);
             $comment->status =1;
             $comment->save();
-
             $comment =Comment::all()->toArray();
             $data = array("comments"=> $comment, "success", "Comment successfully confirmed");
             return response()->json($data);
