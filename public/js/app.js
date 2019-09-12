@@ -57986,29 +57986,74 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        data: function data() {
-                return {
-                        hos_profiles: [],
-                        local_sto: ''
-                };
-        },
-        created: function created() {
-                this.local_sto = localStorage.getItem("hospital_history");
-                this.getAllCustomer(this.local_sto);
-        },
+  data: function data() {
+    return {
+      hos_profiles: [],
+      local_sto: ""
+    };
+  },
+  created: function created() {
+    this.local_sto = localStorage.getItem("hospital_history");
+    this.getAllCustomer(this.local_sto);
+  },
 
-        methods: {
-                getAllCustomer: function getAllCustomer(local_storage) {
-                        var _this = this;
+  methods: {
+    getAllCustomer: function getAllCustomer(local_storage) {
+      var _this = this;
 
-                        this.axios.post('/api/hospital_history/' + local_storage).then(function (response) {
-                                _this.hos_profiles = response.data;
-                        });
-                }
-        }
-
+      this.axios.post("/api/hospital_history/" + local_storage).then(function (response) {
+        _this.hos_profiles = response.data;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -58024,7 +58069,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: " col-12 scrolldiv2" },
+      { staticClass: "col-12 scrolldiv2" },
       _vm._l(_vm.hos_profiles, function(hos_profile) {
         return _c(
           "div",
@@ -58035,106 +58080,131 @@ var render = function() {
           [
             _c("div", { staticClass: "card-body news-post" }, [
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "col-lg-3 col-md-12 m-b-20" }, [
+                  _c("h4", { staticClass: "m-b-20 text-center sp" }, [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(hos_profile.name))
+                    ])
+                  ]),
+                  _vm._v(" "),
                   _c("img", {
-                    staticClass: "col-md-12",
+                    staticClass: "col-md-12 hos-img",
                     attrs: { src: "/images/" + hos_profile.logo, alt: "" }
                   }),
                   _vm._v(" "),
                   _c(
                     "button",
-                    {
-                      staticClass: "btn btn-danger all-btn",
-                      staticStyle: {
-                        "margin-top": "10px",
-                        "margin-left": "15px",
-                        display: "block",
-                        align: "center",
-                        width: "200px"
-                      }
-                    },
-                    [_vm._v("最近見た施設から削除 ")]
+                    { staticClass: "btn btn-danger all-btn hos-btn" },
+                    [_vm._v("最近見た施設から削除")]
                   ),
                   _vm._v(" "),
                   _c(
                     "button",
-                    {
-                      staticClass: "btn btn-info all-btn",
-                      staticStyle: {
-                        "margin-top": "10px",
-                        "margin-left": "15px",
-                        width: "200px"
-                      }
-                    },
+                    { staticClass: "btn btn-info all-btn hos-btn" },
                     [_vm._v("検討リストに追加")]
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-5" }, [
-                  _c("div", { staticClass: "pad-free mb-2 " }, [
-                    _c("h4", [
+                _c("div", { staticClass: "col-lg-5 col-md-12 m-b-10" }, [
+                  _c("div", { staticClass: "pad-free mb-2" }, [
+                    _c("h4", { staticClass: "pc" }, [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v(" " + _vm._s(hos_profile.name) + " ")
+                        _vm._v(_vm._s(hos_profile.name))
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("strong", [_vm._v("Website  :")]),
+                    _c("strong", [_vm._v("Website :")]),
+                    _vm._v(" "),
                     _c("a", { attrs: { href: "" } }, [
-                      _vm._v(" " + _vm._s(hos_profile.website))
+                      _vm._v(_vm._s(hos_profile.website))
                     ]),
+                    _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
                     _c("a", [
-                      _c("strong", [_vm._v("Medical Department    :")]),
-                      _vm._v(_vm._s(hos_profile.medical_department))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Phone    :")]),
-                      _vm._v(_vm._s(hos_profile.phone))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Access  :")]),
-                      _vm._v(_vm._s(hos_profile.access))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Email  :")]),
-                      _vm._v(_vm._s(hos_profile.email))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Details  :")]),
-                      _vm._v(_vm._s(hos_profile.details_info))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Subjects  :")]),
-                      _vm._v(_vm._s(hos_profile.subject))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Location    :")]),
+                      _c("strong", [_vm._v("Medical Department :")]),
                       _vm._v(
-                        _vm._s(hos_profile.township_name) +
-                          ", " +
-                          _vm._s(hos_profile.city_name)
+                        "\n                " +
+                          _vm._s(hos_profile.medical_department) +
+                          "\n              "
                       )
                     ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Phone :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.phone) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Access :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.access) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Email :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.email) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Details :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.details_info) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Subjects :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.subject) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Location :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.township_name) +
+                          ", " +
+                          _vm._s(hos_profile.city_name) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
                     _c("br")
                   ])
                 ]),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-md-4" },
+                  { staticClass: "col-lg-4 col-md-12" },
                   _vm._l(hos_profile.special_features, function(feature) {
                     return _c(
                       "div",
@@ -58171,7 +58241,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", { staticClass: "breadcrumb-item" }, [
             _c("a", { attrs: { href: "../news/news_details.html" } }, [
-              _vm._v(" 新しい詳細")
+              _vm._v("新しい詳細")
             ])
           ]),
           _vm._v(" "),
@@ -58181,11 +58251,7 @@ var staticRenderFns = [
               staticClass: "breadcrumb-item active",
               attrs: { "aria-current": "page" }
             },
-            [
-              _vm._v(
-                "\n                                               就職活動リスト"
-              )
-            ]
+            [_vm._v("就職活動リスト")]
           )
         ])
       ])

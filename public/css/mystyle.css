@@ -1160,7 +1160,7 @@ div.b {
 }
 
 .adslist-card {
-    height: 71px;
+    /* height: 71px; */
     width: 188px;
 }
 
@@ -1220,10 +1220,13 @@ div.b {
     color: #fff;
     text-align: justify !important;
 }
+
 .side_slider_lbl p {
     color: #fff;
     font-size: 12px;
 }
+
+
 /*End Ad*/
 
 
@@ -1288,7 +1291,7 @@ div.b {
         white-space: normal;
     }
     .adslist-card {
-        height: 71px;
+        /* height: 71px; */
         width: 100%;
     }
     .userview-sidebar {
@@ -1568,7 +1571,8 @@ div.b {
     font-size: 12px;
     padding: 5px;
 }
-.fav-color{
+
+.fav-color {
     background-color: #f5807f;
 }
 
@@ -2212,8 +2216,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .top-ad-slider .smallads-title {
-    padding: 10px;
+    width: 130px;
     height: 90px;
+    padding: 10px;
+    margin-left: auto;
 }
 
 @keyframes jssorl-009-spin {
@@ -2376,6 +2382,15 @@ body::-webkit-scrollbar-thumb {
     border-radius: 2px;
 }
 
+.hos-btn {
+    display: block;
+    width: 88%;
+    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
 
 /* End for Hospital History */
 
@@ -2404,9 +2419,11 @@ body::-webkit-scrollbar-thumb {
     border: 3px solid #ccc;
     border-radius: 4px;
 }
-.map-text > a{
+
+.map-text>a {
     color: #000;
 }
+
 
 /* End Google Map  */
 
@@ -2475,10 +2492,23 @@ body::-webkit-scrollbar-thumb {
     .today .adslist-card .smallads-title {
         top: 7px;
     }
+    .hos-btn {
+        width: 50%;
+        margin: 10px auto 0;
+    }
+    .hos-img {
+        display: block;
+        margin: 0 auto;
+    }
 }
- /*  Start CommentList */
-button.confirmed  {
+
+
+/*  Start CommentList */
+
+button.confirmed {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+
 /* End Commentlist */
