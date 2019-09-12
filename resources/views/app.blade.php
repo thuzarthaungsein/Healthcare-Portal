@@ -99,7 +99,7 @@
                 @endcan
 
                 @can('customer')
-                <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
+                <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
                 <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
                 <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Hospital</router-link></li>
                 <li><router-link to="/nus_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Nursing</router-link></li>
@@ -240,7 +240,7 @@
                     @endcan
 
                     @can('customer')
-                    <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
+                    <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
                     <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
                     <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Hospital</router-link></li>
                     <li><router-link to="/nus_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Nursing</router-link></li>
@@ -403,6 +403,7 @@
         type: 'GET',
         data: {'_token': csrf},
         success: function( data ) {
+            console.log(data);
             var top_ad = "";
             var side_ad = "";
             for (var i = 0; i < data.length; i++) {

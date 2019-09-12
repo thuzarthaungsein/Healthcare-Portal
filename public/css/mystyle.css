@@ -1054,7 +1054,7 @@ div.b {
 }
 @media (min-width: 320px) {
     .source-img-small {
-        width: 300px;
+        width: 90%;
     }
     /* .ads-card{
          width: 18rem;
