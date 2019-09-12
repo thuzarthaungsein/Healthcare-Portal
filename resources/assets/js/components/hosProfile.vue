@@ -21,7 +21,7 @@
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="type == 'nursing'">
-                             Profile Page View
+                             <profilePublish></profilePublish>
                         </div>                
                         
                 </form>
@@ -32,10 +32,19 @@
 <script>
 import hospitalProfile from './HospitalProfile.vue'
 import nursingProfile from './NursingProfile.vue'
+import profilePublish from './ProfilePublish.vue'
 export default {
+        ready: function() {
+                
+                // console.log("Ready");
+                Vue.nextTick(function () {
+                        // console.log("Next Trick");
+                }.bind(this))
+        },
         components: {
               hospitalProfile,
               nursingProfile,
+              profilePublish,
         },
        data() {
                 return {
@@ -46,7 +55,7 @@ export default {
               this.axios
                 .get('/api/authget')
                 .then(response=>{
-                 console.log(response);
+                //  console.log(response);
                 // this.fac_list = response.data;
                 });
         },

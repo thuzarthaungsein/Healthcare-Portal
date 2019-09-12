@@ -159,7 +159,7 @@
 
                         <div class="map-toggle-div toggle-div">
                                 <div class="col-md-12">
-                                    <img src="/images/g-map.png" alt="" style="width:100%;">
+                                    <GoogleMap></GoogleMap>
                                 </div>
 
                                 <div class="form-group">
@@ -205,7 +205,11 @@
 </template>
 
 <script>
+import GoogleMap from './GoogleMap.vue'
 export default {
+        components: {
+        GoogleMap,
+        },
        data() {
                 return {
                         fac_list: [],
@@ -215,7 +219,6 @@ export default {
                 this.axios
                 .get('/api/facilities')
                 .then(response=>{
-                //  console.log(response);
                 this.fac_list = response.data;
                 });
         },

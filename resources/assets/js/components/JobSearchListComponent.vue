@@ -47,7 +47,7 @@ export default {
         },
         created() {
             this.axios
-                .get('/api/jobs')
+                .get('/api/job/index')
                 .then(response => {
                     this.jobs = response.data;
                 });

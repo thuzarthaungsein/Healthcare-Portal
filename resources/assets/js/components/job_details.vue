@@ -90,7 +90,6 @@
             this.axios
                  .get(`/api/job_details/${this.$route.params.id}`)
                  .then(response=>{
-                     console.log(response.data);
                      this.job_details = response.data;
                  });
         }

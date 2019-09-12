@@ -68,8 +68,8 @@
                                 </autocomplete>
                                 <br>
                                 <label> 都道府県<span class="error">*</span></label>
-                                <select v-model="city_id" class="form-control" @change='getCities()'>
-                                    <option v-bind:value="-1">選択してください。</option>
+                                <select v-model="selectedValue" class="form-control" @change='getCities()'>
+                                    <option value="0">選択してください。</option>
                                     <option v-for="cities in city_list" :key="cities.id" v-bind:value="cities.id">
                                         {{cities.city_name}}
                                     </option>
@@ -95,7 +95,7 @@
 
                         <div class="form-group">
                             <label>市区町村、番地（建物名）:<span class="error">*</span></label>
-                            <input type="text" class="form-control" placeholder="市区町村、番地を入力してください。">
+                            <input type="text" class="form-control" placeholder="市区町村、番地を入力してください。" v-model="zipStreet">
                             <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>
                         </div>
 
@@ -171,13 +171,16 @@
     export default {
         data() {
                 return {
-                    city_id: '-1',
                     errors: [],
                     fav_hospital: [],
                     post_list: [],
                     city_list: [],
                     local_sto: '',
-                    post:''
+                    post:'',
+                    selectedCity: '',
+                    zipStreet: '',
+                    zipPref: '',
+                    selectedValue: 0
                 }
             },
             created() {
@@ -185,7 +188,7 @@
                  .then(response=>{
                      
                      this.post_list = response.data;
-                     console.log(this.post_list); 
+                     //console.log(this.post_list); 
                     
                  });
                 this.local_sto = localStorage.getItem("hospital_fav");                
@@ -214,17 +217,21 @@
                         
                         }
                 },
-                getCities: function() {
+                // getCities: function() {
 
-                        this.city_list.id = this.city_id;
+                //         this.city_list.id = this.city_id;
 
-                    },
+                //     },
                 addDistributionGroup: function(){
-                    var id = this.post;
+                    var selectedId = this.post;
                      this.axios
-                        .post('/api/favHospital/')
-                  
-                   } 
+                        .post('/api/hospital/selectedCity/'+selectedId)
+                        .then(response => {
+                            this.zipStreet = response.data[0].street;
+                            this.zipPref = response.data[0].pref;
+                            this.selectedValue = response.data[0].c_Id;
+                        });
+                   },
             }
     }
 </script>

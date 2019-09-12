@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\HospitalProfile;
 use DB;
+use App\Category;
 
 class HospitalProfileController extends Controller
 {
@@ -38,8 +39,8 @@ class HospitalProfileController extends Controller
     }
 
     public function getPostalList(){
-        $query = "SELECT  CONCAT(townships.postalcode,' ',cities.city_name,' ',townships.township_name) AS name,townships.id, townships.postalcode  FROM townships 
-                    JOIN cities ON townships.city_id = cities.id";
+        $query = "SELECT zipcode.id, zipcode.pref, CONCAT(zipcode.zip7_code,' ', zipcode.pref,' ', zipcode.city,' ', zipcode.street) AS name
+                    FROM zipcode";
         $postal_list = DB::select($query);
         return $postal_list;
         // return $postal_list;
@@ -49,6 +50,15 @@ class HospitalProfileController extends Controller
         $query = "SELECT cities.id, cities.city_name FROM cities";
         $city_list = DB::select($query);
         return $city_list;
+    }
+
+    public function getSelectedCityName($selectedId){
+        $query = "SELECT cities.id AS c_Id, zipcode.id, zipcode.pref, CONCAT(zipcode.city,' ', zipcode.street) AS street FROM zipcode
+                    RIGHT JOIN cities
+                    ON zipcode.city_id = cities.id
+                    WHERE zipcode.id = $selectedId";
+        $selectedCity = DB::select($query);
+        return $selectedCity;
     }
 
     /**
