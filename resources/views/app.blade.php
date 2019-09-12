@@ -105,26 +105,7 @@
                 <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary pc" type="submit"><i class="fas fa-search"></i> 検索</button>
 
                 </form> -->
-
-                <ul class="navbar-nav ml-auto pad-free pc">
-
-                    <li class="fav-item fav-color btn all-btn m-r-15" style="padding:5px;" >
-                        <i class="fa fa-star m-r-5"> 検討リスト</i>
-                        <p style="display:flex; color:#fff;margin-top:5px;line-height:1.2em;">
-                        <span style="padding-right: 11px;">2件<br>病院検索</span>
-                        <span style="border-left: 1px solid #fff;margin-left: auto;padding-left: 11px;">5件<br>介護検索</span>
-                        </p>
-                    </li>
-                    <li class="fav-item history-color btn all-btn m-r-15" style="padding:5px;">
-                        <i class="fa fa-bookmark m-r-5"> 最近見た施設</i><!-- <span class="list">10</span>件<br>最近見た施設  -->
-                        <p style="display:flex; color:#fff;margin-top:5px;line-height:1.2em;">
-                            <span style="padding-right: 11px;">10件<br>病院検索</span>
-                            <span style="border-left: 1px solid #fff;margin-left: auto;padding-left: 11px;">9件<br>介護検索</span>
-                        </p>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav pad-free pc">
+            <ul class="navbar-nav ml-auto pad-free pc">
 
                     @guest
 
@@ -157,6 +138,26 @@
                     @endguest
 
                 </ul>
+
+                <ul class="navbar-nav pad-free pc">
+
+                    <li class="fav-item fav-color btn all-btn m-r-10">
+                        <i class="fa fa-star m-r-5"> </i>&nbsp; 検討リスト
+                        <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
+                        <span style="padding-right: 11px;">2件<br>病院</span>
+                        <span style="border-left: 1px solid #fff;padding-left: 11px;">5件<br>介護</span>
+                        </p>
+                    </li>
+                    <li class="fav-item history-color btn all-btn m-r-10" >
+                        <i class="fa fa-bookmark m-r-5"></i>&nbsp; 最近見た施設<!-- <span class="list">10</span>件<br>最近見た施設  -->
+                        <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
+                            <span style="padding-right: 11px;">10件<br>病院</span>
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;">9件<br>介護</span>
+                        </p>
+                    </li>
+                </ul>
+
+                
 
                 <ul class="sp-nav sp">
 
@@ -438,51 +439,28 @@
 
                     <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
 
-                    @can('isAdmin')
+                    <!-- @can('isAdmin')
 
                     <li><router-link to="/passport" class="nav-link"><i class="fa fa-list"></i>&nbsp; Passport </router-link></li>
 
-                    @endcan
+                    @endcan -->
 
                     @can('role-list')
 
-                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
-
-                    <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
+                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>                  
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
 
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
 
                     <li>
-
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Pages</a>
-
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
-
-                            <li>
-
-                                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link>
-
-                            </li>
-
-                            <li>
-
-                                <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
-
-                            </li>
-
-
-
+                            <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link></li>
+                            <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
                         </ul>
-
                     </li>
-
-
-
                     @endcan
-
-
 
                     @can('customer')
                     <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
@@ -796,7 +774,7 @@
         type: 'GET',
         data: {'_token': csrf},
         success: function( data ) {
-            console.log(data);
+            // console.log(data);
             var top_ad = "";
             var side_ad = "";
             for (var i = 0; i < data.length; i++) {

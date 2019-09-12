@@ -331,7 +331,7 @@ html {
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #2ba7c0 !important;
+    background-color: #118063 !important;
 }
 
 
@@ -1481,6 +1481,9 @@ div.b {
 .secondary-bg-color {
     background-color: #f27a24 !important;
 }
+.toggle-btn .icon-arrow:before {
+    content: '\25BC';
+  }
 
 .all-btn {
     color: #fff !important;
@@ -1568,14 +1571,14 @@ div.b {
 
 .fav-item {
     font-size: 12px;
-    padding: 5px;
+    padding: 5px 10px;
 }
 .fav-color{
-    background-color: #f5807f;
+    background-color: #f9793c;
 }
 
 .history-color {
-    background-color: #7586c6;
+    background-color: #0e775d;
 }
 
 .card-header {
@@ -2190,12 +2193,12 @@ body::-webkit-scrollbar-thumb {
 
 .top-ad-slider .slide-img {
     width: 80px;
-    margin: 5px 10px;
+    margin: 10px 10px 5px 10px;
 }
 
 .top-ad-slider .slide-img img {
     width: auto;
-    max-width: 100%;
+    max-width: 80px;
 }
 
 .top-ad-slider .list-group-item {
@@ -2214,7 +2217,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .top-ad-slider .smallads-title {
-    padding: 10px 0px;
+    padding: 10px;
     height: 90px;
 }
 

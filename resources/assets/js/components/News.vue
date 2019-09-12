@@ -72,7 +72,51 @@
                                 </div>
                         </div>
                         </div>
-                </div>                             
+                </div>  
+
+                <div class="col-md-12 m-lr-0" v-for="(test,catId) in tests" :key="test.id" :catId="catId">
+                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">Latest News By Category "{{test.name}}"</h4></div>
+                        <div class="row col-md-12">
+                                <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
+                                        <div class="col-md-6" >
+                                                <img v-if="photo_arr[catId][inx]" v-bind:src="'/upload/news/' + photo_arr[catId][inx]" class="img-responsive fit-image">
+                                                <p class="source-title"> {{title_arr[catId][inx]}}</p>
+                                        </div>
+                                        <div class="row col-md-6">
+                                                <ul class="list-group list-group-flush all-item">
+                                                        <span v-if="inx == 0">
+                                                                <li class="list-group-item p-t-5 p-b-5" v-for="sec_index in second_index" :key="sec_index">
+                                                                        <span v-if="(title_arr[catId][0] != title_arr[catId][sec_index]) && (title_arr[catId][3] != title_arr[catId][sec_index])">
+                                                                        <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                        <img v-if="photo_arr[catId][sec_index]" v-bind:src="'/upload/news/' + photo_arr[catId][sec_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                </div>
+                                                                                <div class="col-md-8">
+                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][sec_index]}} </p>
+                                                                                </div>
+                                                                        </div>
+                                                                        </span>
+                                                                </li>
+                                                        </span>
+                                                        <span v-if="inx == 3">
+                                                                <li class="list-group-item p-t-5 p-b-5" v-for="thd_index in third_index" :key="thd_index">
+                                                                        <span v-if="(title_arr[catId][0] != title_arr[catId][thd_index]) && (title_arr[catId][3] != title_arr[catId][thd_index])">
+                                                                        <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                        <img v-if="photo_arr[catId][thd_index]" v-bind:src="'/upload/news/' + photo_arr[catId][thd_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                </div>
+                                                                                <div class="col-md-8">
+                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][thd_index]}} </p>
+                                                                                </div>
+                                                                        </div>
+                                                                        </span>
+                                                                </li>
+                                                        </span>
+                                                </ul>
+                                        </div>
+                                </div>
+                        </div> 
+                </div>
         </div>   
 </template>
 <style scoped>
@@ -94,6 +138,7 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tab
     
    
 }
+
 </style>
 <script>
 import News from './News.vue'
@@ -121,10 +166,19 @@ export default {
                 latest_post_all_cats: [],
                 search_posts:[],
                 categoryId: 1,
+                tests:[],
+                index:[0,3],
+                second_index:[1,2],
+                third_index:[4,5],
+                tmp_title:[],
+                title_arr:[],
+                tmp_photo:[],
+                photo_arr:[]
             }
         },
         created() {
             this.getAllCat();
+            this.getLatestPostsByCatID();
             this.getPostByCatID();
             this.getLatestPostByCatID();
             this.getLatestPostFromAllCat();
@@ -135,7 +189,25 @@ export default {
                      this.axios
                         .get('/api/home')
                         .then(response => {
+                                // console.log(response);
                                 this.cats = response.data;
+                        });   
+                },
+
+                getLatestPostsByCatID: function() {
+                        this.axios
+                        .get('/api/get_latest_posts_by_catId')
+                        .then(response => {
+                                console.log(response);
+                                for(var i=0; i<response.data.length; i++) {
+                                        this.tmp_title[i] = response.data[i].title;
+                                        this.title_arr[i] = this.tmp_title[i].split(",");
+
+                                        this.tmp_photo[i] = response.data[i].photo;
+                                        this.photo_arr[i] = this.tmp_photo[i].split(",");
+                                }
+                                // console.log(this.title_arr);
+                                this.tests = response.data;
                         });   
                 },
               
@@ -159,8 +231,8 @@ export default {
                         axios.post("/api/posts/" , fd)
                         .then(response => {
                                 this.posts = response.data;
-                        });
-                },
+                        }); 
+                }, 
 
                 getLatestPostByCatID: function(catId) {
                         if($('#search-word').val()) {

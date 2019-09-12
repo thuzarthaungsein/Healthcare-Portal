@@ -158,6 +158,7 @@ Route::post('posts', 'HomeController@getPosts');
 Route::post('get_latest_post', 'HomeController@getLatestPost');
 Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 Route::post('search', 'HomeController@search');
+Route::get('get_latest_posts_by_catId', 'HomeController@getLatestPostsByAllCatId');
 
 
 Route::get('news_list', 'PostController@index');
