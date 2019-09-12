@@ -72,7 +72,53 @@
                                 </div>
                         </div>
                         </div>
-                </div>                             
+                </div>  
+
+                <!-- Start -->
+                <!-- First Loop by Category -->
+                <div class="row m-lr-0" v-for="(test,catId) in tests" :key="test.id" :catId="catId">
+                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">Latest News By Category "{{test.name}}"</h4></div>
+                        <div class="row col-md-12">
+                                <!-- Left Area -->
+                                <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
+                                        <div class="col-md-6" >
+                                                <img src="/images/day5.jpg" class="img-responsive fit-image">
+                                                <p class="source-title"> {{title_arr[catId][inx]}}</p>
+                                        </div>
+                                        <!-- Third Loop -->
+                                        <div class="row col-md-6">
+                                                <ul class="list-group list-group-flush all-item">
+                                                        <li  class="list-group-item p-t-5 p-b-5" v-for="sec_index in second_index" v-if="(title_arr[catId][0] != title) && (title_arr[catId][3] != title) && inx == 0">
+                                                                <div class="row">
+                                                                        <div class="col-md-4">
+                                                                                <img src="/images/day1.jpg" class="fit-image" style="height:5rem;width:6rem">
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                                <p class="news-title" style="padding-left:25px"> {{title_arr[catId][sec_index]}} </p>
+                                                                        </div>
+                                                                </div>
+                                                        </li>
+
+                                                        <li  class="list-group-item p-t-5 p-b-5" v-for="thd_index in third_index" v-if="(title_arr[catId][0] != title) && (title_arr[catId][3] != title) && inx == 3">
+                                                                <div class="row">
+                                                                        <div class="col-md-4">
+                                                                                <img src="/images/day1.jpg" class="fit-image" style="height:5rem;width:6rem">
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                                <p class="news-title" style="padding-left:25px"> {{title_arr[catId][thd_index]}} </p>
+                                                                        </div>
+                                                                </div>
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                        <!-- End Loop -->
+                                </div>
+                        </div>
+                       
+                </div>
+                <!-- End First Loop -->
+                <!-- End -->
+                
         </div>   
 </template>
 <style scoped>
@@ -94,6 +140,7 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tab
     
    
 }
+
 </style>
 <script>
 import News from './News.vue'
@@ -120,11 +167,18 @@ export default {
                 posts: [],
                 latest_post: [],
                 latest_post_all_cats: [],
-                search_posts:[]
+                search_posts:[],
+                tests:[],
+                index:[0,3],
+                second_index:[1,2],
+                third_index:[4,5],
+                tmp_title:[],
+                title_arr:[]
             }
         },
         created() {
             this.getAllCat();
+            this.getLatestPostsByCatID();
             this.getPostByCatID();
             this.getLatestPostByCatID();
             this.getLatestPostFromAllCat();
@@ -136,6 +190,19 @@ export default {
                         .get('/api/home')
                         .then(response => {
                                 this.cats = response.data;
+                        });   
+                },
+
+                getLatestPostsByCatID: function() {
+                        this.axios
+                        .get('/api/get_latest_posts_by_catId')
+                        .then(response => {
+                                for(var i=0; i<response.data.length; i++) {
+                                        this.tmp_title[i] = response.data[i].title;
+                                        this.title_arr[i] = this.tmp_title[i].split(",");
+                                }
+                                console.log(this.title_arr);
+                                this.tests = response.data;
                         });   
                 },
               
@@ -154,13 +221,13 @@ export default {
                                 fd.append('search_word', search_word)
                                 fd.append('category_id', cat_id)
                         
-                        $('.search-item').css('display','none');
-                        this.categoryId = cat_id;
-                        axios.post("http://localhost:8000/api/posts/" , fd)
-                        .then(response => {
+                        $('.search-item').css('display','none'); 
+                        this.categoryId = cat_id; 
+                        axios.post("http://localhost:8000/api/posts/" , fd) 
+                        .then(response => { 
                                 this.posts = response.data;
-                        });
-                },
+                        }); 
+                }, 
 
                 getLatestPostByCatID: function(catId) {
                         if($('#search-word').val()) {
