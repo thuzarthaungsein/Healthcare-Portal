@@ -805,7 +805,7 @@ p {
 
 .main-header {
     position: fixed;
-    width: 83.3%;
+    width: 83.4%;
     height: 80px;
     background-color: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
@@ -1443,7 +1443,9 @@ div.b {
 .p-b-5 {
     padding-bottom: 5px;
 }
-
+.p-5{
+    padding: 5px;
+}
 .m-r-10 {
     margin-right: 10px;
 }
@@ -1533,7 +1535,7 @@ div.b {
     color: #000 !important;
     border: none;
     font-weight: bold;
-    width: 82px;
+    width: 125px;
     font-size: 12px;
 }
 
