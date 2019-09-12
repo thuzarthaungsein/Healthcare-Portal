@@ -206,6 +206,7 @@ $('#text').click(function() {
 */
 
 
+/*data_carry
 
 
 function scrollTab(){
@@ -290,3 +291,46 @@ $('.scrolldiv2').scroll(function() {
 
 
 
+
+/*data_carry
+    
+*/
+$(function() {
+    $('#btnSubmit').on('click', function() {
+      // your code goes here
+      $('#outputSpan').val($('#count').val());
+      $('#outputfurigana').val($('#furigana').val());
+      $('#outputpostal').val($('.postal').val());
+      $('#outputdivision').val($('#division').val());
+      $('#outputcity').val($('#city').val());
+      $('#outputphone').val($('#phone').val());
+      $('#outputmail').val($('#mail').val());
+      
+    //   $('#outputpresent').val($('#present').val());
+      $('#outputpresent').val($('input:checkbox[name=present]:checked').val());
+
+      $('#outputrelation').val($('#relation').val());
+      $('#outputttname').val($('#ttname').val());
+      
+      $('#outputsex').val($('input:radio[name=sex]:checked').val());
+    //   alert($('input:radio[name=sex]:checked').val());
+      
+      $('#outputyears').val($('#years').val());
+      $('#outputnursing').val($('#nursing').val());
+      
+    //   $('#outputfect').val($('#fect').val());
+       
+      $('#outputfect').val($('input:radio[name=fect]:checked').val());
+    //   alert($('input:radio[name=fect]:checked').val());
+      
+    //   $('#outputdesire').val($('#desire').val());
+      $('#outputdesire').val($('input:radio[name=desire]:checked').val());
+     
+      $('#outputhope').val($('#hope').val());
+      // not triiger output tab to be open
+      $('[href="#output"]').trigger('click');
+    });
+  });
+
+
+  

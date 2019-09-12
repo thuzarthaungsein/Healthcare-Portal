@@ -31,7 +31,7 @@ import medicalacceptancelist from './components/medicalacceptancelist.vue';
 import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
 import HospitalHistory from './components/HospitalHistory.vue';
-import hospitalview from './components/hospitalview.vue';
+import favouriteHospital from './components/favouriteHospital.vue';
 import NursingHistory from './components/NursingHistory.vue';
 import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
@@ -45,8 +45,13 @@ import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
 import favouriteBtn from './components/favouriteBtn.vue';
 import comment from './components/Comment.vue';
+<<<<<<< HEAD
 import commentlist from './components/commentlist.vue';
 import featurelist from './components/FeatureList.vue';
+=======
+import favouriteNursing from './components/favouriteNursing.vue';
+
+>>>>>>> e3d88046b34337e1e04b1ccf8dffe32376650b1c
 import passport from './components/passport.vue';
 import specialfeature from './components/CreateSpecialFeature.vue';
 export const routes = [
@@ -226,13 +231,21 @@ export const routes = [
       },
 
       {
-        name: 'hospitalview',
-        path: '/hospitalview',
-        component: hospitalview
+        name: 'favouriteHospital',
+        path: '/favouriteHospital',
+        component: favouriteHospital
       },
+      {
+        name: 'favouriteNursing',
+        path: '/favouriteNursing',
+        component: favouriteNursing
+      },
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> e3d88046b34337e1e04b1ccf8dffe32376650b1c
       {
         name:'type',
         path:'/type',
@@ -274,6 +287,7 @@ export const routes = [
       path: '/nursing_profile',
       component: NursingProfile
      },
+<<<<<<< HEAD
   {
     name: 'favouriteBtn',
     path: '/favouriteBtn',
@@ -306,4 +320,16 @@ export const routes = [
   }
 
   
+=======
+      {
+        name: 'videoupload',
+        path: '/videoupload',
+        component: VideoUpload
+      },
+      {
+        name: 'comment',
+        path: '/comment',
+        component: comment
+      }
+>>>>>>> e3d88046b34337e1e04b1ccf8dffe32376650b1c
 ];
