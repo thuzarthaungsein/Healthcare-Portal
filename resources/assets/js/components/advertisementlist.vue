@@ -27,7 +27,7 @@
                     </div>
                     <div class="row col-md-10">
                         <div class="col-md-2 max-width16"><strong>タイトル  :</strong></div><div class="col-md-10">{{ads.title}}</div>
-                        <div class="col-md-2 max-width16"><strong>描写  :</strong></div><div class="col-md-10">{{ads.description}}</div>
+                        <!-- <div class="col-md-2 max-width16"><strong>描写  :</strong></div><div class="col-md-10">{{ads.description}}</div> -->
 
 
                         <div class="row col-12 mt-2">

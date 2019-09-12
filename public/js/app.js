@@ -59459,11 +59459,6 @@ var render = function() {
                           _vm._v(_vm._s(ads.title))
                         ]),
                         _vm._v(" "),
-                        _vm._m(1, true),
-                        _c("div", { staticClass: "col-md-10" }, [
-                          _vm._v(_vm._s(ads.description))
-                        ]),
-                        _vm._v(" "),
                         _c("div", { staticClass: "row col-12 mt-2" }, [
                           _c(
                             "div",
@@ -59519,14 +59514,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 max-width16" }, [
       _c("strong", [_vm._v("タイトル  :")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 max-width16" }, [
-      _c("strong", [_vm._v("描写  :")])
     ])
   }
 ]
