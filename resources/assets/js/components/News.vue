@@ -74,38 +74,53 @@
                         </div>
                 </div>  
 
-                <div class="row m-lr-0" v-for="(test,catId) in tests" :key="test.id" :catId="catId">
-                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">Latest News By Category "{{test.name}}"</h4></div>
+                <div class="row m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
+                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">Latest News By Category "{{arr.name}}"</h4></div>
                         <div class="row col-md-12">
                                 <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
                                         <div class="col-md-6" >
-                                                <img v-if="photo_arr[catId][inx]" v-bind:src="'/images/' + photo_arr[catId][inx]" class="img-responsive fit-image">
-                                                <p class="source-title"> {{title_arr[catId][inx]}}</p>
+                                                <router-link :to="'/newsdetails/'+id_arr[catId][inx]">
+                                                        <img v-if="photo_arr[catId][inx]" v-bind:src="'/upload/news/' + photo_arr[catId][inx]" class="img-responsive fit-image">
+                                                        <p class="source-title"> {{title_arr[catId][inx]}}</p>
+                                                 </router-link>
+                                               
                                         </div>
                                         <div class="row col-md-6">
                                                 <ul class="list-group list-group-flush all-item">
-                                                        <span v-if="(title_arr[catId][0] != title) && (title_arr[catId][3] != title) && inx == 0">
+                                                        <span v-if="inx == 0">
                                                                 <li class="list-group-item p-t-5 p-b-5" v-for="sec_index in second_index" :key="sec_index">
-                                                                        <div class="row">
-                                                                                <div class="col-md-4">
-                                                                                        <img v-if="photo_arr[catId][sec_index]" v-bind:src="'/images/' + photo_arr[catId][sec_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                        <span v-if="(title_arr[catId][0] != title_arr[catId][sec_index]) && (title_arr[catId][3] != title_arr[catId][sec_index])">
+                                                                                <div class="row"> 
+                                                                                        <div class="col-md-4">
+                                                                                                <router-link :to="'/newsdetails/'+id_arr[catId][sec_index]">
+                                                                                                        <img v-if="photo_arr[catId][sec_index]" v-bind:src="'/upload/news/' + photo_arr[catId][sec_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                                </router-link>
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                                <router-link :to="'/newsdetails/'+id_arr[catId][sec_index]">
+                                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][sec_index]}} </p>
+                                                                                                </router-link>
+                                                                                        </div>
                                                                                 </div>
-                                                                                <div class="col-md-8">
-                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][sec_index]}} </p>
-                                                                                </div>
-                                                                        </div>
+                                                                        </span>
                                                                 </li>
                                                         </span>
-                                                        <span v-if="(title_arr[catId][0] != title) && (title_arr[catId][3] != title) && inx == 3">
+                                                        <span v-if="inx == 3">
                                                                 <li  class="list-group-item p-t-5 p-b-5" v-for="thd_index in third_index" :key="thd_index">
-                                                                        <div class="row">
-                                                                                <div class="col-md-4">
-                                                                                        <img v-if="photo_arr[catId][thd_index]" v-bind:src="'/images/' + photo_arr[catId][thd_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                        <span v-if="(title_arr[catId][0] != title_arr[catId][thd_index]) && (title_arr[catId][3] != title_arr[catId][thd_index])">
+                                                                                <div class="row">
+                                                                                        <div class="col-md-4">
+                                                                                                <router-link :to="'/newsdetails/'+id_arr[catId][thd_index]">
+                                                                                                        <img v-if="photo_arr[catId][thd_index]" v-bind:src="'/upload/news/' + photo_arr[catId][thd_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                                </router-link>
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                                <router-link :to="'/newsdetails/'+id_arr[catId][thd_index]">
+                                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][thd_index]}} </p>
+                                                                                                </router-link>
+                                                                                        </div>
                                                                                 </div>
-                                                                                <div class="col-md-8">
-                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][thd_index]}} </p>
-                                                                                </div>
-                                                                        </div>
+                                                                        </span>
                                                                 </li>
                                                         </span>
                                                 </ul>
@@ -162,14 +177,16 @@ export default {
                 latest_post: [],
                 latest_post_all_cats: [],
                 search_posts:[],
-                tests:[],
+                tmp_arr:[],
                 index:[0,3],
                 second_index:[1,2],
-                third_index:[4,5],
+                third_index:[4,5], 
                 tmp_title:[],
                 title_arr:[],
                 tmp_photo:[],
-                photo_arr:[]
+                photo_arr:[],
+                tmp_post_id:[],
+                id_arr:[]
             }
         },
         created() {
@@ -199,9 +216,11 @@ export default {
 
                                         this.tmp_photo[i] = response.data[i].photo;
                                         this.photo_arr[i] = this.tmp_photo[i].split(",");
+
+                                        this.tmp_post_id[i] = response.data[i].post_id;
+                                        this.id_arr[i] = this.tmp_post_id[i].split(",");
                                 }
-                                console.log(this.title_arr);
-                                this.tests = response.data;
+                                this.tmp_arr = response.data;
                         });   
                 },
               
