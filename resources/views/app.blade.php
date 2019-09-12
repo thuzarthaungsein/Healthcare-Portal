@@ -106,7 +106,7 @@
 
                 </form> -->
 
-                <ul class="navbar-nav mr-auto offset-6 col-lg-2 pad-free pc">
+                <ul class="navbar-nav mr-auto offset-6 col-lg-3 pad-free pc">
 
                     <li class="fav-item fav-color btn all-btn m-r-15" style="min-width: 130px;">
                         <i class="fa fa-star m-r-5"> 検討リスト</i>
@@ -453,7 +453,7 @@
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
 
                     <li>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Admin Confirm</a>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
                             <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link></li>
                             <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>

@@ -106,6 +106,9 @@ class HomeController extends Controller
                         ->groupBy('categories.id')
                         ->get()
                         ->toArray();
+        // $sql = "select c.name , c.id, group_concat(p.title  order by p.created_at desc limit 6) as title, group_concat(p.photo order by p.created_at desc limit 4) as photo from categories c join posts p 
+        // where c.id = p.category_id group by c.id";
+        // $sql = DB::select($sql);
         return $posts;
     }
 }

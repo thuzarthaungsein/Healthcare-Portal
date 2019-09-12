@@ -41806,11 +41806,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -41839,7 +41834,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         second_index: [1, 2],
                         third_index: [4, 5],
                         tmp_title: [],
-                        title_arr: []
+                        title_arr: [],
+                        tmp_photo: [],
+                        photo_arr: []
                 };
         },
         created: function created() {
@@ -41865,10 +41862,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var _this2 = this;
 
                         this.axios.get('/api/get_latest_posts_by_catId').then(function (response) {
-                                // console.log(response);
+                                console.log(response);
                                 for (var i = 0; i < response.data.length; i++) {
                                         _this2.tmp_title[i] = response.data[i].title;
                                         _this2.title_arr[i] = _this2.tmp_title[i].split(",");
+
+                                        _this2.tmp_photo[i] = response.data[i].photo;
+                                        _this2.photo_arr[i] = _this2.tmp_photo[i].split(",");
                                 }
                                 // console.log(this.title_arr);
                                 _this2.tests = response.data;
@@ -44117,7 +44117,11 @@ var render = function() {
       _vm._l(_vm.tests, function(test, catId) {
         return _c(
           "div",
-          { key: test.id, staticClass: "row m-lr-0", attrs: { catId: catId } },
+          {
+            key: test.id,
+            staticClass: "col-md-12 m-lr-0",
+            attrs: { catId: catId }
+          },
           [
             _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
               _c("h4", { staticClass: "h_4 next-title" }, [
@@ -44131,10 +44135,14 @@ var render = function() {
               _vm._l(_vm.index, function(inx) {
                 return _c("div", { key: inx, staticClass: "row col-md-6 dd" }, [
                   _c("div", { staticClass: "col-md-6" }, [
-                    _c("img", {
-                      staticClass: "img-responsive fit-image",
-                      attrs: { src: "/images/day5.jpg" }
-                    }),
+                    _vm.photo_arr[catId][inx]
+                      ? _c("img", {
+                          staticClass: "img-responsive fit-image",
+                          attrs: {
+                            src: "/upload/news/" + _vm.photo_arr[catId][inx]
+                          }
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("p", { staticClass: "source-title" }, [
                       _vm._v(" " + _vm._s(_vm.title_arr[catId][inx]))
@@ -44146,75 +44154,158 @@ var render = function() {
                       "ul",
                       { staticClass: "list-group list-group-flush all-item" },
                       [
-                        _vm._l(_vm.second_index, function(sec_index) {
-                          return _c(
-                            "li",
-                            {
-                              key: sec_index,
-                              staticClass: "list-group-item p-t-5 p-b-5"
-                            },
-                            [
-                              _c("div", { staticClass: "row" }, [
-                                _vm._m(1, true),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-8" }, [
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "news-title",
-                                      staticStyle: { "padding-left": "25px" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        " " +
-                                          _vm._s(
-                                            _vm.title_arr[catId][sec_index]
-                                          ) +
-                                          " "
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        }),
+                        inx == 0
+                          ? _c(
+                              "span",
+                              _vm._l(_vm.second_index, function(sec_index) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: sec_index,
+                                    staticClass: "list-group-item p-t-5 p-b-5"
+                                  },
+                                  [
+                                    _vm.title_arr[catId][0] !=
+                                      _vm.title_arr[catId][sec_index] &&
+                                    _vm.title_arr[catId][3] !=
+                                      _vm.title_arr[catId][sec_index]
+                                      ? _c("span", [
+                                          _c("div", { staticClass: "row" }, [
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-md-4" },
+                                              [
+                                                _vm.photo_arr[catId][sec_index]
+                                                  ? _c("img", {
+                                                      staticClass: "fit-image",
+                                                      staticStyle: {
+                                                        height: "5rem",
+                                                        width: "6rem"
+                                                      },
+                                                      attrs: {
+                                                        src:
+                                                          "/upload/news/" +
+                                                          _vm.photo_arr[catId][
+                                                            sec_index
+                                                          ]
+                                                      }
+                                                    })
+                                                  : _vm._e()
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-md-8" },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "news-title",
+                                                    staticStyle: {
+                                                      "padding-left": "25px"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm.title_arr[catId][
+                                                            sec_index
+                                                          ]
+                                                        ) +
+                                                        " "
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ])
+                                        ])
+                                      : _vm._e()
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          : _vm._e(),
                         _vm._v(" "),
-                        _vm._l(_vm.third_index, function(thd_index) {
-                          return _c(
-                            "li",
-                            {
-                              key: thd_index,
-                              staticClass: "list-group-item p-t-5 p-b-5"
-                            },
-                            [
-                              _c("div", { staticClass: "row" }, [
-                                _vm._m(2, true),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-8" }, [
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass: "news-title",
-                                      staticStyle: { "padding-left": "25px" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        " " +
-                                          _vm._s(
-                                            _vm.title_arr[catId][thd_index]
-                                          ) +
-                                          " "
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        })
-                      ],
-                      2
+                        inx == 3
+                          ? _c(
+                              "span",
+                              _vm._l(_vm.third_index, function(thd_index) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: thd_index,
+                                    staticClass: "list-group-item p-t-5 p-b-5"
+                                  },
+                                  [
+                                    _vm.title_arr[catId][0] !=
+                                      _vm.title_arr[catId][thd_index] &&
+                                    _vm.title_arr[catId][3] !=
+                                      _vm.title_arr[catId][thd_index]
+                                      ? _c("span", [
+                                          _c("div", { staticClass: "row" }, [
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-md-4" },
+                                              [
+                                                _vm.photo_arr[catId][thd_index]
+                                                  ? _c("img", {
+                                                      staticClass: "fit-image",
+                                                      staticStyle: {
+                                                        height: "5rem",
+                                                        width: "6rem"
+                                                      },
+                                                      attrs: {
+                                                        src:
+                                                          "/upload/news/" +
+                                                          _vm.photo_arr[catId][
+                                                            thd_index
+                                                          ]
+                                                      }
+                                                    })
+                                                  : _vm._e()
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-md-8" },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "news-title",
+                                                    staticStyle: {
+                                                      "padding-left": "25px"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm.title_arr[catId][
+                                                            thd_index
+                                                          ]
+                                                        ) +
+                                                        " "
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ])
+                                        ])
+                                      : _vm._e()
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          : _vm._e()
+                      ]
                     )
                   ])
                 ])
@@ -44235,30 +44326,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
       _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("img", {
-        staticClass: "fit-image",
-        staticStyle: { height: "5rem", width: "6rem" },
-        attrs: { src: "/images/day1.jpg" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("img", {
-        staticClass: "fit-image",
-        staticStyle: { height: "5rem", width: "6rem" },
-        attrs: { src: "/images/day1.jpg" }
-      })
     ])
   }
 ]
@@ -59805,7 +59872,7 @@ var render = function() {
             "col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style"
         },
         [
-          _c("h4", { staticClass: "main-color" }, [_vm._v(" 広告検索")]),
+          _c("h4", { staticClass: "main-color m-b-10" }, [_vm._v(" 広告検索")]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-md-12" }, [

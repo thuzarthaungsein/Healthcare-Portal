@@ -2193,7 +2193,7 @@ body::-webkit-scrollbar-thumb {
 
 .top-ad-slider .slide-img img {
     width: auto;
-    max-width: 100%;
+    max-width: 80px;
 }
 
 .top-ad-slider .list-group-item {
