@@ -24,12 +24,12 @@
 			<div class="user_card">
 				<div class="links">
 					<a href="/" class="mr-auto text-white">{{__('ホーム')}}</a>
-					<a href="register" class="ml-auto text">{{__('登録')}}</a>
+					<a href="{{ url('registerForm') }}" class="ml-auto text">{{__('登録')}}</a>
 				</div>
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" class="brand_logo" alt="Logo">
+						<img src="/images/trustgrowth.png" class="brand_logo" alt="trustgrowth">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
@@ -39,7 +39,8 @@
 								<form  method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                                 @csrf
 										<div class="input-group mb-3">
-											<div class="input-group-append">
+											<div class="input-group-append"
+											>
 												<span class="input-group-text"><i class="fas fa-user"></i></span>
 											</div>
 											<input type="text" class="form-control input_user {{ $errors->has('email') ? ' is-invalid' : '' }}" d="email" type="email" name="email" value="{{ old('email') }}" required autofocus placeholder="ユーザー名">
@@ -70,7 +71,7 @@
                 </form>
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links d-margin">
-						<span><a href="{{ route('password.request') }}">パスワードを忘れる ?</a></span>
+						<span><a href="{{ url('password/reset') }}">パスワードを忘れる ?</a></span>
 
 					</div>
 				</div>
@@ -81,22 +82,6 @@
         <!-- Bootstrap Js CDN -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-		<script>
-			// $(document).ready(function(){
-			// 	$('#getUser').click(function(){
-			// 		var getUserName = $('#name').val();
-			// 		if(getUserName == "admin" || getUserName == "user"){
-			// 			localStorage.setItem(name,getUserName);
-			// 			var url = "http://localhost/News/pages/news/news_list.html";
-			// 			$(location).attr('href',url);
-			// 		}
-			// 		else{
-			// 			alert('login error');
-			// 		}
-			// 	});
-			// })
-		</script>
 </body>
 </html>
 

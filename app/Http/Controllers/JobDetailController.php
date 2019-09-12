@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\JobDetail;
+use App\Job;
 use Illuminate\Http\Request;
-use App\job_detail_view;
 class JobDetailController extends Controller
 {
     /**
@@ -14,7 +13,8 @@ class JobDetailController extends Controller
      */
     public function index()
     {
-       //
+        $job_details = Job::all()->toArray();
+        return array_reverse($job_details);
     }
 
     /**
@@ -44,9 +44,10 @@ class JobDetailController extends Controller
      * @param  \App\JobDetail  $jobDetail
      * @return \Illuminate\Http\Response
      */
-    public function show(JobDetail $jobDetail)
+    public function show($id)
     {
-        //
+        
+        return Job::findOrFail($id);
     }
 
     /**

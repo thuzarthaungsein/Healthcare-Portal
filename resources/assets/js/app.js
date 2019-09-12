@@ -7,17 +7,35 @@
 
 
 require('./bootstrap');
-window.Vue = require('vue');
+// window.Vue = require('vue');
 
-import App from './App.vue';
+// import App from './App.vue';
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
-import {routes} from './route';
 
+import {routes} from './route';
+import * as VueGoogleMaps from "vue2-google-maps";
+
+
+window.events = new Vue();
+window.flash = function(message) {
+    window.events.$emit('flash',message);
+}
+Vue.component('flash', require('./components/Flash.vue'));
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+Vue.use(VueGoogleMaps, {
+    load: {
+      key: "AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw",
+      libraries: "places" // necessary for places input
+    }
+});
+
+Vue.component('passport-clients',require('./components/passport/Clients.vue'));
+Vue.component('passport-authorized-clients',require('./components/passport/AuthorizedClients.vue'));
+Vue.component('passport-personal-access-tokens',require('./components/passport/PersonalAccessTokens.vue'));
 
 
 const router = new VueRouter({
@@ -28,5 +46,6 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router: router,
-    render: h => h(App),
+    // render: h => h(App),
 });
+

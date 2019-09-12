@@ -7,79 +7,105 @@ use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $types = Type::all()->toArray();
+        return $types;
+        // return view('typesample');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function typelist()
+    {
+ 
+      
+        $typelist = Type::select('id','name')->get()->toArray(); 
+       
+        return $typelist;
+    }
+
+    public function getParent()
+    {
+    
+        $typelist = Type::select('id','name')->get()->toArray(); 
+       
+        return $typelist;
+    }
+
+
+
     public function create()
     {
-        //
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        
+        
+        $request->validate([
+            'name' => 'required|unique:types',
+          
+      
+        ]);
+        
+        if( $request->parent != null)
+        {   
+            $type = new Type ([
+                'name' => $request->input('name'),
+                'user_id' => 1,
+                'parent' => $request->parent,               
+                'recordstatus' => 2
+            ]);
+           
+        }
+        else if( $request->parent == null)
+        {
+            
+            $type = new Type ([
+                'name' => $request->input('name'),
+                'user_id' => 1,
+                'parent' => 0,               
+                'recordstatus' => 2
+            ]);
+          
+        }
+        $type->save();
+  
+        return $type;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
-     */
+  
     public function show(Type $type)
     {
-        //
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Type $type)
+   
+    public function edit($id)
     {
-        //
+        $type = Type::find($id);
+        return response()->json($type);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Type $type)
+
+    public function update($id, Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+        $type = Type::find($id);
+        $type->update($request->all());
+
+        return response()->json('The Type successfully updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Type $type)
+    public function destroy($id)
     {
-        //
+        $type = Type::find($id);
+        $type->delete();
+        return response()->json('The Type was successfully deleted');
     }
+     
+
 }

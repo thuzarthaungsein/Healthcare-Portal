@@ -4,82 +4,109 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailComment;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $zipcode;
     public function index()
     {
-        //
+         $comment =Comment::all()->toArray();
+         return array_reverse($comment);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+       
+        $request->validate([
+            'title' => 'required',
+            'comment' =>'required',
+            'email' => 'required|email',  
+            'fzipcode' => 'required|numeric',
+            'lzipcode' => 'required|numeric', 
+        ],[
+            'fzipcode.required' => 'First zipcode is required',
+            'lzipcode.required' => 'Second zipcode is required'
+        ]);
+     
+
+    
+        $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
+           
+        $comment = new Comment ([
+
+            'title' => $request->input('title'),
+            'comment' => $request->input('comment'),
+            'email' => $request->input('email'),
+            'name' =>  $request->input('name'),
+            'year' => $request->input('year'),
+            'gender' => $request->input('gender'),
+            'zipcode' =>  $zipcode,
+            'customer_id' => 1,
+            'status' => 0,
+            'recordstatus' => 2
+
+        ]);
+        $comment ->save();
+
+        $getComment = Comment::findOrFail($comment->id);
+
+        if($getComment->gender == 0 )
+        {
+            $getComment->gender = "Male";
+        }
+        else{
+            $getComment->gender = "Female";
+        }
+        \Mail::to($getComment)->send(new SendMailComment($getComment));
+
+        // return response()->json(['success'=>'Done!']);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Comment $comment)
+
+    public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Comment $comment)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Comment $comment)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Comment $comment)
+
+    public function destroy($id)
     {
         //
+
+        $comment = Comment::find($id);
+        $comment->delete();
+        return response()->json('Comment successfully deleted');
     }
+    public function confirm($id)
+     {
+
+            $comment =Comment::find($id);
+            $comment->status =1;
+            $comment->save();
+            $comment =Comment::all()->toArray();
+            $data = array("comments"=> $comment, "success", "Comment successfully confirmed");
+            return response()->json($data);
+    }
+
 }

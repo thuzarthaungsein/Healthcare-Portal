@@ -33,10 +33,10 @@
                <!--menu tabs-->
           
            <ul class="nav nav-tabs card-head-tabs" role="tablist">
-            <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i> Tab Number 1</a></li>
-            <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> Tab Number 2</a></li>
-            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-clinic-medical"></i> Tab Number 3</a></li>
-            <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> Tab Number 5</a></li>
+            <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-home"></i>ホーム</a></li>
+            <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
+            <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
           </ul>
           <!--end menu tabs-->
          
@@ -45,29 +45,32 @@
               <div class="tab-content tabs">
                 
                 <div role="tabpanel" class="tab-pane in active" id="tab1"> 
-                   <nav aria-label="breadcrumb">
+                   <!-- <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item active"><router-link to="/hospitalSearch" ><i class="fas fa-home"></i>   ホーム</router-link>
                       </li>
                     </ol>
-                  </nav>
-                  <router-view></router-view>
+                  </nav> -->
+                 
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
+                <div role="tabpanel" class="tab-pane fade" id="tab4"><profile></profile></div>
+                <!-- <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div> -->
               </div>
             <!--end Tab panes-->                      
             </div>
             <div class="col-2">
                        <relatedNews></relatedNews>
             </div>
+          
           </div>
 
         </div>
+        
          <div class="container-fluid footer">
-                                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
-                        </div>
+                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
+        </div>
       </section>
     </div>
 
@@ -80,16 +83,17 @@
   import hospitalSearch from './components/hospitalSearch.vue'
   import nursingSearch from './components/nursingSearch.vue'
   import jobSearch from './components/jobSearch.vue'
+  import profile from './components/Profile.vue'
    export default {
     components: {
       relatedNews,
       hospitalSearch,
       nursingSearch,
       jobSearch,
-      ads
+      ads,
+      profile
     },
      mounted() {
-            console.log('Component mounted.')
             $(document).ready(function() {
                    // jssor_1_slider_init();   
                   //   $('.nav-tabs').scrollingTabs({

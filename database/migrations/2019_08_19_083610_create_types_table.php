@@ -17,6 +17,7 @@ class CreateTypesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('user_id');
+            $table->integer('parent')->default(0);
             $table->integer('recordstatus')->default(1);
             $table->timestamps();
         });
