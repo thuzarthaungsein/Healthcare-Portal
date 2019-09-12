@@ -41612,7 +41612,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link[data-v-3c9a8a0a], .nav-tabs .nav-link.active[data-v-3c9a8a0a] {   \r\n    color: #fff !important;\r\n    font-weight: bold;\r\n    background-color: #1aa985  !important;\r\n    border-top: 1px solid #1aa985  ;\r\n    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;\n}\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-link[data-v-3c9a8a0a] {\r\n    border: 1px solid #1aa985  !important;\n}\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link[data-v-3c9a8a0a], .nav-tabs .nav-link[data-v-3c9a8a0a] {   \r\n   \r\n    border-color: transparent   #ecede1   transparent   #ecede1   !important;\n}\r\n", ""]);
+exports.push([module.i, "\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link[data-v-3c9a8a0a], .nav-tabs .nav-link.active[data-v-3c9a8a0a] {   \r\n    color: #fff !important;\r\n    font-weight: bold;\r\n    background-color: #1aa985  !important;\r\n    border-top: 1px solid #1aa985  ;\r\n    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;\n}\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-link[data-v-3c9a8a0a] {\r\n    border: 1px solid #1aa985  !important;\n}\ndiv.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link[data-v-3c9a8a0a], .nav-tabs .nav-link[data-v-3c9a8a0a] {   \r\n   \r\n    border-color: transparent   #ecede1   transparent   #ecede1   !important;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -41761,6 +41761,56 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -41783,11 +41833,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         latest_post: [],
                         latest_post_all_cats: [],
                         search_posts: [],
-                        categoryId: 1
+                        categoryId: 1,
+                        tests: [],
+                        index: [0, 3],
+                        second_index: [1, 2],
+                        third_index: [4, 5],
+                        tmp_title: [],
+                        title_arr: []
                 };
         },
         created: function created() {
                 this.getAllCat();
+                this.getLatestPostsByCatID();
                 this.getPostByCatID();
                 this.getLatestPostByCatID();
                 this.getLatestPostFromAllCat();
@@ -41799,35 +41856,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var _this = this;
 
                         this.axios.get('/api/home').then(function (response) {
+                                // console.log(response);
                                 _this.cats = response.data;
                         });
                 },
 
-                getPostByCatID: function getPostByCatID(catId) {
+                getLatestPostsByCatID: function getLatestPostsByCatID() {
                         var _this2 = this;
 
-                        if ($('#search-word').val()) {
-                                var search_word = $('#search-word').val();
-                        } else {
-                                var search_word = '';
-                        }
-                        if (catId) {
-                                var cat_id = catId;
-                        } else {
-                                var cat_id = 1;
-                        }
-                        var fd = new FormData();
-                        fd.append('search_word', search_word);
-                        fd.append('category_id', cat_id);
-
-                        $('.search-item').css('display', 'none');
-                        this.categoryId = cat_id;
-                        axios.post("/api/posts/", fd).then(function (response) {
-                                _this2.posts = response.data;
+                        this.axios.get('/api/get_latest_posts_by_catId').then(function (response) {
+                                // console.log(response);
+                                for (var i = 0; i < response.data.length; i++) {
+                                        _this2.tmp_title[i] = response.data[i].title;
+                                        _this2.title_arr[i] = _this2.tmp_title[i].split(",");
+                                }
+                                // console.log(this.title_arr);
+                                _this2.tests = response.data;
                         });
                 },
 
-                getLatestPostByCatID: function getLatestPostByCatID(catId) {
+                getPostByCatID: function getPostByCatID(catId) {
                         var _this3 = this;
 
                         if ($('#search-word').val()) {
@@ -41846,20 +41894,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         $('.search-item').css('display', 'none');
                         this.categoryId = cat_id;
+                        axios.post("/api/posts/", fd).then(function (response) {
+                                _this3.posts = response.data;
+                        });
+                },
+
+                getLatestPostByCatID: function getLatestPostByCatID(catId) {
+                        var _this4 = this;
+
+                        if ($('#search-word').val()) {
+                                var search_word = $('#search-word').val();
+                        } else {
+                                var search_word = '';
+                        }
+                        if (catId) {
+                                var cat_id = catId;
+                        } else {
+                                var cat_id = 1;
+                        }
+                        var fd = new FormData();
+                        fd.append('search_word', search_word);
+                        fd.append('category_id', cat_id);
+
+                        $('.search-item').css('display', 'none');
+                        this.categoryId = cat_id;
                         axios.post("/api/get_latest_post/", fd).then(function (response) {
-                                _this3.latest_post = response.data;
+                                _this4.latest_post = response.data;
                         });
                 },
                 getLatestPostFromAllCat: function getLatestPostFromAllCat() {
-                        var _this4 = this;
+                        var _this5 = this;
 
                         this.axios.get('/api/get_latest_post_all_cat').then(function (response) {
-                                _this4.latest_post_all_cats = response.data;
+                                _this5.latest_post_all_cats = response.data;
                         });
                 },
 
                 searchCategory: function searchCategory() {
-                        var _this5 = this;
+                        var _this6 = this;
 
                         $('ul#myTab li a').removeClass('active');
                         $('ul#myTab li:first-child a').addClass('active');
@@ -41873,11 +41945,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         this.axios.post('/api/search', fd).then(function (response) {
                                 if (response.data.length == '0') {
-                                        _this5.posts = [];
-                                        _this5.latest_post = [];
+                                        _this6.posts = [];
+                                        _this6.latest_post = [];
                                 } else {
-                                        _this5.posts = response.data;
-                                        _this5.latest_post = _this5.posts[0];
+                                        _this6.posts = response.data;
+                                        _this6.latest_post = _this6.posts[0];
                                 }
                         });
                 }
@@ -43725,307 +43797,436 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row justify-content-md-center" }, [
-    _c("div", { staticClass: "col-12" }, [
-      _c(
-        "form",
-        { staticClass: "form-inline col-lg-12 form-inline mb-2 pad-free" },
-        [
-          _c("input", {
-            staticClass: "form-control col-lg mr-sm-3 d-flex p-2 form-control",
-            attrs: {
-              type: "text",
-              placeholder: "検索",
-              "aria-label": "検索",
-              id: "search-word"
-            }
-          }),
+  return _c(
+    "div",
+    { staticClass: "row justify-content-md-center" },
+    [
+      _c("div", { staticClass: "col-12" }, [
+        _c(
+          "form",
+          { staticClass: "form-inline col-lg-12 form-inline mb-2 pad-free" },
+          [
+            _c("input", {
+              staticClass:
+                "form-control col-lg mr-sm-3 d-flex p-2 form-control",
+              attrs: {
+                type: "text",
+                placeholder: "検索",
+                "aria-label": "検索",
+                id: "search-word"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                staticClass:
+                  "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
+                on: {
+                  click: function($event) {
+                    return _vm.searchCategory()
+                  }
+                }
+              },
+              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header tab-card-header" }, [
+            _c(
+              "ul",
+              {
+                staticClass: "nav nav-tabs card-header-tabs",
+                attrs: { id: "myTab", role: "tablist" }
+              },
+              _vm._l(_vm.cats, function(cat) {
+                return _c(
+                  "li",
+                  {
+                    key: cat.id,
+                    staticClass: "nav-item nav-line",
+                    attrs: { id: "category-id", value: cat.id },
+                    on: {
+                      click: function($event) {
+                        _vm.getPostByCatID(cat.id)
+                        _vm.getLatestPostByCatID(cat.id)
+                      }
+                    }
+                  },
+                  [
+                    _vm.cats[0].id != cat.id
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: {
+                              href: "#two",
+                              id: "one-tab",
+                              "data-toggle": "tab",
+                              role: "tab",
+                              "aria-controls": "One",
+                              "aria-selected": "true"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                                " +
+                                _vm._s(cat.name)
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.cats[0].id == cat.id
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link active nav-line",
+                            attrs: {
+                              href: "#two",
+                              id: "one-tab",
+                              "data-toggle": "tab",
+                              role: "tab",
+                              "aria-controls": "One",
+                              "aria-selected": "true"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                                                " +
+                                _vm._s(cat.name)
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
           _vm._v(" "),
           _c(
-            "span",
+            "div",
             {
-              staticClass:
-                "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
-              on: {
-                click: function($event) {
-                  return _vm.searchCategory()
-                }
-              }
+              staticClass: "tab-content tab-content2 scroll2",
+              attrs: { id: "myTabContent" }
             },
-            [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header tab-card-header" }, [
-          _c(
-            "ul",
-            {
-              staticClass: "nav nav-tabs card-header-tabs",
-              attrs: { id: "myTab", role: "tablist" }
-            },
-            _vm._l(_vm.cats, function(cat) {
-              return _c(
-                "li",
+            [
+              _c(
+                "div",
                 {
-                  key: cat.id,
-                  staticClass: "nav-item nav-line",
-                  attrs: { id: "category-id", value: cat.id },
-                  on: {
-                    click: function($event) {
-                      _vm.getPostByCatID(cat.id)
-                      _vm.getLatestPostByCatID(cat.id)
-                    }
+                  staticClass: "tab-pane fade show active p-1",
+                  attrs: {
+                    id: "one",
+                    role: "tabpanel",
+                    "aria-labelledby": "one-tab"
                   }
                 },
                 [
-                  _vm.cats[0].id != cat.id
-                    ? _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: {
-                            href: "#two",
-                            id: "one-tab",
-                            "data-toggle": "tab",
-                            role: "tab",
-                            "aria-controls": "One",
-                            "aria-selected": "true"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\r\n                                                                " +
-                              _vm._s(cat.name)
-                          )
-                        ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.cats[0].id == cat.id
-                    ? _c(
-                        "a",
-                        {
-                          staticClass: "nav-link active nav-line",
-                          attrs: {
-                            href: "#two",
-                            id: "one-tab",
-                            "data-toggle": "tab",
-                            role: "tab",
-                            "aria-controls": "One",
-                            "aria-selected": "true"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\r\n                                                                " +
-                              _vm._s(cat.name)
-                          )
-                        ]
-                      )
-                    : _vm._e()
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "active-users col-md-4" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: { to: "/newsdetails/" + _vm.latest_post.id }
+                          },
+                          [
+                            _vm.latest_post.photo
+                              ? _c("img", {
+                                  staticClass: "source-img img-responsive",
+                                  staticStyle: {
+                                    width: "100%",
+                                    height: "200px"
+                                  },
+                                  attrs: {
+                                    src: "/upload/news/" + _vm.latest_post.photo
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.latest_post.title
+                              ? _c(
+                                  "p",
+                                  {
+                                    staticClass: "source-title",
+                                    attrs: { "aria-label": "" }
+                                  },
+                                  [_vm._v(_vm._s(_vm.latest_post.title))]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.latest_post.created_at
+                              ? _c("p", { staticClass: "source-subtitle" }, [
+                                  _vm.latest_post.created_at
+                                    ? _c("img", {
+                                        staticClass: "source-img",
+                                        attrs: { alt: "", src: "/images/5.png" }
+                                      })
+                                    : _vm._e(),
+                                  _vm._v(
+                                    _vm._s(_vm.latest_post.created_at) +
+                                      "\r\n                                                                        "
+                                  )
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-8 news-wrapper" },
+                      _vm._l(_vm.posts, function(post) {
+                        return _c(
+                          "ul",
+                          {
+                            key: post.id,
+                            staticClass: "list-group list-group-flush all-item"
+                          },
+                          [
+                            _vm.posts[0].id != post.id
+                              ? _c(
+                                  "li",
+                                  {
+                                    staticClass: "list-group-item p-t-5 p-b-5"
+                                  },
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        attrs: {
+                                          to: {
+                                            name: "newdetails",
+                                            params: { id: post.id }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("img", {
+                                          staticClass:
+                                            "img-responsive float-right",
+                                          staticStyle: {
+                                            width: "16px",
+                                            height: "16px"
+                                          },
+                                          attrs: {
+                                            src: "/images/1.jpg",
+                                            alt: ""
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "source-img-small d-inline-block text-truncate"
+                                          },
+                                          [_vm._v(_vm._s(post.title) + " ")]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              : _vm._e()
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ])
                 ]
               )
-            }),
-            0
+            ]
           )
-        ]),
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12 pad-free m-lr-0" }, [
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "div",
-          {
-            staticClass: "tab-content tab-content2 scroll2",
-            attrs: { id: "myTabContent" }
-          },
-          [
-            _c(
+          { staticClass: "row col-md-12" },
+          _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
+            return _c(
               "div",
               {
-                staticClass: "tab-pane fade show active p-1",
-                attrs: {
-                  id: "one",
-                  role: "tabpanel",
-                  "aria-labelledby": "one-tab"
-                }
+                key: latest_post_all_cat.id,
+                staticClass: "col-sm-3  col-md-3 mt-2"
               },
               [
-                _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "hovereffect fit-image" }, [
+                  _c("img", {
+                    staticClass: "img-responsive fit-image",
+                    attrs: {
+                      src: "/upload/news/" + latest_post_all_cat.photo,
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "active-users col-md-4" },
+                    { staticClass: "overlay" },
                     [
+                      _c("h2"),
+                      _vm._v(" "),
                       _c(
                         "router-link",
-                        { attrs: { to: "/newsdetails/" + _vm.latest_post.id } },
-                        [
-                          _vm.latest_post.photo
-                            ? _c("img", {
-                                staticClass: "source-img img-responsive",
-                                staticStyle: { width: "100%", height: "200px" },
-                                attrs: {
-                                  src: "/upload/news/" + _vm.latest_post.photo
-                                }
-                              })
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.latest_post.title
-                            ? _c(
-                                "p",
-                                {
-                                  staticClass: "source-title",
-                                  attrs: { "aria-label": "" }
-                                },
-                                [_vm._v(_vm._s(_vm.latest_post.title))]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.latest_post.created_at
-                            ? _c("p", { staticClass: "source-subtitle" }, [
-                                _vm.latest_post.created_at
-                                  ? _c("img", {
-                                      staticClass: "source-img",
-                                      attrs: { alt: "", src: "/images/5.png" }
-                                    })
-                                  : _vm._e(),
-                                _vm._v(
-                                  _vm._s(_vm.latest_post.created_at) +
-                                    "\r\n                                                                        "
-                                )
-                              ])
-                            : _vm._e()
-                        ]
+                        {
+                          staticClass: "btn btn-sm all-btn secondary-bg-color",
+                          attrs: {
+                            to: "/newsdetails/" + latest_post_all_cat.id
+                          }
+                        },
+                        [_vm._v(_vm._s(latest_post_all_cat.title))]
                       )
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-md-8 news-wrapper" },
-                    _vm._l(_vm.posts, function(post) {
-                      return _c(
-                        "ul",
-                        {
-                          key: post.id,
-                          staticClass: "list-group list-group-flush all-item"
-                        },
-                        [
-                          _vm.posts[0].id != post.id
-                            ? _c(
-                                "li",
-                                { staticClass: "list-group-item p-t-5 p-b-5" },
-                                [
-                                  _c(
-                                    "router-link",
-                                    {
-                                      attrs: {
-                                        to: {
-                                          name: "newdetails",
-                                          params: { id: post.id }
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "img-responsive float-right",
-                                        staticStyle: {
-                                          width: "16px",
-                                          height: "16px"
-                                        },
-                                        attrs: { src: "/images/1.jpg", alt: "" }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "source-img-small d-inline-block text-truncate"
-                                        },
-                                        [_vm._v(_vm._s(post.title) + " ")]
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            : _vm._e()
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                ])
-              ]
-            )
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-md-12 pad-free m-lr-0" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row col-md-12" },
-        _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
-          return _c(
-            "div",
-            {
-              key: latest_post_all_cat.id,
-              staticClass: "col-sm-3  col-md-3 mt-2"
-            },
-            [
-              _c("div", { staticClass: "hovereffect fit-image" }, [
-                _c("img", {
-                  staticClass: "img-responsive fit-image",
-                  attrs: {
-                    src: "/upload/news/" + latest_post_all_cat.photo,
-                    alt: ""
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "overlay" },
-                  [
-                    _c("h2"),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "btn btn-sm all-btn secondary-bg-color",
-                        attrs: { to: "/newsdetails/" + latest_post_all_cat.id }
-                      },
-                      [_vm._v(_vm._s(latest_post_all_cat.title))]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "info" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-12" }, [
-                      _c("p", { staticClass: " p_3" }, [
-                        _vm._v(
-                          "\r\n                                                                        " +
-                            _vm._s(latest_post_all_cat.main_point) +
-                            "\r\n                                                                "
-                        )
+                  _c("div", { staticClass: "info" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-12" }, [
+                        _c("p", { staticClass: " p_3" }, [
+                          _vm._v(
+                            "\r\n                                                                        " +
+                              _vm._s(latest_post_all_cat.main_point) +
+                              "\r\n                                                                "
+                          )
+                        ])
                       ])
                     ])
                   ])
                 ])
+              ]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.tests, function(test, catId) {
+        return _c(
+          "div",
+          { key: test.id, staticClass: "row m-lr-0", attrs: { catId: catId } },
+          [
+            _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
+              _c("h4", { staticClass: "h_4 next-title" }, [
+                _vm._v('Latest News By Category "' + _vm._s(test.name) + '"')
               ])
-            ]
-          )
-        }),
-        0
-      )
-    ])
-  ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row col-md-12" },
+              _vm._l(_vm.index, function(inx) {
+                return _c("div", { key: inx, staticClass: "row col-md-6 dd" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("img", {
+                      staticClass: "img-responsive fit-image",
+                      attrs: { src: "/images/day5.jpg" }
+                    }),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "source-title" }, [
+                      _vm._v(" " + _vm._s(_vm.title_arr[catId][inx]))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row col-md-6" }, [
+                    _c(
+                      "ul",
+                      { staticClass: "list-group list-group-flush all-item" },
+                      [
+                        _vm._l(_vm.second_index, function(sec_index) {
+                          return _c(
+                            "li",
+                            {
+                              key: sec_index,
+                              staticClass: "list-group-item p-t-5 p-b-5"
+                            },
+                            [
+                              _c("div", { staticClass: "row" }, [
+                                _vm._m(1, true),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-8" }, [
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "news-title",
+                                      staticStyle: { "padding-left": "25px" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(
+                                            _vm.title_arr[catId][sec_index]
+                                          ) +
+                                          " "
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _vm._l(_vm.third_index, function(thd_index) {
+                          return _c(
+                            "li",
+                            {
+                              key: thd_index,
+                              staticClass: "list-group-item p-t-5 p-b-5"
+                            },
+                            [
+                              _c("div", { staticClass: "row" }, [
+                                _vm._m(2, true),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-8" }, [
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "news-title",
+                                      staticStyle: { "padding-left": "25px" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(
+                                            _vm.title_arr[catId][thd_index]
+                                          ) +
+                                          " "
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        })
+                      ],
+                      2
+                    )
+                  ])
+                ])
+              }),
+              0
+            )
+          ]
+        )
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
@@ -44034,6 +44235,30 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
       _c("h4", { staticClass: "h_4 next-title" }, [_vm._v("関連ニュース")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4" }, [
+      _c("img", {
+        staticClass: "fit-image",
+        staticStyle: { height: "5rem", width: "6rem" },
+        attrs: { src: "/images/day1.jpg" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4" }, [
+      _c("img", {
+        staticClass: "fit-image",
+        staticStyle: { height: "5rem", width: "6rem" },
+        attrs: { src: "/images/day1.jpg" }
+      })
     ])
   }
 ]
@@ -47721,7 +47946,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.categories = response.data;
         });
         this.axios.get('/api/user').then(function (response) {
-            console.log(response);
+            // console.log(response);
         });
     },
 

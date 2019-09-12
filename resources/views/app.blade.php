@@ -773,7 +773,7 @@
         type: 'GET',
         data: {'_token': csrf},
         success: function( data ) {
-            console.log(data);
+            // console.log(data);
             var top_ad = "";
             var side_ad = "";
             for (var i = 0; i < data.length; i++) {
