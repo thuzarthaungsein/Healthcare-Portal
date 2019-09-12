@@ -20,8 +20,8 @@
                                      <input type="text" class="form-control" placeholder="検索" id="search-item"  @keyup="searchbyCategory()">
                                 </div>
                                 <div class="col-6 float-right row align-items-baseline">
-                                    <label for="selectBox col-2 col-form-label">カテゴリー</label> 
-                                    <div class="col-10">
+                                    <label for="selectBox  col-form-label" class="col-3">カテゴリー</label> 
+                                    <div class="col-9">
                                         <select class="form-control" id="selectBox" @change="searchbyCategory()" >
                                         <option selected="selected" value="">全て</option>
                                         <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
