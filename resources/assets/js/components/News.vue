@@ -79,7 +79,7 @@
                         <div class="row col-md-12">
                                 <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
                                         <div class="col-md-6" >
-                                                <img v-bind:src="'/images/' + photo_arr[catId][inx]" class="img-responsive fit-image">
+                                                <img v-if="photo_arr[catId][inx]" v-bind:src="'/images/' + photo_arr[catId][inx]" class="img-responsive fit-image">
                                                 <p class="source-title"> {{title_arr[catId][inx]}}</p>
                                         </div>
                                         <div class="row col-md-6">
@@ -88,7 +88,7 @@
                                                                 <li class="list-group-item p-t-5 p-b-5" v-for="sec_index in second_index" :key="sec_index">
                                                                         <div class="row">
                                                                                 <div class="col-md-4">
-                                                                                        <img v-bind:src="'/images/' + photo_arr[catId][sec_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                        <img v-if="photo_arr[catId][sec_index]" v-bind:src="'/images/' + photo_arr[catId][sec_index]" class="fit-image" style="height:5rem;width:6rem">
                                                                                 </div>
                                                                                 <div class="col-md-8">
                                                                                         <p class="news-title" style="padding-left:25px"> {{title_arr[catId][sec_index]}} </p>
@@ -100,7 +100,7 @@
                                                                 <li  class="list-group-item p-t-5 p-b-5" v-for="thd_index in third_index" :key="thd_index">
                                                                         <div class="row">
                                                                                 <div class="col-md-4">
-                                                                                        <img v-bind:src="'/images/' + photo_arr[catId][thd_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                        <img v-if="photo_arr[catId][thd_index]" v-bind:src="'/images/' + photo_arr[catId][thd_index]" class="fit-image" style="height:5rem;width:6rem">
                                                                                 </div>
                                                                                 <div class="col-md-8">
                                                                                         <p class="news-title" style="padding-left:25px"> {{title_arr[catId][thd_index]}} </p>
