@@ -74,53 +74,45 @@
                         </div>
                 </div>  
 
-                <!-- Start -->
-                <!-- First Loop by Category -->
                 <div class="row m-lr-0" v-for="(test,catId) in tests" :key="test.id" :catId="catId">
                         <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">Latest News By Category "{{test.name}}"</h4></div>
                         <div class="row col-md-12">
-                                <!-- Left Area -->
                                 <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
                                         <div class="col-md-6" >
                                                 <img v-bind:src="'/images/' + photo_arr[catId][inx]" class="img-responsive fit-image">
                                                 <p class="source-title"> {{title_arr[catId][inx]}}</p>
                                         </div>
-                                        <!-- Third Loop -->
                                         <div class="row col-md-6">
                                                 <ul class="list-group list-group-flush all-item">
                                                         <span v-if="(title_arr[catId][0] != title) && (title_arr[catId][3] != title) && inx == 0">
-                                                        <li class="list-group-item p-t-5 p-b-5" v-for="sec_index in second_index" :key="sec_index">
-                                                                <div class="row">
-                                                                        <div class="col-md-4">
-                                                                                <img v-bind:src="'/images/' + photo_arr[catId][sec_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                <li class="list-group-item p-t-5 p-b-5" v-for="sec_index in second_index" :key="sec_index">
+                                                                        <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                        <img v-bind:src="'/images/' + photo_arr[catId][sec_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                </div>
+                                                                                <div class="col-md-8">
+                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][sec_index]}} </p>
+                                                                                </div>
                                                                         </div>
-                                                                        <div class="col-md-8">
-                                                                                <p class="news-title" style="padding-left:25px"> {{title_arr[catId][sec_index]}} </p>
-                                                                        </div>
-                                                                </div>
-                                                        </li>
+                                                                </li>
                                                         </span>
                                                         <span v-if="(title_arr[catId][0] != title) && (title_arr[catId][3] != title) && inx == 3">
-                                                        <li  class="list-group-item p-t-5 p-b-5" v-for="thd_index in third_index" :key="thd_index">
-                                                                <div class="row">
-                                                                        <div class="col-md-4">
-                                                                                <img v-bind:src="'/images/' + photo_arr[catId][thd_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                <li  class="list-group-item p-t-5 p-b-5" v-for="thd_index in third_index" :key="thd_index">
+                                                                        <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                        <img v-bind:src="'/images/' + photo_arr[catId][thd_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                </div>
+                                                                                <div class="col-md-8">
+                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][thd_index]}} </p>
+                                                                                </div>
                                                                         </div>
-                                                                        <div class="col-md-8">
-                                                                                <p class="news-title" style="padding-left:25px"> {{title_arr[catId][thd_index]}} </p>
-                                                                        </div>
-                                                                </div>
-                                                        </li></span>
+                                                                </li>
+                                                        </span>
                                                 </ul>
                                         </div>
-                                        <!-- End Loop -->
                                 </div>
-                        </div>
-                       
+                        </div> 
                 </div>
-                <!-- End First Loop -->
-                <!-- End -->
-                
         </div>   
 </template>
 <style scoped>
