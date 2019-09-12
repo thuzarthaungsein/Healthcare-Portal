@@ -178,33 +178,12 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
 Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
 
-//Route::post('add','AdvertisementController@store');
-<<<<<<< HEAD
-=======
-Route::group(['prefix' => 'advertisement'], function () {
-    Route::post('add', 'AdvertisementController@store');
-    Route::get('edit/{id}', 'AdvertisementController@edit');
-    Route::get('ads', 'AdvertisementController@index');
-    Route::post('update/{id}', 'AdvertisementController@update');
-    Route::delete('delete/{id}','AdvertisementController@destroy');
-});
 Route::group(['prefix' => 'hospital'], function () {
     Route::get('postList', 'HospitalProfileController@getPostalList');
     Route::get('citiesList', 'HospitalProfileController@getCitiesName');
     Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
-});
-//  Route::group(['prefix' => 'hospital'], function () {
-//         Route::get('postList', 'HospitalProfileController@getPostalList');
-//         Route::get('citiesList', 'HospitalProfileController@getCitiesName');
-//         Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
-//         Route::delete('delete/{id}', 'HospitalProfileController@destroy');
-       
-//     });
->>>>>>> e3d88046b34337e1e04b1ccf8dffe32376650b1c
-
- Route::group(['prefix' => 'hospital'], function () {       
     Route::get('favourite_list', 'HospitalProfileController@index');        
-    Route::delete('delete/{id}', 'HospitalProfileController@destroy');       
+    Route::delete('delete/{id}', 'HospitalProfileController@destroy');
 });
 
 Route::group(['prefix' => 'comments'], function () {

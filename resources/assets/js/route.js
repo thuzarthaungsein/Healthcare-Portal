@@ -45,13 +45,10 @@ import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
 import favouriteBtn from './components/favouriteBtn.vue';
 import comment from './components/Comment.vue';
-<<<<<<< HEAD
 import commentlist from './components/commentlist.vue';
 import featurelist from './components/FeatureList.vue';
-=======
 import favouriteNursing from './components/favouriteNursing.vue';
 
->>>>>>> e3d88046b34337e1e04b1ccf8dffe32376650b1c
 import passport from './components/passport.vue';
 import specialfeature from './components/CreateSpecialFeature.vue';
 export const routes = [
@@ -240,12 +237,6 @@ export const routes = [
         path: '/favouriteNursing',
         component: favouriteNursing
       },
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> e3d88046b34337e1e04b1ccf8dffe32376650b1c
       {
         name:'type',
         path:'/type',
@@ -286,13 +277,7 @@ export const routes = [
       name: 'nursing_profile',
       path: '/nursing_profile',
       component: NursingProfile
-     },
-<<<<<<< HEAD
-  {
-    name: 'favouriteBtn',
-    path: '/favouriteBtn',
-    component: favouriteBtn
-},
+     },  
   {
     name: 'videoupload',
     path: '/videoupload',
@@ -320,16 +305,4 @@ export const routes = [
   }
 
   
-=======
-      {
-        name: 'videoupload',
-        path: '/videoupload',
-        component: VideoUpload
-      },
-      {
-        name: 'comment',
-        path: '/comment',
-        component: comment
-      }
->>>>>>> e3d88046b34337e1e04b1ccf8dffe32376650b1c
 ];

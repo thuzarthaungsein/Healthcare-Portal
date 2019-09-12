@@ -604,7 +604,7 @@
 
                                 <div class="row justify-content-md-center">
 
-                                    <div class="col-12 col-lg-10 col-md-8 tab">
+                                    <div class="col-12 col-lg-10 col-md-10 tab">
 
                                     <!-- vue component -->
 
@@ -621,8 +621,6 @@
                                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div> -->
 
                                     </div>
-
-
 
                                     <div class="col-12 col-lg-2 col-md-4">
 
@@ -786,8 +784,7 @@
                 } 
                 else if(data[i].location.includes("sidebar"))  {
                     side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
-                } 
-                
+                }                
             }
             $(".top-ad-slider").html(top_ad);
             jssor_1_slider_init();
