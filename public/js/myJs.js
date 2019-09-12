@@ -179,7 +179,7 @@ $('#text').click(function() {
 /*select check
 
 */
-$(document).ready(function(){
+// $(document).ready(function(){
     $('.select_all').on('click',function(){
         if(this.checked){
             $('.checkbox').each(function(){
@@ -199,7 +199,7 @@ $(document).ready(function(){
             $('.select_all').prop('checked',false);
         }
     });
-});
+// });
 
 /*select check
 
@@ -254,7 +254,7 @@ $('nav-item').on('change',function(e){
     console.log($('#a1').val());
 })
 
-jQuery(document).ready(function($) {
+// jQuery(document).ready(function($) {
 
     var profilePublish = $("#profilePublish");
     stickyDiv = "sticky";
@@ -277,7 +277,7 @@ $('.scrolldiv2').scroll(function() {
     $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
     
     });
-});
+// });
 
 
 

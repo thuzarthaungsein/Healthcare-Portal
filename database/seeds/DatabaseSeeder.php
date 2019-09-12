@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin'),
                 'type'=>'admin',
+                'type_id'=> 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'customer@gmail.com',
                 'password' => bcrypt('customer'),
                 'type'=>'user',
+                'type_id'=> 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -183,6 +185,12 @@ class DatabaseSeeder extends Seeder
         $category->user_id = 1;
         $category->save();
         
+        $type = new Type();
+        $type->name = "admin";
+        $type->user_id = 1;
+        $type->parent = 0;
+        $type->save();
+
         $type = new Type();
         $type->name = "病院";
         $type->user_id = 1;
