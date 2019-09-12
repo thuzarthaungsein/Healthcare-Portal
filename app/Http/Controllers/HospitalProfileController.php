@@ -51,6 +51,29 @@ class HospitalProfileController extends Controller
         return $fav_nursing;
     }
 
+    public function getPostalList(){
+        $query = "SELECT zipcode.id, zipcode.pref, CONCAT(zipcode.zip7_code,' ', zipcode.pref,' ', zipcode.city,' ', zipcode.street) AS name
+                    FROM zipcode";
+        $postal_list = DB::select($query);
+        return $postal_list;
+        // return $postal_list;
+    }
+
+    public function getCitiesName() {
+        $query = "SELECT cities.id, cities.city_name FROM cities";
+        $city_list = DB::select($query);
+        return $city_list;
+    }
+
+    public function getSelectedCityName($selectedId){
+        $query = "SELECT cities.id AS c_Id, zipcode.id, zipcode.pref, CONCAT(zipcode.city,' ', zipcode.street) AS street FROM zipcode
+                    RIGHT JOIN cities
+                    ON zipcode.city_id = cities.id
+                    WHERE zipcode.id = $selectedId";
+        $selectedCity = DB::select($query);
+        return $selectedCity;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

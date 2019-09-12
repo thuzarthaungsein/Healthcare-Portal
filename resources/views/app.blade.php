@@ -18,6 +18,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
 <!-- Fonts -->
 <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
+<!--mailbox-->
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -157,7 +158,9 @@
       <!-- login menu  -->
       <div class="adminview-sidebar" id="navbarSupportedContent">
       <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
-
+      @can('isAdmin')
+      <li><router-link to="/passport" class="nav-link"><i class="fa fa-list"></i>&nbsp; Passport </router-link></li>
+      @endcan
       @can('role-list')
       <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
       <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
@@ -311,9 +314,9 @@
                 <div class="card m-b-10 ads-card">
                 <!--ads slider-->
                 <div style="display: block; overflow: hidden;">
-                    <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:167px; overflow: hidden;">
+                    <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:130px; overflow: hidden;">
                     <!-- Slides Container -->
-                        <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 167px; overflow: hidden;">
+                        <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 130px; overflow: hidden;">
                             <div><img data-u="image" src="/images/h1.jpg" style="width:100%"/> </div>
                             <div><img data-u="image" src="/images/h2.jpg" style="width:100%"/> </div>
                             <div><img data-u="image" src="/images/h3.jpg" style="width:100%"/> </div>
@@ -376,6 +379,7 @@
 
 <script type="text/javascript">
  $(document).ready(function() {
+    
     $('.DataTable').DataTable();
     jssor_1_slider_init();
     jssor_slider2_init();
@@ -396,6 +400,8 @@
         }
     });
 });
+
+        
 </script>
 
 </body>

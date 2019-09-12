@@ -1,17 +1,60 @@
+
+
+var timeout;
+$(".path").hover(
+  function() {
+    clearTimeout(timeout);
+    $('#info-box').css({
+      'display':'block',
+      'position':'fixed',
+      'top':"175px",
+      'left':'1350px'
+    });
+    $('#info-box').html($(this).data('info'));
+  },
+  function(){
+  	timeout = setTimeout(function(){
+    	$('#info-box').css('display','none');
+      },1000);
+  });
+
+var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+if(ios) {
+  $('abbr').on('click touchend', function() { 
+    var link = $(this).attr('href');   
+    window.open(link,'_blank');
+    return false;
+  });
+}
+
+
 $('path').on("click", function(e) {
     e.preventDefault();
     $('path.selected').attr("class", "");
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
-     console.log(e);
     var url = "/api/getmap";
     $.ajax({
-        type:'get',
+        type:'post',
         data:{"title":title,"id":id},
         url:url,
         success:function(data){
-            console.log(data.title);
+            console.log(data);
+            $('#select').css({'display':'block'});
+            $('#checkbox').empty();
+            $('#select').empty();
+            var city = data.getCity;
+            var townships = data.getTownships;
+            $.each(city,function(k,v){
+              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>')
+            });
+            $.each(townships,function(k,v){
+                console.log(v);
+                $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+            });
+           
+           
         }
     });
 
@@ -133,4 +176,49 @@ $(document).ready(function(){
 */
 
 
+/*data_carry
 
+
+
+/*data_carry
+    
+*/
+$(function() {
+    $('#btnSubmit').on('click', function() {
+      // your code goes here
+      $('#outputSpan').val($('#count').val());
+      $('#outputfurigana').val($('#furigana').val());
+      $('#outputpostal').val($('.postal').val());
+      $('#outputdivision').val($('#division').val());
+      $('#outputcity').val($('#city').val());
+      $('#outputphone').val($('#phone').val());
+      $('#outputmail').val($('#mail').val());
+      
+    //   $('#outputpresent').val($('#present').val());
+      $('#outputpresent').val($('input:checkbox[name=present]:checked').val());
+
+      $('#outputrelation').val($('#relation').val());
+      $('#outputttname').val($('#ttname').val());
+      
+      $('#outputsex').val($('input:radio[name=sex]:checked').val());
+    //   alert($('input:radio[name=sex]:checked').val());
+      
+      $('#outputyears').val($('#years').val());
+      $('#outputnursing').val($('#nursing').val());
+      
+    //   $('#outputfect').val($('#fect').val());
+       
+      $('#outputfect').val($('input:radio[name=fect]:checked').val());
+    //   alert($('input:radio[name=fect]:checked').val());
+      
+    //   $('#outputdesire').val($('#desire').val());
+      $('#outputdesire').val($('input:radio[name=desire]:checked').val());
+     
+      $('#outputhope').val($('#hope').val());
+      // not triiger output tab to be open
+      $('[href="#output"]').trigger('click');
+    });
+  });
+
+
+  

@@ -585,6 +585,14 @@
        padding-top: 15px;
    }
 
+   .scrolldiv3 {
+    height: 1500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    background: white;
+    padding-top: 15px;
+}
+
 
 /* End Search News List */
 
@@ -837,7 +845,7 @@ textarea.form-control, textarea{
 /* End Job Apply Form*/
 /* News Tab */
 .news-wrapper{
-    height: 310px;
+    height: 290px;
     overflow-y: auto;
     scrollbar-width: thin;
 }
@@ -1164,7 +1172,9 @@ div.b{
 .m-0 {
     margin: 0px;
 }
-
+.m-t-71{
+    margin-top: 71px;
+}
 .m-t-8 {
     margin-top:13px;
 }
@@ -1174,6 +1184,12 @@ div.b{
 }
 .m-l-10 {
     margin-left: 10px !important;
+}
+.m-l-15{
+    margin-left: 15px;
+}
+.m-l-17{
+    margin-left:17px;
 }
 .m-t-10{
     margin-top: 10px !important;
@@ -1208,6 +1224,9 @@ div.b{
 }
 .m-b-0{
     margin-bottom: 0px !important;
+}
+.m-r-8{
+    margin-right: 8px;
 }
 .m-r-15 {
     margin-right: 15px;
@@ -1855,7 +1874,46 @@ ul.main-tab li:after{
     }
 /*view*/
 
+.myBtn {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+    padding: 6px 22px;
+    display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+-ms-touch-action: manipulation;
+touch-action: manipulation;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+background-image: none;
+border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+border-radius: 4px;
+color:white;
+}
 
+.myBtn-success {
+    background-color: #4db197 !important;
+    border-color: #4db197 !important; }
+    .btn-success:hover, .btn-success:focus {
+      background-color: #3ca512;
+      border-color: #3ca512; }
 /* Hospital History */
 .fac_container {
     width: 100%;
@@ -1874,8 +1932,6 @@ ul.main-tab li:after{
     border-radius: 2px;
 }
 /* End for Hospital History */
-<<<<<<< HEAD
-=======
 /* Summernote */
 
 .note-editor .btn-light {
@@ -1888,4 +1944,9 @@ ul.main-tab li:after{
     padding: 5px 0 10px 10px !important;
 }
 /* End Summernote */
->>>>>>> 13da39896d3c4415b4b8b2984ea2358714330c48
+.mailbox{
+    border:none;
+}
+.bk{
+    background: #dad6d6;
+}
