@@ -41883,26 +41883,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 },
 
                 getLatestPostsByCatID: function getLatestPostsByCatID() {
-                        var _this2 = this;
+                        // this.axios
+                        // .get('/api/get_latest_posts_by_catId')
+                        // .then(response => {
+                        //         // console.log(response);
+                        //         for(var i=0; i<response.data.length; i++) {
+                        //                 this.tmp_title[i] = response.data[i].title;
+                        //                 this.title_arr[i] = this.tmp_title[i].split(",");
 
-                        this.axios.get('/api/get_latest_posts_by_catId').then(function (response) {
-                                // console.log(response);
-                                for (var i = 0; i < response.data.length; i++) {
-                                        _this2.tmp_title[i] = response.data[i].title;
-                                        _this2.title_arr[i] = _this2.tmp_title[i].split(",");
+                        //                 this.tmp_photo[i] = response.data[i].photo;
+                        //                 this.photo_arr[i] = this.tmp_photo[i].split(",");
 
-                                        _this2.tmp_photo[i] = response.data[i].photo;
-                                        _this2.photo_arr[i] = _this2.tmp_photo[i].split(",");
-
-                                        _this2.tmp_post_id[i] = response.data[i].post_id;
-                                        _this2.id_arr[i] = _this2.tmp_post_id[i].split(",");
-                                }
-                                _this2.tmp_arr = response.data;
-                        });
+                        //                 this.tmp_post_id[i] = response.data[i].post_id;
+                        //                 this.id_arr[i] = this.tmp_post_id[i].split(",");
+                        //         }
+                        //         this.tmp_arr = response.data;
+                        // });   
                 },
 
                 getPostByCatID: function getPostByCatID(catId) {
-                        var _this3 = this;
+                        var _this2 = this;
 
                         if ($('#search-word').val()) {
                                 var search_word = $('#search-word').val();
@@ -41921,12 +41921,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         $('.search-item').css('display', 'none');
                         this.categoryId = cat_id;
                         axios.post("/api/posts/", fd).then(function (response) {
-                                _this3.posts = response.data;
+                                _this2.posts = response.data;
                         });
                 },
 
                 getLatestPostByCatID: function getLatestPostByCatID(catId) {
-                        var _this4 = this;
+                        var _this3 = this;
 
                         if ($('#search-word').val()) {
                                 var search_word = $('#search-word').val();
@@ -41945,19 +41945,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         $('.search-item').css('display', 'none');
                         this.categoryId = cat_id;
                         axios.post("/api/get_latest_post/", fd).then(function (response) {
-                                _this4.latest_post = response.data;
+                                _this3.latest_post = response.data;
                         });
                 },
                 getLatestPostFromAllCat: function getLatestPostFromAllCat() {
-                        var _this5 = this;
+                        var _this4 = this;
 
                         this.axios.get('/api/get_latest_post_all_cat').then(function (response) {
-                                _this5.latest_post_all_cats = response.data;
+                                _this4.latest_post_all_cats = response.data;
                         });
                 },
 
                 searchCategory: function searchCategory() {
-                        var _this6 = this;
+                        var _this5 = this;
 
                         $('ul#myTab li a').removeClass('active');
                         $('ul#myTab li:first-child a').addClass('active');
@@ -41971,11 +41971,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         this.axios.post('/api/search', fd).then(function (response) {
                                 if (response.data.length == '0') {
-                                        _this6.posts = [];
-                                        _this6.latest_post = [];
+                                        _this5.posts = [];
+                                        _this5.latest_post = [];
                                 } else {
-                                        _this6.posts = response.data;
-                                        _this6.latest_post = _this6.posts[0];
+                                        _this5.posts = response.data;
+                                        _this5.latest_post = _this5.posts[0];
                                 }
                         });
                 }
@@ -42018,7 +42018,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.path[data-v-5cde3559] {\n    cursor: pointer;\n}\n.selected[data-v-5cde3559] {\n    fill: #f27a24;\n    stroke: #111;\n    stroke-width: 1px;\n    stroke-linejoin: round;\n    color: #f27a24  !important;\n    font-weight: bold;\n}\n.path[data-v-5cde3559] {\n  -webkit-transition-property: opacity;\n  transition-property: opacity;\n  -webkit-transition-duration: 0.5s;\n  transition-duration: 0.5s;\n  -webkit-transition-timing-function: ease;\n  transition-timing-function: ease;\n  -webkit-transition: fill .75s;\n  transition: fill .75s;\n}\n.path[data-v-5cde3559]:hover,  .path[data-v-5cde3559]:focus {\n  cursor: pointer;\n}\n.path[data-v-5cde3559]:hover,\n .path:hover .path[data-v-5cde3559],  .path[data-v-5cde3559]:focus,\n .path:focus .path[data-v-5cde3559] {\n  color: #000\n}\n.path[data-v-5cde3559]:hover, polygon[data-v-5cde3559]:hover {\n  fill: #20487c !important;\n  stroke: #002868 !important;\n  stroke-width:2px;\n  stroke-linejoin: round; \n  cursor: pointer;\n}\n#select[data-v-5cde3559]{\n  display:none;\n}\nspan.tooltip[data-v-5cde3559] {\n  padding: 0px 5px;\n  position: relative;\n  background: #FFBB99;\n  cursor: pointer;\n}\n.tooltip-info[data-v-5cde3559] {\n  position: absolute;\n  top: -9999px;\n  left: -9999px;\n}\nspan.tooltip[data-v-5cde3559]::before {\n  content: attr(data-tooltip);\n  position: absolute;\n  top: 1.5em;\n  font-size: 0.9em;\n  padding: 1px 5px;\n  display: none;\n  color: white;\n  background: rgba(0, 0, 0, 0.75);\n  border-radius: 4px;\n  -webkit-transition: opacity 0.1s ease-out;\n  transition: opacity 0.1s ease-out;\n  z-index: 99;\n  text-align: left;\n}\nspan[data-v-5cde3559]:hover::before {\n  display: inline-block;\n}\n", ""]);
+exports.push([module.i, "\n.path[data-v-5cde3559] {\n    cursor: pointer;\n}\n.selected[data-v-5cde3559] {\n    fill: #5c5959;\n    stroke: #111;\n    stroke-width: 2px;\n    stroke-linejoin: round;\n    color: #f27a24  !important;\n    font-weight: bold;\n}\n.path[data-v-5cde3559] {\n  -webkit-transition-property: opacity;\n  transition-property: opacity;\n  -webkit-transition-duration: 0.5s;\n  transition-duration: 0.5s;\n  -webkit-transition-timing-function: ease;\n  transition-timing-function: ease;\n  -webkit-transition: fill .75s;\n  transition: fill .75s;\n}\n.path[data-v-5cde3559]:hover,  .path[data-v-5cde3559]:focus {\n  cursor: pointer;\n}\n.path[data-v-5cde3559]:hover,\n .path:hover .path[data-v-5cde3559],  .path[data-v-5cde3559]:focus,\n .path:focus .path[data-v-5cde3559] {\n  color: #000\n}\n.path[data-v-5cde3559]:hover, polygon[data-v-5cde3559]:hover {\n  fill: #20487c !important;\n  stroke: #002868 !important;\n  stroke-width:2px;\n  stroke-linejoin: round; \n  cursor: pointer;\n}\n#select[data-v-5cde3559]{\n  display:none;\n}\nspan.tooltip[data-v-5cde3559] {\n  padding: 0px 5px;\n  position: relative;\n  background: #FFBB99;\n  cursor: pointer;\n}\n.tooltip-info[data-v-5cde3559] {\n  position: absolute;\n  top: -9999px;\n  left: -9999px;\n}\nspan.tooltip[data-v-5cde3559]::before {\n  content: attr(data-tooltip);\n  position: absolute;\n  top: 1.5em;\n  font-size: 0.9em;\n  padding: 1px 5px;\n  display: none;\n  color: white;\n  background: rgba(0, 0, 0, 0.75);\n  border-radius: 4px;\n  -webkit-transition: opacity 0.1s ease-out;\n  transition: opacity 0.1s ease-out;\n  z-index: 99;\n  text-align: left;\n}\nspan[data-v-5cde3559]:hover::before {\n  display: inline-block;\n}\n", ""]);
 
 // exports
 
@@ -42035,9 +42035,9 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _vm._m(0),
       _vm._v(" "),
+      _c("div", { attrs: { id: "info-box" } }),
+      _vm._v(" "),
       _c("div", { staticClass: "col-sm-5" }, [
-        _c("div", { attrs: { id: "info-box" } }),
-        _vm._v(" "),
         _c(
           "svg",
           {
@@ -42574,7 +42574,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("path", {
-              staticClass: "path",
+              staticClass: "path Tokushima",
               attrs: {
                 id: "36",
                 "data-info": "Tokushima",
@@ -43933,609 +43933,305 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "row justify-content-md-center" },
-    [
-      _c("div", { staticClass: "col-12" }, [
-        _c(
-          "form",
-          { staticClass: "form-inline col-lg-12 form-inline mb-2 pad-free" },
-          [
-            _c("input", {
-              staticClass:
-                "form-control col-lg mr-sm-3 d-flex p-2 form-control",
-              attrs: {
-                type: "text",
-                placeholder: "検索",
-                "aria-label": "検索",
-                id: "search-word"
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                staticClass:
-                  "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
-                on: {
-                  click: function($event) {
-                    return _vm.searchCategory()
-                  }
-                }
-              },
-              [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header tab-card-header" }, [
-            _c(
-              "ul",
-              {
-                staticClass: "nav nav-tabs card-header-tabs",
-                attrs: { id: "myTab", role: "tablist" }
-              },
-              _vm._l(_vm.cats, function(cat) {
-                return _c(
-                  "li",
-                  {
-                    key: cat.id,
-                    staticClass: "nav-item nav-line",
-                    attrs: { id: "category-id", value: cat.id },
-                    on: {
-                      click: function($event) {
-                        _vm.getPostByCatID(cat.id)
-                        _vm.getLatestPostByCatID(cat.id)
-                      }
-                    }
-                  },
-                  [
-                    _vm.cats[0].id != cat.id
-                      ? _c(
-                          "a",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              href: "#two",
-                              id: "one-tab",
-                              "data-toggle": "tab",
-                              role: "tab",
-                              "aria-controls": "One",
-                              "aria-selected": "true"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                                                " +
-                                _vm._s(cat.name)
-                            )
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.cats[0].id == cat.id
-                      ? _c(
-                          "a",
-                          {
-                            staticClass: "nav-link active nav-line",
-                            attrs: {
-                              href: "#two",
-                              id: "one-tab",
-                              "data-toggle": "tab",
-                              role: "tab",
-                              "aria-controls": "One",
-                              "aria-selected": "true"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                                                " +
-                                _vm._s(cat.name)
-                            )
-                          ]
-                        )
-                      : _vm._e()
-                  ]
-                )
-              }),
-              0
-            )
-          ]),
+  return _c("div", { staticClass: "row justify-content-md-center" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c(
+        "form",
+        { staticClass: "form-inline col-lg-12 form-inline mb-2 pad-free" },
+        [
+          _c("input", {
+            staticClass: "form-control col-lg mr-sm-3 d-flex p-2 form-control",
+            attrs: {
+              type: "text",
+              placeholder: "検索",
+              "aria-label": "検索",
+              id: "search-word"
+            }
+          }),
           _vm._v(" "),
           _c(
-            "div",
+            "span",
             {
-              staticClass: "tab-content tab-content2 scroll2",
-              attrs: { id: "myTabContent" }
+              staticClass:
+                "btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary",
+              on: {
+                click: function($event) {
+                  return _vm.searchCategory()
+                }
+              }
             },
-            [
-              _c(
-                "div",
+            [_c("i", { staticClass: "fas fa-search" }), _vm._v(" 検索")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header tab-card-header" }, [
+          _c(
+            "ul",
+            {
+              staticClass: "nav nav-tabs card-header-tabs",
+              attrs: { id: "myTab", role: "tablist" }
+            },
+            _vm._l(_vm.cats, function(cat) {
+              return _c(
+                "li",
                 {
-                  staticClass: "tab-pane fade show active p-1",
-                  attrs: {
-                    id: "one",
-                    role: "tabpanel",
-                    "aria-labelledby": "one-tab"
+                  key: cat.id,
+                  staticClass: "nav-item nav-line",
+                  attrs: { id: "category-id", value: cat.id },
+                  on: {
+                    click: function($event) {
+                      _vm.getPostByCatID(cat.id)
+                      _vm.getLatestPostByCatID(cat.id)
+                    }
                   }
                 },
                 [
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "active-users col-md-4" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: { to: "/newsdetails/" + _vm.latest_post.id }
-                          },
-                          [
-                            _vm.latest_post.photo
-                              ? _c("img", {
-                                  staticClass: "source-img img-responsive",
-                                  staticStyle: {
-                                    width: "100%",
-                                    height: "200px"
-                                  },
-                                  attrs: {
-                                    src: "/upload/news/" + _vm.latest_post.photo
-                                  }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.latest_post.title
-                              ? _c(
-                                  "p",
-                                  {
-                                    staticClass: "source-title",
-                                    attrs: { "aria-label": "" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.latest_post.title))]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.latest_post.created_at
-                              ? _c("p", { staticClass: "source-subtitle" }, [
-                                  _vm.latest_post.created_at
-                                    ? _c("img", {
-                                        staticClass: "source-img",
-                                        attrs: { alt: "", src: "/images/5.png" }
-                                      })
-                                    : _vm._e(),
-                                  _vm._v(
-                                    _vm._s(_vm.latest_post.created_at) +
-                                      "\r\n                                                                        "
-                                  )
-                                ])
-                              : _vm._e()
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-md-8 news-wrapper" },
-                      _vm._l(_vm.posts, function(post) {
-                        return _c(
-                          "ul",
-                          {
-                            key: post.id,
-                            staticClass: "list-group list-group-flush all-item"
-                          },
-                          [
-                            _vm.posts[0].id != post.id
-                              ? _c(
-                                  "li",
-                                  {
-                                    staticClass: "list-group-item p-t-5 p-b-5"
-                                  },
-                                  [
-                                    _c(
-                                      "router-link",
-                                      {
-                                        attrs: {
-                                          to: {
-                                            name: "newdetails",
-                                            params: { id: post.id }
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("img", {
-                                          staticClass:
-                                            "img-responsive float-right",
-                                          staticStyle: {
-                                            width: "16px",
-                                            height: "16px"
-                                          },
-                                          attrs: {
-                                            src: "/images/1.jpg",
-                                            alt: ""
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "source-img-small d-inline-block text-truncate"
-                                          },
-                                          [_vm._v(_vm._s(post.title) + " ")]
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              : _vm._e()
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  ])
-                ]
-              )
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-12 pad-free m-lr-0" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row col-md-12" },
-          _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
-            return _c(
-              "div",
-              {
-                key: latest_post_all_cat.id,
-                staticClass: "col-sm-3  col-md-3 mt-2"
-              },
-              [
-                _c("div", { staticClass: "hovereffect fit-image" }, [
-                  _c("img", {
-                    staticClass: "img-responsive fit-image",
-                    attrs: {
-                      src: "/upload/news/" + latest_post_all_cat.photo,
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "overlay" },
-                    [
-                      _c(
-                        "router-link",
+                  _vm.cats[0].id != cat.id
+                    ? _c(
+                        "a",
                         {
-                          staticClass: "btn btn-sm all-btn secondary-bg-color",
+                          staticClass: "nav-link",
                           attrs: {
-                            to: "/newsdetails/" + latest_post_all_cat.id
-                          }
-                        },
-                        [_vm._v("詳細")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-12" }, [
-                        _c("p", { staticClass: " p_3" }, [
-                          _vm._v(
-                            "\r\n                                                                        " +
-                              _vm._s(latest_post_all_cat.main_point) +
-                              "\r\n                                                                "
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            )
-          }),
-          0
-        )
-      ]),
-      _vm._v("  \r\n" + _vm._s(_vm.tmp_arr) + "\r\n                "),
-      _vm._l(_vm.tmp_arr, function(arr, catId) {
-        return _c(
-          "div",
-          {
-            key: arr.id,
-            staticClass: "col-md-12 m-lr-0",
-            attrs: { catId: catId }
-          },
-          [
-            _c("div", { staticClass: "row col-md-12 text-center m-lr-0" }, [
-              _c("h4", { staticClass: "h_4 next-title" }, [
-                _vm._v('Latest News By Category "' + _vm._s(arr.name) + '"')
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "row col-md-12" },
-              _vm._l(_vm.index, function(inx) {
-                return _c("div", { key: inx, staticClass: "row col-md-6 dd" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-md-6" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: "/newsdetails/" + _vm.id_arr[catId][inx]
+                            href: "#two",
+                            id: "one-tab",
+                            "data-toggle": "tab",
+                            role: "tab",
+                            "aria-controls": "One",
+                            "aria-selected": "true"
                           }
                         },
                         [
-                          _vm.photo_arr[catId][inx]
+                          _vm._v(
+                            "\r\n                                                                " +
+                              _vm._s(cat.name)
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.cats[0].id == cat.id
+                    ? _c(
+                        "a",
+                        {
+                          staticClass: "nav-link active nav-line",
+                          attrs: {
+                            href: "#two",
+                            id: "one-tab",
+                            "data-toggle": "tab",
+                            role: "tab",
+                            "aria-controls": "One",
+                            "aria-selected": "true"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n                                                                " +
+                              _vm._s(cat.name)
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-content tab-content2 scroll2",
+            attrs: { id: "myTabContent" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "tab-pane fade show active p-1",
+                attrs: {
+                  id: "one",
+                  role: "tabpanel",
+                  "aria-labelledby": "one-tab"
+                }
+              },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "active-users col-md-4" },
+                    [
+                      _c(
+                        "router-link",
+                        { attrs: { to: "/newsdetails/" + _vm.latest_post.id } },
+                        [
+                          _vm.latest_post.photo
                             ? _c("img", {
-                                staticClass: "img-responsive fit-image",
+                                staticClass: "source-img img-responsive",
+                                staticStyle: { width: "100%", height: "200px" },
                                 attrs: {
-                                  src:
-                                    "/upload/news/" + _vm.photo_arr[catId][inx]
+                                  src: "/upload/news/" + _vm.latest_post.photo
                                 }
                               })
                             : _vm._e(),
                           _vm._v(" "),
-                          _c("p", { staticClass: "source-title" }, [
-                            _vm._v(" " + _vm._s(_vm.title_arr[catId][inx]))
-                          ])
+                          _vm.latest_post.title
+                            ? _c(
+                                "p",
+                                {
+                                  staticClass: "source-title",
+                                  attrs: { "aria-label": "" }
+                                },
+                                [_vm._v(_vm._s(_vm.latest_post.title))]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.latest_post.created_at
+                            ? _c("p", { staticClass: "source-subtitle" }, [
+                                _vm.latest_post.created_at
+                                  ? _c("img", {
+                                      staticClass: "source-img",
+                                      attrs: { alt: "", src: "/images/5.png" }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(
+                                  _vm._s(_vm.latest_post.created_at) +
+                                    "\r\n                                                                        "
+                                )
+                              ])
+                            : _vm._e()
                         ]
                       )
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "row col-md-6" }, [
-                    _c(
-                      "ul",
-                      { staticClass: "list-group list-group-flush all-item" },
-                      [
-                        inx == 0
-                          ? _c(
-                              "span",
-                              _vm._l(_vm.second_index, function(sec_index) {
-                                return _c(
-                                  "li",
-                                  {
-                                    key: sec_index,
-                                    staticClass: "list-group-item p-t-5 p-b-5"
-                                  },
-                                  [
-                                    _vm.title_arr[catId][0] !=
-                                      _vm.title_arr[catId][sec_index] &&
-                                    _vm.title_arr[catId][3] !=
-                                      _vm.title_arr[catId][sec_index]
-                                      ? _c("span", [
-                                          _c("div", { staticClass: "row" }, [
-                                            _c(
-                                              "div",
-                                              { staticClass: "col-md-4" },
-                                              [
-                                                _c(
-                                                  "router-link",
-                                                  {
-                                                    attrs: {
-                                                      to:
-                                                        "/newsdetails/" +
-                                                        _vm.id_arr[catId][
-                                                          sec_index
-                                                        ]
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm.photo_arr[catId][
-                                                      sec_index
-                                                    ]
-                                                      ? _c("img", {
-                                                          staticClass:
-                                                            "fit-image",
-                                                          staticStyle: {
-                                                            height: "5rem",
-                                                            width: "6rem"
-                                                          },
-                                                          attrs: {
-                                                            src:
-                                                              "/upload/news/" +
-                                                              _vm.photo_arr[
-                                                                catId
-                                                              ][sec_index]
-                                                          }
-                                                        })
-                                                      : _vm._e()
-                                                  ]
-                                                )
-                                              ],
-                                              1
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              { staticClass: "col-md-8" },
-                                              [
-                                                _c(
-                                                  "router-link",
-                                                  {
-                                                    attrs: {
-                                                      to:
-                                                        "/newsdetails/" +
-                                                        _vm.id_arr[catId][
-                                                          sec_index
-                                                        ]
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "p",
-                                                      {
-                                                        staticClass:
-                                                          "news-title",
-                                                        staticStyle: {
-                                                          "padding-left": "25px"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          " " +
-                                                            _vm._s(
-                                                              _vm.title_arr[
-                                                                catId
-                                                              ][sec_index]
-                                                            ) +
-                                                            " "
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              ],
-                                              1
-                                            )
-                                          ])
-                                        ])
-                                      : _vm._e()
-                                  ]
-                                )
-                              }),
-                              0
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        inx == 3
-                          ? _c(
-                              "span",
-                              _vm._l(_vm.third_index, function(thd_index) {
-                                return _c(
-                                  "li",
-                                  {
-                                    key: thd_index,
-                                    staticClass: "list-group-item p-t-5 p-b-5"
-                                  },
-                                  [
-                                    _vm.title_arr[catId][0] !=
-                                      _vm.title_arr[catId][thd_index] &&
-                                    _vm.title_arr[catId][3] !=
-                                      _vm.title_arr[catId][thd_index]
-                                      ? _c("span", [
-                                          _c("div", { staticClass: "row" }, [
-                                            _c(
-                                              "div",
-                                              { staticClass: "col-md-4" },
-                                              [
-                                                _c(
-                                                  "router-link",
-                                                  {
-                                                    attrs: {
-                                                      to:
-                                                        "/newsdetails/" +
-                                                        _vm.id_arr[catId][
-                                                          thd_index
-                                                        ]
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm.photo_arr[catId][
-                                                      thd_index
-                                                    ]
-                                                      ? _c("img", {
-                                                          staticClass:
-                                                            "fit-image",
-                                                          staticStyle: {
-                                                            height: "5rem",
-                                                            width: "6rem"
-                                                          },
-                                                          attrs: {
-                                                            src:
-                                                              "/upload/news/" +
-                                                              _vm.photo_arr[
-                                                                catId
-                                                              ][thd_index]
-                                                          }
-                                                        })
-                                                      : _vm._e()
-                                                  ]
-                                                )
-                                              ],
-                                              1
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              { staticClass: "col-md-8" },
-                                              [
-                                                _c(
-                                                  "router-link",
-                                                  {
-                                                    attrs: {
-                                                      to:
-                                                        "/newsdetails/" +
-                                                        _vm.id_arr[catId][
-                                                          thd_index
-                                                        ]
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "p",
-                                                      {
-                                                        staticClass:
-                                                          "news-title",
-                                                        staticStyle: {
-                                                          "padding-left": "25px"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          " " +
-                                                            _vm._s(
-                                                              _vm.title_arr[
-                                                                catId
-                                                              ][thd_index]
-                                                            ) +
-                                                            " "
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              ],
-                                              1
-                                            )
-                                          ])
-                                        ])
-                                      : _vm._e()
-                                  ]
-                                )
-                              }),
-                              0
-                            )
-                          : _vm._e()
-                      ]
-                    )
-                  ])
+                  _c(
+                    "div",
+                    { staticClass: "col-md-8 news-wrapper" },
+                    _vm._l(_vm.posts, function(post) {
+                      return _c(
+                        "ul",
+                        {
+                          key: post.id,
+                          staticClass: "list-group list-group-flush all-item"
+                        },
+                        [
+                          _vm.posts[0].id != post.id
+                            ? _c(
+                                "li",
+                                { staticClass: "list-group-item p-t-5 p-b-5" },
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "newdetails",
+                                          params: { id: post.id }
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "img-responsive float-right",
+                                        staticStyle: {
+                                          width: "16px",
+                                          height: "16px"
+                                        },
+                                        attrs: { src: "/images/1.jpg", alt: "" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "source-img-small d-inline-block text-truncate"
+                                        },
+                                        [_vm._v(_vm._s(post.title) + " ")]
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            : _vm._e()
+                        ]
+                      )
+                    }),
+                    0
+                  )
                 ])
-              }),
-              0
+              ]
             )
           ]
         )
-      })
-    ],
-    2
-  )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-12 pad-free m-lr-0" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row col-md-12" },
+        _vm._l(_vm.latest_post_all_cats, function(latest_post_all_cat) {
+          return _c(
+            "div",
+            {
+              key: latest_post_all_cat.id,
+              staticClass: "col-sm-3  col-md-3 mt-2"
+            },
+            [
+              _c("div", { staticClass: "hovereffect fit-image" }, [
+                _c("img", {
+                  staticClass: "img-responsive fit-image",
+                  attrs: {
+                    src: "/upload/news/" + latest_post_all_cat.photo,
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "overlay" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-sm all-btn secondary-bg-color",
+                        attrs: { to: "/newsdetails/" + latest_post_all_cat.id }
+                      },
+                      [_vm._v("詳細")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "info" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-12" }, [
+                      _c("p", { staticClass: " p_3" }, [
+                        _vm._v(
+                          "\r\n                                                                        " +
+                            _vm._s(latest_post_all_cat.main_point) +
+                            "\r\n                                                                "
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {

@@ -1,13 +1,11 @@
 
 var timeout;
 $(".path").hover(
-  function() {
+  function(e) {
     clearTimeout(timeout);
     $('#info-box').css({
       'display':'block',
-      'position':'relative',
-      
-    });   
+    });  
    
     $('#info-box').html($(this).data('info'));
 
@@ -17,25 +15,32 @@ $(".path").hover(
       'text-decoration':'underline',
        'color':'#f27a24',
     });      
-    
-  
   },
   function(){
   	timeout = setTimeout(function(){
-      $('#info-box').css('display','none');
-     
+      $('#info-box').css('display','none');     
       },1000);
-  });
+});
 
-  $(".path").mouseout(function(){
-    $('.'+$(this).data('info')).css({
-      'background':'transparent',
-      'opacity':'1',
-      'text-decoration':'none'
-    }); 
-    
+    $(".path").mouseleave(function(e) {
+      $("#info-box").css("display", "none");
+    });
 
-  })
+ 
+$(document)
+.mousemove(function(e) {
+  $("#info-box").css("top", e.pageY - $("#info-box").height() - 35);
+  $("#info-box").css("left", e.pageX - $("#info-box").width() / 2);
+})
+.mouseover();
+
+$(".path").mouseout(function(){
+  $('.'+$(this).data('info')).css({
+    'background':'transparent',
+    'opacity':'1',
+    'text-decoration':'none'
+  });    
+})
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if(ios) {
