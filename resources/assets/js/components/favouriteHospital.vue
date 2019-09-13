@@ -87,7 +87,7 @@
                                             <label>郵便番号:<span class="error">*</span></label>
                                             <!-- <input type="text" id="postal" name="postal" class="form-control" placeholder="郵便番号を入力してください。" required> -->
                                             <autocomplete v-model="post"
-                                            :source="post_list" ref="autocomplete" results-property="data" 
+                                            :source="post_list" ref="autocomplete" results-property="data" defaultOpen="false"
                                             placeholder="郵便番号を入力してください。" input-class="form-control postal" @input="addDistributionGroup()" id="postal">
                                             </autocomplete>
                                             <br>
@@ -188,12 +188,18 @@
                                             <select class="form-control" id="relation" required>
                                                 <option>選択してください。</option>
                                                 <option>
-                                                    aaaaaaaa
+                                                    cccccccc
                                                 </option>
                                                 <option>
                                                     bbbbbbb
                                                 </option>
-                                            </select>
+                                            </select> 
+                                            <!-- <select v-model="selectedValue" class="form-control" id="division" @change='getCities()'>
+                                                <option value="0">選択してください。</option>
+                                                <option v-for="cities in city_list" :key="cities.id" v-bind:value="cities.id">
+                                                    {{cities.city_name}}
+                                                </option>
+                                            </select> -->
                                         </div>
 
                                         <div class="row">
