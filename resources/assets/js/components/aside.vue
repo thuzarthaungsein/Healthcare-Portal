@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 col-lg-2 col-md-4" style="display:none;">
+    <div class="col-12">
 
         <!--related news-->
 
@@ -7,17 +7,15 @@
 
             <!--ads slider-->
 
-            <div style="display: block; overflow: hidden;border-radius:0.25rem;">
+            <!-- <div style="display: block; overflow: hidden;border-radius:0.25rem;">
 
                 <div id="slider2_container" style="position: relative; float: left; top: 0px; left: 0px; width:167px; height:100%; overflow: hidden;">
 
-                <!-- Slides Container -->
                     <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 167px; height: 100%; overflow: hidden;" class="side-ad-slider"> </div>
-                <!-- Trigger -->
 
                 </div>
 
-            </div>
+            </div> -->
 
             <!--end ads slider-->
 
@@ -51,3 +49,53 @@
 
     </div>
 </template>
+
+<script type="text/javascript">
+
+export default {
+    mounted() {
+        },
+        created() {
+              axios.get("/api/get_latest_post_all_cat")
+                .then(response => {
+                        var data = response.data;
+                         var posts = "";
+                        for (var i = 0; i < data.length; i++) {
+                            posts += '<li class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-responsivie ads-img" src="../upload/news/' + data[i].photo + '" /><h3 class="smallads-title">' + data[i].title + '</h3></li>';
+                        }
+                        $("#menu").html(posts);
+                });
+        },
+        methods: {}
+}
+
+ $(document).ready(function() {   
+
+    // $('.DataTable').DataTable();
+    var csrf = "{{ csrf_token() }}";
+
+    $.ajax({
+        url: '/api/advertisement/ads',
+        type: 'GET',
+        data: {'_token': csrf},
+        success: function( data ) {
+            var top_ad = "";
+            var side_ad = "";
+            for (var i = 0; i < data.length; i++) {
+                if(data[i].location.includes("topbar") ) {
+                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
+                    if(data[i].location.includes("sidebar")) {
+                        side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
+                    }
+                } 
+                else if(data[i].location.includes("sidebar"))  {
+                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
+                }                
+            }
+            $(".top-ad-slider").html(top_ad);
+            $(".side-ad-slider").html(side_ad);
+            // jssor_slider2_init();
+        }
+    });
+});       
+</script>

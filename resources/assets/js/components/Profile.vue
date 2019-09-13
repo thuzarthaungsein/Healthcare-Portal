@@ -17,7 +17,7 @@
                 <form class="col-md-12">                         
 
                         <div class="col-md-12 pad-free" v-if="btntype == 'create'">
-                             <hospitalProfile></hospitalProfile>
+                             <nursingProfile></nursingProfile>
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="btntype == 'view'">
@@ -73,7 +73,7 @@ export default {
         },
        data() {
                 return {
-                        type: 'hospital',
+                        type: 'nursing',
                         btntype: 'create',
                 }
         },
@@ -81,7 +81,7 @@ export default {
               this.axios
                 .get('/api/user')
                 .then(response=>{
-                 console.log(response);
+                //  console.log(response);
                 // this.fac_list = response.data;
                 });
         },
