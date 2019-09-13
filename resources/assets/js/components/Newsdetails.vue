@@ -144,7 +144,7 @@
                                                 </div>
                                         </div>
                                 </div> -->
-                                        <!--end related news-->
+                                <!--end related news-->
                                          <div class="row m-lr-0">
                         <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
                         <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
@@ -152,9 +152,9 @@
                                         <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
                                         <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="">
                                         <div class="overlay">
-                                                <h2></h2>
-                        <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">{{ latest_post_all_cat.title }}</router-link>
-                                                <a href="'/newsdetails"></a>
+                                                <!-- <h2></h2> -->
+                                                <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
+                                                <!-- <a href="'/newsdetails"></a> -->
                                                 <!-- <a class="btn btn-sm all-btn secondary-bg-color" v-bind:href="'/newsdetails/' + latest_post_all_cat.id"></a> -->
                                         </div>
                                         <div class="info">
@@ -198,57 +198,23 @@ import jobSearch from './jobSearch.vue'
         data() {
             return {
                 newdetails:[],
-                cats: [],
-                posts: [],
-                latest_post: [],
+
                 latest_post_all_cats: []
             }
         },
         created(){
-            this.getAllCat();
-            this.getPostByFirstCat();
-            this.getLatestPostByFirstCatID();
+
             this.getLatestPostFromAllCat();
             this.axios
                  .get(`/api/newdetails/${this.$route.params.id}`)
                  .then(response=>{
                      this.newdetails = response.data;
-                //        console.log(response.data);
+                //      this.latest_post_all_cats = response.data;
                  });
         },
 
         methods: {
-                getAllCat: function() {
-                     this.axios
-                        .get('/api/home')
-                        .then(response => {
-                                this.cats = response.data;
-                        });
-                },
-                getPostByFirstCat: function() {
-                         axios.get("/api/posts/1")
-                        .then(response => {
-                                this.posts = response.data;
-                        });
-                },
-                getPostByCatID: function(cat_id) {
-                        axios.get("/api/posts/" + cat_id)
-                        .then(response => {
-                                this.posts = response.data;
-                        });
-                },
-                getLatestPostByFirstCatID: function() {
-                        axios.get("/api/get_latest_post/1")
-                        .then(response => {
-                                this.latest_post = response.data;
-                        });
-                },
-                getLatestPostByCatID: function(cat_id) {
-                        axios.get("/api/get_latest_post/" + cat_id)
-                        .then(response => {
-                                this.latest_post = response.data;
-                        });
-                },
+
                 getLatestPostFromAllCat: function() {
                         this.axios
                         .get(`/api/get_latest_post_all_cat/`)

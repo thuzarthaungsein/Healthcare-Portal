@@ -331,7 +331,7 @@ html {
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #2ba7c0 !important;
+    background-color: #118063 !important;
 }
 
 
@@ -671,6 +671,14 @@ div.scroll,
     padding-top: 15px;
 }
 
+   .scrolldiv3 {
+    height: 1500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    background: white;
+    padding-top: 15px;
+}
+
 
 /* End Search News List */
 
@@ -805,7 +813,7 @@ p {
 
 .main-header {
     position: fixed;
-    width: 83.3%;
+    width: 83.4%;
     height: 80px;
     background-color: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
@@ -1353,7 +1361,9 @@ div.b {
 .m-0 {
     margin: 0px;
 }
-
+.m-t-71{
+    margin-top: 71px;
+}
 .m-t-8 {
     margin-top: 13px;
 }
@@ -1366,8 +1376,13 @@ div.b {
 .m-l-10 {
     margin-left: 10px !important;
 }
-
-.m-t-10 {
+.m-l-15{
+    margin-left: 15px;
+}
+.m-l-17{
+    margin-left:17px;
+}
+.m-t-10{
     margin-top: 10px !important;
 }
 
@@ -1410,7 +1425,9 @@ div.b {
 .m-b-0 {
     margin-bottom: 0px !important;
 }
-
+.m-r-8{
+    margin-right: 8px;
+}
 .m-r-15 {
     margin-right: 15px;
 }
@@ -1443,7 +1460,9 @@ div.b {
 .p-b-5 {
     padding-bottom: 5px;
 }
-
+.p-5{
+    padding: 5px;
+}
 .m-r-10 {
     margin-right: 10px;
 }
@@ -1479,6 +1498,9 @@ div.b {
 .secondary-bg-color {
     background-color: #f27a24 !important;
 }
+.toggle-btn .icon-arrow:before {
+    content: '\25BC';
+  }
 
 .all-btn {
     color: #fff !important;
@@ -1533,7 +1555,7 @@ div.b {
     color: #000 !important;
     border: none;
     font-weight: bold;
-    width: 82px;
+    width: 125px;
     font-size: 12px;
 }
 
@@ -1566,14 +1588,14 @@ div.b {
 
 .fav-item {
     font-size: 12px;
-    padding: 5px;
+    padding: 5px 10px;
 }
 .fav-color{
-    background-color: #f5807f;
+    background-color: #f9793c;
 }
 
 .history-color {
-    background-color: #7586c6;
+    background-color: #0e775d;
 }
 
 .card-header {
@@ -2038,7 +2060,7 @@ ul.main-tab li:after {
 
 .divisions .card-header {
     font-weight: bold;
-    color: white;
+    color: #000;
     text-align: center;
     padding: 5px !important;
 }
@@ -2047,6 +2069,34 @@ ul.main-tab li:after {
     padding: 10px !important;
 }
 
+@media print, screen and (min-width: 750px){
+.spanclass{
+    letter-spacing: normal;
+    width: 50%;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 10px;
+    font-size: 12px;
+}
+.map-text a:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid #c40000;
+    border-bottom: 1px solid #c40000;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 52px;
+    left: 61px;
+
+    /* top: 50%;
+    right: 8px;
+    margin-top: -3px; */
+}
+}
 
 /* End Hospital Search */
 
@@ -2482,3 +2532,9 @@ button.confirmed  {
     cursor: not-allowed;
 }
 /* End Commentlist */
+.mailbox{
+    border:none;
+}
+.bk{
+    background: #dad6d6;
+}
