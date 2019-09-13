@@ -44903,7 +44903,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.getLatestPostFromAllCat();
         this.axios.get('/api/newdetails/' + this.$route.params.id).then(function (response) {
             _this.newdetails = response.data;
-            //      this.latest_post_all_cats = response.data;
+            //   this.latest_post_all_cats = response.data;
         });
     },
 

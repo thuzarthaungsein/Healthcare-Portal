@@ -209,7 +209,7 @@ import jobSearch from './jobSearch.vue'
                  .get(`/api/newdetails/${this.$route.params.id}`)
                  .then(response=>{
                      this.newdetails = response.data;
-                //      this.latest_post_all_cats = response.data;
+                //   this.latest_post_all_cats = response.data;
                  });
         },
 
