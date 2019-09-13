@@ -13,6 +13,10 @@ a {
     margin: 0;
 }
 
+li {
+    list-style: none;
+}
+
 body {
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     /* background: #dfdfde; */
@@ -1695,6 +1699,13 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     padding: 0.7rem 20px 0.7rem 25px;
 }
 
+.text-pre {
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+}
+
 .card-head-tabs {
     margin-bottom: 0rem !important;
     background-color: #ecede1 !important;
@@ -2228,13 +2239,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .top-ad-slider .slide-img {
-    width: 80px;
-    margin: 10px 10px 5px 10px;
+    width: 100px;
+    margin: 10px 0 5px 10px;
 }
 
 .top-ad-slider .slide-img img {
     width: auto;
-    max-width: 80px;
+    max-width: 100px;
 }
 
 .top-ad-slider .list-group-item {
@@ -2400,23 +2411,20 @@ body::-webkit-scrollbar-thumb {
 
 /* Hospital History */
 
-.fac_container {
-    width: 100%;
-}
-
-.equipment {
-    list-style: none;
-}
-
-.equipment>li {
-    width: 100%;
-    color: #4650db;
-    background: #a3cee1;
-    border: 1px solid #4650db;
+.fac_container>li {
+    display: inline-block;
+    /* width: 12.2%; */
     padding: 5px;
-    margin: 0 0.5% 1px 0;
+    margin: 0 0 10px 3px;
+    color: #0e775d;
     text-align: center;
     border-radius: 2px;
+    border: 1px dashed #b7dad2;
+    border-bottom: 1px solid #b7dad2;
+}
+
+.fac_container>li:first-child {
+    margin: 0;
 }
 
 .hos-btn {
@@ -2426,6 +2434,14 @@ body::-webkit-scrollbar-thumb {
     margin-left: 15px;
     font-size: 0.7rem;
     text-align: center;
+}
+
+.hos-l {
+    width: 28%;
+}
+
+.hos-r {
+    width: 72%;
 }
 
 
@@ -2537,6 +2553,15 @@ body::-webkit-scrollbar-thumb {
         display: block;
         margin: 0 auto;
     }
+    /* .fac-wrap {
+        width: 90%;
+        margin: 0 auto;
+        overflow-x: auto;
+    }
+    .fac_container {
+        width: 900px;
+        margin: 0 auto;
+    } */
 }
 
 
