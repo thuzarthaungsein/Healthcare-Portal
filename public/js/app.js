@@ -41886,7 +41886,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var _this2 = this;
 
                         this.axios.get('/api/get_latest_posts_by_catId').then(function (response) {
-                                console.log(response);
+                                // console.log(response);
                                 for (var i = 0; i < response.data.length; i++) {
                                         _this2.tmp_title[i] = response.data[i].title;
                                         _this2.title_arr[i] = _this2.tmp_title[i].split(",");
@@ -44247,7 +44247,7 @@ var render = function() {
           0
         )
       ]),
-      _vm._v(" "),
+      _vm._v("  \r\n" + _vm._s(_vm.tmp_arr) + "\r\n                "),
       _vm._l(_vm.tmp_arr, function(arr, catId) {
         return _c(
           "div",
