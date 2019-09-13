@@ -1,6 +1,6 @@
 <template>
     <!-- Page Content  -->
-    <div id="content" class="row">
+    <div class="row">
         <div class="col-md-12">
             <div class="card  text-dark">
                 <div class="card-body">
@@ -63,15 +63,15 @@
 
                             <div class="row col-md-12">
                                 <div class="col-md-4" v-for="news in related_news" :key="news.id"> 
-                                    <label style="width:250px;"> 
+                                    <label> 
                                         <input type="checkbox" :value="news.id" id="aaa" v-model="checkedNews">                             
-                                        <div class="col-md-12 card card-default" style="float:left; max-height: 160px;">
+                                        <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
                                             <div class="card-body news-post">
                                                 <div class="row">
-                                                    <div class="" >
+                                                    <div class="col-md-3" >
                                                         <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news">
                                                     </div>
-                                                    <div class="">
+                                                    <div class="col-md-9">
                                                         {{news.title}}
                                                     </div>
                                                 </div>
@@ -168,7 +168,7 @@
     }
 </script>
 <style>
-#aaa {
+/* #aaa {
     display: none;
-}
+} */
 </style>

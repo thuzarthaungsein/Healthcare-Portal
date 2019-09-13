@@ -47895,7 +47895,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#aaa {\r\n    display: none;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* #aaa {\r\n    display: none;\r\n} */\r\n", ""]);
 
 // exports
 
@@ -48084,7 +48084,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row", attrs: { id: "content" } }, [
+  return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-md-12" }, [
       _c("div", { staticClass: "card  text-dark" }, [
         _c("div", { staticClass: "card-body" }, [
@@ -48367,7 +48367,7 @@ var render = function() {
                       "div",
                       { key: news.id, staticClass: "col-md-4" },
                       [
-                        _c("label", { staticStyle: { width: "250px" } }, [
+                        _c("label", [
                           _c("input", {
                             directives: [
                               {
@@ -48414,7 +48414,8 @@ var render = function() {
                               staticClass: "col-md-12 card card-default",
                               staticStyle: {
                                 float: "left",
-                                "max-height": "160px"
+                                height: "150px",
+                                cursor: "pointer"
                               }
                             },
                             [
@@ -48423,7 +48424,7 @@ var render = function() {
                                 { staticClass: "card-body news-post" },
                                 [
                                   _c("div", { staticClass: "row" }, [
-                                    _c("div", {}, [
+                                    _c("div", { staticClass: "col-md-3" }, [
                                       _c("img", {
                                         staticClass: "img-fluid",
                                         attrs: {
@@ -48433,7 +48434,7 @@ var render = function() {
                                       })
                                     ]),
                                     _vm._v(" "),
-                                    _c("div", {}, [
+                                    _c("div", { staticClass: "col-md-9" }, [
                                       _vm._v(
                                         "\n                                                    " +
                                           _vm._s(news.title) +
