@@ -13,22 +13,27 @@ $(".path").hover(
     $('#info-box').html($(this).data('info'));
 
     $('.'+$(this).data('info')).css({
-      'background':'white',
-      'opacity': '0.25'
+      'opacity': '0.5',
+      'font-weight':'bold',
+      'text-decoration':'underline'
     });      
+    
   
   },
   function(){
   	timeout = setTimeout(function(){
-    	$('#info-box').css('display','none');
+      $('#info-box').css('display','none');
+     
       },1000);
   });
 
   $(".path").mouseout(function(){
     $('.'+$(this).data('info')).css({
-      'background':'none',
+      'background':'transparent',
       'opacity':'1'
     }); 
+    
+
   })
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -65,7 +70,8 @@ $('.path').on("click", function(e) {
             });
             $.each(getCity,function(k,v){
               $('#select option[value="'+v.id+'"]').attr("selected",true);
-              $('#text').append('<span>'+v.city_name+'</span>')
+              $('#text').append('<button class="all-btn btn main-bg-color">'+v.city_name+'<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>')
+             
             })
             $.each(townships,function(k,v){
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');

@@ -83,7 +83,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark main-header">
 
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand col-2" href="/">
 
                 <img src="/images/trust_growth.png" alt="TRUST GROWTH">
 
@@ -97,7 +97,7 @@
 
 
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse col-6 offset-4" id="navbarSupportedContent">
 
                 <!-- <form class="form-inline my-2 my-lg-0 col-lg-8 container-fluid form-inline">
 
@@ -106,36 +106,17 @@
                 <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary pc" type="submit"><i class="fas fa-search"></i> 検索</button>
 
                 </form> -->
-
-                <ul class="navbar-nav mr-auto offset-6 col-lg-3 pad-free pc">
-
-                    <li class="fav-item fav-color btn all-btn m-r-15" style="min-width: 130px;">
-                        <i class="fa fa-star m-r-5"> 検討リスト</i>
-                        <p style="display:flex; color:#fff;margin-top:5px;line-height:1.2em;">
-                        <span>2件<br>病院検索</span>
-                        <span style="border-left: 1px solid #fff;margin-left: auto;padding-left: 11px;">5件<br>介護検索</span>
-                        </p>
-                    </li>
-                    <li class="fav-item history-color btn all-btn m-r-20" style="min-width: 130px;">
-                        <i class="fa fa-bookmark m-r-5"> 最近見た施設</i><!-- <span class="list">10</span>件<br>最近見た施設  -->
-                        <p style="display:flex; color:#fff;margin-top:5px;line-height:1.2em;">
-                            <span>10件<br>病院検索</span>
-                            <span style="border-left: 1px solid #fff;margin-left: auto;padding-left: 11px;">9件<br>介護検索</span>
-                        </p>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav mr-auto col-lg-2 pad-free pc">
+            <ul class="navbar-nav ml-auto pad-free pc">
 
                     @guest
 
-                    <li class="nav-item btn login-register-btn col-lg-8 p-lr-0">
+                    <li class="nav-item btn login-register-btn p-lr-0">
 
                         <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;{{ __('事業者 ログイン') }}</a>
 
                     </li>
 
-                    <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
+                    <li class="nav-item btn login-register-btn p-lr-0">
 
                         <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
 
@@ -147,7 +128,7 @@
 
                     @else
 
-                    <li class="nav-item btn login-register-btn col-lg-12 userprofile-name pc">
+                    <li class="nav-item btn login-register-btn col-12 userprofile-name pc">
 
                         <img src="/images/user.png" alt="" class="userprofile-img">
 
@@ -158,6 +139,26 @@
                     @endguest
 
                 </ul>
+
+                <ul class="navbar-nav pad-free pc">
+
+                    <li class="fav-item fav-color btn all-btn m-r-10">
+                        <i class="fa fa-star m-r-5"> </i>&nbsp; 検討リスト
+                        <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
+                        <span style="padding-right: 11px;">2件<br>病院</span>
+                        <span style="border-left: 1px solid #fff;padding-left: 11px;">5件<br>介護</span>
+                        </p>
+                    </li>
+                    <li class="fav-item history-color btn all-btn m-r-10" >
+                        <i class="fa fa-bookmark m-r-5"></i>&nbsp; 最近見た施設<!-- <span class="list">10</span>件<br>最近見た施設  -->
+                        <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
+                            <span style="padding-right: 11px;">10件<br>病院</span>
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;">9件<br>介護</span>
+                        </p>
+                    </li>
+                </ul>
+
+                
 
                 <ul class="sp-nav sp">
 
