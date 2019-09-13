@@ -30,7 +30,8 @@ $(".path").hover(
   $(".path").mouseout(function(){
     $('.'+$(this).data('info')).css({
       'background':'transparent',
-      'opacity':'1'
+      'opacity':'1',
+      'text-decoration':'none'
     }); 
     
 

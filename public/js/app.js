@@ -42689,72 +42689,82 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("p", { staticClass: "card-text map-text" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Hokkaido card-text",
-                    attrs: { href: "#!", id: "1", "data-info": "Hokkaido" }
-                  },
-                  [_vm._v("北海道")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Hokkaido card-text",
+                      attrs: { href: "#!", id: "1", "data-info": "Hokkaido" }
+                    },
+                    [_vm._v("北海道")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Aomori card-text",
-                    attrs: { href: "#!", id: "2", "data-info": "Aomori" }
-                  },
-                  [_vm._v("青森県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Aomori card-text",
+                      attrs: { href: "#!", id: "2", "data-info": "Aomori" }
+                    },
+                    [_vm._v("青森県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Iwate card-text",
-                    attrs: { href: "#!", id: "3", "data-info": "Iwate" }
-                  },
-                  [_vm._v("岩手県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Iwate card-text",
+                      attrs: { href: "#!", id: "3", "data-info": "Iwate" }
+                    },
+                    [_vm._v("岩手県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Miyagi card-text",
-                    attrs: { href: "#!", id: "4", "data-info": "Miyagi" }
-                  },
-                  [_vm._v("宮城県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Miyagi card-text",
+                      attrs: { href: "#!", id: "4", "data-info": "Miyagi" }
+                    },
+                    [_vm._v("宮城県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Akita card-text",
-                    attrs: { href: "#!", id: "5", "data-info": "Akita" }
-                  },
-                  [_vm._v("秋田県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Akita card-text",
+                      attrs: { href: "#!", id: "5", "data-info": "Akita" }
+                    },
+                    [_vm._v("秋田県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Yamagata card-text",
-                    attrs: { href: "#!", id: "6", "data-info": "Yamagata" }
-                  },
-                  [_vm._v("山形県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Yamagata card-text",
+                      attrs: { href: "#!", id: "6", "data-info": "Yamagata" }
+                    },
+                    [_vm._v("山形県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Fukushima card-text",
-                    attrs: { href: "#!", id: "7", "data-info": "Fukushima" }
-                  },
-                  [_vm._v("福島県")]
-                )
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Fukushima card-text",
+                      attrs: { href: "#!", id: "7", "data-info": "Fukushima" }
+                    },
+                    [_vm._v("福島県")]
+                  )
+                ])
               ])
             ])
           ])
@@ -42773,71 +42783,82 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("p", { staticClass: "card-text map-text" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Ibaraki card-text",
-                    attrs: { href: "#!", id: "8", "data-info": "Ibaraki" }
-                  },
-                  [_vm._v("茨城県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Ibaraki card-text",
+                      attrs: { href: "#!", id: "8", "data-info": "Ibaraki" }
+                    },
+                    [_vm._v("茨城県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Tochigi card-text",
-                    attrs: { href: "#!", id: "9", "data-info": "Tochigi" }
-                  },
-                  [_vm._v("栃木県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Tochigi card-text",
+                      attrs: { href: "#!", id: "9", "data-info": "Tochigi" }
+                    },
+                    [_vm._v("栃木県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Gunma card-text",
-                    attrs: { href: "#!", id: "10", "data-info": "Gunma" }
-                  },
-                  [_vm._v("群馬県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Gunma card-text",
+                      attrs: { href: "#!", id: "10", "data-info": "Gunma" }
+                    },
+                    [_vm._v("群馬県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Saitama card-text",
-                    attrs: { href: "#!", id: "11", "data-info": "Saitama" }
-                  },
-                  [_vm._v("埼玉県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Saitama card-text",
+                      attrs: { href: "#!", id: "11", "data-info": "Saitama" }
+                    },
+                    [_vm._v("埼玉県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Chiba card-text",
-                    attrs: { href: "#!", id: "12", "data-info": "Chiba" }
-                  },
-                  [_vm._v("千葉県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Chiba card-text",
+                      attrs: { href: "#!", id: "12", "data-info": "Chiba" }
+                    },
+                    [_vm._v("千葉県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Tokyo card-text",
-                    attrs: { href: "#!", id: "13", "data-info": "Tokyo" }
-                  },
-                  [_vm._v("東京都")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Tokyo card-text",
+                      attrs: { href: "#!", id: "13", "data-info": "Tokyo" }
+                    },
+                    [_vm._v("東京都")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Kanagawa card-text",
-                    attrs: { href: "#!", id: "14", "data-info": "Kanagawa" }
-                  },
-                  [_vm._v("神奈川県")]
-                )
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Kanagawa card-text",
+                      attrs: { href: "#!", id: "14", "data-info": "Kanagawa" }
+                    },
+                    [_vm._v("神奈川県")]
+                  )
+                ])
               ])
             ])
           ])
@@ -42856,91 +42877,104 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("p", { staticClass: "card-text map-text" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Niigata card-text",
-                    attrs: { href: "#!", id: "15", "data-info": "Niigata" }
-                  },
-                  [_vm._v("新潟県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Niigata card-text",
+                      attrs: { href: "#!", id: "15", "data-info": "Niigata" }
+                    },
+                    [_vm._v("新潟県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Toyama card-text",
-                    attrs: { href: "#!", id: "16", "data-info": "Toyama" }
-                  },
-                  [_vm._v("富山県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Toyama card-text",
+                      attrs: { href: "#!", id: "16", "data-info": "Toyama" }
+                    },
+                    [_vm._v("富山県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Ishikawa card-text",
-                    attrs: { href: "#!", id: "17", "data-info": "Ishikawa" }
-                  },
-                  [_vm._v("石川県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Ishikawa card-text",
+                      attrs: { href: "#!", id: "17", "data-info": "Ishikawa" }
+                    },
+                    [_vm._v("石川県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Fukui card-text",
-                    attrs: { href: "#!", id: "18", "data-info": "Fukui" }
-                  },
-                  [_vm._v("福井県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Fukui card-text",
+                      attrs: { href: "#!", id: "18", "data-info": "Fukui" }
+                    },
+                    [_vm._v("福井県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Yamanashi card-text",
-                    attrs: { href: "#!", id: "19", "data-info": "Yamanashi" }
-                  },
-                  [_vm._v("山梨県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Yamanashi card-text",
+                      attrs: { href: "#!", id: "19", "data-info": "Yamanashi" }
+                    },
+                    [_vm._v("山梨県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Nagano card-text",
-                    attrs: { href: "#!", id: "20", "data-info": "Nagano" }
-                  },
-                  [_vm._v("長野県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Nagano card-text",
+                      attrs: { href: "#!", id: "20", "data-info": "Nagano" }
+                    },
+                    [_vm._v("長野県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Gifu card-text",
-                    attrs: { href: "#!", id: "21", "data-info": "Gifu" }
-                  },
-                  [_vm._v("岐阜県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Gifu card-text",
+                      attrs: { href: "#!", id: "21", "data-info": "Gifu" }
+                    },
+                    [_vm._v("岐阜県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Shizuoka card-text",
-                    attrs: { href: "#!", id: "22", "data-info": "Shizuoka" }
-                  },
-                  [_vm._v("静岡県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Shizuoka card-text",
+                      attrs: { href: "#!", id: "22", "data-info": "Shizuoka" }
+                    },
+                    [_vm._v("静岡県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Aichi card-text",
-                    attrs: { href: "#!", id: "23", "data-info": "Aichi" }
-                  },
-                  [_vm._v("愛知県")]
-                )
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Aichi card-text",
+                      attrs: { href: "#!", id: "23", "data-info": "Aichi" }
+                    },
+                    [_vm._v("愛知県")]
+                  )
+                ])
               ])
             ])
           ])
@@ -42959,71 +42993,82 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("p", { staticClass: "card-text map-text" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Mie card-text",
-                    attrs: { href: "#!", id: "24", "data-info": "Mie" }
-                  },
-                  [_vm._v("三重県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Mie card-text",
+                      attrs: { href: "#!", id: "24", "data-info": "Mie" }
+                    },
+                    [_vm._v("三重県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Shiga card-text",
-                    attrs: { href: "#!", id: "25", "data-info": "Shiga" }
-                  },
-                  [_vm._v("滋賀県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Shiga card-text",
+                      attrs: { href: "#!", id: "25", "data-info": "Shiga" }
+                    },
+                    [_vm._v("滋賀県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Kyoto card-text",
-                    attrs: { href: "#!", id: "26", "data-info": "Kyoto" }
-                  },
-                  [_vm._v("京都府")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Kyoto card-text",
+                      attrs: { href: "#!", id: "26", "data-info": "Kyoto" }
+                    },
+                    [_vm._v("京都府")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Osaka card-text",
-                    attrs: { href: "#!", id: "27", "data-info": "Osaka" }
-                  },
-                  [_vm._v("大阪府")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Osaka card-text",
+                      attrs: { href: "#!", id: "27", "data-info": "Osaka" }
+                    },
+                    [_vm._v("大阪府")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Hyogo card-text",
-                    attrs: { href: "#!", id: "28", "data-info": "Hyogo" }
-                  },
-                  [_vm._v("兵庫県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Hyogo card-text",
+                      attrs: { href: "#!", id: "28", "data-info": "Hyogo" }
+                    },
+                    [_vm._v("兵庫県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Nara card-text",
-                    attrs: { href: "#!", id: "29", "data-info": "Nara" }
-                  },
-                  [_vm._v("奈良県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Nara card-text",
+                      attrs: { href: "#!", id: "29", "data-info": "Nara" }
+                    },
+                    [_vm._v("奈良県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Wakayama card-text",
-                    attrs: { href: "#!", id: "30", "data-info": "Wakayama" }
-                  },
-                  [_vm._v("和歌山県")]
-                )
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Wakayama card-text",
+                      attrs: { href: "#!", id: "30", "data-info": "Wakayama" }
+                    },
+                    [_vm._v("和歌山県")]
+                  )
+                ])
               ])
             ])
           ])
@@ -43042,52 +43087,60 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("p", { staticClass: "card-text map-text" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Tottori card-text",
-                    attrs: { href: "#!", id: "31", "data-info": "Tottori" }
-                  },
-                  [_vm._v("鳥取県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Tottori card-text",
+                      attrs: { href: "#!", id: "31", "data-info": "Tottori" }
+                    },
+                    [_vm._v("鳥取県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Shimane card-text",
-                    attrs: { href: "#!", id: "32", "data-info": "Shimane" }
-                  },
-                  [_vm._v("島根県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Shimane card-text",
+                      attrs: { href: "#!", id: "32", "data-info": "Shimane" }
+                    },
+                    [_vm._v("島根県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Okayama card-text",
-                    attrs: { href: "#!", id: "33", "data-info": "Okayama" }
-                  },
-                  [_vm._v("岡山県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Okayama card-text",
+                      attrs: { href: "#!", id: "33", "data-info": "Okayama" }
+                    },
+                    [_vm._v("岡山県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Hiroshima card-text",
-                    attrs: { href: "#!", id: "34", "data-info": "Hiroshima" }
-                  },
-                  [_vm._v("広島県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Hiroshima card-text",
+                      attrs: { href: "#!", id: "34", "data-info": "Hiroshima" }
+                    },
+                    [_vm._v("広島県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Yamaguchi card-text",
-                    attrs: { href: "#!", id: "35", "data-info": "Yamaguchi" }
-                  },
-                  [_vm._v("山口県")]
-                )
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Yamaguchi card-text",
+                      attrs: { href: "#!", id: "35", "data-info": "Yamaguchi" }
+                    },
+                    [_vm._v("山口県")]
+                  )
+                ])
               ])
             ])
           ])
@@ -43106,42 +43159,49 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("p", { staticClass: "card-text map-text" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Tokushima card-text",
-                    attrs: { href: "#!", id: "36", "data-info": "Tokushima" }
-                  },
-                  [_vm._v("徳島県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Tokushima card-text",
+                      attrs: { href: "#!", id: "36", "data-info": "Tokushima" }
+                    },
+                    [_vm._v("徳島県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Kagawa card-text",
-                    attrs: { href: "#!", id: "37", "data-info": "Kagawa" }
-                  },
-                  [_vm._v("香川県")]
-                ),
-                _c("br"),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Kagawa card-text",
+                      attrs: { href: "#!", id: "37", "data-info": "Kagawa" }
+                    },
+                    [_vm._v("香川県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Ehime card-text",
-                    attrs: { href: "#!", id: "38", "data-info": "Ehime" }
-                  },
-                  [_vm._v("愛媛県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Ehime card-text",
+                      attrs: { href: "#!", id: "38", "data-info": "Ehime" }
+                    },
+                    [_vm._v("愛媛県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Kochi card-text",
-                    attrs: { href: "#!", id: "39", "data-info": "Kochi" }
-                  },
-                  [_vm._v("高知県")]
-                )
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Kochi card-text",
+                      attrs: { href: "#!", id: "39", "data-info": "Kochi" }
+                    },
+                    [_vm._v("高知県")]
+                  )
+                ])
               ])
             ])
           ])
@@ -43171,68 +43231,82 @@ var staticRenderFns = [
                   )
                 ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Saga card-text",
-                    attrs: { href: "#!", id: "41", "data-info": "Saga" }
-                  },
-                  [_vm._v("佐賀県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Saga card-text",
+                      attrs: { href: "#!", id: "41", "data-info": "Saga" }
+                    },
+                    [_vm._v("佐賀県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Nagasaki card-text",
-                    attrs: { href: "#!", id: "42", "data-info": "Nagasaki" }
-                  },
-                  [_vm._v("長崎県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Nagasaki card-text",
+                      attrs: { href: "#!", id: "42", "data-info": "Nagasaki" }
+                    },
+                    [_vm._v("長崎県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Kumamoto card-text",
-                    attrs: { href: "#!", id: "43", "data-info": "Kumamoto" }
-                  },
-                  [_vm._v("熊本県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Kumamoto card-text",
+                      attrs: { href: "#!", id: "43", "data-info": "Kumamoto" }
+                    },
+                    [_vm._v("熊本県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Oita card-text",
-                    attrs: { href: "#!", id: "44", "data-info": "Oita" }
-                  },
-                  [_vm._v("大分県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Oita card-text",
+                      attrs: { href: "#!", id: "44", "data-info": "Oita" }
+                    },
+                    [_vm._v("大分県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Miyazaki card-text",
-                    attrs: { href: "#!", id: "45", "data-info": "Miyazaki" }
-                  },
-                  [_vm._v("宮崎県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Miyazaki card-text",
+                      attrs: { href: "#!", id: "45", "data-info": "Miyazaki" }
+                    },
+                    [_vm._v("宮崎県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Kagoshima card-text",
-                    attrs: { href: "#!", id: "46", "data-info": "Kagoshima" }
-                  },
-                  [_vm._v("鹿児島県")]
-                ),
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Kagoshima card-text",
+                      attrs: { href: "#!", id: "46", "data-info": "Kagoshima" }
+                    },
+                    [_vm._v("鹿児島県")]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "path Okinawa card-text",
-                    attrs: { href: "#!", id: "47", "data-info": "Okinawa" }
-                  },
-                  [_vm._v("沖縄県")]
-                )
+                _c("span", { staticClass: "spanclass" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "path Okinawa card-text",
+                      attrs: { href: "#!", id: "47", "data-info": "Okinawa" }
+                    },
+                    [_vm._v("沖縄県")]
+                  )
+                ])
               ])
             ])
           ])
@@ -58083,29 +58157,74 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        data: function data() {
-                return {
-                        hos_profiles: [],
-                        local_sto: ''
-                };
-        },
-        created: function created() {
-                this.local_sto = localStorage.getItem("hospital_history");
-                this.getAllCustomer(this.local_sto);
-        },
+  data: function data() {
+    return {
+      hos_profiles: [],
+      local_sto: ""
+    };
+  },
+  created: function created() {
+    this.local_sto = localStorage.getItem("hospital_history");
+    this.getAllCustomer(this.local_sto);
+  },
 
-        methods: {
-                getAllCustomer: function getAllCustomer(local_storage) {
-                        var _this = this;
+  methods: {
+    getAllCustomer: function getAllCustomer(local_storage) {
+      var _this = this;
 
-                        this.axios.post('/api/hospital_history/' + local_storage).then(function (response) {
-                                _this.hos_profiles = response.data;
-                        });
-                }
-        }
-
+      this.axios.post("/api/hospital_history/" + local_storage).then(function (response) {
+        _this.hos_profiles = response.data;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -58121,7 +58240,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: " col-12 scrolldiv2" },
+      { staticClass: "col-12 scrolldiv2" },
       _vm._l(_vm.hos_profiles, function(hos_profile) {
         return _c(
           "div",
@@ -58132,106 +58251,135 @@ var render = function() {
           [
             _c("div", { staticClass: "card-body news-post" }, [
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-3" }, [
-                  _c("img", {
-                    staticClass: "col-md-12",
-                    attrs: { src: "/images/" + hos_profile.logo, alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger all-btn",
-                      staticStyle: {
-                        "margin-top": "10px",
-                        "margin-left": "15px",
-                        display: "block",
-                        align: "center",
-                        width: "200px"
-                      }
-                    },
-                    [_vm._v("最近見た施設から削除 ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-info all-btn",
-                      staticStyle: {
-                        "margin-top": "10px",
-                        "margin-left": "15px",
-                        width: "200px"
-                      }
-                    },
-                    [_vm._v("検討リストに追加")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-5" }, [
-                  _c("div", { staticClass: "pad-free mb-2 " }, [
-                    _c("h4", [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-3 col-md-12 m-b-20 pad-free" },
+                  [
+                    _c("h4", { staticClass: "m-b-20 text-center sp" }, [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v(" " + _vm._s(hos_profile.name) + " ")
+                        _vm._v(_vm._s(hos_profile.name))
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("strong", [_vm._v("Website  :")]),
+                    _c("img", {
+                      staticClass: "col-md-12 hos-img",
+                      attrs: { src: "/images/" + hos_profile.logo, alt: "" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      { staticClass: "btn btn-danger all-btn hos-btn" },
+                      [_vm._v("最近見た施設から削除")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      { staticClass: "btn btn-info all-btn hos-btn" },
+                      [_vm._v("検討リストに追加")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-5 col-md-12 m-b-10" }, [
+                  _c("div", { staticClass: "pad-free mb-2" }, [
+                    _c("h4", { staticClass: "pc" }, [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v(_vm._s(hos_profile.name))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("strong", [_vm._v("Website :")]),
+                    _vm._v(" "),
                     _c("a", { attrs: { href: "" } }, [
-                      _vm._v(" " + _vm._s(hos_profile.website))
+                      _vm._v(_vm._s(hos_profile.website))
                     ]),
+                    _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
                     _c("a", [
-                      _c("strong", [_vm._v("Medical Department    :")]),
-                      _vm._v(_vm._s(hos_profile.medical_department))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Phone    :")]),
-                      _vm._v(_vm._s(hos_profile.phone))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Access  :")]),
-                      _vm._v(_vm._s(hos_profile.access))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Email  :")]),
-                      _vm._v(_vm._s(hos_profile.email))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Details  :")]),
-                      _vm._v(_vm._s(hos_profile.details_info))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Subjects  :")]),
-                      _vm._v(_vm._s(hos_profile.subject))
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("a", [
-                      _c("strong", [_vm._v("Location    :")]),
+                      _c("strong", [_vm._v("Medical Department :")]),
                       _vm._v(
-                        _vm._s(hos_profile.township_name) +
-                          ", " +
-                          _vm._s(hos_profile.city_name)
+                        "\n                " +
+                          _vm._s(hos_profile.medical_department) +
+                          "\n              "
                       )
                     ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Phone :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.phone) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Access :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.access) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Email :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.email) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Details :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.details_info) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Subjects :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.subject) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("a", [
+                      _c("strong", [_vm._v("Location :")]),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(hos_profile.township_name) +
+                          ", " +
+                          _vm._s(hos_profile.city_name) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
                     _c("br")
                   ])
                 ]),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-md-4" },
+                  { staticClass: "col-lg-4 col-md-12" },
                   _vm._l(hos_profile.special_features, function(feature) {
                     return _c(
                       "div",
@@ -58263,13 +58411,11 @@ var staticRenderFns = [
       _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
         _c("ol", { staticClass: "breadcrumb" }, [
           _c("li", { staticClass: "breadcrumb-item" }, [
-            _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
+            _c("a", { attrs: { href: "/" } }, [_vm._v("ホーム")])
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "breadcrumb-item" }, [
-            _c("a", { attrs: { href: "../news/news_details.html" } }, [
-              _vm._v(" 新しい詳細")
-            ])
+            _c("a", { attrs: { href: "/" } }, [_vm._v("新しい詳細")])
           ]),
           _vm._v(" "),
           _c(
@@ -58278,11 +58424,7 @@ var staticRenderFns = [
               staticClass: "breadcrumb-item active",
               attrs: { "aria-current": "page" }
             },
-            [
-              _vm._v(
-                "\n                                               就職活動リスト"
-              )
-            ]
+            [_vm._v("就職活動リスト")]
           )
         ])
       ])
