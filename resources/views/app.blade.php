@@ -37,6 +37,7 @@
 <!-- Fonts -->
 
 <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
+<!--mailbox-->
 
 
 
@@ -604,7 +605,7 @@
 
                                 <div class="row justify-content-md-center">
 
-                                    <div class="col-12 col-lg-10 col-md-8 tab">
+                                    <div class="col-12 col-lg-10 col-md-10 tab">
 
                                     <!-- vue component -->
 
@@ -621,8 +622,6 @@
                                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div> -->
 
                                     </div>
-
-
 
                                     <div class="col-12 col-lg-2 col-md-4">
 
@@ -779,15 +778,14 @@
             var side_ad = "";
             for (var i = 0; i < data.length; i++) {
                 if(data[i].location.includes("topbar") ) {
-                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><div class="slide-img"><img class="img-fluid ads-img" src="upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
+                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
                     if(data[i].location.includes("sidebar")) {
-                        side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
+                        side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
                     }
                 } 
                 else if(data[i].location.includes("sidebar"))  {
-                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
-                } 
-                
+                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
+                }                
             }
             $(".top-ad-slider").html(top_ad);
             jssor_1_slider_init();
