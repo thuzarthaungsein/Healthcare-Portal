@@ -13,7 +13,7 @@
 
             </nav>
       
-        <router-link to= 'joboffercreate' class="nav-link ml-auto pull-right float-right">Create New Job</router-link>
+        <router-link to= '/joboffercreate' class="nav-link ml-auto pull-right ">Create New Job</router-link>
             <div class="scroll col-12">
                       
                     <div v-for="job in jobs" :key="job.id" class="card card-default m-b-20">

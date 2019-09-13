@@ -1,7 +1,7 @@
-<template> 
+<template>
 <div>
 <!-- news details-->
-<!--menu tabs-->          
+<!--menu tabs-->
 <ul class="nav nav-tabs card-head-tabs" role="tablist">
 <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-newspaper"></i> ニュース</a></li>
 <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
@@ -12,18 +12,18 @@
 
 <!-- Tab panes -->
 <div class="tab-content tab-content1 tabs">
-        <div role="tabpanel" class="tab-pane in active" id="tab1"> 
+        <div role="tabpanel" class="tab-pane in active" id="tab1">
                 <div class="row col-sm-12">
                         <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                         <li class="breadcrumb-item">
-                                        <router-link to="/">ホーム</router-link></li>                                       
+                                        <router-link to="/">ホーム</router-link></li>
                                         <li class="breadcrumb-item active" aria-current="page"> 新しい詳細</li>
                                 </ol>
                         </nav>
                 </div>
                 <div class="justify-content-md-center scrolldiv2">
-                <div class="col-md-12" >                        
+                <div class="col-md-12" >
                         <div class="row m-lr-0 mb-3">
                                 <div class="col-md-12" >
                                         <h4 class="h_4 header">{{newdetails.title}}</h4>
@@ -36,18 +36,18 @@
                                         <img
                                                 :src="'/upload/news/'+ newdetails.photo"
                                                 class="img-responsive img_2 news_photo"
-                                                > 
-                                        <p class="img_2">東京五輪開幕まで1年　メダルお披露目 <br> <span><time datetime="2019-06-07">2019年6月7日</time></span></p> 
+                                                >
+                                        <p class="img_2">東京五輪開幕まで1年　メダルお披露目 <br> <span><time datetime="2019-06-07">2019年6月7日</time></span></p>
                                         <p class="img_2 header" style="font-size:22px;">関連ニュース</p>
                                         <!-- 関連ニュース -->
                                         <a href="#" style="color:#000;">
                                                 <p class="img_2">韓国人男女が日本総領事館に侵入し抗議　身柄を拘束 <br>
                                                 <span><time datetime="2012-01-04">2012年1月4日</time></span>
-                                                </p>                                                        
-                                        </a>                                                
-                                      
+                                                </p>
+                                        </a>
+
                                 </div>
-                               
+
                                 <!--related news-->
                                 <!-- <div class="row m-lr-0 pad-free">
                                         <div class="col-md-12 text-center"><h4 class="h_4 next-title">関連ニュース</h4></div>
@@ -168,20 +168,20 @@
                                         </div>
                                 </div>
                         </div>
-                </div> 
                 </div>
-        </div> 
+                </div>
         </div>
-        
+        </div>
+
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
               </div>
-            <!--end Tab panes-->                              
-        </div>   
-<!-- end news details--> 
+            <!--end Tab panes-->
+        </div>
+<!-- end news details-->
 </template>
 
 <script>
@@ -194,7 +194,7 @@ import jobSearch from './jobSearch.vue'
                 nursingSearch,
                 jobSearch
         },
-       
+
         data() {
             return {
                 newdetails:[],
@@ -212,7 +212,7 @@ import jobSearch from './jobSearch.vue'
                 //      this.latest_post_all_cats = response.data;
                  });
         },
-    
+
         methods: {
                
                 getLatestPostFromAllCat: function() {
@@ -224,27 +224,27 @@ import jobSearch from './jobSearch.vue'
                         });
                 }
         },
-     
-        
+
+
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //     export default {
-       
+
 //         data() {
 //             return {
 //                 newdetails:[]
@@ -254,11 +254,11 @@ import jobSearch from './jobSearch.vue'
 //             this.axios
 //                  .get(`/api/newdetails/${this.$route.params.id}`)
 //                  .then(response=>{
-                       
+
 //                      this.newdetails = response.data;
 //                        console.log(response.data);
 //                  });
-                       
+
 //         }
 //         // methods: {
 //         //         getPostById: function(id=1) {
@@ -270,7 +270,7 @@ import jobSearch from './jobSearch.vue'
 //         //                 });
 //         //         },
 //         // }
-        
+
 
 //     }
 // </script>

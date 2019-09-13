@@ -74,7 +74,7 @@
                         </div>
                 </div>  
 
-                <!-- <div class="col-md-12 m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
+                <div class="col-md-12 m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
                         <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">Latest News By Category "{{arr.name}}"</h4></div>
                         <div class="row col-md-12">
                                 <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
@@ -127,7 +127,7 @@
                                         </div>
                                 </div>
                         </div> 
-                </div> -->
+                </div>
         </div>   
 </template>
 <style scoped>
@@ -208,22 +208,22 @@ export default {
                 },
 
                 getLatestPostsByCatID: function() {
-                        // this.axios
-                        // .get('/api/get_latest_posts_by_catId')
-                        // .then(response => {
-                        //         // console.log(response);
-                        //         for(var i=0; i<response.data.length; i++) {
-                        //                 this.tmp_title[i] = response.data[i].title;
-                        //                 this.title_arr[i] = this.tmp_title[i].split(",");
+                        this.axios
+                        .get('/api/get_latest_posts_by_catId')
+                        .then(response => {
+                                // console.log(response);
+                                for(var i=0; i<response.data.length; i++) {
+                                        this.tmp_title[i] = response.data[i].title;
+                                        this.title_arr[i] = this.tmp_title[i].split(",");
 
-                        //                 this.tmp_photo[i] = response.data[i].photo;
-                        //                 this.photo_arr[i] = this.tmp_photo[i].split(",");
+                                        this.tmp_photo[i] = response.data[i].photo;
+                                        this.photo_arr[i] = this.tmp_photo[i].split(",");
 
-                        //                 this.tmp_post_id[i] = response.data[i].post_id;
-                        //                 this.id_arr[i] = this.tmp_post_id[i].split(",");
-                        //         }
-                        //         this.tmp_arr = response.data;
-                        // });   
+                                        this.tmp_post_id[i] = response.data[i].post_id;
+                                        this.id_arr[i] = this.tmp_post_id[i].split(",");
+                                }
+                                this.tmp_arr = response.data;
+                        });   
                 },
               
                 getPostByCatID: function(catId) {
