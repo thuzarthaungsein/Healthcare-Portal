@@ -4,10 +4,10 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="../index.html">ホーム</a>
+            <a href="/">ホーム</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="../news/news_details.html">新しい詳細</a>
+            <a href="/">新しい詳細</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">就職活動リスト</li>
         </ol>

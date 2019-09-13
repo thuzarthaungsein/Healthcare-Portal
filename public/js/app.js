@@ -58276,13 +58276,11 @@ var staticRenderFns = [
       _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
         _c("ol", { staticClass: "breadcrumb" }, [
           _c("li", { staticClass: "breadcrumb-item" }, [
-            _c("a", { attrs: { href: "../index.html" } }, [_vm._v("ホーム")])
+            _c("a", { attrs: { href: "/" } }, [_vm._v("ホーム")])
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "breadcrumb-item" }, [
-            _c("a", { attrs: { href: "../news/news_details.html" } }, [
-              _vm._v("新しい詳細")
-            ])
+            _c("a", { attrs: { href: "/" } }, [_vm._v("新しい詳細")])
           ]),
           _vm._v(" "),
           _c(

@@ -1693,10 +1693,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 
 #v-pills-tab li a {
     padding: 0.7rem 20px 0.7rem 25px;
-    white-space: -moz-pre-wrap !important;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    white-space: pre-wrap;
 }
 
 .card-head-tabs {
