@@ -37,6 +37,7 @@
 <!-- Fonts -->
 
 <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
+<!--mailbox-->
 
 
 
@@ -82,7 +83,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark main-header">
 
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand col-2" href="/">
 
                 <img src="/images/trust_growth.png" alt="TRUST GROWTH">
 
@@ -96,7 +97,7 @@
 
 
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse col-6 offset-4" id="navbarSupportedContent">
 
                 <!-- <form class="form-inline my-2 my-lg-0 col-lg-8 container-fluid form-inline">
 
@@ -105,36 +106,17 @@
                 <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary pc" type="submit"><i class="fas fa-search"></i> 検索</button>
 
                 </form> -->
-
-                <ul class="navbar-nav mr-auto offset-6 col-lg-2 pad-free pc">
-
-                    <li class="fav-item fav-color btn all-btn m-r-15" style="min-width: 130px;">
-                        <i class="fa fa-star m-r-5"> 検討リスト</i>
-                        <p style="display:flex; color:#fff;margin-top:5px;line-height:1.2em;">
-                        <span>2件<br>病院検索</span>
-                        <span style="border-left: 1px solid #fff;margin-left: auto;padding-left: 11px;">5件<br>介護検索</span>
-                        </p>
-                    </li>
-                    <li class="fav-item history-color btn all-btn m-r-20" style="min-width: 130px;">
-                        <i class="fa fa-bookmark m-r-5"> 最近見た施設</i><!-- <span class="list">10</span>件<br>最近見た施設  -->
-                        <p style="display:flex; color:#fff;margin-top:5px;line-height:1.2em;">
-                            <span>10件<br>病院検索</span>
-                            <span style="border-left: 1px solid #fff;margin-left: auto;padding-left: 11px;">9件<br>介護検索</span>
-                        </p>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav mr-auto col-lg-2 pad-free pc">
+            <ul class="navbar-nav ml-auto pad-free pc">
 
                     @guest
 
-                    <li class="nav-item btn login-register-btn col-lg-8 p-lr-0">
+                    <li class="nav-item btn login-register-btn p-lr-0">
 
                         <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;{{ __('事業者 ログイン') }}</a>
 
                     </li>
 
-                    <li class="nav-item btn login-register-btn col-lg-6 p-lr-0">
+                    <li class="nav-item btn login-register-btn p-lr-0">
 
                         <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
 
@@ -146,7 +128,7 @@
 
                     @else
 
-                    <li class="nav-item btn login-register-btn col-lg-12 userprofile-name pc">
+                    <li class="nav-item btn login-register-btn col-12 userprofile-name pc">
 
                         <img src="/images/user.png" alt="" class="userprofile-img">
 
@@ -157,6 +139,26 @@
                     @endguest
 
                 </ul>
+
+                <ul class="navbar-nav pad-free pc">
+
+                    <li class="fav-item fav-color btn all-btn m-r-10">
+                        <i class="fa fa-star m-r-5"> </i>&nbsp; 検討リスト
+                        <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
+                        <span style="padding-right: 11px;">2件<br>病院</span>
+                        <span style="border-left: 1px solid #fff;padding-left: 11px;">5件<br>介護</span>
+                        </p>
+                    </li>
+                    <li class="fav-item history-color btn all-btn m-r-10" >
+                        <i class="fa fa-bookmark m-r-5"></i>&nbsp; 最近見た施設<!-- <span class="list">10</span>件<br>最近見た施設  -->
+                        <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
+                            <span style="padding-right: 11px;">10件<br>病院</span>
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;">9件<br>介護</span>
+                        </p>
+                    </li>
+                </ul>
+
+                
 
                 <ul class="sp-nav sp">
 
@@ -438,51 +440,28 @@
 
                     <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;ホーム</router-link></li>
 
-                    @can('isAdmin')
+                    <!-- @can('isAdmin')
 
                     <li><router-link to="/passport" class="nav-link"><i class="fa fa-list"></i>&nbsp; Passport </router-link></li>
 
-                    @endcan
+                    @endcan -->
 
                     @can('role-list')
 
-                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
-
-                    <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
+                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>                  
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
 
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
                     <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Special Feature</router-link></li>
                     <li>
-
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Pages</a>
-
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
-
-                            <li>
-
-                                <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link>
-
-                            </li>
-
-                            <li>
-
-                                <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
-
-                            </li>
-
-
-
+                            <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link></li>
+                            <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
                         </ul>
-
                     </li>
-
-
-
                     @endcan
-
-
 
                     @can('customer')
                     <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
@@ -626,7 +605,7 @@
 
                                 <div class="row justify-content-md-center">
 
-                                    <div class="col-12 col-lg-10 col-md-8 tab">
+                                    <div class="col-12 col-lg-10 col-md-10 tab">
 
                                     <!-- vue component -->
 
@@ -643,8 +622,6 @@
                                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">four</div> -->
 
                                     </div>
-
-
 
                                     <div class="col-12 col-lg-2 col-md-4">
 
@@ -796,20 +773,19 @@
         type: 'GET',
         data: {'_token': csrf},
         success: function( data ) {
-            console.log(data);
+            // console.log(data);
             var top_ad = "";
             var side_ad = "";
             for (var i = 0; i < data.length; i++) {
                 if(data[i].location.includes("topbar") ) {
-                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><div class="slide-img"><img class="img-fluid ads-img" src="upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
+                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
                     if(data[i].location.includes("sidebar")) {
-                        side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
+                        side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
                     }
                 } 
                 else if(data[i].location.includes("sidebar"))  {
-                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
-                } 
-                
+                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
+                }                
             }
             $(".top-ad-slider").html(top_ad);
             jssor_1_slider_init();

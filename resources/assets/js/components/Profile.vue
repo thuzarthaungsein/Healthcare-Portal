@@ -2,7 +2,6 @@
 <div class="card profile" style="border:none;">
         <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
         <div class="card-body" v-if="type == 'nursing'">
-                Nus
                 <div class="form-group">
                         <!-- <label>Type<span class="error">*</span></label> -->
                         <label for="hospital" class="typelabel" id="hospital-lbl">
@@ -28,7 +27,6 @@
                 </form>
         </div>
         <div class="card-body" v-if="type == 'hospital'">
-                Hos
                 <div class="form-group">
                         <!-- <label>Type<span class="error">*</span></label> -->
                         <label for="hospital" class="typelabel" id="hospital-lbl">

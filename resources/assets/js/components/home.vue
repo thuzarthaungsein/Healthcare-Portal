@@ -17,9 +17,7 @@
                       </li>
                     </ol>
                   </nav> -->
-                  <News></News>
-               
-        
+                  <News></News>                 
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>

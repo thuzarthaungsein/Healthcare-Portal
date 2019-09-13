@@ -13,22 +13,27 @@ $(".path").hover(
     $('#info-box').html($(this).data('info'));
 
     $('.'+$(this).data('info')).css({
-      'background':'white',
-      'opacity': '0.25'
+      'opacity': '0.5',
+      'font-weight':'bold',
+      'text-decoration':'underline'
     });      
+    
   
   },
   function(){
   	timeout = setTimeout(function(){
-    	$('#info-box').css('display','none');
+      $('#info-box').css('display','none');
+     
       },1000);
   });
 
   $(".path").mouseout(function(){
     $('.'+$(this).data('info')).css({
-      'background':'none',
+      'background':'transparent',
       'opacity':'1'
     }); 
+    
+
   })
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -65,7 +70,8 @@ $('.path').on("click", function(e) {
             });
             $.each(getCity,function(k,v){
               $('#select option[value="'+v.id+'"]').attr("selected",true);
-              $('#text').append('<span>'+v.city_name+'</span>')
+              $('#text').append('<button class="all-btn btn main-bg-color">'+v.city_name+'<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>')
+             
             })
             $.each(townships,function(k,v){
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
@@ -206,18 +212,62 @@ $('#text').click(function() {
 */
 
 
+/*data_carry
 
 
+
+/*data_carry
+    
+*/
+$(function() {
+    $('#btnSubmit').on('click', function() {
+      // your code goes here
+      $('#outputSpan').val($('#count').val());
+      $('#outputfurigana').val($('#furigana').val());
+      $('#outputpostal').val($('.postal').val());
+      $('#outputdivision').val($('#division').val());
+      $('#outputcity').val($('#city').val());
+      $('#outputphone').val($('#phone').val());
+      $('#outputmail').val($('#mail').val());
+      
+    //   $('#outputpresent').val($('#present').val());
+      $('#outputpresent').val($('input:checkbox[name=present]:checked').val());
+
+      $('#outputrelation').val($('#relation').val());
+      $('#outputttname').val($('#ttname').val());
+      
+      $('#outputsex').val($('input:radio[name=sex]:checked').val());
+    //   alert($('input:radio[name=sex]:checked').val());
+      
+      $('#outputyears').val($('#years').val());
+      $('#outputnursing').val($('#nursing').val());
+      
+    //   $('#outputfect').val($('#fect').val());
+       
+      $('#outputfect').val($('input:radio[name=fect]:checked').val());
+    //   alert($('input:radio[name=fect]:checked').val());
+      
+    //   $('#outputdesire').val($('#desire').val());
+      $('#outputdesire').val($('input:radio[name=desire]:checked').val());
+     
+      $('#outputhope').val($('#hope').val());
+      // not triiger output tab to be open
+      $('[href="#output"]').trigger('click');
+    });
+  });
+
+
+  
 function scrollTab(){
-    console.log('scroll');
+    // console.log('scroll');
     // $("p").css('color','red');
     $('#a').on('click',function(){
-        console.log('onclick');
+        // console.log('onclick');
     });
   
     if($('.detal_wrap').length){    
         $(".a_sp a[href^='#']").click(function () { 
-            console.log("a_sp");
+            // console.log("a_sp");
         var speed = 600;
         var href = $(this).attr("href");
         var target = $(href === "#" || href === "" ? 'html' : href);
@@ -251,7 +301,7 @@ function scrollTab(){
 
 $('nav-item').on('change',function(e){
     e.preventDefault();
-    console.log($('#a1').val());
+    // console.log($('#a1').val());
 })
 
 // jQuery(document).ready(function($) {
@@ -278,15 +328,3 @@ $('.scrolldiv2').scroll(function() {
     
     });
 // });
-
-
-
-
-
-
-    
-    
-  
-
-
-

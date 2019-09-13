@@ -56,8 +56,8 @@
                                         <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
                                         <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="">
                                         <div class="overlay">
-                                                <h2></h2>
-                                                <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">{{ latest_post_all_cat.title }}</router-link>
+                                                <!-- <h2></h2> -->
+                                                <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
                                                 <!-- <a class="btn btn-sm all-btn secondary-bg-color" v-bind:href="'/newsdetails/' + latest_post_all_cat.id"></a> -->
                                         </div>
                                         <div class="info">
@@ -72,7 +72,62 @@
                                 </div>
                         </div>
                         </div>
-                </div>                             
+                </div>  
+
+                <div class="col-md-12 m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
+                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">Latest News By Category "{{arr.name}}"</h4></div>
+                        <div class="row col-md-12">
+                                <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
+                                        <div class="col-md-6" >
+                                                <router-link :to="'/newsdetails/'+id_arr[catId][inx]">
+                                                        <img v-if="photo_arr[catId][inx]" v-bind:src="'/upload/news/' + photo_arr[catId][inx]" class="img-responsive fit-image">
+                                                        <p class="source-title"> {{title_arr[catId][inx]}}</p>
+                                                 </router-link>
+                                               
+                                        </div>
+                                        <div class="row col-md-6">
+                                                <ul class="list-group list-group-flush all-item">
+                                                        <span v-if="inx == 0">
+                                                                <li class="list-group-item p-t-5 p-b-5" v-for="sec_index in second_index" :key="sec_index">
+                                                                        <span v-if="(title_arr[catId][0] != title_arr[catId][sec_index]) && (title_arr[catId][3] != title_arr[catId][sec_index])">
+                                                                                <div class="row"> 
+                                                                                        <div class="col-md-4">
+                                                                                                <router-link :to="'/newsdetails/'+id_arr[catId][sec_index]">
+                                                                                                        <img v-if="photo_arr[catId][sec_index]" v-bind:src="'/upload/news/' + photo_arr[catId][sec_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                                </router-link>
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                                <router-link :to="'/newsdetails/'+id_arr[catId][sec_index]">
+                                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][sec_index]}} </p>
+                                                                                                </router-link>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </span>
+                                                                </li>
+                                                        </span>
+                                                        <span v-if="inx == 3">
+                                                                <li  class="list-group-item p-t-5 p-b-5" v-for="thd_index in third_index" :key="thd_index">
+                                                                        <span v-if="(title_arr[catId][0] != title_arr[catId][thd_index]) && (title_arr[catId][3] != title_arr[catId][thd_index])">
+                                                                                <div class="row">
+                                                                                        <div class="col-md-4">
+                                                                                                <router-link :to="'/newsdetails/'+id_arr[catId][thd_index]">
+                                                                                                        <img v-if="photo_arr[catId][thd_index]" v-bind:src="'/upload/news/' + photo_arr[catId][thd_index]" class="fit-image" style="height:5rem;width:6rem">
+                                                                                                </router-link>
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                                <router-link :to="'/newsdetails/'+id_arr[catId][thd_index]">
+                                                                                                        <p class="news-title" style="padding-left:25px"> {{title_arr[catId][thd_index]}} </p>
+                                                                                                </router-link>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </span>
+                                                                </li>
+                                                        </span>
+                                                </ul>
+                                        </div>
+                                </div>
+                        </div> 
+                </div>
         </div>   
 </template>
 <style scoped>
@@ -94,6 +149,7 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tab
     
    
 }
+
 </style>
 <script>
 import News from './News.vue'
@@ -120,11 +176,22 @@ export default {
                 latest_post: [],
                 latest_post_all_cats: [],
                 search_posts:[],
+                tmp_arr:[],
                 categoryId: 1,
+                index:[0,3],
+                second_index:[1,2],
+                third_index:[4,5], 
+                tmp_title:[],
+                title_arr:[],
+                tmp_photo:[],
+                photo_arr:[],
+                tmp_post_id:[],
+                id_arr:[]
             }
         },
         created() {
             this.getAllCat();
+            this.getLatestPostsByCatID();
             this.getPostByCatID();
             this.getLatestPostByCatID();
             this.getLatestPostFromAllCat();
@@ -135,7 +202,27 @@ export default {
                      this.axios
                         .get('/api/home')
                         .then(response => {
+                                // console.log(response);
                                 this.cats = response.data;
+                        });   
+                },
+
+                getLatestPostsByCatID: function() {
+                        this.axios
+                        .get('/api/get_latest_posts_by_catId')
+                        .then(response => {
+                                console.log(response);
+                                for(var i=0; i<response.data.length; i++) {
+                                        this.tmp_title[i] = response.data[i].title;
+                                        this.title_arr[i] = this.tmp_title[i].split(",");
+
+                                        this.tmp_photo[i] = response.data[i].photo;
+                                        this.photo_arr[i] = this.tmp_photo[i].split(",");
+
+                                        this.tmp_post_id[i] = response.data[i].post_id;
+                                        this.id_arr[i] = this.tmp_post_id[i].split(",");
+                                }
+                                this.tmp_arr = response.data;
                         });   
                 },
               
@@ -159,8 +246,8 @@ export default {
                         axios.post("/api/posts/" , fd)
                         .then(response => {
                                 this.posts = response.data;
-                        });
-                },
+                        }); 
+                }, 
 
                 getLatestPostByCatID: function(catId) {
                         if($('#search-word').val()) {

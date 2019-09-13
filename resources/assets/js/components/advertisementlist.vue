@@ -9,7 +9,7 @@
         </div>
     
     <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
-        <h4 class="main-color"> 広告検索</h4>
+        <h4 class="main-color m-b-10"> 広告検索</h4>
         <div class="row">
             <div class="col-md-12">
                 <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchAdvertisment()">

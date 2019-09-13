@@ -32,9 +32,9 @@
 
                     <div class="form-group">
                             <label class="heading-lbl">特長<span class="error">*</span></label>
-                             <!-- <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor> -->
+                            
                             <!-- <textarea name="feature" class="form-control"></textarea> -->
-                             <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
+                             <quill-editor  ref="myQuilEditor" name="feature" :options="editorOption" />
                             <!-- <div id="feature" name = "body"></div> -->
                     </div>
 
@@ -64,63 +64,79 @@
                                         <table class="table table-striped table-bordered">
                                                 <tr>
                                                         <td style="width:30%">事業主体</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>                                                        
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td>   -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
+                                                                                                             
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">開設年月日</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>                                                       
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td>  -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">土地の権利形態</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">建物の権利形態</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">敷地面積</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">延床面積</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">構造</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">定員</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">総居室・戸数</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">居住の権利形態</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">類型</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">入居条件</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">居室区分・間取り等</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">居室設備</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">共用施設・設備</td>
-                                                        <td style="width:70%"><textarea class="form-control"></textarea></td>
+                                                        <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>  
                                                 </tr>
                                         </table>
                                 </div>
@@ -160,7 +176,9 @@
                                             </div>
                                             <div class="form-group">
                                                     <label for="">備考</label>
-                                                    <textarea name="" class="form-control"></textarea>
+                                                    <!-- <textarea name="" class="form-control"></textarea> -->
+                                                    <quill-editor  ref="myQuilEditor" :options="editorOption" name="" />
+                                                    
                                             </div>
                                     </div>
                                 </div>
@@ -176,21 +194,27 @@
                                         <table class="table table-striped table-bordered">
                                                 <tr>
                                                         <td style="width:20%">介護に関わる職員体制（入居者：職員）</td>
-                                                        <td style="width:32%"><textarea class="form-control"></textarea></td>                                                        
+                                                        <!-- <td style="width:32%"><textarea class="form-control"></textarea></td>  -->
+                                                        <td style="width:32%"><quill-editor  ref="myQuilEditor" :options="editorOption" /></td> 
+                                                        
                                                         <td style="width:16%">介護職員</td>
-                                                        <td style="width:32%"><textarea class="form-control"></textarea></td>                                                        
+                                                        <!-- <td style="width:32%"><textarea class="form-control"></textarea></td>   -->
+                                                         <td style="width:32%"><quill-editor  ref="myQuilEditor" :options="editorOption" /></td> 
                                                 </tr>
                                                 <tr>
                                                         <td style="width:20%">夜間の最少職員数</td>
-                                                        <td style="width:32%"><textarea class="form-control"></textarea></td>                                                        
+                                                        <!-- <td style="width:32%"><textarea class="form-control"></textarea></td> -->
+                                                         <td style="width:32%"><quill-editor  ref="myQuilEditor" :options="editorOption" /></td> 
                                                         <td style="width:16%">看護職員数</td>
-                                                        <td style="width:32%"><textarea class="form-control"></textarea></td>                                                        
+                                                        <!-- <td style="width:32%"><textarea class="form-control"></textarea></td>    -->
+                                                         <td style="width:32%"><quill-editor  ref="myQuilEditor" :options="editorOption" /></td> 
                                                 </tr>                                              
                                         </table>
 
                                         <div class="form-group">
                                                 <label for="">備考</label>
-                                                <textarea name="" class="form-control"></textarea>
+                                                <!-- <textarea name="" class="form-control"></textarea> -->
+                                              <quill-editor  ref="myQuilEditor" name="" :options="editorOption" />
                                         </div>
                                 </div>
                             </td>
@@ -219,11 +243,13 @@
 
                                         <div class="form-group">
                                                 <label>住所<span class="error">*</span></label>
-                                                <textarea name="address" rows="10" class="form-control"></textarea>
+                                                <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                                <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" />
                                         </div>
                                         <div class="form-group">
                                                 <label>交通 / アクセス<span class="error">*</span></label>
-                                                <textarea name="address" rows="10" class="form-control"></textarea>
+                                                <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                                <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" />
                                         </div>
                                 </div>
                             </td>
@@ -266,11 +292,10 @@ $(document).ready(function(){
 });
 
 
-
 import 'quill/dist/quill.snow.css'
 import {quillEditor} from 'vue-quill-editor'
 import {Button, Input,Select} from 'iview'
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import GoogleMap from './GoogleMap.vue'
 
 export default {
@@ -335,7 +360,11 @@ export default {
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
                     $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
+                
+            
+            
             },
+
 
             galleryVideoAdd() {
                     var date = new Date;
