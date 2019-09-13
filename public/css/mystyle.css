@@ -2093,7 +2093,7 @@ ul.main-tab li:after {
     
     #info-box {
         pointer-events: none;
-        position: absolute;
+        position: relative;
         font-size: 18px;
         text-align: center;
         background: white;
