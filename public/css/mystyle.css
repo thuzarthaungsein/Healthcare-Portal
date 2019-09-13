@@ -2043,7 +2043,7 @@ ul.main-tab li:after {
 
 .divisions .card-header {
     font-weight: bold;
-    color: white;
+    color: #000;
     text-align: center;
     padding: 5px !important;
 }
@@ -2052,6 +2052,34 @@ ul.main-tab li:after {
     padding: 10px !important;
 }
 
+@media print, screen and (min-width: 750px){
+.spanclass{
+    letter-spacing: normal;
+    width: 50%;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 10px;
+    font-size: 12px;
+}
+.map-text a:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid #c40000;
+    border-bottom: 1px solid #c40000;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 52px;
+    left: 61px;
+
+    /* top: 50%;
+    right: 8px;
+    margin-top: -3px; */
+}
+}
 
 /* End Hospital Search */
 

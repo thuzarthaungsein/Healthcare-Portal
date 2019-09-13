@@ -27,9 +27,7 @@ $(".path").hover(
       },1000);
   });
 
-  $(".path").mousein(
-    function(){
-      clearTimeout(timeout);
+  $(".path").mouseout(function(){
     $('.'+$(this).data('info')).css({
       'background':'transparent',
       'opacity':'1'
