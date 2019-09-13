@@ -59,9 +59,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-            
+            <button class="btn btn-success m-l-35">この内容で送信</button>
             </div>
 
 
