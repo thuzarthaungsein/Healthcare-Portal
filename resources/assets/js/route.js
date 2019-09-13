@@ -20,6 +20,7 @@ import editcategory from './components/editcategory.vue';
 import createcustomer from './components/CreateCustomer.vue';
 import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
+import Profile from './components/Profile.vue';
 import hosProfile from './components/hosProfile.vue';
 import nusProfile from './components/nusProfile.vue';
 import JobOfferList from './components/JobOfferList.vue';
@@ -48,6 +49,8 @@ import commentlist from './components/commentlist.vue';
 import featurelist from './components/FeatureList.vue';
 import passport from './components/passport.vue';
 import specialfeature from './components/CreateSpecialFeature.vue';
+
+
 export const routes = [
       {
         name: 'home',
@@ -165,6 +168,11 @@ export const routes = [
       name: 'map',
       path: '/map',
       component: map
+    },
+    {
+      name: 'profile',
+      path: '/profile',
+      component: Profile
     },
     {
       name: 'hos_profile',
@@ -297,7 +305,8 @@ export const routes = [
     name: 'featurelist',
     path: '/featurelist',
     component: featurelist
-  }
+  },
+
 
   
 ];

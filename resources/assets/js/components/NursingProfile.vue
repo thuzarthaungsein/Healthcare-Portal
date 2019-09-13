@@ -32,8 +32,10 @@
 
                     <div class="form-group">
                             <label class="heading-lbl">特長<span class="error">*</span></label>
+                             <!-- <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor> -->
                             <!-- <textarea name="feature" class="form-control"></textarea> -->
-                            <div id="feature" name = "body"></div>
+                             <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
+                            <!-- <div id="feature" name = "body"></div> -->
                     </div>
 
                     <!-- <hr class="hor-line m-t-30"> -->
@@ -263,17 +265,38 @@ $(document).ready(function(){
         });
 });
 
+
+
+import 'quill/dist/quill.snow.css'
+import {quillEditor} from 'vue-quill-editor'
+import {Button, Input,Select} from 'iview'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import GoogleMap from './GoogleMap.vue'
 
 export default {
         components: {
                 GoogleMap,
+                Button,
+                Input,
+                Select,
+                quillEditor
         },
+     
        data() {
-                return {
-                        fac_list: [],
-                        medical_acceptance:[],
+
+               
+        return {
+                fac_list: [],
+                medical_acceptance:[],
+                content: '',
+                editorOption:{
+                        debug:'info',
+                        placeholder:'Type your post...',
+                        readonly:true,
+                        theme:'snow',
                 }
+                
+        }
         },
         created(){
                 this.axios
@@ -343,3 +366,10 @@ export default {
 }
 
 </script>
+
+ <style>
+ .ql-editor{
+     height:30vh;
+    
+ }
+ </style>
