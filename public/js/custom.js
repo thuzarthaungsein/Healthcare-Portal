@@ -1,7 +1,7 @@
 //for jssor for ads
 jssor_1_slider_init = function() {
     var jssor_1_options = {
-        // $AutoPlay: 1,
+        $AutoPlay: 1,
         $AutoPlaySteps: 5,
         $SlideDuration: 160,
         $SlideWidth: 238,
