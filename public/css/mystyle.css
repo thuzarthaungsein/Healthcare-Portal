@@ -331,7 +331,7 @@ html {
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #2ba7c0 !important;
+    background-color: #118063 !important;
 }
 
 
@@ -1487,6 +1487,10 @@ div.b {
     background-color: #f27a24 !important;
 }
 
+.toggle-btn .icon-arrow:before {
+    content: '\25BC';
+}
+
 .all-btn {
     color: #fff !important;
     border: none !important;
@@ -1573,15 +1577,15 @@ div.b {
 
 .fav-item {
     font-size: 12px;
-    padding: 5px;
+    padding: 5px 10px;
 }
 
 .fav-color {
-    background-color: #f5807f;
+    background-color: #f9793c;
 }
 
 .history-color {
-    background-color: #7586c6;
+    background-color: #0e775d;
 }
 
 .card-header {
@@ -2050,13 +2054,42 @@ ul.main-tab li:after {
 
 .divisions .card-header {
     font-weight: bold;
-    color: white;
+    color: #000;
     text-align: center;
     padding: 5px !important;
 }
 
 .divisions .card-body {
     padding: 10px !important;
+}
+
+@media print,
+screen and (min-width: 750px) {
+    .spanclass {
+        letter-spacing: normal;
+        width: 50%;
+        display: inline-block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        text-align: center;
+        padding-right: 10px;
+        font-size: 12px;
+    }
+    .map-text a:after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-right: 1px solid #c40000;
+        border-bottom: 1px solid #c40000;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 52px;
+        left: 61px;
+        /* top: 50%;
+    right: 8px;
+    margin-top: -3px; */
+    }
 }
 
 

@@ -105,26 +105,7 @@
                 <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary pc" type="submit"><i class="fas fa-search"></i> 検索</button>
 
                 </form> -->
-
-                <ul class="navbar-nav ml-auto pad-free pc">
-
-                    <li class="fav-item fav-color btn all-btn m-r-15" style="padding:5px;" >
-                        <i class="fa fa-star m-r-5"> 検討リスト</i>
-                        <p style="display:flex; color:#fff;margin-top:5px;line-height:1.2em;">
-                        <span style="padding-right: 11px;">2件<br>病院検索</span>
-                        <span style="border-left: 1px solid #fff;margin-left: auto;padding-left: 11px;">5件<br>介護検索</span>
-                        </p>
-                    </li>
-                    <li class="fav-item history-color btn all-btn m-r-15" style="padding:5px;">
-                        <i class="fa fa-bookmark m-r-5"> 最近見た施設</i><!-- <span class="list">10</span>件<br>最近見た施設  -->
-                        <p style="display:flex; color:#fff;margin-top:5px;line-height:1.2em;">
-                            <span style="padding-right: 11px;">10件<br>病院検索</span>
-                            <span style="border-left: 1px solid #fff;margin-left: auto;padding-left: 11px;">9件<br>介護検索</span>
-                        </p>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav pad-free pc">
+            <ul class="navbar-nav ml-auto pad-free pc">
 
                     @guest
 
@@ -157,6 +138,26 @@
                     @endguest
 
                 </ul>
+
+                <ul class="navbar-nav pad-free pc">
+
+                    <li class="fav-item fav-color btn all-btn m-r-10">
+                        <i class="fa fa-star m-r-5"> </i>&nbsp; 検討リスト
+                        <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
+                        <span style="padding-right: 11px;">2件<br>病院</span>
+                        <span style="border-left: 1px solid #fff;padding-left: 11px;">5件<br>介護</span>
+                        </p>
+                    </li>
+                    <li class="fav-item history-color btn all-btn m-r-10" >
+                        <i class="fa fa-bookmark m-r-5"></i>&nbsp; 最近見た施設<!-- <span class="list">10</span>件<br>最近見た施設  -->
+                        <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
+                            <span style="padding-right: 11px;">10件<br>病院</span>
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;">9件<br>介護</span>
+                        </p>
+                    </li>
+                </ul>
+
+                
 
                 <ul class="sp-nav sp">
 
