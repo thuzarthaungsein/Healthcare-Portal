@@ -22,7 +22,7 @@
       >
         <div class="card-body news-post">
           <div class="row">
-            <div class="col-lg-3 col-md-12 m-b-20">
+            <div class="col-lg-3 col-md-12 m-b-20 pad-free">
               <h4 class="m-b-20 text-center sp">
                 <a href="#">{{hos_profile.name}}</a>
               </h4>

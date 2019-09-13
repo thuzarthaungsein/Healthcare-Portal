@@ -58080,30 +58080,34 @@ var render = function() {
           [
             _c("div", { staticClass: "card-body news-post" }, [
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-3 col-md-12 m-b-20" }, [
-                  _c("h4", { staticClass: "m-b-20 text-center sp" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v(_vm._s(hos_profile.name))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "col-md-12 hos-img",
-                    attrs: { src: "/images/" + hos_profile.logo, alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-danger all-btn hos-btn" },
-                    [_vm._v("最近見た施設から削除")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-info all-btn hos-btn" },
-                    [_vm._v("検討リストに追加")]
-                  )
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "col-lg-3 col-md-12 m-b-20 pad-free" },
+                  [
+                    _c("h4", { staticClass: "m-b-20 text-center sp" }, [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v(_vm._s(hos_profile.name))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "col-md-12 hos-img",
+                      attrs: { src: "/images/" + hos_profile.logo, alt: "" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      { staticClass: "btn btn-danger all-btn hos-btn" },
+                      [_vm._v("最近見た施設から削除")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      { staticClass: "btn btn-info all-btn hos-btn" },
+                      [_vm._v("検討リストに追加")]
+                    )
+                  ]
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-5 col-md-12 m-b-10" }, [
                   _c("div", { staticClass: "pad-free mb-2" }, [

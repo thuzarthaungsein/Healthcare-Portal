@@ -805,7 +805,7 @@ p {
 
 .main-header {
     position: fixed;
-    width: 83.3%;
+    width: 83.4%;
     height: 80px;
     background-color: #b7dad2;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
@@ -1447,6 +1447,10 @@ div.b {
     padding-bottom: 5px;
 }
 
+.p-5 {
+    padding: 5px;
+}
+
 .m-r-10 {
     margin-right: 10px;
 }
@@ -1536,7 +1540,7 @@ div.b {
     color: #000 !important;
     border: none;
     font-weight: bold;
-    width: 82px;
+    width: 125px;
     font-size: 12px;
 }
 
@@ -1685,6 +1689,10 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 
 #v-pills-tab li a {
     padding: 0.7rem 20px 0.7rem 25px;
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
 }
 
 .card-head-tabs {
@@ -2387,7 +2395,7 @@ body::-webkit-scrollbar-thumb {
     width: 88%;
     margin-top: 10px;
     margin-left: 15px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-align: center;
 }
 
