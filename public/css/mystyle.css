@@ -2059,11 +2059,10 @@ ul.main-tab li:after {
     padding: 10px !important;
 }
 
-@media print,
-screen and (min-width: 750px) {
+@media print, screen and (min-width: 750px) {
     .spanclass {
         letter-spacing: normal;
-        width: 50%;
+        /* width: 50%; */
         display: inline-block;
         margin-bottom: 5px;
         font-weight: bold;
@@ -2071,6 +2070,10 @@ screen and (min-width: 750px) {
         padding-right: 10px;
         font-size: 12px;
     }
+    .spanclass  a {
+        position: relative;
+    }
+    
     .map-text a:after {
         content: "";
         width: 6px;
@@ -2079,12 +2082,10 @@ screen and (min-width: 750px) {
         border-bottom: 1px solid #c40000;
         -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg);
-        position: absolute;
-        top: 52px;
-        left: 61px;
-        /* top: 50%;
-    right: 8px;
-    margin-top: -3px; */
+        position: absolute;        
+        top: 50%;
+        left: 45px;
+        margin-top: -3px;
     }
 }
 
