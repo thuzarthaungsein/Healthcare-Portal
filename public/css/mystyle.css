@@ -2104,14 +2104,14 @@ ul.main-tab li:after {
         transform: rotate(-45deg);
         position: absolute;        
         top: 50%;
-        left: 45px;
+        left: 50px;
         margin-top: -3px;
     }
     
     #info-box {
-        pointer-events: none;
+       
         position: relative;
-        font-size: 18px;
+        /* font-size: 18px;
         text-align: center;
         background: white;
         padding: 10px 15px;
@@ -2125,7 +2125,7 @@ ul.main-tab li:after {
         -moz-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
         -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
+        transform: translateX(-50%); */
         display: none;
       }
      

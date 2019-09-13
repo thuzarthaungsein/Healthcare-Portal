@@ -41119,19 +41119,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_advertisementlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41__components_advertisementlist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_editadvertisement_vue__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_editadvertisement_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42__components_editadvertisement_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_Comment_vue__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_Comment_vue__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_43__components_Comment_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_commentlist_vue__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_commentlist_vue__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_commentlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_44__components_commentlist_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_FeatureList_vue__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_FeatureList_vue__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_FeatureList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_45__components_FeatureList_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_favouriteNursing_vue__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_favouriteNursing_vue__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_favouriteNursing_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_46__components_favouriteNursing_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_passport_vue__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_passport_vue__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_passport_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_47__components_passport_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_CreateSpecialFeature_vue__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_CreateSpecialFeature_vue__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_CreateSpecialFeature_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_48__components_CreateSpecialFeature_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_hospitalfavouritemail_vue__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_hospitalfavouritemail_vue__ = __webpack_require__(209);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_hospitalfavouritemail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_49__components_hospitalfavouritemail_vue__);
 
 
@@ -62703,18 +62703,15 @@ if (false) {
 }
 
 /***/ }),
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(196)
+var __vue_script__ = __webpack_require__(193)
 /* template */
-var __vue_template__ = __webpack_require__(197)
+var __vue_template__ = __webpack_require__(194)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -62753,7 +62750,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 196 */
+/* 193 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -62979,7 +62976,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 197 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -63520,15 +63517,15 @@ if (false) {
 }
 
 /***/ }),
-/* 198 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(199)
+var __vue_script__ = __webpack_require__(196)
 /* template */
-var __vue_template__ = __webpack_require__(200)
+var __vue_template__ = __webpack_require__(197)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -63567,7 +63564,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 199 */
+/* 196 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63688,7 +63685,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 200 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -63885,15 +63882,15 @@ if (false) {
 }
 
 /***/ }),
-/* 201 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(202)
+var __vue_script__ = __webpack_require__(199)
 /* template */
-var __vue_template__ = __webpack_require__(203)
+var __vue_template__ = __webpack_require__(200)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -63932,7 +63929,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 202 */
+/* 199 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64025,7 +64022,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 203 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -64163,15 +64160,15 @@ if (false) {
 }
 
 /***/ }),
-/* 204 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(205)
+var __vue_script__ = __webpack_require__(202)
 /* template */
-var __vue_template__ = __webpack_require__(206)
+var __vue_template__ = __webpack_require__(203)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -64210,7 +64207,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 205 */
+/* 202 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64824,7 +64821,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 206 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -66440,7 +66437,7 @@ if (false) {
 }
 
 /***/ }),
-/* 207 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -66448,7 +66445,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(208)
+var __vue_template__ = __webpack_require__(205)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -66487,7 +66484,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 208 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -66517,15 +66514,15 @@ if (false) {
 }
 
 /***/ }),
-/* 209 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(210)
+var __vue_script__ = __webpack_require__(207)
 /* template */
-var __vue_template__ = __webpack_require__(211)
+var __vue_template__ = __webpack_require__(208)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -66564,7 +66561,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 210 */
+/* 207 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66662,7 +66659,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 211 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -66779,6 +66776,1993 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-70e71250", module.exports)
+  }
+}
+
+/***/ }),
+/* 209 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(210)
+/* template */
+var __vue_template__ = __webpack_require__(211)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/hospitalfavouritemail.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-322cbd5f", Component.options)
+  } else {
+    hotAPI.reload("data-v-322cbd5f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 210 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            errors: [],
+            fav_nursing: [],
+            local_sto: '',
+            post_list: [],
+            city_list: [],
+            post: '',
+            selectedCity: '',
+            zipStreet: '',
+            zipPref: '',
+            selectedValue: 0
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.axios.get('/api/hospital/postList').then(function (response) {
+
+            _this.post_list = response.data;
+            //console.log(this.post_list); 
+        });
+        this.local_sto = localStorage.getItem("nursing_fav");
+        this.getAllFavourite(this.local_sto);
+        this.axios.get('/api/hospital/citiesList').then(function (response) {
+            _this.city_list = response.data;
+        });
+    },
+
+
+    methods: {
+        getAllFavourite: function getAllFavourite(local_storage) {
+            var _this2 = this;
+
+            this.axios.post('/api/nursing_fav/' + local_storage).then(function (response) {
+                _this2.fav_nursing = response.data;
+            });
+        },
+
+        addDistributionGroup: function addDistributionGroup() {
+            var _this3 = this;
+
+            var selectedId = this.post;
+            this.axios.post('/api/hospital/selectedCity/' + selectedId).then(function (response) {
+                _this3.zipStreet = response.data[0].street;
+                _this3.zipPref = response.data[0].pref;
+                _this3.selectedValue = response.data[0].c_Id;
+            });
+        }
+    }
+
+});
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "container tabs-wrap" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "tab-content" }, [
+          _c(
+            "div",
+            {
+              staticClass: "tab-pane active",
+              attrs: { role: "tabpanel", id: "input" }
+            },
+            [
+              _c("form", { staticClass: "col-md-8" }, [
+                _c(
+                  "h3",
+                  {
+                    staticStyle: {
+                      "border-bottom": "1px solid green",
+                      width: "47%",
+                      "margin-bottom": "30px"
+                    }
+                  },
+                  [_vm._v("資料請求される方について")]
+                ),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group col-md-6" },
+                    [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c("autocomplete", {
+                        ref: "autocomplete",
+                        attrs: {
+                          source: _vm.post_list,
+                          "results-property": "data",
+                          defaultOpen: "false",
+                          placeholder: "郵便番号を入力してください。",
+                          "input-class": "form-control postal",
+                          id: "postal"
+                        },
+                        on: {
+                          input: function($event) {
+                            return _vm.addDistributionGroup()
+                          }
+                        },
+                        model: {
+                          value: _vm.post,
+                          callback: function($$v) {
+                            _vm.post = $$v
+                          },
+                          expression: "post"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selectedValue,
+                              expression: "selectedValue"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { id: "division" },
+                          on: {
+                            change: [
+                              function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.selectedValue = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              },
+                              function($event) {
+                                return _vm.getCities()
+                              }
+                            ]
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "0" } }, [
+                            _vm._v("選択してください。")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.city_list, function(cities) {
+                            return _c(
+                              "option",
+                              {
+                                key: cities.id,
+                                domProps: { value: cities.id }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(cities.city_name) +
+                                    "\n                                    "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm._m(6)
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _vm._m(7),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.zipStreet,
+                        expression: "zipStreet"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "city",
+                      placeholder: "市区町村、番地を入力してください。"
+                    },
+                    domProps: { value: _vm.zipStreet },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.zipStreet = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階"
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(8),
+                _vm._v(" "),
+                _vm._m(9),
+                _vm._v(" "),
+                _vm._m(10),
+                _vm._v(" "),
+                _vm._m(11),
+                _vm._v(" "),
+                _vm._m(12),
+                _vm._v(" "),
+                _vm._m(13),
+                _vm._v(" "),
+                _vm._m(14),
+                _vm._v(" "),
+                _vm._m(15),
+                _vm._v(" "),
+                _vm._m(16),
+                _vm._v(" "),
+                _vm._m(17),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary continue m-l-15",
+                    attrs: { type: "button", id: "btnSubmit", value: "submit" }
+                  },
+                  [_vm._v("Continue")]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _vm._m(18)
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
+      [
+        _c("li", { staticClass: "active", attrs: { role: "presentation" } }, [
+          _c("a", {
+            attrs: {
+              href: "#input",
+              "aria-controls": "input",
+              role: "tab",
+              "data-toggle": "tab",
+              "aria-expanded": "true"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", {
+            attrs: {
+              href: "#output",
+              "aria-controls": "output",
+              role: "tab",
+              "data-toggle": "tab",
+              "aria-expanded": "false"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", {
+            attrs: {
+              href: "#review",
+              "aria-controls": "review",
+              role: "tab",
+              "data-toggle": "tab",
+              "aria-expanded": "false"
+            }
+          })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("お名前:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "count",
+          name: "count",
+          placeholder: "お名前を入力してください。",
+          required: ""
+        }
+      }),
+      _vm._v(" "),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("ふりがな:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "furigana",
+          name: "furigana",
+          placeholder: "ふりがなを入力してください。",
+          required: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("ご住所:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("郵便番号:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v(" 都道府県"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6 m-t-71" }, [
+      _c("table", [
+        _c("tr", [
+          _c("td", { staticStyle: { "padding-right": "30px" } }, [
+            _vm._v(" 例）1006740")
+          ]),
+          _vm._v(" "),
+          _c("td", [
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "https://www.post.japanpost.jp/zipcode/",
+                  target: "_blank"
+                }
+              },
+              [_vm._v("郵便番号検索")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [_c("td")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("市区町村、番地（建物名）:"),
+      _c("span", { staticClass: "error" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "form-group col-md-6" }, [
+        _c("label", [
+          _vm._v("電話番号:"),
+          _c("span", { staticClass: "error" }, [_vm._v("*")])
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "phone",
+            name: "phone",
+            placeholder: "電話番号を入力してください。",
+            required: ""
+          }
+        }),
+        _vm._v(" "),
+        _c("br")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-6", staticStyle: { "margin-top": "40px" } },
+        [
+          _c("table", [
+            _c("tr", [
+              _c("td", { staticStyle: { "padding-right": "30px" } }, [
+                _vm._v("例）0312345678（半角）")
+              ])
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "form-group col-md-6" }, [
+        _c("label", [
+          _vm._v("メールアドレス:"),
+          _c("span", { staticClass: "error" }, [_vm._v("*")])
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "mail",
+            name: "mail",
+            placeholder: "メールアドレスを入力してください。",
+            required: ""
+          }
+        }),
+        _vm._v(" "),
+        _c("br")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-6", staticStyle: { "margin-top": "40px" } },
+        [
+          _c("table", [
+            _c("tr", [
+              _c("td", { staticStyle: { "padding-right": "30px" } }, [
+                _vm._v(" 例）abc@example.jp （半角）")
+              ])
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [
+        _vm._v("プレゼントのご希望:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "checkbox",
+          id: "present",
+          name: "present",
+          value: "早分かり用語集」プレゼントを希望する",
+          required: ""
+        }
+      }),
+      _vm._v("「早分かり用語集」プレゼントを希望する\n                        ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-t-30" }, [
+      _c(
+        "h3",
+        {
+          staticStyle: {
+            "border-bottom": "1px solid green",
+            width: "47%",
+            "margin-bottom": "30px"
+          }
+        },
+        [_vm._v("入居対象者様について")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("label", [
+          _vm._v(" 入居対象者様とのご関係"),
+          _c("span", { staticClass: "error" }, [_vm._v("*")])
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          { staticClass: "form-control", attrs: { id: "relation" } },
+          [
+            _c("option", { attrs: { value: "" } }, [
+              _vm._v("選択してください")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "本人" } }, [_vm._v("本人")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "家族" } }, [_vm._v("家族")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "親族" } }, [_vm._v("親族")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "友人" } }, [_vm._v("友人")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "ケアマネージャー" } }, [
+              _vm._v("ケアマネージャー")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "ソーシャルワーカー" } }, [
+              _vm._v("ソーシャルワーカー")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "その他" } }, [_vm._v("その他")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "form-group col-md-6 m-t-30 m-l-10" }, [
+          _c("label", [
+            _vm._v("お名前:"),
+            _c("span", { staticClass: "error" }, [_vm._v("*")])
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              id: "ttname",
+              name: "ttname",
+              placeholder: "お名前を入力してください。",
+              required: ""
+            }
+          }),
+          _vm._v(" "),
+          _c("br")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticStyle: { "margin-top": "70px" } }, [
+          _c("table", [
+            _c("tr", [
+              _c("td", { staticStyle: { "padding-right": "40px" } }, [
+                _vm._v("例）さがし　たろう")
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group col-md-6" }, [
+      _c("label", [
+        _vm._v("性別:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "radio",
+          id: "sex",
+          name: "sex",
+          value: "男性",
+          required: ""
+        }
+      }),
+      _vm._v(" 男性\n                            "),
+      _c("input", {
+        attrs: {
+          type: "radio",
+          id: "sex",
+          name: "sex",
+          value: "女性",
+          required: ""
+        }
+      }),
+      _vm._v(" 女性\n                            "),
+      _c("input", {
+        attrs: {
+          type: "radio",
+          id: "sex",
+          name: "sex",
+          value: "夫婦",
+          required: ""
+        }
+      }),
+      _vm._v(" 夫婦\n                        ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("label", [
+        _vm._v("年齢"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "select",
+        { staticClass: "form-control", attrs: { id: "years", required: "" } },
+        [
+          _c("option", { attrs: { value: "" } }, [_vm._v("選択してください")]),
+          _vm._v(" "),
+          _c("optgroup", { attrs: { label: "50代" } }, [
+            _c("option", { attrs: { value: "50" } }, [_vm._v("50")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "51" } }, [_vm._v("51")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "52" } }, [_vm._v("52")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "53" } }, [_vm._v("53")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "54" } }, [_vm._v("54")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "55" } }, [_vm._v("55")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "56" } }, [_vm._v("56")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "57" } }, [_vm._v("57")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "58" } }, [_vm._v("58")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "59" } }, [_vm._v("59")])
+          ]),
+          _vm._v(" "),
+          _c("optgroup", { attrs: { label: "60代" } }, [
+            _c("option", { attrs: { value: "60" } }, [_vm._v("60")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "61" } }, [_vm._v("61")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "62" } }, [_vm._v("62")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "63" } }, [_vm._v("63")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "64" } }, [_vm._v("64")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "65" } }, [_vm._v("65")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "66" } }, [_vm._v("66")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "67" } }, [_vm._v("67")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "68" } }, [_vm._v("68")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "69" } }, [_vm._v("69")])
+          ]),
+          _vm._v(" "),
+          _c("optgroup", { attrs: { label: "70代" } }, [
+            _c("option", { attrs: { value: "70" } }, [_vm._v("70")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "71" } }, [_vm._v("71")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "72" } }, [_vm._v("72")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "73" } }, [_vm._v("73")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "74" } }, [_vm._v("74")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "75" } }, [_vm._v("75")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "76" } }, [_vm._v("76")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "77" } }, [_vm._v("77")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "78" } }, [_vm._v("78")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "79" } }, [_vm._v("79")])
+          ]),
+          _vm._v(" "),
+          _c("optgroup", { attrs: { label: "80代" } }, [
+            _c("option", { attrs: { value: "80" } }, [_vm._v("80")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "81" } }, [_vm._v("81")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "82" } }, [_vm._v("82")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "83" } }, [_vm._v("83")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "84" } }, [_vm._v("84")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "85" } }, [_vm._v("85")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "86" } }, [_vm._v("86")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "87" } }, [_vm._v("87")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "88" } }, [_vm._v("88")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "89" } }, [_vm._v("89")])
+          ]),
+          _vm._v(" "),
+          _c("optgroup", { attrs: { label: "90代" } }, [
+            _c("option", { attrs: { value: "90" } }, [_vm._v("90")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "91" } }, [_vm._v("91")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "92" } }, [_vm._v("92")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "93" } }, [_vm._v("93")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "94" } }, [_vm._v("94")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "95" } }, [_vm._v("95")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "96" } }, [_vm._v("96")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "97" } }, [_vm._v("97")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "98" } }, [_vm._v("98")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "99" } }, [_vm._v("99")])
+          ]),
+          _vm._v(" "),
+          _c("optgroup", { attrs: { label: "100歳以上" } }, [
+            _c("option", { attrs: { value: "100" } }, [_vm._v("100")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "101" } }, [_vm._v("101")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "102" } }, [_vm._v("102")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "103" } }, [_vm._v("103")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "104" } }, [_vm._v("104")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "105" } }, [_vm._v("105")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "106" } }, [_vm._v("106")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "107" } }, [_vm._v("107")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "108" } }, [_vm._v("108")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "109" } }, [_vm._v("109")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "110" } }, [_vm._v("110")])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6 m-t-30" }, [
+      _c("label", [
+        _vm._v("介護度"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "select",
+        { staticClass: "form-control", attrs: { id: "nursing", required: "" } },
+        [
+          _c("option", { attrs: { value: "" } }, [_vm._v("選択してください")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "自立" } }, [_vm._v("自立")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "要支援" } }, [_vm._v("要支援")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "要介護1" } }, [_vm._v("要介護1")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "要介護2" } }, [_vm._v("要介護2")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "要介護4" } }, [_vm._v("要介護4")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "要介護5" } }, [_vm._v("要介護5")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "不明" } }, [_vm._v("不明")])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group col-md-6 m-t-30" }, [
+      _c("label", [
+        _vm._v("認知症:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "radio",
+          id: "fect",
+          name: "fect",
+          value: "あり",
+          required: ""
+        }
+      }),
+      _vm._v("あり\n                            "),
+      _c("input", {
+        attrs: {
+          type: "radio",
+          id: "fect",
+          name: "fect",
+          value: "なし",
+          required: ""
+        }
+      }),
+      _vm._v("なし\n                            "),
+      _c("input", {
+        attrs: {
+          type: "radio",
+          id: "fect",
+          name: "fect",
+          value: "わからない",
+          required: ""
+        }
+      }),
+      _vm._v("わからない\n                        ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "form-group col-md-9 m-t-30", staticStyle: {} },
+      [
+        _c("label", [
+          _vm._v("認知症:"),
+          _c("span", { staticClass: "error" }, [_vm._v("*")])
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          attrs: {
+            type: "radio",
+            id: "desire",
+            name: "desire",
+            value: "できるだけ早く",
+            required: ""
+          }
+        }),
+        _vm._v("できるだけ早く\n                            "),
+        _c("input", {
+          attrs: {
+            type: "radio",
+            id: "desire",
+            name: "desire",
+            value: "３ヶ月以内",
+            required: ""
+          }
+        }),
+        _vm._v("３ヶ月以内\n                            "),
+        _c("input", {
+          attrs: {
+            type: "radio",
+            id: "desire",
+            name: "desire",
+            value: "半年以内",
+            required: ""
+          }
+        }),
+        _vm._v("半年以内\n                            "),
+        _c("input", {
+          attrs: {
+            type: "radio",
+            id: "desire",
+            name: "desire",
+            value: "1年以内",
+            required: ""
+          }
+        }),
+        _vm._v("1年以内\n                            "),
+        _c("input", {
+          attrs: {
+            type: "radio",
+            id: "desire",
+            name: "desire",
+            value: "未定",
+            required: ""
+          }
+        }),
+        _vm._v("未定\n                        ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("label", [
+        _vm._v("ご要望や、お困りごと、その他お問い合わせ:"),
+        _c("span", { staticClass: "error" }, [_vm._v("*")])
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        attrs: {
+          name: "hope",
+          id: "hope",
+          cols: "30",
+          rows: "10",
+          required: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "tab-pane", attrs: { role: "tabpanel", id: "output" } },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("form", { staticClass: "col-md-11" }, [
+              _c(
+                "h3",
+                {
+                  staticStyle: {
+                    "border-bottom": "1px solid green",
+                    "margin-bottom": "30px"
+                  }
+                },
+                [_vm._v("確認内容")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticStyle: {
+                    border: "1px solid #dad6d6",
+                    padding: "30px",
+                    "border-radius": "5px"
+                  }
+                },
+                [
+                  _c("table", { staticClass: "table" }, [
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("お名前")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          attrs: {
+                            type: "text",
+                            name: "outputSpan",
+                            id: "outputSpan",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("ふりがな")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          attrs: {
+                            type: "text",
+                            name: "outputfurigana",
+                            id: "outputfurigana",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("ご住所")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          { staticStyle: { "margin-bottom": "13px" } },
+                          [_vm._v("郵便番号")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "mailbox m-b-10",
+                          attrs: {
+                            type: "text",
+                            name: "outputpostal",
+                            id: "outputpostal",
+                            disabled: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "m-b-15" }, [
+                          _vm._v("都道府県")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "mailbox m-b-15",
+                          attrs: {
+                            type: "text",
+                            name: "outputdivision",
+                            value: "",
+                            id: "outputdivision",
+                            disabled: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "m-b-15" }, [
+                          _vm._v("市区町村、番地（建物名）")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "mailbox",
+                          attrs: {
+                            type: "text",
+                            name: "outputcity",
+                            id: "outputcity",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("電話番号")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          attrs: {
+                            type: "number",
+                            name: "outputphone",
+                            id: "outputphone",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [
+                        _vm._v("メールアドレス")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          attrs: {
+                            type: "email",
+                            name: "outputmail",
+                            id: "outputmail",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [
+                        _vm._v("プレゼントのご希望")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          staticStyle: { width: "276px" },
+                          attrs: {
+                            type: "text",
+                            name: "outputpresent",
+                            id: "outputpresent",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
+                [
+                  _c(
+                    "li",
+                    { staticClass: "active", attrs: { role: "presentation" } },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-success m-t-15 m-r-8",
+                          attrs: {
+                            href: "#input",
+                            "aria-controls": "input",
+                            role: "tab",
+                            "data-toggle": "tab",
+                            "aria-expanded": "true"
+                          }
+                        },
+                        [_vm._v("戻る")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("button", { staticClass: "btn btn-danger m-t-15" }, [
+                      _c(
+                        "a",
+                        {
+                          staticStyle: { color: "white" },
+                          attrs: { href: "#" }
+                        },
+                        [_vm._v("この内容で送信")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("a", {
+                      attrs: {
+                        href: "#output",
+                        "aria-controls": "output",
+                        role: "tab",
+                        "data-toggle": "tab",
+                        "aria-expanded": "false"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", {
+                      attrs: {
+                        href: "#review",
+                        "aria-controls": "review",
+                        role: "tab",
+                        "data-toggle": "tab",
+                        "aria-expanded": "false"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "h3",
+                {
+                  staticStyle: {
+                    "border-bottom": "1px solid green",
+                    "margin-bottom": "30px"
+                  }
+                },
+                [_vm._v("入居対象者様について")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticStyle: {
+                    border: "1px solid #dad6d6",
+                    padding: "30px",
+                    "border-radius": "5px"
+                  }
+                },
+                [
+                  _c("table", { staticClass: "table" }, [
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [
+                        _vm._v("入居対象者様とのご関係")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          attrs: {
+                            type: "text",
+                            name: "outputrelation",
+                            id: "outputrelation",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("お名前")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          attrs: {
+                            type: "text",
+                            name: "outputttname",
+                            id: "outputttname",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("性別")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          attrs: {
+                            type: "text",
+                            name: "outputsex",
+                            id: "outputsex",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("年齢")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          attrs: {
+                            type: "text",
+                            name: "outputyears",
+                            id: "outputyears",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("介護度")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          staticStyle: { width: "276px" },
+                          attrs: {
+                            type: "text",
+                            name: "outputnursing",
+                            id: "outputnursing",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("認知症")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          staticStyle: { width: "276px" },
+                          attrs: {
+                            type: "text",
+                            name: "outputfect",
+                            id: "outputfect",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [_vm._v("入居希望時期")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          staticStyle: { width: "276px" },
+                          attrs: {
+                            type: "text",
+                            name: "outputdesire",
+                            id: "outputdesire",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", { staticClass: "bk" }, [
+                        _vm._v("ご要望や、お困りごと、その他お問い合わせ")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "mailbox",
+                          staticStyle: { width: "276px" },
+                          attrs: {
+                            type: "text",
+                            name: "outputhope",
+                            id: "outputhope",
+                            disabled: ""
+                          }
+                        })
+                      ])
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
+                [
+                  _c(
+                    "li",
+                    { staticClass: "active", attrs: { role: "presentation" } },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-success m-t-15 m-r-8",
+                          attrs: {
+                            href: "#input",
+                            "aria-controls": "input",
+                            role: "tab",
+                            "data-toggle": "tab",
+                            "aria-expanded": "true"
+                          }
+                        },
+                        [_vm._v("戻る")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("button", { staticClass: "btn btn-danger m-t-15" }, [
+                      _c(
+                        "a",
+                        {
+                          staticStyle: { color: "white" },
+                          attrs: { href: "#" }
+                        },
+                        [_vm._v("この内容で送信")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("a", {
+                      attrs: {
+                        href: "#output",
+                        "aria-controls": "output",
+                        role: "tab",
+                        "data-toggle": "tab",
+                        "aria-expanded": "false"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", {
+                      attrs: {
+                        href: "#review",
+                        "aria-controls": "review",
+                        role: "tab",
+                        "data-toggle": "tab",
+                        "aria-expanded": "false"
+                      }
+                    })
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-322cbd5f", module.exports)
   }
 }
 
@@ -71084,1996 +73068,6 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(269)
-/* template */
-var __vue_template__ = __webpack_require__(270)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/hospitalfavouritemail.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-322cbd5f", Component.options)
-  } else {
-    hotAPI.reload("data-v-322cbd5f", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 269 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            errors: [],
-            fav_nursing: [],
-            local_sto: '',
-            post_list: [],
-            city_list: [],
-            post: '',
-            selectedCity: '',
-            zipStreet: '',
-            zipPref: '',
-            selectedValue: 0
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        this.axios.get('/api/hospital/postList').then(function (response) {
-
-            _this.post_list = response.data;
-            //console.log(this.post_list); 
-        });
-        this.local_sto = localStorage.getItem("nursing_fav");
-        this.getAllFavourite(this.local_sto);
-        this.axios.get('/api/hospital/citiesList').then(function (response) {
-            _this.city_list = response.data;
-        });
-    },
-
-
-    methods: {
-        getAllFavourite: function getAllFavourite(local_storage) {
-            var _this2 = this;
-
-            this.axios.post('/api/nursing_fav/' + local_storage).then(function (response) {
-                _this2.fav_nursing = response.data;
-            });
-        },
-
-        addDistributionGroup: function addDistributionGroup() {
-            var _this3 = this;
-
-            var selectedId = this.post;
-            this.axios.post('/api/hospital/selectedCity/' + selectedId).then(function (response) {
-                _this3.zipStreet = response.data[0].street;
-                _this3.zipPref = response.data[0].pref;
-                _this3.selectedValue = response.data[0].c_Id;
-            });
-        }
-    }
-
-});
-
-/***/ }),
-/* 270 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "container tabs-wrap" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "tab-content" }, [
-          _c(
-            "div",
-            {
-              staticClass: "tab-pane active",
-              attrs: { role: "tabpanel", id: "input" }
-            },
-            [
-              _c("form", { staticClass: "col-md-8" }, [
-                _c(
-                  "h3",
-                  {
-                    staticStyle: {
-                      "border-bottom": "1px solid green",
-                      width: "47%",
-                      "margin-bottom": "30px"
-                    }
-                  },
-                  [_vm._v("資料請求される方について")]
-                ),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
-                _vm._m(2),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-md-6" },
-                    [
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _c("autocomplete", {
-                        ref: "autocomplete",
-                        attrs: {
-                          source: _vm.post_list,
-                          "results-property": "data",
-                          defaultOpen: "false",
-                          placeholder: "郵便番号を入力してください。",
-                          "input-class": "form-control postal",
-                          id: "postal"
-                        },
-                        on: {
-                          input: function($event) {
-                            return _vm.addDistributionGroup()
-                          }
-                        },
-                        model: {
-                          value: _vm.post,
-                          callback: function($$v) {
-                            _vm.post = $$v
-                          },
-                          expression: "post"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.selectedValue,
-                              expression: "selectedValue"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { id: "division" },
-                          on: {
-                            change: [
-                              function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.selectedValue = $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              },
-                              function($event) {
-                                return _vm.getCities()
-                              }
-                            ]
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("選択してください。")
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(_vm.city_list, function(cities) {
-                            return _c(
-                              "option",
-                              {
-                                key: cities.id,
-                                domProps: { value: cities.id }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                        " +
-                                    _vm._s(cities.city_name) +
-                                    "\n                                    "
-                                )
-                              ]
-                            )
-                          })
-                        ],
-                        2
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _vm._m(6)
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _vm._m(7),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.zipStreet,
-                        expression: "zipStreet"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "city",
-                      placeholder: "市区町村、番地を入力してください。"
-                    },
-                    domProps: { value: _vm.zipStreet },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.zipStreet = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階"
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(8),
-                _vm._v(" "),
-                _vm._m(9),
-                _vm._v(" "),
-                _vm._m(10),
-                _vm._v(" "),
-                _vm._m(11),
-                _vm._v(" "),
-                _vm._m(12),
-                _vm._v(" "),
-                _vm._m(13),
-                _vm._v(" "),
-                _vm._m(14),
-                _vm._v(" "),
-                _vm._m(15),
-                _vm._v(" "),
-                _vm._m(16),
-                _vm._v(" "),
-                _vm._m(17),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary continue m-l-15",
-                    attrs: { type: "button", id: "btnSubmit", value: "submit" }
-                  },
-                  [_vm._v("Continue")]
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(18)
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "ul",
-      { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
-      [
-        _c("li", { staticClass: "active", attrs: { role: "presentation" } }, [
-          _c("a", {
-            attrs: {
-              href: "#input",
-              "aria-controls": "input",
-              role: "tab",
-              "data-toggle": "tab",
-              "aria-expanded": "true"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", {
-            attrs: {
-              href: "#output",
-              "aria-controls": "output",
-              role: "tab",
-              "data-toggle": "tab",
-              "aria-expanded": "false"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", {
-            attrs: {
-              href: "#review",
-              "aria-controls": "review",
-              role: "tab",
-              "data-toggle": "tab",
-              "aria-expanded": "false"
-            }
-          })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("お名前:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          id: "count",
-          name: "count",
-          placeholder: "お名前を入力してください。",
-          required: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("br")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("ふりがな:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          id: "furigana",
-          name: "furigana",
-          placeholder: "ふりがなを入力してください。",
-          required: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("ご住所:"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("郵便番号:"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v(" 都道府県"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6 m-t-71" }, [
-      _c("table", [
-        _c("tr", [
-          _c("td", { staticStyle: { "padding-right": "30px" } }, [
-            _vm._v(" 例）1006740")
-          ]),
-          _vm._v(" "),
-          _c("td", [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "https://www.post.japanpost.jp/zipcode/",
-                  target: "_blank"
-                }
-              },
-              [_vm._v("郵便番号検索")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("tr", [_c("td")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("市区町村、番地（建物名）:"),
-      _c("span", { staticClass: "error" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", [
-          _vm._v("電話番号:"),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            id: "phone",
-            name: "phone",
-            placeholder: "電話番号を入力してください。",
-            required: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("br")
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-md-6", staticStyle: { "margin-top": "40px" } },
-        [
-          _c("table", [
-            _c("tr", [
-              _c("td", { staticStyle: { "padding-right": "30px" } }, [
-                _vm._v("例）0312345678（半角）")
-              ])
-            ])
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", [
-          _vm._v("メールアドレス:"),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            id: "mail",
-            name: "mail",
-            placeholder: "メールアドレスを入力してください。",
-            required: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("br")
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-md-6", staticStyle: { "margin-top": "40px" } },
-        [
-          _c("table", [
-            _c("tr", [
-              _c("td", { staticStyle: { "padding-right": "30px" } }, [
-                _vm._v(" 例）abc@example.jp （半角）")
-              ])
-            ])
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [
-        _vm._v("プレゼントのご希望:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "checkbox",
-          id: "present",
-          name: "present",
-          value: "早分かり用語集」プレゼントを希望する",
-          required: ""
-        }
-      }),
-      _vm._v("「早分かり用語集」プレゼントを希望する\n                        ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "m-t-30" }, [
-      _c(
-        "h3",
-        {
-          staticStyle: {
-            "border-bottom": "1px solid green",
-            width: "47%",
-            "margin-bottom": "30px"
-          }
-        },
-        [_vm._v("入居対象者様について")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("label", [
-          _vm._v(" 入居対象者様とのご関係"),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ]),
-        _vm._v(" "),
-        _c(
-          "select",
-          { staticClass: "form-control", attrs: { id: "relation" } },
-          [
-            _c("option", { attrs: { value: "" } }, [
-              _vm._v("選択してください")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "本人" } }, [_vm._v("本人")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "家族" } }, [_vm._v("家族")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "親族" } }, [_vm._v("親族")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "友人" } }, [_vm._v("友人")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "ケアマネージャー" } }, [
-              _vm._v("ケアマネージャー")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "ソーシャルワーカー" } }, [
-              _vm._v("ソーシャルワーカー")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "その他" } }, [_vm._v("その他")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "form-group col-md-6 m-t-30 m-l-10" }, [
-          _c("label", [
-            _vm._v("お名前:"),
-            _c("span", { staticClass: "error" }, [_vm._v("*")])
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              id: "ttname",
-              name: "ttname",
-              placeholder: "お名前を入力してください。",
-              required: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("br")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticStyle: { "margin-top": "70px" } }, [
-          _c("table", [
-            _c("tr", [
-              _c("td", { staticStyle: { "padding-right": "40px" } }, [
-                _vm._v("例）さがし　たろう")
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-md-6" }, [
-      _c("label", [
-        _vm._v("性別:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "sex",
-          name: "sex",
-          value: "男性",
-          required: ""
-        }
-      }),
-      _vm._v(" 男性\n                            "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "sex",
-          name: "sex",
-          value: "女性",
-          required: ""
-        }
-      }),
-      _vm._v(" 女性\n                            "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "sex",
-          name: "sex",
-          value: "夫婦",
-          required: ""
-        }
-      }),
-      _vm._v(" 夫婦\n                        ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("label", [
-        _vm._v("年齢"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c(
-        "select",
-        { staticClass: "form-control", attrs: { id: "years", required: "" } },
-        [
-          _c("option", { attrs: { value: "" } }, [_vm._v("選択してください")]),
-          _vm._v(" "),
-          _c("optgroup", { attrs: { label: "50代" } }, [
-            _c("option", { attrs: { value: "50" } }, [_vm._v("50")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "51" } }, [_vm._v("51")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "52" } }, [_vm._v("52")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "53" } }, [_vm._v("53")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "54" } }, [_vm._v("54")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "55" } }, [_vm._v("55")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "56" } }, [_vm._v("56")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "57" } }, [_vm._v("57")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "58" } }, [_vm._v("58")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "59" } }, [_vm._v("59")])
-          ]),
-          _vm._v(" "),
-          _c("optgroup", { attrs: { label: "60代" } }, [
-            _c("option", { attrs: { value: "60" } }, [_vm._v("60")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "61" } }, [_vm._v("61")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "62" } }, [_vm._v("62")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "63" } }, [_vm._v("63")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "64" } }, [_vm._v("64")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "65" } }, [_vm._v("65")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "66" } }, [_vm._v("66")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "67" } }, [_vm._v("67")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "68" } }, [_vm._v("68")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "69" } }, [_vm._v("69")])
-          ]),
-          _vm._v(" "),
-          _c("optgroup", { attrs: { label: "70代" } }, [
-            _c("option", { attrs: { value: "70" } }, [_vm._v("70")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "71" } }, [_vm._v("71")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "72" } }, [_vm._v("72")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "73" } }, [_vm._v("73")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "74" } }, [_vm._v("74")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "75" } }, [_vm._v("75")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "76" } }, [_vm._v("76")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "77" } }, [_vm._v("77")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "78" } }, [_vm._v("78")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "79" } }, [_vm._v("79")])
-          ]),
-          _vm._v(" "),
-          _c("optgroup", { attrs: { label: "80代" } }, [
-            _c("option", { attrs: { value: "80" } }, [_vm._v("80")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "81" } }, [_vm._v("81")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "82" } }, [_vm._v("82")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "83" } }, [_vm._v("83")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "84" } }, [_vm._v("84")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "85" } }, [_vm._v("85")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "86" } }, [_vm._v("86")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "87" } }, [_vm._v("87")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "88" } }, [_vm._v("88")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "89" } }, [_vm._v("89")])
-          ]),
-          _vm._v(" "),
-          _c("optgroup", { attrs: { label: "90代" } }, [
-            _c("option", { attrs: { value: "90" } }, [_vm._v("90")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "91" } }, [_vm._v("91")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "92" } }, [_vm._v("92")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "93" } }, [_vm._v("93")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "94" } }, [_vm._v("94")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "95" } }, [_vm._v("95")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "96" } }, [_vm._v("96")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "97" } }, [_vm._v("97")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "98" } }, [_vm._v("98")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "99" } }, [_vm._v("99")])
-          ]),
-          _vm._v(" "),
-          _c("optgroup", { attrs: { label: "100歳以上" } }, [
-            _c("option", { attrs: { value: "100" } }, [_vm._v("100")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "101" } }, [_vm._v("101")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "102" } }, [_vm._v("102")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "103" } }, [_vm._v("103")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "104" } }, [_vm._v("104")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "105" } }, [_vm._v("105")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "106" } }, [_vm._v("106")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "107" } }, [_vm._v("107")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "108" } }, [_vm._v("108")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "109" } }, [_vm._v("109")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "110" } }, [_vm._v("110")])
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6 m-t-30" }, [
-      _c("label", [
-        _vm._v("介護度"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c(
-        "select",
-        { staticClass: "form-control", attrs: { id: "nursing", required: "" } },
-        [
-          _c("option", { attrs: { value: "" } }, [_vm._v("選択してください")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "自立" } }, [_vm._v("自立")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "要支援" } }, [_vm._v("要支援")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "要介護1" } }, [_vm._v("要介護1")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "要介護2" } }, [_vm._v("要介護2")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "要介護4" } }, [_vm._v("要介護4")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "要介護5" } }, [_vm._v("要介護5")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "不明" } }, [_vm._v("不明")])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-md-6 m-t-30" }, [
-      _c("label", [
-        _vm._v("認知症:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "fect",
-          name: "fect",
-          value: "あり",
-          required: ""
-        }
-      }),
-      _vm._v("あり\n                            "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "fect",
-          name: "fect",
-          value: "なし",
-          required: ""
-        }
-      }),
-      _vm._v("なし\n                            "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "fect",
-          name: "fect",
-          value: "わからない",
-          required: ""
-        }
-      }),
-      _vm._v("わからない\n                        ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "form-group col-md-9 m-t-30", staticStyle: {} },
-      [
-        _c("label", [
-          _vm._v("認知症:"),
-          _c("span", { staticClass: "error" }, [_vm._v("*")])
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "desire",
-            name: "desire",
-            value: "できるだけ早く",
-            required: ""
-          }
-        }),
-        _vm._v("できるだけ早く\n                            "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "desire",
-            name: "desire",
-            value: "３ヶ月以内",
-            required: ""
-          }
-        }),
-        _vm._v("３ヶ月以内\n                            "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "desire",
-            name: "desire",
-            value: "半年以内",
-            required: ""
-          }
-        }),
-        _vm._v("半年以内\n                            "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "desire",
-            name: "desire",
-            value: "1年以内",
-            required: ""
-          }
-        }),
-        _vm._v("1年以内\n                            "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "desire",
-            name: "desire",
-            value: "未定",
-            required: ""
-          }
-        }),
-        _vm._v("未定\n                        ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("label", [
-        _vm._v("ご要望や、お困りごと、その他お問い合わせ:"),
-        _c("span", { staticClass: "error" }, [_vm._v("*")])
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        attrs: {
-          name: "hope",
-          id: "hope",
-          cols: "30",
-          rows: "10",
-          required: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "tab-pane", attrs: { role: "tabpanel", id: "output" } },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("form", { staticClass: "col-md-11" }, [
-              _c(
-                "h3",
-                {
-                  staticStyle: {
-                    "border-bottom": "1px solid green",
-                    "margin-bottom": "30px"
-                  }
-                },
-                [_vm._v("確認内容")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticStyle: {
-                    border: "1px solid #dad6d6",
-                    padding: "30px",
-                    "border-radius": "5px"
-                  }
-                },
-                [
-                  _c("table", { staticClass: "table" }, [
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("お名前")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          attrs: {
-                            type: "text",
-                            name: "outputSpan",
-                            id: "outputSpan",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("ふりがな")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          attrs: {
-                            type: "text",
-                            name: "outputfurigana",
-                            id: "outputfurigana",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("ご住所")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "div",
-                          { staticStyle: { "margin-bottom": "13px" } },
-                          [_vm._v("郵便番号")]
-                        ),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "mailbox m-b-10",
-                          attrs: {
-                            type: "text",
-                            name: "outputpostal",
-                            id: "outputpostal",
-                            disabled: ""
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "m-b-15" }, [
-                          _vm._v("都道府県")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "mailbox m-b-15",
-                          attrs: {
-                            type: "text",
-                            name: "outputdivision",
-                            value: "",
-                            id: "outputdivision",
-                            disabled: ""
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "m-b-15" }, [
-                          _vm._v("市区町村、番地（建物名）")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "mailbox",
-                          attrs: {
-                            type: "text",
-                            name: "outputcity",
-                            id: "outputcity",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("電話番号")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          attrs: {
-                            type: "number",
-                            name: "outputphone",
-                            id: "outputphone",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [
-                        _vm._v("メールアドレス")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          attrs: {
-                            type: "email",
-                            name: "outputmail",
-                            id: "outputmail",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [
-                        _vm._v("プレゼントのご希望")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          staticStyle: { width: "276px" },
-                          attrs: {
-                            type: "text",
-                            name: "outputpresent",
-                            id: "outputpresent",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "ul",
-                { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
-                [
-                  _c(
-                    "li",
-                    { staticClass: "active", attrs: { role: "presentation" } },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-success m-t-15 m-r-8",
-                          attrs: {
-                            href: "#input",
-                            "aria-controls": "input",
-                            role: "tab",
-                            "data-toggle": "tab",
-                            "aria-expanded": "true"
-                          }
-                        },
-                        [_vm._v("戻る")]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("button", { staticClass: "btn btn-danger m-t-15" }, [
-                      _c(
-                        "a",
-                        {
-                          staticStyle: { color: "white" },
-                          attrs: { href: "#" }
-                        },
-                        [_vm._v("この内容で送信")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("a", {
-                      attrs: {
-                        href: "#output",
-                        "aria-controls": "output",
-                        role: "tab",
-                        "data-toggle": "tab",
-                        "aria-expanded": "false"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", {
-                      attrs: {
-                        href: "#review",
-                        "aria-controls": "review",
-                        role: "tab",
-                        "data-toggle": "tab",
-                        "aria-expanded": "false"
-                      }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "h3",
-                {
-                  staticStyle: {
-                    "border-bottom": "1px solid green",
-                    "margin-bottom": "30px"
-                  }
-                },
-                [_vm._v("入居対象者様について")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticStyle: {
-                    border: "1px solid #dad6d6",
-                    padding: "30px",
-                    "border-radius": "5px"
-                  }
-                },
-                [
-                  _c("table", { staticClass: "table" }, [
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [
-                        _vm._v("入居対象者様とのご関係")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          attrs: {
-                            type: "text",
-                            name: "outputrelation",
-                            id: "outputrelation",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("お名前")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          attrs: {
-                            type: "text",
-                            name: "outputttname",
-                            id: "outputttname",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("性別")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          attrs: {
-                            type: "text",
-                            name: "outputsex",
-                            id: "outputsex",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("年齢")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          attrs: {
-                            type: "text",
-                            name: "outputyears",
-                            id: "outputyears",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("介護度")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          staticStyle: { width: "276px" },
-                          attrs: {
-                            type: "text",
-                            name: "outputnursing",
-                            id: "outputnursing",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("認知症")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          staticStyle: { width: "276px" },
-                          attrs: {
-                            type: "text",
-                            name: "outputfect",
-                            id: "outputfect",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [_vm._v("入居希望時期")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          staticStyle: { width: "276px" },
-                          attrs: {
-                            type: "text",
-                            name: "outputdesire",
-                            id: "outputdesire",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", { staticClass: "bk" }, [
-                        _vm._v("ご要望や、お困りごと、その他お問い合わせ")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          staticClass: "mailbox",
-                          staticStyle: { width: "276px" },
-                          attrs: {
-                            type: "text",
-                            name: "outputhope",
-                            id: "outputhope",
-                            disabled: ""
-                          }
-                        })
-                      ])
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "ul",
-                { staticClass: "nav nav-tabs", attrs: { role: "tablist" } },
-                [
-                  _c(
-                    "li",
-                    { staticClass: "active", attrs: { role: "presentation" } },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-success m-t-15 m-r-8",
-                          attrs: {
-                            href: "#input",
-                            "aria-controls": "input",
-                            role: "tab",
-                            "data-toggle": "tab",
-                            "aria-expanded": "true"
-                          }
-                        },
-                        [_vm._v("戻る")]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("button", { staticClass: "btn btn-danger m-t-15" }, [
-                      _c(
-                        "a",
-                        {
-                          staticStyle: { color: "white" },
-                          attrs: { href: "#" }
-                        },
-                        [_vm._v("この内容で送信")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("a", {
-                      attrs: {
-                        href: "#output",
-                        "aria-controls": "output",
-                        role: "tab",
-                        "data-toggle": "tab",
-                        "aria-expanded": "false"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", {
-                      attrs: {
-                        href: "#review",
-                        "aria-controls": "review",
-                        role: "tab",
-                        "data-toggle": "tab",
-                        "aria-expanded": "false"
-                      }
-                    })
-                  ])
-                ]
-              )
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-322cbd5f", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
