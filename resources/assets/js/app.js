@@ -20,6 +20,15 @@ import * as VueGoogleMaps from "vue2-google-maps";
 import Autocomplete from 'vuejs-auto-complete';
 
 
+//start editor
+
+
+import CKEditor from '@ckeditor/ckeditor5-vue';
+
+Vue.use( CKEditor );
+//end editor
+
+
 window.events = new Vue();
 window.flash = function(message) {
     window.events.$emit('flash',message);
