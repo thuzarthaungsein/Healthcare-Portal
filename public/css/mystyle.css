@@ -675,6 +675,14 @@ div.scroll,
     padding-top: 15px;
 }
 
+   .scrolldiv3 {
+    height: 1500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    background: white;
+    padding-top: 15px;
+}
+
 
 /* End Search News List */
 
@@ -947,6 +955,11 @@ p {
 textarea.form-control,
 textarea {
     height: 100px !important;
+}
+
+.ql-editor {
+    height: 170px !important;
+    scrollbar-width: thin;
 }
 
 .form-control {
@@ -1360,7 +1373,9 @@ div.b {
 .m-0 {
     margin: 0px;
 }
-
+.m-t-71{
+    margin-top: 71px;
+}
 .m-t-8 {
     margin-top: 13px;
 }
@@ -1373,8 +1388,13 @@ div.b {
 .m-l-10 {
     margin-left: 10px !important;
 }
-
-.m-t-10 {
+.m-l-15{
+    margin-left: 15px;
+}
+.m-l-17{
+    margin-left:17px;
+}
+.m-t-10{
     margin-top: 10px !important;
 }
 
@@ -1417,7 +1437,9 @@ div.b {
 .m-b-0 {
     margin-bottom: 0px !important;
 }
-
+.m-r-8{
+    margin-right: 8px;
+}
 .m-r-15 {
     margin-right: 15px;
 }
@@ -2070,11 +2092,10 @@ ul.main-tab li:after {
     padding: 10px !important;
 }
 
-@media print,
-screen and (min-width: 750px) {
+@media print, screen and (min-width: 750px) {
     .spanclass {
         letter-spacing: normal;
-        width: 50%;
+        /* width: 50%; */
         display: inline-block;
         margin-bottom: 5px;
         font-weight: bold;
@@ -2082,21 +2103,41 @@ screen and (min-width: 750px) {
         padding-right: 10px;
         font-size: 12px;
     }
+    .spanclass  a {
+        position: relative;
+    }
+    .map-text a{
+        color: #000 !important;
+    }
+    
     .map-text a:after {
         content: "";
         width: 6px;
         height: 6px;
-        border-right: 1px solid #c40000;
-        border-bottom: 1px solid #c40000;
+        border-right: 2px solid #118063;
+        border-bottom: 2px solid #118063;
         -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg);
-        position: absolute;
-        top: 52px;
-        left: 61px;
-        /* top: 50%;
-    right: 8px;
-    margin-top: -3px; */
+        position: absolute;        
+        top: 50%;
+        left: 50px;
+        margin-top: -3px;
     }
+    
+    #info-box {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        background-color: #212121;
+        color: #ffffff;
+        border: 0px solid #ffffff;
+        border-radius: 5px;
+        padding: 15px;
+        font-family: arial;
+      }
+      
 }
 
 
@@ -2129,6 +2170,7 @@ screen and (min-width: 750px) {
 /* Scrollbar */
 
 .news-wrapper::-webkit-scrollbar,
+.ql-editor::-webkit-scrollbar,
 body::-webkit-scrollbar,
 .scrolldiv::-webkit-scrollbar,
 .scroll2::-webkit-scrollbar,
@@ -2139,6 +2181,7 @@ body::-webkit-scrollbar,
 }
 
 .news-wrapper::-webkit-scrollbar-track,
+.ql-editor::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
 .scrolldiv::-webkit-scrollbar-track,
 .scroll2::-webkit-scrollbar-track,
@@ -2149,6 +2192,7 @@ body::-webkit-scrollbar-track,
 }
 
 .news-wrapper::-webkit-scrollbar-thumb,
+.ql-editor::-webkit-scrollbar-thumb,
 .main-wrap::-webkit-scrollbar-thumb,
 .scrolldiv::-webkit-scrollbar-thumb,
 .scroll2::-webkit-scrollbar-thumb,
@@ -2571,6 +2615,10 @@ button.confirmed {
     opacity: 0.5;
     cursor: not-allowed;
 }
-
-
 /* End Commentlist */
+.mailbox{
+    border:none;
+}
+.bk{
+    background: #dad6d6;
+}

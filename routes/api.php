@@ -87,6 +87,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('editPost/{id}', 'PostController@edit');
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}', 'PostController@delete');
+        Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
     });
     // End News 
 
@@ -145,7 +146,6 @@ Route::group(['prefix' => 'customer'], function () {
 Route::get('getReset','registerController@getReset'); 
 Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
-Route::get('newdetails/{id}', 'PostController@show');
 Route::get('customers','CustomerController@index');
 Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
@@ -176,12 +176,14 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 // Guest Nursing History
 // Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
+Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
 
-//Route::post('add','AdvertisementController@store');
-
- Route::group(['prefix' => 'hospital'], function () {       
+Route::group(['prefix' => 'hospital'], function () {
+    Route::get('postList', 'HospitalProfileController@getPostalList');
+    Route::get('citiesList', 'HospitalProfileController@getCitiesName');
+    Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
     Route::get('favourite_list', 'HospitalProfileController@index');        
-    Route::delete('delete/{id}', 'HospitalProfileController@destroy');       
+    Route::delete('delete/{id}', 'HospitalProfileController@destroy');
 });
 
 Route::group(['prefix' => 'comments'], function () {
@@ -191,4 +193,8 @@ Route::group(['prefix' => 'comments'], function () {
     Route::get('comfirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
+});
+
+Route::group(['prefix' => 'new'], function () {
+    Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });

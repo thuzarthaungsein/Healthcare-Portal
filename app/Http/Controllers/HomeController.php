@@ -103,6 +103,7 @@ class HomeController extends Controller
                         ->select('categories.name','categories.id')
                         ->selectRaw('GROUP_CONCAT(posts.title order by posts.created_at desc limit 6) as title')
                         ->selectRaw('GROUP_CONCAT(posts.photo order by posts.created_at desc limit 6) as photo')
+                        ->selectRaw('GROUP_CONCAT(posts.id order by posts.created_at desc limit 6) as post_id')
                         ->groupBy('categories.id')
                         ->get()
                         ->toArray();
