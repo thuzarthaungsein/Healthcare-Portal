@@ -6,14 +6,14 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <h4 class="page-header header">Edit Advertisement</h4>
+                            <h4 class="page-header header">広告を編集</h4>
                             <br>
                         </div>
                         <div class="col-md-12">
                              <form @submit.prevent="updateAds">
                             <div class="form-group row">
                                 <div class="col-sm-2 text-right">
-                                    <label for="title"><strong>Title :</strong></label>
+                                    <label for="title"><strong>タイトル :</strong></label>
                                 </div>
                                 <div class="col-sm-10">
                                         <input type="title" class="form-control box" id="title"  name="title" v-model="advertisement.title" required>
@@ -22,7 +22,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-2 text-right">
-                                    <label for="description"><strong>Description :</strong></label>
+                                    <label for="description"><strong>描写 :</strong></label>
                                 </div>
                                 <div class="col-sm-10">
                                     <textarea name="description" class="form-control" cols="50" rows="5" v-model="advertisement.description"></textarea>
@@ -31,11 +31,20 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-2 text-right">
-                                    <label for ="location" ><strong> Location :</strong>  </label>
+                                    <label for="link"><strong>リンク :</strong></label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <textarea name="link" class="form-control" cols="50" rows="5" v-model="advertisement.link"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-2 text-right">
+                                    <label for ="location" ><strong> ロケーション :</strong>  </label>
                                 </div>
                                 <div class="col-sm-9" v-for="advertisements in advertisement.location" :key="advertisements.id">
-                                    <label> <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (200 円)</label><br/>
-                                    <label> <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(300 円) </label>
+                                    <label> <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (240px*120px 300円)</label><br/>
+                                    <label> <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(167px*100px 200円)</label>
                                     <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
                                 </div>
                             </div>
@@ -69,6 +78,7 @@ export default {
                 advertisement: {
                         title: '',
                         description:'',
+                        link:'',
                         location : [{
                             topbars: false,
                             sidebars:false
@@ -84,6 +94,7 @@ export default {
                 .then((response) => {
                      this.advertisement.title = response.data.title;
                      this.advertisement.description = response.data.description;
+                     this.advertisement.link = response.data.link;
                      this.ischeck = response.data.location;
                      this.updateCheck(this.ischeck);
                      this.advertisement.photo=response.data.photo;
@@ -146,6 +157,7 @@ export default {
             }
              adsData.append('title',this.advertisement.title)
              adsData.append('description',this.advertisement.description)
+             adsData.append('link',this.advertisement.link)
              adsData.append('photo',this.advertisement.photo)
             //ads.photo=this.advertisement.photo
                 this.axios.post(`/api/advertisement/update/${this.$route.params.id}`, adsData)
