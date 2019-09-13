@@ -2,9 +2,8 @@
 <div class="search-map card-body">
   <div class="row">
         <div class="col-sm-7 divisions">
-                <div class="row">       
-                     
-                     <div class="col-sm-3">
+                <div class="row col-12">
+                    <div class="col-sm-3">
                       <div class="card  mb-3">
                         <div class="card-header pad-10" style="background-color:#ef7979">北海道・東北</div>
                         <div class="card-body">
@@ -123,24 +122,8 @@
                           </p>
                         </div>
                       </div>  
-                    </div>                 
-                 
-                    
-                 
-                   <div class="card-body">
-                        <div class="row col-12 pad-free">
-                        <div class="col-10">
-                          <select name="" id="select" class="form-control custom-select  m-b-10">
-                            <option ></option>
-                          </select>
-                        </div>
-                        <div class="col-2 pad-free" id="text">                          
-                        </div>                                                      
-                        </div>                       
-                        <div id="checkbox" class="row col-12"></div>
-                   </div>
-                  </div>
-                             
+                    </div>             
+        </div>
         </div>
         <div id="info-box"></div>
         <div class="col-sm-5">
@@ -195,8 +178,22 @@
                   <path id="6" data-info="Yamagata" title="Yamagata" class="path Yamagata" stroke="#9c9696" fill="#ef7979" d="M341.93,199.04l-0.3,1.71l0.04,2.01l0.55,0.41l-1.33,1.61l-1.3,-0.26l-0.74,0.56l-1.47,-1.12l-1.23,0.46l-0.97,-1.68l-0.33,0.35l-0.63,0.07l-0.61,-0.39l-0.94,0.58l-0.63,-0.68l-0.79,0.18l0,0l-0.45,-0.77l-0.45,0.13l-0.66,-0.32l-0.66,-1.16l0.59,-3.17l0.69,-0.51l-0.35,-0.76l0.34,-0.82l-0.16,-1.31l0.52,-0.82l1.58,0.22l1.37,-0.86l0.79,-1.59l-1.15,-1.23l-1.84,-0.48l-0.8,-1.13l0.4,-1.99l-0.24,-0.29l-1.48,-0.32l-1.81,-0.96l0,0l1.17,-3.08l1.74,-1.51l1.14,-1.5l1.13,-4.08l0.61,-1.04l0.7,-2.64l-0.18,-0.58l0,0l2.51,0.41l0.37,-0.46l0.98,-0.24l0.2,1.17l0.71,0.18l0.79,0.7l3.08,0.94l1.08,-0.27l0.35,0.77l1.06,0.08l0.58,1.8l1.52,0.53l0.24,0.45l0,0l-0.23,0.35l1.06,1.02l0.19,1.06l0.83,0.45l-0.68,1.1l0.22,0.97l-0.43,1.15l-0.4,0.1l-0.66,-0.35l-0.1,0.23l0.61,1.37l0.03,0.54l-0.38,0.65l0.27,0.91l0.6,0.39l0.2,0.7l-0.61,1.6l-1.09,1.14l0.16,0.6l-1.05,1.32l-0.16,1.02l0.23,1.23l-1.11,1.58l-0.19,1.02l-0.99,0.55l-1.72,0.01L341.93,199.04z"/>
            </svg>
         </div>
+        <div class="card-body row">
+                        <div class="row col-12 pad-free">
+                        <div class="col-8">
+                          <select name="" id="select" class="form-control custom-select  m-b-10">
+                            <option ></option>
+                          </select>
+                        </div>
+                        <div class="col-4" id="text">                          
+                        </div>                                                      
+                        </div>                       
+                        <div id="checkbox" class="row row offset-col-2 col-10 "></div>
+                   </div>
+        </div>
  </div>
-</div>
+
+
 </template>
 <style scoped>
   
