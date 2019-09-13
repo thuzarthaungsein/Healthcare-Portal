@@ -2188,12 +2188,12 @@ body::-webkit-scrollbar-thumb {
 
 .top-ad-slider .slide-img {
     width: 80px;
-    margin: 5px 10px;
+    margin: 10px 10px 5px 10px;
 }
 
 .top-ad-slider .slide-img img {
     width: auto;
-    max-width: 100%;
+    max-width: 80px;
 }
 
 .top-ad-slider .list-group-item {
@@ -2212,7 +2212,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .top-ad-slider .smallads-title {
-    padding: 10px 0px;
+    padding: 10px;
     height: 90px;
 }
 
