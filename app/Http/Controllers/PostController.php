@@ -97,10 +97,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-         return Post::findOrFail($id);
+        return Post::findOrFail($id);
         //  $related_news = Post::select('skills')->value('skills');
         //  $array =explode(',',$skill);
-        //     return ($array);
+        //   return ($array);
+        $related_news =Post::select('')
     }
 
     /**
