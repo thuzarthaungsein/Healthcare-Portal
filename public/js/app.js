@@ -44103,8 +44103,6 @@ var render = function() {
                     "div",
                     { staticClass: "overlay" },
                     [
-                      _c("h2"),
-                      _vm._v(" "),
                       _c(
                         "router-link",
                         {
@@ -44113,7 +44111,7 @@ var render = function() {
                             to: "/newsdetails/" + latest_post_all_cat.id
                           }
                         },
-                        [_vm._v(_vm._s(latest_post_all_cat.title))]
+                        [_vm._v("詳細")]
                       )
                     ],
                     1
@@ -44850,112 +44848,73 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-        components: {
-                hospitalSearch: __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue___default.a,
-                nursingSearch: __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue___default.a,
-                jobSearch: __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue___default.a
-        },
+    components: {
+        hospitalSearch: __WEBPACK_IMPORTED_MODULE_0__hospitalSearch_vue___default.a,
+        nursingSearch: __WEBPACK_IMPORTED_MODULE_1__nursingSearch_vue___default.a,
+        jobSearch: __WEBPACK_IMPORTED_MODULE_2__jobSearch_vue___default.a
+    },
 
-        data: function data() {
-                return {
-                        newdetails: [],
-                        cats: [],
-                        posts: [],
-                        latest_post: [],
-                        latest_post_all_cats: []
-                };
-        },
-        created: function created() {
-                var _this = this;
+    data: function data() {
+        return {
+            newdetails: [],
 
-                this.getAllCat();
-                this.getPostByFirstCat();
-                this.getLatestPostByFirstCatID();
-                this.getLatestPostFromAllCat();
-                this.axios.get('/api/newdetails/' + this.$route.params.id).then(function (response) {
-                        _this.newdetails = response.data;
-                        //        console.log(response.data);
-                });
-        },
+            latest_post_all_cats: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.getLatestPostFromAllCat();
+        this.axios.get('/api/newdetails/' + this.$route.params.id).then(function (response) {
+            _this.newdetails = response.data;
+            //      this.latest_post_all_cats = response.data;
+        });
+    },
 
 
-        methods: {
-                getAllCat: function getAllCat() {
-                        var _this2 = this;
+    methods: {
 
-                        this.axios.get('/api/home').then(function (response) {
-                                _this2.cats = response.data;
-                        });
-                },
-                getPostByFirstCat: function getPostByFirstCat() {
-                        var _this3 = this;
+        getLatestPostFromAllCat: function getLatestPostFromAllCat() {
+            var _this2 = this;
 
-                        axios.get("/api/posts/1").then(function (response) {
-                                _this3.posts = response.data;
-                        });
-                },
-                getPostByCatID: function getPostByCatID(cat_id) {
-                        var _this4 = this;
-
-                        axios.get("/api/posts/" + cat_id).then(function (response) {
-                                _this4.posts = response.data;
-                        });
-                },
-                getLatestPostByFirstCatID: function getLatestPostByFirstCatID() {
-                        var _this5 = this;
-
-                        axios.get("/api/get_latest_post/1").then(function (response) {
-                                _this5.latest_post = response.data;
-                        });
-                },
-                getLatestPostByCatID: function getLatestPostByCatID(cat_id) {
-                        var _this6 = this;
-
-                        axios.get("/api/get_latest_post/" + cat_id).then(function (response) {
-                                _this6.latest_post = response.data;
-                        });
-                },
-                getLatestPostFromAllCat: function getLatestPostFromAllCat() {
-                        var _this7 = this;
-
-                        this.axios.get('/api/get_latest_post_all_cat/').then(function (response) {
-                                //console.log(response);
-                                _this7.latest_post_all_cats = response.data;
-                        });
-                }
+            this.axios.get('/api/get_latest_post_all_cat/').then(function (response) {
+                //console.log(response);
+                _this2.latest_post_all_cats = response.data;
+            });
         }
+    }
 
-        //     export default {
+    //     export default {
 
-        //         data() {
-        //             return {
-        //                 newdetails:[]
-        //             }
-        //         },
-        //         created(){
-        //             this.axios
-        //                  .get(`/api/newdetails/${this.$route.params.id}`)
-        //                  .then(response=>{
+    //         data() {
+    //             return {
+    //                 newdetails:[]
+    //             }
+    //         },
+    //         created(){
+    //             this.axios
+    //                  .get(`/api/newdetails/${this.$route.params.id}`)
+    //                  .then(response=>{
 
-        //                      this.newdetails = response.data;
-        //                        console.log(response.data);
-        //                  });
+    //                      this.newdetails = response.data;
+    //                        console.log(response.data);
+    //                  });
 
-        //         }
-        //         // methods: {
-        //         //         getPostById: function(id=1) {
-        //         //                 this.axios
-        //         //                 .get('/api/newdetails/'+id)
-        //         //                 .then(response=>{
-        //         //                         console.log(response.data.news_list);
-        //         //                 this.newdetails = response.data.news_list;
-        //         //                 });
-        //         //         },
-        //         // }
+    //         }
+    //         // methods: {
+    //         //         getPostById: function(id=1) {
+    //         //                 this.axios
+    //         //                 .get('/api/newdetails/'+id)
+    //         //                 .then(response=>{
+    //         //                         console.log(response.data.news_list);
+    //         //                 this.newdetails = response.data.news_list;
+    //         //                 });
+    //         //         },
+    //         // }
 
 
-        //     }
-        // 
+    //     }
+    // 
 
 });
 
@@ -45075,8 +45034,6 @@ var render = function() {
                               "div",
                               { staticClass: "overlay" },
                               [
-                                _c("h2"),
-                                _vm._v(" "),
                                 _c(
                                   "router-link",
                                   {
@@ -45087,10 +45044,8 @@ var render = function() {
                                         "/newsdetails/" + latest_post_all_cat.id
                                     }
                                   },
-                                  [_vm._v(_vm._s(latest_post_all_cat.title))]
-                                ),
-                                _vm._v(" "),
-                                _c("a", { attrs: { href: "'/newsdetails" } })
+                                  [_vm._v("詳細")]
+                                )
                               ],
                               1
                             ),

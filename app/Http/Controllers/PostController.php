@@ -97,10 +97,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return Post::findOrFail($id);
-    //     $news_list = Post::find($post);
-    //     $data = array("news_list" => $news_list);
-    //    return response()->json($data);
+        return Post::findOrFail($id);    
     }
 
     /**
