@@ -20,6 +20,7 @@ import editcategory from './components/editcategory.vue';
 import createcustomer from './components/CreateCustomer.vue';
 import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
+import Profile from './components/Profile.vue';
 import hosProfile from './components/hosProfile.vue';
 import nusProfile from './components/nusProfile.vue';
 import JobOfferList from './components/JobOfferList.vue';
@@ -42,11 +43,14 @@ import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
-import favouriteBtn from './components/favouriteBtn.vue';
 import comment from './components/Comment.vue';
 import favouriteNursing from './components/favouriteNursing.vue';
 
+import commentlist from './components/commentlist.vue';
+import featurelist from './components/FeatureList.vue';
 import passport from './components/passport.vue';
+import specialfeature from './components/CreateSpecialFeature.vue';
+import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 export const routes = [
       {
         name: 'home',
@@ -166,6 +170,11 @@ export const routes = [
       component: map
     },
     {
+      name: 'profile',
+      path: '/profile',
+      component: Profile
+    },
+    {
       name: 'hos_profile',
       path: '/hos_profile',
       component: hosProfile
@@ -228,6 +237,9 @@ export const routes = [
         path: '/favouriteNursing',
         component: favouriteNursing
       },
+
+
+
       {
         name:'type',
         path:'/type',
@@ -269,14 +281,36 @@ export const routes = [
       path: '/nursing_profile',
       component: NursingProfile
      },
-      {
-        name: 'videoupload',
-        path: '/videoupload',
-        component: VideoUpload
-      },
-      {
-        name: 'comment',
-        path: '/comment',
-        component: comment
-      }
+  {
+    name: 'videoupload',
+    path: '/videoupload',
+    component: VideoUpload
+  },
+  {
+    name: 'comment',
+    path: '/comment',
+    component: comment
+  },
+  {
+    name: 'commentlist',
+    path: '/commentlist',
+    component: commentlist
+  },
+  {
+    name: 'specialfeature',
+    path: '/specialfeature',
+    component: specialfeature
+  },
+  {
+    name: 'featurelist',
+    path: '/featurelist',
+    component: featurelist
+  },
+  {
+    name: 'hospitalfavouritemail',
+    path: '/hospitalfavouritemail',
+    component: hospitalfavouritemail
+  },
+
+  
 ];

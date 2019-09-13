@@ -1,5 +1,4 @@
 
-
 var timeout;
 $(".path").hover(
   function() {
@@ -9,14 +8,28 @@ $(".path").hover(
       'position':'fixed',
       'top':"175px",
       'left':'1350px'
-    });
+    });   
+   
     $('#info-box').html($(this).data('info'));
+
+    $('.'+$(this).data('info')).css({
+      'background':'white',
+      'opacity': '0.25'
+    });      
+  
   },
   function(){
   	timeout = setTimeout(function(){
     	$('#info-box').css('display','none');
       },1000);
   });
+
+  $(".path").mouseout(function(){
+    $('.'+$(this).data('info')).css({
+      'background':'none',
+      'opacity':'1'
+    }); 
+  })
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if(ios) {
@@ -27,10 +40,9 @@ if(ios) {
   });
 }
 
-
-$('path').on("click", function(e) {
+$('.path').on("click", function(e) {
     e.preventDefault();
-    $('path.selected').attr("class", "");
+    $('.path.selected').attr("class", "");
     $(this).attr("class", "selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
@@ -40,25 +52,47 @@ $('path').on("click", function(e) {
         data:{"title":title,"id":id},
         url:url,
         success:function(data){
-            console.log(data);
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
-            var city = data.getCity;
+            $('#text').empty();
+            var getCity = data.getCity;
             var townships = data.getTownships;
+            var city = data.city;
+           
             $.each(city,function(k,v){
-              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>')
+              $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>').attr('selected',true);
             });
+            $.each(getCity,function(k,v){
+              $('#select option[value="'+v.id+'"]').attr("selected",true);
+              $('#text').append('<span>'+v.city_name+'</span>')
+            })
             $.each(townships,function(k,v){
-                console.log(v);
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
-            });
-           
-           
+            }); 
         }
     });
-
-
+});
+$('#select').on('change',function(){
+  var id = this.value;
+  var url = "/api/getCity";
+  $.ajax({
+    type:'post',
+    url:url,
+    data:{"id":id},
+    success:function(data){
+      $('#checkbox').empty();
+      $.each(data,function(k,v){
+        $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+      })
+    },
+    error:function(error){
+      console.log(error);
+    }
+  })
+})
+$('#text').click(function() {
+  $('#checkbox').slideToggle("slow");
 });
 
 
@@ -67,7 +101,7 @@ $('path').on("click", function(e) {
 //     height: 200,
 //   });
 
-    var dynamicInput = [];
+    var dynamicInput = [] ;
     var ct = 1;
     function new_link()
     {
@@ -94,10 +128,7 @@ $('path').on("click", function(e) {
             var image_x = document.getElementById('x-image');
             image_x.parentNode.removeChild(image_x);
             document.getElementById('showimage').style.display = 'block';
-            console.log("close");
         }
-
-
     }
 
     function showImg(c,event) {
@@ -143,13 +174,12 @@ $('path').on("click", function(e) {
             success:function(data){
                $('#video-area').remove();
             }
-        });
-        
+        });    
     }
 /*select check
 
 */
-$(document).ready(function(){
+// $(document).ready(function(){
     $('.select_all').on('click',function(){
         if(this.checked){
             $('.checkbox').each(function(){
@@ -169,7 +199,7 @@ $(document).ready(function(){
             $('.select_all').prop('checked',false);
         }
     });
-});
+// });
 
 /*select check
 
@@ -222,3 +252,85 @@ $(function() {
 
 
   
+function scrollTab(){
+    // console.log('scroll');
+    // $("p").css('color','red');
+    $('#a').on('click',function(){
+        // console.log('onclick');
+    });
+  
+    if($('.detal_wrap').length){    
+        $(".a_sp a[href^='#']").click(function () { 
+            // console.log("a_sp");
+        var speed = 600;
+        var href = $(this).attr("href");
+        var target = $(href === "#" || href === "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+            //return false;
+        });
+    }
+}
+
+
+
+
+ function changeType() {
+
+    if(this.type == 'nursing') {
+        
+            document.getElementById("hospital-lbl").classList.add("dim-btn");
+            document.getElementById("nursing-lbl").classList.remove("dim-btn");
+           
+            scrollTab();
+           
+    }
+    else{
+           document.getElementById("nursing-lbl").classList.add("dim-btn"); 
+           document.getElementById("hospital-lbl").classList.remove("dim-btn");
+         
+           scrollTab();
+    }
+}
+
+$('nav-item').on('change',function(e){
+    e.preventDefault();
+    // console.log($('#a1').val());
+})
+
+// jQuery(document).ready(function($) {
+
+    var profilePublish = $("#profilePublish");
+    stickyDiv = "sticky";
+    header = $('.header').height();
+   
+
+$('.scrolldiv2').scroll(function() {
+  if( $(this).scrollTop() > header ) {
+    profilePublish.addClass(stickyDiv);
+  } else {
+    profilePublish.removeClass(stickyDiv);
+  }
+});
+    
+    $(".a_sp a[href^='#']").click(function () { 
+    var speed = 600;
+    var href = $(this).attr("href");
+    var target = $(href === "#" || href === "" ? 'html' : href);
+    var position = target.offset().top;
+    $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
+    
+    });
+// });
+
+
+
+
+
+
+    
+    
+  
+
+
+

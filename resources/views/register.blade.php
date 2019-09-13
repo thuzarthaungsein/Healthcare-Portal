@@ -195,7 +195,6 @@ $.getJSON("ajax-type?type="+type, function (data) {
 $('#showHideActionNursing').removeClass('hide').addClass('show');
 $('#nursing').empty();
 $.each(data.data, function(id,name) {
-console.log(name.id,name.name,name.parent);
 $('#nursing').append(
 '<div class="form-check sample">'+
 '<input class="form-check-input custom-radio" name="check" type="radio" name="nursing" value="'+name.id+'" id="'+name.id+'">'
@@ -214,11 +213,9 @@ $('#nursing').empty();
 $('#cities').on('change', function(e) {
 let cities = e.target.value;
 $.getJSON("ajax-cities?cities="+cities, function (data) {
-console.log(data);
 $('#showHideActionTownship').removeClass('hide').addClass('show');
 $('#township').html('<option selected="selected" value="">郷を選ぶ</option>');
 $.each(data.data, function(id,name) {
-console.log(name.id,name.township_name);
 $('#township').append('<option value="'+name.id+'">'+name.township_name+'</option>');
 });
 

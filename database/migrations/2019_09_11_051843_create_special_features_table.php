@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGalleryTable extends Migration
+class CreateSpecialFeaturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateGalleryTable extends Migration
      */
     public function up()
     {
-        Schema::create('gallery', function (Blueprint $table) {
+        Schema::create('special_features', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('customer_id');
-            $table->string('photo');
-            $table->string('title');
-            $table->string('description');
+            $table->string('name');
+            $table->integer('user_id');
+            $table->integer('recordstatus')->default(1);
             $table->timestamps();
         });
+
+    
     }
 
     /**
@@ -30,6 +31,6 @@ class CreateGalleryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gallery');
+        Schema::dropIfExists('special_features');
     }
 }

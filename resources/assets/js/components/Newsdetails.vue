@@ -12,7 +12,7 @@
 
 <!-- Tab panes -->
 <div class="tab-content tab-content1 tabs">
-        <div role="tabpanel" class="tab-pane in active" id="tab1" style="height: 691px;"> 
+        <div role="tabpanel" class="tab-pane in active" id="tab1"> 
                 <div class="row col-sm-12">
                         <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -22,19 +22,19 @@
                                 </ol>
                         </nav>
                 </div>
-                <div class="justify-content-md-center scrolldiv2" style="height:677px;">
+                <div class="justify-content-md-center scrolldiv2">
                 <div class="col-md-12" >                        
                         <div class="row m-lr-0 mb-3">
                                 <div class="col-md-12" >
                                         <h4 class="h_4 header">{{newdetails.title}}</h4>
                                         <p class="set-date"><time datetime="2012-01-04">{{newdetails.created_at}}</time></p>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                         <p class="p5">{{newdetails.body}}</p>
                                 </div>
-                                <div class="col-md-6  mt-2 related-area" >
+                                <div class="col-md-4 mt-2 related-area" >
                                         <img
-                                                :src="'/images/'+ newdetails.photo"
+                                                :src="'/upload/news/'+ newdetails.photo"
                                                 class="img-responsive img_2 news_photo"
                                                 > 
                                         <p class="img_2">東京五輪開幕まで1年　メダルお披露目 <br> <span><time datetime="2019-06-07">2019年6月7日</time></span></p> 
@@ -150,7 +150,7 @@
                         <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                 <div class="hovereffect fit-image">
                                         <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
-                                        <img class="img-responsive fit-image" v-bind:src="'/images/' + latest_post_all_cat.photo" alt="">
+                                        <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
                         <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">{{ latest_post_all_cat.title }}</router-link>
@@ -212,7 +212,6 @@ import jobSearch from './jobSearch.vue'
             this.axios
                  .get(`/api/newdetails/${this.$route.params.id}`)
                  .then(response=>{
-                      console.log(response.data); 
                      this.newdetails = response.data;
                 //        console.log(response.data);
                  });
@@ -221,38 +220,38 @@ import jobSearch from './jobSearch.vue'
         methods: {
                 getAllCat: function() {
                      this.axios
-                        .get('http://localhost:8000/api/home')
+                        .get('/api/home')
                         .then(response => {
                                 this.cats = response.data;
                         });   
                 },
                 getPostByFirstCat: function() {
-                         axios.get("http://localhost:8000/api/posts/1")
+                         axios.get("/api/posts/1")
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getPostByCatID: function(cat_id) {
-                        axios.get("http://localhost:8000/api/posts/" + cat_id)
+                        axios.get("/api/posts/" + cat_id)
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getLatestPostByFirstCatID: function() {
-                        axios.get("http://localhost:8000/api/get_latest_post/1")
+                        axios.get("/api/get_latest_post/1")
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostByCatID: function(cat_id) {
-                        axios.get("http://localhost:8000/api/get_latest_post/" + cat_id)
+                        axios.get("/api/get_latest_post/" + cat_id)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostFromAllCat: function() {
                         this.axios
-                        .get(`http://localhost:8000/api/get_latest_post_all_cat/`)
+                        .get(`/api/get_latest_post_all_cat/`)
                         .then(response => {
                                 //console.log(response);
                                 this.latest_post_all_cats = response.data;

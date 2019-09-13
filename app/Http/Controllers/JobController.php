@@ -35,16 +35,14 @@ class JobController extends Controller
     public function store(Request $request)
     {
 
-        
+       return 'a';
         $request->validate([
-            'title' => 'required|unique:jobs',
+            'title' => 'required',
             'description' =>'required',
             'location' => 'required',
             'salary' => 'required',
             'working_hours' => 'required',
-           
-             
-           
+          
         ]);
    
         $string = '';

@@ -63,6 +63,7 @@
             <div class="col-2">
                        <relatedNews></relatedNews>
             </div>
+          
           </div>
 
         </div>
@@ -93,7 +94,6 @@
       profile
     },
      mounted() {
-            console.log('Component mounted.')
             $(document).ready(function() {
                    // jssor_1_slider_init();   
                   //   $('.nav-tabs').scrollingTabs({

@@ -28,19 +28,19 @@ class CustomerController extends Controller
         $video_file = $request['file'];
         $video_name = $request['name'];
 
-        $destination = 'upload/videos/'.$video_name; 
-        if (move_uploaded_file($video_file, $destination)) { 
+        $destination = 'upload/videos/'.$video_name;
+        if (move_uploaded_file($video_file, $destination)) {
             return response()->json(['success'=>'Done!']);
         } else {
            echo "File was not uploaded";
         }
     }
 
-    public function deletevideo(Request $request) 
+    public function deletevideo(Request $request)
     {
         $request = $request->all();
         $file_path = $request['fiel_path'];
-    
+
         unlink($file_path);
         return response()->json(['success'=>'Done!']);
 
@@ -73,8 +73,8 @@ class CustomerController extends Controller
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
             'recordstatus' => 2
-          
- 
+
+
         ]);
         $customer ->save();
         return response()->json(['success'=>'Done!']);
@@ -123,11 +123,11 @@ class CustomerController extends Controller
 
     public function confirm($id)
     {
-    
+
         $getCustomer = Customer::findOrFail($id);
-        
+
         $checkUser = User::where('email',$getCustomer->email)->select('email')->value('email');
-        
+
         if(!empty($checkUser)){
             return response()->json('user is already confirm!');
         }else{
@@ -146,15 +146,22 @@ class CustomerController extends Controller
                 'model_type'=> 'App\User',
                 'model_id'=> $id,
             );
-             DB::table('model_has_roles')->insert($model_has_roles);
-             \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
+            DB::table('model_has_roles')->insert($model_has_roles);
+            \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
              return response()->json('success');
-            
-            
-            
-        }
+        }       
+    }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
         
-        
-       
+        $search_customer = Customer::query()
+                            ->where('name', 'LIKE' , "%{$search_word}%")
+                            ->orderBy('id','DESC')
+                            ->get()
+                            ->toArray();
+        return $search_customer;
     }
 }
