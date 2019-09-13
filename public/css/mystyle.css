@@ -2101,20 +2101,38 @@ ul.main-tab li:after {
     .spanclass  a {
         position: relative;
     }
+    .map-text a{
+        color: #000 !important;
+    }
     
     .map-text a:after {
         content: "";
         width: 6px;
         height: 6px;
-        border-right: 1px solid #c40000;
-        border-bottom: 1px solid #c40000;
+        border-right: 2px solid #118063;
+        border-bottom: 2px solid #118063;
         -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg);
         position: absolute;        
         top: 50%;
-        left: 45px;
+        left: 50px;
         margin-top: -3px;
     }
+    
+    #info-box {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        background-color: #212121;
+        color: #ffffff;
+        border: 0px solid #ffffff;
+        border-radius: 5px;
+        padding: 15px;
+        font-family: arial;
+      }
+      
 }
 
 
