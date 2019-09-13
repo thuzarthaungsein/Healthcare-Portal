@@ -1357,6 +1357,12 @@ div.b {
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
+.p-l-0 {
+    padding-left: 0px !important;
+}
+.p-r-0 {
+    padding-right: 0px !important;
+}
 
 .pad-free {
     padding: 0px;

@@ -1,7 +1,7 @@
 <template>
         <div class="row justify-content-md-center"> 
                 <div class="row">
-                        <div class="col-10">
+                        <div class="col-10 p-r-0">
                                 <div class="col-12">
                                         <form class="form-inline col-lg-12 form-inline mb-2 pad-free"><input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" > 
                                                 <span class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
@@ -49,7 +49,7 @@
                                                 </div>
                                         </div>
                                 </div>
-                                <div class="col-md-12 pad-free m-lr-0">
+                                <div class="col-md-12 m-lr-0">
                                         <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
                                         <div class="row col-md-12">
                                                 <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
@@ -75,7 +75,7 @@
                                         </div>
                                 </div> 
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 p-l-0">
                                 <asidebar></asidebar> 
                         </div>
                 </div>                              
