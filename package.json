@@ -12,14 +12,15 @@
     "devDependencies": {
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
-        "popper.js": "^1.12",
         "cross-env": "^5.1",
         "jquery": "^3.2",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
-        "vue": "^2.5.7"
+        "popper.js": "^1.12",
+        "vue": "^2.6.10"
     },
     "dependencies": {
+        "@chenfengyuan/vue-carousel": "^1.0.2",
         "@ckeditor/ckeditor5-build-classic": "^12.4.0",
         "@ckeditor/ckeditor5-vue": "^1.0.0-beta.2",
         "bootstrap-vue": "^2.0.0-rc.28",
@@ -32,6 +33,7 @@
         "vue-google-maps": "^0.1.21",
         "vue-quill-editor": "^3.0.6",
         "vue-router": "^3.1.2",
+        "vue-template-compiler": "^2.6.10",
         "vue2-editor": "^2.10.2",
         "vue2-google-maps": "^0.10.7",
         "vuejs-auto-complete": "^0.9.0"
