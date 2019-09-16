@@ -19,7 +19,9 @@ import * as VueGoogleMaps from "vue2-google-maps";
 // import Vue from 'vue';
 import Autocomplete from 'vuejs-auto-complete';
 
-
+//vue carousel
+import VueCarousel from '@chenfengyuan/vue-carousel';
+Vue.component(VueCarousel.name, VueCarousel);
 //start editor
 
 
@@ -54,9 +56,10 @@ const router = new VueRouter({
     routes: routes
 });
 
+
 const app = new Vue({
     el: '#app',
     router: router,
     // render: h => h(App),
+    
 });
-
