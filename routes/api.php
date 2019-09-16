@@ -87,6 +87,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('editPost/{id}', 'PostController@edit');
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}', 'PostController@delete');
+        Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
     });
     // End News
 
@@ -193,4 +194,8 @@ Route::group(['prefix' => 'comments'], function () {
     Route::get('comfirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
+});
+
+Route::group(['prefix' => 'new'], function () {
+    Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });

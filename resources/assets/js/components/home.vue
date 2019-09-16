@@ -11,12 +11,6 @@
         <!-- Tab panes -->
               <div class="tab-content tab-content1 tabs">
                <div role="tabpanel" class="tab-pane in active" id="tab1">
-                   <!-- <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item active"><router-link to="/hospitalSearch" ><i class="fas fa-home"></i>   ホーム</router-link>
-                      </li>
-                    </ol>
-                  </nav> -->
                   <News></News>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
