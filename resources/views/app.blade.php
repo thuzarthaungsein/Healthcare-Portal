@@ -83,9 +83,9 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark main-header">
 
-            <a class="navbar-brand col-2" href="/">
+            <a class="navbar-brand col-2 pl-0" href="/">
 
-                <img src="/images/trust_growth.png" alt="TRUST GROWTH">
+                <img src="/images/sample_2.png" alt="Logo">
 
             </a>
 
