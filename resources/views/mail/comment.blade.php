@@ -6,6 +6,4 @@
     Year is : {{$getComment->year}}  <br>
     Gender : {{$getComment->gender}}  <br>
     Zipcode is : {{$getComment->zipcode}}
-    
-
 </div>

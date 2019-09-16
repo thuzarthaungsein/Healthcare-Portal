@@ -60,7 +60,7 @@ export default {
             this.axios
                 .get('/api/user')
                 .then(response => {
-                    console.log(response);
+                    // console.log(response);
                 });
                 
         },

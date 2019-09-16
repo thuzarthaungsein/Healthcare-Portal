@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Post;
-
+use DB;
 
 class HomeController extends Controller
 {
@@ -96,5 +96,20 @@ class HomeController extends Controller
                         ->get()
                         ->toArray();
         return $query;
+    }
+
+    public function getLatestPostsByAllCatId() {
+        $posts = Category::join('posts', 'categories.id', '=', 'posts.category_id')
+                        ->select('categories.name','categories.id')
+                        ->selectRaw('GROUP_CONCAT(posts.title order by posts.created_at desc limit 6) as title')
+                        ->selectRaw('GROUP_CONCAT(posts.photo order by posts.created_at desc limit 6) as photo')
+                        ->selectRaw('GROUP_CONCAT(posts.id order by posts.created_at desc limit 6) as post_id')
+                        ->groupBy('categories.id')
+                        ->get()
+                        ->toArray();
+        // $sql = "select c.name , c.id, group_concat(p.title  order by p.created_at desc limit 6) as title, group_concat(p.photo order by p.created_at desc limit 4) as photo from categories c join posts p 
+        // where c.id = p.category_id group by c.id";
+        // $sql = DB::select($sql);
+        return $posts;
     }
 }
