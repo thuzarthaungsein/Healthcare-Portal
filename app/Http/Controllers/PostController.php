@@ -98,10 +98,12 @@ class PostController extends Controller
     public function show($id)
     {
         return Post::findOrFail($id);
-        //  $related_news = Post::select('skills')->value('skills');
-        //  $array =explode(',',$skill);
-        //   return ($array);
-        $related_news =Post::select('')
+
+    }
+    public function relatednews ($id) {
+        $related_news =Post::where('category_id',$id)->orderBy('created_at', 'desc')->limit('4')->get();
+        //return $latest_post_all_cat;
+        return response()->json($related_news);
     }
 
     /**

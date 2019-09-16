@@ -194,10 +194,7 @@
 
 <script>
 export default {
-
-
           data() {
-
             return {
                 errors:[
                 ],
@@ -228,11 +225,10 @@ export default {
 
         },
          created() {
-
-            this.axios
+             if(this.$route.params.id) {
+                this.axios
                 .get(`/api/job/edit/${this.$route.params.id}`)
                 .then((response) => {
-
                     this.joboffer.title = response.data.title;
                     this.joboffer.customer_id = response.data.customer_id;
                     this.joboffer.description = response.data.description;
@@ -255,6 +251,7 @@ export default {
                     this.joboffer.recordstatus = response.data.recordstatus;
 
                 });
+             }            
         },
 
 

@@ -71,11 +71,13 @@ class HomeController extends Controller
         return response()->json($latest_post);
     }
 
-    public function getLatestPostFromAllCat()
+
+        public function getLatestPostFromAllCat()
     {
         $latest_post_all_cat = Post::orderBy('created_at', 'desc')->limit('4')->get();
         return response()->json($latest_post_all_cat);
     }
+
 
     public function search(Request $request)
     {
