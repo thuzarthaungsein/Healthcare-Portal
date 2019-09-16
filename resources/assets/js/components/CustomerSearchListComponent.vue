@@ -12,7 +12,12 @@
         </div>
         <div class="row m-lr-0">
                         <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
-                        <div class="col-sm-3  col-md-3 mt-2" v-for="customer in customers" :key="customer.id">
+                          <div v-if="!this.customers.length"  class="col-sm-3  col-md-3 mt-2" style="padding-top:30px; height:700px; text-align:center ">
+                           
+                          No record data 
+                          
+                        </div>
+                        <div v-else class="col-sm-3  col-md-3 mt-2" v-for="customer in customers" :key="customer.id">
                                 <div class="hovereffect fit-image">
                                         <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
                                         <img class="img-responsive fit-image" v-bind:src="'/images/' + customer.logo" alt="">
