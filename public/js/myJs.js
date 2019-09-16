@@ -64,11 +64,11 @@ $('.path').on("click", function(e) {
         data:{"title":title,"id":id},
         url:url,
         beforeSend: function(){
-          $(".loader").show().delay(10000).fadeOut();
+          $('.checkbox, .nursgingcheckbox, .jobcheckbox').addClass('block2');
          },
         success:function(data){
             $('.select').css({'display':'block'});
-            $('.checkbox, .nursgingcheckbox').empty();
+            $('.checkbox, .nursgingcheckbox, .jobcheckbox').empty();
             $('.select').empty();
             $('.text').empty();
             var getCity = data.getCity;
@@ -84,11 +84,14 @@ $('.path').on("click", function(e) {
             })
             $.each(townships,function(k,v){
                 $('.checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+
                 $('.nursgingcheckbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="nuscheckbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="nuscheckbox['+v.id+']">'+v.township_name+'</label></div>');
+
+                $('.jobcheckbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="jobcheckbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="jobcheckbox['+v.id+']">'+v.township_name+'</label></div>');
             }); 
         },
         complete:function(data){
-          $("#loader").hide().delay(3000).fadeOut();
+          $('.checkbox, .nursgingcheckbox, .jobcheckbox').removeClass('block2')
          }
     });
 });
@@ -101,25 +104,28 @@ $('.select').on('change',function(){
     url:url,
     data:{"id":id},
     beforeSend: function(){
-      $(".loader").show();
+      $('.checkbox, .nursgingcheckbox, .jobcheckbox').addClass('block2');
      },
     success:function(data){
-      $('.checkbox, .nursgingcheckbox').empty();
+      $('.checkbox, .nursgingcheckbox, .jobcheckbox').empty();
       $.each(data,function(k,v){
         $('.checkbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+
         $('.nursgingcheckbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="nuscheckbox['+v.id+']"><label class="custom-control-label" for="nuscheckbox['+v.id+']">'+v.township_name+'</label></div>');
+
+        $('.jobcheckbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="jobcheckbox['+v.id+']"><label class="custom-control-label" for="jobcheckbox['+v.id+']">'+v.township_name+'</label></div>');
       })
     },
     error:function(error){
       console.log(error);
     },
     complete:function(data){
-      $(".loader").hide();
+      $('.checkbox, .nursgingcheckbox, .jobcheckbox').removeClass('block2');
      }
   })
 })
 $('.text').click(function() {
-  $('.checkbox, .nursgingcheckbox').slideToggle("slow");
+  $('.checkbox, .nursgingcheckbox, .jobcheckbox').slideToggle("slow");
 });
 
 // save button get value search map
