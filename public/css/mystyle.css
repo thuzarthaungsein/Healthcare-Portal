@@ -90,7 +90,6 @@ body {
 
 
 /* News List */
-
 #content {
     /* height: 800px; */
     overflow: auto;
@@ -470,6 +469,7 @@ html {
 
 .collapse.show {
     display: block;
+    background:rgba(0,0,0,0.1)
 }
 
 .registerform_container {
@@ -1940,7 +1940,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 .router-link-exact-active>i.fas {
     color: #f27a24 !important;
 }
-
 
 /*for main tab*/
 
