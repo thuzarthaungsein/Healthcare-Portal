@@ -6,33 +6,35 @@ use Illuminate\Http\Request;
 
 class SpecialFeatureController extends Controller
 {
-   
+
     public function index()
     {
         $feature = special_feature::all()->toArray();
         return array_reverse($feature);
     }
 
-  
+
     public function create()
     {
-        
+
     }
 
     public function store(Request $request)
     {
-      
+
         $request->validate([
             'name' => 'required',
-      
+
         ]);
 
         $feature = new special_feature([
             'name' => $request->input('name'),
+            'short_name' =>$request->input('short_name'),
+            'type' =>$request->input('type'),
             'user_id' => 1,
             'recordstatus' => 2
         ]);
-       
+
         $feature ->save();
         return $feature;
     }
@@ -40,7 +42,7 @@ class SpecialFeatureController extends Controller
 
     public function show($id)
     {
-        
+
     }
 
 
@@ -50,7 +52,7 @@ class SpecialFeatureController extends Controller
         return response()->json($feature);
     }
 
- 
+
     public function update(Request $request, $id)
     {
         $request->validate([
