@@ -190,7 +190,7 @@
         </div>
  </div>
  <div id='loader' style='display: none;'>
-  <img src='images/ajax-loader.gif'>
+    <img src='images/ajax-loader.gif'>
 </div>
  <div class="card-body">
         <div class="row col-12">
