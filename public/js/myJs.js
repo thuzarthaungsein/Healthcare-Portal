@@ -122,6 +122,23 @@ $('#text').click(function() {
         parentEle.removeChild(ele);
     }
 
+    function testDel(index)
+    {
+        var eleId = 'img'+index;
+        var ele = document.getElementById(eleId);
+        var parentEle = document.getElementById('gallery');
+        parentEle.removeChild(ele);
+
+        var photo = document.getElementsByClassName('gallery-area');
+        for (var i = index; i < photo.length; i++) {
+          var new_index = i+1;
+          var oldClass = 'photo'+i;
+          var newClass = 'photo'+new_index;
+          $('#img'+new_index+' .gallery-area').removeClass(newClass);
+          $('#img'+new_index+' .gallery-area').addClass(oldClass);
+        }
+    }
+
     function closebtn(){
         if(confirm("Are you sure you want to delete?"))
         {
