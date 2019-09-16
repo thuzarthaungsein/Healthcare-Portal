@@ -1,45 +1,44 @@
 var timeout;
 $(".path").hover(
-    function(e) {
-        clearTimeout(timeout);
-        $("#info-box").css({
-            display: "block"
-        });
+  function(e) {
+    clearTimeout(timeout);
+    $('.info-box').css({
+      'display':'block',
+    });  
+   
+    $('.info-box').html($(this).data('info'));
 
-        $("#info-box").html($(this).data("info"));
-
-        $("." + $(this).data("info")).css({
-            opacity: "0.5",
-            "font-weight": "bold",
-            "text-decoration": "underline",
-            color: "#f27a24"
-        });
-    },
-    function() {
-        timeout = setTimeout(function() {
-            $("#info-box").css("display", "none");
-        }, 1000);
-    }
-);
-
-$(".path").mouseleave(function(e) {
-    $("#info-box").css("display", "none");
+    $('.'+$(this).data('info')).css({
+      'opacity': '0.5',
+      'font-weight':'bold',
+      'text-decoration':'underline',
+       'color':'#f27a24',
+    });      
+  },
+  function(){
+  	timeout = setTimeout(function(){
+      $('.info-box').css('display','none');     
+      },1000);
 });
+
+    $(".path").mouseleave(function(e) {
+      $(".info-box").css("display", "none");
+    });
 
 $(document)
-    .mousemove(function(e) {
-        $("#info-box").css("top", e.pageY - $("#info-box").height() - 35);
-        $("#info-box").css("left", e.pageX - $("#info-box").width() / 2);
-    })
-    .mouseover();
+.mousemove(function(e) {
+  $(".info-box").css("top", e.pageY - $(".info-box").height() - 35);
+  $(".info-box").css("left", e.pageX - $(".info-box").width() / 2);
+})
+.mouseover();
 
-$(".path").mouseout(function() {
-    $("." + $(this).data("info")).css({
-        background: "transparent",
-        opacity: "1",
-        "text-decoration": "none"
-    });
-});
+$(".path").mouseout(function(){
+  $('.'+$(this).data('info')).css({
+    'background':'transparent',
+    'opacity':'1',
+    'text-decoration':'none'
+  });    
+})
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if (ios) {
@@ -50,102 +49,98 @@ if (ios) {
     });
 }
 
-$(".path").on("click", function(e) {
+$('.path').on("click", function(e) {
     e.preventDefault();
-    $(".path.selected").attr("class", "");
-    $(this).attr("class", "selected");
-    $(".path").on("click", function(e) {
-        e.preventDefault();
-        $(".path").removeClass("selected");
-        $(".path.selected").attr("class", "");
-        // $(this).attr("class", "selected");
-        $("." + $(this).data("info")).addClass("selected");
-        var title = $(this).attr("title");
-        var id = $(this).attr("id");
-        var url = "/api/getmap";
-        $.ajax({
-            type: "post",
-            data: { title: title, id: id },
-            url: url,
-            success: function(data) {
-                $("#select").css({ display: "block" });
-                $("#checkbox").empty();
-                $("#select").empty();
-                $("#text").empty();
-                var getCity = data.getCity;
-                var townships = data.getTownships;
-                var city = data.city;
+    $('.path').removeClass('selected');
+    $('.path.selected').attr("class", "");
+    // $(this).attr("class", "selected");
+    $('.'+$(this).data('info')).addClass("selected");
+    var title = $(this).attr("title");
+    var id = $(this).attr("id");
+    var url = "/api/getmap";
+    $.ajax({
+        type:'post',
+        data:{"title":title,"id":id},
+        url:url,
+        beforeSend: function(){
+          $(".loader").show().delay(10000).fadeOut();
+         },
+        success:function(data){
+            $('.select').css({'display':'block'});
+            $('.checkbox, .nursgingcheckbox').empty();
+            $('.select').empty();
+            $('.text').empty();
+            var getCity = data.getCity;
+            var townships = data.getTownships;
+            var city = data.city;
+            $.each(city,function(k,v){
+              $('.select').append('<option  value="'+v.id+'">'+v.city_name+'</option>').attr('selected',true);       
+            });
+            $.each(getCity,function(k,v){
+              $('.select option[value="'+v.id+'"]').attr("selected",true);
+              $('.select option[value="'+v.id+'"]').css("color",'red');
+              $('.text').append('<button class="all-btn btn secondary-bg-color">'+v.city_name+'<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>')    
+            })
+            $.each(townships,function(k,v){
+                $('.checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+                $('.nursgingcheckbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="nuscheckbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="nuscheckbox['+v.id+']">'+v.township_name+'</label></div>');
+            }); 
+        },
+        complete:function(data){
+          $("#loader").hide().delay(3000).fadeOut();
+         }
+    });
+});
 
-                $.each(city, function(k, v) {
-                    $("#select")
-                        .append(
-                            '<option  value="' +
-                            v.id +
-                            '">' +
-                            v.city_name +
-                            "</option>"
-                        )
-                        .attr("selected", true);
-                });
-                $.each(getCity, function(k, v) {
-                    $('#select option[value="' + v.id + '"]').attr(
-                        "selected",
-                        true
-                    );
-                    $('#select option[value="' + v.id + '"]').css(
-                        "color",
-                        "red"
-                    );
-                    $("#text").append(
-                        '<button class="all-btn btn secondary-bg-color">' +
-                        v.city_name +
-                        '<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>'
-                    );
-                });
-                $.each(townships, function(k, v) {
-                    $("#checkbox").append(
-                        '<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox[' +
-                        v.id +
-                        ']" ><label class="custom-control-label" for="checkbox[' +
-                        v.id +
-                        ']">' +
-                        v.township_name +
-                        "</label></div>"
-                    );
-                });
-            }
-        });
-    });
+$('.select').on('change',function(){
+  var id = this.value;
+  var url = "/api/getCity";
+  $.ajax({
+    type:'post',
+    url:url,
+    data:{"id":id},
+    beforeSend: function(){
+      $(".loader").show();
+     },
+    success:function(data){
+      $('.checkbox, .nursgingcheckbox').empty();
+      $.each(data,function(k,v){
+        $('.checkbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+        $('.nursgingcheckbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="nuscheckbox['+v.id+']"><label class="custom-control-label" for="nuscheckbox['+v.id+']">'+v.township_name+'</label></div>');
+      })
+    },
+    error:function(error){
+      console.log(error);
+    },
+    complete:function(data){
+      $(".loader").hide();
+     }
+  })
+})
+$('.text').click(function() {
+  $('.checkbox, .nursgingcheckbox').slideToggle("slow");
+});
 
-    $("#select").on("change", function() {
-        var id = this.value;
-        var url = "/api/getCity";
-        $.ajax({
-            type: "post",
-            url: url,
-            data: { id: id },
-            success: function(data) {
-                $("#checkbox").empty();
-                $.each(data, function(k, v) {
-                    $("#checkbox").append(
-                        '<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox[' +
-                        v.id +
-                        ']" ><label class="custom-control-label" for="checkbox[' +
-                        v.id +
-                        ']">' +
-                        v.township_name +
-                        "</label></div>"
-                    );
-                });
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
-    });
-    $("#text").click(function() {
-        $("#checkbox").slideToggle("slow");
-    });
+// save button get value search map
+$('#save_value').click(function(){
+  var checkvalue = [];
+  $(':checkbox:checked').each(function(){
+    checkvalue.push(parseInt($(this).val()));
+  });
+  console.log(checkvalue);
+});
+// save button get value search map
+
+
+
+
+
+
+
+
+
+
+
 
     // $('#method-textarea').summernote({
     //     placeholder: 'Write Feature',
@@ -326,4 +321,3 @@ $(".path").on("click", function(e) {
             "swing"
         );
     });
-});

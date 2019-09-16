@@ -2140,7 +2140,8 @@ screen and (min-width: 750px) {
         left: 50px;
         margin-top: -3px;
     }
-    #info-box {
+    
+    .info-box {
         display: none;
         position: absolute;
         top: 0px;
@@ -2152,7 +2153,8 @@ screen and (min-width: 750px) {
         border-radius: 5px;
         padding: 15px;
         font-family: arial;
-    }
+      }  
+      
 }
 
 
