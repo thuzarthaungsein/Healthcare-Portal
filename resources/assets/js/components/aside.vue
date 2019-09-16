@@ -16,24 +16,30 @@
                 </div>
 
             </div> -->
+            <div class="row">
+                <div class="col-12">
+                    <carousel :data="data" :indicators="false" :interval="3000" direction="right"></carousel>
+                </div>               
+                
+            </div>
 
             <!--end ads slider-->
 
         </div>
 
-        <div class="card m-b-10 ads-card">
+        <!-- <div class="card m-b-10 ads-card">
 
             <div class="card-body">
 
                 <h5 class="card-title text-center">二つ目の広告</h5>
 
-                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+               
 
                 <img src="/images/logo_japanese_horizontal.png" alt="" class="img-responsivie" style="width:100%">
 
             </div>
 
-        </div>
+        </div> -->
 
         <div class="card m-b-10 ads-card2">
 
@@ -53,6 +59,18 @@
 <script type="text/javascript">
 
 export default {
+    
+   data() {
+      return {
+        data: [
+          '<a href="/newsdetails/" class="example-slide"><img data-u="image" class="img-fluid" src="/upload/advertisement/1.jpg" /><div class="side_slider_lbl"><p>多くの病院・医療施設からも高い評価をいただいております</p></div></a>',
+          '<a href="/newsdetails/" class="example-slide"><img data-u="image" class="img-fluid" src="/upload/advertisement/6.jpg" /><div class="side_slider_lbl"><p>title</p></div></a>',
+          '<a href="/newsdetails/" class="example-slide"><img data-u="image" class="img-fluid" src="/upload/advertisement/beauty.jpg" /><div class="side_slider_lbl"><p>日本病院薬剤師会が認定する感染制御専門薬剤師および感染制御認定薬剤師の英語名称は、理事会において、下記のとおりとすることで承認されました。</p></div></a>',          
+         
+        ],
+      };
+    },
+    
     mounted() {
         },
         created() {
@@ -99,3 +117,15 @@ export default {
     });
 });       
 </script>
+<style>
+ .example-slide {
+    align-items: center;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    font-size: 12px;
+    justify-content: center;
+    height: 8rem;
+   
+  }
+</style>
