@@ -31,7 +31,7 @@
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="/images/trustgrowth.png" class="brand_logo" alt="trustgrowth">
+						<img src="/images/sample_1.png" class="brand_logo" alt="trustgrowth">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container" style="margin-top:150px !important">
@@ -45,7 +45,7 @@
 											>
 												<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 											</div>
-											<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+											<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="ユーザー名" required>
                                             @if ($errors->has('email'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('email') }}</strong>

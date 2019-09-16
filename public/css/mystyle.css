@@ -2633,3 +2633,16 @@ button.confirmed {
 .bk {
     background: #dad6d6;
 }
+
+
+.block2 {
+    background-image: url(../images/ajax-loader.gif);
+    background-size: 30px;                  
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    position: relative; 
+    filter: brightness(0.5);
+    color: white;
+    display: flex;
+    transition: box-shadow .3s ease-out;
+  }
