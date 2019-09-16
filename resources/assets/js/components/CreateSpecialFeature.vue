@@ -21,10 +21,10 @@
                                  <span v-if="errors.short_name" class="error">{{errors.short_name[0]}}</span>
                             </div>
                             <div class="form_group">
-                                <select v-model="feature.type" class="form-control">
-                                    <option>選択してください。</option>
-                                    <option>病院</option>
-                                    <option>看護</option>
+                                <select v-model="selectedValue" name="type" class="form-control" @change="onChange()">
+                                        <option value="0">選択してください。</option>
+                                        <option >病院</option>
+                                        <option >看護</option>
                                 </select>
                             </div> <br/>
 
@@ -53,13 +53,15 @@ export default {
                         type:'',
                         user_id:'',
                         recordstatus: ''
-                    }
+                    },
+                    selectedValue:0
             }
         },
           created() {
             this.axios
                 .get(`/api/feature/edit/${this.$route.params.id}`)
                 .then((response) => {
+                    //this.selectedValue = response.data.type;
                     this.feature = response.data;
 
                 });
@@ -90,6 +92,11 @@ export default {
                 }
 
             },
+            onChange: function(){
+
+               this.feature.type = this.selectedValue;
+
+           },
             updateFeature() {
             this.axios
                 .post(`/api/feature/update/${this.$route.params.id}`, this.feature)
