@@ -73,7 +73,7 @@ export default {
         },
        data() {
                 return {
-                        type: 'nursing',
+                        type: 'hospital',
                         btntype: 'create',
                 }
         },

@@ -22,9 +22,9 @@
         <hr>
         <h5 class="header">施設一覧</h5>
         <div class="col-md-12 scrolldiv">   
-             <div v-if="!this.facilities.length"  class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
+             <div v-if="this.facilities.length === 0"  class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
                            
-                          No record data 
+                       No Record Data 
                           
                  </div>        
             <div v-else class="container-fuid" v-for="facility in facilities" :key="facility.id" >

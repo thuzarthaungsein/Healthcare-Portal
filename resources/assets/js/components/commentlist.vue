@@ -18,7 +18,7 @@
         <div class="col-md-12 scrolldiv">
               <div v-if="!this.comments.length"  class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
                            
-                          No record data 
+                          No Record Data 
                           
                  </div> 
             <div v-else class="container-fuid" v-for="comment in comments" :key="comment.id">

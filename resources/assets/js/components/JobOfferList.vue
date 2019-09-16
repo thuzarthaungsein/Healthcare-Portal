@@ -9,15 +9,13 @@
                                             就職活動リスト</li> -->
 
                     </ol>
-           
-
             </nav>
       
         <router-link to= '/joboffercreate' class="nav-link ml-auto pull-right ">Create New Job</router-link>
             <div class="scroll col-12">
                     <div v-if="!this.jobs.length"  class="card card-default m-b-20 " style="padding-top:30px; height:700px; text-align:center ">
                            
-                          No record data 
+                          No Record Data 
                           
                     </div>
                       

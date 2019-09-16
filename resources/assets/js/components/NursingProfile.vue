@@ -396,8 +396,5 @@ export default {
 </script>
 
  <style>
- .ql-editor{
-     height:30vh;
-    
- }
+ 
  </style>

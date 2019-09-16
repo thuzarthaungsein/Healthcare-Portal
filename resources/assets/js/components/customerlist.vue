@@ -33,7 +33,7 @@
         <div class="scrolldiv col-12">    
             <div v-if="!this.customers.length"  class="card card-default m-b-20" style="padding-top:30px; height:700px; text-align:center ">
                            
-                          No record data 
+                          No Record Data 
                           
                  </div>         
             <div  v-else v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">

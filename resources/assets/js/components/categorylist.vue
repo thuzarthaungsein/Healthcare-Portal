@@ -20,7 +20,7 @@
             <hr>
             <h5 class="header">カテゴ一覧</h5>
             <div class="col-md-12 scrolldiv">  
-                 <div v-if="!this.categories.length"  class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
+                 <div v-if="this.categories.length === 0"  class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
                            
                           No record data 
                           
@@ -57,6 +57,7 @@ export default {
     },
 
      created() {
+      
             this.axios
                 .get('/api/category/categories')
                 .then(response => {
