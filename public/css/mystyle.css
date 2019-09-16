@@ -675,7 +675,7 @@ div.scroll,
     padding-top: 15px;
 }
 
-   .scrolldiv3 {
+.scrolldiv3 {
     height: 1500px;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -1373,9 +1373,11 @@ div.b {
 .m-0 {
     margin: 0px;
 }
-.m-t-71{
+
+.m-t-71 {
     margin-top: 71px;
 }
+
 .m-t-8 {
     margin-top: 13px;
 }
@@ -1388,13 +1390,16 @@ div.b {
 .m-l-10 {
     margin-left: 10px !important;
 }
-.m-l-15{
+
+.m-l-15 {
     margin-left: 15px;
 }
-.m-l-17{
-    margin-left:17px;
+
+.m-l-17 {
+    margin-left: 17px;
 }
-.m-t-10{
+
+.m-t-10 {
     margin-top: 10px !important;
 }
 
@@ -1437,9 +1442,11 @@ div.b {
 .m-b-0 {
     margin-bottom: 0px !important;
 }
-.m-r-8{
+
+.m-r-8 {
     margin-right: 8px;
 }
+
 .m-r-15 {
     margin-right: 15px;
 }
@@ -2092,7 +2099,8 @@ ul.main-tab li:after {
     padding: 10px !important;
 }
 
-@media print, screen and (min-width: 750px) {
+@media print,
+screen and (min-width: 750px) {
     .spanclass {
         letter-spacing: normal;
         /* width: 50%; */
@@ -2103,13 +2111,12 @@ ul.main-tab li:after {
         padding-right: 10px;
         font-size: 12px;
     }
-    .spanclass  a {
+    .spanclass a {
         position: relative;
     }
-    .map-text a{
+    .map-text a {
         color: #000 !important;
     }
-    
     .map-text a:after {
         content: "";
         width: 6px;
@@ -2118,12 +2125,11 @@ ul.main-tab li:after {
         border-bottom: 2px solid #118063;
         -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg);
-        position: absolute;        
+        position: absolute;
         top: 50%;
         left: 50px;
         margin-top: -3px;
     }
-    
     #info-box {
         display: none;
         position: absolute;
@@ -2136,8 +2142,7 @@ ul.main-tab li:after {
         border-radius: 5px;
         padding: 15px;
         font-family: arial;
-      }
-      
+    }
 }
 
 
@@ -2265,20 +2270,20 @@ body::-webkit-scrollbar-thumb {
 .jssor-slider {
     position: relative;
     top: 0px;
-    width: 1200px;
+    width: 700px;
     height: 100px;
     overflow: hidden;
     visibility: hidden;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
 }
 
 .top-ad-slider {
-    cursor: default;
     position: relative;
     top: 0px;
     left: 0px;
-    width: 1200px;
-    height: 120px;
+    width: 700px;
+    height: 100px;
+    margin: 0 auto;
     overflow: hidden;
 }
 
@@ -2597,15 +2602,6 @@ body::-webkit-scrollbar-thumb {
         display: block;
         margin: 0 auto;
     }
-    /* .fac-wrap {
-        width: 90%;
-        margin: 0 auto;
-        overflow-x: auto;
-    }
-    .fac_container {
-        width: 900px;
-        margin: 0 auto;
-    } */
 }
 
 
@@ -2615,10 +2611,14 @@ button.confirmed {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+
 /* End Commentlist */
-.mailbox{
-    border:none;
+
+.mailbox {
+    border: none;
 }
-.bk{
+
+.bk {
     background: #dad6d6;
 }
