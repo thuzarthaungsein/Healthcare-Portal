@@ -10,7 +10,7 @@
             <div class="table-responsive">
                 <table class="table table-hover DataTable">
                    <thead>
-                        <tr>
+                        <tr>      
                             <th>Name</th>
                             <th>Email</th>
                             <th>Password</th>
@@ -18,7 +18,12 @@
                         </tr>
                    </thead>
                    <tbody>
-                        <tr v-for="getUser in getReset" :key="getUser.id">
+                       <tr v-if="!this.getReset.length" >
+                           
+                          No Record Data 
+                          
+                       </tr>
+                        <tr v-else v-for="getUser in getReset" :key="getUser.id">
                             <th>{{getUser.name}}</th>
                             <th>{{getUser.email}}</th>
                             <th>{{getUser.password}}</th>

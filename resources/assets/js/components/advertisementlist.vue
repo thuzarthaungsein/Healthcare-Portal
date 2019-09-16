@@ -18,7 +18,12 @@
     <hr>
     <h5 class="header">広告</h5>
     <div class="scrolldiv col-12">
-            <div v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
+         <div v-if="!this.advertisements.length"  class="card card-default m-b-20" style="padding-top:30px; height:700px; text-align:center ">
+                           
+                          No record data 
+                          
+                 </div> 
+            <div v-else v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
             <div class="card-body news-post">
                  <div class="row">
                     <div class="col-md-2" >

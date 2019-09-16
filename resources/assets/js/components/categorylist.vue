@@ -19,8 +19,13 @@
             </div>
             <hr>
             <h5 class="header">カテゴ一覧</h5>
-            <div class="col-md-12 scrolldiv">                
-                <div class="container-fuid" v-for="category in categories" :key="category.id">
+            <div class="col-md-12 scrolldiv">  
+                 <div v-if="!this.categories.length"  class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
+                           
+                          No record data 
+                          
+                 </div>                
+                <div v-else class="container-fuid" v-for="category in categories" :key="category.id">
                     <div class="card card-default m-b-20">
 
                         <div class="card-body">
