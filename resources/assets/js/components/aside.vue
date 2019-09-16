@@ -63,9 +63,9 @@ export default {
    data() {
       return {
         data: [
-          '<a href="/newsdetails/" class="example-slide"><img data-u="image" class="img-fluid" src="/upload/advertisement/1.jpg" /><div class="side_slider_lbl"><p>多くの病院・医療施設からも高い評価をいただいております</p></div></a>',
-          '<a href="/newsdetails/" class="example-slide"><img data-u="image" class="img-fluid" src="/upload/advertisement/6.jpg" /><div class="side_slider_lbl"><p>title</p></div></a>',
-          '<a href="/newsdetails/" class="example-slide"><img data-u="image" class="img-fluid" src="/upload/advertisement/beauty.jpg" /><div class="side_slider_lbl"><p>日本病院薬剤師会が認定する感染制御専門薬剤師および感染制御認定薬剤師の英語名称は、理事会において、下記のとおりとすることで承認されました。</p></div></a>',          
+          '<a href="/newsdetails/" class="aside-slide"><img data-u="image" class="img-fluid" src="/upload/advertisement/1.jpg" /><div class="side_slider_lbl"><p>多くの病院・医療施設からも高い評価をいただいております</p></div></a>',
+          '<a href="/newsdetails/" class="aside-slide"><img data-u="image" class="img-fluid" src="/upload/advertisement/6.jpg" /><div class="side_slider_lbl"><p>title</p></div></a>',
+          '<a href="/newsdetails/" class="aside-slide"><img data-u="image" class="img-fluid" src="/upload/advertisement/beauty.jpg" /><div class="side_slider_lbl"><p>日本病院薬剤師会が認定する感染制御専門薬剤師および感染制御認定薬剤師の英語名称は、理事会において、下記のとおりとすることで承認されました。</p></div></a>',          
          
         ],
       };
@@ -118,7 +118,7 @@ export default {
 });       
 </script>
 <style>
- .example-slide {
+ .aside-slide {
     align-items: center;
     background-color: #fff;
     color: #000;
