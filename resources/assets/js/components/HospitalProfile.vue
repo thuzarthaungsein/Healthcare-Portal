@@ -140,11 +140,28 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="heading-lbl">こだわりの特長<span class="error">*</span></label>
                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
 
-                        <div class="col-md-12" id="special-features"></div>
+                        <div class="col-md-12" id="special-features">
+
+                        </div>
+                    </div> -->
+
+                    <div class="form-group">
+                        <label  class="heading-lbl">こだわりの特長</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down"></i></span>
+
+                        <div class="col-md-12 special-feature-toggle-div toggle-div">
+                                <div class="row">
+                                        <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
+                                                <label>
+                                                <input type="checkbox">
+                                                {{fac.description}}
+                                                </label>
+                                        </div>
+                                </div>                                        
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -280,7 +297,8 @@ export default {
             },
             
             specialFeAdd() {
-                $("#special-features").append('<div class="row m-t-15"><div class="col-md-10"><input type="text" class="form-control" name="specialfeature[]"></div><div class="col-md-2"><span class="btn text-danger delete-borderbtn">Delete</span></div></div>');
+                    $(".special-feature-toggle-div").toggle('medium');
+                // $("#special-features").append('<div class="row m-t-15"><div class="col-md-10"><input type="text" class="form-control" name="specialfeature[]"></div><div class="col-md-2"><span class="btn text-danger delete-borderbtn">Delete</span></div></div>');
             },
 
         }
