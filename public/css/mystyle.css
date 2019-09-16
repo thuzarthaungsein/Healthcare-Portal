@@ -2065,6 +2065,8 @@ ul.main-tab li:after {
     font-weight: bold;
     clear: both;
     margin-top: 20px;
+    color: #aaa;
+    text-align: left;
 }
 
 

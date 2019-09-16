@@ -1,6 +1,6 @@
 <template>
 <div class="search-map card-body">
-  <div class="row">
+  <div class="row" id="hos">
     <div class="col-md-10">
           <div class="row">
             <div class="col-sm-7 divisions">
