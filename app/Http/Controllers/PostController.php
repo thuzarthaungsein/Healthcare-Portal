@@ -146,6 +146,7 @@ class PostController extends Controller
             'body' => $request->input('body'),
             'photo' => $imageName,
             'category_id' =>$request->input('category_id'),
+            'related_news' =>$request->input('related_news'),
             'user_id' => 1,
             'recordstatus' => 1
         );
