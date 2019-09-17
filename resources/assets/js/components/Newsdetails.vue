@@ -198,32 +198,42 @@ import jobSearch from './jobSearch.vue'
         data() {
             return {
                 newdetails:[],
-                
+
                 latest_post_all_cats: []
             }
         },
         created(){
-       
             this.getLatestPostFromAllCat();
             this.axios
                  .get(`/api/newdetails/${this.$route.params.id}`)
                  .then(response=>{
                      this.newdetails = response.data;
-                //      this.latest_post_all_cats = response.data;
+                     this.relatedNews(this.newdetails.category_id);
+                //   this.latest_post_all_cats = response.data;
                  });
         },
 
         methods: {
-               
                 getLatestPostFromAllCat: function() {
+
                         this.axios
-                        .get(`/api/get_latest_post_all_cat/`)
+                        .get(`/api/get_latest_post_all_cat`)
+                        .then(response => {
+                                //console.log(response);
+                                this.latest_post_all_cats = response.data;
+                        });
+                },
+                relatedNews: function(id) {
+
+                        this.axios
+                        .get(`/api/newsdetailsrelated/${id}`)
                         .then(response => {
                                 //console.log(response);
                                 this.latest_post_all_cats = response.data;
                         });
                 }
-        },
+        }
+
 
 
 

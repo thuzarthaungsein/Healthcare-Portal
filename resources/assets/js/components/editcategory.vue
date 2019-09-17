@@ -16,17 +16,18 @@
                                         </div>
                                    
                                         <div class="form-group">
-                                            <router-link to="/categorylist" class="btn btn-danger all-btn">キャンセル</router-link>                                              
-                                            <router-link to="/categorylist" class="btn news-post-btn all-btn">更新</router-link>
+                                            <router-link to="/categorylist" class="btn btn-danger all-btn">キャンセル</router-link>  
+                                            <button class="btn news-post-btn all-btn" > 更新 </button>                                              
+                                            <!-- <router-link to="/categorylist" class="btn news-post-btn all-btn">更新</router-link> -->
                                             <!-- <a href="categorylist" class="btn btn-warning">Cancel</a> -->
                                                                                    
                                         </div>
                                     </form>                                    
-                                </div>                            
-                        </div>
+                              </div>                            
+                         </div>
                     </div>
                 </div>            
-        </div>
+           </div>
     
 </template>
 
