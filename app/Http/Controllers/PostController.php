@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-       
+
        $news_list = Post::all()->toArray();
        return response()->json(array_reverse($news_list));
 
@@ -23,6 +23,7 @@ class PostController extends Controller
     // add news
     public function add(Request $request)
     {
+        // return $request->input('related_news');
         $request->validate([
             'title' => 'required',
             'main_point' => 'required',
@@ -45,6 +46,7 @@ class PostController extends Controller
                 'body' => $request->input('body'),
                 'photo' =>$imageName,
                 'category_id' =>$request->input('category_id'),
+                'related_news' =>$request->input('related_news'),
                 'user_id' => 1,
                 'recordstatus' => 1
             ]);
@@ -55,13 +57,11 @@ class PostController extends Controller
                 'main_point' => $request->input('main_point'),
                 'body' => $request->input('body'),
                 'category_id' =>$request->input('category_id'),
+                'related_news' =>$request->input('related_news'),
                 'user_id' => 1,
                 'recordstatus' => 1
             ]);
         }
-       
-      
-
         $post->save();
 
         // return response()->json('The New successfully added');
@@ -97,10 +97,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return Post::findOrFail($id);
-    //     $news_list = Post::find($post);
-    //     $data = array("news_list" => $news_list);
-    //    return response()->json($data);
+        return Post::findOrFail($id);    
     }
 
     /**
@@ -136,47 +133,28 @@ class PostController extends Controller
             'category_id.required' => 'ニュースのカテゴリーが必須です。',
             'body.required' => 'ニュースの内容が必須です。',
         ]);
-
-        if($request->photo != null && $request->photo != "")
-        {
+        if(is_object($request->photo)){
             $imageName = $request->photo->getClientOriginalName();
             $request->photo->move(public_path('/upload/news'), $imageName);
-            $post = new Post([
-                'title' => $request->input('title'),
-                'main_point' => $request->input('main_point'),
-                'body' => $request->input('body'),
-                'photo' =>$imageName,
-                'category_id' =>$request->input('category_id'),
-                'user_id' => 1,
-                'recordstatus' => 1
-            ]);
-        }
-        else{
-            $post = new Post([
-                'title' => $request->input('title'),
-                'main_point' => $request->input('main_point'),
-                'body' => $request->input('body'),
-                'category_id' =>$request->input('category_id'),
-                'user_id' => 1,
-                'recordstatus' => 1
-            ]);
+        }else {
+            $imageName =$request->photo;
         }
 
-        // $imageName = $request->photo->getClientOriginalName();
-        // $request->photo->move(public_path('/upload/news'), $imageName);
-        // $formData = array(
-        //     'title' => $request->input('title'),
-        //     'main_point' => $request->input('main_point'),
-        //     'body' => $request->input('body'),
-        //     'photo' => $request->photo->getClientOriginalName(),
-        //     'category_id' =>$request->input('category_id'),
-        //     'user_id' => 1,
-        //     'recordstatus' => 1
-        // );
+        $formData = array(
+            'title' => $request->input('title'),
+            'main_point' => $request->input('main_point'),
+            'body' => $request->input('body'),
+            'photo' => $imageName,
+            'category_id' =>$request->input('category_id'),
+            'user_id' => 1,
+            'recordstatus' => 1
+        );
         $post = Post::find($id);
-        $file= $post->photo;
-        $filename = public_path().'/upload/news/'.$file;
-        \File::delete($filename);
+        if(is_object($request->photo)){
+            $file= $post->photo;
+            $filename = public_path().'/upload/news/'.$file;
+            \File::delete($filename);
+        }
         $post->update($formData);
         return response()->json('The news successfully updated');
     }
@@ -206,18 +184,24 @@ class PostController extends Controller
         if(isset($request['selected_category'])) {
             $category_id = $request['selected_category'];
             $query = $query->where('category_id', $category_id);
-        } 
+        }
 
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];
-        
+
             $query = $query->where(function($qu) use ($search_word){
                             $qu->where('title', 'LIKE', "%{$search_word}%")
                                 ->orWhere('main_point', 'LIKE', "%{$search_word}%");
                         });
-        } 
+        }
         $query = $query->orderBy('id','DESC')
                         ->get();
         return $query;
     }
+
+    public function getPostById($cat_id) {
+        $posts = Post::where("category_id",$cat_id)->orderBy('created_at','DESC')->get();
+        return $posts;
+    }
+
 }

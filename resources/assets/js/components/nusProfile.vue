@@ -3,25 +3,7 @@
 <div class="card profile" style="border:none;">
         <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
         <div class="card-body">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                   <li class="nav-item">
-                        <input type="text" id="a1" value="text_1" style="display:none;" />
-                     <a class="nav-link " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Hospital</a>
-                   </li>
-                   <li class="nav-item">
-                           <input type="text" id="a2" value="text_2"/>
-                     <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">ProfilePublish</a>
-                   </li>
-                  
-                </ul>
-                <div class="tab-content scrolldiv2" id="myTabContent">
-                   <div class="tab-pane fade  " id="home"  role="tabpanel" aria-labelledby="home-tab" >
-                        <nursingProfile></nursingProfile>
-                   </div>
-                   <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab" >
-                        <profilePublish></profilePublish>
-                   </div>
-                </div>
+                
                 <div class="form-group">
                         <!-- <label>Type<span class="error">*</span></label> -->
                         <label for="hospital" class="typelabel " id="hospital-lbl">
@@ -34,17 +16,15 @@
                 </div>
         <div class="card-body">
                
-                
                 <form class="col-md-12">                         
 
                         <div class="col-md-12 pad-free" v-if="type == 'hospital'">
-                             
+                                <nursingProfile></nursingProfile> 
                         </div>
                         
 
                         <div class="col-md-12 pad-free" v-if="type == 'nursing'">
-                        
-                                
+                            
                         </div>
                               <!-- <div class="col-md-12 pad-free" v-if="type == 'hospital'"> -->
                              <!-- <ProfilePublish></ProfilePublish> -->
@@ -71,6 +51,8 @@ $(document).ready(function(){
 import hospitalProfile from './HospitalProfile.vue'
 import nursingProfile from './NursingProfile.vue'
 import profilePublish from './ProfilePublish.vue'
+
+
 export default {
         ready: function(){
                 // this.scrollTab();
@@ -112,7 +94,7 @@ $('.scrolldiv2').scroll(function() {
              
         //       this.scrollSection();
               this.axios
-                .get('http://localhost:8000/api/authget')
+                .get('/api/authget')
                 .then(response=>{
                 //   console.log(response);
                 // this.fac_list = response.data;

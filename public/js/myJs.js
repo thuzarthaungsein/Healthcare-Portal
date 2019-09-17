@@ -1,21 +1,46 @@
 
 var timeout;
 $(".path").hover(
-  function() {
+  function(e) {
     clearTimeout(timeout);
     $('#info-box').css({
       'display':'block',
-      'position':'fixed',
-      'top':"175px",
-      'left':'1350px'
-    });
+    });  
+   
     $('#info-box').html($(this).data('info'));
+
+    $('.'+$(this).data('info')).css({
+      'opacity': '0.5',
+      'font-weight':'bold',
+      'text-decoration':'underline',
+       'color':'#f27a24',
+    });      
   },
   function(){
   	timeout = setTimeout(function(){
-    	$('#info-box').css('display','none');
+      $('#info-box').css('display','none');     
       },1000);
-  });
+});
+
+    $(".path").mouseleave(function(e) {
+      $("#info-box").css("display", "none");
+    });
+
+ 
+$(document)
+.mousemove(function(e) {
+  $("#info-box").css("top", e.pageY - $("#info-box").height() - 35);
+  $("#info-box").css("left", e.pageX - $("#info-box").width() / 2);
+})
+.mouseover();
+
+$(".path").mouseout(function(){
+  $('.'+$(this).data('info')).css({
+    'background':'transparent',
+    'opacity':'1',
+    'text-decoration':'none'
+  });    
+})
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if(ios) {
@@ -27,9 +52,12 @@ if(ios) {
 }
 
 $('.path').on("click", function(e) {
+  
     e.preventDefault();
+    $('.path').removeClass('selected');
     $('.path.selected').attr("class", "");
-    $(this).attr("class", "selected");
+    // $(this).attr("class", "selected");
+    $('.'+$(this).data('info')).addClass("selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
     var url = "/api/getmap";
@@ -41,15 +69,20 @@ $('.path').on("click", function(e) {
             $('#select').css({'display':'block'});
             $('#checkbox').empty();
             $('#select').empty();
+            $('#text').empty();
             var getCity = data.getCity;
             var townships = data.getTownships;
             var city = data.city;
            
             $.each(city,function(k,v){
               $('#select').append('<option  value="'+v.id+'">'+v.city_name+'</option>').attr('selected',true);
+              
             });
             $.each(getCity,function(k,v){
               $('#select option[value="'+v.id+'"]').attr("selected",true);
+              $('#select option[value="'+v.id+'"]').css("color",'red');
+              $('#text').append('<button class="all-btn btn secondary-bg-color">'+v.city_name+'<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>')
+             
             })
             $.each(townships,function(k,v){
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
@@ -57,6 +90,7 @@ $('.path').on("click", function(e) {
         }
     });
 });
+
 $('#select').on('change',function(){
   var id = this.value;
   var url = "/api/getCity";
@@ -75,7 +109,9 @@ $('#select').on('change',function(){
     }
   })
 })
-
+$('#text').click(function() {
+  $('#checkbox').slideToggle("slow");
+});
 
 
 // $('#method-textarea').summernote({
@@ -161,7 +197,7 @@ $('#select').on('change',function(){
 /*select check
 
 */
-$(document).ready(function(){
+// $(document).ready(function(){
     $('.select_all').on('click',function(){
         if(this.checked){
             $('.checkbox').each(function(){
@@ -181,7 +217,7 @@ $(document).ready(function(){
             $('.select_all').prop('checked',false);
         }
     });
-});
+// });
 
 /*select check
 
@@ -191,15 +227,15 @@ $(document).ready(function(){
 
 
 function scrollTab(){
-    console.log('scroll');
+    // console.log('scroll');
     // $("p").css('color','red');
     $('#a').on('click',function(){
-        console.log('onclick');
+        // console.log('onclick');
     });
   
     if($('.detal_wrap').length){    
         $(".a_sp a[href^='#']").click(function () { 
-            console.log("a_sp");
+            // console.log("a_sp");
         var speed = 600;
         var href = $(this).attr("href");
         var target = $(href === "#" || href === "" ? 'html' : href);
@@ -233,10 +269,10 @@ function scrollTab(){
 
 $('nav-item').on('change',function(e){
     e.preventDefault();
-    console.log($('#a1').val());
+    // console.log($('#a1').val());
 })
 
-jQuery(document).ready(function($) {
+// jQuery(document).ready(function($) {
 
     var profilePublish = $("#profilePublish");
     stickyDiv = "sticky";
@@ -259,7 +295,7 @@ $('.scrolldiv2').scroll(function() {
     $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
     
     });
-});
+// });
 
 
 
