@@ -18,12 +18,15 @@
                   <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
                 </div>
 
-                <div class="form-group">
-                  <router-link to="/facilitieslist" class="btn btn-danger all-btn">キャンセル</router-link>
-                  <!-- <router-link to="/facilitieslist" class="btn news-post-btn all-btn">更新</router-link>   -->
-                  <button class="btn news-post-btn all-btn">更新</button>
-                </div>
-              </form>
+                            <div class="form-group ">
+                                <router-link to="/facilitieslist" class="btn btn-danger all-btn">キャンセル</router-link>   
+                                <button class="btn news-post-btn all-btn" > 更新 </button>                                             
+                                <!-- <router-link to="/facilitieslist" class="btn news-post-btn all-btn">更新</router-link>                                -->
+                            </div>
+                                </form>
+                            </div>
+                         </div>
+                    </div>                
             </div>
           </div>
         </div>

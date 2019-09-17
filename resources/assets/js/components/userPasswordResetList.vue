@@ -9,7 +9,13 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-hover DataTable">
-                   <thead>
+                    <!-- <div v-if="!this.getReset.length" style="padding-top:30px; height:700px; text-align:center " >
+
+                        No Record Data
+
+                    </div> -->
+                    <div >
+                        <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
@@ -17,7 +23,8 @@
                             <th>Action</th>
                         </tr>
                    </thead>
-                   <tbody>
+                    <tbody>
+
                         <tr v-for="getUser in getReset" :key="getUser.id">
                             <th>{{getUser.name}}</th>
                             <th>{{getUser.email}}</th>
@@ -28,6 +35,8 @@
                             </th>
                         </tr>
                    </tbody>
+                    </div>
+
 
                 </table>
             </div>

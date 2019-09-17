@@ -19,14 +19,18 @@ import * as VueGoogleMaps from "vue2-google-maps";
 // import Vue from 'vue';
 import Autocomplete from 'vuejs-auto-complete';
 
+//start onepage
+import 'animate.css'
+import 'fullpage-vue/src/fullpage.css'
+import VueFullpage from 'fullpage-vue'
+Vue.use(VueFullpage)
+//end onepage
+
 //vue carousel
 import VueCarousel from '@chenfengyuan/vue-carousel';
 Vue.component(VueCarousel.name, VueCarousel);
 //start editor
-
-
 import CKEditor from '@ckeditor/ckeditor5-vue';
-
 Vue.use( CKEditor );
 //end editor
 

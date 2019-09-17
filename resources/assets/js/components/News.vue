@@ -58,7 +58,7 @@
                                                         <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="">
                                                         <div class="overlay">
                                                                 <!-- <h2></h2> -->
-                                                                <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
+                                                                <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
                                                                 <!-- <a class="btn btn-sm all-btn secondary-bg-color" v-bind:href="'/newsdetails/' + latest_post_all_cat.id"></a> -->
                                                         </div>
                                                         <div class="info">
@@ -79,9 +79,8 @@
                                 <asidebar></asidebar> 
                         </div>
                 </div>                              
-
                 <div class="col-md-12 m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
-                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">Latest News By Category "{{arr.name}}"</h4></div>
+                        <div class="row col-md-12 m-lr-0"><h4 class="h_4 next-title">{{arr.name}}</h4></div>
                         <div class="row col-md-12">
                                 <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
                                         <div class="col-md-6" >
