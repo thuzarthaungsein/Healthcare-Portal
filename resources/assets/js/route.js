@@ -51,6 +51,7 @@ import favouriteNursing from './components/favouriteNursing.vue';
 import passport from './components/passport.vue';
 import specialfeature from './components/CreateSpecialFeature.vue';
 import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
+import modal from './components/modal.vue';
 export const routes = [
       {
         name: 'home',
@@ -307,6 +308,11 @@ export const routes = [
     name: 'hospitalfavouritemail',
     path: '/hospitalfavouritemail',
     component: hospitalfavouritemail
+  },
+  {
+    name: 'modal',
+    path: '/modal',
+    component: modal
   },
 
   

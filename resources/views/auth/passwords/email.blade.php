@@ -57,13 +57,13 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center  mt-3 login_container">
-					<button type="submit" name="button" id="getUser" class="myBtn myBtn-success">{{ __('Send Password Reset Link') }}</button>
+					<button type="submit" name="button" id="getUser" class="btn login_btn">{{ __('再設定 パスワード') }}</button>
 				</div>
                 </form>
                
                 <div class="mt-4">
 					<div class="d-flex justify-content-center text-center links d-margin">
-						<span><a href="/">Back To Home</a><br>
+						<span><a href="/">戻る</a>
                                     @if (session('status'))
                                      <a>
                                      {{ session('status') }}    

@@ -22,6 +22,17 @@ import Autocomplete from 'vuejs-auto-complete';
 //vue carousel
 import VueCarousel from '@chenfengyuan/vue-carousel';
 Vue.component(VueCarousel.name, VueCarousel);
+
+//vue vuetify
+// import Vuetify from "vuetify";
+// import "vuetify/dist/vuetify.min.css";
+// Vue.use(Vuetify);
+
+//vue sweetaler
+import VueSweetAlert from 'vue-sweetalert';
+Vue.use(VueSweetAlert)
+
+
 //start editor
 
 
