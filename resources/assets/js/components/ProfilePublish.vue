@@ -62,6 +62,7 @@
  }
        
 </script>
+
 <style scoped>
 .fullpage-container {
     position: relative;
