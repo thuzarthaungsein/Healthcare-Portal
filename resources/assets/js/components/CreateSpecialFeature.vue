@@ -15,6 +15,16 @@
                                 <input type="text" class="form-control"  v-model="feature.name"  placeholder="Feature Name" >
                                 <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                             </div>
+                             <div class="form-group">
+                                <label>Short Name :<span class="error">*</span></label>
+                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="Feature Name" >
+                                <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
+                            </div>
+                             <div class="form-group">
+                                <label>Feature Name :<span class="error">*</span></label>
+                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="Feature Name" >
+                                <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
+                            </div>
 
                             <div class="form-group ">
                                 <router-link class="btn btn-danger all-btn" to="/featurelist" > キャンセル </router-link>

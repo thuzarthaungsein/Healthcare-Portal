@@ -83,14 +83,9 @@ $('.path').on("click", function(e) {
             });
             $.each(getCity,function(k,v){
               $('#select option[value="'+v.id+'"]').attr("selected",true);
-<<<<<<< HEAD
-              $('#text').append('<button class="all-btn btn main-bg-color">'+v.city_name+'<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>')
-
-=======
               $('#select option[value="'+v.id+'"]').css("color",'red');
               $('#text').append('<button class="all-btn btn secondary-bg-color">'+v.city_name+'<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>')
 
->>>>>>> fd0570360c071cc52365c78cc5f576d15c818777
             })
             $.each(townships,function(k,v){
                 $('#checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" ><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
