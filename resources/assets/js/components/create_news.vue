@@ -1,6 +1,6 @@
 <template>
     <!-- Page Content  -->
-    <div id="content" class="row">
+    <div class="row">
         <div class="col-md-12">
             <div class="card  text-dark">
                 <div class="card-body">
@@ -50,6 +50,38 @@
                                 </div>
 
                             </div>
+
+                            <div class="form-group">
+                                <label> カテゴリー:<span class="error">*</span></label>
+                                <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
+                                    <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
+                                        {{category.name}}
+                                    </option>
+                                </select>
+                                <span v-if="errors.category_id" class="error">{{errors.category_id[0]}}</span>
+                            </div>
+
+                            <div class="row col-md-12">
+                                <div class="col-md-4" v-for="news in related_news" :key="news.id"> 
+                                    <label> 
+                                        <input type="checkbox" :value="news.id" id="aaa" v-model="checkedNews">                             
+                                        <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
+                                            <div class="card-body news-post">
+                                                <div class="row">
+                                                    <div class="col-md-3" >
+                                                        <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news">
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{news.title}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                 </div>
+                            </div>
+                            <input type="hidden" v-model="checkedNews">
+
                             <div class="form-group">
 
                                 <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
@@ -81,7 +113,10 @@
                     categories: {
                         id: '',
                         name: ''
-                    }
+                    },
+                    category_id_1: '1',
+                    related_news: [],
+                    checkedNews: []
                 }
             },
             created() {
@@ -89,6 +124,7 @@
                     .then(function(response) {
                         this.categories = response.data;
                     }.bind(this));
+                this.getPostsByCatId();
             },
             methods: {
                 preview_image() {
@@ -102,6 +138,7 @@
                         fData.append('main_point', this.news.main_point)
                         fData.append('body', this.news.body)
                         fData.append('category_id', this.news.category_id)
+                        fData.append('related_news', this.checkedNews)
                         axios.post('/api/new/add', fData)
                             .then(response => {
                                 this.$router.push({
@@ -117,11 +154,21 @@
                 })
                     },
                     getstates: function() {
-
                         this.news.category_id = this.category_id;
-
                     },
-
+                    getPostsByCatId: function() { 
+                        var cat_id = this.category_id_1;
+                        this.axios
+                        .post('/api/new/getPostsByCatId/' + cat_id)
+                        .then(response => {
+                            this.related_news = response.data;
+                        });
+                    },
             }
     }
 </script>
+<style>
+/* #aaa {
+    display: none;
+} */
+</style>

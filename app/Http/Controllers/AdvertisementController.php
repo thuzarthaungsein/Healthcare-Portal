@@ -40,6 +40,7 @@ class AdvertisementController extends Controller
          $request->validate([
              'title' => 'required',
              'location'=>'required',
+             'link'=>'required',
              'photo'=>'required',
         //     'user_id'=>'required',
         //     'recordstatus'=>'required',
@@ -51,6 +52,7 @@ class AdvertisementController extends Controller
         $ads = new Advertisement([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
+            'link'=>$request->input('link'),
             'location'=>$request->input('location'),
             'photo' => $request->photo->getClientOriginalName(),
             'user_id' => 1,
@@ -106,6 +108,7 @@ class AdvertisementController extends Controller
           $uploadData = array(
               'title' => $request->input('title'),
               'description' => $request->input('description'),
+              'link'=>$request->input('link'),
               'location'=>$request->input('location'),
               'photo' => $imageName,
               'user_id' => 1,

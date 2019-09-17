@@ -83,9 +83,9 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark main-header">
 
-            <a class="navbar-brand col-2" href="/">
+            <a class="navbar-brand col-2 pl-0" href="/">
 
-                <img src="/images/trust_growth.png" alt="TRUST GROWTH">
+                <img src="/images/sample_2.png" alt="Logo">
 
             </a>
 
@@ -175,7 +175,7 @@
                 <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;カテゴ一覧</router-link></li>
 
                 <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;施設一覧</router-link></li>
-
+                <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Special Feature</router-link></li>
                 <li>
 
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Pages</a>
@@ -209,11 +209,6 @@
                 @can('customer')
                 <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
                 <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
-
-                <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Hospital</router-link></li>
-
-                <li><router-link to="/nus_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Nursing</router-link></li>
-
                 @endcan
 
 
@@ -453,9 +448,9 @@
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
 
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
-
+                    <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Special Feature</router-link></li>
                     <li>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link text-pre"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
                             <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link></li>
                             <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
@@ -466,13 +461,6 @@
                     @can('customer')
                     <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
                     <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
-
-                    <li><router-link to="/hos_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Hospital</router-link></li>
-
-                    <li><router-link to="/nus_profile" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  For Nursing</router-link></li>
-
-                    <li><router-link to="/profilepublish" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  profile publish</router-link></li>
-
                     @endcan
 
 
@@ -605,7 +593,7 @@
 
                                 <div class="row justify-content-md-center">
 
-                                    <div class="col-12 col-lg-10 col-md-10 tab">
+                                    <div class="col-12 col-lg-12 col-md-10 tab">
 
                                     <!-- vue component -->
 
@@ -623,7 +611,7 @@
 
                                     </div>
 
-                                    <div class="col-12 col-lg-2 col-md-4">
+                                    <div class="col-12 col-lg-2 col-md-4" style="display:none">
 
                                         <!--related news-->
 
@@ -742,31 +730,31 @@
     $('.DataTable').DataTable();
     var csrf = "{{ csrf_token() }}";
 
-    $.ajax({
+    // $.ajax({
 
-        url: '/api/get_latest_post_all_cat',
+    //     url: '/api/get_latest_post_all_cat',
 
-        type: 'GET',
+    //     type: 'GET',
 
-        data: {'_token': csrf},
-
-
-
-        success: function( data ) {
+    //     data: {'_token': csrf},
 
 
 
-            for (var i = 0; i < data.length; i++) {
-                var photo = '<li class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-responsivie ads-img" src="../upload/news/' + data[i].photo + '" />';
-                var title = '<h3 class="smallads-title">' + data[i].title + '</h3></li>';
+    //     success: function( data ) {
 
-                $("#menu").append(photo + title);
 
-            }
 
-        }
+    //         for (var i = 0; i < data.length; i++) {
+    //             var photo = '<li class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><img class="img-responsivie ads-img" src="../upload/news/' + data[i].photo + '" />';
+    //             var title = '<h3 class="smallads-title">' + data[i].title + '</h3></li>';
 
-    });
+    //             $("#menu").append(photo + title);
+
+    //         }
+
+    //     }
+
+    // });
 
     $.ajax({
         url: '/api/advertisement/ads',
@@ -790,7 +778,7 @@
             $(".top-ad-slider").html(top_ad);
             jssor_1_slider_init();
             $(".side-ad-slider").html(side_ad);
-            jssor_slider2_init();
+            // jssor_slider2_init();
         }
     });
 });       

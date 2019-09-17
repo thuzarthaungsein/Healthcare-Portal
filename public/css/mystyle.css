@@ -13,6 +13,10 @@ a {
     margin: 0;
 }
 
+li {
+    list-style: none;
+}
+
 body {
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     /* background: #dfdfde; */
@@ -671,7 +675,7 @@ div.scroll,
     padding-top: 15px;
 }
 
-   .scrolldiv3 {
+.scrolldiv3 {
     height: 1500px;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -953,6 +957,11 @@ textarea {
     height: 100px !important;
 }
 
+.ql-editor {
+    height: 170px !important;
+    scrollbar-width: thin;
+}
+
 .form-control {
     background-color: #f5f5f5 !important;
 }
@@ -1168,7 +1177,7 @@ div.b {
 }
 
 .adslist-card {
-    height: 71px;
+    /* height: 71px; */
     width: 188px;
 }
 
@@ -1221,17 +1230,24 @@ div.b {
 
 .side_slider_lbl {
     width: 100%;
-    height: 30px;
     position: absolute;
-    top: 70px;
+    top: 80px;
     background-color: #2a2d2cb0;
     color: #fff;
     text-align: justify !important;
+    padding: 10px;
+
 }
+
 .side_slider_lbl p {
     color: #fff;
     font-size: 12px;
+    overflow: hidden;
+    position: relative;
+    max-height: 80px;
 }
+
+
 /*End Ad*/
 
 
@@ -1296,7 +1312,7 @@ div.b {
         white-space: normal;
     }
     .adslist-card {
-        height: 71px;
+        /* height: 71px; */
         width: 100%;
     }
     .userview-sidebar {
@@ -1349,6 +1365,12 @@ div.b {
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
+.p-l-0 {
+    padding-left: 0px !important;
+}
+.p-r-0 {
+    padding-right: 0px !important;
+}
 
 .pad-free {
     padding: 0px;
@@ -1361,9 +1383,11 @@ div.b {
 .m-0 {
     margin: 0px;
 }
-.m-t-71{
+
+.m-t-71 {
     margin-top: 71px;
 }
+
 .m-t-8 {
     margin-top: 13px;
 }
@@ -1376,16 +1400,18 @@ div.b {
 .m-l-10 {
     margin-left: 10px !important;
 }
-.m-l-15{
+
+.m-l-15 {
     margin-left: 15px;
 }
-.m-l-17{
-    margin-left:17px;
+
+.m-l-17 {
+    margin-left: 17px;
 }
 .m-l-35{
     margin-left:35px;
 }
-.m-t-10{
+.m-t-10 {
     margin-top: 10px !important;
 }
 
@@ -1428,9 +1454,11 @@ div.b {
 .m-b-0 {
     margin-bottom: 0px !important;
 }
-.m-r-8{
+
+.m-r-8 {
     margin-right: 8px;
 }
+
 .m-r-15 {
     margin-right: 15px;
 }
@@ -1463,9 +1491,11 @@ div.b {
 .p-b-5 {
     padding-bottom: 5px;
 }
-.p-5{
+
+.p-5 {
     padding: 5px;
 }
+
 .m-r-10 {
     margin-right: 10px;
 }
@@ -1501,9 +1531,10 @@ div.b {
 .secondary-bg-color {
     background-color: #f27a24 !important;
 }
+
 .toggle-btn .icon-arrow:before {
     content: '\25BC';
-  }
+}
 
 .all-btn {
     color: #fff !important;
@@ -1593,7 +1624,8 @@ div.b {
     font-size: 12px;
     padding: 5px 10px;
 }
-.fav-color{
+
+.fav-color {
     background-color: #f9793c;
 }
 
@@ -1706,6 +1738,13 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 
 #v-pills-tab li a {
     padding: 0.7rem 20px 0.7rem 25px;
+}
+
+.text-pre {
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
 }
 
 .card-head-tabs {
@@ -2029,6 +2068,8 @@ ul.main-tab li:after {
     font-weight: bold;
     clear: both;
     margin-top: 20px;
+    color: #aaa;
+    text-align: left;
 }
 
 
@@ -2072,34 +2113,54 @@ ul.main-tab li:after {
     padding: 10px !important;
 }
 
-@media print, screen and (min-width: 750px){
-.spanclass{
-    letter-spacing: normal;
-    width: 50%;
-    display: inline-block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    text-align: center;
-    padding-right: 10px;
-    font-size: 12px;
+@media print,
+screen and (min-width: 750px) {
+    .spanclass {
+        letter-spacing: normal;
+        /* width: 50%; */
+        display: inline-block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        text-align: center;
+        padding-right: 10px;
+        font-size: 12px;
+    }
+    .spanclass a {
+        position: relative;
+    }
+    .map-text a {
+        color: #000 !important;
+    }
+    .map-text a:after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-right: 2px solid #118063;
+        border-bottom: 2px solid #118063;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 50%;
+        left: 50px;
+        margin-top: -3px;
+    }
+    
+    .info-box {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        background-color: #212121;
+        color: #ffffff;
+        border: 0px solid #ffffff;
+        border-radius: 5px;
+        padding: 15px;
+        font-family: arial;
+      }  
+      
 }
-.map-text a:after {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-right: 1px solid #c40000;
-    border-bottom: 1px solid #c40000;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    position: absolute;
-    top: 52px;
-    left: 61px;
 
-    /* top: 50%;
-    right: 8px;
-    margin-top: -3px; */
-}
-}
 
 /* End Hospital Search */
 
@@ -2130,6 +2191,7 @@ ul.main-tab li:after {
 /* Scrollbar */
 
 .news-wrapper::-webkit-scrollbar,
+.ql-editor::-webkit-scrollbar,
 body::-webkit-scrollbar,
 .scrolldiv::-webkit-scrollbar,
 .scroll2::-webkit-scrollbar,
@@ -2140,6 +2202,7 @@ body::-webkit-scrollbar,
 }
 
 .news-wrapper::-webkit-scrollbar-track,
+.ql-editor::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
 .scrolldiv::-webkit-scrollbar-track,
 .scroll2::-webkit-scrollbar-track,
@@ -2150,6 +2213,7 @@ body::-webkit-scrollbar-track,
 }
 
 .news-wrapper::-webkit-scrollbar-thumb,
+.ql-editor::-webkit-scrollbar-thumb,
 .main-wrap::-webkit-scrollbar-thumb,
 .scrolldiv::-webkit-scrollbar-thumb,
 .scroll2::-webkit-scrollbar-thumb,
@@ -2222,31 +2286,31 @@ body::-webkit-scrollbar-thumb {
 .jssor-slider {
     position: relative;
     top: 0px;
-    width: 1200px;
+    width: 700px;
     height: 100px;
     overflow: hidden;
     visibility: hidden;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
 }
 
 .top-ad-slider {
-    cursor: default;
     position: relative;
     top: 0px;
     left: 0px;
-    width: 1200px;
-    height: 120px;
+    width: 700px;
+    height: 100px;
+    margin: 0 auto;
     overflow: hidden;
 }
 
 .top-ad-slider .slide-img {
-    width: 80px;
-    margin: 10px 10px 5px 10px;
+    width: 100px;
+    margin: 10px 0 5px 10px;
 }
 
 .top-ad-slider .slide-img img {
     width: auto;
-    max-width: 80px;
+    max-width: 100px;
 }
 
 .top-ad-slider .list-group-item {
@@ -2265,8 +2329,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .top-ad-slider .smallads-title {
-    padding: 10px;
+    width: 130px;
     height: 90px;
+    padding: 10px;
+    margin-left: auto;
 }
 
 @keyframes jssorl-009-spin {
@@ -2410,23 +2476,37 @@ body::-webkit-scrollbar-thumb {
 
 /* Hospital History */
 
-.fac_container {
-    width: 100%;
-}
-
-.equipment {
-    list-style: none;
-}
-
-.equipment>li {
-    width: 100%;
-    color: #4650db;
-    background: #a3cee1;
-    border: 1px solid #4650db;
+.fac_container>li {
+    display: inline-block;
     padding: 5px;
-    margin: 0 0.5% 1px 0;
+    margin: 0 0 10px 3px;
+    color: #0e775d;
     text-align: center;
     border-radius: 2px;
+    border: 1px dashed #b7dad2;
+    border-bottom: 1px solid #b7dad2;
+    background-color: #f5f5f2;
+}
+
+.fac_container>li:first-child {
+    margin: 0;
+}
+
+.hos-btn {
+    display: block;
+    width: 88%;
+    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.hos-l {
+    width: 28%;
+}
+
+.hos-r {
+    width: 72%;
 }
 
 
@@ -2457,9 +2537,11 @@ body::-webkit-scrollbar-thumb {
     border: 3px solid #ccc;
     border-radius: 4px;
 }
-.map-text > a{
+
+.map-text>a {
     color: #000;
 }
+
 
 /* End Google Map  */
 
@@ -2528,16 +2610,31 @@ body::-webkit-scrollbar-thumb {
     .today .adslist-card .smallads-title {
         top: 7px;
     }
+    .hos-btn {
+        width: 50%;
+        margin: 10px auto 0;
+    }
+    .hos-img {
+        display: block;
+        margin: 0 auto;
+    }
 }
- /*  Start CommentList */
-button.confirmed  {
+
+
+/*  Start CommentList */
+
+button.confirmed {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+
 /* End Commentlist */
-.mailbox{
-    border:none;
+
+.mailbox {
+    border: none;
 }
-.bk{
+
+.bk {
     background: #dad6d6;
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 
-/*
+/* 
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
@@ -17,7 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// public route api start 
+Route::group(['middleware' => ['auth']], function() {
+    
+});
+
+
+
+// public route api start
 
     Route::post('getmap','SearchMapController@getMap');
     Route::post('getCity','SearchMapController@getCity');
@@ -87,6 +93,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('editPost/{id}', 'PostController@edit');
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}', 'PostController@delete');
+        Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
     });
     // End News 
 
@@ -201,4 +208,8 @@ Route::group(['prefix' => 'nurse'], function () {
     Route::get('comfirm/{id}','NursingMailController@confirm');
     Route::post('update/{id}', 'NursingMailController@update');
     Route::delete('delete/{id}','NursingMailController@destroy');
+});
+
+Route::group(['prefix' => 'new'], function () {
+    Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });

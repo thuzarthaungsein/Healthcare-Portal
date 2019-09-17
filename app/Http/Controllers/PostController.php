@@ -23,6 +23,7 @@ class PostController extends Controller
     // add news
     public function add(Request $request)
     {
+        // return $request->input('related_news');
         $request->validate([
             'title' => 'required',
             'main_point' => 'required',
@@ -45,6 +46,7 @@ class PostController extends Controller
                 'body' => $request->input('body'),
                 'photo' =>$imageName,
                 'category_id' =>$request->input('category_id'),
+                'related_news' =>$request->input('related_news'),
                 'user_id' => 1,
                 'recordstatus' => 1
             ]);
@@ -55,13 +57,11 @@ class PostController extends Controller
                 'main_point' => $request->input('main_point'),
                 'body' => $request->input('body'),
                 'category_id' =>$request->input('category_id'),
+                'related_news' =>$request->input('related_news'),
                 'user_id' => 1,
                 'recordstatus' => 1
             ]);
         }
-
-
-
         $post->save();
 
         // return response()->json('The New successfully added');
@@ -145,6 +145,7 @@ class PostController extends Controller
             'body' => $request->input('body'),
             'photo' => $imageName,
             'category_id' =>$request->input('category_id'),
+            'related_news' =>$request->input('related_news'),
             'user_id' => 1,
             'recordstatus' => 1
         );
@@ -197,4 +198,10 @@ class PostController extends Controller
                         ->get();
         return $query;
     }
+
+    public function getPostById($cat_id) {
+        $posts = Post::where("category_id",$cat_id)->orderBy('created_at','DESC')->get();
+        return $posts;
+    }
+
 }

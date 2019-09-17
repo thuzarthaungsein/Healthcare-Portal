@@ -4,7 +4,7 @@ jssor_1_slider_init = function() {
         $AutoPlay: 1,
         $AutoPlaySteps: 5,
         $SlideDuration: 160,
-        $SlideWidth: 238,
+        $SlideWidth: 237,
         $SlideSpacing: 3,
         $ArrowNavigatorOptions: {
             $Class: $JssorArrowNavigator$,
@@ -19,7 +19,7 @@ jssor_1_slider_init = function() {
 
     /*#region responsive code begin*/
 
-    var MAX_WIDTH = 1070;
+    var MAX_WIDTH = 700;
 
     function ScaleSlider() {
         var containerElement = jssor_1_slider.$Elmt.parentNode;
