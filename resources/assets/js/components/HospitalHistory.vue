@@ -1,6 +1,6 @@
 <template>
   <div class="row m-0">
-    <div class="col-12 scrolldiv2">
+    <div class="col-12 scrolldiv2 pb-3">
       <div class="row">
         <div class="col-12">
           <nav aria-label="breadcrumb">
@@ -13,20 +13,20 @@
           </nav>
         </div>
       </div>
-      <div class="row m-0 scrolldiv2">
-        <div v-for="hos_profile in hos_profiles" :key="hos_profile.id" class="col-lg-12 pb-5">
+      <div class="row m-0">
+        <div v-for="hos_profile in hos_profiles" :key="hos_profile.id" class="col-lg-12 pt-3 bd">
           <div class="row m-0">
-            <h5 class="m-b-20 col-12 hos-tit">
+            <h5 class="m-b-10 col-12 hos-tit">
               <a href="#">{{hos_profile.name}}</a>
             </h5>
-            <div class="col-lg-3 col-md-12 mt-2 mb-5">
+            <div class="col-lg-2 col-md-12 mt-2 mb-5">
               <div class="hos-img">
                 <img class="col-md-12" v-bind:src="'/images/' + hos_profile.logo" alt />
               </div>
               <button class="btn btn-danger all-btn hos-btn">最近見た施設から削除</button>
               <button class="btn fav-color all-btn hos-btn mt-2">検討リストに追加</button>
             </div>
-            <div class="col-lg-6 col-md-12 mb-4">
+            <div class="col-lg-7 col-md-12 mb-4">
               <div class="row list-wrap">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                   <p>

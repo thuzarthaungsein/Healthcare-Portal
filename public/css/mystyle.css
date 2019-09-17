@@ -90,6 +90,7 @@ body {
 
 
 /* News List */
+
 #content {
     /* height: 800px; */
     overflow: auto;
@@ -469,7 +470,7 @@ html {
 
 .collapse.show {
     display: block;
-    background:rgba(0,0,0,0.1)
+    background: rgba(0, 0, 0, 0.1)
 }
 
 .registerform_container {
@@ -1942,6 +1943,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     color: #f27a24 !important;
 }
 
+
 /*for main tab*/
 
 
@@ -2513,8 +2515,8 @@ body::-webkit-scrollbar-thumb {
 
 .hos-img {
     width: 100%;
-    height: 200px;
-    line-height: 200px;
+    height: 150px;
+    line-height: 150px;
     vertical-align: middle;
     border: 1px solid #b7dad2;
     border-bottom: 1px solid #b7dad2;
@@ -2524,7 +2526,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .hos-img img {
-    width: 180px;
+    width: 160px;
 }
 
 .list-wrap {
@@ -2536,6 +2538,14 @@ body::-webkit-scrollbar-thumb {
 
 .list-wrap strong {
     font-weight: bold;
+}
+
+.list-wrap p {
+    line-height: 1.3;
+}
+
+.bd {
+    border-bottom: 1.5px dotted #b7dad2;
 }
 
 
@@ -2675,15 +2685,14 @@ button.confirmed {
     background: #dad6d6;
 }
 
-
 .block2 {
     background-image: url(../images/ajax-loader.gif);
-    background-size: 30px;                  
-    background-repeat:   no-repeat;
-    background-position: center center; 
-    position: relative; 
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
     filter: brightness(0.5);
     color: white;
     display: flex;
     transition: box-shadow .3s ease-out;
-  }
+}
