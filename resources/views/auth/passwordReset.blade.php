@@ -29,7 +29,11 @@
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
+<<<<<<< HEAD
 						<img src="/images/sample_1.png" class="brand_logo" alt="Logo">
+=======
+						<img src="/images/sample_1.png" class="brand_logo" alt="logo">
+>>>>>>> 1b2f967636ed8299dbf04a0bcc048f07717644f8
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container" style="margin-top:140px;">

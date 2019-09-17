@@ -75,6 +75,7 @@ $(".path").on("click", function(e) {
     var id = $(this).attr("id");
     var url = "/api/getmap";
     $.ajax({
+<<<<<<< HEAD
         type: "post",
         data: { title: title, id: id },
         url: url,
@@ -93,6 +94,75 @@ $(".path").on("click", function(e) {
             var townships = data.getTownships;
             var city = data.city;
 
+=======
+        type:'post',
+        data:{"title":title,"id":id},
+        url:url,
+        beforeSend: function(){
+          $('.checkbox, .nursgingcheckbox, .jobcheckbox').addClass('block2');
+         },
+        success:function(data){
+            $('.select').css({'display':'block'});
+            $('.checkbox, .nursgingcheckbox, .jobcheckbox').empty();
+            $('.select').empty();
+            $('.text').empty();
+            var getCity = data.getCity;
+            var townships = data.getTownships;
+            var city = data.city;
+            $.each(city,function(k,v){
+              $('.select').append('<option  value="'+v.id+'">'+v.city_name+'</option>').attr('selected',true);       
+            });
+            $.each(getCity,function(k,v){
+              $('.select option[value="'+v.id+'"]').attr("selected",true);
+              $('.select option[value="'+v.id+'"]').css("color",'red');
+              $('.text').append('<button class="all-btn btn secondary-bg-color">'+v.city_name+'<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>')    
+            })
+            $.each(townships,function(k,v){
+                $('.checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+
+                $('.nursgingcheckbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="nuscheckbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="nuscheckbox['+v.id+']">'+v.township_name+'</label></div>');
+
+                $('.jobcheckbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="jobcheckbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="jobcheckbox['+v.id+']">'+v.township_name+'</label></div>');
+            }); 
+        },
+        complete:function(data){
+          $('.checkbox, .nursgingcheckbox, .jobcheckbox').removeClass('block2')
+         }
+    });
+});
+
+$('.select').on('change',function(){
+  var id = this.value;
+  var url = "/api/getCity";
+  $.ajax({
+    type:'post',
+    url:url,
+    data:{"id":id},
+    beforeSend: function(){
+      $('.checkbox, .nursgingcheckbox, .jobcheckbox').addClass('block2');
+     },
+    success:function(data){
+      $('.checkbox, .nursgingcheckbox, .jobcheckbox').empty();
+      $.each(data,function(k,v){
+        $('.checkbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+
+        $('.nursgingcheckbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="nuscheckbox['+v.id+']"><label class="custom-control-label" for="nuscheckbox['+v.id+']">'+v.township_name+'</label></div>');
+
+        $('.jobcheckbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="jobcheckbox['+v.id+']"><label class="custom-control-label" for="jobcheckbox['+v.id+']">'+v.township_name+'</label></div>');
+      })
+    },
+    error:function(error){
+      console.log(error);
+    },
+    complete:function(data){
+      $('.checkbox, .nursgingcheckbox, .jobcheckbox').removeClass('block2');
+     }
+  })
+})
+$('.text').click(function() {
+  $('.checkbox, .nursgingcheckbox, .jobcheckbox').slideToggle("slow");
+});
+>>>>>>> 1b2f967636ed8299dbf04a0bcc048f07717644f8
 
 
             $.each(city, function(k, v) {
