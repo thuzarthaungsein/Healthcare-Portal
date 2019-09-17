@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 
-/* 
+/*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['auth']], function() {
-    
+
 });
 
 
@@ -205,3 +205,11 @@ Route::group(['prefix' => 'comments'], function () {
 Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
+
+// Route::group(['prefix' => 'new'], function () {
+//     Route::post('add', 'PostController@add');
+//     Route::get('editPost/{id}', 'PostController@edit');
+//     Route::post('update/{id}', 'PostController@update');
+//     Route::delete('delete/{id}', 'PostController@delete');
+//     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
+// });

@@ -114,3 +114,4 @@ class HomeController extends Controller
         return $posts;
     }
 }
+

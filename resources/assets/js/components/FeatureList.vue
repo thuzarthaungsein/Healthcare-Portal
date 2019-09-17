@@ -25,22 +25,31 @@
                          No Record Data
 
                  </div>
-                <div v-else class="container-fuid" v-for="feature in features" :key="feature.id">
-                    <div class="card card-default m-b-20">
+                <div v-else class="container-fuid">
 
-                        <div class="card-body">
-                            <div class="row">
-                                <!-- <div class="col-md-10 m-t-8">{{feature.name}}</div> -->
-                                <div class="col-sm-3"><strong>Name :</strong>{{feature.name}}</div>
-                                <div class="col-sm-3"><strong>Short Name :</strong>{{feature.short_name}}</div>
-                                <div class="col-sm-3"><strong>Type :</strong>{{feature.type}}</div>
-                                <div class="col-sm-3 pad-free">
-                                    <small><router-link :to ="{name:'specialfeature', params:{id : feature.id}}" class="btn edit-borderbtn"> 編集</router-link></small> &nbsp;
-                                    <small><a class="btn text-danger delete-borderbtn" @click="deleteFeature(feature.id)"> 削除</a></small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Feature Name</th>
+                                    <th>Short Name</th>
+                                    <th>Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                        <tr v-for="feature in features" :key="feature.id">
+                            <th>{{feature.name}}</th>
+                            <th>{{feature.short_name}}</th>
+                            <th>{{feature.type}}</th>
+                            <th>
+                                <!-- <button class="btn btn-sm btn-primary all-btn" v-if="getUser.status == 1">Approved</button> -->
+                                <router-link :to ="{name:'specialfeature', params:{id : feature.id}}" class="btn edit-borderbtn"> 編集</router-link>
+                                <a class="btn text-danger delete-borderbtn" @click="deleteFeature(feature.id)"> 削除</a>
+                            </th>
+                        </tr>
+                   </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>

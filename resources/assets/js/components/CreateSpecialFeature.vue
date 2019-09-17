@@ -25,6 +25,7 @@
                                         <option value="0">選択してください。</option>
                                         <option >病院</option>
                                         <option >看護</option>
+
                                 </select>
                             </div> <br/>
 
