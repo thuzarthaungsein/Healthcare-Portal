@@ -21,8 +21,8 @@
                             </div>
                             <div class="form-group">
                                 <label>カテゴリー:<span class="error">*</span></label>
-                                <select v-model="category_id" class="form-control" @change='getstates()'>
-                                    <option v-bind:value="-1">{{news.category_name}}</option>
+                                <select v-model="selectedValue" class="form-control" @change='getstates()'>
+                                    <option v-bind:value="0">None</option>
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                         {{category.name}}
                                     </option>
@@ -62,7 +62,7 @@
     export default {
         data() {
                 return {
-                    category_id: '-1',
+                    selectedValue: 0,
                     arr: [],
                     errors: [],
                     news: {
@@ -85,6 +85,8 @@
                     .then((response) => {
                         this.news = response.data;
                         this.updateselected();
+                        console.log(this.news.category_id)
+                        this.selectedValue = this.news.category_id;
                     });
             },
             mounted() {

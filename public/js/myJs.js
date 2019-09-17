@@ -27,6 +27,42 @@ $(".path").hover(
       },1000);
   });
 
+  $('.postal').on('keyup',function(e){
+   
+   
+    if($('#postal').val().length > 4){
+      var url = "/api/hospital/postList";
+      var postal = $('#postal').val();
+      $.ajax({
+        type:'post',
+          data:{"postal":postal},
+          url:url,
+          success: function (data) {
+            var length = data.length;
+            if(length>0){
+              var pref = data[0]['city_Id'];
+              var htmlSelectBox = '';
+              if(data[0]['street']==''){
+                $("#city").val(data[0]['city']);
+              }else{
+                $("#city").val(data[0]['city'] + ' - ' + data[0]['street']);
+              }
+              $('.division').val(pref);
+              $('#jsErrorMessage').html('');
+            }else{
+              $("#city").val('');
+              $("#division").val('0');
+              $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+            }
+          },
+          error: function (error) {
+            alert("Ajax Error!");
+            console.log('Error:', error);
+          }
+      });
+    }
+   });
+
   $(".path").mouseout(function(){
     $('.'+$(this).data('info')).css({
       'background':'transparent',
@@ -80,6 +116,7 @@ $('.path').on("click", function(e) {
     });
 });
 $('#select').on('change',function(){
+
   var id = this.value;
   var url = "/api/getCity";
   $.ajax({
@@ -142,7 +179,7 @@ $('#text').click(function() {
     }
 
     $("select").on("click" , function() {
-  
+        
         $(this).parent(".select-box").toggleClass("open");
         
       });
@@ -159,7 +196,7 @@ $('#text').click(function() {
       
       
       $("select").on("change" , function() {
-        
+      
         var selection = $(this).find("option:selected").text(),
             labelFor = $(this).attr("id"),
             label = $("[for='" + labelFor + "']");
@@ -222,7 +259,7 @@ $('#text').click(function() {
 $(function() {
     $('#btnSubmit').on('click', function() {
       // your code goes here
-      $('#outputSpan').val($('#count').val());
+      $('#outputSpan').val($('#name').val());
       $('#outputfurigana').val($('#furigana').val());
       $('#outputpostal').val($('.postal').val());
       $('#outputdivision').val($('#division').val());

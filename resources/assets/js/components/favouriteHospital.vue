@@ -102,6 +102,7 @@
                         .post('/api/favHospital/' + local_storage)
                         .then(response => {
                             this.fav_hospital = response.data;
+                            console.log(this.fav_hospital)
                         });
                 },
                 removeFav(fav) {
