@@ -122,29 +122,34 @@ $('#text').click(function() {
         parentEle.removeChild(ele);
     }
 
-    function testDel(index)
+    function DeltArr(index,type)
     {
-        var tt = $('#photoarea-'+index+'').attr('class').split("_");
-        var sec_indx = tt[1];
-        var eleId = 'img'+index;
-        var d = '#photo-area'+index;
+        if(type == '0') { type = 'photo'; }
+        if(type == '1') { type = 'video'; }
+
+        var tmp_arr = $('#galleryarea-'+type+''+index+'').attr('class').split("_");
+        var sec_indx = tmp_arr[1];
+        var eleId = 'gallery-'+type+index;
+        
         var ele = document.getElementById(eleId);
-        var parentEle = document.getElementById('gallery');
+        var getId = 'gallery-'+type;
+        var parentEle = document.getElementById(getId);
         parentEle.removeChild(ele);
       
-        var next_id = index;
-        var photo = document.getElementsByClassName('gallery-area');
+        var next_id = index; // to repair
+        var getClass = 'gallery-area-'+type;
+        var photo = document.getElementsByClassName(getClass);
         for (var i = sec_indx; i < photo.length; i++) {
+
           var new_index = Number(i) + Number(1);
-          next_id = Number(next_id) + Number(1);
+          next_id = Number(next_id) + Number(1); // to repair 
     
-          var oldClass = 'photo_'+i; 
-          
-          var newClass = 'photo_'+new_index;
+          var oldClass = 'gallery_'+i; 
+          var newClass = 'gallery_'+new_index;
          
-          $('#img'+next_id+' .gallery-area').removeClass(newClass);
+          $('#gallery-'+type+next_id+' .gallery-area-'+type).removeClass(newClass);
       
-          $('#img'+next_id+' .gallery-area').addClass(oldClass);
+          $('#gallery-'+type+next_id+' .gallery-area-'+type).addClass(oldClass);
         
         }
     }
