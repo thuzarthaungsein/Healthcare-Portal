@@ -26,6 +26,9 @@ import VueFullpage from 'fullpage-vue'
 Vue.use(VueFullpage)
 //end onepage
 
+//vue carousel
+import VueCarousel from '@chenfengyuan/vue-carousel';
+Vue.component(VueCarousel.name, VueCarousel);
 //start editor
 import CKEditor from '@ckeditor/ckeditor5-vue';
 Vue.use( CKEditor );
@@ -57,9 +60,10 @@ const router = new VueRouter({
     routes: routes
 });
 
+
 const app = new Vue({
     el: '#app',
     router: router,
     // render: h => h(App),
+    
 });
-

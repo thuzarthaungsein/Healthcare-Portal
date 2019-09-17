@@ -126,23 +126,30 @@
                         </div>                 
                     
                         
-                    
+                              
                       <div class="card-body">
                             <div class="row col-12 pad-free">
                             <div class="col-10">
-                              <select name="" id="select" class="form-control custom-select  m-b-10">
+                              <select name="" id="select" class="form-control custom-select select m-b-10">
                                 <option ></option>
                               </select>
                             </div>
-                            <div class="col-2 pad-free" id="text">                          
+                            <div class="col-2 pad-free text" id="text">                          
                             </div>                                                      
-                            </div>                       
-                            <div id="checkbox" class="row col-12"></div>
+                            </div>     
+                             <!-- Image loader -->
+                             <div class='loader img'>
+                                  <img src='/images/ajax-loader.gif'>
+                              </div>
+                              <!-- Image loader -->                  
+                            <div class="row col-12 nursgingcheckbox">
+                             
+                            </div>
                       </div>
                       </div>
-                                
+                     
             </div>
-            <div id="info-box"></div>
+            <div class="info-box"></div>
             <div class="col-sm-5">
               <!-- <div id="text"></div> -->           
               <svg class="map_svg" viewBox="100 0 400 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586" width="437.33432" height="516.01587"> 
@@ -201,8 +208,9 @@
       <asidebar></asidebar> 
     </div>
   </div>
-  
+  <input type="button" id="save_value" name="save_value" value="Save" />
 </div>
+
 </template>
 <style scoped>
   
@@ -246,7 +254,7 @@
   color: #000
 }
 
-.path:hover, polygon:hover {
+.path:hover, a:hover {
   fill: #20487c !important;
   stroke: #002868 !important;
   stroke-width:2px;
@@ -256,7 +264,7 @@
 }
 
 
-#select{
+.select{
   display:none;
 }
 span.tooltip {
@@ -289,6 +297,13 @@ span.tooltip::before {
 
 span:hover::before {
   display: inline-block;
+}
+.img{
+  display: block;
+  z-index:1000;
+  width:100%;
+  position:absolute;
+  border:1px solid red;
 }
 </style>
 
