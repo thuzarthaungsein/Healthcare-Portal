@@ -124,18 +124,28 @@ $('#text').click(function() {
 
     function testDel(index)
     {
+        var tt = $('#photoarea-'+index+'').attr('class').split("_");
+        var sec_indx = tt[1];
         var eleId = 'img'+index;
+        var d = '#photo-area'+index;
         var ele = document.getElementById(eleId);
         var parentEle = document.getElementById('gallery');
         parentEle.removeChild(ele);
-
+      
+        var next_id = index;
         var photo = document.getElementsByClassName('gallery-area');
-        for (var i = index; i < photo.length; i++) {
-          var new_index = i+1;
-          var oldClass = 'photo'+i;
-          var newClass = 'photo'+new_index;
-          $('#img'+new_index+' .gallery-area').removeClass(newClass);
-          $('#img'+new_index+' .gallery-area').addClass(oldClass);
+        for (var i = sec_indx; i < photo.length; i++) {
+          var new_index = Number(i) + Number(1);
+          next_id = Number(next_id) + Number(1);
+    
+          var oldClass = 'photo_'+i; 
+          
+          var newClass = 'photo_'+new_index;
+         
+          $('#img'+next_id+' .gallery-area').removeClass(newClass);
+      
+          $('#img'+next_id+' .gallery-area').addClass(oldClass);
+        
         }
     }
 
