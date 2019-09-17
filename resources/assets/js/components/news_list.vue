@@ -37,9 +37,9 @@
                 <h5 class="header">ニュース一覧</h5>
                 <div class="col-12 scrolldiv">
                     <div v-if="!this.news_list.length" class="card card-default m-b-20" style="padding-top:30px; height:700px; text-align:center ">
-                           
-                          No record data 
-                          
+
+                          No record data
+
                     </div>
                     <div v-else v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
                     <div class="card-body news-post">
@@ -61,7 +61,7 @@
                                 <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a>
                             </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>

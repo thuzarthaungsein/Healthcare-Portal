@@ -25,6 +25,7 @@ class SpecialFeatureController extends Controller
         $request->validate([
             'name' => 'required',
             'short_name'=>'required',
+            'type.required' => '選択してください。',
 
         ]);
 

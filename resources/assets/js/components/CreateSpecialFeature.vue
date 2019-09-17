@@ -22,9 +22,9 @@
                             </div>
                             <div class="form_group">
                                 <select v-model="selectedValue" name="type" class="form-control" @change="onChange()">
-                                        <option value="0">選択してください。</option>
-                                        <option >病院</option>
-                                        <option >看護</option>
+                                        <option value="選択してください">選択してください。</option>
+                                        <option value="病院">病院</option>
+                                        <option value="看護">看護</option>
 
                                 </select>
                             </div> <br/>
@@ -55,15 +55,24 @@ export default {
                         user_id:'',
                         recordstatus: ''
                     },
-                    selectedValue:0
+                    // selectedValue:0
             }
         },
           created() {
             this.axios
                 .get(`/api/feature/edit/${this.$route.params.id}`)
                 .then((response) => {
-                    //this.selectedValue = response.data.type;
+
                     this.feature = response.data;
+                    if(this.feature.type == '病院')
+                    {
+                        this.selectedValue = '病院';
+                    }
+                    else if (this.feature.type == '看護') {
+                        this.selectedValue = '看護';
+                    }else {
+                        this.selectedValue='選択してください'
+                    }
 
                 });
         },
