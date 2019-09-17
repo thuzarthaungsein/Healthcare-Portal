@@ -15,18 +15,6 @@
                                 <input type="text" class="form-control"  v-model="feature.name"  placeholder="Feature Name" >
                                 <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                             </div>
-<<<<<<< HEAD
-                             <div class="form-group">
-                                <label>Short Name :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="Feature Name" >
-                                <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
-                            </div>
-                             <div class="form-group">
-                                <label>Feature Name :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="Feature Name" >
-                                <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
-                            </div>
-=======
                             <div class="form-group">
                                 <label>Feature Short Name :<span class="error">*</span></label>
                                 <input type="text" class="form-control"  v-model="feature.short_name"  placeholder="Feature Short Name" >
@@ -39,7 +27,6 @@
                                         <option >看護</option>
                                 </select>
                             </div> <br/>
->>>>>>> 2ac19d7b90124f6ba146bb633fc817c20f8eb4d8
 
                             <div class="form-group ">
                                 <router-link class="btn btn-danger all-btn" to="/featurelist" > キャンセル </router-link>
