@@ -1,34 +1,33 @@
-
-   <template>
-            <div class="fullpage-container"> 
+<template>
+            <div class="fullpage-container" style="height: 150vh;">
                 <div class="button-group">
-                        <button type="button" :class="{active:index ==0}" @click="moveTo(0)">first page</button>
-                        <button type="button" :class="{active:index ==1}" @click="moveTo(1)">Second page</button>
-                        <button type="button" :class="{active:index ==2}" @click="moveTo(2)">Third page</button>  
-                        <button type="button" :class="{active:index ==3}" @click="moveTo(3)">Fourth page</button>            
+                        <button type="button" :class="{active:index ==0}" @click="moveTo(0)">Information</button>
+                        <button type="button" :class="{active:index ==1}" @click="moveTo(1)">Features</button>
+                        <button type="button" :class="{active:index ==2}" @click="moveTo(2)">Cost</button>
                 </div>
-              
+
                 <div class="fullpage-wp" v-fullpage="opts" ref="fullpage">
                     <div class="page-1 page">
-                        <h1 class="part-1" >vue-fullpage.js</h1>
-                       
+                        <h1 class="part-1" >Information</h1>
+                            <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id">
+                            {{nurseprofile.special_features}}
+                        </div>
+
                     </div>
                     <div class="page-2 page">
-                        <h2 class="part-2" >Easy to use plugin</h2>
+                        <h2 class="part-2" >Features</h2>
+                        <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id">
+                            {{nurseprofile.feature}}
+                        </div>
+
                     </div>
                     <div class="page-3 page">
-                        <h2 class="part-3" >Working On Tablets</h2>
-                        
-                       
+                        <h2 class="part-3" >Cost</h2>
                     </div>
-                   <div class="page-4 page">
-                        <h1 class="part-4" >vue-fullpage.js</h1>
-                       
-                    </div>    
                 </div>
             </div>
         </template>
-   
+
  <script>
  export default {
   data() {
@@ -36,11 +35,12 @@
             return {
                 index: 0,
                 pageNum: 0,
+                nursing_profiles:[],
                 opts: {
                     start: 0,
                     dir: 'v',
                     loop: false,
-                    duration: 500,
+                    duration:1000,
                     beforeChange: function(ele, current, next) {
                         console.log('before', current, next)
                         that.index = next;
@@ -52,15 +52,22 @@
                 }
             };
         },
+        created(){
+        this.axios
+                .get('/api/nurse')
+                .then(response => {
+                    this.nursing_profiles = response.data;
+                    console.log(this.nursing_profiles);
+                });
+    },
         methods: {
             moveTo: function(index) {
-               
+
                 this.$refs.fullpage.$fullpage.moveTo(index, true);
-            }
-           
+            },
         }
  }
-       
+
 </script>
 <style scoped>
 .fullpage-container {
@@ -72,10 +79,9 @@
 </style>
 
 
-    
-
-    
-    
 
 
-    
+
+
+
+

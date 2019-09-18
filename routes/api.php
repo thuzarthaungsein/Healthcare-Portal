@@ -205,6 +205,7 @@ Route::group(['prefix' => 'comments'], function () {
 Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
+Route::get('nurse','ProfilePublishController@index');
 
 // Route::group(['prefix' => 'new'], function () {
 //     Route::post('add', 'PostController@add');
