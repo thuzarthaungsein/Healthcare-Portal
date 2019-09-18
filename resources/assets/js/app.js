@@ -21,6 +21,8 @@ import Autocomplete from 'vuejs-auto-complete';
 
 //start onepage
 import 'animate.css'
+// import 'fullpage.js/vendors/scrolloverflow'
+// import './fullpage.scrollHorizontally.min'
 import 'fullpage-vue/src/fullpage.css'
 import VueFullpage from 'fullpage-vue'
 Vue.use(VueFullpage)
@@ -65,5 +67,5 @@ const app = new Vue({
     el: '#app',
     router: router,
     // render: h => h(App),
-    
+
 });
