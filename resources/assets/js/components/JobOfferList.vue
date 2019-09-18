@@ -3,20 +3,23 @@
       <div class="col-12">
             <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
+                            <!-- <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
                             <li class="breadcrumb-item"><a href="../news/news_details.html"> 新しい詳細</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                            就職活動リスト</li>
+                                            就職活動リスト</li> -->
 
                     </ol>
-           
-
             </nav>
       
-        <router-link to= 'joboffercreate' class="nav-link ml-auto pull-right float-right">Create New Job</router-link>
+        <router-link to= '/joboffercreate' class="nav-link ml-auto pull-right ">Create New Job</router-link>
             <div class="scroll col-12">
+                    <div v-if="!this.jobs.length"  class="card card-default m-b-20 " style="padding-top:30px; height:700px; text-align:center ">
+                           
+                          No Record Data 
+                          
+                    </div>
                       
-                    <div v-for="job in jobs" :key="job.id" class="card card-default m-b-20">
+                    <div v-else v-for="job in jobs" :key="job.id" class="card card-default m-b-20">
                             <div class="card-body news-post">
                             <div class="row">
                                     <!-- <div class="col-md-2">
@@ -57,6 +60,8 @@ export default {
                 .get('/api/job/index')
                 .then(response => {
                     this.jobs = response.data;
+                    
+                    
                 });
                 this.axios
                 .get('/api/user')

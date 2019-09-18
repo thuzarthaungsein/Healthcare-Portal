@@ -31,24 +31,24 @@ import medicalacceptancelist from './components/medicalacceptancelist.vue';
 import editmedicalacceptance from './components/editmedicalacceptance.vue';
 import userPasswordResetList from './components/userPasswordResetList.vue';
 import HospitalHistory from './components/HospitalHistory.vue';
-import hospitalview from './components/hospitalview.vue';
+import favouriteHospital from './components/favouriteHospital.vue';
 import NursingHistory from './components/NursingHistory.vue';
 import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
 import VideoUpload from './components/VideoUpload.vue';
-
 import GoogleMap from './components/GoogleMap.vue';
-
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
 import editadvertisement from './components/editadvertisement.vue';
-import favouriteBtn from './components/favouriteBtn.vue';
 import comment from './components/Comment.vue';
 import commentlist from './components/commentlist.vue';
 import featurelist from './components/FeatureList.vue';
+import favouriteNursing from './components/favouriteNursing.vue';
 import passport from './components/passport.vue';
 import specialfeature from './components/CreateSpecialFeature.vue';
+import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
+
 export const routes = [
       {
         name: 'home',
@@ -226,13 +226,15 @@ export const routes = [
       },
 
       {
-        name: 'hospitalview',
-        path: '/hospitalview',
-        component: hospitalview
+        name: 'favouriteHospital',
+        path: '/favouriteHospital',
+        component: favouriteHospital
       },
-
-
-
+      {
+        name: 'favouriteNursing',
+        path: '/favouriteNursing',
+        component: favouriteNursing
+      },
       {
         name:'type',
         path:'/type',
@@ -273,12 +275,7 @@ export const routes = [
       name: 'nursing_profile',
       path: '/nursing_profile',
       component: NursingProfile
-     },
-  {
-    name: 'favouriteBtn',
-    path: '/favouriteBtn',
-    component: favouriteBtn
-},
+     },  
   {
     name: 'videoupload',
     path: '/videoupload',
@@ -303,7 +300,13 @@ export const routes = [
     name: 'featurelist',
     path: '/featurelist',
     component: featurelist
-  }
+  },
+  {
+    name: 'hospitalfavouritemail',
+    path: '/hospitalfavouritemail',
+    component: hospitalfavouritemail
+  },
+
 
   
 ];

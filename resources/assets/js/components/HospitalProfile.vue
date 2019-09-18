@@ -39,17 +39,20 @@
 
                     <div class="form-group">
                             <label class="heading-lbl">診療科目<span class="error">*</span></label>
-                            <textarea name="medicaldepartment" class="form-control"></textarea>
+                            <!-- <textarea name="medicaldepartment" class="form-control"></textarea> -->
+                              <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">専門医<span class="error">*</span></label>
-                            <textarea name="specialist" class="form-control"></textarea>
+                            <!-- <textarea name="specialist" class="form-control"></textarea> -->
+                              <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">医院からのお知らせ<span class="error">*</span></label>
-                            <textarea name="detailsinfo" class="form-control"></textarea>
+                            <!-- <textarea name="detailsinfo" class="form-control"></textarea> -->
+                              <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
                     </div>
 
                     <!-- <div class="form-group">
@@ -118,7 +121,8 @@
 
                     <div class="form-group">
                         <label class="heading-lbl">休診日</label>
-                        <textarea name="close-day" class="form-control"></textarea>
+                        <!-- <textarea name="close-day" class="form-control"></textarea> -->
+                          <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
                     </div>
 
                     <div class="form-group">
@@ -136,11 +140,28 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="heading-lbl">こだわりの特長<span class="error">*</span></label>
                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
 
-                        <div class="col-md-12" id="special-features"></div>
+                        <div class="col-md-12" id="special-features">
+
+                        </div>
+                    </div> -->
+
+                    <div class="form-group">
+                        <label  class="heading-lbl">こだわりの特長</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down"></i></span>
+
+                        <div class="col-md-12 special-feature-toggle-div toggle-div">
+                                <div class="row">
+                                        <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
+                                                <label>
+                                                <input type="checkbox">
+                                                {{fac.description}}
+                                                </label>
+                                        </div>
+                                </div>                                        
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -150,7 +171,8 @@
 
                     <div class="form-group">
                             <label class="heading-lbl">混雑状況</label>
-                            <textarea name="congestion" class="form-control"></textarea>
+                            <!-- <textarea name="congestion" class="form-control"></textarea> -->
+                              <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
                     </div>
 
                     <div class="form-group">
@@ -164,11 +186,13 @@
 
                                 <div class="form-group">
                                         <label>住所<span class="error">*</span></label>
-                                        <textarea name="address" rows="10" class="form-control"></textarea>
+                                        <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                          <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
                                 </div>
                                 <div class="form-group">
                                         <label>交通 / アクセス<span class="error">*</span></label>
-                                        <textarea name="address" rows="10" class="form-control"></textarea>
+                                        <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                          <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
                                 </div>
                         </div>
                     </div>
@@ -205,14 +229,29 @@
 </template>
 
 <script>
+import 'quill/dist/quill.snow.css'
+import {quillEditor} from 'vue-quill-editor'
+import {Button, Input,Select} from 'iview'
 import GoogleMap from './GoogleMap.vue'
 export default {
         components: {
         GoogleMap,
+        Button,
+        Input,
+        Select,
+        quillEditor
         },
+       
        data() {
                 return {
                         fac_list: [],
+                        content: '',
+                        editorOption:{
+                        debug:'info',
+                        placeholder:'Type your post...',
+                        readonly:true,
+                        theme:'snow',
+                }
                 }
         },
         created(){
@@ -243,7 +282,8 @@ export default {
                     var h = date.getHours();
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
-                    $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
+                    //$("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"> <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" /></div>');
+                      $("#gallery").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
             },
             galleryVideoAdd() {
                     var date = new Date;
@@ -252,11 +292,13 @@ export default {
                     var h = date.getHours();
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
-                    $("#gallery-video").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
+                      $("#gallery-video").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15"></textarea></div>');
+                     // $("#gallery-video").append('<div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 hello '+classname+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15"><quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" /></div>');
             },
             
             specialFeAdd() {
-                $("#special-features").append('<div class="row m-t-15"><div class="col-md-10"><input type="text" class="form-control" name="specialfeature[]"></div><div class="col-md-2"><span class="btn text-danger delete-borderbtn">Delete</span></div></div>');
+                    $(".special-feature-toggle-div").toggle('medium');
+                // $("#special-features").append('<div class="row m-t-15"><div class="col-md-10"><input type="text" class="form-control" name="specialfeature[]"></div><div class="col-md-2"><span class="btn text-danger delete-borderbtn">Delete</span></div></div>');
             },
 
         }

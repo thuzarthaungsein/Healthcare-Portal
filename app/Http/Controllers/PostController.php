@@ -13,6 +13,14 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // function __construct()
+    // {
+    //      $this->middleware('permission:role-list');
+    //      $this->middleware('permission:role-create', ['only' => ['create','store']]);
+    //      $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
+    //      $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+    // }
+
     public function index()
     {
 
@@ -23,6 +31,7 @@ class PostController extends Controller
     // add news
     public function add(Request $request)
     {
+        // return $request->input('related_news');
         $request->validate([
             'title' => 'required',
             'main_point' => 'required',
@@ -45,6 +54,7 @@ class PostController extends Controller
                 'body' => $request->input('body'),
                 'photo' =>$imageName,
                 'category_id' =>$request->input('category_id'),
+                'related_news' =>$request->input('related_news'),
                 'user_id' => 1,
                 'recordstatus' => 1
             ]);
@@ -55,13 +65,11 @@ class PostController extends Controller
                 'main_point' => $request->input('main_point'),
                 'body' => $request->input('body'),
                 'category_id' =>$request->input('category_id'),
+                'related_news' =>$request->input('related_news'),
                 'user_id' => 1,
                 'recordstatus' => 1
             ]);
         }
-
-
-
         $post->save();
 
         // return response()->json('The New successfully added');
@@ -98,9 +106,12 @@ class PostController extends Controller
     public function show($id)
     {
         return Post::findOrFail($id);
-    //     $news_list = Post::find($post);
-    //     $data = array("news_list" => $news_list);
-    //    return response()->json($data);
+
+    }
+    public function relatednews ($id) {
+        $related_news =Post::where('category_id',$id)->orderBy('created_at', 'desc')->limit('4')->get();
+        //return $latest_post_all_cat;
+        return response()->json($related_news);
     }
 
     /**
@@ -149,6 +160,7 @@ class PostController extends Controller
             'body' => $request->input('body'),
             'photo' => $imageName,
             'category_id' =>$request->input('category_id'),
+            'related_news' =>$request->input('related_news'),
             'user_id' => 1,
             'recordstatus' => 1
         );
@@ -201,4 +213,10 @@ class PostController extends Controller
                         ->get();
         return $query;
     }
+
+    public function getPostById($cat_id) {
+        $posts = Post::where("category_id",$cat_id)->orderBy('created_at','DESC')->get();
+        return $posts;
+    }
+
 }

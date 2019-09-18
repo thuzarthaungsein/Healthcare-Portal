@@ -27,6 +27,11 @@
         </h4>  -->
         <!--card-->
         <div class="col-md-12 scrolldiv">
+            <div v-if="!this.types.length"  class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
+                    
+                    No record data 
+                    
+            </div>     
             <div class="container-fuid" v-for="type in types" :key="type.id" >
                 <div class="card card-default m-b-20">                    
                     <div class="card-body">

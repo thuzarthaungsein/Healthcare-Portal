@@ -31,7 +31,7 @@
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="/images/trustgrowth.png" class="brand_logo" alt="trustgrowth">
+						<img src="/images/sample_1.png" class="brand_logo" alt="Logo">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">

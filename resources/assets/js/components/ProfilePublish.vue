@@ -1,115 +1,81 @@
-<style>
-        .header{
-            width:100%;
-            height:50px;
-        }
-        .fixed {
-            position: fixed;
-            top: 20;
-            width: 50.5%;
-            z-index: 1000;
-        }
-        .sticky {
-            position:fixed;
-            top:30;
-            width: 51.1%;
-            z-index: 1000;
-            }
-</style>
 
-<template class="temp">    
- <div class="row">
-      <div class="col-12 detal_wrap" id="dw" >
-          <div class="card "> 
-            <!-- <div class="pagelink_s" id="a_sp">
-                <nav class="nav_menu">
-                <ul class="tfacilitydetaildetail">
-                    <li><a href="#sp_a1">section 1</a></li>
-                    <li><a href="#sp_a2">section 2</a></li>
-                    <li><a href="#sp_a3">section 3</a></li>
-                </ul>
-                </nav>
-            </div>  -->
-            <div class="header">
-                <div class="pagelink_s a_sp">
-                    <nav class="nav_menu" id="profilePublish">
-                        <ul class="tfacilitydetaildetail">
-                            <li><a href="#sp_a1" id="a">section 1</a></li>
-                            <li><a href="#sp_a2" id="a">section 2</a></li>
-                            <li><a href="#sp_a3" id="a">section 3</a></li>
-                            
-                        </ul>
-                    </nav>
+   <template>
+            <div class="fullpage-container"> 
+                <div class="button-group">
+                        <button type="button" :class="{active:index ==0}" @click="moveTo(0)">first page</button>
+                        <button type="button" :class="{active:index ==1}" @click="moveTo(1)">Second page</button>
+                        <button type="button" :class="{active:index ==2}" @click="moveTo(2)">Third page</button>  
+                        <button type="button" :class="{active:index ==3}" @click="moveTo(3)">Fourth page</button>            
+                </div>
+              
+                <div class="fullpage-wp" v-fullpage="opts" ref="fullpage">
+                    <div class="page-1 page">
+                        <h1 class="part-1" >vue-fullpage.js</h1>
+                       
+                    </div>
+                    <div class="page-2 page">
+                        <h2 class="part-2" >Easy to use plugin</h2>
+                    </div>
+                    <div class="page-3 page">
+                        <h2 class="part-3" >Working On Tablets</h2>
+                        
+                       
+                    </div>
+                   <div class="page-4 page">
+                        <h1 class="part-4" >vue-fullpage.js</h1>
+                       
+                    </div>    
                 </div>
             </div>
-         <section id="sp_a1" class="section-header wow fadeInUp">
-            <div class="container">     
-                <h3>section 1</h3>
-                    <div class="col-md-12"><img src="images/h6.jpg" class="img-fluid img-thumbnail" alt=""></div>
-                   
-                    <div class="row" style="padding-left:20px;padding-right:20px;">
-                        <h2>We are professional</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                       
-                        <h2>We are professional</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-            </div>                  
-        </section>
-
-        
-        <section id="sp_a2">
-            <div class="container">
-              
-                 <header class="section-header wow fadeInUp">
-                     <h3>section 2 </h3>
-                 </header>
+        </template>
+   
+ <script>
+ export default {
+  data() {
+            var that = this;
+            return {
+                index: 0,
+                pageNum: 0,
+                opts: {
+                    start: 0,
+                    dir: 'v',
+                    loop: false,
+                    duration: 500,
+                    beforeChange: function(ele, current, next) {
+                        console.log('before', current, next)
+                        that.index = next;
+                    },
+                    afterChange: function(ele, current) {
+                        that.index = current;
+                        console.log('after', current)
+                    }
+                }
+            };
+        },
+        methods: {
+            moveTo: function(index) {
                
-                    <!-- <div class="card-header bg-dark text-center text-light">
-                      <h2 style="text-align:center;">Section 2</h2>
-                    </div> -->
-                   
-                    <div class="col-md-12"><img src="images/h10.jpg" class="img-fluid img-thumbnail" alt=""></div>
-                   
-                    <div class="row" style="padding-left:20px;padding-right:20px;">
-                        <h2>Our Plan</h2>
-                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                       
-                         <h2>Our Plan</h2>
-                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    </div>                    
-            </div>
-        </section>
-
+                this.$refs.fullpage.$fullpage.moveTo(index, true);
+            }
            
-        <section id="sp_a3">
-            <div class="container">
-              
-                <header class="section-header wow fadeInUp">
-                     <h3>section 3 </h3>
-                 </header>
-                
-                    <div class="col-md-12"><img src="images/11.JPG" class="img-fluid img-thumbnail" alt=""></div>
-                   
-                    <div class="row" style="padding-left:20px;padding-right:20px;">
-                        <h2>Our Plan</h2>
-                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                       
-                       <h2>Our Plan</h2>
-                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>                  
-                      
-                    </div>            
-            </div>
-        </section>
-
-         </div>
-    </div>
-</div>
-
-</template>
-
-
-<script>
-
-
+        }
+ }
+       
 </script>
+<style scoped>
+.fullpage-container {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+}
+</style>
+
+
+    
+
+    
+    
+
+
+    
