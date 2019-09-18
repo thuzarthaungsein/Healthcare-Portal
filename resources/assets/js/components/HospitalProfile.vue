@@ -296,7 +296,6 @@ export default {
                     this.type = 0;
 
                      var photo = document.getElementsByClassName('gallery-area-photo');
-                     alert(photo.length);
                      if(photo.length == 0) {
                              this.count = this.count + 1;
                      } else {
@@ -311,7 +310,7 @@ export default {
                     var s = date.getMilliseconds();
                     var m = date.getMinutes();
                     var h = date.getHours();
-                    var type = 'video';
+                    this.type = 1;
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
                   

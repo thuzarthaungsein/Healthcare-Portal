@@ -126,7 +126,7 @@ $('#text').click(function() {
     {
         if(type == '0') { type = 'photo'; }
         if(type == '1') { type = 'video'; }
-    
+      
         var isDivThere = $('#gallery-'+type+' #gallery-'+type+index+'').index(); 
 
         var j_arr = $('#galleryarea-'+type+''+index+'').attr('class').split("_");
