@@ -81,7 +81,10 @@ export const routes = [
     {
         name: 'customerlist',
         path: '/customerlist',
-        component: customerlist
+        component: customerlist,
+        meta: { 
+          requiresAuth: true
+        }
     },
     {
       name: 'customersearchlist',
@@ -121,7 +124,10 @@ export const routes = [
       {
         name: 'editPost',
         path: '/editPost',
-        component: editPost
+        component: editPost,
+        meta: { 
+          requiresAuth: true
+        }
       },
       {
         name: 'categorylist',
@@ -311,3 +317,6 @@ export const routes = [
 
   
 ];
+
+
+

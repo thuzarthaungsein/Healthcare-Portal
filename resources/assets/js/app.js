@@ -14,7 +14,7 @@ import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 
-import {routes} from './route';
+import {routes} from './route'; 
 import * as VueGoogleMaps from "vue2-google-maps";
 // import Vue from 'vue';
 import Autocomplete from 'vuejs-auto-complete';
@@ -24,6 +24,7 @@ import Autocomplete from 'vuejs-auto-complete';
 
 
 import CKEditor from '@ckeditor/ckeditor5-vue';
+import { Checkbox } from 'iview';
 
 Vue.use( CKEditor );
 //end editor
@@ -61,3 +62,30 @@ const app = new Vue({
     // render: h => h(App),
     
 });
+
+const tt = localStorage.getItem('token','api');
+console.log(tt)
+var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    while ( i-- ) {
+        values.push( localStorage.getItem(keys[i]) );
+    }
+
+  console.log()
+export default {
+    loggedIn: false,
+    user: null,
+    check() {
+        if (localStorage.getItem('api_token') !== null) {
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('api_token')
+            axios.get('api/profile').then(response => {
+                this.user = response.data.data
+                this.loggedIn = true
+            }).catch(error => {
+                router.go({name: 'login'})
+            })
+        }
+    }
+}
