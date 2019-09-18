@@ -50,7 +50,7 @@
                             </div>
                              <div class="col-md-2" v-else></div>
                             <div class="col-md-10">
-                                <div class="col-sm-8 pad-free mb-2"><b>
+                                <div class="row col-12 mb-2"><b>
                                     <router-link :to="{name: 'newdetails', params:{id:newsList.id}}" class="mr-auto">{{newsList.title}}</router-link>
                                     <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
                                     <!-- <a hrဖef="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
@@ -59,7 +59,7 @@
                                  <div class="row col-12 mt-2">
                                 <router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="btn edit-borderbtn">編集</router-link>&nbsp;
                                 <!-- <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a> -->
-                                 <div class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</div>                                
+                                 <button class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</button>                                
                             </div>
                             </div>
 

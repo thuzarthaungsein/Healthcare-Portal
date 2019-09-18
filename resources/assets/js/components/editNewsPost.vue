@@ -142,10 +142,18 @@
                     updateselected() {
                         $('.image_update').html("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/news/" + this.news.photo + " class='show-img''></div>");
                     },
-                    updatepost() {
+                    updatepost() {                       
+                        this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '更新されました',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            width: 250,
+                            height: 200,
 
-                        let fData = new FormData();
-
+                        }).then((response) => {
+                             let fData = new FormData();
                         fData.append('photo', this.news.photo)
                         fData.append('title', this.news.title)
                         fData.append('main_point', this.news.main_point)
@@ -154,7 +162,6 @@
                         fData.append('related_news', this.checkedNews)
 
                         axios.post(`/api/new/update/${this.$route.params.id}`, fData)
-                            .then((response) => {
                                 alert('Successfully Updated!')
                                 this.$router.push({
                                     name: 'news_list'
