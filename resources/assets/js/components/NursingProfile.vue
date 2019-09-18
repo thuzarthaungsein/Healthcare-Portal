@@ -221,10 +221,19 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-                                    <label class="heading-lbl">こだわりの特長<span class="error">*</span></label>
-                                    <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
+                                        <label  class="heading-lbl">こだわりの特長</label>
+                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down"></i></span>
 
-                                    <div class="col-md-12 pad-free" id="special-features"></div>
+                                        <div class="col-md-12 special-feature-toggle-div toggle-div">
+                                                <div class="row">
+                                                        <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
+                                                                <label>
+                                                                <input type="checkbox">
+                                                                        {{feat.name}}
+                                                                </label>
+                                                         </div>
+                                                </div>                                        
+                                        </div>
                                 </div>
                             </td>
                         </tr>
@@ -292,6 +301,7 @@ export default {
 
         return {
                 fac_list: [],
+                feature_list:[],
                 medical_acceptance:[],
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
                 type:'',
@@ -324,6 +334,12 @@ export default {
                 .then(response => {
                     this.medical_acceptance = response.data;
                 //      console.log(response.data);
+                });
+
+                this.axios
+                .get('/api/featurelist')
+                .then(response=>{
+                this.feature_list = response.data;
                 });
         },
         methods: {
@@ -407,7 +423,7 @@ export default {
             },
 
             specialFeAdd() {
-                $("#special-features").append('<div class="row m-t-15"><div class="col-md-10"><input type="text" class="form-control" name="specialfeature[]"></div><div class="col-md-2"><span class="btn text-danger delete-borderbtn">Delete</span></div></div>');
+                     $(".special-feature-toggle-div").toggle('medium');
             },
 
              createProfile() {

@@ -154,10 +154,10 @@
 
                         <div class="col-md-12 special-feature-toggle-div toggle-div">
                                 <div class="row">
-                                        <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
+                                        <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
                                                 <label>
                                                 <input type="checkbox">
-                                                {{fac.description}}
+                                                {{feat.name}}
                                                 </label>
                                         </div>
                                 </div>                                        
@@ -245,6 +245,7 @@ export default {
        data() {
                 return {
                         fac_list: [],
+                        feature_list:[],
                         count:-1, v_count: -1,
                         type:'',
                         title:[], v_title:[],
@@ -265,6 +266,12 @@ export default {
                 .get('/api/facilities')
                 .then(response=>{
                 this.fac_list = response.data;
+                });
+
+                this.axios
+                .get('/api/featurelist')
+                .then(response=>{
+                this.feature_list = response.data;
                 });
         },
         methods: {
@@ -323,7 +330,6 @@ export default {
             
             specialFeAdd() {
                     $(".special-feature-toggle-div").toggle('medium');
-                // $("#special-features").append('<div class="row m-t-15"><div class="col-md-10"><input type="text" class="form-control" name="specialfeature[]"></div><div class="col-md-2"><span class="btn text-danger delete-borderbtn">Delete</span></div></div>');
             },
 
             createProfile() {
