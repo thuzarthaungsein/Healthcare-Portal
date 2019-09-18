@@ -75,44 +75,44 @@
                                         </tr>
                                         <tr>
                                                 <td>Monday</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from0"> <span>To:</span><input type="text" class="form-control am-to0"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from0"> <span>To:</span><input type="text" class="form-control pm-to0"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Tuesday</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from1"> <span>To:</span><input type="text" class="form-control am-to1"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from1"> <span>To:</span><input type="text" class="form-control pm-to1"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Wed</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from2"> <span>To:</span><input type="text" class="form-control am-to2"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from2"> <span>To:</span><input type="text" class="form-control pm-to2"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Thu</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from3"> <span>To:</span><input type="text" class="form-control am-to3"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from3"> <span>To:</span><input type="text" class="form-control pm-to3"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Friday</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from4"> <span>To:</span><input type="text" class="form-control am-to4"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from4"> <span>To:</span><input type="text" class="form-control pm-to4"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sat</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from5"> <span>To:</span><input type="text" class="form-control am-to5"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from5"> <span>To:</span><input type="text" class="form-control pm-to5"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sunday</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from6"> <span>To:</span><input type="text" class="form-control am-to6"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from6"> <span>To:</span><input type="text" class="form-control pm-to6"></td>
                                                 <td></td>
                                         </tr>
                                 </table>
@@ -252,6 +252,7 @@ export default {
                         description:[], v_description:[],
                         img:[],
                         img_list:[], video_list:[],
+                        shedule_am:[], shedule_pm:[], schedule_list:[],
                         content: '',
                         editorOption:{
                         debug:'info',
@@ -347,10 +348,24 @@ export default {
 
                 for (var i = 0; i < video.length; i++) {
                         this.v_title[i] = $('.gallery-area-video.gallery_'+i+' .title').val();
-                        this.v_description[i] = $('.gallery-area-video.gallery_'+i+' .description').val(); 
+                        this.v_description[i] = $('.gallery-area-video.gallery_'+i+' .description').val();
+
                         this.video_list.push({title: this.v_title[i], description: this.v_description[i]});
                 }
-                console.log(this.video_list);return;
+                console.log(this.video_list);
+
+
+                for(var j = 0; j< 2; j++) {
+                        for(var i = 0; i< 7; i++) {
+                                if(j == 0) { this.shedule_am[i] = $('.form-control.am-from'+i+'').val() + '-' + $('.form-control.am-to'+i+'').val(); } 
+                                if(j == 1) { this.shedule_pm[i] = $('.form-control.pm-from'+i+'').val() + '-' + $('.form-control.pm-to'+i+'').val(); }
+                        }
+
+                        if(j == 0) { this.schedule_list.push({am: this.shedule_am}); }
+                        if(j == 1) { this.schedule_list.push({pm: this.shedule_pm}); }
+                }
+                console.log(this.schedule_list);return;
+                
             }
 
         }
