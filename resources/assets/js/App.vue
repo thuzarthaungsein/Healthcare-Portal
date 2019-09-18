@@ -78,6 +78,7 @@
 </template>
 
 <script>
+
   import ads from './components/Ads.vue'
   import relatedNews from './components/Relatednews.vue'
   import hospitalSearch from './components/hospitalSearch.vue'
