@@ -126,13 +126,15 @@ $('#text').click(function() {
     {
         if(type == '0') { type = 'photo'; }
         if(type == '1') { type = 'video'; }
+        if(type == '2') { type = 'cooperation'; }
+        if(type == '3') { type = 'payment'; }
       
         var isDivThere = $('#gallery-'+type+' #gallery-'+type+index+'').index(); 
 
         var j_arr = $('#galleryarea-'+type+''+index+'').attr('class').split("_");
         var j_indx = j_arr[1];
 
-        var eleId = 'gallery-'+type+index;
+        var eleId = 'gallery-'+type+index; 
         var ele = document.getElementById(eleId);
         var getId = 'gallery-'+type;
         var parentEle = document.getElementById(getId);

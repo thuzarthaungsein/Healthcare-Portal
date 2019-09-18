@@ -245,16 +245,12 @@ export default {
        data() {
                 return {
                         fac_list: [],
-                        add_photo: [],
                         count:-1, v_count: -1,
                         type:'',
-                        title:[], 
-                        v_title:[],
-                        description:[], 
-                        v_description:[],
+                        title:[], v_title:[],
+                        description:[], v_description:[],
                         img:[],
-                        img_list:[],
-                        video_list:[],
+                        img_list:[], video_list:[],
                         content: '',
                         editorOption:{
                         debug:'info',
