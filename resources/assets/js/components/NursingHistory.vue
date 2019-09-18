@@ -24,7 +24,7 @@
                 <img class="col-md-12" v-bind:src="'/images/' + nur_profile.logo" alt />
               </div>
               <button class="btn btn-danger all-btn hos-btn">最近見た施設から削除</button>
-              <button class="btn btn-info all-btn hos-btn mt-2">検討リストに追加</button>
+              <button class="btn fav-color all-btn hos-btn mt-2">検討リストに追加</button>
             </div>
             <div class="col-lg-7 col-md-12 mb-4">
               <div class="row list-wrap">
@@ -139,6 +139,7 @@ export default {
         .post("/api/nursing_history/" + local_storage)
         .then(response => {
           this.nur_profiles = response.data;
+          console.log(this.nur_profiles);
         });
     }
   }

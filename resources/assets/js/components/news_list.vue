@@ -58,7 +58,8 @@
                                 <p>{{newsList.main_point}}</p>
                                  <div class="row col-12 mt-2">
                                 <router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="btn edit-borderbtn">編集</router-link>&nbsp;
-                                <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a>
+                                <!-- <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a> -->
+                                 <div class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</div>                                
                             </div>
                             </div>
 
@@ -74,7 +75,11 @@
 </template>
 
 <script>
+import modal from './modal.vue';
 export default {
+        components:{
+            modal
+        },
 
         data() {
             return {
@@ -82,7 +87,8 @@ export default {
                 categories:{
                   id: '',
                   name: ''
-              }
+              },
+               isOpen: false,
             }
         },
         created(){
@@ -100,19 +106,55 @@ export default {
                 }.bind(this));
         },
          methods: {
-            deletePost(id) {
-                if(confirm("Are you sure you want to delete?"))
-                {
-                     this.axios
-                    .delete(`/api/new/delete/${id}`)
-                    .then(response => {
-                        alert('Delete Successfully!');
-                        let i = this.news_list.map(item => item.id).indexOf(id); // find index of your object
-                        this.news_list.splice(i, 1)
-                    });
-                }
-
+            // toggleModal() {
+            //     this.$emit('toggleModal');
+            // },
+            deletePost(id){
+                this.$swal({
+                    title: '確認',
+                    text: "削除よろしいでしょうか",
+                    type: 'warning',
+                    width: 350,
+                    height: 200,
+                    showCancelButton: true,
+                    confirmButtonColor: '#dc3545',
+                    cancelButtonColor: '#b1abab',
+                    cancelButtonTextColor:'#000',
+                    confirmButtonText: '削除',
+                    cancelButtonText: 'キャンセル',
+                    confirmButtonClass: 'all-btn',
+                    cancelButtonClass: 'all-btn'
+                    
+                    }).then(response => {
+                        this.axios.delete(`/api/new/delete/${id}`).then(response => {
+                            
+                                let i = this.news_list.map(item => item.id).indexOf(id); 
+                                this.news_list.splice(i, 1);
+                                this.$swal({
+                                    title:'削除された',
+                                    text:'ファイルが削除されました。',
+                                    type: 'success',
+                                    width: 350,
+                                    height: 200,
+                                    confirmButtonText: 'はい',
+                                    confirmButtonColor: '#dc3545',
+                                })
+                            }).catch(()=>{
+                                this.$swal("Failed","wrong");
+                            });
+                  
+                })
             },
+                      
+            // deletePost(id) {                
+            //     this.axios
+            //         .delete(`/api/new/delete/${id}`)
+            //         .then(response => {
+            //             // alert('Delete Successfully!');
+            //             let i = this.news_list.map(item => item.id).indexOf(id); // find index of your object
+            //             this.news_list.splice(i, 1)
+            //         });  
+            // },
             searchbyCategory() {
                 var search_word = $('#search-item').val();
 
@@ -129,3 +171,6 @@ export default {
 
     }
 </script>
+<style>
+
+</style>

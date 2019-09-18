@@ -2476,14 +2476,13 @@ body::-webkit-scrollbar-thumb {
 
 .fac_container>li {
     display: inline-block;
-    padding: 5px;
+    padding: 5px 10px;
     margin: 0 0 10px 3px;
+    font-size: 13px;
     color: #0e775d;
     text-align: center;
-    border-radius: 2px;
-    border: 1px dashed #b7dad2;
-    border-bottom: 1px solid #b7dad2;
-    background-color: #f5f5f2;
+    border-radius: 20px;
+    border: 1px solid #b7dad2;
 }
 
 .fac_container>li:first-child {
@@ -2545,6 +2544,18 @@ body::-webkit-scrollbar-thumb {
 
 .bd {
     border-bottom: 1.5px dotted #b7dad2;
+}
+
+.checkbox {
+    vertical-align: middle;
+}
+
+.select_all button {
+    font-size: 12px;
+}
+
+.hos-btn.news-post-btn {
+    left: 0;
 }
 
 

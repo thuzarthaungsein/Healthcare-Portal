@@ -21,6 +21,47 @@ $(".path").hover(
       },1000);
 });
 
+  $('.postal').on('keyup',function(e){
+  
+    if($('#postal').val().length > 4){
+      var url = "/api/hospital/postList";
+      var postal = $('#postal').val();
+      $.ajax({
+        type:'post',
+          data:{"postal":postal},
+          url:url,
+          success: function (data) {
+            var length = data.length;
+            if(length>0){
+              var pref = data[0]['city_Id'];
+              var htmlSelectBox = '';
+              if(data[0]['street']==''){
+                $("#city").val(data[0]['city']);
+              }else{
+                $("#city").val(data[0]['city'] + ' - ' + data[0]['street']);
+              }
+              $('.division').val(pref);
+              $('#jsErrorMessage').html('');
+            }else{
+              $("#city").val('');
+              $("#division").val('0');
+              $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+            }
+          },
+          error: function (error) {
+            alert("Ajax Error!");
+            console.log('Error:', error);
+          }
+      });
+    }
+   });
+
+  $(".path").mouseout(function(){
+    $('.'+$(this).data('info')).css({
+      'background':'transparent',
+      'opacity':'1'
+    }); 
+    
     $(".path").mouseleave(function(e) {
       $(".info-box").css("display", "none");
     });
@@ -247,6 +288,60 @@ $('#save_value').click(function(){
             });
         }
     });
+    
+    $('.checkbox').on('click',function(){
+        if($('.checkbox:checked').length == $('.checkbox').length){
+            $('.select_all').prop('checked',true);
+        }else{
+            $('.select_all').prop('checked',false);
+        }
+    });
+
+
+/*data_carry
+
+
+
+/*data_carry
+    
+*/
+$(function() {
+    $('#btnSubmit').on('click', function() {
+      // your code goes here
+      $('#outputSpan').val($('#name').val());
+      $('#outputfurigana').val($('#furigana').val());
+      $('#outputpostal').val($('.postal').val());
+      $('#outputdivision').val($('#division').val());
+      $('#outputcity').val($('#city').val());
+      $('#outputphone').val($('#phone').val());
+      $('#outputmail').val($('#mail').val());
+      
+    //   $('#outputpresent').val($('#present').val());
+      $('#outputpresent').val($('input:checkbox[name=present]:checked').val());
+
+      $('#outputrelation').val($('#relation').val());
+      $('#outputttname').val($('#ttname').val());
+      
+      $('#outputsex').val($('input:radio[name=sex]:checked').val());
+    //   alert($('input:radio[name=sex]:checked').val());
+      
+      $('#outputyears').val($('#years').val());
+      $('#outputnursing').val($('#nursing').val());
+      
+    //   $('#outputfect').val($('#fect').val());
+       
+      $('#outputfect').val($('input:radio[name=fect]:checked').val());
+    //   alert($('input:radio[name=fect]:checked').val());
+      
+    //   $('#outputdesire').val($('#desire').val());
+      $('#outputdesire').val($('input:radio[name=desire]:checked').val());
+     
+      $('#outputhope').val($('#hope').val());
+      // not triiger output tab to be open
+      $('[href="#output"]').trigger('click');
+    });
+  });
+
 
     $(".checkbox").on("click", function() {
         if ($(".checkbox:checked").length == $(".checkbox").length) {
@@ -255,75 +350,74 @@ $('#save_value').click(function(){
             $(".select_all").prop("checked", false);
         }
     });
-    // });
+     });
 
     /*select check
 
             */
 
-    function scrollTab() {
-        // console.log('scroll');
-        // $("p").css('color','red');
-        $("#a").on("click", function() {
-            // console.log('onclick');
-        });
+    // function scrollTab() {
+        
+    //     $("#a").on("click", function() {
+          
+    //     });
 
-        if ($(".detal_wrap").length) {
-            $(".a_sp a[href^='#']").click(function() {
-                // console.log("a_sp");
-                var speed = 600;
-                var href = $(this).attr("href");
-                var target = $(href === "#" || href === "" ? "html" : href);
-                var position = target.offset().top;
-                $("html, body, .scrolldiv2").animate({ scrollTop: position - 60 },
-                    speed,
-                    "swing"
-                );
-                //return false;
-            });
-        }
-    }
+    //     if ($(".detal_wrap").length) {
+    //         $(".a_sp a[href^='#']").click(function() {
+              
+    //             var speed = 600;
+    //             var href = $(this).attr("href");
+    //             var target = $(href === "#" || href === "" ? "html" : href);
+    //             var position = target.offset().top;
+    //             $("html, body, .scrolldiv2").animate({ scrollTop: position - 60 },
+    //                 speed,
+    //                 "swing"
+    //             );
+              
+    //         });
+    //     }
+    // }
 
-    function changeType() {
-        if (this.type == "nursing") {
-            document.getElementById("hospital-lbl").classList.add("dim-btn");
-            document.getElementById("nursing-lbl").classList.remove("dim-btn");
+    // function changeType() {
+    //     if (this.type == "nursing") {
+    //         document.getElementById("hospital-lbl").classList.add("dim-btn");
+    //         document.getElementById("nursing-lbl").classList.remove("dim-btn");
 
-            scrollTab();
-        } else {
-            document.getElementById("nursing-lbl").classList.add("dim-btn");
-            document.getElementById("hospital-lbl").classList.remove("dim-btn");
+    //         scrollTab();
+    //     } else {
+    //         document.getElementById("nursing-lbl").classList.add("dim-btn");
+    //         document.getElementById("hospital-lbl").classList.remove("dim-btn");
 
-            scrollTab();
-        }
-    }
+    //         scrollTab();
+    //     }
+    // }
 
-    $("nav-item").on("change", function(e) {
-        e.preventDefault();
-        // console.log($('#a1').val());
-    });
+    // $("nav-item").on("change", function(e) {
+    //     e.preventDefault();
+        
+    // });
 
-    // jQuery(document).ready(function($) {
+  
 
-    var profilePublish = $("#profilePublish");
-    stickyDiv = "sticky";
-    header = $(".header").height();
+    // var profilePublish = $("#profilePublish");
+    // stickyDiv = "sticky";
+    // header = $(".header").height();
 
-    $(".scrolldiv2").scroll(function() {
-        if ($(this).scrollTop() > header) {
-            profilePublish.addClass(stickyDiv);
-        } else {
-            profilePublish.removeClass(stickyDiv);
-        }
-    });
+    // $(".scrolldiv2").scroll(function() {
+    //     if ($(this).scrollTop() > header) {
+    //         profilePublish.addClass(stickyDiv);
+    //     } else {
+    //         profilePublish.removeClass(stickyDiv);
+    //     }
+    // });
 
-    $(".a_sp a[href^='#']").click(function() {
-        var speed = 600;
-        var href = $(this).attr("href");
-        var target = $(href === "#" || href === "" ? "html" : href);
-        var position = target.offset().top;
-        $("html, body, .scrolldiv2").animate({ scrollTop: position - 60 },
-            speed,
-            "swing"
-        );
-    });
+  //   $(".a_sp a[href^='#']").click(function() {
+  //     var speed = 600;
+  //     var href = $(this).attr("href");
+  //     var target = $(href === "#" || href === "" ? "html" : href);
+  //     var position = target.offset().top;
+  //     $("html, body, .scrolldiv2").animate({ scrollTop: position - 60 },
+  //         speed,
+  //         "swing"
+  //     );
+  // });
