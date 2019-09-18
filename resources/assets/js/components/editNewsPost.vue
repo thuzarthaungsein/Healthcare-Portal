@@ -40,11 +40,11 @@
                                     <input type="file" ref="file" accept="image/*" @change="fileSelected">
                                 </div>
                             </div>
-                            
+
                             <div class="image_show"></div>
                             <div class="form-group image_update" id="x-image">
                                 <div class="col-md-12">
-                                   
+
                                 </div>
                             </div>
                             <div class="form-group">
@@ -58,9 +58,9 @@
                             </div>
 
                             <div class="row col-md-12">
-                                <div class="col-md-4" v-for="news in related_news" :key="news.id"> 
-                                    <label> 
-                                        <input type="checkbox" :value="news.id" id="aaa" v-model="checkedNews">                             
+                                <div class="col-md-4" v-for="news in related_news" :key="news.id">
+                                    <label>
+                                        <input type="checkbox" :value="news.id" id="aaa" v-model="checkedNews">
                                         <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
                                             <div class="card-body news-post">
                                                 <div class="row">
@@ -160,18 +160,18 @@
                                     name: 'news_list'
                                 });
                             }).catch(error=>{
-                        
+
                     if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
+
+                        this.errors = error.response.data.errors
+
                     }
                 })   ;
                     },
                     getstates: function() {
                         this.news.category_id = this.selectedValue;
                     },
-                    getPostsByCatId: function() { 
+                    getPostsByCatId: function() {
                         var cat_id = this.category_id_1;
                         this.axios
                         .post('/api/new/getPostsByCatId/' + cat_id)

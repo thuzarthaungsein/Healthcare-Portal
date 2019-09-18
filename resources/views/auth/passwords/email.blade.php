@@ -31,7 +31,7 @@
 				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="/images/sample_1.png" class="brand_logo" alt="trustgrowth">
+						<img src="/images/sample_1.png" class="brand_logo" alt="Logo">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container" style="margin-top:150px !important">
@@ -63,7 +63,7 @@
                
                 <div class="mt-4">
 					<div class="d-flex justify-content-center text-center links d-margin">
-						<span><a href="/">戻る</a>
+						<span><a href="/">戻る</a><br>
                                     @if (session('status'))
                                      <a>
                                      {{ session('status') }}    

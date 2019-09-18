@@ -27,21 +27,8 @@ class CategoryController extends Controller
     //      $this->middleware('permission:role-create', ['only' => ['create','store']]);
     //      $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
     //      $this->middleware('permission:role-delete', ['only' => ['destroy']]);
-    // }
+    // }    
 
-    // function __construct()
-
-    // {
-
-    //      $this->middleware('permission:categories-list');
-
-    //      $this->middleware('permission:categories-create', ['only' => ['create','store']]);
-
-    //      $this->middleware('permission:categories-edit', ['only' => ['edit','update']]);
-
-    //      $this->middleware('permission:categories-delete', ['only' => ['destroy']]);
-
-    // }
 
 
     //index category
@@ -55,8 +42,8 @@ class CategoryController extends Controller
 
     public function list()
     {
-     
-        $category_list = Category::select('id','name')->get()->toArray(); 
+
+        $category_list = Category::select('id','name')->get()->toArray();
         return response()->json($category_list);
 
     }
@@ -64,9 +51,10 @@ class CategoryController extends Controller
     //add category
     public function add(Request $request)
     {
+
         $request->validate([
             'name' => 'required|unique:categories',
-      
+
         ]);
 
         $category = new Category([
@@ -81,7 +69,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-      
+
         $category = Category::find($id);
         return response()->json($category);
     }
@@ -90,7 +78,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-      
+
         ]);
         $category = Category::find($id);
         $category->update($request->all());
@@ -112,18 +100,18 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
-    public function search(Request $request) 
+    public function search(Request $request)
     {
         $request = $request->all();
         $search_word = $request['search_word'];
-        
+
         $search_categories = Category::query()
                             ->where('name', 'LIKE', "%{$search_word}%")
                             ->orderBy('id','DESC')
                             ->get()
                             ->toArray();
         return $search_categories;
-        
+
     }
 
     // public function store(Request $request)

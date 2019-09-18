@@ -36,7 +36,7 @@
                                 <span v-if="errors.category_id" class="error">{{errors.category_id[0]}}</span>
                             </div>
                             <div class="form-group">
-                                <label>内容:<span class="error">*</span></label>                                
+                                <label>内容:<span class="error">*</span></label>
                                     <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                     <span v-if="errors.body" class="error">{{errors.body[0]}}</span>
                             </div>
@@ -62,9 +62,9 @@
                             </div>
 
                             <div class="row col-md-12">
-                                <div class="col-md-4" v-for="news in related_news" :key="news.id"> 
-                                    <label> 
-                                        <input type="checkbox" :value="news.id" id="aaa" v-model="checkedNews">                             
+                                <div class="col-md-4" v-for="news in related_news" :key="news.id">
+                                    <label>
+                                        <input type="checkbox" :value="news.id" id="aaa" v-model="checkedNews">
                                         <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
                                             <div class="card-body news-post">
                                                 <div class="row">
@@ -90,6 +90,7 @@
                         </form>
                     </div>
                 </div>
+                {{ categories }}
             </div>
         </div>
     </div>
@@ -145,18 +146,18 @@
                                     name: 'news_list'
                                 })
                             }).catch(error=>{
-                        
+
                     if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
+
+                        this.errors = error.response.data.errors
+
                     }
                 })
                     },
                     getstates: function() {
                         this.news.category_id = this.category_id;
                     },
-                    getPostsByCatId: function() { 
+                    getPostsByCatId: function() {
                         var cat_id = this.category_id_1;
                         this.axios
                         .post('/api/new/getPostsByCatId/' + cat_id)

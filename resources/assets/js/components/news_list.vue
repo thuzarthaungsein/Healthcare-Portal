@@ -36,7 +36,12 @@
                 <hr>
                 <h5 class="header">ニュース一覧</h5>
                 <div class="col-12 scrolldiv">
-                    <div v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
+                    <div v-if="!this.news_list.length" class="card card-default m-b-20" style="padding-top:30px; height:700px; text-align:center ">
+
+                          No record data
+
+                    </div>
+                    <div v-else v-for="newsList in news_list" :key="newsList.id" class="card card-default m-b-20">
                     <div class="card-body news-post">
                         <div class="row">
                             <div class="col-md-2" v-if="newsList.photo">
@@ -57,7 +62,7 @@
                                  <div class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</div>                                
                             </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -125,20 +130,22 @@ export default {
                             
                                 let i = this.news_list.map(item => item.id).indexOf(id); 
                                 this.news_list.splice(i, 1);
-                                this.$swal(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                                )
+                                this.$swal({
+                                    title:'削除された',
+                                    text:'ファイルが削除されました。',
+                                    type: 'success',
+                                    width: 350,
+                                    height: 200,
+                                    confirmButtonText: 'はい',
+                                    confirmButtonColor: '#dc3545',
+                                })
                             }).catch(()=>{
                                 this.$swal("Failed","wrong");
                             });
                   
                 })
             },
-            clickHandler() {
-                this.$swal('hello')
-            },           
+                      
             // deletePost(id) {                
             //     this.axios
             //         .delete(`/api/new/delete/${id}`)
