@@ -25,7 +25,7 @@
 
 <div class="d-flex justify-content-center registerform_container">
 <div class="brand_logo_container">
-<img src="/images/trustgrowth.png" id="thumbnil" class="brand_logo" alt="Logo"> 
+<img src="/images/sample_1.png" id="thumbnil" class="brand_logo" alt="Logo"> 
 </div>
 </div>
 
