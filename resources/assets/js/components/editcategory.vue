@@ -53,19 +53,37 @@ export default {
   },
 
   methods: {
-    updateCategory() {
-      this.axios
-        .post(`/api/category/update/${this.$route.params.id}`, this.category)
-        .then(response => {
-          this.name = "";
-          alert("Successfully Updated!");
-          this.$router.push({ name: "categorylist" });
+    updateCategory() { 
+      this.axios.post(`/api/category/update/${this.$route.params.id}`, this.category).then(response => {
+        this.name = "";
+        this.$swal({
+            position: 'top-end',
+            type: 'success',
+            title: '更新されました',
+            showConfirmButton: false,
+            timer: 1500,
+            width: 250,
+            height: 200,
+        })
+         this.$router.push({ name: "categorylist" });
         })
         .catch(error => {
           if (error.response.status == 422) {
             this.errors = error.response.data.errors;
           }
         });
+      // this.axios
+      //   .post(`/api/category/update/${this.$route.params.id}`, this.category)
+      //   .then(response => {
+      //     this.name = "";
+      //     alert("Successfully Updated!");
+      //     this.$router.push({ name: "categorylist" });
+      //   })
+      //   .catch(error => {
+      //     if (error.response.status == 422) {
+      //       this.errors = error.response.data.errors;
+      //     }
+      //   });
     }
   }
 };
