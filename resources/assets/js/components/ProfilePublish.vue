@@ -13,7 +13,13 @@
                     <div class="page-1 page">
                         <h1 class="part-1" >Information</h1>
                             <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id">
-                            {{nurseprofile.special_features}}
+                            <table class="table table-striped">
+                                                <tr>
+                                                        <td style="width:30%">Title : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{nurseprofile.special_features}}</div></td>
+                                                </tr>
+
+                                </table>
                         </div>
 
                     </div>
