@@ -1,4 +1,7 @@
-<template>
+
+
+
+   <template>
             <div class="fullpage-container" style="height: 150vh;">
                 <div class="button-group">
                         <button type="button" :class="{active:index ==0}" @click="moveTo(0)">Information</button>
