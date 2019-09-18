@@ -17,18 +17,17 @@ class TypeController extends Controller
 
     public function typelist()
     {
- 
-      
-        $typelist = Type::select('id','name')->get()->toArray(); 
-       
+
+        $typelist = Type::select('id','name')->get()->toArray();
+
         return $typelist;
     }
 
     public function getParent()
     {
-    
-        $typelist = Type::select('id','name')->get()->toArray(); 
-       
+
+        $typelist = Type::select('id','name')->get()->toArray();
+
         return $typelist;
     }
 
@@ -36,52 +35,52 @@ class TypeController extends Controller
 
     public function create()
     {
-        
+
     }
 
     public function store(Request $request)
     {
-        
-        
+
+
         $request->validate([
             'name' => 'required|unique:types',
-          
-      
+
+
         ]);
-        
+
         if( $request->parent != null)
-        {   
+        {
             $type = new Type ([
                 'name' => $request->input('name'),
                 'user_id' => 1,
-                'parent' => $request->parent,               
+                'parent' => $request->parent,
                 'recordstatus' => 2
             ]);
-           
+
         }
         else if( $request->parent == null)
         {
-            
+
             $type = new Type ([
                 'name' => $request->input('name'),
                 'user_id' => 1,
-                'parent' => 0,               
+                'parent' => 0,
                 'recordstatus' => 2
             ]);
-          
+
         }
         $type->save();
-  
+
         return $type;
     }
 
-  
+
     public function show(Type $type)
     {
-        
+
     }
 
-   
+
     public function edit($id)
     {
         $type = Type::find($id);
@@ -106,6 +105,6 @@ class TypeController extends Controller
         $type->delete();
         return response()->json('The Type was successfully deleted');
     }
-     
+
 
 }
