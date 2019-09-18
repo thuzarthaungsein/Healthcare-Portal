@@ -9,23 +9,22 @@
                             <br>
                         </div>
                         <div class="col-md-12">
-                         <form @submit.prevent="add">
+                             <form @submit.prevent="add">
                             <div class="form-group">
                                 <label>カテゴリ名 :<span class="error">*</span></label>
                                 <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリ 名" >
-                                <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
+                                  <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                             </div>
 
                             <div class="form-group ">
                                 <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
-                                <button class="btn news-post-btn all-btn" > カテゴリを投稿する </button>
-                                <!-- <router-link class="btn news-post-btn all-btn" to="/categorylist" >カテゴリを投稿する</router-link>                                 -->
+                                <router-link class="btn news-post-btn all-btn" to="/categorylist" >カテゴリを投稿する</router-link>                                
                             </div>
-                         </form>
-                        </div>
+                                </form>
+                            </div>
                          </div>
                     </div>                
-               </div>
+            </div>
           </div>
       </div>
 
@@ -37,14 +36,14 @@ export default {
                 errors: [],
                 category: {
                         name: '',
-                        
+                        user_id:'',
+                        recordstatus: ''
                     }
             }
         },
 
          methods: {
             add() {
-               
                 axios.post('/api/category/add', this.category)
                     .then((response) => {
                         this.name = ''
