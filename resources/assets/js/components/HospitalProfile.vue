@@ -156,7 +156,7 @@
                                 <div class="row">
                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
                                                 <label>
-                                                <input type="checkbox">
+                                                <input type="checkbox"  :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)">
                                                 {{feat.name}}
                                                 </label>
                                         </div>
@@ -289,6 +289,10 @@ export default {
                     $(".hos-fac-toggle-div").toggle('medium');
             },
 
+            featureCheck(check_id) {
+                    $('.feature-'+check_id).addClass('special-feature-checked');
+            },
+
             galleryAdd() {
 
                     var date = new Date;
@@ -336,7 +340,8 @@ export default {
             createProfile() {
                 var photo = document.getElementsByClassName('gallery-area-photo');
                 var video = document.getElementsByClassName('gallery-area-video');
-
+                var feature = document.getElementsByClassName('special-feature-checked');
+                
                 for (var i = 0; i < photo.length; i++) {
                         this.img[i] = $('.gallery-area-photo.gallery_'+i+' .img'+i+' .show-img').attr('src');
                         this.title[i] = $('.gallery-area-photo.gallery_'+i+' .title').val();
@@ -354,7 +359,7 @@ export default {
                 }
                 console.log(this.video_list);
 
-
+                // Consultation
                 for(var j = 0; j< 2; j++) {
                         for(var i = 0; i< 7; i++) {
                                 if(j == 0) { this.shedule_am[i] = $('.form-control.am-from'+i+'').val() + '-' + $('.form-control.am-to'+i+'').val(); } 
@@ -365,6 +370,9 @@ export default {
                         if(j == 1) { this.schedule_list.push({pm: this.shedule_pm}); }
                 }
                 console.log(this.schedule_list);return;
+
+                // Special Features
+
                 
             }
 
