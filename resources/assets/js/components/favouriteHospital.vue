@@ -161,7 +161,7 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-success mt-5 float-right">この内容で送信</button>
+      <button class="btn btn-success mt-5 float-right" type="submit">この内容で送信</button>
     </div>
   </div>
 
