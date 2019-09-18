@@ -30,10 +30,11 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api end
 
-// login route api start
+// login route api sta rt   
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
+    Route::get('facilities', 'FacilityController@index');
 
     // Category
     Route::group(['prefix' => 'category'], function () {
