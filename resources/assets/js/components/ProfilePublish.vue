@@ -140,7 +140,8 @@
  export default {
   data() {
             var that = this;
-            return {   
+            return {  
+                scrolled: false ,
                 nusfacilities:[],
                 cooperate_medical:[],
                 medical_acceptance:[],
@@ -164,6 +165,7 @@
             };
         },
          created(){
+                    
                     this.axios.get('/api/nusfacilities').then(response => {
                         this.nusfacilities = response.data;    
       
@@ -195,8 +197,8 @@
        
 </script>
 
-<style scoped>
 
+<style scoped>
 
 .fullpage-container {
     position: relative;
