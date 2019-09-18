@@ -19,7 +19,7 @@
             <h5 class="m-b-10 col-12 hos-tit">
               <a href="#">{{hos_profile.name}}</a>
             </h5>
-            <div class="col-lg-2 col-md-12 mt-2 mb-5">
+            <div class="col-lg-2 col-md-12 mb-5">
               <div class="hos-img">
                 <img class="col-md-12" v-bind:src="'/images/' + hos_profile.logo" alt />
               </div>
@@ -28,84 +28,84 @@
             </div>
             <div class="col-lg-7 col-md-12 mb-4">
               <div class="row list-wrap">
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-3 col-md-4 col-sm-12">
                   <p>
                     <strong>Website</strong>
                   </p>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-9 col-md-8 col-sm-12">
                   <p>
                     <a href="#" target="_blank">{{hos_profile.website}}</a>
                   </p>
                 </div>
               </div>
               <div class="row list-wrap">
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-3 col-md-4 col-sm-12">
                   <p>
                     <strong>Medical Departement</strong>
                   </p>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-9 col-md-8 col-sm-12">
                   <p>{{hos_profile.medical_department}}</p>
                 </div>
               </div>
               <div class="row list-wrap">
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-3 col-md-4 col-sm-12">
                   <p>
                     <strong>Phone</strong>
                   </p>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-9 col-md-8 col-sm-12">
                   <p>{{hos_profile.phone}}</p>
                 </div>
               </div>
               <div class="row list-wrap">
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-3 col-md-4 col-sm-12">
                   <p>
                     <strong>Access</strong>
                   </p>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-9 col-md-8 col-sm-12">
                   <p>{{hos_profile.access}}</p>
                 </div>
               </div>
               <div class="row list-wrap">
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-3 col-md-4 col-sm-12">
                   <p>
                     <strong>Email</strong>
                   </p>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-9 col-md-8 col-sm-12">
                   <p>{{hos_profile.email}}</p>
                 </div>
               </div>
               <div class="row list-wrap">
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-3 col-md-4 col-sm-12">
                   <p>
                     <strong>Details</strong>
                   </p>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-9 col-md-8 col-sm-12">
                   <p>{{hos_profile.details_info}}</p>
                 </div>
               </div>
               <div class="row list-wrap">
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-3 col-md-4 col-sm-12">
                   <p>
                     <strong>Subjects</strong>
                   </p>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-9 col-md-8 col-sm-12">
                   <p>{{hos_profile.subject}}</p>
                 </div>
               </div>
               <div class="row list-wrap">
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-3 col-md-4 col-sm-12">
                   <p>
                     <strong>Location</strong>
                   </p>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-9 col-md-8 col-sm-12">
                   <p>{{hos_profile.city_name}}</p>
                 </div>
               </div>
