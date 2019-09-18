@@ -33,6 +33,8 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<!-- Include after Vue (before closing body) -->
+<script src="https://unpkg.com/vue-fullpage.js/dist/vue-fullpage.min.js"></script>
 
 <!-- Fonts -->
 
@@ -50,6 +52,10 @@
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+
+
 
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
 
