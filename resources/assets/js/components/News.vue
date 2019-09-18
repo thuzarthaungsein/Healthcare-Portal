@@ -79,9 +79,8 @@
                                 <asidebar></asidebar> 
                         </div>
                 </div>                              
-
                 <div class="col-md-12 m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
-                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">Latest News By Category "{{arr.name}}"</h4></div>
+                        <div class="row col-md-12 m-lr-0"><h4 class="h_4 next-title">{{arr.name}}</h4></div>
                         <div class="row col-md-12">
                                 <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
                                         <div class="col-md-6" >

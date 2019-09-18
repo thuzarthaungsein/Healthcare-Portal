@@ -83,9 +83,9 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark main-header">
 
-            <a class="navbar-brand col-2" href="/">
+            <a class="navbar-brand col-2 pl-0" href="/">
 
-                <img src="/images/trust_growth.png" alt="TRUST GROWTH">
+                <img src="/images/sample_2.png" alt="Logo">
 
             </a>
 
@@ -450,7 +450,7 @@
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
                     <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Special Feature</router-link></li>
                     <li>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link text-pre"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
                             <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link></li>
                             <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
