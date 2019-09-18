@@ -78,10 +78,36 @@
                         <div class="col-md-2 p-l-0">
                                 <asidebar></asidebar> 
                         </div>
-                </div>                              
+                </div>    
+                <div class="row">
+                        <div class="col-md-12" v-for="(group,name,index) in post_groups" :key="index">
+                                <h2>{{name}}</h2>
+                                <div class="row">
+                                        <!-- <div v-for="(item,i) in group" :key="i"> -->
+                                                <div class="col-md-3" v-for="(item,i) in group" :key="i">
+                                                        {{item}}
+                                                        <!-- <span v-if="i === 0" style="background:red;height:100%;" class="col-md-12">
+                                                                {{item}}
+                                                        </span>
+                                                        <span v-if="i >2">
+                                                                {{item}}
+                                                        </span> -->
+                                                </div>
+                                                <!-- <div class="col-md-6" v-for="(item,i) in group" :key="i">
+                                                        <span v-if="i !== 0">
+                                                                {{item}}
+                                                        </span>
+                                                        
+                                                </div> -->
+                                        <!-- </div> -->                                        
+                                </div>                               
+                                
+                        </div> 
+                </div>                         
                 <div class="col-md-12 m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
                         <div class="row col-md-12 m-lr-0"><h4 class="h_4 next-title">{{arr.name}}</h4></div>
-                        <div class="row col-md-12">
+                        
+                        <!-- <div class="row col-md-12">
                                 <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
                                         <div class="col-md-6" >
                                                 <router-link :to="'/newsdetails/'+id_arr[catId][inx]">
@@ -131,7 +157,7 @@
                                                 </ul>
                                         </div>
                                 </div>
-                        </div> 
+                        </div>  -->
                 </div>
         </div>   
 </template>
@@ -191,7 +217,8 @@ export default {
                 tmp_photo:[],
                 photo_arr:[],
                 tmp_post_id:[],
-                id_arr:[]
+                id_arr:[],
+                post_groups : [],
             }
         },
         created() {
@@ -211,44 +238,59 @@ export default {
                                 this.cats = response.data;
                         });   
                 },
-
+                groupBy(array, key){
+                        const result = {}
+                        array.forEach(item => {
+                        if (!result[item[key]]){
+                        result[item[key]] = []
+                        }
+                        result[item[key]].push(item)
+                        })
+                        return result
+                },
                 getLatestPostsByCatID: function() {
                         this.axios
                         .get('/api/get_latest_posts_by_catId')
                         .then(response => {
-                                // console.log(response);
-                                for(var i=0; i<response.data.length; i++) {
-                                        this.tmp_title[i] = response.data[i].title;
-                                        this.title_arr[i] = this.tmp_title[i].split(",");
+                                console.log("response");
+                                console.log(response);
+                                this.post_groups = this.groupBy(response.data, 'name');
+                                console.log(this.groupBy(response.data, 'name'));
+                                
+                                // for(var i=0; i<response.data.length; i++) {
+                                //         this.tmp_title[i] = response.data[i].title;
+                                //         this.title_arr[i] = this.tmp_title[i].split(",");
 
-                                        this.tmp_photo[i] = response.data[i].photo;
-                                        this.photo_arr[i] = this.tmp_photo[i].split(",");
+                                //         this.tmp_photo[i] = response.data[i].photo;
+                                //         this.photo_arr[i] = this.tmp_photo[i].split(",");
 
-                                        this.tmp_post_id[i] = response.data[i].post_id;
-                                        this.id_arr[i] = this.tmp_post_id[i].split(",");
-                                }
-                                this.tmp_arr = response.data;
+                                //         this.tmp_post_id[i] = response.data[i].post_id;
+                                //         this.id_arr[i] = this.tmp_post_id[i].split(",");
+                                // }
+                                // this.tmp_arr = response.data;
                         });   
                 },
               
-                getPostByCatID: function(catId) {
+                getPostByCatID: function(catId=1) {
                         if($('#search-word').val()) {
                                 var search_word = $('#search-word').val();
                         } else {
                                 var search_word = '';
                         }
-                        if(catId) {
+
+                        if(catId !== undefined) {
                                 var cat_id = catId;
                         } else {
                                 var cat_id = 1;
                         }
+
                         let fd = new FormData();
-                                fd.append('search_word', search_word)
-                                fd.append('category_id', cat_id)
+                        fd.append('search_word', search_word);
+                        fd.append('category_id', cat_id);
                         
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("/api/posts/" , fd)
+                        axios.post("/api/posts" , fd)
                         .then(response => {
                                 this.posts = response.data;
                         }); 
@@ -271,7 +313,7 @@ export default {
 
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("/api/get_latest_post/" , fd)
+                        axios.post("/api/get_latest_post" , fd)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
