@@ -9,13 +9,11 @@
           就職活動リスト</li>-->
         </ol>
       </nav>
-
-      <router-link to="/joboffercreate" class="nav-link ml-auto pull-right">Create New Job</router-link>
       <div class="scroll col-12">
         <div
           v-if="!this.jobs.length"
           class="card card-default m-b-20"
-          style="padding-top:100px; height:700px; text-align:center "
+          style="padding-top:90px; height:550px; text-align:center "
         >
           <p
             style="border:1px solid #f3bba1;width:80px;height:80px;border-radius:50%;text-align:center;margin:0 auto 10px; line-height:80px;vertical-align:middle; "
@@ -27,11 +25,11 @@
             <span style="font-size:50px;">NO</span>
             <span style="color:#769BD0;">RECORD</span> DATA
           </p>
-          <p>表示するデータありません‼新しいデータ作成してください。</p>
+          <p>表示するデータありません‼新しいデータを作成してください。</p>
           <a
             href="#"
             class="float-right main-bg-color create-btn all-btn"
-            style="width: 15%;margin: 30px auto;"
+            style="width: 16%;margin: 30px auto;"
           >
             <i class="fas fa-plus-circle"></i> 新しいデータ作成
           </a>
