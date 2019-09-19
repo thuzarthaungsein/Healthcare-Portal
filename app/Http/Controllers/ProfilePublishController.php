@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\NursingProfile;
-<<<<<<< HEAD
 use App\method_payment;
-=======
 use App\Cooperate_Medical;
 use App\Medical;
 use App\Staff;
->>>>>>> c6f34879ecd5e00fdf6c5759133eb8094da4f3e9
 
 class ProfilePublishController extends Controller
 {
@@ -22,9 +19,9 @@ class ProfilePublishController extends Controller
     public function index()
     {
         //
-        $nurse = NursingProfile::all()->toArray();
-        //$nurse = NursingProfile::select('id',1)->get();
-        return($nurse);
+        //$nurse = NursingProfile::all()->toArray();
+        $nurse = NursingProfile::select('feature')->where('id',1)->get();
+        return $nurse;
 
 
     }
@@ -51,13 +48,13 @@ class ProfilePublishController extends Controller
         return $staff;
     }
 
-    
-
-    
 
 
 
-    
+
+
+
+
 
     /**
      * Show the form for creating a new resource.

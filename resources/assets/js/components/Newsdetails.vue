@@ -198,19 +198,24 @@ import jobSearch from './jobSearch.vue'
         data() {
             return {
                 newdetails:[],
-
-                latest_post_all_cats: []
+                latest_post_all_cats: [],
+                // relaed_news_arr:[],
+                //related_news:[],
+                // count:-1
             }
         },
         created(){
             this.getLatestPostFromAllCat();
+
             this.axios
                  .get(`/api/newdetails/${this.$route.params.id}`)
                  .then(response=>{
                      this.newdetails = response.data;
-                     this.relatedNews(this.newdetails.category_id);
-                //   this.latest_post_all_cats = response.data;
-                 });
+
+
+
+            });
+            this.relatedNews(this.$route.params.id);
         },
 
         methods: {
@@ -226,18 +231,21 @@ import jobSearch from './jobSearch.vue'
                 relatedNews: function(id) {
 
                         this.axios
-                        .get(`/api/newsdetailsrelated/${id}`)
-                        .then(response => {
-                                //console.log(response);
-                                this.latest_post_all_cats = response.data;
+                        .get(`/api/newsdetailsrelated/${id}`) .then(response => {
+                             this.latest_post_all_cats = response.data;
+
+
                         });
-                }
+            }
         }
-
-
-
-
     }
+    </script>
+
+
+
+
+
+
 
 
 
@@ -283,7 +291,7 @@ import jobSearch from './jobSearch.vue'
 
 
 //     }
-// </script>
+
 
 
 

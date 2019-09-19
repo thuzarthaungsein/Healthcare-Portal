@@ -59,14 +59,18 @@
                         </div>
 
                     </div>
-                    <div class="page-4 page">
-                        <h2 class="part-4" >Review</h2><br/>
+                    <div class="page-2 page">
+                        <h2 class="part-2" >Review</h2><br/>
                                  <div class="row" v-for="comment in comments" :key="comment.id">
-                                <div class="col-md-2">
-                                 <i class="fas fa-comments" style='font-size:24px;color:#F4A460'></i>
+                                    <div class="col-md-12" style="font-size:20px;">{{comment.title}}</div><br/>
+                                     <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i>
+                                    <div class="col-6" style="font-size:20px;">{{comment.email}}</div>
+                                    <div class="col-4" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                                    <br/><br/>
+                                     <div class="col-md-3 offset-md-4">{{comment.comment}}</div>
+                                     <button onclick="function()">See more</button>
+                                </div>
 
-                                 </div>
-                                 </div>
                     </div>
                     </div>
                 </div>

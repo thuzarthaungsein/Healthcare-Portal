@@ -109,9 +109,20 @@ class PostController extends Controller
 
     }
     public function relatednews ($id) {
-        $related_news =Post::where('category_id',$id)->orderBy('created_at', 'desc')->limit('4')->get();
-        //return $latest_post_all_cat;
-        return response()->json($related_news);
+
+        $related_news =Post::select('related_news')->where('id',$id)->orderBy('created_at', 'desc')->value('related_news');
+
+        $arr = explode(',',$related_news);
+        $count = count($arr);
+        for($i = 0;$i< $count ;$i++)
+        {
+
+            $news[] = Post::where('id',$arr[$i])->get();
+        }
+
+
+        return $news;
+
     }
 
     /**
