@@ -1,6 +1,6 @@
 <template>
 <div class="card profile" style="border:none;">
-    <form class="col-md-12 form-class">
+    <form class="col-md-12">
             <div class="col-md-12 pad-free">
                     <div class="form-group">
                             <label class="heading-lbl">名前<span class="error">*</span></label>

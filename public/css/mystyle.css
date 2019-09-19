@@ -112,17 +112,25 @@ body {
 }
 
 .typelabel {
-    background: #118063;
+    /* background: #118063;
     padding: 8px 15px;
     border-radius: 5px;
     color: white;
-    cursor: pointer;
-    width: 100px;
+    width: 100px; */
+    margin-bottom: 0px;
+    cursor: pointer;   
     text-align: center;
 }
 
 .dim-btn {
-    background: #ccc !important;
+    color: #f27a24 !important;
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 1px solid #f27a24;
+    border-color: #f27a24 #fff #fff #fff !important;
+}
+.dim-btn:hover{
+    border-color: #f27a24 #fff #fff #fff !important;
 }
 
 .typelabel input[type="radio"] {
