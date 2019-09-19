@@ -2,7 +2,7 @@
 <div>        
         <div v-if="type == 'nursing'">
                 <ul class="nav nav-tabs card-head-tabs" role="tablist">
-                        <li role="presentation" class="active subtab1 nav-item">
+                        <li role="presentation" class="active show subtab1 nav-item">
                         
                         <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
                                 <i class="fa fa-plus-circle"></i>
@@ -42,7 +42,7 @@
 
         <div v-if="type == 'hospital'" >
                 <ul class="nav nav-tabs card-head-tabs" role="tablist">
-                        <li role="presentation" class="active subtab1 nav-item">
+                        <li role="presentation" class="active show subtab1 nav-item">
                         
                        <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
                                 <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> Create
