@@ -90,7 +90,7 @@
                         </form>
                     </div>
                 </div>
-                {{ categories }}
+                <!-- {{ categories }} -->
             </div>
         </div>
     </div>
