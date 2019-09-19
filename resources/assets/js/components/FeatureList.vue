@@ -33,6 +33,7 @@
                                     <th>Feature Name</th>
                                     <th>Short Name</th>
                                     <th>Type</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>

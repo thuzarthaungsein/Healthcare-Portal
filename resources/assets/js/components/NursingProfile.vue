@@ -16,14 +16,14 @@
                     </div>
 
                     <div class="form-group">
-                            <label class="heading-lbl">フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">+</span>
+                            <label class="heading-lbl">フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">Add</span>
                             <div class="col-md-12">
                                     <div class="row" id="gallery-photo"></div>
                             </div>
                     </div>
 
                     <div class="form-group">
-                            <label class="heading-lbl">動画</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">+</span>
+                            <label class="heading-lbl">動画</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">Add</span>
                             <div class="col-md-12">
                                     <div class="row" id="gallery-video"></div>
                             </div>
@@ -46,7 +46,7 @@
 
                                 <div class="form-group">
                                         <label class="heading-lbl">支払い方法<span class="error">*</span></label>
-                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="methodAdd()">+</span>
+                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="methodAdd()">Add</span>
 
                                         <div class="col-md-12 pad-free" id="gallery-payment"></div>
                                 </div>
@@ -145,7 +145,7 @@
                             <td>
                                 <div class="form-group">
                                         <label class="heading-lbl">協力医療機関<span class="error">*</span></label>
-                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="cooperateAdd()">+</span>
+                                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="cooperateAdd()">Add</span>
                                         <div class="col-md-12 pad-free" id="gallery-cooperation"></div>
                                 </div>
                             </td>
@@ -404,7 +404,7 @@ export default {
                      } else {
                              this.p_count = payment.length;
                      }
-                   $("#gallery-payment").append('<div id="gallery-payment'+this.p_count+'" class="row method-box"><div id="galleryarea-payment'+this.p_count+'" class="row col-md-12 gallery-area-payment gallery_'+this.p_count+'"><div class="col-md-3 m-b-15 m-t-10"><label>方法</label><textarea name="method[]" class="form-control method"></textarea></div><div class="col-md-9"><table class="table table-bordered"><tr><th>入居時にかかる費用</th> <th><input type="text" name="exp[]" class="form-control expense-move-in"></th></tr><tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control room-type"></th></tr><tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control monthly-usage"></th></tr><tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control breadth"></th></tr></table></div><div class="col-md-3">詳細</div><div class="col-md-9"><textarea class="form-control details" name="breakdown[]"></textarea></div><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.p_count+','+this.type+')">削除</a></div></div>');
+                   $("#gallery-payment").append('<div id="gallery-payment'+this.p_count+'" class="method-box"> <div id="galleryarea-payment'+this.p_count+'" class="pad-free col-md-12 gallery-area-payment gallery_'+this.p_count+'"> <div class="col-md-12 m-t-15 m-b-15"> <table class="table"> <tr> <th> <span class="btn all-btn main-bg-color m-l-10" style="min-width:0px;"><i class="fa fa-edit"></i></span> <a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.p_count+','+this.type+')">削除</a> <label class="col-md-3 title-lbl float-right">タイプ名</label> </th> <th><input type="text" name="method[]" class="form-control method"></th> </tr> </table> </div> <div class="col-md-12"> <h3 class="title-lbl">料金概要</h3> <table class="table"> <tr><th>入居時にかかる費用</th> <th><input type="text" name="exp[]" class="form-control expense-move-in"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control room-type"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control monthly-usage"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control breadth"></th></tr></table> </div> <div class="col-md-12"> <h3 class="title-lbl">料金詳細</h3> <table class="table"> <tr><th class="title-lbl"><span>入居にかかる費用</span></th> <th>&nbsp;</th></tr> <tr><th>入居一時金または敷金</th> <th><input type="text" name="breakdown[]" class="form-control expense-move-in"></th></tr> <tr><th>その他（使途）</th><th><input type="text" name="breakdown[]" class="form-control room-type"></th></tr> <tr><th class="title-lbl"><span>月額費用</span></th><th>&nbsp;</th></tr> <tr><th>賃料</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>管理費</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>食費</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>介護上乗せ金（生活サービス費）</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>その他</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th class="title-lbl"><span>返還金について</span></th><th>&nbsp;</th></tr> <tr><th>返還制度</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>償却期間</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>初期償却</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>その他メッセージ</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> </table> </div> </div> </div>');
             },
 
             cooperateAdd() {
@@ -478,10 +478,5 @@ export default {
 </script>
 
  <style>
- .ql-editor{
-     height:30vh;
 
- }
- </style>
- 
  </style>

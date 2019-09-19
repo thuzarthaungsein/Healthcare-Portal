@@ -30,10 +30,15 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api end
 
-// login route api start
+// login route api sta rt   
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
+    Route::get('nusfacilities', 'ProfilePublishController@index');
+    Route::get('cooperatemedical', 'ProfilePublishController@getcooperatemedical');
+    Route::get('medicalacceptance', 'ProfilePublishController@getmedicalacceptance');
+    Route::get('staff', 'ProfilePublishController@getstaff');
+    
 
     // Category
     Route::group(['prefix' => 'category'], function () {
@@ -187,7 +192,7 @@ Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingH
 Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
 
 Route::group(['prefix' => 'hospital'], function () {
-    Route::get('postList', 'HospitalProfileController@getPostalList');
+    Route::post('postList', 'HospitalProfileController@getPostalList');
     Route::get('citiesList', 'HospitalProfileController@getCitiesName');
     Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
     Route::get('favourite_list', 'HospitalProfileController@index');
@@ -201,6 +206,15 @@ Route::group(['prefix' => 'comments'], function () {
     Route::get('comfirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
+});
+
+Route::group(['prefix' => 'nurse'], function () {
+    Route::post('add', 'NursingMailController@mail');
+    Route::get('edit/{id}', 'NursingMailController@edit');
+    Route::get('comment', 'NursingMailController@index');
+    Route::get('comfirm/{id}','NursingMailController@confirm');
+    Route::post('update/{id}', 'NursingMailController@update');
+    Route::delete('delete/{id}','NursingMailController@destroy');
 });
 
 Route::group(['prefix' => 'new'], function () {

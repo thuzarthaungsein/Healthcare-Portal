@@ -39,6 +39,7 @@
                             <div class="col-4 col-offset-4 pl-3">
                                  <router-link :to="{name: 'editadvertisement', params: { id: ads.id }}" class="btn edit-borderbtn">編集</router-link>
                                 <button class="btn delete-borderbtn" @click="deleteAds(ads.id)">削除</button>
+                                <!-- <button class="btn delete-borderbtn" @click="toggleModal">削除</button>                                 -->
 
                             </div>
                         </div>
@@ -46,7 +47,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>   
     </div>
    </div>
    </div>
@@ -55,7 +56,8 @@
 export default {
     data(){
         return {
-            advertisements:[]
+            advertisements:[],
+             isOpen: false,
         }
     },
     created(){
@@ -67,6 +69,9 @@ export default {
     },
 
     methods: {
+            // toggleModal() { 
+            //     this.isOpen = !this.isOpen; 
+            // },
             deleteAds(id) {
                 if(confirm("Are you sure you want to delete?"))
                 {
