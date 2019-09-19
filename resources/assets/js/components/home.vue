@@ -1,6 +1,6 @@
 <template>
-<div>                                
-        <!--menu tabs-->          
+<div>
+        <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist">
         <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-newspaper"></i> ニュース</a></li>
         <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
@@ -10,15 +10,15 @@
         <!--end menu tabs-->
         <!-- Tab panes -->
               <div class="tab-content tab-content1 tabs">
-               <div role="tabpanel" class="tab-pane in active" id="tab1">                    
-                  <News></News>                 
+               <div role="tabpanel" class="tab-pane in active" id="tab1">
+                  <News></News>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
               </div>
-            <!--end Tab panes-->                              
-        </div>   
+            <!--end Tab panes-->
+        </div>
         <!-- {{ l_storage_hos_history }} -->
 </template>
 
@@ -28,7 +28,7 @@ import hospitalSearch from './hospitalSearch.vue'
 import nursingSearch from './nursingSearch.vue'
 import jobSearch from './jobSearch.vue'
 // import ProfilePublish from './ProfilePublish.vue'
-  
+
 export default {
     components: {
      News,
@@ -45,7 +45,7 @@ export default {
                 posts: [],
                 latest_post: [],
                 latest_post_all_cats: [],
-                
+
                 l_storage_hos_history: [],
                 l_storage_nus_history: [],
                 l_storage_hos_fav: [],
@@ -76,7 +76,7 @@ export default {
         //                location: "Ygn",
         //        }
         //        localStorage.setItem('user', JSON.stringify(person));
-                
+
             this.getAllCat();
             this.getPostByFirstCat();
             this.getLatestPostByFirstCatID();
@@ -88,7 +88,7 @@ export default {
                         .get('/api/home')
                         .then(response => {
                                 this.cats = response.data;
-                        });   
+                        });
                 },
                 getPostByFirstCat: function() {
                          axios.get("/api/posts/1")
@@ -126,5 +126,3 @@ export default {
 }
 
  </script>
-
-

@@ -36,9 +36,7 @@ import NursingHistory from './components/NursingHistory.vue';
 import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
 import VideoUpload from './components/VideoUpload.vue';
-
 import GoogleMap from './components/GoogleMap.vue';
-
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
@@ -47,10 +45,12 @@ import comment from './components/Comment.vue';
 import commentlist from './components/commentlist.vue';
 import featurelist from './components/FeatureList.vue';
 import favouriteNursing from './components/favouriteNursing.vue';
-
 import passport from './components/passport.vue';
 import specialfeature from './components/CreateSpecialFeature.vue';
-import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
+//import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
+import modal from './components/modal.vue';
+
+import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
 export const routes = [
       {
         name: 'home',
@@ -310,10 +310,16 @@ export const routes = [
     component: featurelist
   },
   {
-    name: 'hospitalfavouritemail',
-    path: '/hospitalfavouritemail',
-    component: hospitalfavouritemail
+    name: 'nursingFavouriteMail',
+    path: '/nursingFavouriteMail',
+    component: nursingFavouriteMail
   },
+  {
+    name: 'modal',
+    path: '/modal',
+    component: modal
+  },
+
 
   
 ];

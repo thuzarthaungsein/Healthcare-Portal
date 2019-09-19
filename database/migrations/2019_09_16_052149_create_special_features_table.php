@@ -16,12 +16,12 @@ class CreateSpecialFeaturesTable extends Migration
         Schema::create('special_features', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('short_name');
+            $table->string('type');
             $table->integer('user_id');
             $table->integer('recordstatus')->default(1);
             $table->timestamps();
         });
-
-    
     }
 
     /**

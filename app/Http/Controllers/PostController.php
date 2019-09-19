@@ -13,6 +13,14 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // function __construct()
+    // {
+    //      $this->middleware('permission:role-list');
+    //      $this->middleware('permission:role-create', ['only' => ['create','store']]);
+    //      $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
+    //      $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+    // }
+
     public function index()
     {
 
@@ -97,7 +105,13 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return Post::findOrFail($id);    
+        return Post::findOrFail($id);
+
+    }
+    public function relatednews ($id) {
+        $related_news =Post::where('category_id',$id)->orderBy('created_at', 'desc')->limit('4')->get();
+        //return $latest_post_all_cat;
+        return response()->json($related_news);
     }
 
     /**
@@ -108,7 +122,6 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-
         $posts = Post::find($id);
         return response()->json($posts);
     }
@@ -146,6 +159,7 @@ class PostController extends Controller
             'body' => $request->input('body'),
             'photo' => $imageName,
             'category_id' =>$request->input('category_id'),
+            'related_news' =>$request->input('related_news'),
             'user_id' => 1,
             'recordstatus' => 1
         );

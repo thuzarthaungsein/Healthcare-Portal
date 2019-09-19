@@ -77,17 +77,17 @@ export default {
                         id: '',
                         name: ''
                    },
-               
+
                 selectedValue:0
-               
+
             }
         },
          created() {
-            
+
              axios.get('/api/types/typelist')
-              .then(function (response) {                
+              .then(function (response) {
                    this.TypeList = response.data;
-             
+
               }.bind(this));
         },
         mounted() {
@@ -97,16 +97,16 @@ export default {
 
                     if( `${this.$route.params.id}` == "undefined")
                     {
-                                             
+
                     }
                     else{
 
                         this.Type.name = response.data.name;
                         this.Type.parent = response.data.parent;
-                        this.selectedValue = response.data.parent; 
+                        this.selectedValue = response.data.parent;
                         this.TypeList.name = response.data.name;
-                      
-                       
+
+
                     }
 
                 });
@@ -116,20 +116,20 @@ export default {
          methods: {
             add() {
                 if( `${this.$route.params.id}` == "undefined")
-                {         
+                {
                     axios.post('/api/types/add', this.Type)
                         .then((response) => {
                             this.name = ''
                         alert('Successfully Created')
                         this.$router.push({name: 'typelist'});
                         }).catch(error=>{
-                        
+
                     if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
+
+                        this.errors = error.response.data.errors
+
                     }
-                })   
+                })
                 }
                 else{
                      this.updateType();
@@ -141,7 +141,7 @@ export default {
 
            },
            updateType() {
-               
+
                 this.axios
                     .post(`/api/types/update/${this.$route.params.id}`, this.Type)
                     .then((response) => {
@@ -149,11 +149,11 @@ export default {
                           alert('Successfully Updated!')
                         this.$router.push({name: 'typelist'});
                     }).catch(error=>{
-                        
+
                     if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
+
+                        this.errors = error.response.data.errors
+
                     }
                 })   ;
             },

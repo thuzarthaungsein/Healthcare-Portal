@@ -8,7 +8,7 @@
             </div>        
         <!--card-->
         <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
-            <h4 class="main-color">カテゴ一覧 検索</h4>
+            <h4 class="main-color m-b-10">カテゴ一覧 検索</h4>
             <div class="row">
                 <div class="col-md-12">
                     <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchCategory()">
@@ -19,8 +19,13 @@
             </div>
             <hr>
             <h5 class="header">カテゴ一覧</h5>
-            <div class="col-md-12 scrolldiv">                
-                <div class="container-fuid" v-for="category in categories" :key="category.id">
+            <div class="col-md-12 scrolldiv">  
+                 <div v-if="this.categories.length === 0"  class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
+                           
+                          No record data 
+                          
+                 </div>                
+                <div v-else class="container-fuid" v-for="category in categories" :key="category.id">
                     <div class="card card-default m-b-20">
 
                         <div class="card-body">
@@ -52,6 +57,7 @@ export default {
     },
 
      created() {
+      
             this.axios
                 .get('/api/category/categories')
                 .then(response => {
@@ -66,18 +72,53 @@ export default {
         },
         methods: {
             deleteCategory(id) {
-                if(confirm("Are you sure you want to delete?"))
-                {
-                     this.axios
-                    .delete(`/api/category/delete/${id}`)
-                    .then(response => {
-                        alert('Delete Successfully!');
-                        let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
-                        this.categories.splice(i, 1)
-                    });
-                }
-
+                this.$swal({
+                    title: '確認',
+                    text: "削除よろしいでしょうか",
+                    type: 'warning',
+                    width: 350,
+                    height: 200,
+                    showCancelButton: true,
+                    confirmButtonColor: '#dc3545',
+                    cancelButtonColor: '#b1abab',
+                    cancelButtonTextColor:'#000',
+                    confirmButtonText: '削除',
+                    cancelButtonText: 'キャンセル',
+                    confirmButtonClass: 'all-btn',
+                    cancelButtonClass: 'all-btn'
+                    
+                    }).then(response => { 
+                        this.axios.delete(`/api/category/delete/${id}`).then(response => {
+                            //alert('Delete Successfully!');
+                            let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
+                        this.categories.splice(i, 1);
+                        this.$swal({
+                                    title:'削除された',
+                                    text:'ファイルが削除されました。',
+                                    type: 'success',
+                                    width: 350,
+                                    height: 200,
+                                    confirmButtonText: 'はい',
+                                    confirmButtonColor: '#dc3545',
+                                })
+                            }).catch(()=>{
+                                this.$swal("Failed","wrong");
+                            });
+                  
+                })
             },
+                // if(confirm("Are you sure you want to delete?"))
+                // {
+                //      this.axios
+                //     .delete(`/api/category/delete/${id}`)
+                //     .then(response => {
+                //         alert('Delete Successfully!');
+                //         let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
+                //         this.categories.splice(i, 1)
+                //     });
+                //}
+
+            //},
 
             searchCategory() {
                 var search_word = $('#search-item').val();

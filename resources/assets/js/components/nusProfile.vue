@@ -15,16 +15,14 @@
                 </div>
                 </div>
         <div class="card-body">
-               
                 <form class="col-md-12">                         
 
                         <div class="col-md-12 pad-free" v-if="type == 'hospital'">
                                 <nursingProfile></nursingProfile> 
                         </div>
-                        
 
                         <div class="col-md-12 pad-free" v-if="type == 'nursing'">
-                            
+                             <profilePublish></profilePublish>
                         </div>
                               <!-- <div class="col-md-12 pad-free" v-if="type == 'hospital'"> -->
                              <!-- <ProfilePublish></ProfilePublish> -->
@@ -81,7 +79,7 @@ $('.scrolldiv2').scroll(function() {
         components: {
               hospitalProfile,
               nursingProfile,
-              profilePublish,
+              profilePublish
             
         },
        data() {

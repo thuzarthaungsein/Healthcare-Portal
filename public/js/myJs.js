@@ -1,8 +1,9 @@
+
 var timeout;
 $(".path").hover(
-  function(e) {
+  function() {
     clearTimeout(timeout);
-    $('.info-box').css({
+    $('#info-box').css({
       'display':'block',
     });  
    
@@ -21,11 +22,51 @@ $(".path").hover(
       },1000);
 });
 
+  $('.postal').on('keyup',function(e){
+  
+    if($('#postal').val().length > 4){
+      var url = "/api/hospital/postList";
+      var postal = $('#postal').val();
+      $.ajax({
+        type:'post',
+          data:{"postal":postal},
+          url:url,
+          success: function (data) {
+            var length = data.length;
+            if(length>0){
+              var pref = data[0]['city_Id'];
+              var htmlSelectBox = '';
+              if(data[0]['street']==''){
+                $("#city").val(data[0]['city']);
+              }else{
+                $("#city").val(data[0]['city'] + ' - ' + data[0]['street']);
+              }
+              $('.division').val(pref);
+              $('#jsErrorMessage').html('');
+            }else{
+              $("#city").val('');
+              $("#division").val('0');
+              $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+            }
+          },
+          error: function (error) {
+            alert("Ajax Error!");
+            console.log('Error:', error);
+          }
+      });
+    }
+   });
+
+  $(".path").mouseout(function(){
+    $('.'+$(this).data('info')).css({
+      'background':'transparent',
+      'opacity':'1'
+    }); 
+    
     $(".path").mouseleave(function(e) {
       $(".info-box").css("display", "none");
     });
 
- 
 $(document)
 .mousemove(function(e) {
   $(".info-box").css("top", e.pageY - $(".info-box").height() - 35);
@@ -52,10 +93,8 @@ if(ios) {
 
 $('.path').on("click", function(e) {
     e.preventDefault();
-    $('.path').removeClass('selected');
     $('.path.selected').attr("class", "");
-    // $(this).attr("class", "selected");
-    $('.'+$(this).data('info')).addClass("selected");
+    $(this).attr("class", "selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
     var url = "/api/getmap";
@@ -95,8 +134,7 @@ $('.path').on("click", function(e) {
          }
     });
 });
-
-$('.select').on('change',function(){
+$('#select').on('change',function(){
   var id = this.value;
   var url = "/api/getCity";
   $.ajax({
@@ -136,17 +174,6 @@ $('#save_value').click(function(){
   });
   console.log(checkvalue);
 });
-// save button get value search map
-
-
-
-
-
-
-
-
-
-
 
 
 // $('#method-textarea').summernote({
@@ -174,6 +201,55 @@ $('#save_value').click(function(){
         var parentEle = d.getElementById('newlink');
         parentEle.removeChild(ele);
     }
+
+    function DeltArr(index,type)
+    {
+        if(type == '0') { type = 'photo'; }
+        if(type == '1') { type = 'video'; }
+        if(type == '2') { type = 'cooperation'; }
+        if(type == '3') { type = 'payment'; }
+      
+        var isDivThere = $('#gallery-'+type+' #gallery-'+type+index+'').index(); 
+
+        var j_arr = $('#galleryarea-'+type+''+index+'').attr('class').split("_");
+        var j_indx = j_arr[1];
+
+        var eleId = 'gallery-'+type+index; 
+        var ele = document.getElementById(eleId);
+        var getId = 'gallery-'+type;
+        var parentEle = document.getElementById(getId);
+        parentEle.removeChild(ele);
+      
+        var next_id;
+        var getClass = 'gallery-area-'+type;
+        var photo = document.getElementsByClassName(getClass);
+        
+        for (var i = j_indx; i < photo.length; i++) {
+            var new_index = Number(i) + Number(1);
+            var oldClass = 'gallery_'+i; 
+            var newClass = 'gallery_'+new_index;
+
+            $('div.gallery-area-'+type+'').each(function (index, value) {
+              if(Number(index) == Number(isDivThere)) {
+                var next_arr = $(this).attr('id').split(type);
+                next_id = next_arr[1];
+              }
+            });
+
+            $('#gallery-'+type+next_id+' .gallery-area-'+type).removeClass(newClass);
+            $('#gallery-'+type+next_id+' .gallery-area-'+type).addClass(oldClass);
+
+            isDivThere ++;
+        
+        }
+    }
+    function closebtn() {
+      if (confirm("Are you sure you want to delete?")) {
+          var image_x = document.getElementById("x-image");
+          image_x.parentNode.removeChild(image_x);
+          document.getElementById("showimage").style.display = "block";
+      }
+  }
 
     function closebtn(){
         if(confirm("Are you sure you want to delete?"))
@@ -252,94 +328,128 @@ $('#save_value').click(function(){
             $('.select_all').prop('checked',false);
         }
     });
-// });
+
+
+/*data_carry
+
+
+
+/*data_carry
+    
+*/
+$(function() {
+    $('#btnSubmit').on('click', function() {
+      // your code goes here
+      $('#outputSpan').val($('#name').val());
+      $('#outputfurigana').val($('#furigana').val());
+      $('#outputpostal').val($('.postal').val());
+      $('#outputdivision').val($('#division').val());
+      $('#outputcity').val($('#city').val());
+      $('#outputphone').val($('#phone').val());
+      $('#outputmail').val($('#mail').val());
+      
+    //   $('#outputpresent').val($('#present').val());
+      $('#outputpresent').val($('input:checkbox[name=present]:checked').val());
+
+      $('#outputrelation').val($('#relation').val());
+      $('#outputttname').val($('#ttname').val());
+      
+      $('#outputsex').val($('input:radio[name=sex]:checked').val());
+    //   alert($('input:radio[name=sex]:checked').val());
+      
+      $('#outputyears').val($('#years').val());
+      $('#outputnursing').val($('#nursing').val());
+      
+    //   $('#outputfect').val($('#fect').val());
+       
+      $('#outputfect').val($('input:radio[name=fect]:checked').val());
+    //   alert($('input:radio[name=fect]:checked').val());
+      
+    //   $('#outputdesire').val($('#desire').val());
+      $('#outputdesire').val($('input:radio[name=desire]:checked').val());
+     
+      $('#outputhope').val($('#hope').val());
+      // not triiger output tab to be open
+      $('[href="#output"]').trigger('click');
+    });
+  });
+
+
+    $(".checkbox").on("click", function() {
+        if ($(".checkbox:checked").length == $(".checkbox").length) {
+            $(".select_all").prop("checked", true);
+        } else {
+            $(".select_all").prop("checked", false);
+        }
+    });
+     });
 
 /*select check
 
 */
 
-
-
-
-function scrollTab(){
-    // console.log('scroll');
-    // $("p").css('color','red');
-    $('#a').on('click',function(){
-        // console.log('onclick');
-    });
-  
-    if($('.detal_wrap').length){    
-        $(".a_sp a[href^='#']").click(function () { 
-            // console.log("a_sp");
-        var speed = 600;
-        var href = $(this).attr("href");
-        var target = $(href === "#" || href === "" ? 'html' : href);
-        var position = target.offset().top;
-        $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
-            //return false;
-        });
-    }
-}
-
-
-
-
- function changeType() {
-
-    if(this.type == 'nursing') {
+    // function scrollTab() {
         
-            document.getElementById("hospital-lbl").classList.add("dim-btn");
-            document.getElementById("nursing-lbl").classList.remove("dim-btn");
-           
-            scrollTab();
-           
-    }
-    else{
-           document.getElementById("nursing-lbl").classList.add("dim-btn"); 
-           document.getElementById("hospital-lbl").classList.remove("dim-btn");
-         
-           scrollTab();
-    }
-}
+    //     $("#a").on("click", function() {
+          
+    //     });
 
-$('nav-item').on('change',function(e){
-    e.preventDefault();
-    // console.log($('#a1').val());
-})
+    //     if ($(".detal_wrap").length) {
+    //         $(".a_sp a[href^='#']").click(function() {
+              
+    //             var speed = 600;
+    //             var href = $(this).attr("href");
+    //             var target = $(href === "#" || href === "" ? "html" : href);
+    //             var position = target.offset().top;
+    //             $("html, body, .scrolldiv2").animate({ scrollTop: position - 60 },
+    //                 speed,
+    //                 "swing"
+    //             );
+              
+    //         });
+    //     }
+    // }
 
-// jQuery(document).ready(function($) {
+    // function changeType() {
+    //     if (this.type == "nursing") {
+    //         document.getElementById("hospital-lbl").classList.add("dim-btn");
+    //         document.getElementById("nursing-lbl").classList.remove("dim-btn");
 
-    var profilePublish = $("#profilePublish");
-    stickyDiv = "sticky";
-    header = $('.header').height();
-   
+    //         scrollTab();
+    //     } else {
+    //         document.getElementById("nursing-lbl").classList.add("dim-btn");
+    //         document.getElementById("hospital-lbl").classList.remove("dim-btn");
 
-$('.scrolldiv2').scroll(function() {
-  if( $(this).scrollTop() > header ) {
-    profilePublish.addClass(stickyDiv);
-  } else {
-    profilePublish.removeClass(stickyDiv);
-  }
-});
-    
-    $(".a_sp a[href^='#']").click(function () { 
-    var speed = 600;
-    var href = $(this).attr("href");
-    var target = $(href === "#" || href === "" ? 'html' : href);
-    var position = target.offset().top;
-    $("html, body, .scrolldiv2").animate({scrollTop: position - 60}, speed, "swing" );
-    
-    });
-// });
+    //         scrollTab();
+    //     }
+    // }
 
+    // $("nav-item").on("change", function(e) {
+    //     e.preventDefault();
+        
+    // });
 
-
-
-
-
-    
-    
   
 
+    // var profilePublish = $("#profilePublish");
+    // stickyDiv = "sticky";
+    // header = $(".header").height();
 
+    // $(".scrolldiv2").scroll(function() {
+    //     if ($(this).scrollTop() > header) {
+    //         profilePublish.addClass(stickyDiv);
+    //     } else {
+    //         profilePublish.removeClass(stickyDiv);
+    //     }
+    // });
 
+  //   $(".a_sp a[href^='#']").click(function() {
+  //     var speed = 600;
+  //     var href = $(this).attr("href");
+  //     var target = $(href === "#" || href === "" ? "html" : href);
+  //     var position = target.offset().top;
+  //     $("html, body, .scrolldiv2").animate({ scrollTop: position - 60 },
+  //         speed,
+  //         "swing"
+  //     );
+  // });
