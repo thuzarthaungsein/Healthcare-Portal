@@ -16,12 +16,12 @@ class CreateMethodPaymentTable extends Migration
         Schema::create('method_payment', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id');
-            $table->string('payment_name');            
-            $table->string('expense_moving');            
-            $table->string('monthly_fees');            
-            $table->string('living_room_type');            
-            $table->string('area');            
-            $table->text('additional');            
+            $table->string('payment_name');
+            $table->string('expense_moving');
+            $table->string('monthly_fees');
+            $table->string('living_room_type');
+            $table->string('area');
+            $table->text('remark');
             $table->timestamps();
         });
     }

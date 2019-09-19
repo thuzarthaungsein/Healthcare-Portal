@@ -24,7 +24,7 @@
                                 <select v-model="selectedValue" name="type" class="form-control" @change="onChange()">
                                         <option value="選択してください">選択してください。</option>
                                         <option value="病院">病院</option>
-                                        <option value="看護">看護</option>
+                                        <option value="介護施設">介護施設</option>
 
                                 </select>
                             </div> <br/>
@@ -68,8 +68,8 @@ export default {
                     {
                         this.selectedValue = '病院';
                     }
-                    else if (this.feature.type == '看護') {
-                        this.selectedValue = '看護';
+                    else if (this.feature.type == '介護施設') {
+                        this.selectedValue = '介護施設';
                     }else {
                         this.selectedValue='選択してください'
                     }

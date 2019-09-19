@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\NursingProfile;
+use App\method_payment;
 
 class ProfilePublishController extends Controller
 {
@@ -16,7 +17,10 @@ class ProfilePublishController extends Controller
     {
         //
         $nurse = NursingProfile::all()->toArray();
-        return array_reverse($nurse);
+        //$nurse = NursingProfile::select('id',1)->get();
+        return($nurse);
+
+
     }
 
     /**
@@ -46,9 +50,12 @@ class ProfilePublishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+        $cost =method_payment::all()->toArray();
+        return $cost;
+
     }
 
     /**
