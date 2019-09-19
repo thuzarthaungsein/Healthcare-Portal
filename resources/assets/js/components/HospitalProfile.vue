@@ -156,7 +156,7 @@
                                 <div class="row">
                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
                                                 <label>
-                                                <input type="checkbox"  :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)">
+                                                <input type="checkbox"  name="special-features" :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)">
                                                 {{feat.name}}
                                                 </label>
                                         </div>
@@ -245,7 +245,8 @@ export default {
        data() {
                 return {
                         fac_list: [],
-                        feature_list:[],
+                        feature_list:[], featu:[],
+                        check_feature:[],
                         count:-1, v_count: -1,
                         type:'',
                         title:[], v_title:[],
@@ -290,7 +291,7 @@ export default {
             },
 
             featureCheck(check_id) {
-                    $('.feature-'+check_id).addClass('special-feature-checked');
+                    $('.feature-'+check_id).attr('checked','true');
             },
 
             galleryAdd() {
@@ -343,8 +344,8 @@ export default {
                 var feature = document.getElementsByClassName('special-feature-checked');
                 
                 for (var i = 0; i < photo.length; i++) {
-                        this.img[i] = $('.gallery-area-photo.gallery_'+i+' .img'+i+' .show-img').attr('src');
-                        this.title[i] = $('.gallery-area-photo.gallery_'+i+' .title').val();
+                        this.img[i] = $('.gallery-area-photo.gallery_'+i+' .img'+i+' .show-img').attr('src'); 
+                        this.title[i] = $('.gallery-area-photo.gallery_'+i+' .title').val(); 
                         this.description[i] = $('.gallery-area-photo.gallery_'+i+' .description').val(); 
 
                         this.img_list.push({img: this.img[i],title: this.title[i], description: this.description[i]});
@@ -369,11 +370,14 @@ export default {
                         if(j == 0) { this.schedule_list.push({am: this.shedule_am}); }
                         if(j == 1) { this.schedule_list.push({pm: this.shedule_pm}); }
                 }
-                console.log(this.schedule_list);return;
+                console.log(this.schedule_list);
 
                 // Special Features
-                
-                
+                var chek_feature = [];
+                $.each($("input[name='special-features']:checked"), function(){ 
+                        chek_feature.push({ feature: $(this).val()});
+                });
+                console.log(chek_feature);return;
             }
 
         }
