@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::get('cooperatemedical', 'ProfilePublishController@getcooperatemedical');
     Route::get('medicalacceptance', 'ProfilePublishController@getmedicalacceptance');
     Route::get('staff', 'ProfilePublishController@getstaff');
+    Route::get('google', 'ProfilePublishController@getGoogleMap');
+    
     
 
     // Category
@@ -162,6 +164,7 @@ Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
 Route::get('job_details', 'JobDetailController@index');
+Route::get('featurelist', 'SpecialFeatureController@index');
 
 // Home Page
 Route::get('home', 'HomeController@index');

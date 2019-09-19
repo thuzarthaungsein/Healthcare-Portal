@@ -126,7 +126,10 @@
                      </div> 
                     
                     <div class="page-2 page">
-                        <h2 class="part-2" >Easy to use plugin</h2>
+                        <h2 class="part-2" > Map </h2>
+                        <GmapMap id="googlemap" ref="map" :center="center" :zoom="10">
+                           <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position"  @dragend="updateCoordinates" />
+                        </GmapMap>
                     </div>
                     <div class="page-3 page">     
                         <h2 class="part-3" >Working On Tablets</h2> 
@@ -141,7 +144,10 @@
   data() {
             var that = this;
             return {  
-                scrolled: false ,
+                markers: [
+                    { position: { lat: 0.0000000, lng: 0.0000000 } }
+                ],
+                center: { lat: 0.0000000, lng: 0.0000000 },
                 nusfacilities:[],
                 cooperate_medical:[],
                 medical_acceptance:[],
@@ -185,6 +191,11 @@
                         this.staff = response.data;    
                         
                     });
+
+                        this.axios.get('/api/google').then(response => {
+                        this.markers = response.data;  
+                          
+                    });
                     
          },
         methods: {
@@ -199,12 +210,21 @@
 
 
 <style scoped>
+.google-map {
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  background: gray;
+}
+</style>
+
+<style scoped>
 
 .fullpage-container {
-    position: relative;
-    width: 100%;
-    min-height: 800px !important;
-    overflow: hidden;
+    display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
     
 }
 
@@ -214,6 +234,15 @@
   top: 0;
   width: 100%;
   height: 100%;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
 }
 
 </style>

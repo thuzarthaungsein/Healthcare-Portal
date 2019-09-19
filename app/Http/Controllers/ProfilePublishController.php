@@ -44,6 +44,16 @@ class ProfilePublishController extends Controller
         return $staff;
     }
 
+    public function getGoogleMap()
+    {
+        //
+        $latlong = NursingProfile::select('latitude','longitude')->where('id',1)->get();
+        return $latlong;
+    }
+
+
+    
+
     
 
     
