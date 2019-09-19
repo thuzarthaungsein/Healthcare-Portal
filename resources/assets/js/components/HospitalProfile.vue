@@ -245,8 +245,7 @@ export default {
        data() {
                 return {
                         fac_list: [],
-                        feature_list:[], featu:[],
-                        check_feature:[],
+                        feature_list:[],
                         count:-1, v_count: -1,
                         type:'',
                         title:[], v_title:[],

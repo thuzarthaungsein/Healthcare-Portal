@@ -228,7 +228,7 @@
                                                 <div class="row">
                                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
                                                                 <label>
-                                                                <input type="checkbox">
+                                                                 <input type="checkbox"  name="special-features" :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)">
                                                                         {{feat.name}}
                                                                 </label>
                                                          </div>
@@ -356,6 +356,10 @@ export default {
                     $(".staff-toggle-div").toggle('medium');
             },
 
+            featureCheck(check_id) {
+                    $('.feature-'+check_id).attr('checked','true');
+            },
+
             galleryAdd() {
 
                     var date = new Date;
@@ -470,6 +474,13 @@ export default {
                         this.payment_list.push({method: this.method[i], move_in: this.move_in[i],room_type: this.room_type[i],monthly_usage: this.monthly_usage[i],breadth: this.breadth[i],meth_details: this.meth_details[i]});
                 }
                 console.log(this.payment_list);
+
+                 // Special Features
+                var chek_feature = [];
+                $.each($("input[name='special-features']:checked"), function(){ 
+                        chek_feature.push({ feature: $(this).val()});
+                });
+                console.log(chek_feature);return;
 
             }
         }
