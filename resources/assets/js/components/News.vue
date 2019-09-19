@@ -79,31 +79,34 @@
                                 <asidebar></asidebar> 
                         </div>
                 </div>    
-                <div class="row">
-                        <div class="col-md-12" v-for="(group,name,index) in post_groups" :key="index">
-                                <h2>{{name}}</h2>
-                                <div class="row">
-                                        <!-- <div v-for="(item,i) in group" :key="i"> -->
-                                                <div class="col-md-3" v-for="(item,i) in group" :key="i">
-                                                        {{item}}
-                                                        <!-- <span v-if="i === 0" style="background:red;height:100%;" class="col-md-12">
-                                                                {{item}}
-                                                        </span>
-                                                        <span v-if="i >2">
-                                                                {{item}}
-                                                        </span> -->
+                <div class="col-md-12" v-for="(group,name,index) in post_groups" :key="index">
+                        <h2>{{name}}</h2>
+                        <div class="row">
+                                <!-- <div v-for="(item,i) in group" :key="i"> -->
+                                        <div class="col-md-3" v-for="(item,i) in group" :key="i">
+                                                <div class="col-md-12 row">
+                                                        <div class="col-md-4">
+                                                                <router-link :to="'/newsdetails/'+item.pid">
+                                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem">
+                                                                </router-link>
+                                                        </div>
+
+                                                        <div class="col-md-8">
+                                                                <router-link :to="'/newsdetails/'+item.pid">
+                                                                        <p class="news-title" style="padding-left:25px"> {{item.title}} </p>
+                                                                </router-link>
+                                                        </div>
                                                 </div>
-                                                <!-- <div class="col-md-6" v-for="(item,i) in group" :key="i">
-                                                        <span v-if="i !== 0">
-                                                                {{item}}
-                                                        </span>
-                                                        
-                                                </div> -->
-                                        <!-- </div> -->                                        
-                                </div>                               
-                                
-                        </div> 
-                </div>                         
+                                        </div>
+                                        <!-- <div class="col-md-6" v-for="(item,i) in group" :key="i">
+                                                <span v-if="i !== 0">
+                                                        {{item}}
+                                                </span>                                                
+                                        </div> -->
+                                <!-- </div> -->                                        
+                        </div>                               
+                        
+                </div> 
                 <div class="col-md-12 m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
                         <div class="row col-md-12 m-lr-0"><h4 class="h_4 next-title">{{arr.name}}</h4></div>
                         
