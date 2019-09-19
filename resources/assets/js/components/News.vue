@@ -79,8 +79,8 @@
                                 <asidebar></asidebar> 
                         </div>
                 </div>    
-                <div class="col-md-12" v-for="(group,name,index) in post_groups" :key="index">
-                        <h2>{{name}}</h2>
+                <div class="col-md-12 category_box" v-for="(group,name,index) in post_groups" :key="index">
+                        <h2 class="category_news_title"><span>{{name}}</span></h2>
                         <div class="row">
                                 <!-- <div v-for="(item,i) in group" :key="i"> -->
                                         <div class="col-md-3" v-for="(item,i) in group" :key="i">
