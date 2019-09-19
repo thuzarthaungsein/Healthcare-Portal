@@ -87,7 +87,7 @@
                                     <div class="form-group">
                                         <label>お名前:<span class="error">*</span></label>
                                         <!-- <input type="text" class="form-control" placeholder="お名前を入力してください。"> -->
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="お名前を入力してください。" required v-model="comments.name" />
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="お名前を入力してください。" required v-model="comments.name"/>
                                         <br />
                                     </div>
 

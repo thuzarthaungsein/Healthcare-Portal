@@ -36,26 +36,25 @@ class NursingMailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function mail(Request $request){
-        return $request;
-      
-        // \Mail::to($request->mail)->send(new nursingMailing($request));
-        // \Mail::to($request->mail)->send(new nursingMailing($request));
-       
-        // $request->to($email)->subject($subject);
+        $favourite_mail = $request->fav_mail;
+        for($i = 1; $i<count($favourite_mail); $i++){
+            \Mail::to($favourite_mail[$i])->send(new nursingMailing($request));
+        }
+        \Mail::to($request->mail)->send(new nursingMailing($request));
 
-        // return response()->json(['success'=>'Done!']);
+        return response()->json(['success'=>'Done!']);
     }
 
-    public function confirm($id)
-    {
+//     public function confirm($id)
+//     {
 
-           $nursemail =Nurse::find($id);
-           $nursemail->status =1;
-           $nursemail->save();
-           $nursemail =Nurse::all()->toArray();
-           $data = array("comments"=> $nursemail, "success", "Comment successfully confirmed");
-           return response()->json($data);
-   }
+//            $nursemail =Nurse::find($id);
+//            $nursemail->status =1;
+//            $nursemail->save();
+//            $nursemail =Nurse::all()->toArray();
+//            $data = array("comments"=> $nursemail, "success", "Comment successfully confirmed");
+//            return response()->json($data);
+//    }
     public function store(Request $request)
     {
         //

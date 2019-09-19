@@ -165,7 +165,9 @@
 
                             </table>
                         </div>
-                        <button class="btn btn-danger m-t-15 m-l-15 m-b-15 submit-button"> この内容で送信この内容で送信</button>
+
+                        <router-link :to="{name: 'nursingFavouriteMail'}" class="btn btn-danger all-btn">戻る</router-link>
+                        <button class="btn btn-success m-t-15 m-l-15 m-b-15 submit-button"> この内容で送信この内容で送信</button>
 
                         <!-- <button class="btn btn-success m-t-15"><a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" style="color:white;">戻る</a></button> -->
 
@@ -223,9 +225,9 @@
             this.comments = JSON.parse(localStorage.getItem("inputValue"));
             console.log('value',this.comments);
             if(this.comments.present){
-                this.comments.present = '「早分かり用語集」プレゼントを希望する';
+                this.comments.present = 'する';
             }else{
-                this.comments.present = '';
+                this.comments.present = 'しない';
             }
             console.log('string',this.comments.fav_mail.toString())
             this.axios.get('/api/hospital/citiesList')
@@ -244,6 +246,7 @@
                 axios.post('/api/nurse/add', this.comments)
                     .then((response) => {
                         alert('Mail Sent Successfully !')
+                        console.log('mailtest',response.data);
                     }).catch(error => {
                         if (error.response.status == 422) {
                             this.errors = error.response.data.errors
