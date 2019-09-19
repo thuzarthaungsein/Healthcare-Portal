@@ -20,7 +20,7 @@
                         <div class="col-md-12 pad-free" v-if="type == 'hospital'">
                                 <nursingProfile></nursingProfile> 
                         </div>
-                        
+
                         <div class="col-md-12 pad-free" v-if="type == 'nursing'">
                              <profilePublish></profilePublish>
                         </div>

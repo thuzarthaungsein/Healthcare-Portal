@@ -63,8 +63,8 @@
                         <h2 class="part-4" >Review</h2><br/>
                                  <div class="row" v-for="comment in comments" :key="comment.id">
                                 <div class="col-md-2">
-                                 <i class="fas fa-comments" style='font-size:20px;color:#F4A460'></i>
-                                  {{comment.title}}
+                                 <i class="fas fa-comments" style='font-size:24px;color:#F4A460'></i>
+
                                  </div>
                                  </div>
                     </div>

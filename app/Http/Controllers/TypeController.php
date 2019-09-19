@@ -18,7 +18,6 @@ class TypeController extends Controller
     public function typelist()
     {
 
-
         $typelist = Type::select('id','name')->get()->toArray();
 
         return $typelist;

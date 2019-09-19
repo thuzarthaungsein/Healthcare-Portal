@@ -4,7 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\NursingProfile;
+<<<<<<< HEAD
 use App\method_payment;
+=======
+use App\Cooperate_Medical;
+use App\Medical;
+use App\Staff;
+>>>>>>> c6f34879ecd5e00fdf6c5759133eb8094da4f3e9
 
 class ProfilePublishController extends Controller
 {
@@ -22,6 +28,36 @@ class ProfilePublishController extends Controller
 
 
     }
+
+
+    public function getcooperatemedical()
+    {
+        //
+        $comedical = Cooperate_Medical::all()->toArray();
+        return array_reverse($comedical);
+    }
+
+    public function getmedicalacceptance()
+    {
+        //
+        $medical = Medical::select('name')->where('id',1)->get();
+        return $medical;
+    }
+
+    public function getstaff()
+    {
+        //
+        $staff = Staff::select('staff')->where('id',1)->get();
+        return $staff;
+    }
+
+    
+
+    
+
+
+
+    
 
     /**
      * Show the form for creating a new resource.
