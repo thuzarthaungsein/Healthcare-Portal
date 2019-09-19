@@ -36,9 +36,7 @@ import NursingHistory from './components/NursingHistory.vue';
 import HospitalProfile from './components/HospitalProfile.vue';
 import NursingProfile from './components/NursingProfile.vue';
 import VideoUpload from './components/VideoUpload.vue';
-
 import GoogleMap from './components/GoogleMap.vue';
-
 import type from './components/Type.vue';
 import typelist from './components/TypeList.vue';
 import advertisementlist from './components/advertisementlist.vue';
@@ -47,7 +45,6 @@ import comment from './components/Comment.vue';
 import commentlist from './components/commentlist.vue';
 import featurelist from './components/FeatureList.vue';
 import favouriteNursing from './components/favouriteNursing.vue';
-
 import passport from './components/passport.vue';
 import specialfeature from './components/CreateSpecialFeature.vue';
 import nursingFavouriteMail from './components/nursingFavouriteMail.vue';

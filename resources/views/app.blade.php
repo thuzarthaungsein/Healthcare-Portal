@@ -14,7 +14,7 @@
 
 
 
-<title>{{ config('app.name', 'Laravel') }}</title>
+<title>{{ config('app.name', 'Healthcare Portal') }}</title>
 
 
 
@@ -158,7 +158,7 @@
                     </li>
                 </ul>
 
-                
+
 
                 <ul class="sp-nav sp">
 
@@ -279,7 +279,7 @@
 
         <!--end sidebar -->
 
-    
+
 
         <div class="sidebar-scroll container-fluid">
 
@@ -443,7 +443,7 @@
 
                     @can('role-list')
 
-                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>                  
+                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
 
@@ -725,7 +725,7 @@
 
  $(document).ready(function() {
 
-    
+
 
     $('.DataTable').DataTable();
     var csrf = "{{ csrf_token() }}";
@@ -766,14 +766,15 @@
             var side_ad = "";
             for (var i = 0; i < data.length; i++) {
                 if(data[i].location.includes("topbar") ) {
-                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
+                    top_ad += '<div class="list-group-item adslist-card"><a href="' + data[i].link + '"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
                     if(data[i].location.includes("sidebar")) {
-                        side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
+                        side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
                     }
-                } 
+                }
                 else if(data[i].location.includes("sidebar"))  {
-                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
-                }                
+                    side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
+                }
+
             }
             $(".top-ad-slider").html(top_ad);
             jssor_1_slider_init();
@@ -781,7 +782,7 @@
             // jssor_slider2_init();
         }
     });
-});       
+});
 </script>
 </body>
 
