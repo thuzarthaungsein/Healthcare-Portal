@@ -84,16 +84,16 @@
                         <div class="row">
                                 <!-- <div v-for="(item,i) in group" :key="i"> -->
                                         <div class="col-md-3" v-for="(item,i) in group" :key="i">
-                                                <div class="col-md-12 row">
-                                                        <div class="col-md-4">
+                                                <div class="col-md-12 row m-b-10 adslist-card">
+                                                        <div class="col-md-4 img-box">
                                                                 <router-link :to="'/newsdetails/'+item.pid">
                                                                         <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem">
                                                                 </router-link>
                                                         </div>
 
-                                                        <div class="col-md-8">
+                                                        <div class="col-md-8 txt-box">
                                                                 <router-link :to="'/newsdetails/'+item.pid">
-                                                                        <p class="news-title" style="padding-left:25px"> {{item.title}} </p>
+                                                                        <p class="news-title smallads-title" style="padding-left:25px"> {{item.main_point}} </p>
                                                                 </router-link>
                                                         </div>
                                                 </div>
