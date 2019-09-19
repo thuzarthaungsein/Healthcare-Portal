@@ -372,7 +372,7 @@ export default {
                 console.log(this.schedule_list);return;
 
                 // Special Features
-
+                
                 
             }
 
