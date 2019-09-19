@@ -325,21 +325,19 @@ export default {
                 this.axios
                 .get('/api/facilities')
                 .then(response=>{
-                //  console.log(response);
-                this.fac_list = response.data;
+                        this.fac_list = response.data;
                 });
 
                 this.axios
                 .get('/api/medical/medicalacceptance')
                 .then(response => {
-                    this.medical_acceptance = response.data;
-                //      console.log(response.data);
+                        this.medical_acceptance = response.data;
                 });
 
                 this.axios
                 .get('/api/featurelist')
                 .then(response=>{
-                this.feature_list = response.data;
+                        this.feature_list = response.data;
                 });
         },
         methods: {
@@ -361,7 +359,6 @@ export default {
             },
 
             galleryAdd() {
-
                     var date = new Date;
                     var s = date.getMilliseconds();
                     var m = date.getMinutes();
@@ -377,7 +374,7 @@ export default {
                              this.count = photo.length;
                      }
 
-                    $("#gallery-photo").append('<div id="gallery-photo'+this.count+'" class="row col-md-12"><div id="galleryarea-photo'+this.count+'" class="row col-md-12 gallery-area-photo gallery_'+this.count+'"><div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 '+classname+' img'+this.count+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description"></textarea></div><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.count+','+this.type+')">削除</a></div></div>');
+                     $("#gallery-photo").append('<div id="gallery-photo'+this.count+'" class="row col-md-12"><div id="galleryarea-photo'+this.count+'" class="row col-md-12 gallery-area-photo gallery_'+this.count+'"><div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 '+classname+' img'+this.count+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description"></textarea></div><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.count+','+this.type+')">削除</a></div></div>');
             },
 
              galleryVideoAdd() {
@@ -397,7 +394,7 @@ export default {
                              this.v_count = video.length;
                      }
 
-                    $("#gallery-video").append('<div id="gallery-video'+this.v_count+'" class="row col-md-12"><div id="galleryarea-video'+this.v_count+'" class="row col-md-12 gallery-area-video gallery_'+this.v_count+'"><div class="col-md-3"></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description"></textarea></div><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.v_count+','+this.type+')">削除</a></div></div>');
+                     $("#gallery-video").append('<div id="gallery-video'+this.v_count+'" class="row col-md-12"><div id="galleryarea-video'+this.v_count+'" class="row col-md-12 gallery-area-video gallery_'+this.v_count+'"><div class="col-md-3"></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description"></textarea></div><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.v_count+','+this.type+')">削除</a></div></div>');
             },
 
             methodAdd() {
@@ -408,7 +405,7 @@ export default {
                      } else {
                              this.p_count = payment.length;
                      }
-                   $("#gallery-payment").append('<div id="gallery-payment'+this.p_count+'" class="method-box"> <div id="galleryarea-payment'+this.p_count+'" class="pad-free col-md-12 gallery-area-payment gallery_'+this.p_count+'"> <div class="col-md-12 m-t-15 m-b-15"> <table class="table"> <tr> <th> <span class="btn all-btn main-bg-color m-l-10" style="min-width:0px;"><i class="fa fa-edit"></i></span> <a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.p_count+','+this.type+')">削除</a> <label class="col-md-3 title-lbl float-right">タイプ名</label> </th> <th><input type="text" name="method[]" class="form-control method"></th> </tr> </table> </div> <div class="col-md-12"> <h3 class="title-lbl">料金概要</h3> <table class="table"> <tr><th>入居時にかかる費用</th> <th><input type="text" name="exp[]" class="form-control expense-move-in"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control room-type"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control monthly-usage"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control breadth"></th></tr></table> </div> <div class="col-md-12"> <h3 class="title-lbl">料金詳細</h3> <table class="table"> <tr><th class="title-lbl"><span>入居にかかる費用</span></th> <th>&nbsp;</th></tr> <tr><th>入居一時金または敷金</th> <th><input type="text" name="breakdown[]" class="form-control expense-move-in"></th></tr> <tr><th>その他（使途）</th><th><input type="text" name="breakdown[]" class="form-control room-type"></th></tr> <tr><th class="title-lbl"><span>月額費用</span></th><th>&nbsp;</th></tr> <tr><th>賃料</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>管理費</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>食費</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>介護上乗せ金（生活サービス費）</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>その他</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th class="title-lbl"><span>返還金について</span></th><th>&nbsp;</th></tr> <tr><th>返還制度</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>償却期間</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>初期償却</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>その他メッセージ</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> </table> </div> </div> </div>');
+                     $("#gallery-payment").append('<div id="gallery-payment'+this.p_count+'" class="method-box"> <div id="galleryarea-payment'+this.p_count+'" class="pad-free col-md-12 gallery-area-payment gallery_'+this.p_count+'"> <div class="col-md-12 m-t-15 m-b-15"> <table class="table"> <tr> <th> <span class="btn all-btn main-bg-color m-l-10" style="min-width:0px;"><i class="fa fa-edit"></i></span> <a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.p_count+','+this.type+')">削除</a> <label class="col-md-3 title-lbl float-right">タイプ名</label> </th> <th><input type="text" name="method[]" class="form-control method"></th> </tr> </table> </div> <div class="col-md-12"> <h3 class="title-lbl">料金概要</h3> <table class="table"> <tr><th>入居時にかかる費用</th> <th><input type="text" name="exp[]" class="form-control expense-move-in"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control room-type"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control monthly-usage"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control breadth"></th></tr></table> </div> <div class="col-md-12"> <h3 class="title-lbl">料金詳細</h3> <table class="table"> <tr><th class="title-lbl"><span>入居にかかる費用</span></th> <th>&nbsp;</th></tr> <tr><th>入居一時金または敷金</th> <th><input type="text" name="breakdown[]" class="form-control expense-move-in"></th></tr> <tr><th>その他（使途）</th><th><input type="text" name="breakdown[]" class="form-control room-type"></th></tr> <tr><th class="title-lbl"><span>月額費用</span></th><th>&nbsp;</th></tr> <tr><th>賃料</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>管理費</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>食費</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>介護上乗せ金（生活サービス費）</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>その他</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th class="title-lbl"><span>返還金について</span></th><th>&nbsp;</th></tr> <tr><th>返還制度</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>償却期間</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>初期償却</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>その他メッセージ</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> </table> </div> </div> </div>');
             },
 
             cooperateAdd() {
@@ -419,18 +416,18 @@ export default {
                      } else {
                              this.c_count = cooperation.length;
                      }
-                   $("#gallery-cooperation").append('<div class="col-md-12 pad-free m-t-20" id="gallery-cooperation'+this.c_count+'"><div id="galleryarea-cooperation'+this.c_count+'" class="ccol-md-12 pad-free m-t-20 gallery-area-cooperation gallery_'+this.c_count+'"><div class="form-group"> <label>名前 :</label> <input type="text" class="form-control" name="co-medical-header[]"> </div><table class="table table-bordered"><tr><th style="width:30%">診療科目</th><th style="width:70%"><textarea class="form-control clinical-sub" name="clinical-sub"></textarea></th></tr><tr><th>協力内容</th><th><textarea class="form-control details" name="details"></textarea></th></tr><tr><th>診療費用</th><th><textarea class="form-control expense" name="expense"></textarea></th></tr><tr><th>備考</th><th><textarea class="form-control remark" name="remark"></textarea></th></tr></table><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.c_count+','+this.type+')">削除</a></div></div>');
+                     $("#gallery-cooperation").append('<div class="col-md-12 pad-free m-t-20" id="gallery-cooperation'+this.c_count+'"><div id="galleryarea-cooperation'+this.c_count+'" class="ccol-md-12 pad-free m-t-20 gallery-area-cooperation gallery_'+this.c_count+'"><div class="form-group"> <label>名前 :</label> <input type="text" class="form-control" name="co-medical-header[]"> </div><table class="table table-bordered"><tr><th style="width:30%">診療科目</th><th style="width:70%"><textarea class="form-control clinical-sub" name="clinical-sub"></textarea></th></tr><tr><th>協力内容</th><th><textarea class="form-control details" name="details"></textarea></th></tr><tr><th>診療費用</th><th><textarea class="form-control expense" name="expense"></textarea></th></tr><tr><th>備考</th><th><textarea class="form-control remark" name="remark"></textarea></th></tr></table><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.c_count+','+this.type+')">削除</a></div></div>');
             },
 
             acceptanceList() {
-                $(".accept-toggle-div").toggle('medium');
+                     $(".accept-toggle-div").toggle('medium');
             },
 
             specialFeAdd() {
                      $(".special-feature-toggle-div").toggle('medium');
             },
 
-             createProfile() {
+            createProfile() {
                 var photo = document.getElementsByClassName('gallery-area-photo');
                 var video = document.getElementsByClassName('gallery-area-video');
                 var cooperation = document.getElementsByClassName('gallery-area-cooperation');
@@ -475,7 +472,6 @@ export default {
                 }
                 console.log(this.payment_list);
 
-                 // Special Features
                 var chek_feature = [];
                 $.each($("input[name='special-features']:checked"), function(){ 
                         chek_feature.push({ feature: $(this).val()});
