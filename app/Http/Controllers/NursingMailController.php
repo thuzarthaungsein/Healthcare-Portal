@@ -36,12 +36,14 @@ class NursingMailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function mail(Request $request){
+        return $request;
       
-        \Mail::to($request->mail)->send(new nursingMailing($request));
+        // \Mail::to($request->mail)->send(new nursingMailing($request));
+        // \Mail::to($request->mail)->send(new nursingMailing($request));
        
         // $request->to($email)->subject($subject);
 
-        return response()->json(['success'=>'Done!']);
+        // return response()->json(['success'=>'Done!']);
     }
 
     public function confirm($id)

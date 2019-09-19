@@ -51,6 +51,7 @@ import favouriteNursing from './components/favouriteNursing.vue';
 import passport from './components/passport.vue';
 import specialfeature from './components/CreateSpecialFeature.vue';
 import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
+import nursingMailConfirm from './components/nursingMailConfirm.vue';
 export const routes = [
       {
         name: 'home',
@@ -308,6 +309,10 @@ export const routes = [
     path: '/nursingFavouriteMail',
     component: nursingFavouriteMail
   },
-
+  {
+    name: 'nursingMailConfirm',
+    path: '/nursingMailConfirm',
+    component: nursingMailConfirm
+  },
   
 ];
