@@ -166,7 +166,8 @@
                             </table>
                         </div>
 
-                        <router-link :to="{name: 'nursingFavouriteMail'}" class="btn btn-danger all-btn">戻る</router-link>
+                        <!-- <router-link :to="{name: 'nursingFavouriteMail'}" class="btn btn-danger all-btn">戻る</router-link> -->
+                        <span class="btn btn-danger continue m-l-15 m-t-15" @click="back()">戻る</span>
                         <button class="btn btn-success m-t-15 m-l-15 m-b-15 submit-button"> この内容で送信この内容で送信</button>
 
                         <!-- <button class="btn btn-success m-t-15"><a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" style="color:white;">戻る</a></button> -->
@@ -234,6 +235,9 @@
                     for(var i=0; i<this.city_list.length; i++){
                         if(this.comments.division == this.city_list[i].id){
                             this.comments.division = this.city_list[i].city_name;
+                            this.selectedValue = this.city_list[i].id;
+                        }else{
+                            this.comments.division = this.comments.division;
                         }
                     }
                 });
@@ -248,7 +252,15 @@
                             this.errors = error.response.data.errors
                         }
                     })
+                    localStorage.removeItem("item");
                     localStorage.removeItem("inputValue");
+            },
+            back() {
+                this.$router.push({
+                        name: 'nursingFavouriteMail',
+                        params: { input_data: this.comments, bk_postal: this.selectedValue},
+                        props: true
+                    });
             },
         }
     }

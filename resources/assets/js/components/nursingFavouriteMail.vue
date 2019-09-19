@@ -346,7 +346,7 @@
 </template>
 <script>
     export default {
-        props: ['favmail'],
+        props: ['input_data'],
         data() {
             return {
                 comments: {
@@ -381,16 +381,18 @@
                 zipStreet: '',
                 zipPref: '',
                 selectedValue: 0,
-                all_mail: []
+                all_mail: [],
+                bk_data: [],
+                bk_postal: 0
             }
         },
         created() {
-            // console.log(this.$route.params.favmail);
-            this.all_mail = JSON.parse(localStorage.getItem("item"));
-            for(var i=0; i<this.all_mail.length; i++){
-                this.comments.fav_mail.push(this.all_mail[i].email);
-                this.comments.arr_reserve.push(this.all_mail[i].arr_reserve);
-                this.comments.arr_document.push(this.all_mail[i].arr_document);
+            this.bk_data = this.$route.params.input_data;
+            this.bk_postal = this.$route.params.bk_postal;
+            console.log('bk',this.bk_postal);
+            if(this.bk_data != undefined){
+                this.comments = this.bk_data;
+                this.selectedValue = this.bk_postal;
             }
             this.axios.get('/api/hospital/citiesList')
                 .then(response => {
@@ -424,9 +426,15 @@
                 }
             },
             add() {
+                this.all_mail = JSON.parse(localStorage.getItem("item"));
+            for(var i=0; i<this.all_mail.length; i++){
+                this.comments.fav_mail.push(this.all_mail[i].email);
+                this.comments.arr_reserve.push(this.all_mail[i].arr_reserve);
+                this.comments.arr_document.push(this.all_mail[i].arr_document);
+            }
                 localStorage.setItem("inputValue",JSON.stringify(this.comments));
                 var data = JSON.parse(localStorage.getItem("inputValue"));
-                localStorage.removeItem("item");
+                // localStorage.removeItem("item");
                 this.$router.push({
                         name: 'nursingMailConfirm',
                     });
