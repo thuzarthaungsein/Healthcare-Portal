@@ -44,17 +44,6 @@ class NursingMailController extends Controller
 
         return response()->json(['success'=>'Done!']);
     }
-
-//     public function confirm($id)
-//     {
-
-//            $nursemail =Nurse::find($id);
-//            $nursemail->status =1;
-//            $nursemail->save();
-//            $nursemail =Nurse::all()->toArray();
-//            $data = array("comments"=> $nursemail, "success", "Comment successfully confirmed");
-//            return response()->json($data);
-//    }
     public function store(Request $request)
     {
         //

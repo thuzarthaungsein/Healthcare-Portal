@@ -424,28 +424,13 @@
                 }
             },
             add() {
-                console.log('comment',this.comments);
                 localStorage.setItem("inputValue",JSON.stringify(this.comments));
                 var data = JSON.parse(localStorage.getItem("inputValue"));
-                console.log('adfjaskd',data);
                 localStorage.removeItem("item");
-                console.log(JSON.parse(localStorage.getItem("item")));
                 this.$router.push({
                         name: 'nursingMailConfirm',
                     });
             },
-            // add() {
-            //     console.log('comment', this.comments)
-            //     axios.post('/api/nurse/add', this.comments)
-            //         .then((response) => {
-            //             alert('Mail Sent Successfully !')
-            //                 // this.$router.push({name: 'categorylist'});
-            //         }).catch(error => {
-            //             if (error.response.status == 422) {
-            //                 this.errors = error.response.data.errors
-            //             }
-            //         })
-            // },
         }
     }
 </script>
