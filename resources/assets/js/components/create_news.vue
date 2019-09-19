@@ -90,6 +90,7 @@
                         </form>
                     </div>
                 </div>
+                <!-- {{ categories }} -->
             </div>
         </div>
     </div>

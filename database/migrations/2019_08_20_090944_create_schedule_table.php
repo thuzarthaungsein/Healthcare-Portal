@@ -23,6 +23,7 @@ class CreateScheduleTable extends Migration
             $table->string('sat')->nullable();
             $table->string('sun')->nullable();
             $table->string('part')->nullable();
+            $table->integer('customer_id');
             $table->timestamps();
         });
     }
