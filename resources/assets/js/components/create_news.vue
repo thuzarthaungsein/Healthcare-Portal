@@ -58,13 +58,13 @@
                                         {{category.name}}
                                     </option>
                                 </select>
-                                <span v-if="errors.category_id" class="error">{{errors.category_id[0]}}</span>
+                                <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
                             </div>
 
                             <div class="row col-md-12">
                                 <div class="col-md-4" v-for="news in related_news" :key="news.id">
                                     <label>
-                                        <input type="checkbox" :value="news.id" id="aaa" v-model="checkedNews">
+                                        <input type="checkbox" :value="news.id" v-model="checkedNews">
                                         <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
                                             <div class="card-body news-post">
                                                 <div class="row">
@@ -90,7 +90,6 @@
                         </form>
                     </div>
                 </div>
-                {{ categories }}
             </div>
         </div>
     </div>
@@ -150,7 +149,6 @@
                     if(error.response.status == 422){
 
                         this.errors = error.response.data.errors
-
                     }
                 })
                     },
@@ -168,8 +166,3 @@
             }
     }
 </script>
-<style>
-/* #aaa {
-    display: none;
-} */
-</style>

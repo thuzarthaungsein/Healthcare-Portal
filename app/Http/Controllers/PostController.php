@@ -36,11 +36,13 @@ class PostController extends Controller
             'title' => 'required',
             'main_point' => 'required',
             'category_id' => 'required',
+            'related_news' => 'required',
             'body' => 'required',
         ],[
             'title.required' => 'ニュースの題名が必須です。',
             'main_point.required' => 'ニュースの主な情報が必須です。',
             'category_id.required' => 'ニュースのカテゴリーが必須です。',
+            'related_news.required' => 'ニュースのカテゴリーが必須です。',
             'body.required' => 'ニュースの内容が必須です。',
         ]);
 
@@ -140,11 +142,13 @@ class PostController extends Controller
             'title' => 'required',
             'main_point' => 'required',
             'category_id' => 'required',
+            'related_news' => 'required',
             'body' => 'required',
         ],[
             'title.required' => 'ニュースの題名が必須です。',
             'main_point.required' => 'ニュースの主な情報が必須です。',
             'category_id.required' => 'ニュースのカテゴリーが必須です。',
+            'related_news.required' => 'ニュースのカテゴリーが必須です。',
             'body.required' => 'ニュースの内容が必須です。',
         ]);
         if(is_object($request->photo)){
