@@ -413,7 +413,7 @@ export default {
 
             cooperateAdd() {
                     this.type = 2;
-                    var cooperation = document.getElementsByClassName('gallery-area-cooperation');
+                    var cooperation = document.getElementsByClassName('gallery-area-cooperation'); 
                      if(cooperation.length == 0) {
                              this.c_count = this.c_count + 1;
                      } else {
