@@ -1,86 +1,163 @@
+<template>
+    <div class="card">
+        <div v-if="type == 'hospital'">
+            <div class="card-header tab-card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item nav-line" id="category-id" >
+                            <a class="nav-link active" href="#one" id="one-tab" data-toggle="tab" role="tab" aria-controls="one" aria-selected="true">Information</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#two"  id="two-tab" data-toggle="tab" role="tab" aria-controls="two" aria-selected="true" >Features</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#three"  id="three-tab" data-toggle="tab" role="tab" aria-controls="three" aria-selected="true" >Cost</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#four"  id="four-tab" data-toggle="tab" role="tab" aria-controls="four" aria-selected="true" >Equipment</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#five"  id="five-tab" data-toggle="tab" role="tab" aria-controls="five" aria-selected="true" >Map</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#six"  id="six-tab" data-toggle="tab" role="tab" aria-controls="six" aria-selected="true" >Job Offer</a>
+                        </li>
 
+                </ul>
+            </div>
 
+            <div class="tab-content tab-content2 scroll2" id="myTabContent">
+                <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
+                <div class="row">
+                        <div class="col-sm-5 detail_profile_left"><div class="hos-img"><img src="/images/1.jpg" alt="" class="col-md-12"></div></div>
+                        <div class="col-sm-7 detail_profile_right">
+                            <div class="row list-wrap m-lr-0">
+                                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address</strong></p></div>
+                                <div class="col-lg-9 col-md-8 col-sm-12"><p><a href="#" target="_blank">example</a></p></div>
+                            </div>
 
-   <template>
-            <div class="fullpage-container" style="height: 150vh;">
-                <div class="button-group">
-                        <button type="button" :class="{active:index ==0}" @click="moveTo(0)">Information</button>
-                        <button type="button" :class="{active:index ==1}" @click="moveTo(1)">Features</button>
-                        <button type="button" :class="{active:index ==2}" @click="moveTo(2)">Cost</button>
-                        <button type="button" :class="{active:index ==3}" @click="moveTo(3)">Review</button>
-                </div>
-
-                <div class="fullpage-wp clearfix" v-fullpage="opts" ref="fullpage">
-
-                    <div class="page-1 page">
-                        <h1 class="part-1" >Information</h1><br/>
-                         <div class="fac-wrap">
-                            <ul class="fac_container">
-                                <li v-for="special in special_features" :key="special.id">{{special.short_name}}</li>
-                            </ul>
+                            <h5 class="header">special Features</h5>
+                            <div class="row m-lr-0">
+                                <ul class="fac_container">
+                                    <li>24時間看護</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="page-2 page">
-                        <h2 class="part-2" >Features</h2>
-                        <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-6 offset-md-3">
-                            {{nurseprofile.feature}}
-                        </div>
-                    </div>
-                    <div class="page-3 page">
-                        <h2 class="part-3" >Cost</h2><br/>
-                          <div  v-for="cost in method_payment" :key="cost.id" class="col-md-6 offset-md-3" >
-                            <table border="1" class="table">
-                                                <tr>
-                                                        <td style="width:30%" >Payment Name : </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.payment_name}}</div></td>
-                                                </tr>
-                                                 <tr>
-                                                        <td style="width:30%">Expense : </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.expense_moving}}</div></td>
-                                                </tr>
-                                                <tr>
-                                                        <td style="width:30%">Monthly Fees : </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.monthly_fees}}</div></td>
-                                                </tr>
-                                                <tr>
-                                                        <td style="width:30%">Living Room Type : </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.living_room_type}}</div></td>
-                                                </tr>
-                                                 <tr>
-                                                        <td style="width:30%">Area: </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.area}}</div></td>
-                                                </tr>
-                                                <tr>
-                                                        <td style="width:30%">Remark: </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.remark}}</div></td>
-                                                </tr>
-
-                                </table>
-                        </div>
-
-                    </div>
-                    <div class="page-2 page">
-                        <h2 class="part-2" >Review</h2><br/>
-                                 <div class="row" v-for="comment in comments" :key="comment.id">
-                                    <div class="col-md-12" style="font-size:20px;">{{comment.title}}</div><br/>
-                                     <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i>
-                                    <div class="col-6" style="font-size:20px;">{{comment.email}}</div>
-                                    <div class="col-4" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
-                                    <br/><br/>
-                                     <div class="col-md-3 offset-md-4">{{comment.comment}}</div>
-                                     <button onclick="function()">See more</button>
-                                </div>
-
-                    </div>
                     </div>
                 </div>
-        </template>
+                <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
+                    <div class="row">
+                        <h1>tab2</h1>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="three" role="tabpanel" aria-labelledby="three-tab">
+                    <div class="row">
+                        <h1>tab3</h1>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
+                    <div class="row">
+                        <h1>tab4</h1>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
+                    <div class="row">
+                        <h1>tab5</h1>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
+                    <div class="row">
+                        <h1>tab6</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="type == 'nursing'">
+            <div class="card-header tab-card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item nav-line" id="category-id" >
+                            <a class="nav-link active" href="#one" id="one-tab" data-toggle="tab" role="tab" aria-controls="one" aria-selected="true">Information</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#two"  id="two-tab" data-toggle="tab" role="tab" aria-controls="two" aria-selected="true" >Features</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#three"  id="three-tab" data-toggle="tab" role="tab" aria-controls="three" aria-selected="true" >Cost</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#four"  id="four-tab" data-toggle="tab" role="tab" aria-controls="four" aria-selected="true" >Equipment</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#five"  id="five-tab" data-toggle="tab" role="tab" aria-controls="five" aria-selected="true" >Map</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#six"  id="six-tab" data-toggle="tab" role="tab" aria-controls="six" aria-selected="true" >Job Offer</a>
+                        </li>
+
+                </ul>
+            </div>
+
+            <div class="tab-content tab-content2 scroll2" id="myTabContent">
+                <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
+                <div class="row">
+                        <div class="col-sm-5 detail_profile_left"><div class="hos-img"><img src="/images/1.jpg" alt="" class="col-md-12"></div></div>
+                        <div class="col-sm-7 detail_profile_right">
+                            <div class="row list-wrap m-lr-0">
+                                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address</strong></p></div>
+                                <div class="col-lg-9 col-md-8 col-sm-12"><p><a href="#" target="_blank">example</a></p></div>
+                            </div>
+
+                            <h5 class="header">special Features</h5>
+                            <div class="row m-lr-0">
+                                <ul class="fac_container">
+                                    <li>24時間看護</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
+                    <div class="row">
+                        <h1>tab2</h1>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="three" role="tabpanel" aria-labelledby="three-tab">
+                    <div class="row">
+                        <h1>tab3</h1>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
+                    <div class="row">
+                        <h1>tab4</h1>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
+                    <div class="row">
+                        <h1>tab5</h1>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
+                    <div class="row">
+                        <h1>tab6</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
 
  <script>
  export default {
   data() {
             var that = this;
             return {
+
+
+                nusfacilities:[],
+                cooperate_medical:[],
+                medical_acceptance:[],
+                staff:[],
                 index: 0,
                 pageNum: 0,
                 nursing_profiles:[],
@@ -100,7 +177,8 @@
                         that.index = current;
                         console.log('after', current)
                     }
-                }
+                },
+                type : 'nursing',
             };
         },
         created(){
@@ -136,12 +214,20 @@
  }
 
 </script>
+
 <style scoped>
-.fullpage-container {
-    position: relative;
-    width: 100%;
-    height: 800px;
-    overflow: hidden;
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #fff !important;
+    font-weight: bold;
+    background-color: #1aa985  !important;
+    border-top: 1px solid #1aa985  ;
+    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
+}
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
+    border: 1px solid #1aa985  !important;
+}
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
+    border-color: transparent   #ecede1   transparent   #ecede1   !important;
 }
 </style>
 
