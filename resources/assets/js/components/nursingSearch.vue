@@ -137,11 +137,7 @@
                             <div class="col-2 pad-free text" id="text">                          
                             </div>                                                      
                             </div>     
-                             <!-- Image loader -->
-                             <div class='loader img'>
-                                  <img src='/images/ajax-loader.gif'>
-                              </div>
-                              <!-- Image loader -->                  
+                                              
                             <div class="row col-12 nursgingcheckbox">
                              
                             </div>
@@ -299,11 +295,10 @@ span:hover::before {
   display: inline-block;
 }
 .img{
-  display: block;
+  display: none;
   z-index:1000;
-  width:100%;
   position:absolute;
-  border:1px solid red;
+  left:30%;
 }
 </style>
 

@@ -138,11 +138,7 @@
                             </div>                                                      
                             </div>                       
                             <div id="checkbox" class="row col-12 checkbox">
-                              <!-- Image loader -->
-                              <div class='loader' style='display: none;'>
-                                <img src='images/ajax-loader.gif' width='32px' height='32px'>
-                              </div>
-                              <!-- Image loader -->
+                             
                             </div>
                       </div>
                       </div>
