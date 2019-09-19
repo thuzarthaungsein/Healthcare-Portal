@@ -58,15 +58,14 @@ class Handler extends ExceptionHandler
                 return response()->json(['User have not permission for this page access.']);
             }
 
-            // if ($this->isHttpException($exception)) {
-            //     if ($exception->getStatusCode() == 404) {
-            //         return response()->view('errors.404' . '404', [], 404);
-            //     }
-            // }
              return parent::render($request, $exception);
 
         }
      
-       
+        protected function unauthenticated($request, AuthenticationException $exception)
+        {
+            return response()->json(['error'=>'Unauthorized']);
+                   
+   }
 }
 
