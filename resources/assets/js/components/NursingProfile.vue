@@ -18,7 +18,7 @@
                     <div class="form-group">
                             <label class="heading-lbl">フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">Add</span>
                             <div class="col-md-12">
-                                    <div class="row" id="gallery-photo"></div>
+                                    <div class="row" id ="gallery-photo"></div>
                             </div>
                     </div>
 
@@ -309,8 +309,11 @@ export default {
                 description:[], v_description:[],
                 img:[], 
                 sub:[], coop_details:[], expense:[],remark:[],
-                method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[],meth_details:[],
-                img_list:[], video_list:[], cooperate_list:[], payment_list:[],
+                method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[],
+                security_deposit:[],other_use:[], rent:[], management_fee:[],
+                food_expense:[],life_service:[],cost_other:[],return_system:[],
+                depreciation_period:[],initial_depreciation:[],other_message:[],
+                img_list:[], video_list:[], cooperate_list:[], payment_list:[],meth_details:[],
                 content: '',
                 editorOption:{
                         debug:'info',
@@ -405,7 +408,7 @@ export default {
                      } else {
                              this.p_count = payment.length;
                      }
-                     $("#gallery-payment").append('<div id="gallery-payment'+this.p_count+'" class="method-box"> <div id="galleryarea-payment'+this.p_count+'" class="pad-free col-md-12 gallery-area-payment gallery_'+this.p_count+'"> <div class="col-md-12 m-t-15 m-b-15"> <table class="table"> <tr> <th> <span class="btn all-btn main-bg-color m-l-10" style="min-width:0px;"><i class="fa fa-edit"></i></span> <a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.p_count+','+this.type+')">削除</a> <label class="col-md-3 title-lbl float-right">タイプ名</label> </th> <th><input type="text" name="method[]" class="form-control method"></th> </tr> </table> </div> <div class="col-md-12"> <h3 class="title-lbl">料金概要</h3> <table class="table"> <tr><th>入居時にかかる費用</th> <th><input type="text" name="exp[]" class="form-control expense-move-in"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control room-type"></th></tr> <tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control monthly-usage"></th></tr> <tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control breadth"></th></tr></table> </div> <div class="col-md-12"> <h3 class="title-lbl">料金詳細</h3> <table class="table"> <tr><th class="title-lbl"><span>入居にかかる費用</span></th> <th>&nbsp;</th></tr> <tr><th>入居一時金または敷金</th> <th><input type="text" name="breakdown[]" class="form-control expense-move-in"></th></tr> <tr><th>その他（使途）</th><th><input type="text" name="breakdown[]" class="form-control room-type"></th></tr> <tr><th class="title-lbl"><span>月額費用</span></th><th>&nbsp;</th></tr> <tr><th>賃料</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>管理費</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>食費</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>介護上乗せ金（生活サービス費）</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>その他</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th class="title-lbl"><span>返還金について</span></th><th>&nbsp;</th></tr> <tr><th>返還制度</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>償却期間</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>初期償却</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> <tr><th>その他メッセージ</th><th><input type="text" name="breakdown[]" class="form-control breadth"></th></tr> </table> </div> </div> </div>');
+                     $("#gallery-payment").append('<div id="gallery-payment'+this.p_count+'" class="method-box"><div id="galleryarea-payment'+this.p_count+'" class="pad-free col-md-12 gallery-area-payment gallery_'+this.p_count+'"><div class="col-md-12 m-t-15 m-b-15"><table class="table"><tr><th><span class="btn all-btn main-bg-color m-l-10" style="min-width:0px;"><i class="fa fa-edit"></i></span><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.p_count+','+this.type+')">削除</a> <label class="col-md-3 title-lbl float-right">タイプ名</label></th><th><input type="text" name="method[]" class="form-control method"></th></tr></table></div><div class="col-md-12"><h3 class="title-lbl">料金概要</h3><table class="table"><tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control expense-move-in"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control room-type"></th></tr><tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control monthly-usage"></th></tr><tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control breadth"></th></tr></table></div><div class="col-md-12"><h3 class="title-lbl">料金詳細</h3><table class="table"><tr><th class="title-lbl"><span>入居にかかる費用</span></th><th>&nbsp;</th></tr> <tr><th>入居一時金または敷金</th><th><input type="text" name="breakdown[]" class="form-control security-deposit"></th></tr><tr><th>その他（使途）</th><th><input type="text" name="breakdown[]" class="form-control other-use"></th></tr><tr><th class="title-lbl"><span>月額費用</span></th><th>&nbsp;</th></tr> <tr><th>賃料</th><th><input type="text" name="breakdown[]" class="form-control rent"></th></tr><tr><th>管理費</th><th><input type="text" name="breakdown[]" class="form-control management-fee"></th></tr><tr><th>食費</th><th><input type="text" name="breakdown[]" class="form-control food-expense"></th></tr><tr><th>介護上乗せ金（生活サービス費）</th><th><input type="text" name="breakdown[]" class="form-control life-service"></th></tr><tr><th>その他</th><th><input type="text" name="breakdown[]" class="form-control cost-other"></th></tr><tr><th class="title-lbl"><span>返還金について</span></th><th>&nbsp;</th></tr><tr><th>返還制度</th><th><input type="text" name="breakdown[]" class="form-control return-system"></th></tr><tr><th>償却期間</th><th><input type="text" name="breakdown[]" class="form-control depreciation-period"></th></tr><tr><th>初期償却</th><th><input type="text" name="breakdown[]" class="form-control initial-depreciation"></th></tr><tr><th>その他メッセージ</th><th><input type="text" name="breakdown[]" class="form-control other-message"></th></tr></table></div></div></div>');
             },
 
             cooperateAdd() {
@@ -466,9 +469,23 @@ export default {
                         this.room_type[i] = $('.gallery-area-payment.gallery_'+i+' .room-type').val();
                         this.monthly_usage[i] = $('.gallery-area-payment.gallery_'+i+' .monthly-usage').val();
                         this.breadth[i] = $('.gallery-area-payment.gallery_'+i+' .breadth').val();
-                        this.meth_details[i] = $('.gallery-area-payment.gallery_'+i+' .details').val();
+                        // this.meth_details[i] = $('.gallery-area-payment.gallery_'+i+' .details').val();
+                        this.security_deposit = $('.gallery-area-payment.gallery_'+i+' .security-deposit').val();
+                        this.other_use = $('.gallery-area-payment.gallery_'+i+' .other-use').val();
+                        this.rent = $('.gallery-area-payment.gallery_'+i+' .rent').val();
+                        this.management_fee = $('.gallery-area-payment.gallery_'+i+' .management-fee').val();
+                        this.food_expense = $('.gallery-area-payment.gallery_'+i+' .food-expense').val();
+                        this.life_service = $('.gallery-area-payment.gallery_'+i+' .life-service').val();
+                        this.cost_other = $('.gallery-area-payment.gallery_'+i+' .cost_other').val();
+                        this.return_system = $('.gallery-area-payment.gallery_'+i+' .return-system').val();
+                        this.depreciation_period = $('.gallery-area-payment.gallery_'+i+' .depreciation-period').val();
+                        this.initial_depreciation = $('.gallery-area-payment.gallery_'+i+' .initial-depreciation').val();
+                        this.other_message = $('.gallery-area-payment.gallery_'+i+' .other_message').val();
 
-                        this.payment_list.push({method: this.method[i], move_in: this.move_in[i],room_type: this.room_type[i],monthly_usage: this.monthly_usage[i],breadth: this.breadth[i],meth_details: this.meth_details[i]});
+                        this.payment_list.push({method: this.method[i], move_in: this.move_in[i],room_type: this.room_type[i],monthly_usage: this.monthly_usage[i],breadth: this.breadth[i],
+                        security_deposit: this.security_deposit[i],other_use: this.other_use[i],rent: this.rent[i],management_fee: this.management_fee[i],
+                        food_expense: this.food_expense[i],life_service: this.life_service[i],cost_other: this.cost_other[i],return_system: this.return_system[i],
+                        depreciation_period: this.depreciation_period[i],initial_depreciation: this.initial_depreciation[i],other_message: this.other_message[i]});
                 }
                 console.log(this.payment_list);
 
