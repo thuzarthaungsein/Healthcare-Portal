@@ -462,7 +462,6 @@ export default {
                         this.cooperate_list.push({sub: this.sub[i], details: this.coop_details[i],expense: this.expense[i],remark: this.remark[i]});
                 }
                 console.log(this.cooperate_list);
-
                 for (var i = 0; i < payment.length; i++) {
                         this.method[i] = $('.gallery-area-payment.gallery_'+i+' .method').val();
                         this.move_in[i] = $('.gallery-area-payment.gallery_'+i+' .expense-move-in').val();
@@ -470,17 +469,17 @@ export default {
                         this.monthly_usage[i] = $('.gallery-area-payment.gallery_'+i+' .monthly-usage').val();
                         this.breadth[i] = $('.gallery-area-payment.gallery_'+i+' .breadth').val();
                         // this.meth_details[i] = $('.gallery-area-payment.gallery_'+i+' .details').val();
-                        this.security_deposit = $('.gallery-area-payment.gallery_'+i+' .security-deposit').val();
-                        this.other_use = $('.gallery-area-payment.gallery_'+i+' .other-use').val();
-                        this.rent = $('.gallery-area-payment.gallery_'+i+' .rent').val();
-                        this.management_fee = $('.gallery-area-payment.gallery_'+i+' .management-fee').val();
-                        this.food_expense = $('.gallery-area-payment.gallery_'+i+' .food-expense').val();
-                        this.life_service = $('.gallery-area-payment.gallery_'+i+' .life-service').val();
-                        this.cost_other = $('.gallery-area-payment.gallery_'+i+' .cost_other').val();
-                        this.return_system = $('.gallery-area-payment.gallery_'+i+' .return-system').val();
-                        this.depreciation_period = $('.gallery-area-payment.gallery_'+i+' .depreciation-period').val();
-                        this.initial_depreciation = $('.gallery-area-payment.gallery_'+i+' .initial-depreciation').val();
-                        this.other_message = $('.gallery-area-payment.gallery_'+i+' .other_message').val();
+                        this.security_deposit[i] = $('.gallery-area-payment.gallery_'+i+' .security-deposit').val();
+                        this.other_use[i] = $('.gallery-area-payment.gallery_'+i+' .other-use').val();
+                        this.rent[i] = $('.gallery-area-payment.gallery_'+i+' .rent').val();
+                        this.management_fee[i] = $('.gallery-area-payment.gallery_'+i+' .management-fee').val();
+                        this.food_expense[i] = $('.gallery-area-payment.gallery_'+i+' .food-expense').val();
+                        this.life_service[i] = $('.gallery-area-payment.gallery_'+i+' .life-service').val();
+                        this.cost_other[i] = $('.gallery-area-payment.gallery_'+i+' .cost-other').val();
+                        this.return_system[i] = $('.gallery-area-payment.gallery_'+i+' .return-system').val();
+                        this.depreciation_period[i] = $('.gallery-area-payment.gallery_'+i+' .depreciation-period').val();
+                        this.initial_depreciation[i] = $('.gallery-area-payment.gallery_'+i+' .initial-depreciation').val();
+                        this.other_message[i] = $('.gallery-area-payment.gallery_'+i+' .other-message').val();
 
                         this.payment_list.push({method: this.method[i], move_in: this.move_in[i],room_type: this.room_type[i],monthly_usage: this.monthly_usage[i],breadth: this.breadth[i],
                         security_deposit: this.security_deposit[i],other_use: this.other_use[i],rent: this.rent[i],management_fee: this.management_fee[i],
