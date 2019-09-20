@@ -21,10 +21,11 @@
             <i class="fa fa-exclamation" style="font-size:28px;color:#f9793c;"></i>
           </p>
           <p>OOPS!!</p>
-          <p style="font-size:30px;color:#69C1A8;font-weight:bold;margin:20px 0;">
+          <!-- <p style="font-size:30px;color:#69C1A8;font-weight:bold;margin:20px 0;">
             <span style="font-size:50px;">NO</span>
             <span style="color:#769BD0;">RECORD</span> DATA
-          </p>
+          </p>-->
+          <p style="font-size:30px;color:#69C1A8;font-weight:bold;margin:20px 0;">表示するデータありません</p>
           <p>表示するデータありません‼新しいデータを作成してください。</p>
           <a
             href="#"
