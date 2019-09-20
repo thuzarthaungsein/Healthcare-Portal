@@ -87,10 +87,10 @@
                             </table>
                         </div>
 
-                        <ul class="nav nav-tabs" role="tablist">
+                        <!-- <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">
                                 <a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" class="btn btn-success m-t-15 m-r-8">戻る</a>
-                                <!-- <button class="btn btn-success m-t-15"><a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" style="color:white;">戻る</a></button> -->
+                               
                             </li>
                             <li>
                                 <button class="btn btn-danger m-t-15 m-l-15 m-b-15 submit-button" id="myButton"> この内容で送信この内容で送信</button>
@@ -101,7 +101,9 @@
                             </li>
                         </ul>
 
-                        <hr>
+                        <hr> -->
+                        <router-link :to="{name: 'nursingFavouriteMail', params: {input_data: this.comments, bk_postal: this.comments.selectedValue}, props: true}" class="btn btn-success m-r-8">戻る</router-link>&nbsp;
+                        <button class="btn btn-danger m-t-15 m-l-10 m-b-15 submit-button" id="myButton"> この内容で送信この内容で送信</button>
                         <!--next_form-->
 
                         <h3 style="border-bottom:1px solid green;margin-bottom:30px;">入居対象者様について</h3>
@@ -165,8 +167,10 @@
 
                             </table>
                         </div>
-                        <router-link :to="{name: 'nursingFavouriteMail', params: {input_data: this.comments, bk_postal: this.comments.selectedValue}, props: true}" class="btn btn-danger continue m-l-15 m-t-15">戻る</router-link>&nbsp;
-                        <button class="btn btn-success m-t-15 m-l-15 m-b-15 submit-button"> この内容で送信この内容で送信</button>
+                        <!-- <router-link :to="{name: 'nursingFavouriteMail', params: {input_data: this.comments, bk_postal: this.comments.selectedValue}, props: true}" class="btn btn-danger continue m-l-15 m-t-15">戻る</router-link>&nbsp;
+                        <button class="btn btn-success m-t-15 m-l-15 m-b-15 submit-button"> この内容で送信この内容で送信</button> -->
+                        <router-link :to="{name: 'nursingFavouriteMail', params: {input_data: this.comments, bk_postal: this.comments.selectedValue}, props: true}" class="btn btn-success m-r-8">戻る</router-link>&nbsp;
+                        <button class="btn btn-danger m-t-15 m-l-10 m-b-15 submit-button" id="myButton"> この内容で送信この内容で送信</button>
                     </form>
                     <!--next_form-->
 
@@ -217,6 +221,7 @@
         },
         created() {
             this.comments = JSON.parse(localStorage.getItem("inputValue"));
+            console.log('confirm',this.comments.fav_mail)
             if (this.comments.present) {
                 this.comments.present = 'する';
             } else {
@@ -245,6 +250,7 @@
                         })
                     localStorage.removeItem("item");
                     localStorage.removeItem("inputValue");
+                    console.log('confirm',this.comments.fav_mail)
                 },
                 // back() {
                 //     this.$router.push({
