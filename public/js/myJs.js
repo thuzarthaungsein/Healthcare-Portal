@@ -5,8 +5,8 @@ $(".path").hover(
     clearTimeout(timeout);
     $('#info-box').css({
       'display':'block',
-    });  
-   
+    });
+
     $('.info-box').html($(this).data('info'));
 
     $('.'+$(this).data('info')).css({
@@ -14,16 +14,16 @@ $(".path").hover(
       'font-weight':'bold',
       'text-decoration':'underline',
        'color':'#f27a24',
-    });      
+    });
   },
   function(){
   	timeout = setTimeout(function(){
-      $('.info-box').css('display','none');     
+      $('.info-box').css('display','none');
       },1000);
 });
 
   $('.postal').on('keyup',function(e){
-  
+
     if($('#postal').val().length > 4){
       var url = "/api/hospital/postList";
       var postal = $('#postal').val();
@@ -61,8 +61,8 @@ $(".path").hover(
     $('.'+$(this).data('info')).css({
       'background':'transparent',
       'opacity':'1'
-    }); 
-    
+    });
+
     $(".path").mouseleave(function(e) {
       $(".info-box").css("display", "none");
     });
@@ -79,13 +79,13 @@ $(".path").mouseout(function(){
     'background':'transparent',
     'opacity':'1',
     'text-decoration':'none'
-  });    
+  });
 })
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if(ios) {
-  $('abbr').on('click touchend', function() { 
-    var link = $(this).attr('href');   
+  $('abbr').on('click touchend', function() {
+    var link = $(this).attr('href');
     window.open(link,'_blank');
     return false;
   });
@@ -114,12 +114,12 @@ $('.path').on("click", function(e) {
             var townships = data.getTownships;
             var city = data.city;
             $.each(city,function(k,v){
-              $('.select').append('<option  value="'+v.id+'">'+v.city_name+'</option>').attr('selected',true);       
+              $('.select').append('<option  value="'+v.id+'">'+v.city_name+'</option>').attr('selected',true);
             });
             $.each(getCity,function(k,v){
               $('.select option[value="'+v.id+'"]').attr("selected",true);
               $('.select option[value="'+v.id+'"]').css("color",'red');
-              $('.text').append('<button class="all-btn btn secondary-bg-color">'+v.city_name+'<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>')    
+              $('.text').append('<button class="all-btn btn secondary-bg-color">'+v.city_name+'<i class="fa fa-arrow-down" style="color:#fff;padding-left:10px;"></i></button>')
             })
             $.each(townships,function(k,v){
                 $('.checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
@@ -127,7 +127,7 @@ $('.path').on("click", function(e) {
                 $('.nursgingcheckbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="nuscheckbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="nuscheckbox['+v.id+']">'+v.township_name+'</label></div>');
 
                 $('.jobcheckbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="jobcheckbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="jobcheckbox['+v.id+']">'+v.township_name+'</label></div>');
-            }); 
+            });
         },
         complete:function(data){
           $('.checkbox, .nursgingcheckbox, .jobcheckbox').removeClass('block2')
@@ -208,25 +208,25 @@ $('#save_value').click(function(){
         if(type == '1') { type = 'video'; }
         if(type == '2') { type = 'cooperation'; }
         if(type == '3') { type = 'payment'; }
-      
-        var isDivThere = $('#gallery-'+type+' #gallery-'+type+index+'').index(); 
+
+        var isDivThere = $('#gallery-'+type+' #gallery-'+type+index+'').index();
 
         var j_arr = $('#galleryarea-'+type+''+index+'').attr('class').split("_");
         var j_indx = j_arr[1];
 
-        var eleId = 'gallery-'+type+index; 
+        var eleId = 'gallery-'+type+index;
         var ele = document.getElementById(eleId);
         var getId = 'gallery-'+type;
         var parentEle = document.getElementById(getId);
         parentEle.removeChild(ele);
-      
+
         var next_id;
         var getClass = 'gallery-area-'+type;
         var photo = document.getElementsByClassName(getClass);
-        
+
         for (var i = j_indx; i < photo.length; i++) {
             var new_index = Number(i) + Number(1);
-            var oldClass = 'gallery_'+i; 
+            var oldClass = 'gallery_'+i;
             var newClass = 'gallery_'+new_index;
 
             $('div.gallery-area-'+type+'').each(function (index, value) {
@@ -240,7 +240,7 @@ $('#save_value').click(function(){
             $('#gallery-'+type+next_id+' .gallery-area-'+type).addClass(oldClass);
 
             isDivThere ++;
-        
+
         }
     }
     function closebtn() {
@@ -265,31 +265,31 @@ $('#save_value').click(function(){
     }
 
     $("select").on("click" , function() {
-  
+
         $(this).parent(".select-box").toggleClass("open");
-        
+
       });
-      
+
       $(document).mouseup(function (e)
       {
           var container = $(".select-box");
-      
+
           if (container.has(e.target).length === 0)
           {
               container.removeClass("open");
           }
       });
-      
-      
+
+
       $("select").on("change" , function() {
-        
+
         var selection = $(this).find("option:selected").text(),
             labelFor = $(this).attr("id"),
             label = $("[for='" + labelFor + "']");
-          
+
         label.find(".label-desc").html(selection);
-          
-      });  
+
+      });
     function closevideo() {
         alert('Are you sure to delete?');
         var file = document.getElementById("upload_file").files[0];
@@ -303,7 +303,7 @@ $('#save_value').click(function(){
             success:function(data){
                $('#video-area').remove();
             }
-        });    
+        });
     }
 /*select check
 
@@ -320,7 +320,7 @@ $('#save_value').click(function(){
             });
         }
     });
-    
+
     $('.checkbox').on('click',function(){
         if($('.checkbox:checked').length == $('.checkbox').length){
             $('.select_all').prop('checked',true);
@@ -335,7 +335,7 @@ $('#save_value').click(function(){
 
 
 /*data_carry
-    
+
 */
 $(function() {
     $('#btnSubmit').on('click', function() {
@@ -347,27 +347,27 @@ $(function() {
       $('#outputcity').val($('#city').val());
       $('#outputphone').val($('#phone').val());
       $('#outputmail').val($('#mail').val());
-      
+
     //   $('#outputpresent').val($('#present').val());
       $('#outputpresent').val($('input:checkbox[name=present]:checked').val());
 
       $('#outputrelation').val($('#relation').val());
       $('#outputttname').val($('#ttname').val());
-      
+
       $('#outputsex').val($('input:radio[name=sex]:checked').val());
     //   alert($('input:radio[name=sex]:checked').val());
-      
+
       $('#outputyears').val($('#years').val());
       $('#outputnursing').val($('#nursing').val());
-      
+
     //   $('#outputfect').val($('#fect').val());
-       
+
       $('#outputfect').val($('input:radio[name=fect]:checked').val());
     //   alert($('input:radio[name=fect]:checked').val());
-      
+
     //   $('#outputdesire').val($('#desire').val());
       $('#outputdesire').val($('input:radio[name=desire]:checked').val());
-     
+
       $('#outputhope').val($('#hope').val());
       // not triiger output tab to be open
       $('[href="#output"]').trigger('click');
@@ -384,19 +384,36 @@ $(function() {
     });
      });
 
+     /* start nurse profile*/
+
+     $(".readMore").on('click', function(event) {
+        if ($(this).hasClass('opened')) {
+            $(this).removeClass('opened');
+            $(this).parent().find('.displaytext').slideToggle('fast');
+        }
+        else {
+            $(this).addClass('opened');
+            $('.showContent').css("display", "none");
+            $('.readMore').css("display", "none");
+            $(this).parent().find('.displaytext').slideToggle('fast');
+
+        }
+    });
+     /* end nurse profile*/
+
 /*select check
 
 */
 
     // function scrollTab() {
-        
+
     //     $("#a").on("click", function() {
-          
+
     //     });
 
     //     if ($(".detal_wrap").length) {
     //         $(".a_sp a[href^='#']").click(function() {
-              
+
     //             var speed = 600;
     //             var href = $(this).attr("href");
     //             var target = $(href === "#" || href === "" ? "html" : href);
@@ -405,7 +422,7 @@ $(function() {
     //                 speed,
     //                 "swing"
     //             );
-              
+
     //         });
     //     }
     // }
@@ -426,10 +443,10 @@ $(function() {
 
     // $("nav-item").on("change", function(e) {
     //     e.preventDefault();
-        
+
     // });
 
-  
+
 
     // var profilePublish = $("#profilePublish");
     // stickyDiv = "sticky";

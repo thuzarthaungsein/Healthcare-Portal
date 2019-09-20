@@ -2788,7 +2788,12 @@ screen and (min-width: 750px) {
     padding: 8px 20px !important;
     font-size: 14px !important;
 }
-
+/*---------------*/
+ .showContent {
+    overflow: hidden;
+    line-height: 2em;
+    height: 2em;
+}
 
 /*.modal {
     display: flex;

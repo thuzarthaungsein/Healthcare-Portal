@@ -61,18 +61,15 @@ class JobApplyController extends Controller
 
 
 
-            $jobapply = new JobApply([
-                 'name' => $request->input('name'),
-                 'birthday' =>  $request->input('birthday'),
-                 'address' =>  $request->input('address'),
-                 'phone' =>  $request->input('phone'),
-                 'email'=> $request->input('email'),
-                 'work_time'=>$request->input('work_time'),
-                 'skill' =>$string
-
-
-             ]);
-             $jobapply->save();
+            $jobapply = new JobApply;
+            $jobapply->name=$request->name;
+            $jobapply->birthday=$request->birthday;
+            $jobapply->address=$request->address;
+            $jobapply->phone=$request->phone;
+            $jobapply->email=$request->email;
+            $jobapply->work_time=$request->work_time;
+            $jobapply->skill=$string;
+            $jobapply->save();
              return response()->json('Apply successfully ');
 
     }

@@ -91,7 +91,10 @@
                             <a class="nav-link" href="#five"  id="five-tab" data-toggle="tab" role="tab" aria-controls="five" aria-selected="true" >Map</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="#six"  id="six-tab" data-toggle="tab" role="tab" aria-controls="six" aria-selected="true" >Job Offer</a>
+                            <a class="nav-link" href="#six"  id="six-tab" data-toggle="tab" role="tab" aria-controls="six" aria-selected="true" >Review</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#seven"  id="seven-tab" data-toggle="tab" role="tab" aria-controls="seven" aria-selected="true" >Job Offer</a>
                         </li>
 
                 </ul>
@@ -109,8 +112,8 @@
 
                             <h5 class="header">special Features</h5>
                             <div class="row m-lr-0">
-                                <ul class="fac_container">
-                                    <li>24時間看護</li>
+                                <ul class="fac_container" v-for="special in special_features" :key="special.id">
+                                    <li >{{special.short_name}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -118,12 +121,43 @@
                 </div>
                 <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
                     <div class="row">
-                        <h1>tab2</h1>
+                        <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-6 offset-md-3">
+                            {{nurseprofile.feature}}
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="three" role="tabpanel" aria-labelledby="three-tab">
                     <div class="row">
-                        <h1>tab3</h1>
+                        <div  v-for="cost in method_payment" :key="cost.id" class="col-md-6 offset-md-3" >
+                            <table border="1" class="table">
+                                                <tr>
+                                                        <td style="width:30%" >Payment Name : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.payment_name}}</div></td>
+                                                </tr>
+                                                 <tr>
+                                                        <td style="width:30%">Expense : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.expense_moving}}</div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:30%">Monthly Fees : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.monthly_fees}}</div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:30%">Living Room Type : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.living_room_type}}</div></td>
+                                                </tr>
+                                                 <tr>
+                                                        <td style="width:30%">Area: </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.area}}</div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:30%">Remark: </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.remark}}</div></td>
+                                                </tr>
+
+                                </table>
+                        </div>
+
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
@@ -138,7 +172,31 @@
                 </div>
                 <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
                     <div class="row">
-                        <h1>tab6</h1>
+                        <div class="row" v-for="comment in comments" :key="comment.id">
+                                    <div class="col-md-12" style="font-size:20px;">Title:{{comment.title}}</div><br/>
+                                     <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
+                                    <div class="col-md-5" style="font-size:20px;">Email:{{comment.email}}</div>
+                                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                                    <br/><br/>
+                                      <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
+                                         <div class="content hideContent">{{comment.comment}}</div>
+                                     </div> -->
+                                     <!-- <button onclick="function()">See more</button> -->
+                                      <div class="row col-md-12 m-lr-0">
+                                          <p class="showContent"> {{comment.comment}}</p>
+                                                <span class="displaytext">
+                                                       {{comment.comment}}
+                                                </span>
+                                                <a class="mt-2 readMore" href ="#">Read More</a>
+
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="seven" role="tabpanel" aria-labelledby="seven-tab">
+                    <div class="row">
+                        <h1>tab7</h1>
                     </div>
                 </div>
             </div>
@@ -154,12 +212,12 @@
             return {
 
 
-                nusfacilities:[],
-                cooperate_medical:[],
-                medical_acceptance:[],
-                staff:[],
-                index: 0,
-                pageNum: 0,
+                // nusfacilities:[],
+                // cooperate_medical:[],
+                // medical_acceptance:[],
+                // staff:[],
+                // index: 0,
+                // pageNum: 0,
                 nursing_profiles:[],
                 special_features:[],
                 method_payment:[],
@@ -229,6 +287,8 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
 div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
     border-color: transparent   #ecede1   transparent   #ecede1   !important;
 }
+
+
 </style>
 
 
