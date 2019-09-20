@@ -18,8 +18,9 @@ class ProfilePublishController extends Controller
     public function index()
     {
         //
-        $nurse = NursingProfile::all()->toArray();
-        return array_reverse($nurse);
+        // $nurse = NursingProfile::all()->toArray();
+        $nurse = NursingProfile::where('customer_id',5)->get();
+        return $nurse;
     }
 
 
