@@ -101,7 +101,7 @@ class AdvertisementController extends Controller
     {
         if(is_object($request->photo)) {
             $imageName = $request->photo->getClientOriginalName();
-            $request->photo->move(public_path('upload/advertisement/'), $imageName);
+            $request->photo->move(public_path('/upload/advertisement'), $imageName);
         } else {
             $imageName = $request->photo;
         }
@@ -112,7 +112,7 @@ class AdvertisementController extends Controller
               'location'=>$request->input('location'),
               'photo' => $imageName,
               'user_id' => 1,
-              'recordstatus' => 2
+              'recordstatus' => 1
          );
           $ads = Advertisement::find($id);
           if(is_object($request->photo)) {
@@ -120,9 +120,8 @@ class AdvertisementController extends Controller
            $filename = public_path().'/upload/advertisement/'.$file;
            \File::delete($filename);
           }
-          $ads->update($uploadData);
-          return response()->json(' Successfully updated');
-
+          $err = $ads->update($uploadData);
+          return response()->json($err);
     }
 
     /**
