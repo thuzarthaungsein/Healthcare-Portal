@@ -32,6 +32,9 @@ Vue.use(VueFullpage)
 import VueCarousel from '@chenfengyuan/vue-carousel';
 Vue.component(VueCarousel.name, VueCarousel);
 
+
+
+
 //vue vuetify
 // import Vuetify from "vuetify";
 // import "vuetify/dist/vuetify.min.css";
