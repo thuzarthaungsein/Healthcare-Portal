@@ -11,7 +11,7 @@
             </nav>
         </div>
 
-        <form @submit.prevent="add" class="col-md-12">
+        <form class="col-md-12">
             <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
                 <input type="checkbox" class="select_all" />
                 <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる</label>
@@ -22,17 +22,17 @@
                             <img class="col-md-12" v-bind:src="'/images/' + nur_profile.logo" alt="" style="">
                             <button class="btn btn-danger all-btn" @click="removeFav(nur_profile.customer_id)" style="margin-top: 10px;margin-left: 15px;display:block;align:center;width: 200px;">最近見た施設から削除 </button>
                             <br>
-                        
+
                             <label class="btn news-post-btn all-btn">
                                 <!-- <input type="checkbox" class="checkbox" id="rcheck" value="reservation" name="reservation" v-model="mailStatus.rchecked"> -->
-                                <input type="checkbox" class="checkbox" value="reservation" name="reservation" v-model="reserv_status[nur_profile.id]"> 
+                                <input type="checkbox" class="checkbox" value="reservation" name="reservation" v-model="reserv_status[nur_profile.id]">
                                 <span class="checkmark"></span>見学予約</label>
                             <br>
                             <br>
                             <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary m-l-17">
                                 <input type="checkbox" class="checkbox" value="documentation" name="documentation" v-model="decument_status[nur_profile.id]">
                                 <span class="checkmark"></span>資料請求</label>
-                        
+
                         </div>
                         <div class="col-md-5">
                             <div class="pad-free mb-2 ">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-success m-l-35" type="submit">この内容で送信</button>
+            <span class="btn btn-success m-l-35" @click="addingMail()">この内容で送信</span>
         </form>
     </div>
 
@@ -85,7 +85,8 @@
                     fav_email: [],
                     arr_email: [],
                     reserv_status: [],
-                    decument_status: []
+                    decument_status: [],
+                    all_check: []
 
                 }
             },
@@ -133,14 +134,22 @@
                             this.selectedValue = response.data[0].c_Id;
                         });
                 },
-                add() {
-                    for(var i=0;i<this.fav_nursing.length;i++){
-                        this.fav_email.push(this.fav_nursing[i]['email']);
+                addingMail() {
+                    for (var i = 0; i < this.fav_nursing.length; i++) {
+                        this.fav_email.push({'email':this.fav_nursing[i]['email'], 'arr_reserve':this.reserv_status, 'arr_document': this.decument_status});
                     }
-                    console.log('reserv',this.reserv_status) 
-                    console.log('document',this.decument_status)
-                    console.log('email',this.fav_email)
-                    },
+                    // console.log('reserv', this.reserv_status)
+                    // console.log('document', this.decument_status)
+                    // console.log('email', this.fav_email);
+                    localStorage.setItem("item",JSON.stringify(this.fav_email));
+                    // console.log(JSON.parse(localStorage.getItem("item")));
+                    this.$router.push({
+                        name: 'nursingFavouriteMail',
+                        // params: { favmail: this.fav_email},
+                        // props: true
+                    });
+
+                },
             }
 
     }

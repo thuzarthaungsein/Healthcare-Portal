@@ -30,15 +30,15 @@ class SpecialFeatureController extends Controller
         ]);
 
         $feature = new special_feature([
-            'name' => $request->input('name'),
-            'short_name' =>$request->input('short_name'),
-            'type' =>$request->input('type'),
+            'name' => $request->name,
+            'short_name' =>$request->short_name,
+            'type' =>$request->type,
             'user_id' => 1,
-            'recordstatus' => 2
+            'recordstatus' => 1
         ]);
 
-        $feature ->save();
-        return $feature;
+        $feature->save();
+        return $request->all();
     }
 
 
