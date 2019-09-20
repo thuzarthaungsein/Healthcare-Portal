@@ -51,10 +51,6 @@ import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
 import nursingMailConfirm from './components/nursingMailConfirm.vue';
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import modal from './components/modal.vue';
-<<<<<<< HEAD
-import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
-=======
->>>>>>> 3266995fc968cc0554f202b04224a48b1dc6c584
 export const routes = [
       {
         name: 'home',
