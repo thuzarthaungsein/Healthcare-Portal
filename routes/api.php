@@ -162,6 +162,7 @@ Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
 Route::get('job_details', 'JobDetailController@index');
+Route::get('featurelist', 'SpecialFeatureController@index');
 
 // Home Page
 Route::get('home', 'HomeController@index');
