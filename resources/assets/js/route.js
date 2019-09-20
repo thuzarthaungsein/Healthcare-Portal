@@ -48,8 +48,10 @@ import specialfeature from './components/CreateSpecialFeature.vue';
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import modal from './components/modal.vue';
 
+
 import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
 export const routes = [
+    
       {
         name: 'home',
         path: '/',

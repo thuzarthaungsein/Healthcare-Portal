@@ -100,7 +100,11 @@
             <div class="tab-content tab-content2 scroll2" id="myTabContent">
                 <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
                 <div class="row">
-                        <div class="col-sm-5 detail_profile_left"><div class="hos-img"><img src="/images/1.jpg" alt="" class="col-md-12"></div></div>
+                        <div class="col-sm-5 detail_profile_left">
+                            <div class="hos-img">
+                               
+                            </div>
+                        </div>
                         <div class="col-sm-7 detail_profile_right">
                             <div class="row list-wrap m-lr-0">
                                 <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address</strong></p></div>
@@ -148,11 +152,12 @@
 </template>
    
  <script>
- export default {
-  data() {
-            var that = this;
 
-            return {   
+ export default {
+   
+  data() {
+        var that = this;
+           return {   
                 nusfacilities:[],
                 cooperate_medical:[],
                 medical_acceptance:[],
@@ -173,10 +178,10 @@
                         console.log('after', current)
                     }
                 },
-                type : 'nursing',
+                type : 'nursing',               
             };
         },
-         created(){
+      created(){
                     this.axios.get('/api/nusfacilities').then(response => {
                         this.nusfacilities = response.data;    
       
@@ -202,6 +207,7 @@
             moveTo: function(index) {          
                 this.$refs.fullpage.$fullpage.moveTo(index, true);
             }
+          
            
         }
  }

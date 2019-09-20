@@ -28,7 +28,7 @@
                 <div class="tab-content tab-content1 tabs">                      
                 <form class="col-md-12 pad-free">                         
 
-                        <div class="col-md-12 pad-free tab-pane in active" v-if="btntype == 'create'">
+                        <div class="col-md-12 pad-free tab-pane" v-if="btntype == 'create'">
                              <nursingProfile></nursingProfile>
                         </div>
 
@@ -67,7 +67,7 @@
                 </div> -->
                 <div class="tab-content tab-content1 tabs">  
                 <form class="col-md-12 pad-free"> 
-                        <div class="col-md-12 pad-free tab-pane in active" v-if="btntype == 'create'">
+                        <div class="col-md-12 pad-free tab-pane" v-if="btntype == 'create'">
                              <hospitalProfile></hospitalProfile>
                         </div>
 
@@ -105,7 +105,7 @@ export default {
               this.axios
                 .get('/api/user')
                 .then(response=>{
-                //  console.log(response);
+                console.log(response);
                 // this.fac_list = response.data;
                 });
         },
