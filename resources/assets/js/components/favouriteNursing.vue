@@ -136,12 +136,16 @@
                 },
                 addingMail() {
                     for (var i = 0; i < this.fav_nursing.length; i++) {
-                        this.fav_email.push({'email':this.fav_nursing[i]['email'], 'arr_reserve':this.reserv_status, 'arr_document': this.decument_status});
+                        this.fav_email.push({
+                            'email': this.fav_nursing[i]['email'],
+                            'arr_reserve': this.reserv_status,
+                            'arr_document': this.decument_status
+                        });
                     }
                     // console.log('reserv', this.reserv_status)
                     // console.log('document', this.decument_status)
                     // console.log('email', this.fav_email);
-                    localStorage.setItem("item",JSON.stringify(this.fav_email));
+                    localStorage.setItem("item", JSON.stringify(this.fav_email));
                     // console.log(JSON.parse(localStorage.getItem("item")));
                     this.$router.push({
                         name: 'nursingFavouriteMail',

@@ -165,15 +165,8 @@
 
                             </table>
                         </div>
-
-                        <!-- <router-link :to="{name: 'nursingFavouriteMail'}" class="btn btn-danger all-btn">戻る</router-link> -->
-                        <span class="btn btn-danger continue m-l-15 m-t-15" @click="back()">戻る</span>
+                        <router-link :to="{name: 'nursingFavouriteMail', params: {input_data: this.comments, bk_postal: this.comments.selectedValue}, props: true}" class="btn btn-danger continue m-l-15 m-t-15">戻る</router-link>&nbsp;
                         <button class="btn btn-success m-t-15 m-l-15 m-b-15 submit-button"> この内容で送信この内容で送信</button>
-
-                        <!-- <button class="btn btn-success m-t-15"><a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" style="color:white;">戻る</a></button> -->
-
-                        
-
                     </form>
                     <!--next_form-->
 
@@ -206,7 +199,8 @@
                     hope: '',
                     fav_mail: [{}],
                     arr_reserve: [{}],
-                    arr_document: [{}]
+                    arr_document: [{}],
+                    selectedValue: 0,
                 },
                 errors: [],
                 fav_nursing: [],
@@ -217,51 +211,48 @@
                 selectedCity: '',
                 zipStreet: '',
                 zipPref: '',
-                selectedValue: 0,
                 all_fav: [],
                 all_mail: []
             }
         },
-        created () {
+        created() {
             this.comments = JSON.parse(localStorage.getItem("inputValue"));
-            if(this.comments.present){
+            if (this.comments.present) {
                 this.comments.present = 'する';
-            }else{
+            } else {
                 this.comments.present = 'しない';
             }
             this.axios.get('/api/hospital/citiesList')
                 .then(response => {
                     this.city_list = response.data;
-                    for(var i=0; i<this.city_list.length; i++){
-                        if(this.comments.division == this.city_list[i].id){
+                    console.log('testing', this.comments.division)
+                    for (var i = 0; i < this.city_list.length; i++) {
+                        if (this.comments.division == this.city_list[i].id) {
                             this.comments.division = this.city_list[i].city_name;
-                            this.selectedValue = this.city_list[i].id;
-                        }else{
-                            this.comments.division = this.comments.division;
                         }
                     }
                 });
         },
-        methods: { 
+        methods: {
             add() {
-                axios.post('/api/nurse/add', this.comments)
-                    .then((response) => {
-                        alert('Mail Sent Successfully !')
-                    }).catch(error => {
-                        if (error.response.status == 422) {
-                            this.errors = error.response.data.errors
-                        }
-                    })
+                    axios.post('/api/nurse/add', this.comments)
+                        .then((response) => {
+                            alert('Mail Sent Successfully !')
+                        }).catch(error => {
+                            if (error.response.status == 422) {
+                                this.errors = error.response.data.errors
+                            }
+                        })
                     localStorage.removeItem("item");
                     localStorage.removeItem("inputValue");
-            },
-            back() {
-                this.$router.push({
-                        name: 'nursingFavouriteMail',
-                        params: { input_data: this.comments, bk_postal: this.selectedValue},
-                        props: true
-                    });
-            },
+                },
+                // back() {
+                //     this.$router.push({
+                //             name: 'nursingFavouriteMail',
+                //             params: { input_data: this.comments, bk_postal: this.comments.selectedValue},
+                //             props: true
+                //         });
+                // },
         }
     }
 </script>

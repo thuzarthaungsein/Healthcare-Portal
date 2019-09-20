@@ -87,7 +87,7 @@
                                     <div class="form-group">
                                         <label>お名前:<span class="error">*</span></label>
                                         <!-- <input type="text" class="form-control" placeholder="お名前を入力してください。"> -->
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="お名前を入力してください。" required v-model="comments.name"/>
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="お名前を入力してください。" required v-model="comments.name" />
                                         <br />
                                     </div>
 
@@ -106,7 +106,7 @@
                                             <br>
 
                                             <label> 都道府県<span class="error">*</span></label>
-                                            <select v-model="selectedValue" class="division form-control" id="division">
+                                            <select v-model="comments.selectedValue" class="division form-control" id="division">
                                                 <option value="0">選択してください。</option>
                                                 <option v-for="cities in city_list" :key="cities.id" v-bind:value="cities.id">
                                                     {{cities.city_name}}
@@ -368,7 +368,8 @@
                     hope: '',
                     fav_mail: [{}],
                     arr_reserve: [{}],
-                    arr_document: [{}]
+                    arr_document: [{}],
+                    selectedValue: 0,
 
                 },
                 errors: [],
@@ -380,7 +381,6 @@
                 selectedCity: '',
                 zipStreet: '',
                 zipPref: '',
-                selectedValue: 0,
                 all_mail: [],
                 bk_data: [],
                 bk_postal: 0
@@ -389,8 +389,7 @@
         created() {
             this.bk_data = this.$route.params.input_data;
             this.bk_postal = this.$route.params.bk_postal;
-            console.log('bk',this.bk_postal);
-            if(this.bk_data != undefined){
+            if (this.bk_data != undefined) {
                 this.comments = this.bk_data;
                 this.selectedValue = this.bk_postal;
             }
@@ -415,11 +414,11 @@
                                 } else {
                                     this.comments.city = post_data[0]['city'] + ' - ' + post_data[0]['street'];
                                 }
-                                this.selectedValue = pref;
+                                this.comments.selectedValue = pref;
                                 this.comments.division = pref;
                             } else {
                                 this.comments.city = '';
-                                this.selectedValue = 0;
+                                this.comments.selectedValue = 0;
                                 $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
                             }
                         });
@@ -427,17 +426,17 @@
             },
             add() {
                 this.all_mail = JSON.parse(localStorage.getItem("item"));
-            for(var i=0; i<this.all_mail.length; i++){
-                this.comments.fav_mail.push(this.all_mail[i].email);
-                this.comments.arr_reserve.push(this.all_mail[i].arr_reserve);
-                this.comments.arr_document.push(this.all_mail[i].arr_document);
-            }
-                localStorage.setItem("inputValue",JSON.stringify(this.comments));
+                for (var i = 0; i < this.all_mail.length; i++) {
+                    this.comments.fav_mail.push(this.all_mail[i].email);
+                    this.comments.arr_reserve.push(this.all_mail[i].arr_reserve);
+                    this.comments.arr_document.push(this.all_mail[i].arr_document);
+                }
+                localStorage.setItem("inputValue", JSON.stringify(this.comments));
                 var data = JSON.parse(localStorage.getItem("inputValue"));
                 // localStorage.removeItem("item");
                 this.$router.push({
-                        name: 'nursingMailConfirm',
-                    });
+                    name: 'nursingMailConfirm',
+                });
             },
         }
     }
