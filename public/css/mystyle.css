@@ -2782,3 +2782,37 @@ screen and (min-width: 750px) {
       .fade-enter, .fade-leave-to {
       opacity: 0;
       } */
+
+.card-wrap {
+    height: 550px;
+    padding-top: 90px;
+    text-align: center;
+}
+
+.record-ico {
+    border: 1px solid #f3bba1;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto 10px;
+    line-height: 80px;
+    vertical-align: middle;
+}
+
+.record-ico i {
+    font-size: 28px;
+    color: #f9793c;
+}
+
+.record-txt01 {
+    font-size: 30px;
+    color: #69C1A8;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.card-wrap .create-btn {
+    width: 16%;
+    margin: 30px auto;
+}
