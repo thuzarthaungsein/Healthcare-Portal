@@ -17,7 +17,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Feature Short Name :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="feature.short_name"  placeholder="Feature Short Name" >
+                                <input type="text" class="form-control" v-model="feature.short_name"  placeholder="Feature Short Name" >
                                  <span v-if="errors.short_name" class="error">{{errors.short_name[0]}}</span>
                             </div>
                             <div class="form_group">
@@ -52,16 +52,15 @@ export default {
                         name: '',
                         short_name:'',
                         type:'',
-                        user_id:'',
-                        recordstatus: ''
                     },
-                    // selectedValue:0
+                    selectedValue:'選択してください'
             }
         },
           created() {
-            this.axios
-                .get(`/api/feature/edit/${this.$route.params.id}`)
-                .then((response) => {
+              if(this.$route.params.id){
+                  this.axios
+                    .get(`/api/feature/edit/${this.$route.params.id}`)
+                    .then((response) => {
 
                     this.feature = response.data;
                     if(this.feature.type == '病院')
@@ -75,11 +74,14 @@ export default {
                     }
 
                 });
+              }
         },
 
 
          methods: {
             add() {
+                console.log("add");
+                console.log(this.feature);
                   if( `${this.$route.params.id}` == "undefined")
                   {
                             axios.post('/api/feature/add', this.feature)
@@ -87,7 +89,8 @@ export default {
                          this.name = ''
                          this.short_name=''
                          this.type=''
-                    alert('Successfully Created')
+                         console.log(response);
+                    alert('Successfully Created');
                      this.$router.push({name: 'featurelist'});
                     }).catch(error=>{
 
@@ -105,6 +108,7 @@ export default {
             onChange: function(){
 
                this.feature.type = this.selectedValue;
+               console.log(this.feature);
 
            },
             updateFeature() {
