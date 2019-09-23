@@ -25,10 +25,10 @@
                                                                 <div class="row">
                                                                         <div class="active-users col-md-4">
                                                                                 <router-link :to="'/newsdetails/'+latest_post.id">
-                                                                                        <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px"/>
+                                                                                        <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" @error="imgUrlAlt"/>
                                                                                         <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
                                                                                         <p class="source-subtitle" v-if="latest_post.created_at">
-                                                                                                <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img">{{ latest_post.created_at }}
+                                                                                                <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{ latest_post.created_at }}
                                                                                         </p>
                                                                                 </router-link>
                                                                         </div>
@@ -37,7 +37,7 @@
                                                                                         <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
                                                                                                 <router-link :to="{name:'newdetails', params: {id:post.id}}">
                                                                                                 
-                                                                                                        <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right">
+                                                                                                        <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt">
                                                                                                                 <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
                                                                                         
                                                                                                 </router-link>
@@ -55,7 +55,7 @@
                                                 <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                                 <div class="hovereffect fit-image">
                                                         <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
-                                                        <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="">
+                                                        <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt">
                                                         <div class="overlay">
                                                                 <!-- <h2></h2> -->
                                                                 <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
@@ -87,7 +87,7 @@
                                                 <div class="col-md-12 row m-b-10 adslist-card">
                                                         <div class="col-md-4 img-box">
                                                                 <router-link :to="'/newsdetails/'+item.pid">
-                                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem">
+                                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt">
                                                                 </router-link>
                                                         </div>
 
@@ -351,6 +351,9 @@ export default {
                                                 this.latest_post = this.posts[0];
                                         }
                         });
+                },
+                imgUrlAlt(event) {
+                        event.target.src = "images/noimage.jpg"
                 }
         }
 
