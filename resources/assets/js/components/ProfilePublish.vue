@@ -15,7 +15,7 @@
                         <li>
                             <a class="nav-link" href="#four"  id="four-tab" data-toggle="tab" role="tab" aria-controls="four" aria-selected="true" >Job Offer</a>
                         </li>
-                
+
                 </ul>
             </div>
 
@@ -56,8 +56,32 @@
 
                             <h5 class="header">special Features</h5>
                             <div class="row m-lr-0">
-                                <ul class="fac_container">
-                                    <li>24時間看護</li>
+                                  <ul class="fac_container" v-for="special in special_features" :key="special.id">
+                                    <li >{{special.short_name}}</li>
+                                </ul>
+                            </div>
+                            <h5 class="header">Information from clinic</h5>
+                            <div class="row m-lr-0">
+                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                                    <li >{{hospital.details_info}}</li>
+                                </ul>
+                            </div>
+                            <h5 class="header">Information from clinic</h5>
+                            <div class="row m-lr-0">
+                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                                    <li >{{hospital.subject}}</li>
+                                </ul>
+                            </div>
+                            <h5 class="header">Consultation hours</h5>
+                            <div class="row m-lr-0">
+                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                                    <li >{{hospital.closed_day}}</li>
+                                </ul>
+                            </div>
+                            <h5 class="header">Facility</h5>
+                            <div class="row m-lr-0">
+                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                                    <li >{{hospital.facilities}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -93,14 +117,27 @@
 
                 </div>
                 <div class="tab-pane fade p-1" id="three" role="tabpanel" aria-labelledby="three-tab">
-                    <div class="row">
-                        <h1>tab3</h1>
-                    </div>
+                    <div class="row" v-for="comment in comments" :key="comment.id">
+                                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
+                                     <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
+                                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
+                                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                                    <br/><br/>
+                                      <div class="row col-md-12 m-lr-0">
+                                          <p class="showContent"> {{comment.comment}}</p>
+                                                <span class="displaytext">
+                                                       {{comment.comment}}
+                                                </span>
+                                                <a class="mt-2 readMore" href ="#">続きを読む</a>
+
+                                </div>
+
+                        </div>
                 </div>
                 <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
                      <joboffer></joboffer>
                 </div>
-                <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
+                <!-- <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
                     <div class="row">
                         <h1>tab5</h1>
                     </div>
@@ -109,7 +146,7 @@
                     <div class="row">
                         <h1>tab6</h1>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -395,11 +432,10 @@
 
                 </div>
                 <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
-                    <div class="row">
                         <div class="row" v-for="comment in comments" :key="comment.id">
-                                    <div class="col-md-12" style="font-size:20px;">Title:{{comment.title}}</div><br/>
+                                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
                                      <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                                    <div class="col-md-5" style="font-size:20px;">Email:{{comment.email}}</div>
+                                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
                                     <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
                                     <br/><br/>
                                       <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
@@ -411,36 +447,35 @@
                                                 <span class="displaytext">
                                                        {{comment.comment}}
                                                 </span>
-                                                <a class="mt-2 readMore" href ="#">Read More</a>
+                                                <a class="mt-2 readMore" href ="#">続きを読む</a>
 
                                 </div>
 
                         </div>
-                    </div>
                 </div>
                 <div class="tab-pane fade p-1" id="seven" role="tabpanel" aria-labelledby="seven-tab">
-                  
+
                        <joboffer></joboffer>
-                 
+
                 </div>
             </div>
         </div>
-     
+
 
     </div>
 </template>
 
  <script>
 import joboffer from './JobOfferList.vue'
- export default {   
+ export default {
       components:{
                     joboffer
-                },        
+                },
 
   data() {
             var that = this;
             return {
-                
+
                 markers: [
                     { position: { lat: 0, lng: 0 } },
                 ],
@@ -451,6 +486,7 @@ import joboffer from './JobOfferList.vue'
                 cooperate_medical:[],
                 medical_acceptance:[],
                 staff:[],
+                hospitals:[],
                 nursing_profiles:[],
                 special_features:[],
                 method_payment:[],
@@ -458,7 +494,8 @@ import joboffer from './JobOfferList.vue'
                 activeImage: 0,
                 index: 0,
                 pageNum: 0,
-                type : 'nursing',
+                //type : 'hospital',
+                type:'nursing',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -473,7 +510,7 @@ import joboffer from './JobOfferList.vue'
                         console.log('after', current)
                     }
                 },
-               
+
                 images: [
                     {
                         id: '1',
@@ -495,7 +532,7 @@ import joboffer from './JobOfferList.vue'
                         big: 'images/p4.jpeg',
                         thumb: 'images/thumbs/p4.jpeg'
                     }
-                ],  
+                ],
             };
         },
         created(){
@@ -545,26 +582,26 @@ import joboffer from './JobOfferList.vue'
                     this.markers[0]['position']['lng']  = response.data[0]['longitude'];
                     this.center['lat'] = response.data[0]['latitude'];
                     this.center['lng'] = response.data[0]['longitude'];
-                            
+
                 });
-                  
-                     
+
+
                 var geocoder = new google.maps.Geocoder;
                 var latlng = {lat: 19.7633, lng: 96.0785};
 
                 geocoder.geocode({'location': latlng}, function(results, status) {
                 if (status === 'OK') {
-                    
+
                     if (results[1]) {
-                        
-                            this.address=  results[1].formatted_address  
-                        
-                        }   
+
+                            this.address=  results[1].formatted_address
+
+                        }
                     }
                 })
             }
             else{
-              
+
                 this.axios.get('/api/googleforhospital').then(response => {
                     this.google = response.data;
                     this.markers[0]['position']['lat']  = response.data[0]['latitude'];
@@ -572,11 +609,21 @@ import joboffer from './JobOfferList.vue'
                     this.center['lat'] = response.data[0]['latitude'];
                     this.center['lng'] = response.data[0]['longitude'];
                     console.log(this.markers[0]['position']['lat']);
-                            
+
                 });
+                this.axios.get('/api/feature/featurelist').then(response => {
+                    this.special_features = response.data;
+                });
+                this.axios.get('/api/comments/comment').then(response => {
+                    this.comments = response.data;
+
+                });
+                this.axios.get('/api/hospital').then(response => {
+                    this.hospitals = response.data;
+                })
             }
-                    
-               
+
+
           },
           methods: {
               moveTo: function(index) {
@@ -590,11 +637,11 @@ import joboffer from './JobOfferList.vue'
                 }
                 this.activateImage(active);
             },
-         
+
                 prevImage() {
                     var active = this.activeImage - 1;
                     if(active < 0) {
-                        active = this.images.length - 1; 
+                        active = this.images.length - 1;
                     }
                     this.activateImage(active);
                 },
@@ -604,7 +651,7 @@ import joboffer from './JobOfferList.vue'
 
 
         },
-               
+
  }
 
 </script>
