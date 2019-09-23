@@ -49,15 +49,14 @@ class AdvertisementController extends Controller
 
         $imageName = $request->photo->getClientOriginalName();
         $request->photo->move(public_path('upload/advertisement'), $imageName);
-        $ads = new Advertisement([
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'link'=>$request->input('link'),
-            'location'=>$request->input('location'),
-            'photo' => $request->photo->getClientOriginalName(),
-            'user_id' => 1,
-            'recordstatus' => 2
-        ]);
+        $ads = new Advertisement;
+        $ads->title=$request->title;
+        $ads->description=$request->description;
+        $ads->link=$request->link;
+        $ads->location=$request->location;
+        $ads->photo=$request->photo->getClientOriginalName();
+        $ads->user_id=1;
+        $ads->recordstatus=2;
          $ads ->save();
          //return $ads;
          return response()->json('Successfully ');

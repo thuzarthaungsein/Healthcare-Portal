@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\NursingProfile;
+use App\method_payment;
 use App\Cooperate_Medical;
 use App\Medical;
 use App\Staff;
+use App\HospitalProfile;
 
 class ProfilePublishController extends Controller
 {
@@ -18,11 +20,18 @@ class ProfilePublishController extends Controller
     public function index()
     {
         //
-        // $nurse = NursingProfile::all()->toArray();
-        $nurse = NursingProfile::where('customer_id',5)->get();
-        return $nurse;
+        //$nurse = NursingProfile::all()->toArray();
+        $feature = NursingProfile::select('feature')->where('id',1)->get();
+        return $feature;
+  
     }
 
+    public function getfacilities()
+    {
+       // $nurse = NursingProfile::all()->toArray();
+       $nurse = NursingProfile::where('customer_id',5)->get();
+       return $nurse;
+    }
 
     public function getcooperatemedical()
     {
@@ -45,23 +54,31 @@ class ProfilePublishController extends Controller
         return $staff;
     }
 
-    public function getGoogleMap()
+    public function getGoogleMapForNurse()
     {
         //
         $latlong = NursingProfile::where('id',1)->get();
         return $latlong;
     }
 
+    public function getGoogleMapForHospital()
+    {
+        //
+        $latlong = HospitalProfile::where('id',1)->get();
+        return $latlong;
+    }
 
-    
-
-    
-
-    
 
 
 
-    
+
+
+
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -90,9 +107,12 @@ class ProfilePublishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+        $cost =method_payment::all()->toArray();
+        return $cost;
+
     }
 
     /**

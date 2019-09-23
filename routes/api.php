@@ -30,17 +30,18 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api end
 
-// login route api sta rt   
+// login route api sta rt
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
-    Route::get('nusfacilities', 'ProfilePublishController@index');
+    Route::get('nusfacilities', 'ProfilePublishController@getfacilities');
     Route::get('cooperatemedical', 'ProfilePublishController@getcooperatemedical');
     Route::get('medicalacceptance', 'ProfilePublishController@getmedicalacceptance');
     Route::get('staff', 'ProfilePublishController@getstaff');
-    Route::get('google', 'ProfilePublishController@getGoogleMap');
-    
-    
+    Route::get('googlefornurse', 'ProfilePublishController@getGoogleMapForNurse');
+    Route::get('googleforhospital', 'ProfilePublishController@getGoogleMapForHospital');
+
+
 
     // Category
     Route::group(['prefix' => 'category'], function () {
@@ -222,7 +223,8 @@ Route::group(['prefix' => 'nurse'], function () {
 Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
-
+Route::get('nurse','ProfilePublishController@index');
+Route::get('cost','ProfilePublishController@show');
 // Route::group(['prefix' => 'new'], function () {
 //     Route::post('add', 'PostController@add');
 //     Route::get('editPost/{id}', 'PostController@edit');
