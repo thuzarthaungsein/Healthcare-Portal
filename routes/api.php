@@ -225,6 +225,7 @@ Route::group(['prefix' => 'new'], function () {
 });
 Route::get('nurse','ProfilePublishController@index');
 Route::get('cost','ProfilePublishController@show');
+Route::get('hospital','ProfilePublishController@hospital');
 // Route::group(['prefix' => 'new'], function () {
 //     Route::post('add', 'PostController@add');
 //     Route::get('editPost/{id}', 'PostController@edit');

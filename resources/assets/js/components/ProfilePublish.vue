@@ -521,7 +521,7 @@ import joboffer from './JobOfferList.vue'
 
                 this.axios.get('/api/nusfacilities').then(response => {
                     this.nusfacilities = response.data.nurse;
-                    console.log(this.nusfacilities);
+                   
 
                 });
 
@@ -572,7 +572,7 @@ import joboffer from './JobOfferList.vue'
                     this.markers[0]['position']['lng']  = response.data[0]['longitude'];
                     this.center['lat'] = response.data[0]['latitude'];
                     this.center['lng'] = response.data[0]['longitude'];
-                    console.log(this.markers[0]['position']['lat']);
+                   
                             
                 });
             }

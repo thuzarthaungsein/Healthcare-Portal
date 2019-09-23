@@ -21,9 +21,19 @@ class ProfilePublishController extends Controller
     {
         //
         //$nurse = NursingProfile::all()->toArray();
+<<<<<<< HEAD
         $feature = NursingProfile::select('feature')->where('id',1)->get();
         return $feature;
   
+=======
+        $nurse = NursingProfile::select('feature')->where('id',1)->get();
+        return $nurse;
+
+
+        // $nurse = NursingProfile::all()->toArray();
+        // $nurse = NursingProfile::where('customer_id',5)->get();
+        // return $nurse;
+>>>>>>> 34d7a384e7640dc58673c8ea5741317697dbe687
     }
 
     public function getfacilities()
@@ -38,6 +48,10 @@ class ProfilePublishController extends Controller
         //
         $comedical = Cooperate_Medical::all()->toArray();
         return array_reverse($comedical);
+    }
+    public function hospital(){
+        $hospital = HospitalProfile::where('id',4)->get();
+        return $hospital;
     }
 
     public function getmedicalacceptance()
@@ -60,6 +74,7 @@ class ProfilePublishController extends Controller
         $latlong = NursingProfile::where('id',1)->get();
         return $latlong;
     }
+<<<<<<< HEAD
 
     public function getGoogleMapForHospital()
     {
@@ -80,6 +95,8 @@ class ProfilePublishController extends Controller
 
 
 
+=======
+>>>>>>> 34d7a384e7640dc58673c8ea5741317697dbe687
     /**
      * Show the form for creating a new resource.
      *
