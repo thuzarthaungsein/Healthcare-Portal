@@ -57,11 +57,11 @@ class CategoryController extends Controller
 
         ]);
 
-        $category = new Category([
-            'name' => $request->input('name'),
-            'user_id' => 1,
-            'recordstatus' => 2
-        ]);
+        $category = new Category();
+        $category->name = $request->input('name');
+        $category->user_id = 1;
+        $category->recordstatus = 1;
+
         $category ->save();
         return $category;
 
@@ -81,7 +81,11 @@ class CategoryController extends Controller
 
         ]);
         $category = Category::find($id);
-        $category->update($request->all());
+        $category->name = $request->input('name');
+        $category->user_id = 1;
+        $category->recordstatus = 1;
+        $category -> save();
+        // $category->update($request->all());
 
         return response()->json('The Facility successfully updated');
     }

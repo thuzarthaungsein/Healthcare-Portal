@@ -21,8 +21,6 @@ import createcustomer from './components/CreateCustomer.vue';
 import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import Profile from './components/Profile.vue';
-// import hosProfile from './components/hosProfile.vue';
-// import nusProfile from './components/nusProfile.vue';
 import JobOfferList from './components/JobOfferList.vue';
 import ProfilePublish from './components/ProfilePublish.vue';
 import advertisement from './components/advertisement.vue';
@@ -52,7 +50,7 @@ import nursingMailConfirm from './components/nursingMailConfirm.vue';
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import modal from './components/modal.vue';
 export const routes = [
-      {
+    {
         name: 'home',
         path: '/',
         component: home
@@ -174,16 +172,7 @@ export const routes = [
       path: '/profile',
       component: Profile
     },
-    // {
-    //   name: 'hos_profile',
-    //   path: '/hos_profile',
-    //   component: hosProfile
-    // },
-    // {
-    //   name: 'nus_profile',
-    //   path: '/nus_profile',
-    //   component: nusProfile
-    // },
+
     {
       name: 'jobofferlist',
       path: '/jobofferlist',
@@ -277,7 +266,7 @@ export const routes = [
       name: 'nursing_profile',
       path: '/nursing_profile',
       component: NursingProfile
-     },  
+     },
   {
     name: 'videoupload',
     path: '/videoupload',
@@ -320,5 +309,5 @@ export const routes = [
   },
 
 
-  
+
 ];

@@ -51,15 +51,6 @@ class AdvertisementController extends Controller
         $imgname = str_replace(' ', '', $imageName);
         // move_uploaded_file($imageName, '/upload/advertisement/'.$imageName);
         
-        // $ads = new Advertisement([
-        //     'title' => $request->input('title'),
-        //     'description' => $request->input('description'),
-        //     'link'=>$request->input('link'),
-        //     'location'=>$request->input('location'),
-        //     'photo' => $request->photo->getClientOriginalName(),
-        //     'user_id' => 1,
-        //     'recordstatus' => 2
-        // ]);
         $ads = new Advertisement();
         $ads->title = $request->input('title');
         $ads->description = $request->input('description');
@@ -72,7 +63,7 @@ class AdvertisementController extends Controller
 
          $request->photo->move('upload/advertisement/', $imgname);
          //return $ads;
-         return response()->json('Successfully ');
+         return response()->json('Success ');
 
     }
 

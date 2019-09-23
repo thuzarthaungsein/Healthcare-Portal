@@ -105,7 +105,7 @@ export default {
                         this.Type.parent = response.data.parent;
                         this.selectedValue = response.data.parent;
                         this.TypeList.name = response.data.name;
-
+                        console.log(this.selectedValue);
 
                     }
 
