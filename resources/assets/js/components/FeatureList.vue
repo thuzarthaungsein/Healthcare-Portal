@@ -26,7 +26,6 @@
 
                  </div>
                 <div v-else class="container-fuid">
-
                     <table class="table table-hover">
                             <thead>
                                 <tr>

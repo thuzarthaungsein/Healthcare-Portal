@@ -194,7 +194,7 @@ Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingH
 Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
 
 Route::group(['prefix' => 'hospital'], function () {
-    Route::post('postList', 'HospitalProfileController@getPostalList');
+    Route::post('postList/{postal}', 'HospitalProfileController@getPostalList');
     Route::get('citiesList', 'HospitalProfileController@getCitiesName');
     Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
     Route::get('favourite_list', 'HospitalProfileController@index');

@@ -132,7 +132,7 @@
                     <div class="row" >
                         <div class="col-md-12">
                          <h2 align="center"> Facility </h2>
-                         <hr>
+                         
                         </div>
                         <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12 " >
                              <table border="1" class="table">
@@ -204,7 +204,7 @@
                     <div class="row" >
                         <div class="col-md-12">
                          <h2 align="center"> Cooperate Medical </h2>
-                         <hr>
+                       
                         </div>
                         <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12 " >
                              <table border="1" class="table">
@@ -224,7 +224,7 @@
                      <div class="row" >
                         <div class="col-md-12">
                          <h2 align="center"> Medical Acceptance </h2>
-                         <hr>
+                         
                         </div>
                         <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-12 " >
                              <table border="1" class="table">
@@ -241,14 +241,22 @@
                      <div class="row" >
                         <div class="col-md-12">
                          <h2 align="center"> Staff </h2>
-                         <hr>
+                        
                         </div>
                         <div v-for="st in staff" :key="st.id" class="col-md-12 " >
                              <table border="1" class="table">
                                 <tbody>
                                     <tr>
-                                        <td> Staff Name    </td>
+                                        <td> Staff     </td>
                                         <td>{{st.staff}}</td>
+                                         <td> Nursing Staff     </td>
+                                        <td>{{st.nursing_staff}}</td>
+                                    </tr>
+                                     <tr>
+                                        <td> Min num of Staff     </td>
+                                        <td>{{st.min_num_staff}}</td>
+                                         <td> Num of Staff     </td>
+                                        <td>{{st.num_staff}}</td>
                                     </tr>
                                   
                                 </tbody>
@@ -257,12 +265,40 @@
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
+                       <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
+                          <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" @dragend="updateCoordinates" />
+                       </GmapMap>
+                       
+                       <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                           <div class="col-md-2 text-left ">
+                               Official Site  : 
+                           </div>
+                           <div class="col-md-10 text-left">
+                               www.google.com
+                           </div>
+
+                           <div class="col-md-2 text-left" style="padding-top:20px;" >
+                               Access : 
+                           </div>
+                           <div class="col-md-10 text-left" style="padding-top:20px;">
+                              {{m.access}}
+                           </div>
+
+                           <div class="col-md-2 text-left" style="padding-top:20px;" >
+                               City/Township : 
+                           </div>
+                           <div class="col-md-10 text-left" style="padding-top:20px;">
+                               {{this.address}}
+                           </div>
+                      </div>
+
                    
+                     
                 </div>
                 <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
-                    <div class="row">
-                        <h1>tab6</h1>
-                    </div>
+                  
+                         <joboffer></joboffer>
+                    
                 </div>
             </div>
         </div>
@@ -271,11 +307,23 @@
 </template>
    
  <script>
+import joboffer from './JobOfferList.vue'
  export default {
+    components:{
+        joboffer
+    },
+    
   data() {
             var that = this;
-
+              
             return {   
+                 markers: [
+                    { position: { lat: 0.0000000, lng: 0.0000000 } },
+                   
+                  
+                ],
+                center: { lat: 0.0000000, lng: 0.0000000 },
+                google:[],
                 nusfacilities:[],
                 cooperate_medical:[],
                 medical_acceptance:[],
@@ -297,6 +345,9 @@
                     }
                 },
                 type : 'nursing',
+                address: '',
+               
+               
             };
         },
          created(){
@@ -322,10 +373,31 @@
                     });
 
                         this.axios.get('/api/google').then(response => {
-                        this.markers = response.data;  
-                          
+                        this.google = response.data;
+                        this.markers[0]['position'][' lat']  = response.data[0]['latitude'];
+                        this.markers[0]['position']['lng']  = response.data[0]['longitude'];
+                        this.center['lat'] = response.data[0]['latitude'];
+                        this.center['lng'] = response.data[0]['longitude'];
+
+                        var geocoder = new google.maps.Geocoder;
+                        var latlng = {lat: response.data[0]['latitude'], lng: response.data[0]['longitude']};
+                        // var latlng = {lat: 19.76330000, lng: 96.07850000};
+                      
+                        geocoder.geocode({'location': latlng}, function(results, status) {
+                        if (status === 'OK') {
+                            
+                            if (results[1]) {
+                                
+                                this.address=  results[1].formatted_address  
+                                 console.log(this.address);
+                             }   
+                            }
+                           
+                        })
+                         
+                                   
                     });
-                    
+                         
          },
     
  }

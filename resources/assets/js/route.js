@@ -45,10 +45,10 @@ import featurelist from './components/FeatureList.vue';
 import favouriteNursing from './components/favouriteNursing.vue';
 import passport from './components/passport.vue';
 import specialfeature from './components/CreateSpecialFeature.vue';
+import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
+import nursingMailConfirm from './components/nursingMailConfirm.vue';
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import modal from './components/modal.vue';
-
-import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
 export const routes = [
       {
         name: 'home',
@@ -296,6 +296,11 @@ export const routes = [
     name: 'nursingFavouriteMail',
     path: '/nursingFavouriteMail',
     component: nursingFavouriteMail
+  },
+  {
+    name: 'nursingMailConfirm',
+    path: '/nursingMailConfirm',
+    component: nursingMailConfirm
   },
   {
     name: 'modal',

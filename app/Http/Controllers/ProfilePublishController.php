@@ -41,14 +41,14 @@ class ProfilePublishController extends Controller
     public function getstaff()
     {
         //
-        $staff = Staff::select('staff')->where('id',1)->get();
+        $staff = Staff::where('id',1)->get();
         return $staff;
     }
 
     public function getGoogleMap()
     {
         //
-        $latlong = NursingProfile::select('latitude','longitude')->where('id',1)->get();
+        $latlong = NursingProfile::where('id',1)->get();
         return $latlong;
     }
 
