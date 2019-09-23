@@ -163,6 +163,7 @@ Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('featurelist', 'SpecialFeatureController@index');
+Route::get('hospital-photo/{id}','HospitalProfileController@getGallery');
 
 // Home Page
 Route::get('home', 'HomeController@index');
