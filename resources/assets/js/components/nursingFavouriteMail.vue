@@ -183,8 +183,9 @@
                                         <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" required v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
                                     </div>
 
-                                    <input type="submit" id="submit1" disabled="disabled"  @click="add()" class="submit1 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/>
+                                    <!-- <input type="submit" id="submit1" disabled="disabled"  @click="add()" class="submit1 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/> -->
                                     <!-- <input type="button" id="btnQueryString" value="Send" class="m-t-30"/><br> -->
+                                    <span class="btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</span>
 
                                     <!--next_form-->
                                     <div class="m-t-30">
@@ -336,8 +337,8 @@
                                         <label>ご要望や、お困りごと、その他お問い合わせ:<span class="error">*</span></label>
                                         <textarea name="hope" id="hope" cols="30" rows="10" required v-model="comments.hope"></textarea>
                                     </div>
-                                    <!-- <span class="btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</span> -->
-                                    <input type="submit" id="submit2" disabled="disabled"  @click="add()" class="submit2 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/>
+                                    <span class="btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</span>
+                                    <!-- <input type="submit" id="submit2" disabled="disabled"  @click="add()" class="submit2 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/> -->
                                 </form>
                             </div>
                         </div>

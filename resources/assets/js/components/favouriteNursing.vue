@@ -32,10 +32,11 @@
                 <div class="hos-img">
                   <img class="col-md-12" v-bind:src="'/images/' + nur_profile.logo" alt style />
                 </div>
-                <button
+                <!-- <button
                   class="btn btn-danger all-btn hos-btn"
                   @click="removeFav(nur_profile.customer_id)"
-                >最近見た施設から削除</button>
+                >最近見た施設から削除</button> -->
+                 <button class="btn btn-danger all-btn hos-btn" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
                 <div class="row mt-2">
                   <div class="col-6">
                     <label class="btn news-post-btn all-btn hos-btn">
@@ -217,6 +218,30 @@
             },
 
             methods: {
+              deleteLocalSto: function(id) {
+      
+      if(confirm("Are you sure you want to delete?"))
+      {
+        alert('Delete Successfully!');
+      }
+      
+      var l_sto = this.local_sto;
+      var l_sto_arr = l_sto.split(",");
+      var rm_id = id.toString();
+      var index = l_sto_arr.indexOf(rm_id);
+      if (index > -1) {
+        l_sto_arr.splice(index , 1);
+        var new_local = l_sto_arr.toString();
+        localStorage.setItem('nursing_fav', new_local);
+        this.local_sto = localStorage.getItem("nursing_fav");
+        if(this.local_sto) {
+          this.getAllFavourite(this.local_sto);
+        }
+        else {
+          window.location.reload();
+        }
+      }
+    },
                 getAllFavourite: function(local_storage) {
                     this.axios
                         .post('/api/nursing_fav/' + local_storage)
