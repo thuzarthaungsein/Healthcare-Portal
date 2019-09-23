@@ -47,7 +47,11 @@ class PostController extends Controller
         if($request->image != null && $request->image != "")
         {
             $imageName = $request->image->getClientOriginalName();
-            $request->image->move(public_path('/upload/news'), $imageName);
+            // $request->image->move(public_path('/upload/news'), $imageName);
+
+            $imageName = str_replace(' ', '', $imageName);
+            $request->photo->move('upload/news/', $imageName);
+
             $post = new Post([
                 'title' => $request->input('title'),
                 'main_point' => $request->input('main_point'),
@@ -148,7 +152,9 @@ class PostController extends Controller
         ]);
         if(is_object($request->photo)){
             $imageName = $request->photo->getClientOriginalName();
-            $request->photo->move(public_path('/upload/news'), $imageName);
+            // $request->photo->move(public_path('/upload/news'), $imageName);
+            $imageName = str_replace(' ', '', $imageName);
+            $request->photo->move('upload/news/', $imageName);
         }else {
             $imageName =$request->photo;
         }
@@ -166,7 +172,7 @@ class PostController extends Controller
         $post = Post::find($id);
         if(is_object($request->photo)){
             $file= $post->photo;
-            $filename = public_path().'/upload/news/'.$file;
+            $filename = '/upload/news/'.$file;
             \File::delete($filename);
         }
         $post->update($formData);
@@ -183,7 +189,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $file= $post->photo;
-        $filename = public_path().'/upload/news/'.$file;
+        $filename = '/upload/news/'.$file;
         \File::delete($filename);
         $post->delete();
         return response()->json('The news post successfully deleted');
