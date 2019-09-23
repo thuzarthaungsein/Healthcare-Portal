@@ -42,7 +42,7 @@ export default {
 
   methods: {
     add() {
-      axios
+      this.axios
         .post("/api/facility/add", this.facility)
         .then(response => {
           this.description = "";

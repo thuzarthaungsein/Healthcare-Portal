@@ -15,7 +15,7 @@ export default {
 methods:{
     favList(){
         let favData = localStorage.getItem('hospital_fav');        
-         axios.post('/api/hospital/favData', favData)
+         this.axios.post('/api/hospital/favData', favData)
                     .then(response => { 
                         //  console.log(response);
                     })

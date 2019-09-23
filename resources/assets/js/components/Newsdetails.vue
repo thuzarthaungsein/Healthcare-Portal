@@ -146,7 +146,7 @@
                                 </div> -->
                                 <!--end related news-->
                                          <div class="row m-lr-0">
-                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title">関連ニュース</h4></div>
+                        <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div>
                         <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
                                 <div class="hovereffect fit-image">
                                         <!-- <img v-bind:src="'/images/' + latest_post_all_cat.photo" class="source-img img-responsive" style="width:100%;height:80%" > -->
@@ -198,46 +198,51 @@ import jobSearch from './jobSearch.vue'
         data() {
             return {
                 newdetails:[],
+                latest_post_all_cats: [],
 
-                latest_post_all_cats: []
             }
         },
         created(){
-            this.getLatestPostFromAllCat();
+            //this.getLatestPostFromAllCat();
+
             this.axios
                  .get(`/api/newdetails/${this.$route.params.id}`)
                  .then(response=>{
                      this.newdetails = response.data;
-                     this.relatedNews(this.newdetails.category_id);
-                //   this.latest_post_all_cats = response.data;
-                 });
+
+
+
+            });
+            // alert(this.$route.params.id);
+            this.relatedNews(this.$route.params.id);
         },
 
         methods: {
-                getLatestPostFromAllCat: function() {
+                // getLatestPostFromAllCat: function() {
 
-                        this.axios
-                        .get(`/api/get_latest_post_all_cat`)
-                        .then(response => {
-                                //console.log(response);
-                                this.latest_post_all_cats = response.data;
-                        });
-                },
+                //         this.axios
+                //         .get(`/api/get_latest_post_all_cat`)
+                //         .then(response => {
+                //                 //console.log(response);
+                //                 //this.latest_post_all_cats = response.data;
+                //         });
+                // },
                 relatedNews: function(id) {
-
                         this.axios
-                        .get(`/api/newsdetailsrelated/${id}`)
-                        .then(response => {
-                                //console.log(response);
-                                this.latest_post_all_cats = response.data;
+                        .get(`/api/newsdetailsrelated/${id}`) .then(response => {
+                            console.log(response.data);
+                            this.latest_post_all_cats= response.data;
                         });
-                }
+            }
         }
-
-
-
-
     }
+    </script>
+
+
+
+
+
+
 
 
 
@@ -283,7 +288,7 @@ import jobSearch from './jobSearch.vue'
 
 
 //     }
-// </script>
+
 
 
 

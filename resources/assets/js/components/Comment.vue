@@ -96,11 +96,11 @@
                                                 <label for ="zipcode"  ><strong> Zipcode : </strong>   </label>
                                             </div>
                                              <div class="col-sm-2">
-                                                 <input type="text" class="form-control box fnumericzip" value="firstzip" v-model="field.fzipcode" maxlength="3" v-on:keyup="CheckFirstZipcode">
+                                                 <input type="text" class="form-control box fnumericzip" value="firstzip" v-model="field.fzipcode" maxlength="3" v-on:keyup="CheckFirstZipcode" required>
                                               <span v-if="errors.fzipcode" class="error">{{errors.fzipcode[0]}}</span>
                                              </div>   
                                                <div class="col-sm-2">
-                                                 <input type="text" class="form-control box lnumericzip" value="secondzip" v-model="field.lzipcode" maxlength="4" v-on:keyup="CheckFirstZipcode">      
+                                                 <input type="text" class="form-control box lnumericzip" value="secondzip" v-model="field.lzipcode" maxlength="4" v-on:keyup="CheckFirstZipcode" required>      
                                                   <span v-if="errors.lzipcode" class="error">{{errors.lzipcode[0]}}</span>
                                              </div>   
                                         </div> 
@@ -177,11 +177,11 @@ export default {
          methods: {
             add() {
 
-                  axios.post('/api/comments/add', this.comments)
+                  this.axios.post('/api/comments/add', this.comments)
                     .then((response) => {   
                     alert('Mail Sent Successfully !') 
 
-                    // this.$router.push({name: 'categorylist'});
+                     this.$router.push({name: 'commentlist'});
                     }).catch(error=>{
                         
                     if(error.response.status == 422){

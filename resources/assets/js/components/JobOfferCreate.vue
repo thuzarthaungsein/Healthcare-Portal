@@ -261,7 +261,7 @@ export default {
                 if( `${this.$route.params.id}` == "undefined")
                 {
 
-                    axios.post('/api/job/add', this.joboffer)
+                    this.axios.post('/api/job/add', this.joboffer)
                     .then((response) => {
                         this.title = '',
                         this.description = '',
@@ -297,7 +297,7 @@ export default {
                 id:''  });
             },
             delRow: function(id) {
-                this.joboffer.fields.splice(id, 1);
+                this.joboffer.fields.splice(id, 1);     
                 // this.joboffer.fields.pop();
             },
             createskill: function(arr){
