@@ -84,7 +84,7 @@ export default {
         },
          created() {
 
-             axios.get('/api/types/typelist')
+             this.axios.get('/api/types/typelist')
               .then(function (response) {
                    this.TypeList = response.data;
 
@@ -117,7 +117,7 @@ export default {
             add() {
                 if( `${this.$route.params.id}` == "undefined")
                 {
-                    axios.post('/api/types/add', this.Type)
+                    this.axios.post('/api/types/add', this.Type)
                         .then((response) => {
                             this.name = ''
                         alert('Successfully Created')

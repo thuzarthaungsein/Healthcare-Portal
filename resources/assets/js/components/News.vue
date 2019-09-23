@@ -293,7 +293,7 @@ export default {
                         
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("/api/posts" , fd)
+                        this.axios.post("/api/posts" , fd)
                         .then(response => {
                                 this.posts = response.data;
                         }); 
@@ -316,7 +316,7 @@ export default {
 
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("/api/get_latest_post" , fd)
+                        this.axios.post("/api/get_latest_post" , fd)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
