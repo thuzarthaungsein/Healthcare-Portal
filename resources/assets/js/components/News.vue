@@ -1,9 +1,9 @@
 <template>
-        <div class="row justify-content-md-center"> 
+        <div class="row justify-content-md-center">
                 <div class="row">
                         <div class="col-10 p-r-0">
                                 <div class="col-12">
-                                        <form class="form-inline col-lg-12 form-inline mb-2 pad-free"><input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" > 
+                                        <form class="form-inline col-lg-12 form-inline mb-2 pad-free"><input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" >
                                                 <span class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
                                         </form>
                                         <div class="card">
@@ -12,12 +12,12 @@
                                                                 <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
                                                                         <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
                                                                                 {{ cat.name }}</a>
-                                                                
+
                                                                         <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
                                                                                 {{ cat.name }}</a>
                                                                 </li>
-                                                                
-                                                        </ul> 
+
+                                                        </ul>
                                                 </div>
 
                                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
@@ -39,7 +39,7 @@
                                                                                                 
                                                                                                         <img src="/images/1.jpg" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt">
                                                                                                                 <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
-                                                                                        
+
                                                                                                 </router-link>
                                                                                         </li>
                                                                                 </ul>
@@ -73,12 +73,12 @@
                                                 </div>
                                         </div>
                                         </div>
-                                </div> 
+                                </div>
                         </div>
                         <div class="col-md-2 p-l-0">
-                                <asidebar></asidebar> 
+                                <asidebar></asidebar>
                         </div>
-                </div>    
+                </div>
                 <div class="col-md-12 category_box" v-for="(group,name,index) in post_groups" :key="index">
                         <h2 class="category_news_title"><span>{{name}}</span></h2>
                         <div class="row">
@@ -101,15 +101,15 @@
                                         <!-- <div class="col-md-6" v-for="(item,i) in group" :key="i">
                                                 <span v-if="i !== 0">
                                                         {{item}}
-                                                </span>                                                
+                                                </span>
                                         </div> -->
-                                <!-- </div> -->                                        
-                        </div>                               
-                        
-                </div> 
+                                <!-- </div> -->
+                        </div>
+
+                </div>
                 <div class="col-md-12 m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
                         <div class="row col-md-12 m-lr-0"><h4 class="h_4 next-title">{{arr.name}}</h4></div>
-                        
+
                         <!-- <div class="row col-md-12">
                                 <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
                                         <div class="col-md-6" >
@@ -117,14 +117,14 @@
                                                         <img v-if="photo_arr[catId][inx]" v-bind:src="'/upload/news/' + photo_arr[catId][inx]" class="img-responsive fit-image">
                                                         <p class="source-title"> {{title_arr[catId][inx]}}</p>
                                                  </router-link>
-                                               
+
                                         </div>
                                         <div class="row col-md-6">
                                                 <ul class="list-group list-group-flush all-item">
                                                         <span v-if="inx == 0">
                                                                 <li class="list-group-item p-t-5 p-b-5" v-for="sec_index in second_index" :key="sec_index">
                                                                         <span v-if="(title_arr[catId][0] != title_arr[catId][sec_index]) && (title_arr[catId][3] != title_arr[catId][sec_index])">
-                                                                                <div class="row"> 
+                                                                                <div class="row">
                                                                                         <div class="col-md-4">
                                                                                                 <router-link :to="'/newsdetails/'+id_arr[catId][sec_index]">
                                                                                                         <img v-if="photo_arr[catId][sec_index]" v-bind:src="'/upload/news/' + photo_arr[catId][sec_index]" class="fit-image" style="height:5rem;width:6rem">
@@ -162,26 +162,26 @@
                                 </div>
                         </div>  -->
                 </div>
-        </div>   
+        </div>
 </template>
 <style scoped>
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {   
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #fff !important;
     font-weight: bold;
     background-color: #1aa985  !important;
     border-top: 1px solid #1aa985  ;
     border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
-   
+
 }
 div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
     border: 1px solid #1aa985  !important;
-  
+
 }
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {   
-   
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
+
     border-color: transparent   #ecede1   transparent   #ecede1   !important;
-    
-   
+
+
 }
 
 </style>
@@ -191,7 +191,7 @@ import hospitalSearch from './hospitalSearch.vue'
 import nursingSearch from './nursingSearch.vue'
 import jobSearch from './jobSearch.vue'
 import asidebar from './aside.vue'
-  
+
 export default {
     components: {
      News,
@@ -201,7 +201,7 @@ export default {
      asidebar
     },
      mounted() {
-           
+
         },
         data() {
             return {
@@ -214,7 +214,7 @@ export default {
                 categoryId: 1,
                 index:[0,3],
                 second_index:[1,2],
-                third_index:[4,5], 
+                third_index:[4,5],
                 tmp_title:[],
                 title_arr:[],
                 tmp_photo:[],
@@ -239,7 +239,7 @@ export default {
                         .then(response => {
                                 // console.log(response);
                                 this.cats = response.data;
-                        });   
+                        });
                 },
                 groupBy(array, key){
                         const result = {}
@@ -259,7 +259,7 @@ export default {
                                 console.log(response);
                                 this.post_groups = this.groupBy(response.data, 'name');
                                 console.log(this.groupBy(response.data, 'name'));
-                                
+
                                 // for(var i=0; i<response.data.length; i++) {
                                 //         this.tmp_title[i] = response.data[i].title;
                                 //         this.title_arr[i] = this.tmp_title[i].split(",");
@@ -271,9 +271,9 @@ export default {
                                 //         this.id_arr[i] = this.tmp_post_id[i].split(",");
                                 // }
                                 // this.tmp_arr = response.data;
-                        });   
+                        });
                 },
-              
+
                 getPostByCatID: function(catId=1) {
                         if($('#search-word').val()) {
                                 var search_word = $('#search-word').val();
@@ -290,14 +290,14 @@ export default {
                         let fd = new FormData();
                         fd.append('search_word', search_word);
                         fd.append('category_id', cat_id);
-                        
+
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("/api/posts" , fd)
+                        this.axios.post("/api/posts" , fd)
                         .then(response => {
                                 this.posts = response.data;
-                        }); 
-                }, 
+                        });
+                },
 
                 getLatestPostByCatID: function(catId) {
                         if($('#search-word').val()) {
@@ -316,7 +316,7 @@ export default {
 
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("/api/get_latest_post" , fd)
+                        this.axios.post("/api/get_latest_post" , fd)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
@@ -328,7 +328,7 @@ export default {
                                 this.latest_post_all_cats = response.data;
                         });
                 },
- 
+
                 searchCategory() {
                         $('ul#myTab li a').removeClass('active');
                         $('ul#myTab li:first-child a').addClass('active');
@@ -339,13 +339,13 @@ export default {
                         let fd = new FormData();
                                 fd.append('search_word', search_word)
                                 fd.append('selected_category', categoryId)
-                                
+
                         this.axios.post('/api/search', fd)
                                 .then(response => {
                                         if(response.data.length == '0') {
                                                 this.posts = [];
                                                 this.latest_post = [];
-                                                
+
                                         } else {
                                                 this.posts = response.data;
                                                 this.latest_post = this.posts[0];
@@ -360,4 +360,3 @@ export default {
 }
 
  </script>
- 
