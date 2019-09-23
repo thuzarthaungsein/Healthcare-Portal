@@ -378,39 +378,25 @@ import joboffer from './JobOfferList.vue'
                         this.markers[0]['position']['lng']  = response.data[0]['longitude'];
                         this.center['lat'] = response.data[0]['latitude'];
                         this.center['lng'] = response.data[0]['longitude'];
-                        this.getlatlng(response.data[0]['latitude'] , response.data[0]['longitude'])
-                        
-                                          
+                                
                     });
-
-                
-                         
-         },
-         methods:{
-            
-             getlatlng(la,ln)
-             {
-                
-                var geocoder = new google.maps.Geocoder;
-                var latlng = {lat: la, lng: ln};
-                // var latlng = {lat: 19.76330000, lng: 96.07850000};
-                
-                geocoder.geocode({'location': latlng}, function(results, status) {
-                if (status === 'OK') {
-                    
-                    if (results[1]) {
+                  
+                     
+                    var geocoder = new google.maps.Geocoder;
+                    var latlng = {lat: 19.76330000, lng: 96.07850000};
+ 
+                    geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
                         
-                        this.address=  results[1].formatted_address  
+                        if (results[1]) {
                             
-                        }   
-                    }
-                    
-                })
-               
-
-             }
-            
-         }
+                            this.address=  results[1].formatted_address  
+                            console.log(this.address); 
+                           }   
+                        }
+                    })
+                              
+         },
     
  }
        
