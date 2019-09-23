@@ -29,7 +29,7 @@
                             <div class="col-md-12">
                                     <div class="row" id="gallery-photo">
                                             <!-- Add by + Button -->
-                                                <div class="col-md-12 gallery-area-photo img-area" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
+                                                <div class="col-md-12 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                                                 <div class="col-md-3">
                                                                         <input type="file" name="" class=" m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
                                                                         <div class="col-md-12" v-bind:class="img.classname">
@@ -37,8 +37,8 @@
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-md-9">
-                                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-bind:value="img.title">
-                                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description">{{img.description}}</textarea>
+                                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="img.title">
+                                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="img.description"></textarea>
                                                                 </div>
                                                                 <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">削除</a>
                                                        
@@ -51,13 +51,13 @@
                             <div class="col-md-12">
                                     <div class="row" id="gallery-video">
                                         <!-- Add by + Button -->
-                                        <div class="col-md-12 gallery-area-video video-area" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
+                                        <div class="col-md-12 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
                                                 <div class="col-md-3">
-                                                        <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-bind:value="video.url">
+                                                        <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-model="video.url">
                                                 </div>
                                                 <div class="col-md-9">
-                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-bind:value="video.title">
-                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description">{{video.description}}</textarea>
+                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="video.title">
+                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="video.description"></textarea>
                                                 </div>
                                                 <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">削除</a>
                                         </div>
@@ -316,13 +316,13 @@ export default {
                     this.img_list = [];
                     this.video_list = [];
 
-                    var img = document.getElementsByClassName('img-area');
+                    var img = document.getElementsByClassName('gallery-area-photo');
                         for(var i = 0; i< img.length; i++) {
                            this.img_list.push({img:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                         }
                         console.log(this.img_list);
 
-                    var video = document.getElementsByClassName('video-area');
+                    var video = document.getElementsByClassName('gallery-area-video');
                         for(var i = 0; i< video.length; i++) {
                            this.video_list.push({url:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                         }
