@@ -1,5 +1,6 @@
 <template>
     <div class="card">
+       
         <div v-if="type == 'hospital'">
             <div class="card-header tab-card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -422,25 +423,6 @@ import joboffer from './JobOfferList.vue'
 
   data() {
             var that = this;
-            return {
-
-
-                // nusfacilities:[],
-                // cooperate_medical:[],
-                // medical_acceptance:[],
-                // staff:[],
-                // index: 0,
-                // pageNum: 0,
-                nursing_profiles:[],
-                special_features:[],
-                method_payment:[],
-                comments:[],
-    components:{
-        joboffer
-    },
-
-  data() {
-            var that = this;
 
             return {
                  markers: [
@@ -448,6 +430,8 @@ import joboffer from './JobOfferList.vue'
 
 
                 ],
+                currentImage: '',
+                address: '',
                 center: { lat: 0.0000000, lng: 0.0000000 },
                 google:[],
                 nusfacilities:[],
@@ -470,7 +454,7 @@ import joboffer from './JobOfferList.vue'
                         console.log('after', current)
                     }
                 },
-                type : 'nursing',
+                type : 'hospital',
                 images: [
                     {
                         id: '1',
@@ -503,13 +487,14 @@ import joboffer from './JobOfferList.vue'
             this.axios
                 .get('/api/feature/featurelist')
                 .then(response => {
-                    this.special_features = response.data;
+                    this.special_features = response.data.feature;
+                    this.nursing_profiles = response.data.nurse;
                 });
-        this.axios
-                .get('/api/nurse')
-                .then(response => {
-                    this.nursing_profiles = response.data;
-                });
+        // this.axios
+        //         .get('/api/nurse')
+        //         .then(response => {
+        //             this.nursing_profiles = response.data;
+        //         });
         this.axios
                 .get('/api/cost')
                 .then(response => {
@@ -550,11 +535,7 @@ import joboffer from './JobOfferList.vue'
 
 
         },
-                address: '',
-
-
-            };
-        },
+        
          created(){
 
                     this.axios.get('/api/nusfacilities').then(response => {
@@ -587,9 +568,6 @@ import joboffer from './JobOfferList.vue'
 
 
                     });
-
-
-
          },
          methods:{
 

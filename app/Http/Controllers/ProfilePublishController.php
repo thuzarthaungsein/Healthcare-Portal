@@ -20,13 +20,11 @@ class ProfilePublishController extends Controller
     {
         //
         //$nurse = NursingProfile::all()->toArray();
-        $nurse = NursingProfile::select('feature')->where('id',1)->get();
-        return $nurse;
-
-
+        $feature = NursingProfile::select('feature')->where('id',1)->get();
         // $nurse = NursingProfile::all()->toArray();
         $nurse = NursingProfile::where('customer_id',5)->get();
-        return $nurse;
+        $data = array('feature'=>$feature, 'nurse'=>$nurse);
+        return response()->json($data);
     }
 
 
