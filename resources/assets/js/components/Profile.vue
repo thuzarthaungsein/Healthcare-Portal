@@ -2,7 +2,6 @@
 <div class="card profile" style="border:none;">
         <div class="card-header"><h4 class="col-md-12">マイページ</h4></div>
         <div class="card-body" v-if="type == 'nursing'">
-                Nus
                 <div class="form-group">
                         <!-- <label>Type<span class="error">*</span></label> -->
                         <label for="hospital" class="typelabel" id="hospital-lbl">
@@ -18,7 +17,7 @@
                 <form class="col-md-12">                         
 
                         <div class="col-md-12 pad-free" v-if="btntype == 'create'">
-                             <hospitalProfile></hospitalProfile>
+                             <nursingProfile></nursingProfile>
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="btntype == 'view'">
@@ -28,7 +27,6 @@
                 </form>
         </div>
         <div class="card-body" v-if="type == 'hospital'">
-                Hos
                 <div class="form-group">
                         <!-- <label>Type<span class="error">*</span></label> -->
                         <label for="hospital" class="typelabel" id="hospital-lbl">
@@ -83,7 +81,7 @@ export default {
               this.axios
                 .get('/api/user')
                 .then(response=>{
-                 console.log(response);
+                //  console.log(response);
                 // this.fac_list = response.data;
                 });
         },

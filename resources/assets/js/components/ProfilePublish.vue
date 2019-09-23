@@ -36,8 +36,7 @@
                         <ul class="tfacilitydetaildetail">
                             <li><a href="#sp_a1" id="a">section 1</a></li>
                             <li><a href="#sp_a2" id="a">section 2</a></li>
-                            <li><a href="#sp_a3" id="a">section 3</a></li>
-                            
+                            <li><a href="#sp_a3" id="a">section 3</a></li> 
                         </ul>
                     </nav>
                 </div>
@@ -46,7 +45,6 @@
             <div class="container">     
                 <h3>section 1</h3>
                     <div class="col-md-12"><img src="images/h6.jpg" class="img-fluid img-thumbnail" alt=""></div>
-                   
                     <div class="row" style="padding-left:20px;padding-right:20px;">
                         <h2>We are professional</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -56,11 +54,9 @@
                     </div>
             </div>                  
         </section>
-
-        
+     
         <section id="sp_a2">
             <div class="container">
-              
                  <header class="section-header wow fadeInUp">
                      <h3>section 2 </h3>
                  </header>
@@ -110,6 +106,5 @@
 
 
 <script>
-
 
 </script>
