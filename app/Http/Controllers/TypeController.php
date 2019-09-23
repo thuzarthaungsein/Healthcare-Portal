@@ -41,7 +41,7 @@ class TypeController extends Controller
     public function store(Request $request)
     {
 
-
+        
         $request->validate([
             'name' => 'required|unique:types',
 
@@ -50,25 +50,26 @@ class TypeController extends Controller
 
         if( $request->parent != null)
         {
-            $type = new Type ([
-                'name' => $request->input('name'),
-                'user_id' => 1,
-                'parent' => $request->parent,
-                'recordstatus' => 2
-            ]);
+           
+            $type = new Type();
+            $type->name = $request->input('name');
+            $type->user_id = 1;
+            $type ->parent = $request->parent;
+            $type ->recordstatus = 1;
 
         }
         else if( $request->parent == null)
         {
-
-            $type = new Type ([
-                'name' => $request->input('name'),
-                'user_id' => 1,
-                'parent' => 0,
-                'recordstatus' => 2
-            ]);
+            
+            
+            $type = new Type();
+            $type->name = $request->input('name');
+            $type->user_id = 1;
+            $type ->parent = 0;
+            $type ->recordstatus = 2;
 
         }
+      
         $type->save();
 
         return $type;
@@ -88,13 +89,31 @@ class TypeController extends Controller
     }
 
 
-    public function update($id, Request $request)
+    public function update($id, Request $request)   
     {
         $request->validate([
             'name' => 'required',
         ]);
-        $type = Type::find($id);
-        $type->update($request->all());
+        if($request->parent != null)
+        {
+            $type = Type::find($id);
+            $type->name = $request->input('name');
+            $type->user_id = 1;
+            $type ->parent = $request->parent;
+            $type ->recordstatus = 2;
+            $type->save();
+        }
+        else{
+            $type = Type::find($id);
+            $type->name = $request->input('name');
+            $type->user_id = 1;
+            $type ->parent = 0;
+            $type ->recordstatus = 2;
+            $type->save();
+        }
+      
+       
+        // $type->update($request->all());
 
         return response()->json('The Type successfully updated');
     }

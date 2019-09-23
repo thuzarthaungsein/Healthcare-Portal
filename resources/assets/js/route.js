@@ -171,8 +171,8 @@ export const routes = [
       name: 'profile',
       path: '/profile',
       component: Profile
-    },    
-    
+    },
+
     {
       name: 'jobofferlist',
       path: '/jobofferlist',
@@ -266,7 +266,7 @@ export const routes = [
       name: 'nursing_profile',
       path: '/nursing_profile',
       component: NursingProfile
-     },  
+     },
   {
     name: 'videoupload',
     path: '/videoupload',
@@ -309,5 +309,5 @@ export const routes = [
   },
 
 
-  
+
 ];

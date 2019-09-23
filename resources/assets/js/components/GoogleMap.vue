@@ -46,6 +46,7 @@ export default {
     }
   },
   created() {
+   
     this.new_lat = 35.6803997;
     this.new_long = 139.76901739;
   },
