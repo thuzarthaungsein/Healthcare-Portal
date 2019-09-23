@@ -74,7 +74,7 @@ export default {
     mounted() {
         },
         created() {
-              axios.get("/api/get_latest_post_all_cat")
+              this.axios.get("/api/get_latest_post_all_cat")
                 .then(response => {
                     console.log(response.data);
                         var data = response.data;

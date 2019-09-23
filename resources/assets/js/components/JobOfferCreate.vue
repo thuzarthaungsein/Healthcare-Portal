@@ -261,7 +261,7 @@ export default {
                 if( `${this.$route.params.id}` == "undefined")
                 {
 
-                    axios.post('/api/job/add', this.joboffer)
+                    this.axios.post('/api/job/add', this.joboffer)
                     .then((response) => {
                         this.title = '',
                         this.description = '',

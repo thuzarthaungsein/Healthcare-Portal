@@ -240,7 +240,7 @@
         },
         methods: { 
             add() {
-                axios.post('/api/nurse/add', this.comments)
+                this.axios.post('/api/nurse/add', this.comments)
                     .then((response) => {
                         alert('Mail Sent Successfully !')
                     }).catch(error => {

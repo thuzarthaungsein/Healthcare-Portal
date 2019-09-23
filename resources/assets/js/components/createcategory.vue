@@ -44,7 +44,7 @@ export default {
 
          methods: {
             add() {
-                axios.post('/api/category/add', this.category)
+                this.axios.post('/api/category/add', this.category)
                     .then((response) => {
                         this.name = ''
                         this.$swal({
