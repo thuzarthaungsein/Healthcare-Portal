@@ -58,7 +58,7 @@
                                                         <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="">
                                                         <div class="overlay">
                                                                 <!-- <h2></h2> -->
-                                                                <router-link class="btn btn-sm all-btn secondary-bg-color" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
+                                                                <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
                                                                 <!-- <a class="btn btn-sm all-btn secondary-bg-color" v-bind:href="'/newsdetails/' + latest_post_all_cat.id"></a> -->
                                                         </div>
                                                         <div class="info">
@@ -78,10 +78,39 @@
                         <div class="col-md-2 p-l-0">
                                 <asidebar></asidebar> 
                         </div>
-                </div>                              
+                </div>    
+                <div class="col-md-12 category_box" v-for="(group,name,index) in post_groups" :key="index">
+                        <h2 class="category_news_title"><span>{{name}}</span></h2>
+                        <div class="row">
+                                <!-- <div v-for="(item,i) in group" :key="i"> -->
+                                        <div class="col-md-3" v-for="(item,i) in group" :key="i">
+                                                <div class="col-md-12 row m-b-10 adslist-card">
+                                                        <div class="col-md-4 img-box">
+                                                                <router-link :to="'/newsdetails/'+item.pid">
+                                                                        <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem">
+                                                                </router-link>
+                                                        </div>
+
+                                                        <div class="col-md-8 txt-box">
+                                                                <router-link :to="'/newsdetails/'+item.pid">
+                                                                        <p class="news-title smallads-title" style="padding-left:25px"> {{item.main_point}} </p>
+                                                                </router-link>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <!-- <div class="col-md-6" v-for="(item,i) in group" :key="i">
+                                                <span v-if="i !== 0">
+                                                        {{item}}
+                                                </span>                                                
+                                        </div> -->
+                                <!-- </div> -->                                        
+                        </div>                               
+                        
+                </div> 
                 <div class="col-md-12 m-lr-0" v-for="(arr,catId) in tmp_arr" :key="arr.id" :catId="catId">
                         <div class="row col-md-12 m-lr-0"><h4 class="h_4 next-title">{{arr.name}}</h4></div>
-                        <div class="row col-md-12">
+                        
+                        <!-- <div class="row col-md-12">
                                 <div class="row col-md-6 dd" v-for="inx in index" :key="inx">
                                         <div class="col-md-6" >
                                                 <router-link :to="'/newsdetails/'+id_arr[catId][inx]">
@@ -131,7 +160,7 @@
                                                 </ul>
                                         </div>
                                 </div>
-                        </div> 
+                        </div>  -->
                 </div>
         </div>   
 </template>
@@ -191,7 +220,8 @@ export default {
                 tmp_photo:[],
                 photo_arr:[],
                 tmp_post_id:[],
-                id_arr:[]
+                id_arr:[],
+                post_groups : [],
             }
         },
         created() {
@@ -211,44 +241,59 @@ export default {
                                 this.cats = response.data;
                         });   
                 },
-
+                groupBy(array, key){
+                        const result = {}
+                        array.forEach(item => {
+                        if (!result[item[key]]){
+                        result[item[key]] = []
+                        }
+                        result[item[key]].push(item)
+                        })
+                        return result
+                },
                 getLatestPostsByCatID: function() {
                         this.axios
                         .get('/api/get_latest_posts_by_catId')
                         .then(response => {
-                                // console.log(response);
-                                for(var i=0; i<response.data.length; i++) {
-                                        this.tmp_title[i] = response.data[i].title;
-                                        this.title_arr[i] = this.tmp_title[i].split(",");
+                                console.log("response");
+                                console.log(response);
+                                this.post_groups = this.groupBy(response.data, 'name');
+                                console.log(this.groupBy(response.data, 'name'));
+                                
+                                // for(var i=0; i<response.data.length; i++) {
+                                //         this.tmp_title[i] = response.data[i].title;
+                                //         this.title_arr[i] = this.tmp_title[i].split(",");
 
-                                        this.tmp_photo[i] = response.data[i].photo;
-                                        this.photo_arr[i] = this.tmp_photo[i].split(",");
+                                //         this.tmp_photo[i] = response.data[i].photo;
+                                //         this.photo_arr[i] = this.tmp_photo[i].split(",");
 
-                                        this.tmp_post_id[i] = response.data[i].post_id;
-                                        this.id_arr[i] = this.tmp_post_id[i].split(",");
-                                }
-                                this.tmp_arr = response.data;
+                                //         this.tmp_post_id[i] = response.data[i].post_id;
+                                //         this.id_arr[i] = this.tmp_post_id[i].split(",");
+                                // }
+                                // this.tmp_arr = response.data;
                         });   
                 },
               
-                getPostByCatID: function(catId) {
+                getPostByCatID: function(catId=1) {
                         if($('#search-word').val()) {
                                 var search_word = $('#search-word').val();
                         } else {
                                 var search_word = '';
                         }
-                        if(catId) {
+
+                        if(catId !== undefined) {
                                 var cat_id = catId;
                         } else {
                                 var cat_id = 1;
                         }
+
                         let fd = new FormData();
-                                fd.append('search_word', search_word)
-                                fd.append('category_id', cat_id)
+                        fd.append('search_word', search_word);
+                        fd.append('category_id', cat_id);
                         
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("/api/posts/" , fd)
+                        axios.post("/api/posts" , fd)
                         .then(response => {
                                 this.posts = response.data;
                         }); 
@@ -271,7 +316,7 @@ export default {
 
                         $('.search-item').css('display','none');
                         this.categoryId = cat_id;
-                        axios.post("/api/get_latest_post/" , fd)
+                        axios.post("/api/get_latest_post" , fd)
                         .then(response => {
                                 this.latest_post = response.data;
                         });

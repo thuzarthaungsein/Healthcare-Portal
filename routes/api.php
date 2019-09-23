@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 
-/* 
+/*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['auth']], function() {
-    
+
 });
 
 
@@ -30,11 +30,16 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api end
 
-// login route api start
+// login route api sta rt   
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
+    Route::get('nusfacilities', 'ProfilePublishController@index');
+    Route::get('cooperatemedical', 'ProfilePublishController@getcooperatemedical');
+    Route::get('medicalacceptance', 'ProfilePublishController@getmedicalacceptance');
+    Route::get('staff', 'ProfilePublishController@getstaff');
     
+
     // Category
     Route::group(['prefix' => 'category'], function () {
         Route::get('categories', 'CategoryController@index');
@@ -87,7 +92,7 @@ Route::group(['middleware' => ['auth:api']], function() {
     });
     // End Customer
 
-    // News 
+    // News
     Route::group(['prefix' => 'new'], function () {
         Route::post('add', 'PostController@add');
         Route::get('editPost/{id}', 'PostController@edit');
@@ -95,7 +100,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::delete('delete/{id}', 'PostController@delete');
         Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
     });
-    // End News 
+    // End News
 
     // Medical
     Route::group(['prefix' => 'medical'], function () {
@@ -107,7 +112,7 @@ Route::group(['middleware' => ['auth:api']], function() {
     });
     // End Medical
 
-    // Advertisement 
+    // Advertisement
     Route::group(['prefix' => 'advertisement'], function () {
         Route::post('add', 'AdvertisementController@store');
         Route::get('edit/{id}', 'AdvertisementController@edit');
@@ -115,7 +120,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('update/{id}', 'AdvertisementController@update');
         Route::delete('delete/{id}','AdvertisementController@destroy');
     });
-    // End Advertisement 
+    // End Advertisement
 
 
     //SpecialFeature
@@ -141,15 +146,15 @@ Route::group(['prefix' => 'advertisement'], function () {
     Route::get('ads', 'AdvertisementController@index');
 });
 
-Route::group(['prefix' => 'facility'], function () {    
+Route::group(['prefix' => 'facility'], function () {
     Route::post('search', 'FacilityController@search');
 });
 
-Route::group(['prefix' => 'customer'], function () {   
+Route::group(['prefix' => 'customer'], function () {
     Route::post('search', 'CustomerController@search');
 });
 
-Route::get('getReset','registerController@getReset'); 
+Route::get('getReset','registerController@getReset');
 Route::get('getskill', 'JobApplyController@getSkills');
 Route::get('skill', 'JobController@getSkill');
 Route::get('customers','CustomerController@index');
@@ -157,18 +162,20 @@ Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
 Route::get('job_details', 'JobDetailController@index');
+Route::get('featurelist', 'SpecialFeatureController@index');
 
 // Home Page
 Route::get('home', 'HomeController@index');
 Route::post('posts', 'HomeController@getPosts');
 Route::post('get_latest_post', 'HomeController@getLatestPost');
-Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
+Route::get('get_latest_post_all_cat/', 'HomeController@getLatestPostFromAllCat');
 Route::post('search', 'HomeController@search');
 Route::get('get_latest_posts_by_catId', 'HomeController@getLatestPostsByAllCatId');
 
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
+Route::get('newsdetailsrelated/{id}','PostController@relatednews');
 Route::post('news_list/search', 'PostController@search');
 
 Route::post('jobapply','JobApplyController@store');
@@ -185,10 +192,10 @@ Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingH
 Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
 
 Route::group(['prefix' => 'hospital'], function () {
-    Route::post('postList', 'HospitalProfileController@getPostalList');
+    Route::post('postList/{postal}', 'HospitalProfileController@getPostalList');
     Route::get('citiesList', 'HospitalProfileController@getCitiesName');
     Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
-    Route::get('favourite_list', 'HospitalProfileController@index');        
+    Route::get('favourite_list', 'HospitalProfileController@index');
     Route::delete('delete/{id}', 'HospitalProfileController@destroy');
 });
 
@@ -213,3 +220,11 @@ Route::group(['prefix' => 'nurse'], function () {
 Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
+
+// Route::group(['prefix' => 'new'], function () {
+//     Route::post('add', 'PostController@add');
+//     Route::get('editPost/{id}', 'PostController@edit');
+//     Route::post('update/{id}', 'PostController@update');
+//     Route::delete('delete/{id}', 'PostController@delete');
+//     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
+// });

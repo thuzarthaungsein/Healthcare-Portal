@@ -59,7 +59,7 @@ class HomeController extends Controller
         $cat_id = $request['category_id'];
 
         $latest_post = Post::where("category_id",$cat_id);
-        // $search_word = $request['search_word']; 
+        // $search_word = $request['search_word'];
 
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];
@@ -71,11 +71,13 @@ class HomeController extends Controller
         return response()->json($latest_post);
     }
 
-    public function getLatestPostFromAllCat()
+
+        public function getLatestPostFromAllCat()
     {
         $latest_post_all_cat = Post::orderBy('created_at', 'desc')->limit('4')->get();
         return response()->json($latest_post_all_cat);
     }
+
 
     public function search(Request $request)
     {
@@ -87,11 +89,11 @@ class HomeController extends Controller
 
         if(isset($request['search_word'])) {
             $search_word = $request['search_word'];
-        
+
             $query = $query->where(function($qu) use ($search_word){
                             $qu->where('title', 'LIKE', "%{$search_word}%");
                         });
-        } 
+        }
         $query = $query->orderBy('created_at','DESC')
                         ->get()
                         ->toArray();
@@ -99,17 +101,17 @@ class HomeController extends Controller
     }
 
     public function getLatestPostsByAllCatId() {
-        $posts = Category::join('posts', 'categories.id', '=', 'posts.category_id')
-                        ->select('categories.name','categories.id')
-                        ->selectRaw('GROUP_CONCAT(posts.title order by posts.created_at desc limit 6) as title')
-                        ->selectRaw('GROUP_CONCAT(posts.photo order by posts.created_at desc limit 6) as photo')
-                        ->selectRaw('GROUP_CONCAT(posts.id order by posts.created_at desc limit 6) as post_id')
-                        ->groupBy('categories.id')
-                        ->get()
-                        ->toArray();
-        // $sql = "select c.name , c.id, group_concat(p.title  order by p.created_at desc limit 6) as title, group_concat(p.photo order by p.created_at desc limit 4) as photo from categories c join posts p 
-        // where c.id = p.category_id group by c.id";
-        // $sql = DB::select($sql);
+        // $posts = Category::join('posts', 'categories.id', '=', 'posts.category_id')
+        //                 ->selectRaw('GROUP_CONCAT(posts.title order by posts.created_at desc limit 6) as title')
+        //                 ->selectRaw('GROUP_CONCAT(posts.photo order by posts.created_at desc limit 6) as photo')
+        //                 ->selectRaw('GROUP_CONCAT(posts.id order by posts.created_at desc limit 6) as post_id')
+        //                 ->groupBy('categories.id')
+        //                 ->get()
+        //                 ->toArray();
+        $sql = "SELECT categories.name,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.created_at > date_sub(now(), interval 1 month) order by posts.created_at desc";
+        // $sql = "select c.name , c.id, group_concat(p.title  order by p.created_at desc limit 6) as title, group_concat(p.photo order by p.created_at desc limit 4) as photo ,group_concat(p.id order by p.created_at desc limit 6) as post_id from categories AS c INNER join posts AS p on c.id = p.category_id group by c.id";
+        $posts = DB::select($sql);
         return $posts;
     }
 }
+

@@ -22,8 +22,6 @@ class CreateSpecialFeaturesTable extends Migration
             $table->integer('recordstatus')->default(1);
             $table->timestamps();
         });
-
-    
     }
 
     /**

@@ -101,8 +101,7 @@ export default {
             {
                this.jobApply.skills.push(job);
 
-            }
-
+            },
         }
 }
 </script>

@@ -18,7 +18,12 @@
     <hr>
     <h5 class="header">広告</h5>
     <div class="scrolldiv col-12">
-            <div v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
+         <div v-if="!this.advertisements.length"  class="card card-default m-b-20" style="padding-top:30px; height:700px; text-align:center ">
+                           
+                         No Record Data  
+                          
+                 </div> 
+            <div v-else v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
             <div class="card-body news-post">
                  <div class="row">
                     <div class="col-md-2" >
@@ -27,13 +32,14 @@
                     </div>
                     <div class="row col-md-10">
                         <div class="col-md-2 max-width16"><strong>タイトル  :</strong></div><div class="col-md-10">{{ads.title}}</div>
-                        <div class="col-md-2 max-width16"><strong>描写  :</strong></div><div class="col-md-10">{{ads.description}}</div>
+                        <!-- <div class="col-md-2 max-width16"><strong>描写  :</strong></div><div class="col-md-10">{{ads.description}}</div> -->
 
 
                         <div class="row col-12 mt-2">
                             <div class="col-4 col-offset-4 pl-3">
                                  <router-link :to="{name: 'editadvertisement', params: { id: ads.id }}" class="btn edit-borderbtn">編集</router-link>
                                 <button class="btn delete-borderbtn" @click="deleteAds(ads.id)">削除</button>
+                                <!-- <button class="btn delete-borderbtn" @click="toggleModal">削除</button>                                 -->
 
                             </div>
                         </div>
@@ -41,7 +47,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>   
     </div>
    </div>
    </div>
@@ -50,7 +56,8 @@
 export default {
     data(){
         return {
-            advertisements:[]
+            advertisements:[],
+             isOpen: false,
         }
     },
     created(){
@@ -62,6 +69,9 @@ export default {
     },
 
     methods: {
+            // toggleModal() { 
+            //     this.isOpen = !this.isOpen; 
+            // },
             deleteAds(id) {
                 if(confirm("Are you sure you want to delete?"))
                 {

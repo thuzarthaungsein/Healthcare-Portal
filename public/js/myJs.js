@@ -1,8 +1,9 @@
+
 var timeout;
 $(".path").hover(
-  function(e) {
+  function() {
     clearTimeout(timeout);
-    $('.info-box').css({
+    $('#info-box').css({
       'display':'block',
     });  
    
@@ -21,40 +22,40 @@ $(".path").hover(
       },1000);
 });
 
-  $('.postal').on('keyup',function(e){
+  // $('.postal').on('keyup',function(e){
   
-    if($('#postal').val().length > 4){
-      var url = "/api/hospital/postList";
-      var postal = $('#postal').val();
-      $.ajax({
-        type:'post',
-          data:{"postal":postal},
-          url:url,
-          success: function (data) {
-            var length = data.length;
-            if(length>0){
-              var pref = data[0]['city_Id'];
-              var htmlSelectBox = '';
-              if(data[0]['street']==''){
-                $("#city").val(data[0]['city']);
-              }else{
-                $("#city").val(data[0]['city'] + ' - ' + data[0]['street']);
-              }
-              $('.division').val(pref);
-              $('#jsErrorMessage').html('');
-            }else{
-              $("#city").val('');
-              $("#division").val('0');
-              $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
-            }
-          },
-          error: function (error) {
-            alert("Ajax Error!");
-            console.log('Error:', error);
-          }
-      });
-    }
-   });
+  //   if($('#postal').val().length > 4){
+  //     var url = "/api/hospital/postList";
+  //     var postal = $('#postal').val();
+  //     $.ajax({
+  //       type:'post',
+  //         data:{"postal":postal},
+  //         url:url,
+  //         success: function (data) {
+  //           var length = data.length;
+  //           if(length>0){
+  //             var pref = data[0]['city_Id'];
+  //             var htmlSelectBox = '';
+  //             if(data[0]['street']==''){
+  //               $("#city").val(data[0]['city']);
+  //             }else{
+  //               $("#city").val(data[0]['city'] + ' - ' + data[0]['street']);
+  //             }
+  //             $('.division').val(pref);
+  //             $('#jsErrorMessage').html('');
+  //           }else{
+  //             $("#city").val('');
+  //             $("#division").val('0');
+  //             $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+  //           }
+  //         },
+  //         error: function (error) {
+  //           alert("Ajax Error!");
+  //           console.log('Error:', error);
+  //         }
+  //     });
+  //   }
+  //  });
 
   $(".path").mouseout(function(){
     $('.'+$(this).data('info')).css({
@@ -82,20 +83,18 @@ $(".path").mouseout(function(){
 })
 
 var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-if (ios) {
-    $("abbr").on("click touchend", function() {
-        var link = $(this).attr("href");
-        window.open(link, "_blank");
-        return false;
-    });
+if(ios) {
+  $('abbr').on('click touchend', function() { 
+    var link = $(this).attr('href');   
+    window.open(link,'_blank');
+    return false;
+  });
 }
 
 $('.path').on("click", function(e) {
     e.preventDefault();
-    $('.path').removeClass('selected');
     $('.path.selected').attr("class", "");
-    // $(this).attr("class", "selected");
-    $('.'+$(this).data('info')).addClass("selected");
+    $(this).attr("class", "selected");
     var title = $(this).attr("title");
     var id = $(this).attr("id");
     var url = "/api/getmap";
@@ -104,11 +103,11 @@ $('.path').on("click", function(e) {
         data:{"title":title,"id":id},
         url:url,
         beforeSend: function(){
-          $(".loader").show().delay(10000).fadeOut();
+          $('.checkbox, .nursgingcheckbox, .jobcheckbox').addClass('block2');
          },
         success:function(data){
             $('.select').css({'display':'block'});
-            $('.checkbox, .nursgingcheckbox').empty();
+            $('.checkbox, .nursgingcheckbox, .jobcheckbox').empty();
             $('.select').empty();
             $('.text').empty();
             var getCity = data.getCity;
@@ -124,16 +123,18 @@ $('.path').on("click", function(e) {
             })
             $.each(townships,function(k,v){
                 $('.checkbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+
                 $('.nursgingcheckbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="nuscheckbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="nuscheckbox['+v.id+']">'+v.township_name+'</label></div>');
+
+                $('.jobcheckbox').append('<div class="custom-control custom-checkbox col-sm-3"><input name="selector[]" type="checkbox" class="custom-control-input" id="jobcheckbox['+v.id+']" value="'+v.id+'"><label class="custom-control-label" for="jobcheckbox['+v.id+']">'+v.township_name+'</label></div>');
             }); 
         },
         complete:function(data){
-          $("#loader").hide().delay(3000).fadeOut();
+          $('.checkbox, .nursgingcheckbox, .jobcheckbox').removeClass('block2')
          }
     });
 });
-
-$('.select').on('change',function(){
+$('#select').on('change',function(){
   var id = this.value;
   var url = "/api/getCity";
   $.ajax({
@@ -141,25 +142,28 @@ $('.select').on('change',function(){
     url:url,
     data:{"id":id},
     beforeSend: function(){
-      $(".loader").show();
+      $('.checkbox, .nursgingcheckbox, .jobcheckbox').addClass('block2');
      },
     success:function(data){
-      $('.checkbox, .nursgingcheckbox').empty();
+      $('.checkbox, .nursgingcheckbox, .jobcheckbox').empty();
       $.each(data,function(k,v){
         $('.checkbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="checkbox['+v.id+']"><label class="custom-control-label" for="checkbox['+v.id+']">'+v.township_name+'</label></div>');
+
         $('.nursgingcheckbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="nuscheckbox['+v.id+']"><label class="custom-control-label" for="nuscheckbox['+v.id+']">'+v.township_name+'</label></div>');
+
+        $('.jobcheckbox').append('<div class="custom-control custom-checkbox col-sm-3 "><input name="selector[]" type="checkbox" class="custom-control-input" id="jobcheckbox['+v.id+']"><label class="custom-control-label" for="jobcheckbox['+v.id+']">'+v.township_name+'</label></div>');
       })
     },
     error:function(error){
       console.log(error);
     },
     complete:function(data){
-      $(".loader").hide();
+      $('.checkbox, .nursgingcheckbox, .jobcheckbox').removeClass('block2');
      }
   })
 })
 $('.text').click(function() {
-  $('.checkbox, .nursgingcheckbox').slideToggle("slow");
+  $('.checkbox, .nursgingcheckbox, .jobcheckbox').slideToggle("slow");
 });
 
 // save button get value search map
@@ -170,114 +174,38 @@ $('#save_value').click(function(){
   });
   console.log(checkvalue);
 });
-// save button get value search map
 
 
+// $('#method-textarea').summernote({
+//     placeholder: 'Write Feature',
+//     height: 200,
+//   });
 
-
-
-
-
-
-
-
-
-
-    // $('#method-textarea').summernote({
-    //     placeholder: 'Write Feature',
-    //     height: 200,
-    //   });
-
-    var dynamicInput = [];
+    var dynamicInput = [] ;
     var ct = 1;
+    
+  //   function closebtn() {
+  //     if (confirm("Are you sure you want to delete?")) {
+  //         var image_x = document.getElementById("x-image");
+  //         image_x.parentNode.removeChild(image_x);
+  //         document.getElementById("showimage").style.display = "block";
+  //     }
+  // }
 
-    function new_link() {
-        ct++;
-        var div1 = document.createElement("div");
-        div1.id = dynamicInput[ct];
-        // link to delete extended form elements
-        var delLink =
-            '<div class ="row"><div class ="col-sm-2"></div><div class ="col-sm-9"></div><div class="col-sm-1"><a class="text-danger" style="padding-top: 1px;" href="javascript:delIt(' +
-            ct +
-            ')">  delete </a>  </div> </div>  ';
-        div1.innerHTML =
-            document.getElementById("newlinktpl").innerHTML + delLink;
-        document.getElementById("newlink").appendChild(div1);
-    }
-    // function to delete the newly added set of elements
-    function delIt(eleId) {
-        d = document;
-        var ele = d.getElementById(eleId);
-        var parentEle = d.getElementById("newlink");
-        parentEle.removeChild(ele);
-    }
+    
 
-    function closebtn() {
-        if (confirm("Are you sure you want to delete?")) {
-            var image_x = document.getElementById("x-image");
-            image_x.parentNode.removeChild(image_x);
-            document.getElementById("showimage").style.display = "block";
-        }
-    }
+    
+/*select check
 
-    function showImg(c, event) {
-        $("." + c).html(
-            "<img src='" +
-            URL.createObjectURL(event.target.files[0]) +
-            "' class='show-img'>"
-        );
-    }
-
-    $("select").on("click", function() {
-        $(this)
-            .parent(".select-box")
-            .toggleClass("open");
-    });
-
-    $(document).mouseup(function(e) {
-        var container = $(".select-box");
-
-        if (container.has(e.target).length === 0) {
-            container.removeClass("open");
-        }
-    });
-
-    $("select").on("change", function() {
-        var selection = $(this)
-            .find("option:selected")
-            .text(),
-            labelFor = $(this).attr("id"),
-            label = $("[for='" + labelFor + "']");
-
-        label.find(".label-desc").html(selection);
-    });
-
-    function closevideo() {
-        alert("Are you sure to delete?");
-        var file = document.getElementById("upload_file").files[0];
-        var file_path = "upload/videos/" + file.name;
-
-        var url = "/api/customer/deletevideo";
-        $.ajax({
-            type: "post",
-            data: { fiel_path: file_path },
-            url: url,
-            success: function(data) {
-                $("#video-area").remove();
-            }
-        });
-    }
-    /*select check
-
-            */
-    // $(document).ready(function(){
-    $(".select_all").on("click", function() {
-        if (this.checked) {
-            $(".checkbox").each(function() {
+*/
+// $(document).ready(function(){
+    $('.select_all').on('click',function(){
+        if(this.checked){
+            $('.checkbox').each(function(){
                 this.checked = true;
             });
-        } else {
-            $(".checkbox").each(function() {
+        }else{
+             $('.checkbox').each(function(){
                 this.checked = false;
             });
         }
@@ -346,9 +274,9 @@ $(function() {
     });
      });
 
-    /*select check
+/*select check
 
-            */
+*/
 
     // function scrollTab() {
         
@@ -415,3 +343,118 @@ $(function() {
   //         "swing"
   //     );
   // });
+
+  function closebtn(){
+    if(confirm("Are you sure you want to delete?"))
+    {
+        var image_x = document.getElementById('x-image');
+        image_x.parentNode.removeChild(image_x);
+        document.getElementById('showimage').style.display = 'block';
+    }
+}
+function showImg(c,event) {
+  $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
+}
+
+$("select").on("click" , function() {
+
+  $(this).parent(".select-box").toggleClass("open");
+  
+});
+
+$(document).mouseup(function (e)
+{
+    var container = $(".select-box");
+
+    if (container.has(e.target).length === 0)
+    {
+        container.removeClass("open");
+    }
+});
+
+
+$("select").on("change" , function() {
+  
+  var selection = $(this).find("option:selected").text(),
+      labelFor = $(this).attr("id"),
+      label = $("[for='" + labelFor + "']");
+    
+  label.find(".label-desc").html(selection);
+    
+});  
+function closevideo() {
+  alert('Are you sure to delete?');
+  var file = document.getElementById("upload_file").files[0];
+  var file_path = 'upload/videos/'+file.name;
+
+  var url = "/api/customer/deletevideo";
+  $.ajax({
+      type:'post',
+      data:{"fiel_path":file_path},
+      url:url,
+      success:function(data){
+         $('#video-area').remove();
+      }
+  });    
+}
+
+function new_link()
+    {
+        ct++;
+        var div1 = document.createElement('div');
+        div1.id = dynamicInput[ct];
+        // link to delete extended form elements
+        var delLink = '<div class ="row"><div class ="col-sm-2"></div><div class ="col-sm-9"></div><div class="col-sm-1"><a class="text-danger" style="padding-top: 1px;" href="javascript:delIt('+ ct +')">  delete </a>  </div> </div>  ';
+        div1.innerHTML = document.getElementById('newlinktpl').innerHTML + delLink;
+        document.getElementById('newlink').appendChild(div1);
+    }
+    // function to delete the newly added set of elements
+    function delIt(eleId)
+    {
+        d = document;
+        var ele = d.getElementById(eleId);
+        var parentEle = d.getElementById('newlink');
+        parentEle.removeChild(ele);
+    }
+
+    function DeltArr(index,type)
+    {
+        if(type == '0') { type = 'photo'; }
+        if(type == '1') { type = 'video'; }
+        if(type == '2') { type = 'cooperation'; }
+        if(type == '3') { type = 'payment'; }
+      
+        var isDivThere = $('#gallery-'+type+' #gallery-'+type+index+'').index(); 
+
+        var j_arr = $('#galleryarea-'+type+''+index+'').attr('class').split("_");
+        var j_indx = j_arr[1];
+
+        var eleId = 'gallery-'+type+index; 
+        var ele = document.getElementById(eleId);
+        var getId = 'gallery-'+type;
+        var parentEle = document.getElementById(getId);
+        parentEle.removeChild(ele);
+      
+        var next_id;
+        var getClass = 'gallery-area-'+type;
+        var photo = document.getElementsByClassName(getClass);
+        
+        for (var i = j_indx; i < photo.length; i++) {
+            var new_index = Number(i) + Number(1);
+            var oldClass = 'gallery_'+i; 
+            var newClass = 'gallery_'+new_index;
+
+            $('div.gallery-area-'+type+'').each(function (index, value) {
+              if(Number(index) == Number(isDivThere)) {
+                var next_arr = $(this).attr('id').split(type);
+                next_id = next_arr[1];
+              }
+            });
+
+            $('#gallery-'+type+next_id+' .gallery-area-'+type).removeClass(newClass);
+            $('#gallery-'+type+next_id+' .gallery-area-'+type).addClass(oldClass);
+
+            isDivThere ++;
+        
+        }
+    }

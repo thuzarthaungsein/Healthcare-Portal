@@ -1,110 +1,237 @@
-<style>
-        .header{
-            width:100%;
-            height:50px;
-        }
-        .fixed {
-            position: fixed;
-            top: 20;
-            width: 50.5%;
-            z-index: 1000;
-        }
-        .sticky {
-            position:fixed;
-            top:30;
-            width: 51.1%;
-            z-index: 1000;
-            }
-</style>
 
-<template class="temp">    
- <div class="row">
-      <div class="col-12 detal_wrap" id="dw" >
-          <div class="card "> 
-            <!-- <div class="pagelink_s" id="a_sp">
-                <nav class="nav_menu">
-                <ul class="tfacilitydetaildetail">
-                    <li><a href="#sp_a1">section 1</a></li>
-                    <li><a href="#sp_a2">section 2</a></li>
-                    <li><a href="#sp_a3">section 3</a></li>
-                </ul>
-                </nav>
-            </div>  -->
-            <div class="header">
-                <div class="pagelink_s a_sp">
-                    <nav class="nav_menu" id="profilePublish">
-                        <ul class="tfacilitydetaildetail">
-                            <li><a href="#sp_a1" id="a">section 1</a></li>
-                            <li><a href="#sp_a2" id="a">section 2</a></li>
-                            <li><a href="#sp_a3" id="a">section 3</a></li> 
-                        </ul>
-                    </nav>
+   <template>
+            <div class="fullpage-container" style="height:150vh;"> 
+                <div class="button-group">
+                        <button type="button" :class="{active:index ==0}" @click="moveTo(0)">Equipment</button>
+                        <button type="button" :class="{active:index ==1}" @click="moveTo(1)">Map</button>
+                        <button type="button" :class="{active:index ==2}" @click="moveTo(2)">Preview</button>  
+                         
+                </div>
+              
+                <div class="fullpage-wp" v-fullpage="opts" ref="fullpage">
+                    <div class="page-1 page">
+                        <h1 align="center">Facility Overview</h1>
+                        <hr>
+                        <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-6 offset-md-3" >
+                             <table border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                    <td> Business entity</td>
+                                    <td>{{nus.business_entity}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Date of establishment</td>
+                                    <td>{{nus.date_of_establishment}}</td>
+                                </tr>
+                                  <tr>
+                                    <td> Land rights form </td>
+                                    <td>{{nus.land_right_form}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Building rights form</td>
+                                    <td>{{nus.building_right_form}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Site area</td>
+                                    <td>{{nus.site_area}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total floor area</td>
+                                    <td>{{nus.floor_area}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Construction</td>
+                                    <td>{{nus.construction}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Capacity</td>
+                                    <td>{{nus.capacity}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total number of rooms / units </td>
+                                    <td>{{nus.num_rooms}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Right of residence form </td>
+                                    <td>{{nus.residence_form}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Type </td>
+                                    <td>{{nus.fac_type}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Occupancy conditions</td>
+                                    <td>{{nus.occupancy_condition}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Room division, floor plan, etc </td>
+                                    <td>{{nus.room_floor}}</td>
+                                </tr>
+                                 <tr>
+                                    <td> Living room facilities</td>
+                                    <td>{{nus.living_room_facilities}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Common facilities / equipment </td>
+                                    <td>{{nus.equipment}}</td>
+                                </tr>
+                                </tbody>
+                            </table> 
+                        </div>
+
+                        <h1 align="center">Cooperate Medical </h1>
+                        <hr>
+                        <div v-for="co in cooperate_medical" :key="co.clinical_subject" class="col-md-6 offset-md-3">
+                           <table border="1" class="table">
+                               <tbody>
+                                   <tr>
+                                       <td> Clinical subjects </td>
+                                       <td> {{co.clinical_subject}} </td>
+                                   </tr>
+                                   <tr>
+                                       <td> Details of cooperation </td>
+                                       <td> {{co.details}}</td>
+                                   </tr>
+                               </tbody>
+                           </table>
+                        </div>
+
+                        <h1 align="center">Medical Acceptance  </h1>
+                        <hr>
+                        <div v-for="medical in medical_acceptance" :key="medical.name" class="col-md-6 offset-md-3">
+                           <table border="1" class="table">
+                               <tbody>
+                                   <tr>
+                                       <td> Name </td>
+                                       <td> {{medical.name}} </td>
+                                   </tr>
+                                  
+                               </tbody>
+                           </table>
+                        </div>
+
+                        <h1 align="center"> Staff </h1>
+                        <hr>
+                        <div v-for="st in staff" :key="st.staff" class="col-md-6 offset-md-3">
+                           <table border="1" class="table">
+                               <tbody>
+                                   <tr>
+                                       <td> Staff </td>
+                                       <td> {{st.staff}}</td>
+                                   </tr>
+                                  
+                               </tbody>
+                           </table>
+                        </div>  
+                     </div> 
+                    
+                    <div class="page-2 page">
+                        <h2 class="part-2" >Easy to use plugin</h2>
+                    </div>
+                    <div class="page-3 page">     
+                        <h2 class="part-3" >Working On Tablets</h2> 
+                    </div>
+                  
                 </div>
             </div>
-         <section id="sp_a1" class="section-header wow fadeInUp">
-            <div class="container">     
-                <h3>section 1</h3>
-                    <div class="col-md-12"><img src="images/h6.jpg" class="img-fluid img-thumbnail" alt=""></div>
-                    <div class="row" style="padding-left:20px;padding-right:20px;">
-                        <h2>We are professional</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </template>
+   
+ <script>
+ export default {
+  data() {
+            var that = this;
+            return {   
+                nusfacilities:[],
+                cooperate_medical:[],
+                medical_acceptance:[],
+                staff:[],
+                index: 0,
+                pageNum: 0,
+                opts: {
+                    start: 0,
+                    dir: 'v',
+                    loop: false,
+                    duration: 500,
+                    beforeChange: function(ele, current, next) {
+                        console.log('before', current, next)
+                        that.index = next;
+                    },
+                    afterChange: function(ele, current) {
+                        that.index = current;
+                        console.log('after', current)
+                    }
+                }
+            };
+        },
+         created(){
+                    this.axios.get('/api/nusfacilities').then(response => {
+                        this.nusfacilities = response.data;    
+      
+                    });
+                    
+                    this.axios.get('/api/cooperatemedical').then(response => {
+                        this.cooperate_medical = response.data;    
                        
-                        <h2>We are professional</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-            </div>                  
-        </section>
-     
-        <section id="sp_a2">
-            <div class="container">
-                 <header class="section-header wow fadeInUp">
-                     <h3>section 2 </h3>
-                 </header>
-               
-                    <!-- <div class="card-header bg-dark text-center text-light">
-                      <h2 style="text-align:center;">Section 2</h2>
-                    </div> -->
-                   
-                    <div class="col-md-12"><img src="images/h10.jpg" class="img-fluid img-thumbnail" alt=""></div>
-                   
-                    <div class="row" style="padding-left:20px;padding-right:20px;">
-                        <h2>Our Plan</h2>
-                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                       
-                         <h2>Our Plan</h2>
-                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    </div>                    
-            </div>
-        </section>
+                    });
 
+                      this.axios.get('/api/medicalacceptance').then(response => {
+                        this.medical_acceptance = response.data;    
+                        
+                    });
+ 
+                      this.axios.get('/api/staff').then(response => {
+                        this.staff = response.data;    
+                        
+                    });
+                    
+         },
+        methods: {
+            moveTo: function(index) {          
+                this.$refs.fullpage.$fullpage.moveTo(index, true);
+            }
            
-        <section id="sp_a3">
-            <div class="container">
-              
-                <header class="section-header wow fadeInUp">
-                     <h3>section 3 </h3>
-                 </header>
-                
-                    <div class="col-md-12"><img src="images/11.JPG" class="img-fluid img-thumbnail" alt=""></div>
-                   
-                    <div class="row" style="padding-left:20px;padding-right:20px;">
-                        <h2>Our Plan</h2>
-                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                       
-                       <h2>Our Plan</h2>
-                        <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>                  
-                      
-                    </div>            
-            </div>
-        </section>
-
-         </div>
-    </div>
-</div>
-
-</template>
-
-
-<script>
-
+        }
+ }
+       
 </script>
+
+<style>
+
+
+.fullpage-container {
+    display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+    
+}
+
+.page-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+</style>
+
+
+
+
+    
+
+    
+    
+
+
+    

@@ -1,5 +1,5 @@
 <template>
-<div class="row">     
+<div class="row">
     <!-- <div class="col-12"> -->
          <!-- <div class="card card-default m-b-20">
             <div class="card-body">
@@ -17,7 +17,7 @@
         </div>
     </div> -->
     <div class="col-12">
-                  
+
         <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <h4 class="main-color m-b-10">事業者検索</h4>
         <div class="row">
@@ -30,8 +30,13 @@
         </div>
         <hr>
         <h5 class="header">事業者</h5>
-        <div class="scrolldiv col-12">           
-            <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
+        <div class="scrolldiv col-12">
+            <div v-if="!this.customers.length"  class="card card-default m-b-20" style="padding-top:30px; height:700px; text-align:center ">
+
+                          No Record Data
+
+                 </div>
+            <div  v-else v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
                 <div class="card-body news-post">
                     <div class="row">
                         <div class="col-md-2" >
@@ -78,8 +83,6 @@ export default {
                 .get('/api/customers')
                 .then(response => {
                     this.customers = response.data;
-
-
                 });
     },
     methods: {
@@ -111,4 +114,3 @@ export default {
         }
 }
 </script>
- 

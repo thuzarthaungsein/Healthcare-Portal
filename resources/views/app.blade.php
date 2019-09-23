@@ -14,7 +14,7 @@
 
 
 
-<title>{{ config('app.name', 'Laravel') }}</title>
+<title>{{ config('app.name', 'Healthcare Portal') }}</title>
 
 
 
@@ -33,6 +33,8 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<!-- Include after Vue (before closing body) -->
+<script src="https://unpkg.com/vue-fullpage.js/dist/vue-fullpage.min.js"></script>
 
 <!-- Fonts -->
 
@@ -50,6 +52,10 @@
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+
+
 
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
 
@@ -158,7 +164,7 @@
                     </li>
                 </ul>
 
-                
+
 
                 <ul class="sp-nav sp">
 
@@ -174,8 +180,8 @@
 
                 <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;カテゴ一覧</router-link></li>
 
-                <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;施設一覧</router-link></li>
-                <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Special Feature</router-link></li>
+                <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;&nbsp;施設一覧</router-link></li>
+                <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;特殊機能</router-link></li>
                 <li>
 
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Pages</a>
@@ -184,7 +190,7 @@
 
                         <li>
 
-                            <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link>
+                            <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;事業者パスワードリセット</router-link>
 
                         </li>
 
@@ -279,7 +285,7 @@
 
         <!--end sidebar -->
 
-    
+
 
         <div class="sidebar-scroll container-fluid">
 
@@ -443,16 +449,16 @@
 
                     @can('role-list')
 
-                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>                  
+                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
 
-                    <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
-                    <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Special Feature</router-link></li>
+                    <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;施設一覧</router-link></li>
+                    <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;特殊機能</router-link></li>
                     <li>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link text-pre"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
-                            <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link></li>
+                            <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;事業者パスワードリセット</router-link></li>
                             <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
                         </ul>
                     </li>
@@ -691,7 +697,7 @@
 
 </div>
 
-<script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+<script src="/js/app.js" type="text/javascript"></script>
 
   <!-- script for editor -->
 
@@ -725,7 +731,7 @@
 
  $(document).ready(function() {
 
-    
+
 
     $('.DataTable').DataTable();
     var csrf = "{{ csrf_token() }}";
@@ -766,14 +772,15 @@
             var side_ad = "";
             for (var i = 0; i < data.length; i++) {
                 if(data[i].location.includes("topbar") ) {
-                    top_ad += '<div class="list-group-item adslist-card"><a href="/newsdetails/'+data[i].id+'"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
+                    top_ad += '<div class="list-group-item adslist-card"><a href="' + data[i].link + '"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
                     if(data[i].location.includes("sidebar")) {
-                        side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
+                        side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
                     }
-                } 
+                }
                 else if(data[i].location.includes("sidebar"))  {
-                    side_ad += '<div><a href="/newsdetails/'+data[i].id+'"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
-                }                
+                    side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
+                }
+
             }
             $(".top-ad-slider").html(top_ad);
             jssor_1_slider_init();
@@ -781,7 +788,7 @@
             // jssor_slider2_init();
         }
     });
-});       
+});
 </script>
 </body>
 

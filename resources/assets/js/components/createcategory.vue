@@ -18,7 +18,7 @@
 
                             <div class="form-group ">
                                 <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
-                                <router-link class="btn news-post-btn all-btn" to="/categorylist" >カテゴリを投稿する</router-link>                                
+                                <button class="btn news-post-btn all-btn">カテゴリを投稿する</button>                                
                             </div>
                                 </form>
                             </div>
@@ -47,7 +47,16 @@ export default {
                 axios.post('/api/category/add', this.category)
                     .then((response) => {
                         this.name = ''
-                    alert('Successfully Created')
+                        this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '作成されました',
+                            showConfirmButton: false,
+                            timer: 1800,
+                            width: 250,
+                            height: 200,
+                        })
+                        // alert('Successfully Created')
                      this.$router.push({name: 'categorylist'});
                     }).catch(error=>{
                         
