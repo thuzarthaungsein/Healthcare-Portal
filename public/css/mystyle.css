@@ -284,8 +284,27 @@ body {
     padding-top: 10px;
 }
 
-
-
+.category_news_title {
+    /* text-align: center; */
+    padding: 15px;
+}
+.category_news_title span {
+    border-left: 5px solid #f9793c;
+    padding-left: 10px;
+}
+.category_box {
+    border-top: 2px dashed #eee;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+.img-box img {
+    /* border: 1px solid #eee; */
+    /* padding: 3px 5px 3px 3px; */
+    border-radius: 3px;
+}
+.txt-box .smallads-title {
+    font-size: 1em !important;
+}
 
 /* End Profile */
 
@@ -2114,7 +2133,7 @@ ul.main-tab li:after {
 /*related news*/
 
 .next-title {
-    border-top: 2px dotted #118063;
+    /* border-top: 2px dotted #118063; */
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
