@@ -458,3 +458,21 @@ function new_link()
         
         }
     }
+
+    /* button_disable */
+    // $(document).ready(function () {
+    //   $('#tbname, #furigana,#postal,#division,#city,#phone,#mail,#present').on('input change', function () {
+    
+    //     if ($('#tbname').val() != '' && $('#furigana').val() != '' && $('#postal').val() != '' && $('#division').val() != '' && $('#city').val() != '' && $('#phone').val() != '' && $('#mail').val() != '' && $('#present').is(":checked") != '')
+    //     {
+    //       $('#submit1').prop('disabled', false);
+    //       $('#submit2').prop('disabled', false);
+    //     }else {
+    //         $('#submit1').prop('disabled', true);
+    //         $('#submit2').prop('disabled', true);
+    //     }
+    
+    //   });
+    
+    // });
+    /* button_disable */
