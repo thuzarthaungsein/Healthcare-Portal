@@ -240,7 +240,6 @@
         },
         methods: {
             add() {
-<<<<<<< HEAD
                 this.axios.post('/api/nurse/add', this.comments)
                     .then((response) => {
                         alert('Mail Sent Successfully !')
@@ -249,17 +248,8 @@
                             this.errors = error.response.data.errors
                         }
                     })
-=======
-                    axios.post('/api/nurse/add', this.comments)
-                        .then((response) => {
-                            alert('Mail Sent Successfully !')
-                        }).catch(error => {
-                            if (error.response.status == 422) {
-                                this.errors = error.response.data.errors
-                            }
-                        })
+                   
                     localStorage.removeItem("item");
->>>>>>> e70c963f68990164322353d889ca2a49273fc0f0
                     localStorage.removeItem("inputValue");
                     console.log('confirm',this.comments.fav_mail)
                 },
