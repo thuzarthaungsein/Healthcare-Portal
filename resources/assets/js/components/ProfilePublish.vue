@@ -458,7 +458,7 @@ import joboffer from './JobOfferList.vue'
                 activeImage: 0,
                 index: 0,
                 pageNum: 0,
-                type : 'nursing',
+                type : 'hospital',
                 opts: {
                     start: 0,
                     dir: 'v',
