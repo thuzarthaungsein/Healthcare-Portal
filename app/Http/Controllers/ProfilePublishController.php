@@ -8,6 +8,7 @@ use App\method_payment;
 use App\Cooperate_Medical;
 use App\Medical;
 use App\Staff;
+use App\HospitalProfile;
 
 class ProfilePublishController extends Controller
 {
@@ -25,8 +26,8 @@ class ProfilePublishController extends Controller
 
 
         // $nurse = NursingProfile::all()->toArray();
-        $nurse = NursingProfile::where('customer_id',5)->get();
-        return $nurse;
+        // $nurse = NursingProfile::where('customer_id',5)->get();
+        // return $nurse;
     }
 
 
@@ -35,6 +36,10 @@ class ProfilePublishController extends Controller
         //
         $comedical = Cooperate_Medical::all()->toArray();
         return array_reverse($comedical);
+    }
+    public function hospital(){
+        $hospital = HospitalProfile::where('id',4)->get();
+        return $hospital;
     }
 
     public function getmedicalacceptance()
@@ -57,19 +62,6 @@ class ProfilePublishController extends Controller
         $latlong = NursingProfile::where('id',1)->get();
         return $latlong;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Show the form for creating a new resource.
      *
