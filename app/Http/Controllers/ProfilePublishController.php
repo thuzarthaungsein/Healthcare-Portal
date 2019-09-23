@@ -24,6 +24,9 @@ class ProfilePublishController extends Controller
         return $nurse;
 
 
+        // $nurse = NursingProfile::all()->toArray();
+        $nurse = NursingProfile::where('customer_id',5)->get();
+        return $nurse;
     }
 
 
@@ -44,9 +47,20 @@ class ProfilePublishController extends Controller
     public function getstaff()
     {
         //
-        $staff = Staff::select('staff')->where('id',1)->get();
+        $staff = Staff::where('id',1)->get();
         return $staff;
     }
+
+    public function getGoogleMap()
+    {
+        //
+        $latlong = NursingProfile::where('id',1)->get();
+        return $latlong;
+    }
+
+
+
+
 
 
 

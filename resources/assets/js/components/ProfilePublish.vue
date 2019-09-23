@@ -82,7 +82,9 @@
                 </div>
                 <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
                     <div class="row">
-                        <h1>tab4</h1>
+                        <h1>Facility</h1>
+                        <hr>
+
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
@@ -213,14 +215,171 @@
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
-                    <div class="row">
-                        <h1>tab4</h1>
+                    <div class="row" >
+                        <div class="col-md-12">
+                         <h2 align="center"> Facility </h2>
+
+                        </div>
+                        <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12 " >
+                             <table border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                    <td> Business entity</td>
+                                    <td>{{nus.business_entity}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Date of establishment</td>
+                                    <td>{{nus.date_of_establishment}}</td>
+                                </tr>
+                                  <tr>
+                                    <td> Land rights form </td>
+                                    <td>{{nus.land_right_form}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Building rights form</td>
+                                    <td>{{nus.building_right_form}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Site area</td>
+                                    <td>{{nus.site_area}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total floor area</td>
+                                    <td>{{nus.floor_area}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Construction</td>
+                                    <td>{{nus.construction}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Capacity</td>
+                                    <td>{{nus.capacity}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total number of rooms / units </td>
+                                    <td>{{nus.num_rooms}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Right of residence form </td>
+                                    <td>{{nus.residence_form}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Type </td>
+                                    <td>{{nus.fac_type}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Occupancy conditions</td>
+                                    <td>{{nus.occupancy_condition}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Room division, floor plan, etc </td>
+                                    <td>{{nus.room_floor}}</td>
+                                </tr>
+                                 <tr>
+                                    <td> Living room facilities</td>
+                                    <td>{{nus.living_room_facilities}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Common facilities / equipment </td>
+                                    <td>{{nus.equipment}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-md-12">
+                         <h2 align="center"> Cooperate Medical </h2>
+
+                        </div>
+                        <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12 " >
+                             <table border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                        <td> Clinical Subject</td>
+                                        <td>{{comedical.clinical_subject}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Details</td>
+                                        <td>{{comedical.details}}</td>
+                                    </tr>
+                                </tbody>
+                             </table>
+                        </div>
+                    </div>
+                     <div class="row" >
+                        <div class="col-md-12">
+                         <h2 align="center"> Medical Acceptance </h2>
+
+                        </div>
+                        <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-12 " >
+                             <table border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                        <td> Name </td>
+                                        <td>{{maccept.name}}</td>
+                                    </tr>
+
+                                </tbody>
+                             </table>
+                        </div>
+                    </div>
+                     <div class="row" >
+                        <div class="col-md-12">
+                         <h2 align="center"> Staff </h2>
+
+                        </div>
+                        <div v-for="st in staff" :key="st.id" class="col-md-12 " >
+                             <table border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                        <td> Staff     </td>
+                                        <td>{{st.staff}}</td>
+                                         <td> Nursing Staff     </td>
+                                        <td>{{st.nursing_staff}}</td>
+                                    </tr>
+                                     <tr>
+                                        <td> Min num of Staff     </td>
+                                        <td>{{st.min_num_staff}}</td>
+                                         <td> Num of Staff     </td>
+                                        <td>{{st.num_staff}}</td>
+                                    </tr>
+
+                                </tbody>
+                             </table>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
-                    <div class="row">
-                        <h1>tab5</h1>
-                    </div>
+                       <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
+                          <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" @dragend="updateCoordinates" />
+                       </GmapMap>
+
+                       <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                           <div class="col-md-2 text-left ">
+                               Official Site  :
+                           </div>
+                           <div class="col-md-10 text-left">
+                               www.google.com
+                           </div>
+
+                           <div class="col-md-2 text-left" style="padding-top:20px;" >
+                               Access :
+                           </div>
+                           <div class="col-md-10 text-left" style="padding-top:20px;">
+                              {{m.access}}
+                           </div>
+
+                           <div class="col-md-2 text-left" style="padding-top:20px;" >
+                               City/Township :
+                           </div>
+                           <div class="col-md-10 text-left" style="padding-top:20px;">
+                               {{this.address}}
+                           </div>
+                      </div>
+
+
+
                 </div>
                 <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
                     <div class="row">
@@ -258,6 +417,7 @@
 </template>
 
  <script>
+import joboffer from './JobOfferList.vue'
  export default {
 
   data() {
@@ -275,6 +435,27 @@
                 special_features:[],
                 method_payment:[],
                 comments:[],
+    components:{
+        joboffer
+    },
+
+  data() {
+            var that = this;
+
+            return {
+                 markers: [
+                    { position: { lat: 0.0000000, lng: 0.0000000 } },
+
+
+                ],
+                center: { lat: 0.0000000, lng: 0.0000000 },
+                google:[],
+                nusfacilities:[],
+                cooperate_medical:[],
+                medical_acceptance:[],
+                staff:[],
+                index: 0,
+                pageNum: 0,
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -368,7 +549,74 @@
             }
 
 
-        }
+        },
+                address: '',
+
+
+            };
+        },
+         created(){
+
+                    this.axios.get('/api/nusfacilities').then(response => {
+                        this.nusfacilities = response.data;
+
+                    });
+
+                    this.axios.get('/api/cooperatemedical').then(response => {
+                        this.cooperate_medical = response.data;
+
+                    });
+
+                      this.axios.get('/api/medicalacceptance').then(response => {
+                        this.medical_acceptance = response.data;
+
+                    });
+
+                      this.axios.get('/api/staff').then(response => {
+                        this.staff = response.data;
+
+                    });
+
+                        this.axios.get('/api/google').then(response => {
+                        this.google = response.data;
+                        this.markers[0]['position'][' lat']  = response.data[0]['latitude'];
+                        this.markers[0]['position']['lng']  = response.data[0]['longitude'];
+                        this.center['lat'] = response.data[0]['latitude'];
+                        this.center['lng'] = response.data[0]['longitude'];
+                        this.getlatlng(response.data[0]['latitude'] , response.data[0]['longitude'])
+
+
+                    });
+
+
+
+         },
+         methods:{
+
+             getlatlng(la,ln)
+             {
+
+                var geocoder = new google.maps.Geocoder;
+                var latlng = {lat: la, lng: ln};
+                // var latlng = {lat: 19.76330000, lng: 96.07850000};
+
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                if (status === 'OK') {
+
+                    if (results[1]) {
+
+                        this.address=  results[1].formatted_address
+
+                        }
+                    }
+
+                })
+
+
+             }
+
+         }
+
  }
 
 </script>

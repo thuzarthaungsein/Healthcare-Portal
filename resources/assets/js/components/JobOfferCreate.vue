@@ -297,7 +297,7 @@ export default {
                 id:''  });
             },
             delRow: function(id) {
-                this.joboffer.fields.splice(id, 1);
+                this.joboffer.fields.splice(id, 1);     
                 // this.joboffer.fields.pop();
             },
             createskill: function(arr){
