@@ -19,7 +19,7 @@ class ProfilePublishController extends Controller
      */
     public function index()
     {
-        //
+
         //$nurse = NursingProfile::all()->toArray();
 <<<<<<< HEAD
         $feature = NursingProfile::select('feature')->where('id',1)->get();
