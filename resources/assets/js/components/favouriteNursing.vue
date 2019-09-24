@@ -172,7 +172,7 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-success mt-5 float-right" type="submit">この内容で送信</button>
+        <span class="btn btn-success mt-5 float-right" @click="addingMail()">この内容で送信</span>
       </form>
     </div>
   </div>
