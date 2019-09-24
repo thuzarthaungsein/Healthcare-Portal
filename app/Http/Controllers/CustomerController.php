@@ -149,14 +149,14 @@ class CustomerController extends Controller
             DB::table('model_has_roles')->insert($model_has_roles);
             \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
              return response()->json('success');
-        }       
+        }
     }
 
     public function search(Request $request)
     {
         $request = $request->all();
         $search_word = $request['search_word'];
-        
+
         $search_customer = Customer::query()
                             ->where('name', 'LIKE' , "%{$search_word}%")
                             ->orderBy('id','DESC')

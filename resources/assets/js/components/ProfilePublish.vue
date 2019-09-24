@@ -1,5 +1,6 @@
 <template>
     <div class="card">
+       
         <div v-if="type == 'hospital'">
             <div class="card-header tab-card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -21,10 +22,10 @@
                         <li>
                             <a class="nav-link" href="#six"  id="six-tab" data-toggle="tab" role="tab" aria-controls="six" aria-selected="true" >Job Offer</a>
                         </li>
-                        
-                </ul> 
+
+                </ul>
             </div>
-            
+
             <div class="tab-content tab-content2 scroll2" id="myTabContent">
                 <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
                 <div class="row">
@@ -43,7 +44,7 @@
                                     </div> -->
                                 </div>
                                 <div class="thumbnails">
-                                    <div 
+                                    <div
                                         v-for="(image, index) in  images"
                                         :key="image.id"
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
@@ -52,23 +53,23 @@
                                         <img :src="image.thumb">
                                     </div>
                                 </div>
-                            </div>         
-                        </div> 
+                            </div>
+                        </div>
                         </div>
                         <div class="col-sm-7 detail_profile_right">
                             <div class="row list-wrap m-lr-0">
                                 <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address</strong></p></div>
                                 <div class="col-lg-9 col-md-8 col-sm-12"><p><a href="#" target="_blank">example</a></p></div>
-                            </div> 
-                            
+                            </div>
+
                             <h5 class="header">special Features</h5>
                             <div class="row m-lr-0">
                                 <ul class="fac_container">
                                     <li>24時間看護</li>
-                                </ul>            
-                            </div>                  
-                        </div>                    
-                    </div>            
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
                     <div class="row">
@@ -82,7 +83,9 @@
                 </div>
                 <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
                     <div class="row">
-                        <h1>tab4</h1>
+                        <h1>Facility</h1>
+                        <hr>
+
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
@@ -97,7 +100,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div v-if="type == 'nursing'">
             <div class="card-header tab-card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -117,16 +120,19 @@
                             <a class="nav-link" href="#five"  id="five-tab" data-toggle="tab" role="tab" aria-controls="five" aria-selected="true" >Map</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="#six"  id="six-tab" data-toggle="tab" role="tab" aria-controls="six" aria-selected="true" >Job Offer</a>
+                            <a class="nav-link" href="#six"  id="six-tab" data-toggle="tab" role="tab" aria-controls="six" aria-selected="true" >Review</a>
                         </li>
-                        
-                </ul> 
+                        <li>
+                            <a class="nav-link" href="#seven"  id="seven-tab" data-toggle="tab" role="tab" aria-controls="seven" aria-selected="true" >Job Offer</a>
+                        </li>
+
+                </ul>
             </div>
 
             <div class="tab-content tab-content2 scroll2" id="myTabContent">
                 <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
                 <div class="row">
-                        <div class="col-sm-5 detail_profile_left ">  
+                        <div class="col-sm-5 detail_profile_left ">
                         <div class="thumbnail-img">
                              <div class="card-carousel">
                                 <div class="card-img">
@@ -141,7 +147,7 @@
                                     </div> -->
                                 </div>
                                 <div class="thumbnails">
-                                    <div 
+                                    <div
                                         v-for="(image, index) in  images"
                                         :key="image.id"
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
@@ -150,61 +156,284 @@
                                         <img :src="image.thumb">
                                     </div>
                                 </div>
-                            </div>         
-                        </div> 
+                            </div>
+                        </div>
                         </div>
                         <div class="col-sm-7 detail_profile_right">
                             <div class="row list-wrap m-lr-0">
                                 <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address</strong></p></div>
                                 <div class="col-lg-9 col-md-8 col-sm-12"><p><a href="#" target="_blank">example</a></p></div>
-                            </div> 
-                            
+                            </div>
+
                             <h5 class="header">special Features</h5>
                             <div class="row m-lr-0">
-                                <ul class="fac_container">
-                                    <li>24時間看護</li>
-                                </ul>            
-                            </div>                  
-                        </div>                    
-                    </div>            
+                                <ul class="fac_container" v-for="special in special_features" :key="special.id">
+                                    <li >{{special.short_name}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
                     <div class="row">
-                        <h1>tab2</h1>
+                        <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-6 offset-md-3">
+                            {{nurseprofile.feature}}
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="three" role="tabpanel" aria-labelledby="three-tab">
                     <div class="row">
-                        <h1>tab3</h1>
+                        <div  v-for="cost in method_payment" :key="cost.id" class="col-md-6 offset-md-3" >
+                            <table border="1" class="table">
+                                                <tr>
+                                                        <td style="width:30%" >Payment Name : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.payment_name}}</div></td>
+                                                </tr>
+                                                 <tr>
+                                                        <td style="width:30%">Expense : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.expense_moving}}</div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:30%">Monthly Fees : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.monthly_fees}}</div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:30%">Living Room Type : </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.living_room_type}}</div></td>
+                                                </tr>
+                                                 <tr>
+                                                        <td style="width:30%">Area: </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.area}}</div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="width:30%">Remark: </td>
+                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.remark}}</div></td>
+                                                </tr>
+
+                                </table>
+                        </div>
+
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
-                    <div class="row">
-                        <h1>tab4</h1>
+                    <div class="row" >
+                        <div class="col-md-12">
+                         <h2 align="center"> Facility </h2>
+
+                        </div>
+                        <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12 " >
+                             <table border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                    <td> Business entity</td>
+                                    <td>{{nus.business_entity}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Date of establishment</td>
+                                    <td>{{nus.date_of_establishment}}</td>
+                                </tr>
+                                  <tr>
+                                    <td> Land rights form </td>
+                                    <td>{{nus.land_right_form}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Building rights form</td>
+                                    <td>{{nus.building_right_form}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Site area</td>
+                                    <td>{{nus.site_area}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total floor area</td>
+                                    <td>{{nus.floor_area}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Construction</td>
+                                    <td>{{nus.construction}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Capacity</td>
+                                    <td>{{nus.capacity}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total number of rooms / units </td>
+                                    <td>{{nus.num_rooms}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Right of residence form </td>
+                                    <td>{{nus.residence_form}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Type </td>
+                                    <td>{{nus.fac_type}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Occupancy conditions</td>
+                                    <td>{{nus.occupancy_condition}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Room division, floor plan, etc </td>
+                                    <td>{{nus.room_floor}}</td>
+                                </tr>
+                                 <tr>
+                                    <td> Living room facilities</td>
+                                    <td>{{nus.living_room_facilities}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Common facilities / equipment </td>
+                                    <td>{{nus.equipment}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-md-12">
+                         <h2 align="center"> Cooperate Medical </h2>
+
+                        </div>
+                        <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12 " >
+                             <table border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                        <td> Clinical Subject</td>
+                                        <td>{{comedical.clinical_subject}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Details</td>
+                                        <td>{{comedical.details}}</td>
+                                    </tr>
+                                </tbody>
+                             </table>
+                        </div>
+                    </div>
+                     <div class="row" >
+                        <div class="col-md-12">
+                         <h2 align="center"> Medical Acceptance </h2>
+
+                        </div>
+                        <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-12 " >
+                             <table border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                        <td> Name </td>
+                                        <td>{{maccept.name}}</td>
+                                    </tr>
+
+                                </tbody>
+                             </table>
+                        </div>
+                    </div>
+                     <div class="row" >
+                        <div class="col-md-12">
+                         <h2 align="center"> Staff </h2>
+
+                        </div>
+                        <div v-for="st in staff" :key="st.id" class="col-md-12 " >
+                             <table border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                        <td> Staff     </td>
+                                        <td>{{st.staff}}</td>
+                                         <td> Nursing Staff     </td>
+                                        <td>{{st.nursing_staff}}</td>
+                                    </tr>
+                                     <tr>
+                                        <td> Min num of Staff     </td>
+                                        <td>{{st.min_num_staff}}</td>
+                                         <td> Num of Staff     </td>
+                                        <td>{{st.num_staff}}</td>
+                                    </tr>
+
+                                </tbody>
+                             </table>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
-                    <div class="row">
-                        <h1>tab5</h1>
-                    </div>
+                       <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
+                          <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" @dragend="updateCoordinates" />
+                       </GmapMap>
+
+                       <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                           <div class="col-md-2 text-left ">
+                               Official Site  :
+                           </div>
+                           <div class="col-md-10 text-left">
+                               www.google.com
+                           </div>
+
+                           <div class="col-md-2 text-left" style="padding-top:20px;" >
+                               Access :
+                           </div>
+                           <div class="col-md-10 text-left" style="padding-top:20px;">
+                              {{m.access}}
+                           </div>
+
+                           <div class="col-md-2 text-left" style="padding-top:20px;" >
+                               City/Township :
+                           </div>
+                           <div class="col-md-10 text-left" style="padding-top:20px;">
+                               {{this.address}}
+                           </div>
+                      </div>
+
+
+
                 </div>
                 <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
                     <div class="row">
-                        <h1>tab6</h1>
+                        <div class="row" v-for="comment in comments" :key="comment.id">
+                                    <div class="col-md-12" style="font-size:20px;">Title:{{comment.title}}</div><br/>
+                                     <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
+                                    <div class="col-md-5" style="font-size:20px;">Email:{{comment.email}}</div>
+                                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                                    <br/><br/>
+                                      <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
+                                         <div class="content hideContent">{{comment.comment}}</div>
+                                     </div> -->
+                                     <!-- <button onclick="function()">See more</button> -->
+                                      <div class="row col-md-12 m-lr-0">
+                                          <p class="showContent"> {{comment.comment}}</p>
+                                                <span class="displaytext">
+                                                       {{comment.comment}}
+                                                </span>
+                                                <a class="mt-2 readMore" href ="#">Read More</a>
+
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-1" id="seven" role="tabpanel" aria-labelledby="seven-tab">
+                    <div class="row">
+                        <h1>tab7</h1>
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </template>
-   
+
  <script>
+import joboffer from './JobOfferList.vue'
  export default {
-      
+
   data() {
-        var that = this;
-           return {   
+            var that = this;
+
+            return {
+                 markers: [
+                    { position: { lat: 0.0000000, lng: 0.0000000 } },
+
+
+                ],
+                currentImage: '',
+                address: '',
+                center: { lat: 0.0000000, lng: 0.0000000 },
+                google:[],
                 nusfacilities:[],
                 cooperate_medical:[],
                 medical_acceptance:[],
@@ -215,7 +444,7 @@
                     start: 0,
                     dir: 'v',
                     loop: false,
-                    duration: 500,
+                    duration:500,
                     beforeChange: function(ele, current, next) {
                         console.log('before', current, next)
                         that.index = next;
@@ -225,7 +454,7 @@
                         console.log('after', current)
                     }
                 },
-                type : 'nursing',
+                type : 'hospital',
                 images: [
                     {
                         id: '1',
@@ -250,42 +479,38 @@
                 ],
                 //Index of the active image on the images array
                 activeImage: 0
-            
-                        
+
+
             };
         },
-      created(){
-                    this.axios.get('/api/nusfacilities').then(response => {
-                        this.nusfacilities = response.data;    
-      
-                    });
-                    
-                    this.axios.get('/api/cooperatemedical').then(response => {
-                        this.cooperate_medical = response.data;    
-                       
-                    });
+        created(){
+            this.axios
+                .get('/api/feature/featurelist')
+                .then(response => {
+                    this.special_features = response.data.feature;
+                    this.nursing_profiles = response.data.nurse;
+                });
+        // this.axios
+        //         .get('/api/nurse')
+        //         .then(response => {
+        //             this.nursing_profiles = response.data;
+        //         });
+        this.axios
+                .get('/api/cost')
+                .then(response => {
+                    this.method_payment = response.data;
 
-                      this.axios.get('/api/medicalacceptance').then(response => {
-                        this.medical_acceptance = response.data;    
-                        
-                    });
- 
-                      this.axios.get('/api/staff').then(response => {
-                        this.staff = response.data;    
-                        
-                    });
-                    
-         },
-            computed: {
-            // currentImage gets called whenever activeImage changes
-            // and is the reason why we don't have to worry about the 
-            // big image getting updated
-            currentImage() {
-                return this.images[this.activeImage].big;
-            }
-        },
+                });
+                this.axios
+                .get('/api/comments/comment')
+                .then(response => {
+                    this.comments = response.data;
+
+                });
+    },
         methods: {
-            moveTo: function(index) {          
+            moveTo: function(index) {
+
                 this.$refs.fullpage.$fullpage.moveTo(index, true);
             },
               nextImage() {
@@ -295,7 +520,7 @@
                 }
                 this.activateImage(active);
             },
-            // Go backwards on the images array 
+            // Go backwards on the images array
             // or go at the last image
             prevImage() {
                 var active = this.activeImage - 1;
@@ -307,15 +532,75 @@
             activateImage(imageIndex) {
                 this.activeImage = imageIndex;
             }
-          
-           
-        }
+
+
+        },
+        
+         created(){
+
+                    this.axios.get('/api/nusfacilities').then(response => {
+                        this.nusfacilities = response.data;
+
+                    });
+
+                    this.axios.get('/api/cooperatemedical').then(response => {
+                        this.cooperate_medical = response.data;
+
+                    });
+
+                      this.axios.get('/api/medicalacceptance').then(response => {
+                        this.medical_acceptance = response.data;
+
+                    });
+
+                      this.axios.get('/api/staff').then(response => {
+                        this.staff = response.data;
+
+                    });
+
+                        this.axios.get('/api/google').then(response => {
+                        this.google = response.data;
+                        this.markers[0]['position'][' lat']  = response.data[0]['latitude'];
+                        this.markers[0]['position']['lng']  = response.data[0]['longitude'];
+                        this.center['lat'] = response.data[0]['latitude'];
+                        this.center['lng'] = response.data[0]['longitude'];
+                        this.getlatlng(response.data[0]['latitude'] , response.data[0]['longitude'])
+
+
+                    });
+         },
+         methods:{
+
+             getlatlng(la,ln)
+             {
+
+                var geocoder = new google.maps.Geocoder;
+                var latlng = {lat: la, lng: ln};
+                // var latlng = {lat: 19.76330000, lng: 96.07850000};
+
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                if (status === 'OK') {
+
+                    if (results[1]) {
+
+                        this.address=  results[1].formatted_address
+
+                        }
+                    }
+
+                })
+
+
+             }
+
+         }
+
  }
-       
+
 </script>
 
 <style scoped>
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {   
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #fff !important;
     font-weight: bold;
     background-color: #1aa985  !important;
@@ -325,10 +610,10 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .na
 div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
     border: 1px solid #1aa985  !important;
 }
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {  
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
     border-color: transparent   #ecede1   transparent   #ecede1   !important;
 }
-.thumbnail-img{   
+.thumbnail-img{
     width: 100%;
     padding: 20px;
     line-height: 150px;
@@ -381,7 +666,7 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tab
     transition: all 250ms;
 }
 
-.thumbnail-image:hover > img, 
+.thumbnail-image:hover > img,
 .thumbnail-image.active > img {
     opacity: 0.6;
     box-shadow: 2px 2px 6px 1px rgba(0,0,0, 0.5);
@@ -432,10 +717,6 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tab
 
 
 
-    
-
-    
-    
 
 
-    
+
