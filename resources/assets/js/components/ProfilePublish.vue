@@ -1,5 +1,6 @@
 <template>
     <div class="card">
+
         <div v-if="type == 'hospital'">
             <div class="card-header tab-card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -502,7 +503,6 @@ import joboffer from './JobOfferList.vue'
                         console.log('after', current)
                     }
                 },
-
                 images: [
                     {
                         id: '1',
