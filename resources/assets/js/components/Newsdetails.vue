@@ -218,15 +218,6 @@ import jobSearch from './jobSearch.vue'
         },
 
         methods: {
-                // getLatestPostFromAllCat: function() {
-
-                //         this.axios
-                //         .get(`/api/get_latest_post_all_cat`)
-                //         .then(response => {
-                //                 //console.log(response);
-                //                 //this.latest_post_all_cats = response.data;
-                //         });
-                // },
                 relatedNews: function(id) {
                         this.axios
                         .get(`/api/newsdetailsrelated/${id}`) .then(response => {

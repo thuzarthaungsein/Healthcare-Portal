@@ -9,6 +9,7 @@ use App\Cooperate_Medical;
 use App\Medical;
 use App\Staff;
 use App\HospitalProfile;
+use App\special_feature;
 
 class ProfilePublishController extends Controller
 {
@@ -32,6 +33,21 @@ class ProfilePublishController extends Controller
        $nurse = NursingProfile::where('customer_id',5)->get();
        return $nurse;
     }
+    public function getSpecialfeature(){
+        $specialfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
+        $array =explode(',',$specialfeature);
+        // return $array;
+        $count = count($array);
+
+        for($i = 0;$i<$count ;$i++)
+        {
+            $special[] =special_feature::find($array[$i])->toArray();
+        }
+        return $special;
+
+
+
+     }
 
     public function getcooperatemedical()
     {

@@ -53,13 +53,13 @@
                                 <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address</strong></p></div>
                                 <div class="col-lg-9 col-md-8 col-sm-12"><p><a href="#" target="_blank">example</a></p></div>
                             </div>
-
                             <h5 class="header">special Features</h5>
                             <div class="row m-lr-0">
-                                  <ul class="fac_container" v-for="special in special_features" :key="special.id">
-                                    <li >{{special.short_name}}</li>
+                                <ul class="fac_container" v-for="special_feature in features" :key="special_feature.id">
+                                    <li >{{special_feature.short_name}}</li>
                                 </ul>
                             </div>
+                            <!-- <input v-model="features.short_name"> -->
                             <h5 class="header">Information from clinic</h5>
                             <div class="row m-lr-0">
                                   <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
@@ -137,16 +137,6 @@
                 <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
                      <joboffer></joboffer>
                 </div>
-                <!-- <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
-                    <div class="row">
-                        <h1>tab5</h1>
-                    </div>
-                </div>
-                <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
-                    <div class="row">
-                        <h1>tab6</h1>
-                    </div>
-                </div> -->
             </div>
         </div>
 
@@ -217,7 +207,7 @@
                             <h5 class="header">special Features</h5>
                             <div class="row m-lr-0">
                                 <ul class="fac_container" v-for="special in special_features" :key="special.id">
-                                    <li >{{special.short_name}}</li>
+                                    <li>{{special.short_name}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -488,14 +478,16 @@ import joboffer from './JobOfferList.vue'
                 staff:[],
                 hospitals:[],
                 nursing_profiles:[],
-                special_features:[],
+                features:[],
+
+                //special:[],
                 method_payment:[],
                 comments:[],
                 activeImage: 0,
                 index: 0,
                 pageNum: 0,
-                //type : 'hospital',
-                type:'nursing',
+                type : 'hospital',
+                //type:'nursing',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -611,8 +603,11 @@ import joboffer from './JobOfferList.vue'
                     console.log(this.markers[0]['position']['lat']);
 
                 });
-                this.axios.get('/api/feature/featurelist').then(response => {
-                    this.special_features = response.data;
+
+
+                this.axios.get('/api/special').then(response => {
+
+                    this.features.short_name = response.data;
                 });
                 this.axios.get('/api/comments/comment').then(response => {
                     this.comments = response.data;

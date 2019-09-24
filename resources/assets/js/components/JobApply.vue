@@ -32,7 +32,7 @@
             <div class="col-md-12" style=" columns: 2;-webkit-columns: 2;-moz-columns: 2;">
                     <div class="form-group" v-for="job in Job.fields" :key="job.id">
 
-                        <label><input type="checkbox"   @click="getcheckbox(job)"> {{job}}</label>
+                        <label><input type="checkbox" @click="getcheckbox(job)"> {{job}}</label>
                     </div>
             </div>
         </div>

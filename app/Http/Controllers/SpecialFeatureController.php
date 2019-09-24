@@ -11,6 +11,8 @@ class SpecialFeatureController extends Controller
     {
         $feature = special_feature::all()->toArray();
         return array_reverse($feature);
+        // $feature= special_feature::where('id',14)->get();
+        // return $feature;
     }
 
 
