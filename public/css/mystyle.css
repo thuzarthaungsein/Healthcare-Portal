@@ -1457,7 +1457,7 @@ div.b {
 }
 
 .m-t-8 {
-    margin-top: 13px;
+    margin-top: 8px;
 }
 
 .m-lr-0 {
@@ -2227,7 +2227,6 @@ screen and (min-width: 750px) {
         border: 0px solid #ffffff;
         border-radius: 5px;
         padding: 15px;
-<<<<<<< HEAD
         font-family: arial;
     }
     /* End Hospital Search */
@@ -2353,7 +2352,6 @@ screen and (min-width: 750px) {
         height: 120px;
     }
     /* .top-ad-slider .ads-img {
-=======
         font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
       }  
       
@@ -2518,7 +2516,6 @@ body::-webkit-scrollbar-thumb {
 
 
 /* .top-ad-slider .ads-img {
->>>>>>> 82f36e8f314c3545b7df96b042ade78b187465e8
     width: auto;
     margin-right: 13.2px;
 } */
@@ -3036,15 +3033,8 @@ body::-webkit-scrollbar-thumb {
       .fade-enter, .fade-leave-to {
       opacity: 0;
       } */
-<<<<<<< HEAD
-=======
-
-
 
 /* start one page */
-
-
-
 
 .page {
     display: block;
@@ -3105,4 +3095,3 @@ body::-webkit-scrollbar-thumb {
 
 /* end one page */
 
->>>>>>> 82f36e8f314c3545b7df96b042ade78b187465e8
