@@ -27,8 +27,6 @@ class CreateFacTypes extends Migration
      */
     public function down()
     {
-        Schema::table('fac_types', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('fac_types');
     }
 }
