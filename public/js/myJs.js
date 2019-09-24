@@ -302,42 +302,42 @@ $('#save_value').click(function(){
 /*data_carry
 
 */
-$(function() {
-    $('#btnSubmit').on('click', function() {
-      // your code goes here
-      $('#outputSpan').val($('#name').val());
-      $('#outputfurigana').val($('#furigana').val());
-      $('#outputpostal').val($('.postal').val());
-      $('#outputdivision').val($('#division').val());
-      $('#outputcity').val($('#city').val());
-      $('#outputphone').val($('#phone').val());
-      $('#outputmail').val($('#mail').val());
+// $(function() {
+//     $('#btnSubmit').on('click', function() {
+//       // your code goes here
+//       $('#outputSpan').val($('#name').val());
+//       $('#outputfurigana').val($('#furigana').val());
+//       $('#outputpostal').val($('.postal').val());
+//       $('#outputdivision').val($('#division').val());
+//       $('#outputcity').val($('#city').val());
+//       $('#outputphone').val($('#phone').val());
+//       $('#outputmail').val($('#mail').val());
 
-    //   $('#outputpresent').val($('#present').val());
-      $('#outputpresent').val($('input:checkbox[name=present]:checked').val());
+//     //   $('#outputpresent').val($('#present').val());
+//       $('#outputpresent').val($('input:checkbox[name=present]:checked').val());
 
-      $('#outputrelation').val($('#relation').val());
-      $('#outputttname').val($('#ttname').val());
+//       $('#outputrelation').val($('#relation').val());
+//       $('#outputttname').val($('#ttname').val());
 
-      $('#outputsex').val($('input:radio[name=sex]:checked').val());
-    //   alert($('input:radio[name=sex]:checked').val());
+//       $('#outputsex').val($('input:radio[name=sex]:checked').val());
+//     //   alert($('input:radio[name=sex]:checked').val());
 
-      $('#outputyears').val($('#years').val());
-      $('#outputnursing').val($('#nursing').val());
+//       $('#outputyears').val($('#years').val());
+//       $('#outputnursing').val($('#nursing').val());
 
-    //   $('#outputfect').val($('#fect').val());
+//     //   $('#outputfect').val($('#fect').val());
 
-      $('#outputfect').val($('input:radio[name=fect]:checked').val());
-    //   alert($('input:radio[name=fect]:checked').val());
+//       $('#outputfect').val($('input:radio[name=fect]:checked').val());
+//     //   alert($('input:radio[name=fect]:checked').val());
 
-    //   $('#outputdesire').val($('#desire').val());
-      $('#outputdesire').val($('input:radio[name=desire]:checked').val());
+//     //   $('#outputdesire').val($('#desire').val());
+//       $('#outputdesire').val($('input:radio[name=desire]:checked').val());
 
-      $('#outputhope').val($('#hope').val());
-      // not triiger output tab to be open
-      $('[href="#output"]').trigger('click');
-    });
-  });
+//       $('#outputhope').val($('#hope').val());
+//       // not triiger output tab to be open
+//       $('[href="#output"]').trigger('click');
+//     });
+//   });
 
 
     $(".checkbox").on("click", function() {

@@ -184,8 +184,8 @@
                                     </div>
 
                                     <!-- <input type="submit" id="submit1" disabled="disabled"  @click="add()" class="submit1 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/> -->
+                                    <button class="submit1 btn btn-primary continue m-l-15 m-t-15" @click="add()" disabled>同意して進む</button>
                                     <!-- <input type="button" id="btnQueryString" value="Send" class="m-t-30"/><br> -->
-                                    <span class="btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</span>
 
                                     <!--next_form-->
                                     <div class="m-t-30">
@@ -194,7 +194,7 @@
                                             <label>
                                                 入居対象者様とのご関係<span class="error">*</span></label>
 
-                                            <select class="form-control" id="relation" required v-model="comments.relation">
+                                            <select class="form-control" id="relation"  v-model="comments.relation">
                                                 <option value="">選択してください</option>
                                                 <option value="本人">本人</option>
                                                 <option value="家族">家族</option>
@@ -209,7 +209,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-6 m-t-30 m-l-10">
                                                 <label>お名前:<span class="error">*</span></label>
-                                                <input type="text" id="ttname" name="ttname" class="form-control" placeholder="お名前を入力してください。" required v-model="comments.ttname">
+                                                <input type="text" id="ttname" name="ttname" class="form-control" placeholder="お名前を入力してください。"  v-model="comments.ttname">
                                                 <br>
                                             </div>
                                             <div class="" style="margin-top:70px;">
@@ -223,13 +223,13 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>性別:<span class="error">*</span></label>
-                                        <input type="radio" id="sex" name="sex" value="男性" required v-model="comments.sex">&nbsp;男性
-                                        <input type="radio" id="sex" name="sex" value="女性" required v-model="comments.sex">&nbsp;女性
-                                        <input type="radio" id="sex" name="sex" value="夫婦" required v-model="comments.sex">&nbsp;夫婦
+                                        <input type="radio" id="sex" name="sex" value="男性"  v-model="comments.sex">&nbsp;男性
+                                        <input type="radio" id="sex" name="sex" value="女性"  v-model="comments.sex">&nbsp;女性
+                                        <input type="radio" id="sex" name="sex" value="夫婦"  v-model="comments.sex">&nbsp;夫婦
                                     </div>
                                     <div class="col-md-6">
                                         <label>年齢<span class="error">*</span></label>
-                                        <select class="form-control" id="years" required v-model="comments.years">
+                                        <select class="form-control" id="years"  v-model="comments.years">
                                             <option value="">選択してください</option>
                                             <optgroup label="50代">
                                                 <option value="50">50</option>
@@ -308,7 +308,7 @@
                                     </div>
                                     <div class="col-md-6 m-t-30">
                                         <label>介護度<span class="error">*</span></label>
-                                        <select class="form-control" id="nursing" required v-model="comments.nursing">
+                                        <select class="form-control" id="nursing"  v-model="comments.nursing">
                                             <option value="">選択してください</option>
                                             <option value="自立">自立</option>
                                             <option value="要支援">要支援</option>
@@ -321,23 +321,23 @@
                                     </div>
                                     <div class="form-group col-md-6 m-t-30">
                                         <label>認知症:<span class="error">*</span></label>
-                                        <input type="radio" id="fect" name="fect" value="あり" required v-model="comments.fect">あり
-                                        <input type="radio" id="fect" name="fect" value="なし" required v-model="comments.fect">なし
-                                        <input type="radio" id="fect" name="fect" value="わからない" required v-model="comments.fect">わからない
+                                        <input type="radio" id="fect" name="fect" value="あり"  v-model="comments.fect">あり
+                                        <input type="radio" id="fect" name="fect" value="なし"  v-model="comments.fect">なし
+                                        <input type="radio" id="fect" name="fect" value="わからない"  v-model="comments.fect">わからない
                                     </div>
                                     <div class="form-group col-md-8 m-t-30">
                                         <label>認知症:<span class="error">*</span></label>
-                                        <input type="radio" id="desire" name="desire" value="できるだけ早く" required v-model="comments.desire">できるだけ早く
-                                        <input type="radio" id="desire" name="desire" value="３ヶ月以内" required v-model="comments.desire">３ヶ月以内
-                                        <input type="radio" id="desire" name="desire" value="半年以内" required v-model="comments.desire">半年以内
-                                        <input type="radio" id="desire" name="desire" value="1年以内" required v-model="comments.desire">1年以内
-                                        <input type="radio" id="desire" name="desire" value="未定" required v-model="comments.desire">未定
+                                        <input type="radio" id="desire" name="desire" value="できるだけ早く"  v-model="comments.desire">できるだけ早く
+                                        <input type="radio" id="desire" name="desire" value="３ヶ月以内"  v-model="comments.desire">３ヶ月以内
+                                        <input type="radio" id="desire" name="desire" value="半年以内"  v-model="comments.desire">半年以内
+                                        <input type="radio" id="desire" name="desire" value="1年以内"  v-model="comments.desire">1年以内
+                                        <input type="radio" id="desire" name="desire" value="未定"  v-model="comments.desire">未定
                                     </div>
                                     <div class="col-md-6">
                                         <label>ご要望や、お困りごと、その他お問い合わせ:<span class="error">*</span></label>
-                                        <textarea name="hope" id="hope" cols="30" rows="10" required v-model="comments.hope"></textarea>
+                                        <textarea name="hope" id="hope" cols="30" rows="10"  v-model="comments.hope"></textarea>
                                     </div>
-                                    <span class="btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</span>
+                                    <button class="submit2 btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</button>
                                     <!-- <input type="submit" id="submit2" disabled="disabled"  @click="add()" class="submit2 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/> -->
                                 </form>
                             </div>
@@ -387,7 +387,9 @@
                 zipPref: '',
                 all_mail: [],
                 bk_data: [],
-                bk_postal: 0
+                bk_postal: 0,
+                reservation: [],
+                documentation: []
             }
         },
         created() {
@@ -440,15 +442,16 @@
             },
             add() {
                 this.all_mail = JSON.parse(localStorage.getItem("item"));
+                this.reservation = JSON.parse(localStorage.getItem("reserve"));
+                this.documentation = JSON.parse(localStorage.getItem("document"));
                 for (var i = 0; i < this.all_mail.length; i++) {
                     this.comments.fav_mail.push(this.all_mail[i].email);
-                    this.comments.arr_reserve.push(this.all_mail[i].arr_reserve);
-                    this.comments.arr_document.push(this.all_mail[i].arr_document);
                 }
-                console.log('mailtest',this.comments.fav_mail)
+                this.comments.arr_reserve = this.reservation;
+                this.comments.arr_document = this.documentation;
+                console.log('mailtest',this.comments)
                 localStorage.setItem("inputValue", JSON.stringify(this.comments));
                 var data = JSON.parse(localStorage.getItem("inputValue"));
-                // localStorage.removeItem("item");
                 this.$router.push({
                     name: 'nursingMailConfirm',
                 });

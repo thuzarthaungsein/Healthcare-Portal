@@ -229,37 +229,19 @@
                         });
 
                 },
-                removeFav(nur) {
-                    if (confirm("Are you sure you want to delete?")) {
-                        this.fav_nursing.splice(nur, 1);
-                        var splitarray = this.local_sto.split(",");
-                        splitarray = splitarray.splice(nur.toString(), 1);
-                        localStorage.setItem('nursing_fav', splitarray);
-
-                    }
-
-                },
-                addDistributionGroup: function() {
-                    var selectedId = this.post;
-                    this.axios
-                        .post('/api/hospital/selectedCity/' + selectedId)
-                        .then(response => {
-                            this.zipStreet = response.data[0].street;
-                            this.zipPref = response.data[0].pref;
-                            this.selectedValue = response.data[0].c_Id;
-                        });
-                },
                 addingMail() {
                     for (var i = 0; i < this.fav_nursing.length; i++) {
                         this.fav_email.push({
-                            'email': this.fav_nursing[i]['email'],
-                            'arr_reserve': this.reserv_status,
-                            'arr_document': this.decument_status
+                            'id': this.fav_nursing[i]['id'],
+                            'email': this.fav_nursing[i]['email']
                         });
                     }
                     // console.log('reserv', this.reserv_status)
                     // console.log('document', this.decument_status)
-                    // console.log('email', this.fav_email);
+                    console.log('id', this.fav_email);
+                    localStorage.setItem("reserve",JSON.stringify(this.reserv_status));
+                    console.log('check',localStorage.getItem("reserve"));
+                    localStorage.setItem("document",JSON.stringify(this.decument_status));
                     localStorage.setItem("item", JSON.stringify(this.fav_email));
                     // console.log(JSON.parse(localStorage.getItem("item")));
                     this.$router.push({

@@ -1,5 +1,4 @@
-<div>
-    
+<div>    
     Name : {{$getComment->name}}  <br>
     furigana : {{$getComment->furigana}}  <br>
     postal : {{$getComment->postal}}  <br>

@@ -205,6 +205,8 @@
                     arr_reserve: [{}],
                     arr_document: [{}],
                     selectedValue: 0,
+                    reserve_test: '',
+                    document_test: ''
                 },
                 errors: [],
                 fav_nursing: [],
@@ -221,7 +223,7 @@
         },
         created() {
             this.comments = JSON.parse(localStorage.getItem("inputValue"));
-            console.log('confirm',this.comments.fav_mail)
+            console.log('confirm',this.comments)
             if (this.comments.present) {
                 this.comments.present = 'する';
             } else {
@@ -240,15 +242,15 @@
         },
         methods: {
             add() {
-                this.axios.post('/api/nurse/add', this.comments)
-                    .then((response) => {
-                        alert('Mail Sent Successfully !')
-                    }).catch(error => {
-                        if (error.response.status == 422) {
-                            this.errors = error.response.data.errors
-                        }
-                    })
-                   
+                    axios.post('/api/nurse/add', this.comments)
+                        .then((response) => {
+                            alert('Mail Sent Successfully !')
+                            location.href = "nursingFavouriteMail";
+                        }).catch(error => {
+                            if (error.response.status == 422) {
+                                this.errors = error.response.data.errors
+                            }
+                        })
                     localStorage.removeItem("item");
                     localStorage.removeItem("inputValue");
                     console.log('confirm',this.comments.fav_mail)

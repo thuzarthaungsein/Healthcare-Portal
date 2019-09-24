@@ -36,13 +36,31 @@ class NursingMailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function mail(Request $request){
-        $favourite_mail = $request->fav_mail;
-        for($i = 1; $i<count($favourite_mail); $i++){
-            \Mail::to($favourite_mail[$i])->send(new nursingMailing($request));
-        }
-        \Mail::to($request->mail)->send(new nursingMailing($request));
+      
+       for($i = 1;$i< count($request->arr_reserve) ;$i++)
+       {
+           if($request->arr_reserve[$i] == true)
+           {
+               return 'true';
+           }else{
+               return 'false';
+           }
+       }
+        // if($request->arr_reserve[0])
+        // {
+        //     $request->arr_reserve[1] = "sample";
+        // }
+        // else{
+        //     $request->arr_reserve[1] = "no result";
+        // }
+        return $request;
+        // $favourite_mail = $request->fav_mail;
+        // for($i = 1; $i<count($favourite_mail); $i++){
+        //     \Mail::to($favourite_mail[$i])->send(new nursingMailing($request));
+        // }
+        // \Mail::to($request->mail)->send(new nursingMailing($request));
 
-        return response()->json(['success'=>'Done!']);
+        // return response()->json(['success'=>'Done!']);
     }
     public function store(Request $request)
     {
