@@ -37,13 +37,6 @@ class JobApplyController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'birthday' =>'required',
-             'address' => 'required',
-             'phone' => 'required',
-             'email' => 'required',
-        ]);
                 $string = '';
                 $count = count($request->skills);
 
@@ -58,20 +51,21 @@ class JobApplyController extends Controller
                     }
 
                 }
-
-
-
-            $jobapply = new JobApply([
-                 'name' => $request->input('name'),
-                 'birthday' =>  $request->input('birthday'),
-                 'address' =>  $request->input('address'),
-                 'phone' =>  $request->input('phone'),
-                 'email'=> $request->input('email'),
-                 'work_time'=>$request->input('work_time'),
-                 'skill' =>$string
-
-
-             ]);
+            $jobapply = new JobApply;
+            $jobapply->first_name = $request->first_name;
+            $jobapply->last_name = $request->last_name;
+            $jobapply->birthday = $request->birthday;
+            $jobapply->gender = $request->gender;
+            $jobapply->postal = $request->postal;
+            $jobapply->street_address = $request->str_address;
+            $jobapply->home_address = $request->home_address;
+            $jobapply->phone = $request->phone;
+            $jobapply->email = $request->email;
+            $jobapply->qualification = $request->qualification;
+            $jobapply->workable_days = $request->workable_day;
+            $jobapply->skill = $string;
+            $jobapply->remark = $request->remark;
+            //  return $jobapply;
              $jobapply->save();
              return response()->json('Apply successfully ');
 
