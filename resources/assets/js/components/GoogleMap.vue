@@ -20,8 +20,7 @@
               :position="m.position"
               :clickable="true"
               :draggable="true"
-              @click="center=m.position"
-              @dragend="updateCoordinates"
+              
             />
           </GmapMap>
 
@@ -61,7 +60,7 @@ export default {
         }
       });
       // Remove the previous marker
-      this.markers.shift()  
+      this.markers.shift()   
       // Scroll the map to the new position
       this.$refs.map.$mapPromise.then((map) => {
         map.panTo({

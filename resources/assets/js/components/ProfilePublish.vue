@@ -15,7 +15,7 @@
                         <li>
                             <a class="nav-link" href="#four"  id="four-tab" data-toggle="tab" role="tab" aria-controls="four" aria-selected="true" >Job Offer</a>
                         </li>
-                
+
                 </ul>
             </div>
 
@@ -56,8 +56,32 @@
 
                             <h5 class="header">special Features</h5>
                             <div class="row m-lr-0">
-                                <ul class="fac_container">
-                                    <li>24時間看護</li>
+                                  <ul class="fac_container" v-for="special in special_features" :key="special.id">
+                                    <li >{{special.short_name}}</li>
+                                </ul>
+                            </div>
+                            <h5 class="header">Information from clinic</h5>
+                            <div class="row m-lr-0">
+                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                                    <li >{{hospital.details_info}}</li>
+                                </ul>
+                            </div>
+                            <h5 class="header">Information from clinic</h5>
+                            <div class="row m-lr-0">
+                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                                    <li >{{hospital.subject}}</li>
+                                </ul>
+                            </div>
+                            <h5 class="header">Consultation hours</h5>
+                            <div class="row m-lr-0">
+                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                                    <li >{{hospital.closed_day}}</li>
+                                </ul>
+                            </div>
+                            <h5 class="header">Facility</h5>
+                            <div class="row m-lr-0">
+                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                                    <li >{{hospital.facilities}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -65,7 +89,7 @@
                 </div>
                 <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
                     <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
-                          <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" @dragend="updateCoordinates" />
+                          <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true"   />
                        </GmapMap>
 
                        <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
@@ -82,6 +106,12 @@
                            <div class="col-md-10 text-left" style="padding-top:20px;">
                               {{m.access}}
                            </div>
+                            <div class="col-md-2 text-left" style="padding-top:20px;" >
+                               Congeston :
+                           </div>
+                           <div class="col-md-10 text-left" style="padding-top:20px;">
+                              {{m.congestion}}
+                           </div>
 
                            <div class="col-md-2 text-left" style="padding-top:20px;" >
                                City/Township :
@@ -93,14 +123,27 @@
 
                 </div>
                 <div class="tab-pane fade p-1" id="three" role="tabpanel" aria-labelledby="three-tab">
-                    <div class="row">
-                        <h1>tab3</h1>
-                    </div>
+                    <div class="row" v-for="comment in comments" :key="comment.id">
+                                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
+                                     <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
+                                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
+                                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                                    <br/><br/>
+                                      <div class="row col-md-12 m-lr-0">
+                                          <p class="showContent"> {{comment.comment}}</p>
+                                                <span class="displaytext">
+                                                       {{comment.comment}}
+                                                </span>
+                                                <a class="mt-2 readMore" >続きを読む</a>
+
+                                </div>
+
+                        </div>
                 </div>
                 <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
                      <joboffer></joboffer>
                 </div>
-                <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
+                <!-- <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
                     <div class="row">
                         <h1>tab5</h1>
                     </div>
@@ -109,7 +152,7 @@
                     <div class="row">
                         <h1>tab6</h1>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -187,8 +230,9 @@
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
-                    <div class="row">
-                        <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-6 offset-md-3">
+                    <h5 class="header">Features</h5>
+                    <div class="row m-lr-0">
+                        <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="fac_container">
                             {{nurseprofile.feature}}
                         </div>
                     </div>
@@ -365,7 +409,7 @@
                 </div>
                 <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
                        <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
-                          <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" @dragend="updateCoordinates" />
+                          <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
                        </GmapMap>
 
                        <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
@@ -395,11 +439,10 @@
 
                 </div>
                 <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
-                    <div class="row">
                         <div class="row" v-for="comment in comments" :key="comment.id">
-                                    <div class="col-md-12" style="font-size:20px;">Title:{{comment.title}}</div><br/>
+                                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
                                      <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                                    <div class="col-md-5" style="font-size:20px;">Email:{{comment.email}}</div>
+                                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
                                     <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
                                     <br/><br/>
                                       <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
@@ -411,36 +454,36 @@
                                                 <span class="displaytext">
                                                        {{comment.comment}}
                                                 </span>
-                                                <a class="mt-2 readMore" href ="#">Read More</a>
-
+                                                <a class="mt-2 readMore" href ="#">続きを読む</a>
+                                
                                 </div>
 
                         </div>
-                    </div>
                 </div>
                 <div class="tab-pane fade p-1" id="seven" role="tabpanel" aria-labelledby="seven-tab">
-                  
+
                        <joboffer></joboffer>
-                 
+
                 </div>
             </div>
         </div>
-     
+
 
     </div>
 </template>
 
  <script>
-import joboffer from './JobOfferList.vue'
- export default {   
+ import joboffer from './JobOfferList.vue'
+ export default { 
+   
       components:{
                     joboffer
-                },        
+                },
 
   data() {
             var that = this;
             return {
-                
+
                 markers: [
                     { position: { lat: 0, lng: 0 } },
                 ],
@@ -451,6 +494,7 @@ import joboffer from './JobOfferList.vue'
                 cooperate_medical:[],
                 medical_acceptance:[],
                 staff:[],
+                hospitals:[],
                 nursing_profiles:[],
                 special_features:[],
                 method_payment:[],
@@ -458,7 +502,7 @@ import joboffer from './JobOfferList.vue'
                 activeImage: 0,
                 index: 0,
                 pageNum: 0,
-                type : 'hospital',
+                type : 'nursing',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -473,7 +517,7 @@ import joboffer from './JobOfferList.vue'
                         console.log('after', current)
                     }
                 },
-               
+
                 images: [
                     {
                         id: '1',
@@ -495,7 +539,7 @@ import joboffer from './JobOfferList.vue'
                         big: 'images/p4.jpeg',
                         thumb: 'images/thumbs/p4.jpeg'
                     }
-                ],  
+                ],
             };
         },
         created(){
@@ -505,12 +549,12 @@ import joboffer from './JobOfferList.vue'
                     this.special_features = response.data;
                 });
 
-                this.axios.get('/api/nurse') .then(response => {
-                    this.nursing_profiles = response.data;
+                this.axios.get('/api/nusprofile/feature') .then(response => {
+                    this.nursing_profiles = response.data.feature;
                 });
 
-                this.axios .get('/api/cost').then(response => {
-                    this.method_payment = response.data;
+                this.axios .get('/api/nusprofile/cost').then(response => {
+                    this.method_payment = response.data.cost;
 
                 });
 
@@ -519,64 +563,75 @@ import joboffer from './JobOfferList.vue'
 
                 });
 
-                this.axios.get('/api/nusfacilities').then(response => {
-                    this.nusfacilities = response.data;
+                this.axios.get('/api/nusprofile/nusfacilities').then(response => {
+                    this.nusfacilities = response.data.facility;
 
                 });
 
-                this.axios.get('/api/cooperatemedical').then(response => {
-                    this.cooperate_medical = response.data;
+                this.axios.get('/api/nusprofile/cooperatemedical').then(response => {
+                    this.cooperate_medical = response.data.comedical;
 
                 });
 
-                    this.axios.get('/api/medicalacceptance').then(response => {
-                    this.medical_acceptance = response.data;
+                    this.axios.get('/api/nusprofile/medicalacceptance').then(response => {
+                    this.medical_acceptance = response.data.medical;
 
                 });
 
-                    this.axios.get('/api/staff').then(response => {
-                    this.staff = response.data;
+                    this.axios.get('/api/nusprofile/staff').then(response => {
+                    this.staff = response.data.staff;
+                    
 
                 });
 
-                    this.axios.get('/api/googlefornurse').then(response => {
-                    this.google = response.data;
-                    this.markers[0]['position']['lat']  = response.data[0]['latitude'];
-                    this.markers[0]['position']['lng']  = response.data[0]['longitude'];
-                    this.center['lat'] = response.data[0]['latitude'];
-                    this.center['lng'] = response.data[0]['longitude'];
-                            
+                    this.axios.get('/api/nusprofile/googlefornurse').then(response => {
+                    this.google = response.data.nurselatlong;
+                    this.markers[0]['position']['lat']  = response.data.nurselatlong[0]['latitude'];
+                    this.markers[0]['position']['lng']  = response.data.nurselatlong[0]['longitude'];
+                    this.center['lat'] = response.data.nurselatlong[0]['latitude'];
+                    this.center['lng'] = response.data.nurselatlong[0]['longitude'];
+
                 });
-                  
-                     
+
+                
                 var geocoder = new google.maps.Geocoder;
                 var latlng = {lat: 19.7633, lng: 96.0785};
-
+                   
                 geocoder.geocode({'location': latlng}, function(results, status) {
                 if (status === 'OK') {
-                    
+
                     if (results[1]) {
-                        
-                            this.address=  results[1].formatted_address  
-                        
-                        }   
+
+                            this.address=  results[1].formatted_address
+
+                        }
                     }
                 })
             }
             else{
-              
-                this.axios.get('/api/googleforhospital').then(response => {
-                    this.google = response.data;
-                    this.markers[0]['position']['lat']  = response.data[0]['latitude'];
-                    this.markers[0]['position']['lng']  = response.data[0]['longitude'];
-                    this.center['lat'] = response.data[0]['latitude'];
-                    this.center['lng'] = response.data[0]['longitude'];
-                    console.log(this.markers[0]['position']['lat']);
-                            
+
+                this.axios.get('/api/nusprofile/googleforhospital').then(response => {
+                    this.google = response.data.hoslatlong;
+                    this.markers[0]['position']['lat']  = response.data.hoslatlong[0]['latitude'];
+                    this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
+                    this.center['lat'] = response.data.hoslatlong[0]['latitude'];
+                    this.center['lng'] = response.data.hoslatlong[0]['longitude'];
+                  
+
                 });
+                this.axios.get('/api/feature/featurelist').then(response => {
+                    this.special_features = response.data;
+                });
+                this.axios.get('/api/comments/comment').then(response => {
+                    this.comments = response.data;
+
+                });
+                this.axios.get('/api/nusprofile/hospital').then(response => {
+                    this.hospitals = response.data.hospital;
+                })
             }
-                    
-               
+
+
           },
           methods: {
               moveTo: function(index) {
@@ -590,11 +645,11 @@ import joboffer from './JobOfferList.vue'
                 }
                 this.activateImage(active);
             },
-         
+
                 prevImage() {
                     var active = this.activeImage - 1;
                     if(active < 0) {
-                        active = this.images.length - 1; 
+                        active = this.images.length - 1;
                     }
                     this.activateImage(active);
                 },
@@ -604,10 +659,12 @@ import joboffer from './JobOfferList.vue'
 
 
         },
-               
+
  }
 
 </script>
+
+
 
 <style scoped>
 div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {

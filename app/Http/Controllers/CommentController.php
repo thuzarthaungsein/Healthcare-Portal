@@ -13,7 +13,7 @@ class CommentController extends Controller
     public function index()
     {
         //$comment =Comment::all()->toArray();
-        $comment = Comment::where('id',1)->get();
+        $comment = Comment::where('id',2)->get();
          return $comment;
          //return array_reverse($comment);
     }

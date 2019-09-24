@@ -1,4 +1,3 @@
-
 var timeout;
 $(".path").hover(
   function() {
@@ -364,6 +363,7 @@ $(function() {
 
         }
     });
+
      /* end nurse profile*/
 
 /*select check
