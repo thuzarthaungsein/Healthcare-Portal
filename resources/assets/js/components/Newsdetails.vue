@@ -13,7 +13,7 @@
 <!-- Tab panes -->
 <div class="tab-content tab-content1 tabs">
         <div role="tabpanel" class="tab-pane in active" id="tab1">
-                <div class="row col-sm-12">
+                <div class="col-sm-12">
                         <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                         <li class="breadcrumb-item">
