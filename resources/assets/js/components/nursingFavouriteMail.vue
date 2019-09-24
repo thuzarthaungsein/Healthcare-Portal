@@ -183,7 +183,7 @@
                                         <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" required v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
                                     </div>
 
-                                    <input type="submit" id="submit1" disabled="disabled"  @click="add()" class="submit1 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/>
+                                    <input type="submit" id="submit1" @click="add()" class="submit1 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/>
                                     <!-- <input type="button" id="btnQueryString" value="Send" class="m-t-30"/><br> -->
 
                                     <!--next_form-->
@@ -337,7 +337,7 @@
                                         <textarea name="hope" id="hope" cols="30" rows="10" required v-model="comments.hope"></textarea>
                                     </div>
                                     <!-- <span class="btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</span> -->
-                                    <input type="submit" id="submit2" disabled="disabled"  @click="add()" class="submit2 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/>
+                                    <input type="submit" id="submit2"   @click="add()" class="submit2 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/>
                                 </form>
                             </div>
                         </div>
@@ -349,8 +349,7 @@
 </template>
 <script>
     export default {
-        props: ['input_data'],
-        data() {
+       data() {
             return {
                 comments: {
                     name: '',
@@ -389,6 +388,11 @@
                 bk_postal: 0
             }
         },
+        computed: {
+            isComplete () {
+                return this.username && this.password && this.email;
+            }
+        },
         created() {
             this.bk_data = this.$route.params.input_data;
             this.bk_postal = this.$route.params.bk_postal;
@@ -401,8 +405,8 @@
                     this.city_list = response.data;
                 });
             if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
-                    $('.submit1').prop('disabled', false);
-                    $('.submit2').prop('disabled', false);
+                    $('.submit1').prop('disabled', true);
+                    $('.submit2').prop('disabled', true);
                     console.log('true',this.comments)
                 }else{
                     $('.submit1').prop('disabled', true);
@@ -454,8 +458,8 @@
             },
             someHandler: function(){
                 if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
-                    $('.submit1').prop('disabled', false);
-                    $('.submit2').prop('disabled', false);
+                    $('.submit1').prop('disabled');
+                    $('.submit2').prop('disabled');
                 }else{
                     $('.submit1').prop('disabled', true);
                      $('.submit2').prop('disabled', true);

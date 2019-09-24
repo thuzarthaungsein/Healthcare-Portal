@@ -429,8 +429,7 @@ import joboffer from './JobOfferList.vue'
                     { position: { lat: 0.0000000, lng: 0.0000000 } },
 
 
-                ],
-                currentImage: '',
+                ],                
                 address: '',
                 center: { lat: 0.0000000, lng: 0.0000000 },
                 google:[],
@@ -454,7 +453,7 @@ import joboffer from './JobOfferList.vue'
                         console.log('after', current)
                     }
                 },
-                type : 'hospital',
+                type : 'nursing',
                 images: [
                     {
                         id: '1',
@@ -507,38 +506,8 @@ import joboffer from './JobOfferList.vue'
                     this.comments = response.data;
 
                 });
-    },
-        methods: {
-            moveTo: function(index) {
-
-                this.$refs.fullpage.$fullpage.moveTo(index, true);
-            },
-              nextImage() {
-                var active = this.activeImage + 1;
-                if(active >= this.images.length) {
-                    active = 0;
-                }
-                this.activateImage(active);
-            },
-            // Go backwards on the images array
-            // or go at the last image
-            prevImage() {
-                var active = this.activeImage - 1;
-                if(active < 0) {
-                    active = this.images.length - 1;
-                }
-                this.activateImage(active);
-            },
-            activateImage(imageIndex) {
-                this.activeImage = imageIndex;
-            }
-
-
-        },
-        
-         created(){
-
-                    this.axios.get('/api/nusfacilities').then(response => {
+            
+         this.axios.get('/api/nusfacilities').then(response => {
                         this.nusfacilities = response.data;
 
                     });
@@ -568,10 +537,40 @@ import joboffer from './JobOfferList.vue'
 
 
                     });
-         },
-         methods:{
+    },
+    computed: {
+            // currentImage gets called whenever activeImage changes
+            // and is the reason why we don't have to worry about the 
+            // big image getting updated
+            currentImage() {
+                return this.images[this.activeImage].big;
+            }
+        },
+    methods: {
+        moveTo: function(index) {
 
-             getlatlng(la,ln)
+            this.$refs.fullpage.$fullpage.moveTo(index, true);
+        },
+            nextImage() {
+            var active = this.activeImage + 1;
+            if(active >= this.images.length) {
+                active = 0;
+            }
+            this.activateImage(active);
+        },
+        // Go backwards on the images array
+        // or go at the last image
+        prevImage() {
+            var active = this.activeImage - 1;
+            if(active < 0) {
+                active = this.images.length - 1;
+            }
+            this.activateImage(active);
+        },
+        activateImage(imageIndex) {
+            this.activeImage = imageIndex;
+        },
+          getlatlng(la,ln)
              {
 
                 var geocoder = new google.maps.Geocoder;
@@ -593,7 +592,10 @@ import joboffer from './JobOfferList.vue'
 
              }
 
-         }
+
+    },
+        
+    
 
  }
 
