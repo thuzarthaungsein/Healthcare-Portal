@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\special_feature;
 use Illuminate\Http\Request;
+use DB;
 
 class SpecialFeatureController extends Controller
 {
@@ -27,16 +28,14 @@ class SpecialFeatureController extends Controller
             'short_name'=>'required',
             'type.required' => '選択してください。',
 
-        ]);
+        ]);      
 
-        $feature = new special_feature([
-            'name' => $request->input('name'),
-            'short_name' =>$request->input('short_name'),
-            'type' =>$request->input('type'),
-            'user_id' => 1,
-            'recordstatus' => 2
-        ]);
-
+        $feature = new special_feature;
+        $feature->name=$request->name;
+        $feature->short_name=$request->short_name;
+        $feature->type=$request->type;
+        $feature->user_id=1;
+        $feature->recordstatus=1;
         $feature ->save();
         return $feature;
     }
@@ -61,7 +60,12 @@ class SpecialFeatureController extends Controller
             'name' => 'required',
         ]);
         $feature = special_feature::find($id);
-        $feature->update($request->all());
+        
+        $feature->name = $request->name;
+        $feature->short_name = $request->short_name;
+        $feature->type = $request->type;
+        $feature->user_id = 1;
+        $feature->save();
 
         return response()->json('The Feature successfully updated');
     }

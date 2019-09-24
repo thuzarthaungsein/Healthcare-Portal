@@ -51,8 +51,7 @@ class HospitalProfileController extends Controller
         return $fav_nursing;
     }
 
-    public function getPostalList(Request $request){
-        $postal = $request->postal;
+    public function getPostalList($postal){
         $query = "SELECT * FROM zipcode WHERE zip7_code LIKE '".$postal."%'";
         $postal_list = DB::select($query);
         return $postal_list;

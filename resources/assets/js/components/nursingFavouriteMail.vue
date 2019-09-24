@@ -1,3 +1,4 @@
+
 <template>
     <div class="row">
         <div class="col-12">
@@ -11,12 +12,9 @@
             </nav>
         </div>
 
-        <div class=" col-12 scrolldiv3">
-            <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
-                <input type="checkbox" class="select_all" />
-                <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる</button>
+        <div class=" col-12">
             <!-- <input type="checkbox" class="select_all" /> Select all -->
-            <div v-for="nur_profile in fav_nursing" :key="nur_profile.id" class="card card-default m-b-20 scrolldiv m-t-20">
+            <!-- <div v-for="nur_profile in fav_nursing" :key="nur_profile.id" class="card card-default m-b-20 scrolldiv m-t-20">
                 <div class="card-body news-post">
                     <div class="row">
                         <div class="col-md-3">
@@ -60,7 +58,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-md-12">
 
@@ -83,20 +81,20 @@
                         <div class="tab-content">
 
                             <div role="tabpanel" class="tab-pane active" id="input">
-                                
+
                                 <!--inputform-->
-                                <form class="col-md-12" >
+                                <form class="col-md-12">
                                     <h3 style="border-bottom:1px solid green;width:47%;margin-bottom:30px;">資料請求される方について</h3>
                                     <div class="form-group">
                                         <label>お名前:<span class="error">*</span></label>
                                         <!-- <input type="text" class="form-control" placeholder="お名前を入力してください。"> -->
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="お名前を入力してください。" required v-model="comments.name"/>
+                                        <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" required v-model="comments.name" @change="someHandler"/>
                                         <br />
                                     </div>
 
                                     <div class="form-group">
                                         <label>ふりがな:<span class="error">*</span></label>
-                                        <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" required/>
+                                        <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="someHandler" required/>
                                     </div>
 
                                     <div class="row">
@@ -104,26 +102,17 @@
                                             <label>ご住所:<span class="error">*</span></label>
                                             <br>
                                             <label>郵便番号:<span class="error">*</span></label>
-                                            <input type="text" v-model="comments.postal" name="postal" class="postal form-control" id="postal" placeholder="郵便番号を入力してください。" maxlength="7" required>
+                                            <input type="text" v-model="comments.postal" name="postal" class="postal form-control" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="someHandler" required>
                                             <div id="jsErrorMessage"></div>
                                             <br>
 
                                             <label> 都道府県<span class="error">*</span></label>
-                                            <select v-model="selectedValue" class="division form-control" id="division" @change='getCities()'>
+                                            <select v-model="comments.selectedValue" class="division form-control" id="division" @change="someHandler">
                                                 <option value="0">選択してください。</option>
                                                 <option v-for="cities in city_list" :key="cities.id" v-bind:value="cities.id">
                                                     {{cities.city_name}}
                                                 </option>
                                             </select>
-                                            <!-- <select class="form-control" id="division" required v-model="comments.division">
-                                                <option value="">選択してください</option>
-                                                <option value="1">
-                                                    cccccccccc
-                                                </option>
-                                                <option value="2">
-                                                    bbbbbbbbbb
-                                                </option>
-                                            </select>  -->                                        
                                         </div>
                                         <br>
 
@@ -131,7 +120,7 @@
 
                                             <table>
                                                 <tr>
-                                                    <td style="padding-right:30px;" > 例）1006740</td>
+                                                    <td style="padding-right:30px;"> 例）1006740</td>
                                                     <td><a href="https://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a></td>
                                                 </tr>
                                                 <tr>
@@ -145,7 +134,7 @@
 
                                     <div class="form-group">
                                         <label>市区町村、番地（建物名）:<span class="error">*</span></label>
-                                         <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" required v-model="comments.city">
+                                        <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" required v-model="comments.city" @change="someHandler">
                                         <!-- <input type="text" class="form-control" id="city" placeholder="市区町村、番地を入力してください。" v-model="zipStreet"> -->
                                         <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>
                                     </div>
@@ -153,7 +142,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label>電話番号:<span class="error">*</span></label>
-                                            <input type="text" id="phone" name="phone" class="form-control" placeholder="電話番号を入力してください。" required v-model="comments.phone">
+                                            <input type="text" id="phone" name="phone" class="form-control" placeholder="電話番号を入力してください。" required v-model="comments.phone" @change="someHandler">
                                             <br>
 
                                         </div>
@@ -173,7 +162,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label>メールアドレス:<span class="error">*</span></label>
-                                            <input type="text" id="mail" name="mail" class="form-control" placeholder="メールアドレスを入力してください。" required v-model="comments.mail">
+                                            <input type="text" id="mail" name="mail" class="form-control" placeholder="メールアドレスを入力してください。" required v-model="comments.mail" @change="someHandler">
                                             <br>
                                         </div>
 
@@ -191,9 +180,10 @@
 
                                     <div class="form-group">
                                         <label>プレゼントのご希望:<span class="error">*</span></label>
-                                        <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" required v-model="comments.present">「早分かり用語集」プレゼントを希望する
+                                        <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" required v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
                                     </div>
 
+                                    <input type="submit" id="submit1" @click="add()" class="submit1 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/>
                                     <!-- <input type="button" id="btnQueryString" value="Send" class="m-t-30"/><br> -->
 
                                     <!--next_form-->
@@ -201,18 +191,18 @@
                                         <h3 style="border-bottom:1px solid green;width:47%;margin-bottom:30px;">入居対象者様について</h3>
                                         <div class="col-md-6">
                                             <label>
-                                            入居対象者様とのご関係<span class="error">*</span></label>
-                                           
-                                <select class="form-control" id="relation" required v-model="comments.relation">
-                                        <option value="">選択してください</option>
-                                        <option value="本人">本人</option>
-                                        <option value="家族">家族</option>
-                                        <option value="親族">親族</option>
-                                        <option value="友人">友人</option>
-                                        <option value="ケアマネージャー">ケアマネージャー</option>
-                                        <option value="ソーシャルワーカー">ソーシャルワーカー</option>
-                                        <option value="その他">その他</option>
-                                </select>
+                                                入居対象者様とのご関係<span class="error">*</span></label>
+
+                                            <select class="form-control" id="relation" required v-model="comments.relation">
+                                                <option value="">選択してください</option>
+                                                <option value="本人">本人</option>
+                                                <option value="家族">家族</option>
+                                                <option value="親族">親族</option>
+                                                <option value="友人">友人</option>
+                                                <option value="ケアマネージャー">ケアマネージャー</option>
+                                                <option value="ソーシャルワーカー">ソーシャルワーカー</option>
+                                                <option value="その他">その他</option>
+                                            </select>
                                         </div>
 
                                         <div class="row">
@@ -220,28 +210,22 @@
                                                 <label>お名前:<span class="error">*</span></label>
                                                 <input type="text" id="ttname" name="ttname" class="form-control" placeholder="お名前を入力してください。" required v-model="comments.ttname">
                                                 <br>
-
                                             </div>
-
                                             <div class="" style="margin-top:70px;">
-
                                                 <table>
                                                     <tr>
                                                         <td style="padding-right:40px;">例）さがし　たろう</td>
-
                                                     </tr>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="form-group col-md-6">
                                         <label>性別:<span class="error">*</span></label>
                                         <input type="radio" id="sex" name="sex" value="男性" required v-model="comments.sex">&nbsp;男性
                                         <input type="radio" id="sex" name="sex" value="女性" required v-model="comments.sex">&nbsp;女性
                                         <input type="radio" id="sex" name="sex" value="夫婦" required v-model="comments.sex">&nbsp;夫婦
                                     </div>
-
                                     <div class="col-md-6">
                                         <label>年齢<span class="error">*</span></label>
                                         <select class="form-control" id="years" required v-model="comments.years">
@@ -321,7 +305,6 @@
                                             </optgroup>
                                         </select>
                                     </div>
-
                                     <div class="col-md-6 m-t-30">
                                         <label>介護度<span class="error">*</span></label>
                                         <select class="form-control" id="nursing" required v-model="comments.nursing">
@@ -335,14 +318,12 @@
                                             <option value="不明">不明</option>
                                         </select>
                                     </div>
-
                                     <div class="form-group col-md-6 m-t-30">
                                         <label>認知症:<span class="error">*</span></label>
                                         <input type="radio" id="fect" name="fect" value="あり" required v-model="comments.fect">あり
                                         <input type="radio" id="fect" name="fect" value="なし" required v-model="comments.fect">なし
                                         <input type="radio" id="fect" name="fect" value="わからない" required v-model="comments.fect">わからない
                                     </div>
-
                                     <div class="form-group col-md-8 m-t-30">
                                         <label>認知症:<span class="error">*</span></label>
                                         <input type="radio" id="desire" name="desire" value="できるだけ早く" required v-model="comments.desire">できるだけ早く
@@ -351,273 +332,139 @@
                                         <input type="radio" id="desire" name="desire" value="1年以内" required v-model="comments.desire">1年以内
                                         <input type="radio" id="desire" name="desire" value="未定" required v-model="comments.desire">未定
                                     </div>
-
                                     <div class="col-md-6">
                                         <label>ご要望や、お困りごと、その他お問い合わせ:<span class="error">*</span></label>
                                         <textarea name="hope" id="hope" cols="30" rows="10" required v-model="comments.hope"></textarea>
                                     </div>
-
-                                    <button type="button" id="btnSubmit" class="btn btn-primary continue m-l-15 m-t-15" value="submit">同意して進む</button>
-
+                                    <!-- <span class="btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</span> -->
+                                    <input type="submit" id="submit2"   @click="add()" class="submit2 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/>
                                 </form>
-
-                            </div>
-
-                            <!--output-->
-                            <div role="tabpanel" class="tab-pane" id="output">
-                                <h2>Result</h2>
-
-                                <div class="row">
-                                    <div class="col-md-12" >
-
-                                        <form class="col-md-11" @submit.prevent ="add" method="post">
-                                            <h3 style="border-bottom:1px solid green;margin-bottom:30px;">確認内容</h3>
-                                            <div style="border:1px solid #dad6d6;padding:30px;border-radius:5px;">
-                                                <table class="table">
-                                                    <tr>
-                                                        <td class="bk">お名前</td>
-                                                        <td>
-                                                            <input type="text" name="outputSpan" id="outputSpan" class="mailbox" v-model="comments.name" disabled/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">ふりがな</td>
-                                                        <td>
-                                                            <input type="text" name="outputfurigana" id="outputfurigana" class="mailbox" disabled v-model="comments.furigana"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">ご住所</td>
-                                                        <td>
-                                                            <div style="margin-bottom:13px;">郵便番号</div>
-                                                            <input type="text" name="outputpostal" id="outputpostal" class="mailbox m-b-10" disabled v-model="comments.postal"/>
-                                                            <div class="m-b-15">都道府県</div>
-                                                            <input type="text" name="outputdivision" id="outputdivision" class="mailbox m-b-15" disabled v-model="comments.division"/>
-                                                            <div class="m-b-15">市区町村、番地（建物名）</div>
-                                                            <input type="text" name="outputcity" id="outputcity" class="mailbox" disabled v-model="comments.city"/>
-
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">電話番号</td>
-                                                        <td>
-                                                            <input type="text" name="outputphone" id="outputphone" class="mailbox" disabled v-model="comments.phone"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">メールアドレス</td>
-                                                        <td>
-                                                            <input type="email" name="outputmail" id="outputmail" class="mailbox" disabled v-model="comments.mail"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">プレゼントのご希望</td>
-                                                        <td>
-                                                            <input type="text" name="outputpresent" id="outputpresent" class="mailbox" style="width:276px;" disabled v-model="comments.present"/>
-                                                        </td>
-                                                    </tr>
-
-                                                </table>
-                                            </div>
-
-                                            <ul class="nav nav-tabs" role="tablist">
-                                                <li role="presentation" class="active">
-                                                    <a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" class="btn btn-success m-t-15 m-r-8">戻る</a>
-                                                    <!-- <button class="btn btn-success m-t-15"><a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" style="color:white;">戻る</a></button> -->
-                                                </li>
-                                                <li>
-                                                    <button class="btn btn-danger m-t-15 m-l-15 m-b-15">この内容で送信この内容で送信</button>
-                                                    <a href="#output" aria-controls="output" role="tab" data-toggle="tab" aria-expanded="false"></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#review" aria-controls="review" role="tab" data-toggle="tab" aria-expanded="false"></a>
-                                                </li>
-                                            </ul>
-
-                                            <hr>
-                                            <!--next_form-->
-
-                                            <h3 style="border-bottom:1px solid green;margin-bottom:30px;">入居対象者様について</h3>
-                                            <div style="border:1px solid #dad6d6;padding:30px;border-radius:5px;">
-                                                <table class="table">
-                                                    <tr>
-                                                        <td class="bk">入居対象者様とのご関係</td>
-                                                        <td>
-                                                            <input type="text" name="outputrelation" id="outputrelation" class="mailbox" v-model="comments.relation" disabled/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">お名前</td>
-                                                        <td>
-                                                            <input type="text" name="outputttname" id="outputttname" class="mailbox" v-model="comments.ttname" disabled/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">性別</td>
-                                                        <td>
-                                                            <input type="text" name="outputsex" id="outputsex" class="mailbox" disabled v-model="comments.sex"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">年齢</td>
-                                                        <td>
-                                                            <input type="text" name="outputyears" id="outputyears" class="mailbox" disabled v-model="comments.years"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">介護度</td>
-                                                        <td>
-                                                            <input type="text" name="outputnursing" id="outputnursing" class="mailbox" style="width:276px;" disabled v-model="comments.nursing"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">認知症</td>
-                                                        <td>
-                                                            <input type="text" name="outputfect" id="outputfect" class="mailbox" style="width:276px;" disabled v-model="comments.fect"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">入居希望時期</td>
-                                                        <td>
-                                                            <input type="text" name="outputdesire" id="outputdesire" class="mailbox" style="width:276px;" disabled v-model="comments.desire"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="bk">ご要望や、お困りごと、その他お問い合わせ</td>
-                                                        <td>
-                                                            <input type="text" name="outputhope" id="outputhope" class="mailbox" style="width:276px;" disabled v-model="comments.hope"/>
-                                                        </td>
-                                                    </tr>
-
-                                                </table>
-                                            </div>
-
-                                            <!-- <button class="btn btn-success m-t-15"><a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" style="color:white;">戻る</a></button> -->
-
-                                           
-                                            <ul class="nav nav-tabs" role="tablist">
-                                                 
-                                                <li role="presentation" class="active">
-                                                    <a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" class="btn btn-success m-t-15 m-r-8">戻る</a>
-                                                    <!-- <button class="btn btn-success m-t-15"><a href="#input" aria-controls="input" role="tab" data-toggle="tab" aria-expanded="true" style="color:white;">戻る</a></button> -->
-                                                </li>
-                                                <li>
-                                                     
-                                                  <button class="btn btn-danger m-t-15 m-l-15 m-b-15">この内容で送信この内容で送信</button>
-                                                    <a href="#output" aria-controls="output" role="tab" data-toggle="tab" aria-expanded="false"></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#review" aria-controls="review" role="tab" data-toggle="tab" aria-expanded="false"></a>
-                                                </li>
-
-                                                 <!-- <li>
-                                                    <button class="btn news-post-btn btn-md"> Send </button>  
-                                                </li> -->
-                                            </ul>
-                                            
-                                        </form>
-                                        <!--next_form-->
-
-                                    </div>
-                                </div>
-
-                                <!--test-->
-
-                                <!--test-->
-
                             </div>
                         </div>
                     </div>
-                    <!--next_form-->
-
-                        
-
                 </div>
             </div>
         </div>
     </div>
 </template>
-
 <script>
     export default {
-        
+       data() {
+            return {
+                comments: {
+                    name: '',
+                    furigana: '',
+                    postal: '',
+                    division: 0,
+                    city: '',
+                    phone: '',
+                    mail: '',
+                    present: '',
+                    relation: '',
+                    ttname: '',
+                    sex: '',
+                    years: '',
+                    nursing: '',
+                    fect: '',
+                    desire: '',
+                    hope: '',
+                    fav_mail: [{}],
+                    arr_reserve: [{}],
+                    arr_document: [{}],
+                    selectedValue: 0,
 
-        data() {
-                return {
-                    comments: {
-                      name:'',
-                      furigana:'',
-                      postal:'',
-                      division:'',
-                      city:'',
-                      phone:'',
-                      mail:'',
-                      present:'',
-                      relation:'',
-                      ttname:'',
-                      sex:'',
-                      years:'',
-                      nursing:'',
-                      fect:'',
-                      desire:'',
-                      hope:''
-
-                    }, 
-                    errors: [],
-                    fav_nursing: [],
-                    local_sto: '',
-                    post_list: [],
-                    city_list: [],
-                    post:'',
-                    selectedCity: '',
-                    zipStreet: '',
-                    zipPref: '',
-                    selectedValue: 0
-                } 
-            },
-             created(){
-                 this.axios.get('/api/hospital/citiesList')
-                    .then(response => {
-                        this.city_list = response.data;
-                        console.log(this.city_list)
-                    });
-            // this.comments.gender = 0;
-        },
-            methods: {
-                 add() {
-                     console.log('comment',this.comments)
-                  axios.post('/api/nurse/add', this.comments)
-                    .then((response) => {   
-                    alert('Mail Sent Successfully !') 
-
-                    // this.$router.push({name: 'categorylist'});
-                    }).catch(error=>{
-                        
-                    if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
-                    }
-                }) 
-               
-                  
-            },
-           
-               
-              
+                },
+                errors: [],
+                fav_nursing: [],
+                local_sto: '',
+                post_list: [],
+                city_list: [],
+                post: '',
+                selectedCity: '',
+                zipStreet: '',
+                zipPref: '',
+                all_mail: [],
+                bk_data: [],
+                bk_postal: 0
             }
-
+        },
+        computed: {
+            isComplete () {
+                return this.username && this.password && this.email;
+            }
+        },
+        created() {
+            this.bk_data = this.$route.params.input_data;
+            this.bk_postal = this.$route.params.bk_postal;
+            if (this.bk_data != undefined) {
+                this.comments = this.bk_data;
+                this.selectedValue = this.bk_postal;
+            }
+            this.axios.get('/api/hospital/citiesList')
+                .then(response => {
+                    this.city_list = response.data;
+                });
+            if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
+                    $('.submit1').prop('disabled', true);
+                    $('.submit2').prop('disabled', true);
+                    console.log('true',this.comments)
+                }else{
+                    $('.submit1').prop('disabled', true);
+                     $('.submit2').prop('disabled', true);
+                     console.log('false',this.comments)
+                }
+        },
+        methods: {
+            getPostal: function(event) {
+                if (this.comments.postal.length > 4) {
+                    var postal = this.comments.postal;
+                    this.axios
+                        .post('/api/hospital/postList/' + postal)
+                        .then(response => {
+                            var post_data = response.data;
+                            var length = response.data.length;
+                            console.log(response);
+                            if (length > 0) {
+                                var pref = post_data[0]['city_Id'];
+                                if (post_data[0]['street'] == '') {
+                                    this.comments.city = post_data[0]['city'];
+                                } else {
+                                    this.comments.city = post_data[0]['city'] + ' - ' + post_data[0]['street'];
+                                }
+                                this.comments.selectedValue = pref;
+                                this.comments.division = pref;
+                            } else {
+                                this.comments.city = '';
+                                this.comments.selectedValue = 0;
+                                $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+                            }
+                        });
+                }
+            },
+            add() {
+                this.all_mail = JSON.parse(localStorage.getItem("item"));
+                for (var i = 0; i < this.all_mail.length; i++) {
+                    this.comments.fav_mail.push(this.all_mail[i].email);
+                    this.comments.arr_reserve.push(this.all_mail[i].arr_reserve);
+                    this.comments.arr_document.push(this.all_mail[i].arr_document);
+                }
+                console.log('mailtest',this.comments.fav_mail)
+                localStorage.setItem("inputValue", JSON.stringify(this.comments));
+                var data = JSON.parse(localStorage.getItem("inputValue"));
+                // localStorage.removeItem("item");
+                this.$router.push({
+                    name: 'nursingMailConfirm',
+                });
+            },
+            someHandler: function(){
+                if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
+                    $('.submit1').prop('disabled');
+                    $('.submit2').prop('disabled');
+                }else{
+                    $('.submit1').prop('disabled', true);
+                     $('.submit2').prop('disabled', true);
+                }
+            },
+        }
     }
 </script>

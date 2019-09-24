@@ -21,10 +21,9 @@ class FacilityController extends Controller
             'description' => 'required|unique:facilities',
       
         ]);
-        
-        $facility = new Facility([
-            'description' => $request->input('description')
-        ]);
+    
+        $facility = new Facility();
+        $facility->description = $request->input('description');
         $facility->save();
         return response()->json('The Facility successfully added');
           
@@ -61,7 +60,9 @@ class FacilityController extends Controller
       
         ]);
         $facility = Facility::find($id);
-        $facility->update($request->all());
+        $facility->description =$request->input('description');
+        $facility->save();
+        
         
         return response()->json('The Facility successfully updated');
     }

@@ -70,13 +70,14 @@ body {
 .img1 {
     margin-top: 21px;
 }
-
+ 
 #wrapper {
     /* background:  */
     height: 100%;
 }
 
-.wrapper {
+.wrapper 
+ {
     background: #fff;
     padding: 0px;
     box-shadow: 0px 1px 5px 0px #ccc !important;
@@ -112,18 +113,24 @@ body {
 }
 
 .typelabel {
-    background: #118063;
+    /* background: #118063;
     padding: 8px 15px;
     border-radius: 5px;
     color: white;
+    width: 100px; */
+    margin-bottom: 0px;
     cursor: pointer;
-    width: 100px;
     text-align: center;
 }
 
 .dim-btn {
-    background: #ccc !important;
+    color: #f27a24 !important;
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 1px solid #f27a24;
+    border-color: #f27a24 #fff #fff #fff !important;
 }
+
 
 .typelabel input[type="radio"] {
     display: none;
@@ -281,24 +288,68 @@ body {
 .category_news_title {
     /* text-align: center; */
     padding: 15px;
+    padding-left: 0px;
 }
 .category_news_title span {
-    border-left: 5px solid #f9793c;
+    /* border-left: 5px solid #f9793c; */
     padding-left: 10px;
 }
 .category_box {
-    border-top: 2px dashed #eee;
-    padding-top: 15px;
-    margin-top: 20px;
+    border-top: 1px dashed #1aa985;
+    padding-top: 10px;
+    margin-top: 10px;
 }
 .img-box img {
     /* border: 1px solid #eee; */
     /* padding: 3px 5px 3px 3px; */
     border-radius: 3px;
 }
+.txt-box{
+    line-height: 1.357;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    top: -0.2rem;
+    max-height: 75px;
+    padding-left: 25px;
+}
 .txt-box .smallads-title {
     font-size: 1em !important;
 }
+.h-color0 span {
+    border-left: 5px solid #37b4bd;    
+}
+.h-color1 span {
+    border-left: 5px solid #a3774a;    
+}
+.h-color2 span {
+    border-left: 5px solid #9579ef;    
+}
+.h-color3 span {
+    border-left: 5px solid #21d1de;    
+}
+.h-color4 span {
+    border-left: 5px solid #d1291d;    
+}
+
+.bordertop-color0{
+    border-top: 1px dashed #37b4bd;
+}
+.bordertop-color1{
+    border-top: 1px dashed #a3774a;
+}
+.bordertop-color2{
+    border-top: 1px dashed #9579ef;
+}
+.bordertop-color3{
+    border-top: 1px dashed #21d1de;
+}
+.bordertop-color4{
+    border-top: 1px dashed #d1291d;
+}
+
+
 
 /* End Profile */
 
@@ -1373,6 +1424,8 @@ div.b {
     .adslist-card {
         /* height: 71px; */
         width: 100%;
+        padding: 10px 0px 10px 0px;
+
     }
     .userview-sidebar {
         background-color: #f5f5f5;
@@ -1450,7 +1503,7 @@ div.b {
 }
 
 .m-t-8 {
-    margin-top: 13px;
+    margin-top: 8px;
 }
 
 .m-lr-0 {
@@ -1574,6 +1627,10 @@ div.b {
 .main-color {
     color: #333;
 }
+.primary-color{
+    color: #118063 !important;
+}
+    
 
 .white {
     color: #fff;
@@ -1759,7 +1816,13 @@ li.userprofile-name>a {
 }
 
 .nav-link {
+    color: #095c5f;
+}
+.navbar-dark .navbar-nav .nav-link {
     color: #095c5f !important;
+}
+.nav-link:hover{
+    color: #095c5f;
 }
 
 
@@ -2127,7 +2190,7 @@ ul.main-tab li:after {
     font-weight: bold;
     clear: both;
     margin-top: 20px;
-    color: #aaa;
+    color: #000;
     text-align: left;
 }
 
@@ -2216,6 +2279,133 @@ screen and (min-width: 750px) {
         padding: 15px;
         font-family: arial;
     }
+    /* End Hospital Search */
+    /* Newdetails */
+    .p5 {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    .news_photo {
+        height: 250px;
+        width: 80%;
+        margin-bottom: 24px;
+        border-radius: 3px;
+    }
+    .related-area span {
+        color: rgb(255, 72, 0);
+        font-size: 14px;
+    }
+    /*End Newdetails */
+    /* Scrollbar */
+    .news-wrapper::-webkit-scrollbar,
+    .ql-editor::-webkit-scrollbar,
+    body::-webkit-scrollbar,
+    .scrolldiv::-webkit-scrollbar,
+    .scroll2::-webkit-scrollbar,
+    .scrolldiv2::-webkit-scrollbar,
+    .main-wrap::-webkit-scrollbar {
+        width: 6px !important;
+        background: #f7f7f7 !important;
+    }
+    .news-wrapper::-webkit-scrollbar-track,
+    .ql-editor::-webkit-scrollbar-track,
+    body::-webkit-scrollbar-track,
+    .scrolldiv::-webkit-scrollbar-track,
+    .scroll2::-webkit-scrollbar-track,
+    .scrolldiv2::-webkit-scrollbar-track,
+    .main-wrap::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+        border-radius: 0px !important;
+    }
+    .news-wrapper::-webkit-scrollbar-thumb,
+    .ql-editor::-webkit-scrollbar-thumb,
+    .main-wrap::-webkit-scrollbar-thumb,
+    .scrolldiv::-webkit-scrollbar-thumb,
+    .scroll2::-webkit-scrollbar-thumb,
+    .scrolldiv2::-webkit-scrollbar-thumb,
+    body::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
+        background-color: #d7d7d7 !important;
+        border-radius: 0px !important;
+    }
+    /* End Scrollbar */
+    /* Newdetails */
+    .p5 {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    .news_photo {
+        width: 100%;
+        margin-bottom: 24px;
+        border-radius: 3px;
+    }
+    .related-area span {
+        color: #6c757d;
+        font-size: 14px;
+    }
+    .set-date {
+        float: right;
+        text-indent: 2em;
+        margin-bottom: 2px;
+    }
+    /*End Newdetails */
+    /*jssor slider*/
+    /*jssor slider loading skin spin css*/
+    .jssorl-009-spin {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .jssorl-009-spin img {
+        animation-name: jssorl-009-spin;
+        animation-duration: 1.6s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        margin-top: -19px;
+        position: relative;
+        top: 50%;
+        width: 38px;
+        height: 38px;
+    }
+    .jssor-slider {
+        position: relative;
+        top: 0px;
+        width: 700px;
+        height: 100px;
+        overflow: hidden;
+        visibility: hidden;
+        margin: 0 auto 10px;
+    }
+    .top-ad-slider {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 700px;
+        height: 100px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .top-ad-slider .slide-img {
+        width: 100px;
+        margin: 10px 0 5px 10px;
+    }
+    .top-ad-slider .slide-img img {
+        width: auto;
+        max-width: 100px;
+    }
+    .top-ad-slider .list-group-item {
+        padding: 2px;
+        height: 120px;
+    }
+    /* .top-ad-slider .ads-img {
+        font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+      }  
+      
+}
 
 
 /* End Hospital Search */
@@ -2379,412 +2569,341 @@ body::-webkit-scrollbar-thumb {
     width: auto;
     margin-right: 13.2px;
 } */
-
-.top-ad-slider .list-group-item a {
-    display: flex;
-}
-
-.top-ad-slider .smallads-title {
-    width: 130px;
-    height: 90px;
-    padding: 10px;
-    margin-left: auto;
-}
-
-@keyframes jssorl-009-spin {
-    from {
-        transform: rotate(0deg);
+    .top-ad-slider .list-group-item a {
+        display: flex;
     }
-    to {
-        transform: rotate(360deg);
+    .top-ad-slider .smallads-title {
+        width: 130px;
+        height: 90px;
+        padding: 10px;
+        margin-left: auto;
     }
-}
-
-
-/*jssor slider bullet skin 057 css*/
-
-.jssorb057 .i {
-    position: absolute;
-    cursor: pointer;
-}
-
-.jssorb057 .i .b {
-    fill: none;
-    stroke: #fff;
-    stroke-width: 2000;
-    stroke-miterlimit: 10;
-    stroke-opacity: 0.4;
-}
-
-.jssorb057 .i:hover .b {
-    stroke-opacity: 0.7;
-}
-
-.jssorb057 .iav .b {
-    stroke-opacity: 1;
-}
-
-.jssorb057 .i.idn {
-    opacity: 0.3;
-}
-
-
-/*jssor slider arrow skin 073 css*/
-
-.jssora073 {
-    display: block;
-    position: absolute;
-    cursor: pointer;
-}
-
-.jssora073 .a {
-    fill: #ddd;
-    fill-opacity: 0.7;
-    stroke: #000;
-    stroke-width: 160;
-    stroke-miterlimit: 10;
-    stroke-opacity: 0.7;
-}
-
-.jssora073:hover {
-    opacity: 0.8;
-}
-
-.jssora073.jssora073dn {
-    opacity: 0.4;
-}
-
-.jssora073.jssora073ds {
-    opacity: 0.3;
-    pointer-events: none;
-}
-
-
-/*end for jssor*/
-
-
-/*view*/
-
-.m-t-l {
-    margin-left: 85px;
-    font-size: 16px;
-    text-decoration: none;
-    color: black;
-}
-
-.view1 {
-    margin-left: 42px;
-    letter-spacing: 2px;
-}
-
-.am-l-10 {
-    margin-left: 20px;
-}
-
-
-/*view*/
-
-.myBtn {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
-    padding: 6px 22px;
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    border-radius: 4px;
-    color: white;
-}
-
-.myBtn-success {
-    background-color: #4db197 !important;
-    border-color: #4db197 !important;
-}
-
-.btn-success:hover,
-.btn-success:focus {
-    background-color: #3ca512;
-    border-color: #3ca512;
-}
-
-
-/* Hospital History */
-
-.fac_container>li {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 0 0 10px 3px;
-    font-size: 13px;
-    color: #0e775d;
-    text-align: center;
-    border-radius: 20px;
-    border: 1px solid #b7dad2;
-}
-
-.fac_container>li:first-child {
-    margin: 0;
-}
-
-.hos-tit {
-    font-size: 20px;
-}
-
-.hos-btn {
-    display: block;
-    width: 100%;
-    font-size: 0.7rem;
-    text-align: center;
-}
-
-.hos-l {
-    width: 28%;
-}
-
-.hos-r {
-    width: 72%;
-}
-
-.hos-tit a {
-    font-weight: bold;
-}
-
-.hos-img {
-    width: 100%;
-    height: 150px;
-    line-height: 150px;
-    vertical-align: middle;
-    border: 1px solid #b7dad2;
-    border-bottom: 1px solid #b7dad2;
-    background-color: #f5f5f2;
-    margin: 0 auto 20px;
-    text-align: center;
-}
-
-.hos-img img {
-    width: 160px;
-}
-
-.list-wrap {
-    padding: 7px 0;
-    margin-bottom: 2px;
-    background: #f5f5f2;
-}
-
-.list-wrap strong {
-    font-weight: bold;
-}
-
-.list-wrap p {
-    line-height: 1.3;
-}
-
-.bd {
-    border-bottom: 1.5px dotted #b7dad2;
-}
-
-.checkbox {
-    vertical-align: middle;
-}
-
-.select_all button {
-    font-size: 12px;
-}
-
-.hos-btn.news-post-btn {
-    left: 0;
-}
-
-
-/* End for Hospital History */
-
-
-/* Summernote */
-
-.note-editor .btn-light {
-    color: #212529;
-    background-color: #fff !important;
-    border-color: #ccd1d6 !important;
-}
-
-.note-popover .popover-content,
-.card-header.note-toolbar {
-    padding: 5px 0 10px 10px !important;
-}
-
-
-/* End Summernote */
-
-
-/* Google Map  */
-
-#googlemap {
-    min-height: 300px;
-    border: 3px solid #ccc;
-    border-radius: 4px;
-}
-
-.map-text>a {
-    color: #000;
-}
-
-
-/* End Google Map  */
-
-
-/* .pc {
+    @keyframes jssorl-009-spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    /*jssor slider bullet skin 057 css*/
+    .jssorb057 .i {
+        position: absolute;
+        cursor: pointer;
+    }
+    .jssorb057 .i .b {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2000;
+        stroke-miterlimit: 10;
+        stroke-opacity: 0.4;
+    }
+    .jssorb057 .i:hover .b {
+        stroke-opacity: 0.7;
+    }
+    .jssorb057 .iav .b {
+        stroke-opacity: 1;
+    }
+    .jssorb057 .i.idn {
+        opacity: 0.3;
+    }
+    /*jssor slider arrow skin 073 css*/
+    .jssora073 {
+        display: block;
+        position: absolute;
+        cursor: pointer;
+    }
+    .jssora073 .a {
+        fill: #ddd;
+        fill-opacity: 0.7;
+        stroke: #000;
+        stroke-width: 160;
+        stroke-miterlimit: 10;
+        stroke-opacity: 0.7;
+    }
+    .jssora073:hover {
+        opacity: 0.8;
+    }
+    .jssora073.jssora073dn {
+        opacity: 0.4;
+    }
+    .jssora073.jssora073ds {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+    /*end for jssor*/
+    /*view*/
+    .m-t-l {
+        margin-left: 85px;
+        font-size: 16px;
+        text-decoration: none;
+        color: black;
+    }
+    .view1 {
+        margin-left: 42px;
+        letter-spacing: 2px;
+    }
+    .am-l-10 {
+        margin-left: 20px;
+    }
+    /*view*/
+    .myBtn {
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+        padding: 6px 22px;
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        border-radius: 4px;
+        color: white;
+    }
+    .myBtn-success {
+        background-color: #4db197 !important;
+        border-color: #4db197 !important;
+    }
+    .btn-success:hover,
+    .btn-success:focus {
+        background-color: #3ca512;
+        border-color: #3ca512;
+    }
+    /* Hospital History */
+    .fac_container>li {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0 0 10px 3px;
+        font-size: 13px;
+        color: #0e775d;
+        text-align: center;
+        border-radius: 20px;
+        border: 1px solid #b7dad2;
+    }
+    .fac_container>li:first-child {
+        margin: 0;
+    }
+    .hos-tit {
+        font-size: 20px;
+    }
+    .hos-btn {
+        display: block;
+        width: 100%;
+        font-size: 0.7rem;
+        text-align: center;
+    }
+    .hos-l {
+        width: 28%;
+    }
+    .hos-r {
+        width: 72%;
+    }
+    .hos-tit a {
+        font-weight: bold;
+    }
+    .hos-img {
+        width: 100%;
+        height: 150px;
+        line-height: 150px;
+        vertical-align: middle;
+        border: 1px solid #b7dad2;
+        border-bottom: 1px solid #b7dad2;
+        background-color: #f5f5f2;
+        margin: 0 auto 20px;
+        text-align: center;
+    }
+    .hos-img img {
+        width: 160px;
+    }
+    .list-wrap {
+        padding: 7px 0;
+        margin-bottom: 2px;
+        background: #f5f5f2;
+    }
+    .list-wrap strong {
+        font-weight: bold;
+    }
+    .list-wrap p {
+        line-height: 1.3;
+    }
+    .bd {
+        border-bottom: 1.5px dotted #b7dad2;
+    }
+    .checkbox {
+        vertical-align: middle;
+    }
+    .select_all button {
+        font-size: 12px;
+    }
+    .hos-btn.news-post-btn {
+        left: 0;
+    }
+    /* End for Hospital History */
+    /* Summernote */
+    .note-editor .btn-light {
+        color: #212529;
+        background-color: #fff !important;
+        border-color: #ccd1d6 !important;
+    }
+    .note-popover .popover-content,
+    .card-header.note-toolbar {
+        padding: 5px 0 10px 10px !important;
+    }
+    /* End Summernote */
+    /* Google Map  */
+    #googlemap {
+        min-height: 300px;
+        border: 3px solid #ccc;
+        border-radius: 4px;
+    }
+    .map-text>a {
+        color: #000;
+    }
+    /* End Google Map  */
+    /* .pc {
     display: block !important;
 } */
-
-.sp {
-    display: none !important;
-}
-
-@media only screen and (max-width: 1300px) {
-    .adslist-card {
-        height: auto;
+    .sp {
+        display: none !important;
     }
-    .ads-img {
-        display: block;
-        float: none;
-        max-width: 100%;
-        width: auto;
-        margin: 0 auto;
-    }
-    .today .adslist-card .smallads-title {
-        top: 7px;
-    }
-    /* #v-pills-tab li a {
+    @media only screen and (max-width: 1300px) {
+        .adslist-card {
+            height: auto;
+        }
+        .ads-img {
+            display: block;
+            float: none;
+            max-width: 100%;
+            width: auto;
+            margin: 0 auto;
+        }
+        .today .adslist-card .smallads-title {
+            top: 7px;
+        }
+        /* #v-pills-tab li a {
         display: block;
         padding: 0;
     } */
-    .sub-title>.ads-title {
-        position: unset;
-        margin: 10px 0 30px;
+        .sub-title>.ads-title {
+            position: unset;
+            margin: 10px 0 30px;
+        }
     }
-}
-
-@media only screen and (max-width: 990px) {
-    .pc {
-        display: none !important;
+    @media only screen and (max-width: 990px) {
+        .pc {
+            display: none !important;
+        }
+        .sp {
+            display: block !important;
+        }
+        .navbar-brand img {
+            max-width: 200px;
+        }
+        .sp-nav {
+            padding: 20px 40px;
+        }
+        .sp-nav li {
+            list-style: none;
+            border-bottom: 1px solid #fff;
+        }
+        .nav-link {
+            padding: 0.5rem 0;
+        }
+        .router-link-exact-active {
+            border-left: 0px;
+            background-color: transparent;
+        }
+        .ads-img {
+            float: left;
+            display: block;
+            margin: 0 auto;
+        }
+        .today .adslist-card .smallads-title {
+            top: 7px;
+        }
+        .hos-btn {
+            width: 50%;
+            margin: 10px auto 0;
+        }
+        .hos-img {
+            height: auto;
+            line-height: unset;
+            border: 0;
+            border-bottom: 0;
+            background-color: transparent;
+        }
+        .hos-img img {
+            width: auto;
+            max-width: 100%;
+        }
     }
-    .sp {
-        display: block !important;
+    /*  Start CommentList */
+    button.confirmed {
+        opacity: 0.5;
+        cursor: not-allowed;
     }
-    .navbar-brand img {
-        max-width: 200px;
+    /* End Commentlist */
+    .mailbox {
+        border: none;
     }
-    .sp-nav {
-        padding: 20px 40px;
+    .bk {
+        background: #dad6d6;
     }
-    .sp-nav li {
-        list-style: none;
-        border-bottom: 1px solid #fff;
+    .block2 {
+        background-image: url(../images/ajax-loader.gif);
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: relative;
+        filter: brightness(0.5);
+        color: white;
+        display: flex;
+        transition: box-shadow .3s ease-out;
     }
-    .nav-link {
-        padding: 0.5rem 0;
-    }
-    .router-link-exact-active {
-        border-left: 0px;
-        background-color: transparent;
-    }
-    .ads-img {
-        float: left;
-        display: block;
-        margin: 0 auto;
-    }
-    .today .adslist-card .smallads-title {
-        top: 7px;
-    }
-    .hos-btn {
-        width: 50%;
-        margin: 10px auto 0;
-    }
-    .hos-img {
-        height: auto;
-        line-height: unset;
-        border: 0;
-        border-bottom: 0;
-        background-color: transparent;
-    }
-    .hos-img img {
-        width: auto;
-        max-width: 100%;
-    }
-}
-
-
-/*  Start CommentList */
-
-button.confirmed {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-
-/* End Commentlist */
-
-.mailbox {
-    border: none;
-}
-
-.bk {
-    background: #dad6d6;
-}
-
-.block2 {
-    background-image: url(../images/ajax-loader.gif);
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: relative;
-    filter: brightness(0.5);
-    color: white;
-    display: flex;
-    transition: box-shadow .3s ease-out;
-}
 }
 
 
 /* start one page */
 
-
-
-
 .page {
     display: block;
     text-align: left;
-    padding-left:40px;
+    padding-left: 40px;
     font-size: 14px;
     color: #eee;
-
+}
+.fac_container li {
+    padding: 5px 10px;
+    font-size: 13px;
+    color: #0e775d;
+    text-align: center;
+    border-radius:20px;
+    border: 1px solid #b7dad2;
 }
 
 .page-1 {
     padding-top: 100px;
     background: #1bbc9b;
-
 }
 
 .page-2 {
@@ -2793,9 +2912,11 @@ button.confirmed {
 }
 
 .page-3 {
-    padding-top: 50px;
+    padding-top: 100px;
     background: #aabbcc;
-
+}
+.table tr {
+    font-size: 14px;
 }
 
 .page-4 {
@@ -2828,17 +2949,24 @@ button.confirmed {
     color: #fff;
 }
 
+
 /* end one page */
+
+
 /* modal dialgo*/
-.swal2-modal{
+
+.swal2-modal {
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
     padding: 15px !important;
     min-height: 200px !important;
 }
-.swal2-icon.swal2-warning{
+
+.swal2-icon.swal2-warning {
     color: #fd8c2a !important;
     border-color: #fd8c2a !important;
 }
+
+
 /* .swal2-icon.swal2-success{
     color: green;
 }
@@ -2848,29 +2976,40 @@ button.confirmed {
     margin: 5px auto 5px !important;
 
 } */
-.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{
+
+.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
     width: 15px;
     left: 22px;
     top: 47px;
 }
+
 .swal2-icon.swal2-success [class^=swal2-success-line][class$=long] {
     width: 36px;
     right: 16px;
     top: 39px;
 }
-.swal2-modal .swal2-title{
+
+.swal2-modal .swal2-title {
     font-size: 20px !important;
 }
-.swal2-modal .swal2-content{
+
+.swal2-modal .swal2-content {
     font-size: 15px !important;
 }
-.swal2-modal .swal2-styled{    
+
+.swal2-modal .swal2-styled {
     background: #fff;
     box-shadow: none !important;
     padding: 8px 20px !important;
     font-size: 14px !important;
-
 }
+/*---------------*/
+ .showContent {
+    overflow: hidden;
+    line-height: 2em;
+    height: 2em;
+}
+
 /*.modal {
     display: flex;
     align-items: center;
@@ -2881,7 +3020,7 @@ button.confirmed {
     top: 0;
     left: 0;
     background-color: rgba(0,0,0,.5);
-    
+
   }
      .modal-body {
       display: flex;
@@ -2895,8 +3034,8 @@ button.confirmed {
       max-width: 20%;
       z-index: 2;
     } */
-     
-   
+
+
     /* .close-button {
         position: absolute;
         display: flex;
@@ -2909,7 +3048,7 @@ button.confirmed {
         width: 35px;
         height: 35px;
         border-radius: 100px;
-        font-weight: 600;    
+        font-weight: 600;
       }
     .close-button:hover{
         cursor: pointer;
@@ -2917,7 +3056,9 @@ button.confirmed {
     .modal > img {
         width: 100px;
       } */
-      /* h3 {
+
+
+/* h3 {
         color: #808080;
         font-weight: 600;
         font-size: 25px;
@@ -2928,18 +3069,79 @@ button.confirmed {
         font-size: 18px;
         text-align: center;
       } */
-    
+
     /* .overlay {
       position: absolute;
       width: 100%;
       height: 100%;
       background-color: rgba(0,0,0,0.5);
     }
-  
+
       .fade-enter-active, .fade-leave-active {
       transition: opacity .3s;
       }
       .fade-enter, .fade-leave-to {
       opacity: 0;
       } */
+
+/* start one page */
+
+.page {
+    display: block;
+    text-align: left;
+    padding-left:40px;
+    font-size: 14px;
+    color: #eee;
+
+}
+
+.page-1 {
+    padding-top: 100px;
+    background: #1bbc9b;
+
+}
+
+.page-2 {
+    padding-top: 100px;
+    background-color: rgb(75, 191, 195);
+}
+
+.page-3 {
+    padding-top: 50px;
+    background: #aabbcc;
+
+}
+
+.page-4 {
+    padding-top: 50px;
+    background-color: rgb(75, 191, 195);
+  
+}
+
+.button-group {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 9;
+}
+
+.button-group button {
+    display: inline-block;
+    margin: 10px;
+    color: #000;
+    background: #fff;
+    background: rgba(255, 255, 255, .5);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 9px 18px;
+    border: none;
+    outline: none;
+}
+
+.button-group button.active {
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+}
+
+/* end one page */
 

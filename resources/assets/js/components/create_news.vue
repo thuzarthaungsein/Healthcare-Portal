@@ -121,7 +121,7 @@
                 }
             },
             created() {
-                axios.get('/api/category/category_list')
+                this.axios.get('/api/category/category_list')
                     .then(function(response) {
                         this.categories = response.data;
                     }.bind(this));
@@ -140,7 +140,7 @@
                         fData.append('body', this.news.body)
                         fData.append('category_id', this.news.category_id)
                         fData.append('related_news', this.checkedNews)
-                        axios.post('/api/new/add', fData)
+                        this.axios.post('/api/new/add', fData)
                             .then(response => {
                                 this.$router.push({
                                     name: 'news_list'

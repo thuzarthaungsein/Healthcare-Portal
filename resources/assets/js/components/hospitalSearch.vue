@@ -41,13 +41,22 @@
 
                         <div class="col-sm-3">
                           <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background-color:#79efdb">東海</div>
+                            <div class="card-header pad-10" style="background-color:#79efdb">北陸</div>
                             <div class="card-body">
                               <p class="card-text map-text">                            
                                 <span class="spanclass"><a href="#!" id="15" data-info="Niigata" class="path Niigata card-text" >新潟県</a></span>
                                 <span class="spanclass"><a href="#!" id="16" data-info="Toyama" class="path Toyama card-text" >富山県</a></span>
                                 <span class="spanclass"><a href="#!" id="17" data-info="Ishikawa" class="path Ishikawa card-text" >石川県</a></span>
                                 <span class="spanclass"><a href="#!" id="18" data-info="Fukui" class="path Fukui card-text" >福井県</a></span>
+                              </p>
+                                                          </div>
+                          </div>  
+                        </div>
+                              <div class="col-sm-3">
+                          <div class="card  mb-3">
+                            <div class="card-header pad-10" style="background-color:#79efdb">東海甲信</div>
+                            <div class="card-body">
+                              <p class="card-text map-text">  
                                 <span class="spanclass"><a href="#!" id="19" data-info="Yamanashi" class="path Yamanashi card-text" >山梨県</a></span>
                                 <span class="spanclass"><a href="#!" id="20" data-info="Nagano" class="path Nagano card-text" >長野県</a></span>
                                 <span class="spanclass"><a href="#!" id="21" data-info="Gifu" class="path Gifu card-text" >岐阜県</a></span>
@@ -78,7 +87,7 @@
 
                         <div class="col-sm-3">
                           <div class="card  mb-3">
-                          <div class="card-header pad-10" style="background:#ffed4a;">中国・四国</div>
+                          <div class="card-header pad-10" style="background:#ffed4a;">中国</div>
                           <div class="card-body">
                             <p class="card-text map-text">
                               <span class="spanclass"><a href="#!" id="31" data-info="Tottori" class="path Tottori card-text" >鳥取県</a></span>
@@ -94,7 +103,7 @@
 
                         <div class="col-sm-3">
                           <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background:#cc79ef">中国・四国</div>
+                            <div class="card-header pad-10" style="background:#cc79ef">四国</div>
                             <div class="card-body">
                               <p class="card-text map-text">
                                 <span class="spanclass"><a href="#!" id="36" data-info="Tokushima" class="path Tokushima card-text" >徳島県</a></span>

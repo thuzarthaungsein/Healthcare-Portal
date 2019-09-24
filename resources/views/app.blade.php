@@ -149,7 +149,7 @@
                 <ul class="navbar-nav pad-free pc">
 
                     <li class="fav-item fav-color btn all-btn m-r-10">
-                        <i class="fa fa-star m-r-5"> </i>&nbsp; 検討リスト
+                        <i class="fa fa-star m-r-5"> </i>&nbsp; お気に入り
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
                         <span style="padding-right: 11px;">2件<br>病院</span>
                         <span style="border-left: 1px solid #fff;padding-left: 11px;">5件<br>介護</span>
@@ -697,7 +697,7 @@
 
 </div>
 
-<script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+<script src="/js/app.js" type="text/javascript"></script>
 
   <!-- script for editor -->
 

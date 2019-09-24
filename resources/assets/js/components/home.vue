@@ -93,25 +93,25 @@ export default {
                         });
                 },
                 getPostByFirstCat: function() {
-                         axios.get("/api/posts/1")
+                         this.axios.get("/api/posts/1")
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getPostByCatID: function(cat_id) {
-                        axios.get("/api/posts/" + cat_id)
+                        this.axios.get("/api/posts/" + cat_id)
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getLatestPostByFirstCatID: function() {
-                        axios.get("/api/get_latest_post/1")
+                        this.axios.get("/api/get_latest_post/1")
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostByCatID: function(cat_id) {
-                        axios.get("/api/get_latest_post/" + cat_id)
+                        this.axios.get("/api/get_latest_post/" + cat_id)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
