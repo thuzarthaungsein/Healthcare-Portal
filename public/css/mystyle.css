@@ -118,7 +118,7 @@ body {
     color: white;
     width: 100px; */
     margin-bottom: 0px;
-    cursor: pointer;   
+    cursor: pointer;
     text-align: center;
 }
 
@@ -129,7 +129,6 @@ body {
     border-top: 1px solid #f27a24;
     border-color: #f27a24 #fff #fff #fff !important;
 }
-
 
 .typelabel input[type="radio"] {
     display: none;
@@ -246,10 +245,11 @@ body {
     margin-top: 10px;
 }
 
-#gallery-payment table tr > th:first-child {
+#gallery-payment table tr>th:first-child {
     width: 35%;
 }
-#gallery-payment table tr > th {
+
+#gallery-payment table tr>th {
     border: none;
     font-weight: normal;
 }
@@ -258,6 +258,7 @@ body {
     font-weight: bold;
     color: #000;
 }
+
 #gallery-payment .title-lbl span {
     border-bottom: 1px solid #000;
 }
@@ -288,23 +289,28 @@ body {
     /* text-align: center; */
     padding: 15px;
 }
+
 .category_news_title span {
     border-left: 5px solid #f9793c;
     padding-left: 10px;
 }
+
 .category_box {
     border-top: 2px dashed #eee;
     padding-top: 15px;
     margin-top: 20px;
 }
+
 .img-box img {
     /* border: 1px solid #eee; */
     /* padding: 3px 5px 3px 3px; */
     border-radius: 3px;
 }
+
 .txt-box .smallads-title {
     font-size: 1em !important;
 }
+
 
 /* End Profile */
 
@@ -1767,10 +1773,12 @@ li.userprofile-name>a {
 .nav-link {
     color: #095c5f;
 }
+
 .navbar-dark .navbar-nav .nav-link {
     color: #095c5f !important;
 }
-.nav-link:hover{
+
+.nav-link:hover {
     color: #095c5f;
 }
 
@@ -2165,12 +2173,24 @@ ul.main-tab li:after {
     padding: 0px 15px 15px 15px !important;
 }
 
-.divisions span {
-    margin-right: 10px;
+.map-wrap {
+    max-width: 1000px !important;
 }
 
-.divisions {
-    /* padding: 20px 0px 0px 20px; */
+.map {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* .divisions {
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
+
+.divisions span {
+    margin-right: 10px;
 }
 
 .divisions .card-header {
@@ -2182,6 +2202,91 @@ ul.main-tab li:after {
 
 .divisions .card-body {
     padding: 10px !important;
+}
+
+.hokkaido-box {
+    position: absolute;
+    top: 23%;
+    right: 14%;
+    z-index: 2;
+}
+
+.hokkaido-box .spanclass,
+.kanto-box .spanclass,
+.okinawa-box .spanclass {
+    margin-right: 3px;
+}
+
+
+/* 
+.hokkaido-box .spanclass,
+.kanto-box .spanclass,
+.okinawa-box .spanclass {
+    display: block;
+    margin-right: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.divisions .hokkaido-box .card-body,
+.divisions .kanto-box .card-body,
+.divisions .okinawa-box .card-body {
+    padding: 0 !important;
+}
+
+.hokkaido-box .spanclass:last-child,
+.kanto-box .spanclass:last-child,
+.okinawa-box .spanclass:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+} */
+
+.kanto-box {
+    position: absolute;
+    top: 48%;
+    right: 14%;
+    z-index: 2;
+}
+
+.hokuriku-box {
+    position: absolute;
+    top: 6%;
+    left: 25%;
+    z-index: 2;
+}
+
+.tokai-box {
+    position: absolute;
+    bottom: 9%;
+    right: 14%;
+    z-index: 2;
+}
+
+.kinki-box {
+    position: absolute;
+    top: 23%;
+    left: 2%;
+    z-index: 2;
+}
+
+.chugoku-box {
+    position: absolute;
+    top: 6%;
+    left: 2%;
+    z-index: 2;
+}
+
+.shikoku-box {
+    position: absolute;
+    left: 38%;
+    bottom: 9%;
+    z-index: 2;
+}
+
+.okinawa-box {
+    position: absolute;
+    bottom: 9%;
+    left: 2%;
+    z-index: 2;
 }
 
 @media print,
@@ -2212,8 +2317,13 @@ screen and (min-width: 750px) {
         transform: rotate(-45deg);
         position: absolute;
         top: 50%;
-        left: 50px;
+        left: 40px;
         margin-top: -3px;
+    }
+    .map-text a.Wakayama:after,
+    .map-text a.Kagoshima:after,
+    .map-text a.Kanagawa:after {
+        left: 50px;
     }
     .info-box {
         display: none;
@@ -2584,6 +2694,35 @@ screen and (min-width: 750px) {
         }
         .today .adslist-card .smallads-title {
             top: 7px;
+        }
+        .hokkaido-box,
+        .kanto-box {
+            right: -6%;
+            max-width: 26% !important;
+        }
+        .okinawa-box {
+            bottom: -9%;
+            max-width: 21% !important;
+        }
+        .kinki-box {
+            left: 0.9%;
+            max-width: 40% !important;
+        }
+        .chugoku-box {
+            left: 0;
+            max-width: 31% !important;
+        }
+        .hokuriku-box {
+            top: 10%;
+            left: 29%;
+        }
+        .tokai-box {
+            right: -6%;
+            max-width: 39%;
+        }
+        .shikoku-box {
+            left: 31%;
+            max-width: 39%;
         }
         /* #v-pills-tab li a {
         display: block;
