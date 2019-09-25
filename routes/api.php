@@ -186,14 +186,15 @@ Route::get('staffinfo/{id}', 'ProfilePublishController@getStaffbyCustomerId');
 Route::get('home', 'HomeController@index');
 Route::post('posts', 'HomeController@getPosts');
 Route::post('get_latest_post', 'HomeController@getLatestPost');
-Route::get('get_latest_post_all_cat/', 'HomeController@getLatestPostFromAllCat');
+Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 Route::post('search', 'HomeController@search');
 Route::get('get_latest_posts_by_catId', 'HomeController@getLatestPostsByAllCatId');
 
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
-Route::get('newsdetailsrelated/{id}','PostController@relatednews');
+Route::get('relatednews/{id}', 'PostController@show_related');
+// Route::get('newsdetailsrelated/{id}','PostController@relatednews');
 Route::post('news_list/search', 'PostController@search');
 
 Route::post('jobapply','JobApplyController@store');

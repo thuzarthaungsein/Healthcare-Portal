@@ -25,14 +25,10 @@
             <span style="font-size:50px;">NO</span>
             <span style="color:#769BD0;">RECORD</span> DATA
           </p>
-          <p>表示するデータありません‼新しいデータを作成してください。</p>
-          <a
-            href="#"
-            class="float-right main-bg-color create-btn all-btn"
-            style="width: 16%;margin: 30px auto;"
-          >
-            <i class="fas fa-plus-circle"></i> 新しいデータ作成
-          </a>
+          <p>表示するデータありません‼新しいデータを作成してください。</p>         
+          <router-link to= '/joboffercreate' class="float-right main-bg-color create-btn all-btn" style="width: 16%;margin: 30px auto;">
+          <i class="fas fa-plus-circle"></i> 新しいデータ作成
+          </router-link>
         </div>
 
         <div v-else v-for="job in jobs" :key="job.id" class="card card-default m-b-20">

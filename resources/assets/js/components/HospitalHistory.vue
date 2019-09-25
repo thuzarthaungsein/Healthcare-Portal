@@ -23,7 +23,7 @@
               <div class="hos-img">
                 <img class="col-md-12" v-bind:src="'/images/' + hos_profile.logo" alt />
               </div>
-              <button class="btn btn-danger all-btn hos-btn">最近見た施設から削除</button>
+              <button class="btn btn-danger all-btn hos-btn" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>
               <button class="btn fav-color all-btn hos-btn mt-2">検討リストに追加</button>
             </div>
             <div class="col-lg-7 col-md-12 mb-4">
@@ -219,6 +219,24 @@ export default {
         .then(response => {
           this.hos_profiles = response.data;
         });
+    },
+    deleteLocalSto: function(id) {
+      var l_sto = this.local_sto;
+      var l_sto_arr = l_sto.split(",");
+      var rm_id = id.toString();
+      var index = l_sto_arr.indexOf(rm_id);
+      if (index > -1) {
+        l_sto_arr.splice(index , 1);
+        var new_local = l_sto_arr.toString();
+        localStorage.setItem('hospital_history', new_local);
+        this.local_sto = localStorage.getItem("hospital_history");
+        if(this.local_sto) {
+          this.getAllCustomer(this.local_sto);
+        }
+        else {
+          window.location.reload();
+        }
+      }
     }
   }
 };
