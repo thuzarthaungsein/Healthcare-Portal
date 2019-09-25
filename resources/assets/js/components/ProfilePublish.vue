@@ -1,25 +1,31 @@
 <template>
   <div id="app">
-
-
-
     <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
-       <button v-scroll-to="{ el: '#element1'}">
+       <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
          Information
       </button>
-       <button v-scroll-to="{ el: '#element2' }">
-         Review
+       <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
+         Features
       </button>
-       <button v-scroll-to="{ el: '#element3' }">
+       <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
+         Cost
+      </button>
+       <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn">
+         Equipment
+      </button>
+       <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn">
          Map
       </button>
-       <button v-scroll-to="{ el: '#element4' }">
+       <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn">
+         Review
+      </button>
+       <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn">
          Job Offer
       </button>
     </div>
     
-      <h1  >
-         <div class="row ele" id="element1">            
+      
+         <div class="row m-lr-0 ele" id="element1">            
               <div class="row list-wrap m-lr-0">
                   <div class="col-lg-3 col-md-4 col-sm-12">
                       <p><strong>Information</strong></p>
@@ -117,13 +123,13 @@
                   </ul>
               </div>
           </div>
-      </h1>
+     
     
 
-       <h1 >
-         <div class="row ele" id="element2">            
+       
+         <div class="row ele m-lr-0" id="element2">            
               <div class="row list-wrap m-lr-0">
-                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Review</strong></p></div>
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Features</strong></p></div>
                 
               </div>
 
@@ -218,25 +224,72 @@
                   </ul>
               </div>
           </div>
-       </h1>  
+          <div class="row ele m-lr-0" id="element3">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Cost</strong></p></div>                
+              </div>
+              <h5 class="header">cost</h5>              
+          </div>
+
+          <div class="row ele m-lr-0" id="element4">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Equipment</strong></p></div>
+                
+              </div>
+              <h5 class="header">Equipment</h5>
+              
+          </div>
+           <div class="row ele m-lr-0" id="element5">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Map</strong></p></div>
+                
+              </div>
+              <h5 class="header">Map</h5>
+              
+          </div>
+           <div class="row ele m-lr-0" id="element6">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Review</strong></p></div>
+                
+              </div>
+              <h5 class="header">Review</h5>
+              
+          </div>
+           <div class="row ele m-lr-0" id="element7">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Job Offer</strong></p></div>
+                
+              </div>
+              <h5 class="header">Job Offer</h5>
+              
+          </div>
+         
   </div>
 </template>
 
 
 <style scoped>
-
-
-#element1 {
- 
-  color: #42b983;
+.fixed-nav{
+    position: fixed;
+    z-index: 4;
+    overflow: hidden;
+    background: #fff;
+    width: 65.9%;
+    margin-top:-1px;
+   
 }
-#element2 {
- 
-  color: #42b983;
+.top-fixed-btn{
+  border: 1px solid #b7dad2;
+  box-shadow: 0px 2px 1px rgba(70, 70, 70, 0.3);
+  color: #095c5f;
+  background: #b7dad2;
+  width: 145px;
+  cursor: pointer;
+  padding: 10px;
 }
-div.ele, button {
- 
+.ele{
+  margin-top: 27px;  
+  padding-top: 60px;
 }
-
 </style>
 
