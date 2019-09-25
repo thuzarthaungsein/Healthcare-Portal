@@ -18,16 +18,13 @@
                   <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
                 </div>
 
-                            <div class="form-group ">
-                                <router-link to="/facilitieslist" class="btn btn-danger all-btn">キャンセル</router-link>   
-                                <button class="btn news-post-btn all-btn" > 更新 </button>                                             
-                                <!-- <router-link to="/facilitieslist" class="btn news-post-btn all-btn">更新</router-link>                                -->
-                            </div>
-                                </form>
-                            </div>
-                         </div>
-                    </div>                
-            </div>
+                <div class="form-group ">
+                    <router-link to="/facilitieslist" class="btn btn-danger all-btn">キャンセル</router-link>   
+                    <button class="btn news-post-btn all-btn" > 更新 </button>                                             
+                    <!-- <router-link to="/facilitieslist" class="btn news-post-btn all-btn">更新</router-link>                                -->
+                </div>
+              </form>
+            </div>                         
           </div>
         </div>
       </div>
@@ -58,7 +55,17 @@ export default {
         .post(`/api/facility/update/${this.$route.params.id}`, this.facility)
         .then(response => {
           this.description = "";
-          alert("Successfully Updated!");
+          this.$swal({
+                      position: 'top-end',
+                      type: 'success',
+                      title: '更新されました',
+                      showConfirmButton: false,
+                      timer: 1500,
+                      width: 250,
+                      height: 200,
+
+                    })
+          // alert("Successfully Updated!");
           this.$router.push({ name: "facilitieslist" });
         })
         .catch(error => {

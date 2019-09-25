@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\PostView;
 use Illuminate\Http\Request;
+use DB;
 
 class PostController extends Controller
 {
@@ -112,10 +113,23 @@ class PostController extends Controller
         return Post::findOrFail($id);
 
     }
-    public function relatednews ($id) {
-        $related_news =Post::where('category_id',$id)->orderBy('created_at', 'desc')->limit('4')->get();
-        //return $latest_post_all_cat;
-        return response()->json($related_news);
+    public function show_related($id) {
+
+        $related_news = Post::select('related_news','category_id')->where('id',$id)->get();
+                
+        if($related_news[0]["related_news"] != null) {
+            $sql = "select * from posts where id in(".$related_news[0]["related_news"].")";
+            $news = DB::select($sql);
+            }
+        else{
+            $news = null;
+        }
+
+        $latest = Post::select('*')->where('category_id',$related_news[0]["category_id"])->orderBy('created_at','DESC')->limit('5')->get();
+
+        $data = array("related_news"=>$news, "latest_news" => $latest);
+
+        return response()->json($data);
     }
 
     /**

@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api end
 
-// login route api sta rt   
+// login route api sta rt
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
@@ -38,7 +38,9 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::get('cooperatemedical', 'ProfilePublishController@getcooperatemedical');
     Route::get('medicalacceptance', 'ProfilePublishController@getmedicalacceptance');
     Route::get('staff', 'ProfilePublishController@getstaff');
-    
+    Route::get('google', 'ProfilePublishController@getGoogleMap');
+
+
 
     // Category
     Route::group(['prefix' => 'category'], function () {
@@ -168,14 +170,15 @@ Route::get('featurelist', 'SpecialFeatureController@index');
 Route::get('home', 'HomeController@index');
 Route::post('posts', 'HomeController@getPosts');
 Route::post('get_latest_post', 'HomeController@getLatestPost');
-Route::get('get_latest_post_all_cat/', 'HomeController@getLatestPostFromAllCat');
+Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 Route::post('search', 'HomeController@search');
 Route::get('get_latest_posts_by_catId', 'HomeController@getLatestPostsByAllCatId');
 
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
-Route::get('newsdetailsrelated/{id}','PostController@relatednews');
+Route::get('relatednews/{id}', 'PostController@show_related');
+// Route::get('newsdetailsrelated/{id}','PostController@relatednews');
 Route::post('news_list/search', 'PostController@search');
 
 Route::post('jobapply','JobApplyController@store');
@@ -220,7 +223,8 @@ Route::group(['prefix' => 'nurse'], function () {
 Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
-
+Route::get('nurse','ProfilePublishController@index');
+Route::get('cost','ProfilePublishController@show');
 // Route::group(['prefix' => 'new'], function () {
 //     Route::post('add', 'PostController@add');
 //     Route::get('editPost/{id}', 'PostController@edit');

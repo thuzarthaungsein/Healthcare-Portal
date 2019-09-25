@@ -18,12 +18,20 @@
           <!-- <p style="font-size:30px;color:#69C1A8;font-weight:bold;margin:20px 0;">
             <span style="font-size:50px;">NO</span>
             <span style="color:#769BD0;">RECORD</span> DATA
+<<<<<<< HEAD
           </p>-->
           <p class="record-txt01">表示するデータありません</p>
           <p>表示するデータありません‼新しいデータを作成してください。</p>
           <a href="/joboffercreate" class="main-bg-color create-btn all-btn">
             <i class="fas fa-plus-circle"></i> 新しいデータ作成
           </a>
+=======
+          </p>
+          <p>表示するデータありません‼新しいデータを作成してください。</p>         
+          <router-link to= '/joboffercreate' class="float-right main-bg-color create-btn all-btn" style="width: 16%;margin: 30px auto;">
+          <i class="fas fa-plus-circle"></i> 新しいデータ作成
+          </router-link>
+>>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
         </div>
 
         <div v-else v-for="job in jobs" :key="job.id" class="card card-default m-b-20">

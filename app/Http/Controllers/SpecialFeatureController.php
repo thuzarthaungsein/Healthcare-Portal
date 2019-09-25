@@ -28,18 +28,16 @@ class SpecialFeatureController extends Controller
             'short_name'=>'required',
             'type.required' => '選択してください。',
 
-        ]);
+        ]);      
 
-        $feature = new special_feature();
-        $feature->name = $request->name;
-        $feature->short_name = $request->short_name;
-        $feature->type = $request->type;
-        $feature->user_id = 1;
-        $feature->recordstatus = 1;
-
-        $feature->save();
-
-        return response()->json('Success');
+        $feature = new special_feature;
+        $feature->name=$request->name;
+        $feature->short_name=$request->short_name;
+        $feature->type=$request->type;
+        $feature->user_id=1;
+        $feature->recordstatus=1;
+        $feature ->save();
+        return $feature;
     }
 
 

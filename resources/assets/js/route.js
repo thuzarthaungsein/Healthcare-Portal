@@ -21,8 +21,11 @@ import createcustomer from './components/CreateCustomer.vue';
 import joboffercreate from './components/JobOfferCreate.vue';
 import editPost from './components/editNewsPost.vue';
 import Profile from './components/Profile.vue';
+<<<<<<< HEAD
 // import hosProfile from './components/hosProfile.vue';
 // import nusProfile from './components/nusProfile.vue';
+=======
+>>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
 import JobOfferList from './components/JobOfferList.vue';
 import ProfilePublish from './components/ProfilePublish.vue';
 import advertisement from './components/advertisement.vue';
@@ -51,7 +54,12 @@ import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
 import nursingMailConfirm from './components/nursingMailConfirm.vue';
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import modal from './components/modal.vue';
+<<<<<<< HEAD
 export const routes = [{
+=======
+export const routes = [
+    {
+>>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
         name: 'home',
         path: '/',
         component: home
@@ -159,6 +167,7 @@ export const routes = [{
         component: createcustomer
     },
     {
+<<<<<<< HEAD
         name: "joboffercreate",
         path: "/joboffercreate",
         component: joboffercreate
@@ -173,6 +182,13 @@ export const routes = [{
     //   path: '/nus_profile',
     //   component: nusProfile
     // },
+=======
+      name: 'profile',
+      path: '/profile',
+      component: Profile
+    },
+
+>>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
     {
         name: "jobofferlist",
         path: "/jobofferlist",
@@ -248,6 +264,7 @@ export const routes = [{
         component: editadvertisement
     },
     {
+<<<<<<< HEAD
         name: 'nursing_history',
         path: '/nursing_history',
         component: NursingHistory
@@ -311,3 +328,68 @@ export const routes = [{
 
 
 ];
+=======
+      name: 'nursing_history',
+      path: '/nursing_history',
+      component: NursingHistory
+    },
+    {
+      name: 'google_map',
+      path: '/google_map',
+      component: GoogleMap
+    },
+    {
+      name: 'hospital_profile',
+      path: '/hospital_profile',
+      component: HospitalProfile
+     },
+    {
+      name: 'nursing_profile',
+      path: '/nursing_profile',
+      component: NursingProfile
+     },
+  {
+    name: 'videoupload',
+    path: '/videoupload',
+    component: VideoUpload
+  },
+  {
+    name: 'comment',
+    path: '/comment',
+    component: comment
+  },
+  {
+    name: 'commentlist',
+    path: '/commentlist',
+    component: commentlist
+  },
+  {
+    name: 'specialfeature',
+    path: '/specialfeature',
+    component: specialfeature
+  },
+  {
+    name: 'featurelist',
+    path: '/featurelist',
+    component: featurelist
+  },
+  {
+    name: 'nursingFavouriteMail',
+    path: '/nursingFavouriteMail',
+    component: nursingFavouriteMail
+  },
+  {
+    name: 'nursingMailConfirm',
+    path: '/nursingMailConfirm',
+    component: nursingMailConfirm
+  },
+  {
+    name: 'modal',
+    path: '/modal',
+    component: modal
+  },
+
+
+
+];
+>>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
