@@ -16,7 +16,7 @@
                 <label for ="last_name"><strong>Last Name : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name"  >
+                <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name" >
                 <div v-if="errors.last_name" class="text-danger">{{ errors.last_name }}</div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <label for ="postal"  ><strong>Postal : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal"  >
+                <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal" v-on:keyup="getPostal" >
                 <div v-if="errors.postal" class="text-danger">{{ errors.postal }}</div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                 <label for ="phone"  ><strong>Phone : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone"  >
+                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone">
                 <div v-if="errors.phone" class="text-danger">{{ errors.phone }}</div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                 <label for ="email"  ><strong>Email : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="email" placeholder="user@email.com" v-model="jobApply.email"  >
+                <input type="text" class="form-control box" id="email" placeholder="user@email.com" v-model="jobApply.email">
                 <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
             </div>
         </div>
@@ -124,7 +124,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn main-bg-color white all-btn" @click="showConfirm()">確認画面へ進む</button>
+            <button type="submit" class="btn main-bg-color white all-btn" @click="checkValidate()">確認画面へ進む</button>
         </div>
         <br>
     </div>
@@ -259,6 +259,10 @@ export default {
                 errors: {
                     first_name: '',
                     last_name: '',
+                    postal: '',
+                    phone: '',
+                    email: '',
+                    terms: ''
                 },
 
                 jobApply: {
@@ -283,6 +287,7 @@ export default {
                         }],
                     },
                     type: 'register',
+                    city_list: [],
             }
     },
      created(){
@@ -292,10 +297,37 @@ export default {
                  this.Job.fields = response.data;
 
                 });
-
+        this.axios.get('/api/hospital/citiesList')
+                .then(response => {
+                    this.city_list = response.data;
+                });
     },
     methods: {
+            getPostal: function(event) {
+                if (this.jobApply.postal.length > 4) {
+                    var postal = this.jobApply.postal;
+                    this.axios
+                        .post('/api/hospital/postList/' + postal)
+                        .then(response => {
+                            var post_data = response.data;
+                            var length = response.data.length;
+                            console.log(response);
+                            if (length > 0) {
+                                var pref = post_data[0]['city_id'];
+                                if (post_data[0]['street'] == '') {
+                                    this.jobApply.str_address = post_data[0]['city'];
+                                } else {
+                                    this.jobApply.str_address = post_data[0]['pref'] + ' - ' + post_data[0]['city'] + ' - ' + post_data[0]['street'];
+                                }
+                            } else {
+                                this.jobApply.city = '';
+                                $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+                            }
+                        });
+                }
+            },
             apply() {
+                console.log(this.jobApply);
                 this.axios.post('/api/jobapply',this.jobApply)
                     .then((response) => {
                     alert('Successful Apply');
@@ -311,9 +343,8 @@ export default {
             getcheckbox(job)
             {
                this.jobApply.skills.push(job);
-
             },
-            showConfirm() {
+            checkValidate() {
                 if(this.jobApply.first_name) {
                     this.errors.first_name = "";
                 }
@@ -332,14 +363,25 @@ export default {
                 else {
                     this.errors.postal = "ニュースの題名が必須です。";
                 }
+                if(this.jobApply.phone) {
+                    this.errors.phone = "";
+                }
+                else {
+                    this.errors.phone = "ニュースの題名が必須です。";
+                }
+                if(this.jobApply.email) {
+                    this.errors.email = "";
+                }
+                else {
+                    this.errors.email = "ニュースの題名が必須です。";
+                }
                 if(this.jobApply.terms) {
                     this.errors.terms = "";
                 }
                 else {
                     this.errors.terms = "ニュースの題名が必須です。";
                 }
-
-                if(!this.errors.first_name && !this.errors.first_name && !this.errors.postal && !this.errors.terms) {
+                if(!this.errors.first_name && !this.errors.first_name && !this.errors.postal && !this.errors.phone && !this.errors.email && !this.errors.terms) {
                     this.type = 'confirm';
                 }
             },
