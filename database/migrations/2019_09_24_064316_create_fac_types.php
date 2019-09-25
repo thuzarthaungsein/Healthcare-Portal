@@ -13,7 +13,7 @@ class CreateFacTypes extends Migration
      */
     public function up()
     {
-        Schema::table('fac_types', function (Blueprint $table) {
+        Schema::create('fac_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
             $table->timestamps();

@@ -13,7 +13,7 @@ class CreateAcceptanceTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('acceptance_transactions', function (Blueprint $table) {
+        Schema::create('acceptance_transactions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('medical_acceptance_id');
             $table->integer('customer_id');
