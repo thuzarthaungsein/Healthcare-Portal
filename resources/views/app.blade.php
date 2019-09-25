@@ -13,7 +13,6 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 
 
@@ -31,6 +30,7 @@
 <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
 <!--mailbox-->
 <!-- Styles -->
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyCNpeRgwCQoHIlLn-X8TIB9SnO8iLPt808&callback=initMap" async defer></script>
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">

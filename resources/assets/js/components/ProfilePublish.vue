@@ -476,7 +476,7 @@
  <script>
  import joboffer from './JobOfferList.vue'
  export default { 
-   
+    name: "GoogleMap",
       components:{
                     joboffer
                 },
@@ -593,20 +593,20 @@
 
                 });
 
-                
-                var geocoder = new google.maps.Geocoder;
-                var latlng = {lat: 19.7633, lng: 96.0785};
-                   
-                geocoder.geocode({'location': latlng}, function(results, status) {
-                if (status === 'OK') {
+       
+                            var geocoder= new google.maps.Geocoder;
+                            
+                            var latlng = {lat: 16.82150100, lng: 96.12982600};
+                            
+                            geocoder.geocode({'location': latlng}, function(results, status) {
+                            if (status === 'OK') {
+                               
+                                if (results[1]) {
+                                        this.address=  results[1].formatted_address
 
-                    if (results[1]) {
-
-                            this.address=  results[1].formatted_address
-
-                        }
-                    }
-                })
+                                    }
+                                }
+                            })
             }
             else{
 
