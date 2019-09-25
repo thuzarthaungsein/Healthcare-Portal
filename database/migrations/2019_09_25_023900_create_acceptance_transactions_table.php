@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFacTypes extends Migration
+class CreateAcceptanceTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateFacTypes extends Migration
      */
     public function up()
     {
-        Schema::create('fac_types', function (Blueprint $table) {
+        Schema::create('acceptance_transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
+            $table->integer('medical_acceptance_id');
+            $table->integer('customer_id');
+            $table->string('accept_type');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateFacTypes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fac_types');
+        Schema::dropIfExists('acceptance_transactions');
     }
 }

@@ -552,6 +552,7 @@ export default {
                 this.axios
                 .get('/api/medical/medicalacceptance')
                 .then(response => {
+                        console.log(response);
                         this.medical_acceptance = response.data;
                 });
 
