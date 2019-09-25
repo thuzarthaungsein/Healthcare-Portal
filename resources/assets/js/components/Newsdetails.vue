@@ -13,7 +13,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content tab-content1 tabs">
                         <div role="tabpanel" class="tab-pane active" id="tab1">
-                                <div class="row col-sm-12">
+                                <div class="col-sm-12">
                                         <nav aria-label="breadcrumb">
                                                 <ol class="breadcrumb">
                                                         <li class="breadcrumb-item">
@@ -57,7 +57,7 @@
                                                                         <div class="hovereffect fit-image" style="cursor:pointer;">
                                                                                 <img class="img-responsive fit-image" v-bind:src="'/upload/news/' + latest_post_all_cat.photo" alt="">
                                                                                 <div class="overlay">
-                                                                                        <span class="btn btn-sm all-btn secondary-bg-color">詳細</span>
+                                                                                        <span class="btn btn-sm all-btn secondary-bg-color m-t-20">詳細</span>
                                                                                 </div>
                                                                                 <div class="info">
                                                                                         <div class="row">
