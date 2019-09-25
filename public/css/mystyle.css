@@ -320,38 +320,23 @@ body {
 }
 .h-color0 span {
     border-left: 5px solid #37b4bd;
-<<<<<<< HEAD
+    color: #37b4bd;
 }
 .h-color1 span {
     border-left: 5px solid #a3774a;
+    color: #a3774a;
 }
 .h-color2 span {
     border-left: 5px solid #9579ef;
+    color: #9579ef;
 }
 .h-color3 span {
     border-left: 5px solid #21d1de;
+    color: #21d1de;
 }
 .h-color4 span {
     border-left: 5px solid #d1291d;
-=======
-    color: #37b4bd;    
-}
-.h-color1 span {
-    border-left: 5px solid #a3774a; 
-    color: #a3774a;       
-}
-.h-color2 span {
-    border-left: 5px solid #9579ef; 
-    color: #9579ef;       
-}
-.h-color3 span {
-    border-left: 5px solid #21d1de; 
-    color: #21d1de;       
-}
-.h-color4 span {
-    border-left: 5px solid #d1291d; 
-    color: #d1291d;       
->>>>>>> acbe23369ab2edcefbaea1433c06364da07b25cd
+    color: #d1291d;
 }
 
 .bordertop-color0{
@@ -1271,8 +1256,8 @@ div.b {
     z-index: 5;
     overflow: hidden;
     background: #f5f5f5;
-    width: 67.4%;
-   
+    width: 67.1%;
+
 }
 
 .fixed-nav{
@@ -1282,7 +1267,7 @@ div.b {
     background: #f5f5f5;
     width: 66.5%;
     margin-top:26px;
-   
+
 }
 .fixed-ads-fluid{
     position: fixed;
@@ -1290,7 +1275,7 @@ div.b {
     overflow: hidden;
     background: #f5f5f5;
     width: 81.999%;
-    
+
 }
 .ads-card,
 .ads-card2 {
@@ -3131,11 +3116,8 @@ body::-webkit-scrollbar-thumb {
       .fade-enter, .fade-leave-to {
       opacity: 0;
       } */
-<<<<<<< HEAD
 
 
-=======
->>>>>>> acbe23369ab2edcefbaea1433c06364da07b25cd
 
 /* start one page */
 
