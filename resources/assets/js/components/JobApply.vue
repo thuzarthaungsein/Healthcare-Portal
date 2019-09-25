@@ -319,7 +319,7 @@ export default {
                             if (length > 0) {
                                 var pref = post_data[0]['city_id'];
                                 if (post_data[0]['street'] == '') {
-                                    this.jobApply.str_address = post_data[0]['city'];
+                                    this.jobApply.str_address = post_data[0]['pref'] + ' - ' + post_data[0]['city'];
                                 } else {
                                     this.jobApply.str_address = post_data[0]['pref'] + ' - ' + post_data[0]['city'] + ' - ' + post_data[0]['street'];
                                 }
