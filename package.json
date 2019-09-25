@@ -37,6 +37,7 @@
         "vue-google-maps": "^0.1.21",
         "vue-quill-editor": "^3.0.6",
         "vue-router": "^3.1.2",
+        "vue-scrollto": "^2.17.1",
         "vue-sweetalert": "^0.1.18",
         "vue-template-compiler": "^2.6.10",
         "vue2-editor": "^2.10.2",

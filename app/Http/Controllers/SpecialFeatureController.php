@@ -12,8 +12,6 @@ class SpecialFeatureController extends Controller
     {
         $feature = special_feature::all()->toArray();
         return array_reverse($feature);
-        // $feature= special_feature::where('id',14)->get();
-        // return $feature;
     }
 
 
@@ -30,7 +28,7 @@ class SpecialFeatureController extends Controller
             'short_name'=>'required',
             'type.required' => '選択してください。',
 
-        ]);      
+        ]);
 
         $feature = new special_feature;
         $feature->name=$request->name;
@@ -62,7 +60,7 @@ class SpecialFeatureController extends Controller
             'name' => 'required',
         ]);
         $feature = special_feature::find($id);
-        
+
         $feature->name = $request->name;
         $feature->short_name = $request->short_name;
         $feature->type = $request->type;

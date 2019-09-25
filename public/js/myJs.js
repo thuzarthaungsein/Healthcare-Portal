@@ -550,3 +550,9 @@ function new_link()
 
         }
     }
+ new Vue({
+     el:'.app',
+     method :{
+
+     }
+ })

@@ -36,17 +36,14 @@ class ProfilePublishController extends Controller
     public function getSpecialfeature(){
         $specialfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
         $array =explode(',',$specialfeature);
-        // return $array;
         $count = count($array);
 
-        for($i = 0;$i<$count ;$i++)
+        for($i = 0;$i<$count;$i++)
         {
+
             $special[] =special_feature::find($array[$i])->toArray();
         }
         return $special;
-
-
-
      }
 
     public function getcooperatemedical()

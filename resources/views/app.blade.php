@@ -721,9 +721,8 @@
 
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-
-
-
+<script src="{{ asset('js/vue.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/vue-scrollto.js') }}" type="text/javascript"></script>
 
 
 

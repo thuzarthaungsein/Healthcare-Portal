@@ -46,7 +46,16 @@ export default {
         .post("/api/facility/add", this.facility)
         .then(response => {
           this.description = "";
-          alert("Successfully Created");
+          this.$swal({
+              position: 'top-end',
+              type: 'success',
+              title: '作成されました',
+              showConfirmButton: false,
+              timer: 1800,
+              width: 250,
+              height: 200,
+          })
+          //alert("Successfully Created");
           this.$router.push({ name: "facilitieslist" });
         })
         .catch(error => {

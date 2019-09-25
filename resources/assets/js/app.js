@@ -21,8 +21,8 @@ import Autocomplete from 'vuejs-auto-complete';
 
 //start onepage
 import 'animate.css'
-// import 'fullpage.js/vendors/scrolloverflow'
-// import './fullpage.scrollHorizontally.min'
+import 'fullpage.js/vendors/scrolloverflow'
+//import './fullpage.scrollHorizontally.min'
 import 'fullpage-vue/src/fullpage.css'
 import VueFullpage from 'fullpage-vue'
 Vue.use(VueFullpage)
@@ -82,4 +82,14 @@ const app = new Vue({
     router: router,
     // render: h => h(App),
 
+});
+// const Vue = require('vue')
+// const VueScrollTo = require('vue-scrollto')
+// Vue.use(VueScrollTo)
+
+Vue.use(VueFullPage);
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
 });

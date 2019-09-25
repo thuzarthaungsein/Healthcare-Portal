@@ -67,7 +67,7 @@
                                     <li >{{hospital.details_info}}</li>
                                 </ul>
                             </div>
-                            <h5 class="header">Information from clinic</h5>
+                            <h5 class="header">Clinic Subject</h5>
                             <div class="row m-lr-0">
                                   <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
                                     <li >{{hospital.subject}}</li>
@@ -605,10 +605,11 @@ import joboffer from './JobOfferList.vue'
                 });
 
 
-                this.axios.get('/api/special').then(response => {
-
-                    this.features.short_name = response.data;
+               this.axios.get(`/api/special`).then(response => {
+                    this.features= response.data;
                 });
+
+
                 this.axios.get('/api/comments/comment').then(response => {
                     this.comments = response.data;
 
