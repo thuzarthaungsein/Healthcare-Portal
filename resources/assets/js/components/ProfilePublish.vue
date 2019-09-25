@@ -20,9 +20,10 @@
     
       <h1  >
          <div class="row ele" id="element1">            
-              <div class="row list-wrap m-lr-0">
+              
+              <div class="row list-wrap m-lr-0" style="background-color:transparent">
                   <div class="col-lg-3 col-md-4 col-sm-12">
-                      <p><strong>Information</strong></p>
+                      <p style="margin-top:50px;"><strong>Information</strong></p>
                   </div> 
               </div>
 
@@ -234,9 +235,7 @@
  
   color: #42b983;
 }
-div.ele, button {
- 
-}
+
 
 </style>
 
