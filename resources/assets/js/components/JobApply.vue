@@ -4,7 +4,7 @@
     <div class="col-md-7 offset-md-3 register_box" v-if="type == 'register'">
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="first_name"  ><strong>First Name : </strong>  </label>
+                <label for ="first_name"  ><img src="/images/require_field.gif" alt="必須" > <strong>お名前 : </strong>   </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="first_name" placeholder="トラスト　太郎" v-model="jobApply.first_name"  >
@@ -13,7 +13,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="last_name"><strong>Last Name : </strong>  </label>
+                <label for ="last_name"><img src="/images/require_field.gif" alt="必須" ><strong>お名前フリガナ : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name" >
@@ -22,7 +22,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="birthday"  ><strong>Birthday : </strong>  </label>
+                <label for ="birthday"  ><strong>生年月日 : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="birthday" v-model="jobApply.birthday"  >
@@ -30,7 +30,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="gender"  ><strong> Gender : </strong>   </label>
+                <label for ="gender"  ><strong> 性別 : </strong>   </label>
             </div>
             <div class="col-sm-9">
                 <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="0"  > Male </label>
@@ -39,7 +39,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="postal"  ><strong>Postal : </strong>  </label>
+                <label for ="postal"  > <img src="/images/require_field.gif" alt="必須" > <strong>郵便番号 : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal" v-on:keyup="getPostal" >
@@ -48,7 +48,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="str_address"  ><strong>Street Address : </strong>  </label>
+                <label for ="str_address"  ><strong>住所: </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="str_address" v-model="jobApply.str_address"  >
@@ -56,7 +56,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="home_address"  ><strong>Home Address : </strong>  </label>
+                <label for ="home_address"  ><strong>番地以下 : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="home_address" v-model="jobApply.home_address"  >
@@ -64,7 +64,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="phone"  ><strong>Phone : </strong>  </label>
+                <label for ="phone"  ><img src="/images/require_field.gif" alt="必須" ><strong>電話番号 : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="phone" v-model="jobApply.phone">
@@ -73,7 +73,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="email"  ><strong>Email : </strong>  </label>
+                <label for ="email"  ><img src="/images/require_field.gif" alt="必須" ><strong>メールアドレス : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="email" placeholder="user@email.com" v-model="jobApply.email">
@@ -82,7 +82,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="qualification"  ><strong>Qualification : </strong>  </label>
+                <label for ="qualification"  ><strong>保有資格 : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="qualification" v-model="jobApply.qualification"  >
@@ -90,13 +90,13 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="workable_day"  ><strong>Workable Days : </strong>  </label>
+                <label for ="workable_day"  ><strong>就業可能日数 </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="workable_day" v-model="jobApply.workable_day"  >
             </div>
         </div>
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <div class="col-sm-3 text-right">
                 <label for ="skill"  ><strong>Skill : </strong>  </label>
             </div>
@@ -111,20 +111,19 @@
             <div class="col-sm-9">
                 <textarea name="remark" class="form-control" cols="50" rows="5" v-model="jobApply.remark"></textarea>
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group row">
             <div class="col-sm-3 text-right">
-                <label for ="terms"  ><strong>Terms & Conditions : </strong>  </label>
+                <label for ="terms"  ><img src="/images/require_field.gif" alt="必須" ><strong>個人情報について : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <!-- <input type="text" class="form-control box" id="remark" v-model="jobApply.remark"  > -->
                 <label> <input type="checkbox" v-model="jobApply.terms"> Accept terms and conditions. </label>
                 <div v-if="errors.terms" class="text-danger">{{ errors.terms }}</div>
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn main-bg-color white all-btn" @click="checkValidate()">確認画面へ進む</button>
+            <button type="submit" :disabled='isDisabled' class="btn main-bg-color white all-btn" @click="checkValidate()">確認画面へ進む</button>
         </div>
         <br>
     </div>
@@ -301,6 +300,11 @@ export default {
                 .then(response => {
                     this.city_list = response.data;
                 });
+    },
+    computed: {
+        isDisabled: function(){
+            return !this.jobApply.terms;
+        }
     },
     methods: {
             getPostal: function(event) {
