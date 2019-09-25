@@ -1,7 +1,7 @@
 <template>
   <div class="search-map card-body">
     <div class="row" id="hos">
-      <div class="col-md-10">
+      <div class="col-md-12">
         <div class="row">
           <div class="info-box"></div>
           <div class="col-sm-11 map-wrap">
@@ -916,9 +916,9 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 p-l-0">
+      <!-- <div class="col-md-2 p-l-0">
         <asidebar></asidebar>
-      </div>
+      </div>-->
     </div>
     <input type="button" id="save_value" name="save_value" value="Save" />
   </div>

@@ -1,67 +1,57 @@
-import home from './components/home.vue';
-import Newsdetails from './components/Newsdetails.vue';
-import hospitalSearch from './components/hospitalSearch.vue';
-import JobApply from './components/JobApply.vue';
-import customerlist from './components/customerlist.vue';
-import JobSearchListComponent from './components/JobSearchListComponent.vue';
-import JobOfferComponent from './components/JobOfferComponent.vue';
-import job_details from './components/job_details.vue';
-import news_list from './components/news_list.vue';
-import create_news from './components/create_news.vue';
-import categorylist from './components/categorylist.vue';
-import createcategory from './components/createcategory.vue';
-import FacilitiesListComponent from './components/FacilitiesListComponent.vue';
-import CreateFacilityComponent from './components/CreateFacilityComponent.vue';
-import custedit from './components/custedit.vue';
-import CustomerSearchListComponent from './components/CustomerSearchListComponent.vue';
-import map from './components/map.vue';
-import EditFacilityComponent from './components/EditFacilityComponent.vue';
-import editcategory from './components/editcategory.vue';
-import createcustomer from './components/CreateCustomer.vue';
-import joboffercreate from './components/JobOfferCreate.vue';
-import editPost from './components/editNewsPost.vue';
-import Profile from './components/Profile.vue';
-<<<<<<< HEAD
-// import hosProfile from './components/hosProfile.vue';
-// import nusProfile from './components/nusProfile.vue';
-=======
->>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
-import JobOfferList from './components/JobOfferList.vue';
-import ProfilePublish from './components/ProfilePublish.vue';
-import advertisement from './components/advertisement.vue';
-import createmedicalacceptance from './components/createmedicalacceptance.vue';
-import medicalacceptancelist from './components/medicalacceptancelist.vue';
-import editmedicalacceptance from './components/editmedicalacceptance.vue';
-import userPasswordResetList from './components/userPasswordResetList.vue';
-import HospitalHistory from './components/HospitalHistory.vue';
-import favouriteHospital from './components/favouriteHospital.vue';
-import NursingHistory from './components/NursingHistory.vue';
-import HospitalProfile from './components/HospitalProfile.vue';
-import NursingProfile from './components/NursingProfile.vue';
-import VideoUpload from './components/VideoUpload.vue';
-import GoogleMap from './components/GoogleMap.vue';
-import type from './components/Type.vue';
-import typelist from './components/TypeList.vue';
-import advertisementlist from './components/advertisementlist.vue';
-import editadvertisement from './components/editadvertisement.vue';
-import comment from './components/Comment.vue';
-import commentlist from './components/commentlist.vue';
-import featurelist from './components/FeatureList.vue';
-import favouriteNursing from './components/favouriteNursing.vue';
-import passport from './components/passport.vue';
-import specialfeature from './components/CreateSpecialFeature.vue';
-import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
-import nursingMailConfirm from './components/nursingMailConfirm.vue';
+import home from "./components/home.vue";
+import Newsdetails from "./components/Newsdetails.vue";
+import hospitalSearch from "./components/hospitalSearch.vue";
+import JobApply from "./components/JobApply.vue";
+import customerlist from "./components/customerlist.vue";
+import JobSearchListComponent from "./components/JobSearchListComponent.vue";
+import JobOfferComponent from "./components/JobOfferComponent.vue";
+import job_details from "./components/job_details.vue";
+import news_list from "./components/news_list.vue";
+import create_news from "./components/create_news.vue";
+import categorylist from "./components/categorylist.vue";
+import createcategory from "./components/createcategory.vue";
+import FacilitiesListComponent from "./components/FacilitiesListComponent.vue";
+import CreateFacilityComponent from "./components/CreateFacilityComponent.vue";
+import custedit from "./components/custedit.vue";
+import CustomerSearchListComponent from "./components/CustomerSearchListComponent.vue";
+import map from "./components/map.vue";
+import EditFacilityComponent from "./components/EditFacilityComponent.vue";
+import editcategory from "./components/editcategory.vue";
+import createcustomer from "./components/CreateCustomer.vue";
+import joboffercreate from "./components/JobOfferCreate.vue";
+import editPost from "./components/editNewsPost.vue";
+import Profile from "./components/Profile.vue";
+import JobOfferList from "./components/JobOfferList.vue";
+import ProfilePublish from "./components/ProfilePublish.vue";
+import advertisement from "./components/advertisement.vue";
+import createmedicalacceptance from "./components/createmedicalacceptance.vue";
+import medicalacceptancelist from "./components/medicalacceptancelist.vue";
+import editmedicalacceptance from "./components/editmedicalacceptance.vue";
+import userPasswordResetList from "./components/userPasswordResetList.vue";
+import HospitalHistory from "./components/HospitalHistory.vue";
+import favouriteHospital from "./components/favouriteHospital.vue";
+import NursingHistory from "./components/NursingHistory.vue";
+import HospitalProfile from "./components/HospitalProfile.vue";
+import NursingProfile from "./components/NursingProfile.vue";
+import VideoUpload from "./components/VideoUpload.vue";
+import GoogleMap from "./components/GoogleMap.vue";
+import type from "./components/Type.vue";
+import typelist from "./components/TypeList.vue";
+import advertisementlist from "./components/advertisementlist.vue";
+import editadvertisement from "./components/editadvertisement.vue";
+import comment from "./components/Comment.vue";
+import commentlist from "./components/commentlist.vue";
+import featurelist from "./components/FeatureList.vue";
+import favouriteNursing from "./components/favouriteNursing.vue";
+import passport from "./components/passport.vue";
+import specialfeature from "./components/CreateSpecialFeature.vue";
+import nursingFavouriteMail from "./components/nursingFavouriteMail.vue";
+import nursingMailConfirm from "./components/nursingMailConfirm.vue";
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
-import modal from './components/modal.vue';
-<<<<<<< HEAD
+import modal from "./components/modal.vue";
 export const routes = [{
-=======
-export const routes = [
-    {
->>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
-        name: 'home',
-        path: '/',
+        name: "home",
+        path: "/",
         component: home
     },
     {
@@ -167,28 +157,11 @@ export const routes = [
         component: createcustomer
     },
     {
-<<<<<<< HEAD
-        name: "joboffercreate",
-        path: "/joboffercreate",
-        component: joboffercreate
-    },
-    // {
-    //   name: 'hos_profile',
-    //   path: '/hos_profile',
-    //   component: hosProfile
-    // },
-    // {
-    //   name: 'nus_profile',
-    //   path: '/nus_profile',
-    //   component: nusProfile
-    // },
-=======
-      name: 'profile',
-      path: '/profile',
-      component: Profile
+        name: "profile",
+        path: "/profile",
+        component: Profile
     },
 
->>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
     {
         name: "jobofferlist",
         path: "/jobofferlist",
@@ -264,132 +237,63 @@ export const routes = [
         component: editadvertisement
     },
     {
-<<<<<<< HEAD
-        name: 'nursing_history',
-        path: '/nursing_history',
+        name: "nursing_history",
+        path: "/nursing_history",
         component: NursingHistory
     },
     {
-        name: 'google_map',
-        path: '/google_map',
+        name: "google_map",
+        path: "/google_map",
         component: GoogleMap
     },
     {
-        name: 'hospital_profile',
-        path: '/hospital_profile',
+        name: "hospital_profile",
+        path: "/hospital_profile",
         component: HospitalProfile
     },
     {
-        name: 'nursing_profile',
-        path: '/nursing_profile',
+        name: "nursing_profile",
+        path: "/nursing_profile",
         component: NursingProfile
     },
     {
-        name: 'videoupload',
-        path: '/videoupload',
+        name: "videoupload",
+        path: "/videoupload",
         component: VideoUpload
     },
     {
-        name: 'comment',
-        path: '/comment',
+        name: "comment",
+        path: "/comment",
         component: comment
     },
     {
-        name: 'commentlist',
-        path: '/commentlist',
+        name: "commentlist",
+        path: "/commentlist",
         component: commentlist
     },
     {
-        name: 'specialfeature',
-        path: '/specialfeature',
+        name: "specialfeature",
+        path: "/specialfeature",
         component: specialfeature
     },
     {
-        name: 'featurelist',
-        path: '/featurelist',
+        name: "featurelist",
+        path: "/featurelist",
         component: featurelist
     },
     {
-        name: 'nursingFavouriteMail',
-        path: '/nursingFavouriteMail',
+        name: "nursingFavouriteMail",
+        path: "/nursingFavouriteMail",
         component: nursingFavouriteMail
     },
     {
-        name: 'nursingMailConfirm',
-        path: '/nursingMailConfirm',
+        name: "nursingMailConfirm",
+        path: "/nursingMailConfirm",
         component: nursingMailConfirm
     },
     {
-        name: 'modal',
-        path: '/modal',
+        name: "modal",
+        path: "/modal",
         component: modal
-    },
-
-
-
+    }
 ];
-=======
-      name: 'nursing_history',
-      path: '/nursing_history',
-      component: NursingHistory
-    },
-    {
-      name: 'google_map',
-      path: '/google_map',
-      component: GoogleMap
-    },
-    {
-      name: 'hospital_profile',
-      path: '/hospital_profile',
-      component: HospitalProfile
-     },
-    {
-      name: 'nursing_profile',
-      path: '/nursing_profile',
-      component: NursingProfile
-     },
-  {
-    name: 'videoupload',
-    path: '/videoupload',
-    component: VideoUpload
-  },
-  {
-    name: 'comment',
-    path: '/comment',
-    component: comment
-  },
-  {
-    name: 'commentlist',
-    path: '/commentlist',
-    component: commentlist
-  },
-  {
-    name: 'specialfeature',
-    path: '/specialfeature',
-    component: specialfeature
-  },
-  {
-    name: 'featurelist',
-    path: '/featurelist',
-    component: featurelist
-  },
-  {
-    name: 'nursingFavouriteMail',
-    path: '/nursingFavouriteMail',
-    component: nursingFavouriteMail
-  },
-  {
-    name: 'nursingMailConfirm',
-    path: '/nursingMailConfirm',
-    component: nursingMailConfirm
-  },
-  {
-    name: 'modal',
-    path: '/modal',
-    component: modal
-  },
-
-
-
-];
->>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8

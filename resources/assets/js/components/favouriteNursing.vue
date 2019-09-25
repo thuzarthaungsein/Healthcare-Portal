@@ -1,124 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="row">
-    <div class="col-12">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="../index.html">ホーム</a>
-          </li>
-
-          <li class="breadcrumb-item">
-            <a href="../news/news_details.html">新しい詳細</a>
-          </li>
-
-          <li class="breadcrumb-item active" aria-current="page">就職活動リスト</li>
-        </ol>
-      </nav>
-    </div>
-
-    <form class="col-md-12">
-      <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
-        <input type="checkbox" class="select_all" />
-
-        <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる
-      </label>
-
-      <div
-        v-for="nur_profile in fav_nursing"
-        :key="nur_profile.id"
-        class="card card-default m-b-20 scrolldiv m-t-20"
-      >
-        <div class="card-body news-post">
-          <div class="row">
-            <div class="col-md-3">
-              <img class="col-md-12" v-bind:src="'/images/' + nur_profile.logo" alt style />
-
-              <button
-                class="btn btn-danger all-btn"
-                @click="removeFav(nur_profile.customer_id)"
-                style="margin-top: 10px;margin-left: 15px;display:block;align:center;width: 200px;"
-              >最近見た施設から削除</button>
-
-              <br />
-
-              <label class="btn news-post-btn all-btn">
-                <!-- <input type="checkbox" class="checkbox" id="rcheck" value="reservation" name="reservation" v-model="mailStatus.rchecked"> -->
-
-                <input
-                  type="checkbox"
-                  class="checkbox"
-                  value="reservation"
-                  name="reservation"
-                  v-model="reserv_status[nur_profile.id]"
-                />
-
-                <span class="checkmark"></span>見学予約
-              </label>
-
-              <br />
-
-              <br />
-
-              <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary m-l-17">
-                <input
-                  type="checkbox"
-                  class="checkbox"
-                  value="documentation"
-                  name="documentation"
-                  v-model="decument_status[nur_profile.id]"
-                />
-
-                <span class="checkmark"></span>資料請求
-              </label>
-            </div>
-
-            <div class="col-md-5">
-              <div class="pad-free mb-2">
-                <h4>
-                  <a href="#">{{nur_profile.name}}</a>
-                </h4>
-
-                <strong>Website :</strong>
-                <a href>{{nur_profile.website}}</a>
-
-                <br />
-
-                <a>
-                  <strong>Phone :</strong>
-                  {{nur_profile.phone}}
-                </a>
-
-                <br />
-
-                <a>
-                  <strong>Access :</strong>
-                  {{nur_profile.access}}
-                </a>
-
-                <br />
-
-                <a>
-                  <strong>Email :</strong>
-                  {{nur_profile.email}}
-                </a>
-
-                <br />
-
-                <a>
-                  <strong>Occupancy Condition :</strong>
-                  {{nur_profile.occupancy_condition}}
-                </a>
-
-                <br />
-
-                <a>
-                  <strong>Location :</strong>
-                  {{nur_profile.township_name}}, {{nur_profile.city_name}}
-                </a>
-
-                <br />
-=======
   <div class="row m-0">
     <div class="col-12 scrolldiv2 pb-5">
       <form @submit.prevent="add" class="col-md-12">
@@ -280,7 +160,6 @@
                   </a>
                   <br />
                 </div>-->
->>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
               </div>
             </div>
 
@@ -297,16 +176,9 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-      </div>
-
-      <span class="btn btn-success m-l-35" @click="addingMail()">この内容で送信</span>
-    </form>
-=======
         <span class="btn btn-success mt-5 float-right" @click="addingMail()">この内容で送信</span>
       </form>
     </div>
->>>>>>> 9ed2b6d3bf74625af800c450b6fd1faa264c53e8
   </div>
 </template>
 
