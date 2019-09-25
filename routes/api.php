@@ -227,13 +227,10 @@ Route::group(['prefix' => 'nurse'], function () {
 Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
-<<<<<<< HEAD
 Route::get('nurse','ProfilePublishController@index');
 Route::get('cost','ProfilePublishController@show');
 Route::get('hospital','ProfilePublishController@hospital');
 Route::get('special','ProfilePublishController@getSpecialfeature');
-=======
->>>>>>> acbe23369ab2edcefbaea1433c06364da07b25cd
 // Route::group(['prefix' => 'new'], function () {
 //     Route::post('add', 'PostController@add');
 //     Route::get('editPost/{id}', 'PostController@edit');

@@ -549,7 +549,6 @@ function new_link()
             isDivThere ++;
 
         }
-<<<<<<< HEAD
     }
  new Vue({
      el:'.app',
@@ -557,6 +556,3 @@ function new_link()
 
      }
  })
-=======
-    }
->>>>>>> acbe23369ab2edcefbaea1433c06364da07b25cd

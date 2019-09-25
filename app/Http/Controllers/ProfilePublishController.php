@@ -20,18 +20,10 @@ class ProfilePublishController extends Controller
      */
     public function index()
     {
+
         //$nurse = NursingProfile::all()->toArray();
-         $feature = NursingProfile::select('feature')->where('id',1)->get();
-        $facility = NursingProfile::where('customer_id',5)->get();
-        $comedical = Cooperate_Medical::all()->toArray();
-        $medical = Medical::select('name')->where('id',1)->get();
-        $staff = Staff::where('id',1)->get();
-        $nurselatlong = NursingProfile::where('id',1)->get();
-        $hoslatlong = HospitalProfile::where('id',1)->get();
-        $hospital = HospitalProfile::where('id',4)->get();
-        $cost =method_payment::where('id',1)->get();
-        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medical"=>$medical,"staff"=>$staff,"nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost));
-        // return $feature;
+        $feature = NursingProfile::select('feature')->where('id',1)->get();
+        return $feature;
 
     }
 
