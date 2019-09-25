@@ -88,13 +88,15 @@
                                     <div class="form-group">
                                         <label>お名前:<span class="error">*</span></label>
                                         <!-- <input type="text" class="form-control" placeholder="お名前を入力してください。"> -->
-                                        <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" required v-model="comments.name" @change="someHandler"/>
+                                        <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" v-model="comments.name" @change="someHandler"/>
+                                        <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                                         <br />
                                     </div>
 
                                     <div class="form-group">
                                         <label>ふりがな:<span class="error">*</span></label>
-                                        <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="someHandler" required/>
+                                        <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="someHandler"/>
+                                        <span v-if="errors.furigana" class="error">{{errors.furigana[0]}}</span>
                                     </div>
 
                                     <div class="row">
@@ -102,7 +104,8 @@
                                             <label>ご住所:<span class="error">*</span></label>
                                             <br>
                                             <label>郵便番号:<span class="error">*</span></label>
-                                            <input type="text" v-model="comments.postal" name="postal" class="postal form-control" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="someHandler" required>
+                                            <input type="text" v-model="comments.postal" name="postal" class="postal form-control" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="someHandler"/>
+                                            <span v-if="errors.postal" class="error">{{errors.postal[0]}}</span>
                                             <div id="jsErrorMessage"></div>
                                             <br>
 
@@ -113,6 +116,7 @@
                                                     {{cities.city_name}}
                                                 </option>
                                             </select>
+                                            <span v-if="errors.division" class="error">{{errors.division[0]}}</span>
                                         </div>
                                         <br>
 
@@ -134,7 +138,8 @@
 
                                     <div class="form-group">
                                         <label>市区町村、番地（建物名）:<span class="error">*</span></label>
-                                        <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" required v-model="comments.city" @change="someHandler">
+                                        <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="comments.city" @change="someHandler">
+                                        <span v-if="errors.city" class="error">{{errors.city[0]}}</span>
                                         <!-- <input type="text" class="form-control" id="city" placeholder="市区町村、番地を入力してください。" v-model="zipStreet"> -->
                                         <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>
                                     </div>
@@ -142,7 +147,8 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label>電話番号:<span class="error">*</span></label>
-                                            <input type="text" id="phone" name="phone" class="form-control" placeholder="電話番号を入力してください。" required v-model="comments.phone" @change="someHandler">
+                                            <input type="text" id="phone" name="phone" class="form-control" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="someHandler">
+                                            <span v-if="errors.phone" class="error">{{errors.phone[0]}}</span>
                                             <br>
 
                                         </div>
@@ -162,7 +168,8 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label>メールアドレス:<span class="error">*</span></label>
-                                            <input type="text" id="mail" name="mail" class="form-control" placeholder="メールアドレスを入力してください。" required v-model="comments.mail" @change="someHandler">
+                                            <input type="text" id="mail" name="mail" class="form-control" placeholder="メールアドレスを入力してください。" v-model="comments.mail" @change="someHandler">
+                                            <span v-if="errors.mail" class="error">{{errors.mail[0]}}</span>
                                             <br>
                                         </div>
 
@@ -180,11 +187,11 @@
 
                                     <div class="form-group">
                                         <label>プレゼントのご希望:<span class="error">*</span></label>
-                                        <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" required v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
+                                        <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
                                     </div>
 
                                     <!-- <input type="submit" id="submit1" disabled="disabled"  @click="add()" class="submit1 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/> -->
-                                    <button class="submit1 btn btn-primary continue m-l-15 m-t-15" @click="add()" disabled>同意して進む</button>
+                                    <button type="submit" class="submit1 btn btn-primary continue m-l-15 m-t-15" @click="add()" disabled>同意して進む</button>
                                     <!-- <input type="button" id="btnQueryString" value="Send" class="m-t-30"/><br> -->
 
                                     <!--next_form-->
@@ -337,7 +344,7 @@
                                         <label>ご要望や、お困りごと、その他お問い合わせ:<span class="error">*</span></label>
                                         <textarea name="hope" id="hope" cols="30" rows="10"  v-model="comments.hope"></textarea>
                                     </div>
-                                    <button class="submit2 btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</button>
+                                    <button type="submit" class="submit2 btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</button>
                                     <!-- <input type="submit" id="submit2" disabled="disabled"  @click="add()" class="submit2 btn btn-primary continue m-l-15 m-t-15" value="同意して進む"/> -->
                                 </form>
                             </div>
@@ -371,6 +378,7 @@
                     desire: '',
                     hope: '',
                     fav_mail: [{}],
+                    fav_id: [{}],
                     arr_reserve: [{}],
                     arr_document: [{}],
                     selectedValue: 0,
@@ -403,7 +411,7 @@
                 .then(response => {
                     this.city_list = response.data;
                 });
-            if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
+            if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != ''){
                     $('.submit1').prop('disabled', false);
                     $('.submit2').prop('disabled', false);
                     console.log('true',this.comments)
@@ -446,6 +454,7 @@
                 this.documentation = JSON.parse(localStorage.getItem("document"));
                 for (var i = 0; i < this.all_mail.length; i++) {
                     this.comments.fav_mail.push(this.all_mail[i].email);
+                    this.comments.fav_id.push(this.all_mail[i].id);
                 }
                 this.comments.arr_reserve = this.reservation;
                 this.comments.arr_document = this.documentation;

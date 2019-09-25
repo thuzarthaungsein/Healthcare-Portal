@@ -202,23 +202,16 @@
                     desire: '',
                     hope: '',
                     fav_mail: [{}],
+                    fav_id: [{}],
                     arr_reserve: [{}],
                     arr_document: [{}],
-                    selectedValue: 0,
-                    reserve_test: '',
-                    document_test: ''
+                    selectedValue: 0
                 },
                 errors: [],
                 fav_nursing: [],
                 local_sto: '',
                 post_list: [],
-                city_list: [],
-                post: '',
-                selectedCity: '',
-                zipStreet: '',
-                zipPref: '',
-                all_fav: [],
-                all_mail: []
+                city_list: []
             }
         },
         created() {

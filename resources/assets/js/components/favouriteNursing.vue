@@ -17,7 +17,7 @@
                     </nav>
                     <div class="select_all">
                         <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
-                            <input type="checkbox" />
+                            <input type="checkbox" @change="checkAll()" class="check-all-btn"/>
                             <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる
                         </button>
                     </div>
@@ -41,7 +41,7 @@
                                     <div class="col-6">
                                         <label class="btn news-post-btn all-btn hos-btn">
                                             <!-- <input type="checkbox" class="checkbox" id="rcheck" value="reservation" name="reservation" v-model="mailStatus.rchecked"> -->
-                                            <input type="checkbox" class="checkbox" value="reservation" name="reservation" v-model="reserv_status[nur_profile.id]" />
+                                            <input type="checkbox" class="checkbox"  name="reservation"  v-model="reserv_status[nur_profile.id]" />
                                             <span class="checkmark"></span>見学予約
                                         </label>
                                     </div>
@@ -233,7 +233,8 @@
                     for (var i = 0; i < this.fav_nursing.length; i++) {
                         this.fav_email.push({
                             'id': this.fav_nursing[i]['id'],
-                            'email': this.fav_nursing[i]['email']
+                            'email': this.fav_nursing[i]['email'],
+                            'reserve': this.reserv_status,
                         });
                     }
                     // console.log('reserv', this.reserv_status)
@@ -251,6 +252,17 @@
                     });
 
                 },
+                checkAll (){
+                    this.reserv_status[1] = true;
+                    console.log(this.reserv_status[1]);
+
+                    if($('.check-all-btn').is(":checked")){
+                        $('#cb').prop("checked",true);
+                    }
+                    else{
+                        $('#cb').prop("checked",false);
+                    }
+                }
             }
     };
 </script>
