@@ -1,4 +1,3 @@
-
 var timeout;
 $(".path").hover(
   function() {
@@ -359,12 +358,13 @@ $(function() {
         }
         else {
             $(this).addClass('opened');
-            $('.showContent').css("display", "none");
+             $('.showContent').css("display", "none");
             $('.readMore').css("display", "none");
             $(this).parent().find('.displaytext').slideToggle('fast');
 
         }
     });
+
      /* end nurse profile*/
 
 /*select check

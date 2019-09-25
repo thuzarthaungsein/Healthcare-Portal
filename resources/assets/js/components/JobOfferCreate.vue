@@ -98,7 +98,7 @@
                                         <div class="form-group row" v-for="emstatus in joboffer.employment_status" :key="emstatus.id" >
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="neareststation" ><strong> Employment Status :</strong>  </label>
-                                                </div>
+                                                </div>   
                                                 <div class="col-sm-9" >
                                                     <label> <input type = "checkbox" id = "pcheck" value = "Part" name = "part_time" v-model="emstatus.pchecked" > <strong>Part Time </strong></label>
                                                     <label> <input type = "checkbox" id = "fcheck" value= "Full" name = "full_time" v-model="emstatus.fchecked" ><strong> Full Time </strong> </label>
