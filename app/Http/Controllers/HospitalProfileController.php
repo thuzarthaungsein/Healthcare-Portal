@@ -71,17 +71,6 @@ class HospitalProfileController extends Controller
         $selectedCity = DB::select($query);
         return $selectedCity;
     }
-
-    public function getGallery($cutomer_id) {
-        $img_list = HospitalProfile::join('gallery', 'hospital_profiles.customer_id', '=', 'gallery.customer_id')
-                        ->selectRaw('gallery.title as title')
-                        ->selectRaw('gallery.description as description')
-                        ->selectRaw('gallery.photo as photo')
-                        ->get()
-                        ->toArray();
-        return $img_list;
-    }
-
     /**
      * Show the form for creating a new resource.
      *

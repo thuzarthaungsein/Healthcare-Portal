@@ -166,9 +166,18 @@
 
                     <div class="form-group">
                         <label class="heading-lbl">こだわりの特長<span class="error">*</span></label>
-                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
+                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down"></i></span>
 
-                        <div class="col-md-12" id="special-features"></div>
+                        <div class="col-md-12 special-feature-toggle-div toggle-div">
+                                <div class="row">
+                                        <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
+                                                 <label>
+                                                        <input type="checkbox"  name="special-features" :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
+                                                                {{feat.name}}
+                                                </label>
+                                        </div>
+                                </div>                                        
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -243,10 +252,17 @@ export default {
                         fac_list: [],
                         img_arr:[],img_list:[], 
                         video_arr:[], video_list:[],
-                        id : 1, // test_id
+                        feature_list:[],
+                        profile_type:'hospital',id : 1, // test_id
                 }
         },
         created(){
+                this.axios
+                .get('/api/customersinfo')
+                .then(response=>{
+                this.fac_list = response.data;
+                });
+
                 this.axios
                 .get('/api/facilities')
                 .then(response=>{
@@ -254,9 +270,22 @@ export default {
                 });
 
                 this.axios
-                .get('/api/hospital-photo/'+this.id)
+                .get('/api/hospital-pgallery/'+this.id)
                 .then(response=>{
                         this.img_arr = response.data;
+                });
+
+                this.axios
+                .get('/api/hospital-vgallery/'+this.id)
+                .then(response=>{
+                        this.video_arr = response.data;
+                });
+
+                this.axios
+                .get('/api/feature/'+this.profile_type+'/'+this.id)
+                .then(response=>{
+                        console.log(response.data);
+                        this.feature_list = response.data;
                 });
         },
         methods: {
@@ -275,6 +304,9 @@ export default {
 
             preview_image(img_class) {
                    $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+            },
+            featureCheck(check_id) {
+                    $('.feature-'+check_id).attr('checked','true');
             },
             DeltArr(indx,type) {
                     var arr_list = [];
@@ -310,7 +342,7 @@ export default {
             },
             
             specialFeAdd() {
-                $("#special-features").append('<div class="row m-t-15"><div class="col-md-10"><input type="text" class="form-control" name="specialfeature[]"></div><div class="col-md-2"><span class="btn text-danger delete-borderbtn">Delete</span></div></div>');
+                     $(".special-feature-toggle-div").toggle('medium');
             },
             Create_Profile () {
                     this.img_list = [];
@@ -326,7 +358,13 @@ export default {
                         for(var i = 0; i< video.length; i++) {
                            this.video_list.push({url:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                         }
-                        console.log(this.video_list);return;
+                        console.log(this.video_list);
+
+                     var chek_feature = [];
+                        $.each($("input[name='special-features']:checked"), function(){ 
+                                chek_feature.push({ feature: $(this).val()});
+                        });
+                        console.log(chek_feature);return;
             }
 
         }
