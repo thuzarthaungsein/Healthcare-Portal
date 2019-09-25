@@ -7,7 +7,7 @@
                 <label for ="first_name"  ><strong>First Name : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="first_name" placeholder="トラスト　太郎" v-model="jobApply.first_name" @change="checkValidate" >
+                <input type="text" class="form-control box" id="first_name" placeholder="トラスト　太郎" v-model="jobApply.first_name"  >
                 <div v-if="errors.first_name" class="text-danger">{{ errors.first_name }}</div>
             </div>    
         </div>
@@ -16,7 +16,7 @@
                 <label for ="last_name"><strong>Last Name : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name" @change="checkValidate" >
+                <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name" >
                 <div v-if="errors.last_name" class="text-danger">{{ errors.last_name }}</div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <label for ="postal"  ><strong>Postal : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal" @change="checkValidate" v-on:keyup="getPostal" >
+                <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal" v-on:keyup="getPostal" >
                 <div v-if="errors.postal" class="text-danger">{{ errors.postal }}</div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                 <label for ="phone"  ><strong>Phone : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" @change="checkValidate" >
+                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone">
                 <div v-if="errors.phone" class="text-danger">{{ errors.phone }}</div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                 <label for ="email"  ><strong>Email : </strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="email" placeholder="user@email.com" v-model="jobApply.email" @change="checkValidate" >
+                <input type="text" class="form-control box" id="email" placeholder="user@email.com" v-model="jobApply.email">
                 <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
             </div>
         </div>
@@ -119,12 +119,12 @@
             </div>
             <div class="col-sm-9">
                 <!-- <input type="text" class="form-control box" id="remark" v-model="jobApply.remark"  > -->
-                <label> <input type="checkbox" v-model="jobApply.terms" @change="checkValidate"> Accept terms and conditions. </label>
+                <label> <input type="checkbox" v-model="jobApply.terms"> Accept terms and conditions. </label>
                 <div v-if="errors.terms" class="text-danger">{{ errors.terms }}</div>
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn main-bg-color white all-btn" @click="showConfirm()">確認画面へ進む</button>
+            <button type="submit" class="btn main-bg-color white all-btn" @click="checkValidate()">確認画面へ進む</button>
         </div>
         <br>
     </div>
@@ -382,11 +382,6 @@ export default {
                     this.errors.terms = "ニュースの題名が必須です。";
                 }
                 if(!this.errors.first_name && !this.errors.first_name && !this.errors.postal && !this.errors.phone && !this.errors.email && !this.errors.terms) {
-                    return true;
-                }
-            },
-            showConfirm() {
-                if(this.checkValidate()) {
                     this.type = 'confirm';
                 }
             },
