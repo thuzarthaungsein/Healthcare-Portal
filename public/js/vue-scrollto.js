@@ -216,7 +216,7 @@ var defaults$$1 = {
     container: "body",
     duration: 500,
     easing: "ease",
-    offset: -280,
+    offset: -250,
     cancelable: true,
     onDone: false,
     onCancel: false,
