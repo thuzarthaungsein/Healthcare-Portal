@@ -10,25 +10,20 @@
         </ol>
       </nav>
       <div class="scroll col-12">
-        <div
-          v-if="!this.jobs.length"
-          class="card card-default m-b-20"
-          style="padding-top:90px; height:550px; text-align:center "
-        >
-          <p
-            style="border:1px solid #f3bba1;width:80px;height:80px;border-radius:50%;text-align:center;margin:0 auto 10px; line-height:80px;vertical-align:middle; "
-          >
-            <i class="fa fa-exclamation" style="font-size:28px;color:#f9793c;"></i>
+        <div v-if="!this.jobs.length" class="card card-default m-b-20 card-wrap">
+          <p class="record-ico">
+            <i class="fa fa-exclamation"></i>
           </p>
           <p>OOPS!!</p>
-          <p style="font-size:30px;color:#69C1A8;font-weight:bold;margin:20px 0;">
+          <!-- <p style="font-size:30px;color:#69C1A8;font-weight:bold;margin:20px 0;">
             <span style="font-size:50px;">NO</span>
             <span style="color:#769BD0;">RECORD</span> DATA
-          </p>
-          <p>表示するデータありません‼新しいデータを作成してください。</p>         
-          <router-link to= '/joboffercreate' class="float-right main-bg-color create-btn all-btn" style="width: 16%;margin: 30px auto;">
-          <i class="fas fa-plus-circle"></i> 新しいデータ作成
-          </router-link>
+          </p>-->
+          <p class="record-txt01">表示するデータありません</p>
+          <p>表示するデータありません‼新しいデータを作成してください。</p>
+          <a href="/joboffercreate" class="main-bg-color create-btn all-btn">
+            <i class="fas fa-plus-circle"></i> 新しいデータ作成
+          </a>
         </div>
 
         <div v-else v-for="job in jobs" :key="job.id" class="card card-default m-b-20">
