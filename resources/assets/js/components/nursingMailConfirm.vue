@@ -203,6 +203,7 @@
                     hope: '',
                     fav_mail: [{}],
                     fav_id: [{}],
+                    fav_name: [{}],
                     arr_reserve: [{}],
                     arr_document: [{}],
                     selectedValue: 0
@@ -246,7 +247,8 @@
                         })
                     localStorage.removeItem("item");
                     localStorage.removeItem("inputValue");
-                    console.log('confirm',this.comments.fav_mail)
+                    localStorage.removeItem("reserve");
+                    localStorage.removeItem("document");
                 },
                 // back() {
                 //     this.$router.push({

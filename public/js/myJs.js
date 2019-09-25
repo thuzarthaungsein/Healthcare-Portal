@@ -22,41 +22,6 @@ $(".path").hover(
       },1000);
 });
 
-  // $('.postal').on('keyup',function(e){
-
-  //   if($('#postal').val().length > 4){
-  //     var url = "/api/hospital/postList";
-  //     var postal = $('#postal').val();
-  //     $.ajax({
-  //       type:'post',
-  //         data:{"postal":postal},
-  //         url:url,
-  //         success: function (data) {
-  //           var length = data.length;
-  //           if(length>0){
-  //             var pref = data[0]['city_Id'];
-  //             var htmlSelectBox = '';
-  //             if(data[0]['street']==''){
-  //               $("#city").val(data[0]['city']);
-  //             }else{
-  //               $("#city").val(data[0]['city'] + ' - ' + data[0]['street']);
-  //             }
-  //             $('.division').val(pref);
-  //             $('#jsErrorMessage').html('');
-  //           }else{
-  //             $("#city").val('');
-  //             $("#division").val('0');
-  //             $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
-  //           }
-  //         },
-  //         error: function (error) {
-  //           alert("Ajax Error!");
-  //           console.log('Error:', error);
-  //         }
-  //     });
-  //   }
-  //  });
-
   $(".path").mouseout(function(){
     $('.'+$(this).data('info')).css({
       'background':'transparent',
@@ -338,8 +303,6 @@ $('#save_value').click(function(){
 //       $('[href="#output"]').trigger('click');
 //     });
 //   });
-
-
     $(".checkbox").on("click", function() {
         if ($(".checkbox:checked").length == $(".checkbox").length) {
             $(".select_all").prop("checked", true);
@@ -550,3 +513,11 @@ function new_link()
 
         }
     }
+    $('input[name="number"]').keyup(function(e)
+  {
+  if (/\D/g.test(this.value))
+  {
+    // Filter non-digits from input value.
+    this.value = this.value.replace(/\D/g, '');
+  }
+});
