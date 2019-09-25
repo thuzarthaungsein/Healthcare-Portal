@@ -153,7 +153,7 @@
                         fData.append('category_id', this.news.category_id)
                         fData.append('related_news', this.checkedNews)
 
-                        axios.post(`/api/new/update/${this.$route.params.id}`, fData)
+                        this.axios.post(`/api/new/update/${this.$route.params.id}`, fData)
                          this.$swal({
                             position: 'top-end',
                             type: 'success',

@@ -20,7 +20,8 @@
               :position="m.position"
               :clickable="true"
               :draggable="true"
-              
+              @click="center=m.position"
+              @dragend="updateCoordinates"
             />
           </GmapMap>
 

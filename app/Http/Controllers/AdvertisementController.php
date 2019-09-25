@@ -48,18 +48,22 @@ class AdvertisementController extends Controller
          ]);
 
         $imageName = $request->photo->getClientOriginalName();
-        $request->photo->move(public_path('upload/advertisement'), $imageName);
-        $ads = new Advertisement;
-        $ads->title=$request->title;
-        $ads->description=$request->description;
-        $ads->link=$request->link;
-        $ads->location=$request->location;
-        $ads->photo=$request->photo->getClientOriginalName();
-        $ads->user_id=1;
-        $ads->recordstatus=2;
+        $imgname = str_replace(' ', '', $imageName);
+        // move_uploaded_file($imageName, '/upload/advertisement/'.$imageName);
+        
+        $ads = new Advertisement();
+        $ads->title = $request->input('title');
+        $ads->description = $request->input('description');
+        $ads->link=$request->input('link');
+        $ads->location=$request->input('location');
+        $ads->photo = $imgname;
+        $ads->user_id = 1;
+
          $ads ->save();
+
+         $request->photo->move('upload/advertisement/', $imgname);
          //return $ads;
-         return response()->json('Successfully ');
+         return response()->json('Success ');
 
     }
 
@@ -100,7 +104,9 @@ class AdvertisementController extends Controller
     {
         if(is_object($request->photo)) {
             $imageName = $request->photo->getClientOriginalName();
-            $request->photo->move(public_path('/upload/advertisement'), $imageName);
+            $imageName = str_replace(' ', '', $imageName);
+            // $request->photo->move(public_path('/upload/advertisement'), $imageName);
+            $request->photo->move('upload/advertisement/', $imageName);
         } else {
             $imageName = $request->photo;
         }
@@ -116,7 +122,8 @@ class AdvertisementController extends Controller
           $ads = Advertisement::find($id);
           if(is_object($request->photo)) {
             $file= $ads->photo;
-           $filename = public_path().'/upload/advertisement/'.$file;
+           $filename = '/upload/advertisement/'.$file;
+        //    $filename = public_path().'/upload/advertisement/'.$file;
            \File::delete($filename);
           }
           $err = $ads->update($uploadData);
@@ -134,7 +141,7 @@ class AdvertisementController extends Controller
         //
         $ads = Advertisement::find($id);
         $file= $ads->photo;
-        $filename = public_path().'/upload/advertisement/'.$file;
+        $filename = '/upload/advertisement/'.$file;
         \File::delete($filename);
         $ads->delete();
         return response()->json('The successfully deleted');

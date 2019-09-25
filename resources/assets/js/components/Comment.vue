@@ -177,7 +177,7 @@ export default {
          methods: {
             add() {
 
-                  axios.post('/api/comments/add', this.comments)
+                  this.axios.post('/api/comments/add', this.comments)
                     .then((response) => {   
                     alert('Mail Sent Successfully !') 
 

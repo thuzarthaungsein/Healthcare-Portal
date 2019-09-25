@@ -240,14 +240,15 @@
         },
         methods: {
             add() {
-                    axios.post('/api/nurse/add', this.comments)
-                        .then((response) => {
-                            alert('Mail Sent Successfully !')
-                        }).catch(error => {
-                            if (error.response.status == 422) {
-                                this.errors = error.response.data.errors
-                            }
-                        })
+                this.axios.post('/api/nurse/add', this.comments)
+                    .then((response) => {
+                        alert('Mail Sent Successfully !')
+                    }).catch(error => {
+                        if (error.response.status == 422) {
+                            this.errors = error.response.data.errors
+                        }
+                    })
+                   
                     localStorage.removeItem("item");
                     localStorage.removeItem("inputValue");
                     console.log('confirm',this.comments.fav_mail)

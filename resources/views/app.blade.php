@@ -25,14 +25,19 @@
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
 
+<script src="{{ asset('js/vue.js') }}"></script>
+<script src="{{ asset('js/vue-scrollto.js') }}"></script>
+
+
 
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script> -->
-
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyCNpeRgwCQoHIlLn-X8TIB9SnO8iLPt808&callback=initMap" async defer></script>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script> -->
+
 <!-- Include after Vue (before closing body) -->
 <script src="https://unpkg.com/vue-fullpage.js/dist/vue-fullpage.min.js"></script>
 
@@ -149,7 +154,7 @@
                 <ul class="navbar-nav pad-free pc">
 
                     <li class="fav-item fav-color btn all-btn m-r-10">
-                        <i class="fa fa-star m-r-5"> </i>&nbsp; 検討リスト
+                        <i class="fa fa-star m-r-5"> </i>&nbsp; お気に入り
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
                         <span style="padding-right: 11px;">2件<br>病院</span>
                         <span style="border-left: 1px solid #fff;padding-left: 11px;">5件<br>介護</span>

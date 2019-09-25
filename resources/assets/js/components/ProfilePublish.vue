@@ -1,5 +1,6 @@
 <template>
     <div class="card">
+       
         <div v-if="type == 'hospital'">
             <div class="card-header tab-card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -14,7 +15,7 @@
                         </li>
                         <li>
                             <a class="nav-link" href="#four"  id="four-tab" data-toggle="tab" role="tab" aria-controls="four" aria-selected="true" >Job Offer</a>
-                        </li>
+                        </li> 
 
                 </ul>
             </div>
@@ -88,7 +89,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
-                    <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
+                       <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
                           <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true"   />
                        </GmapMap>
 
@@ -517,7 +518,6 @@
                         console.log('after', current)
                     }
                 },
-
                 images: [
                     {
                         id: '1',
@@ -542,7 +542,10 @@
                 ],
             };
         },
+    
         created(){
+          
+          
             if(this.type == "nursing")
             {
                 this.axios.get('/api/feature/featurelist').then(response => {
@@ -584,29 +587,30 @@
 
                 });
 
-                    this.axios.get('/api/nusprofile/googlefornurse').then(response => {
+                this.axios.get('/api/nusprofile/googlefornurse').then(response => {
                     this.google = response.data.nurselatlong;
                     this.markers[0]['position']['lat']  = response.data.nurselatlong[0]['latitude'];
                     this.markers[0]['position']['lng']  = response.data.nurselatlong[0]['longitude'];
                     this.center['lat'] = response.data.nurselatlong[0]['latitude'];
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
-
+                 
                 });
 
-                
-                var geocoder = new google.maps.Geocoder;
-                var latlng = {lat: 19.7633, lng: 96.0785};
-                   
+                var geocoder = new google.maps.Geocoder; 
+                var latlng = {lat: 19.76330000, lng: 96.07850000 };
                 geocoder.geocode({'location': latlng}, function(results, status) {
                 if (status === 'OK') {
-
+                
                     if (results[1]) {
-
-                            this.address=  results[1].formatted_address
-
+                        
+                            this.address =  results[1].formatted_address
+                            return this.address;
                         }
                     }
+                    
+                    
                 })
+
             }
             else{
 
@@ -617,7 +621,6 @@
                     this.center['lat'] = response.data.hoslatlong[0]['latitude'];
                     this.center['lng'] = response.data.hoslatlong[0]['longitude'];
                   
-
                 });
                 this.axios.get('/api/feature/featurelist').then(response => {
                     this.special_features = response.data;
@@ -646,16 +649,18 @@
                 this.activateImage(active);
             },
 
-                prevImage() {
-                    var active = this.activeImage - 1;
-                    if(active < 0) {
-                        active = this.images.length - 1;
-                    }
-                    this.activateImage(active);
-                },
-                activateImage(imageIndex) {
-                    this.activeImage = imageIndex;
+            prevImage() {
+                var active = this.activeImage - 1;
+                if(active < 0) {
+                    active = this.images.length - 1;
                 }
+                this.activateImage(active);
+            },
+            activateImage(imageIndex) {
+                this.activeImage = imageIndex;
+            },
+ 
+
 
 
         },
