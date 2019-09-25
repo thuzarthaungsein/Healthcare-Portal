@@ -605,6 +605,9 @@ export default {
             featureCheck(check_id) {
                     $('.feature-'+check_id).attr('checked','true');
             },
+            preview_image(img_class) {
+                   $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+            },
 
             DeltArr(indx,type) {
                     var arr_list = [];
@@ -699,6 +702,7 @@ export default {
 
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
+                        // var pname= img[i].getElementsByClassName('hospital-image')[0].src.split('hospital_profile/');
                         this.img_list.push({type:"photo",photo:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
                 //console.log(this.img_list);

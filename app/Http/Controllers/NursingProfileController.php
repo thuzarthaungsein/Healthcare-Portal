@@ -29,8 +29,6 @@ class NursingProfileController extends Controller
         return response()->json($nursing);
     }
 
-
-    // // // // // // // // // // // 
     public function galleryupdate($id,Request $request) {
         $request = $request->all();
 
@@ -44,6 +42,8 @@ class NursingProfileController extends Controller
                 'photo'=>$request[$i]['photo'],
                 'title'=>$request[$i]['title'],
                 'description'=>$request[$i]['description'],
+                'created_at' => date('Y/m/d H:i:s'),
+                'updated_at' =>date('Y/m/d H:i:s')
             );
             DB::table('galleries')->insert($data);
         }
