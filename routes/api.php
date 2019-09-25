@@ -181,6 +181,12 @@ Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerI
 Route::get('customerinfo/{id}','CustomerController@edit');
 Route::get('nursinginfo/{id}','NursingProfileController@edit');
 Route::get('staffinfo/{id}', 'ProfilePublishController@getStaffbyCustomerId');
+Route::post('nursing/galleryupdate/{id}', 'NursingProfileController@galleryupdate');
+Route::post('nursing/cooperate/{id}', 'NursingProfileController@cooperateupdate');
+Route::post('nursing/paymentmethod/{id}', 'NursingProfileController@paymentupdate');
+Route::post('nursing/profile/{id}', 'NursingProfileController@profileupdate');
+Route::post('customer/profile/{id}', 'NursingProfileController@Customerprofileupdate');
+Route::post('staff/profile/{id}', 'NursingProfileController@Staffprofileupdate');
 
 // Home Page
 Route::get('home', 'HomeController@index');

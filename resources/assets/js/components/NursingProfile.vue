@@ -43,7 +43,7 @@
                                     <div class="row" id="gallery-video">
                                             <div class="col-md-12 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
                                                 <div class="col-md-3">
-                                                        <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-model="video.url">
+                                                        <input type="text" name="url" placeholder="url" class="form-control m-b-15 video-url" v-model="video.photo">
                                                 </div>
                                                 <div class="col-md-9">
                                                         <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="video.title">
@@ -73,6 +73,7 @@
                                 <div class="form-group">
                                         <label class="heading-lbl">支払い方法<span class="error">*</span></label>
                                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="methodAdd()">Add</span>
+                                        <input type="text"  class="form-control nursing-payment-method" v-model="nursing_info.method">
 
                                         <div class="col-md-12 pad-free" id="gallery-payment">
                                                 <!-- test -->
@@ -309,7 +310,7 @@
                                                 <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
                                                         <div class="form-group"> 
                                                                 <label>名前 :</label> 
-                                                                <input type="text" class="form-control" name="co-medical-header[]" v-model="cooperate.name"> 
+                                                                <input type="text" class="form-control cooperate-name" name="co-medical-header[]" v-model="cooperate.name"> 
                                                         </div>
                                                         <table class="table table-bordered">
                                                         <tr>
@@ -492,9 +493,11 @@ export default {
 
                 img_arr:[],img_list:[],
                 video_arr:[],video_list:[],
+                gallery_list:[],
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
                 id:1, profile_type:'nursing',
+                profile_arr:[],staf_info:[],cust_info:[],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -665,6 +668,7 @@ export default {
                 var customer_email = $('.customer-email').val();
                 var customer_phone = $('.customer-phone').val();
 
+                var method = $('.nursing-payment-method').val();
                 var business_entity = $('.business-entity').text();
                 var date_of_establishment = $('.date-of-establishment').text();
                 var land_right_form = $('.land-right-form').text();
@@ -687,17 +691,21 @@ export default {
                 var min_num_staff = $('.min-num-staff').text();
                 var num_staff = $('.num-staff').text();
                 var nursing_remarks = $('.nursing-remarks').text();
+
+                this.cust_info.push({ name:customer_name,email:customer_email,phone:customer_phone});
+
+                this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:nursing_remarks});
             
 
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
-                        this.img_list.push({img:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+                        this.img_list.push({type:"photo",photo:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
-                console.log(this.img_list);
+                //console.log(this.img_list);
 
                 var video = document.getElementsByClassName('gallery-area-video');
                 for(var i = 0; i< video.length; i++) {
-                        this.video_list.push({url:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
+                        this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                 }
                 console.log(this.video_list);
 
@@ -705,11 +713,12 @@ export default {
                
                 for(var i = 0; i< cooperate.length; i++) {
                         this.cooperate_list.push({subject:cooperate[i].getElementsByClassName('clinical-sub')[0].value,
+                                                name:cooperate[i].getElementsByClassName('cooperate-name')[0].value,
                                                 details:cooperate[i].getElementsByClassName('details')[0].value,
                                                 expense:cooperate[i].getElementsByClassName('expense')[0].value,
                                                 remark:cooperate[i].getElementsByClassName('remark')[0].value});
                 }
-               console.log(this.cooperate_list);
+               //console.log(this.cooperate_list);
 
                 var payment = document.getElementsByClassName('gallery-area-payment');
                 for(var i = 0; i< payment.length; i++) {
@@ -730,14 +739,103 @@ export default {
                                                 initial_deprecration:payment[i].getElementsByClassName('initial-deprecration')[0].value,
                                                 other_message_refund:payment[i].getElementsByClassName('other-message-refund')[0].value});
                 }
-               console.log(this.payment_list);
+               //console.log(this.payment_list);
               
 
-                var chek_feature = [];
+               var chek_feature=[];
+               var special_features ;
+        
                 $.each($("input[name='special-features']:checked"), function(){ 
-                        chek_feature.push({ feature: $(this).val()});
+                        var i = i+ 0;
+                        chek_feature.push($(this).val());
                 });
-                console.log(chek_feature);
+                special_features = chek_feature.join(',');
+               
+                this.profile_arr.push({method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                                        site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
+                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features});
+
+                this.gallery_list = this.img_list.concat(this.video_list);
+
+
+
+                this.axios
+                        .post(`/api/nursing/galleryupdate/${this.id}`,this.gallery_list)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
+
+                        if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                        }
+                }) ;
+
+                this.axios
+                        .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
+
+                        if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                        }
+                }) ;
+
+                this.axios
+                        .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
+
+                        if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                        }
+                }) ;
+
+                this.axios
+                        .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
+
+                        if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                        }
+                }) ;
+
+                this.axios
+                        .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
+
+                        if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                        }
+                }) ;
+
+                this.axios
+                        .post(`/api/staff/profile/${this.id}`,this.staf_info)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
+
+                        if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                        }
+                }) ;
 
             }
         }
