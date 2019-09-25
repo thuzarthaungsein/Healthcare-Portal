@@ -356,7 +356,7 @@
                             var post_data = response.data;
                             var length = response.data.length;
                             if (length > 0) {
-                                var pref = post_data[0]['city_Id'];
+                                var pref = post_data[0]['city_id'];
                                 if (post_data[0]['street'] == '') {
                                     this.comments.city = post_data[0]['city'];
                                 } else {
