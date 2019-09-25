@@ -539,9 +539,11 @@
                             <div class="container-fluid main-wrapper">
 
                                 <!--slider for ads-->
-
-                                <div class="col-md-auto pad-free">
-
+                                @if(Auth::check())
+                                    <div class="col-md-10 pad-free fixed-ads">
+                                @else
+                                    <div class="col-md-12 pad-free fixed-ads-fluid">
+                                @endif
                                     <!--jssor carousel-->
 
                                     <div id="jssor_1" class="jssor-slider">
@@ -602,7 +604,7 @@
 
 
 
-                                <div class="row justify-content-md-center">
+                                <div class="row justify-content-md-center p-t-130">
 
                                     <div class="col-12 col-lg-12 col-md-10 tab">
 
