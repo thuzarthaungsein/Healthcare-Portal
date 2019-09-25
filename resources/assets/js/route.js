@@ -48,7 +48,6 @@ import specialfeature from './components/CreateSpecialFeature.vue';
 import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
 import nursingMailConfirm from './components/nursingMailConfirm.vue';
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
-import sidetest from './components/sidetest.vue';
 import modal from './components/modal.vue';
 
 export const routes = [
@@ -309,12 +308,5 @@ export const routes = [
     path: '/modal',
     component: modal
   },
-  {
-    name: 'sidetest',
-    path: '/sidetest',
-    component:sidetest
-  },
-
-
 
 ];
