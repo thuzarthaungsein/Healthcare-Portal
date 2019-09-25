@@ -15,13 +15,20 @@ class CreateJobAppliesTable extends Migration
     {
         Schema::create('job_applies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('job_id')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('birthday');
-            $table->string('address');
+            $table->string('gender');
+            $table->integer('postal');
+            $table->string('street_address');
+            $table->string('home_address');
             $table->string('phone');
             $table->string('email');
-            $table->string('work_time');
+            $table->string('qualification');
+            $table->string('workable_days');
             $table->string('skill');
+            $table->text('remark');
             $table->timestamps();
         });
     }

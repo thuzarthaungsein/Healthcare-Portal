@@ -357,8 +357,7 @@
 </template>
 <script>
     export default {
-        props: ['input_data'],
-        data() {
+       data() {
             return {
                 comments: {
                     name: '',
@@ -400,6 +399,11 @@
                 documentation: []
             }
         },
+        computed: {
+            isComplete () {
+                return this.username && this.password && this.email;
+            }
+        },
         created() {
             this.bk_data = this.$route.params.input_data;
             this.bk_postal = this.$route.params.bk_postal;
@@ -411,13 +415,13 @@
                 .then(response => {
                     this.city_list = response.data;
                 });
-            if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != ''){
-                    $('.submit1').prop('disabled', false);
-                    $('.submit2').prop('disabled', false);
+            if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
+                    $('.submit1').prop('disabled', true);
+                    $('.submit2').prop('disabled', true);
                     console.log('true',this.comments)
                 }else{
-                    $('.submit1').prop('disabled', true);
-                     $('.submit2').prop('disabled', true);
+                    $('.submit1').prop('disabled', false);
+                     $('.submit2').prop('disabled', false);
                      console.log('false',this.comments)
                 }
         },
@@ -467,8 +471,8 @@
             },
             someHandler: function(){
                 if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
-                    $('.submit1').prop('disabled', false);
-                    $('.submit2').prop('disabled', false);
+                    $('.submit1').prop('disabled');
+                    $('.submit2').prop('disabled');
                 }else{
                     $('.submit1').prop('disabled', true);
                      $('.submit2').prop('disabled', true);
