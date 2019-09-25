@@ -50,6 +50,7 @@ import nursingMailConfirm from './components/nursingMailConfirm.vue';
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import sidetest from './components/sidetest.vue';
 import modal from './components/modal.vue';
+
 export const routes = [
     {
         name: 'home',

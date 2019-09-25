@@ -20,18 +20,28 @@ class ProfilePublishController extends Controller
      */
     public function index()
     {
-
         //$nurse = NursingProfile::all()->toArray();
-        $feature = NursingProfile::select('feature')->where('id',1)->get();
-        return $feature;
+         $feature = NursingProfile::select('feature')->where('id',1)->get();
+        $facility = NursingProfile::where('customer_id',5)->get();
+        $comedical = Cooperate_Medical::all()->toArray();
+        $medical = Medical::select('name')->where('id',1)->get();
+        $staff = Staff::where('id',1)->get();
+        $nurselatlong = NursingProfile::where('id',1)->get();
+        $hoslatlong = HospitalProfile::where('id',1)->get();
+        $hospital = HospitalProfile::where('id',4)->get();
+        $cost =method_payment::where('id',1)->get();
+        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medical"=>$medical,"staff"=>$staff,"nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost));
+        // return $feature;
 
     }
 
     public function getfacilities()
     {
        // $nurse = NursingProfile::all()->toArray();
-       $nurse = NursingProfile::where('customer_id',5)->get();
-       return $nurse;
+    //    $nurse = NursingProfile::where('customer_id',5)->get();
+
+       return response()->json(array("nurse"=>$nurse,"test"=>$test));
+
     }
     public function getSpecialfeature(){
         $specialfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
@@ -49,51 +59,41 @@ class ProfilePublishController extends Controller
     public function getcooperatemedical()
     {
         //
-        $comedical = Cooperate_Medical::all()->toArray();
+        // $comedical = Cooperate_Medical::all()->toArray();
         return array_reverse($comedical);
     }
     public function hospital(){
-        $hospital = HospitalProfile::where('id',4)->get();
+        // $hospital = HospitalProfile::where('id',4)->get();
         return $hospital;
     }
 
     public function getmedicalacceptance()
     {
         //
-        $medical = Medical::select('name')->where('id',1)->get();
+        // $medical = Medical::select('name')->where('id',1)->get();
         return $medical;
     }
 
     public function getstaff()
     {
         //
-        $staff = Staff::where('id',1)->get();
+        // $staff = Staff::where('id',1)->get();
         return $staff;
     }
 
     public function getGoogleMapForNurse()
     {
         //
-        $latlong = NursingProfile::where('id',1)->get();
+        // $latlong = NursingProfile::where('id',1)->get();
         return $latlong;
     }
 
     public function getGoogleMapForHospital()
     {
         //
-        $latlong = HospitalProfile::where('id',1)->get();
+        // $latlong = HospitalProfile::where('id',1)->get();
         return $latlong;
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -127,7 +127,7 @@ class ProfilePublishController extends Controller
     public function show()
     {
         //
-        $cost =method_payment::all()->toArray();
+        // $cost =method_payment::all()->toArray();
         return $cost;
 
     }

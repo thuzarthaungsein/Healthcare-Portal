@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="card">
 
         <div v-if="type == 'hospital'">
@@ -647,129 +648,246 @@ import joboffer from './JobOfferList.vue'
 
 
         },
+=======
+  <div id="app">
 
- }
 
-</script>
+
+    <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
+       <button v-scroll-to="{ el: '#element1'}">
+         Information
+      </button>
+       <button v-scroll-to="{ el: '#element2' }">
+         Review
+      </button>
+       <button v-scroll-to="{ el: '#element3' }">
+         Map
+      </button>
+       <button v-scroll-to="{ el: '#element4' }">
+         Job Offer
+      </button>
+    </div>
+    
+      <h1  >
+         <div class="row ele" id="element1">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12">
+                      <p><strong>Information</strong></p>
+                  </div> 
+              </div>
+
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+          </div>
+      </h1>
+    
+>>>>>>> acbe23369ab2edcefbaea1433c06364da07b25cd
+
+       <h1 >
+         <div class="row ele" id="element2">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Review</strong></p></div>
+                
+              </div>
+
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+          </div>
+       </h1>  
+  </div>
+</template>
+
 
 <style scoped>
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    color: #fff !important;
-    font-weight: bold;
-    background-color: #1aa985  !important;
-    border-top: 1px solid #1aa985  ;
-    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
+
+
+#element1 {
+ 
+  color: #42b983;
 }
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
-    border: 1px solid #1aa985  !important;
+#element2 {
+ 
+  color: #42b983;
 }
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
-    border-color: transparent   #ecede1   transparent   #ecede1   !important;
-}
-.thumbnail-img{
-    width: 100%;
-    padding: 20px;
-    line-height: 150px;
-    vertical-align: middle;
-    border: 1px solid #b7dad2;
-    border-bottom: 1px solid #b7dad2;
-    background-color: #f5f5f2;
-    margin: 0 auto 20px;
-    text-align: center;
-}
-.thumbnail-img img {
-    width: 100%;
+div.ele, button {
+ 
 }
 
-.card-carousel {
-    user-select: none;
-    position: relative;
-}
-
-.progressbar {
-    display: block;
-    width: 100%;
-    height: 5px;
-    position: absolute;
-    background-color: rgba(221, 221, 221, 0.25);
-    z-index: 1;
-}
-
-.progressbar > div {
-    background-color: rgba(255, 255, 255, 0.52);
-    height: 100%;
-}
-
-.thumbnails {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-}
-
-.thumbnail-image {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 2px;
-}
-
-.thumbnail-image > img {
-    width: 100%;
-    height: auto;
-    transition: all 250ms;
-}
-
-.thumbnail-image:hover > img,
-.thumbnail-image.active > img {
-    opacity: 0.6;
-    box-shadow: 2px 2px 6px 1px rgba(0,0,0, 0.5);
-}
-
-.card-img {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.card-img > img {
-    display: block;
-    margin: 0 auto;
-}
-
-.actions {
-    font-size: 1.5em;
-    height: 40px;
-    position: absolute;
-    top: 50%;
-    margin-top: -20px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #585858;
-}
-
-.actions > span {
-    cursor: pointer;
-    transition: all 250ms;
-}
-
-.actions > span.prev {
-    margin-left: 5px;
-}
-
-.actions > span.next {
-    margin-right: 5px;
-}
-
-.actions > span:hover {
-    color: #eee;
-}
 </style>
-
-
-
-
-
-
-
 

@@ -28,7 +28,7 @@
          
           <ads></ads>        
            
-          <div class="row justify-content-md-center">
+          <div class="row justify-content-md-center p-t-130">
             <div class="col-10 tab">
                <!--menu tabs-->
           
@@ -105,6 +105,9 @@
         }
 }
 </script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
 <style scoped>
 /*for jssor*/
    /*jssor slider loading skin spin css*/

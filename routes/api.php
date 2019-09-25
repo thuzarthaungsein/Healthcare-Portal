@@ -33,15 +33,18 @@ Route::group(['middleware' => ['auth']], function() {
 // login route api sta rt
 Route::group(['middleware' => ['auth:api']], function() {
 
+    Route::group(['prefix' => 'nusprofile'], function () {
     Route::get('approve/{id}','registerController@approve');
-    Route::get('nusfacilities', 'ProfilePublishController@getfacilities');
-    Route::get('cooperatemedical', 'ProfilePublishController@getcooperatemedical');
-    Route::get('medicalacceptance', 'ProfilePublishController@getmedicalacceptance');
-    Route::get('staff', 'ProfilePublishController@getstaff');
-    Route::get('googlefornurse', 'ProfilePublishController@getGoogleMapForNurse');
-    Route::get('googleforhospital', 'ProfilePublishController@getGoogleMapForHospital');
-
-
+    Route::get('nusfacilities', 'ProfilePublishController@index');
+    Route::get('cooperatemedical', 'ProfilePublishController@index');
+    Route::get('medicalacceptance', 'ProfilePublishController@index');
+    Route::get('staff', 'ProfilePublishController@index');
+    Route::get('googlefornurse', 'ProfilePublishController@index');
+    Route::get('googleforhospital', 'ProfilePublishController@index');
+    Route::get('feature','ProfilePublishController@index');
+    Route::get('cost','ProfilePublishController@index');
+    Route::get('hospital','ProfilePublishController@hospital');
+});
 
     // Category
     Route::group(['prefix' => 'category'], function () {
@@ -224,10 +227,13 @@ Route::group(['prefix' => 'nurse'], function () {
 Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
+<<<<<<< HEAD
 Route::get('nurse','ProfilePublishController@index');
 Route::get('cost','ProfilePublishController@show');
 Route::get('hospital','ProfilePublishController@hospital');
 Route::get('special','ProfilePublishController@getSpecialfeature');
+=======
+>>>>>>> acbe23369ab2edcefbaea1433c06364da07b25cd
 // Route::group(['prefix' => 'new'], function () {
 //     Route::post('add', 'PostController@add');
 //     Route::get('editPost/{id}', 'PostController@edit');

@@ -293,6 +293,7 @@ body {
 .category_news_title span {
     /* border-left: 5px solid #f9793c; */
     padding-left: 10px;
+    font-weight: bold;
 }
 .category_box {
     border-top: 1px dashed #1aa985;
@@ -319,6 +320,7 @@ body {
 }
 .h-color0 span {
     border-left: 5px solid #37b4bd;
+<<<<<<< HEAD
 }
 .h-color1 span {
     border-left: 5px solid #a3774a;
@@ -331,6 +333,25 @@ body {
 }
 .h-color4 span {
     border-left: 5px solid #d1291d;
+=======
+    color: #37b4bd;    
+}
+.h-color1 span {
+    border-left: 5px solid #a3774a; 
+    color: #a3774a;       
+}
+.h-color2 span {
+    border-left: 5px solid #9579ef; 
+    color: #9579ef;       
+}
+.h-color3 span {
+    border-left: 5px solid #21d1de; 
+    color: #21d1de;       
+}
+.h-color4 span {
+    border-left: 5px solid #d1291d; 
+    color: #d1291d;       
+>>>>>>> acbe23369ab2edcefbaea1433c06364da07b25cd
 }
 
 .bordertop-color0{
@@ -1112,8 +1133,8 @@ textarea {
 }
 
 .source-title {
-    font-weight: 800;
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 20px;
     line-height: 1.538;
     text-transform: uppercase;
     color: #000;
@@ -1137,7 +1158,7 @@ textarea {
 }
 
 .source-img-small {
-    font-size: 14px;
+    font-size: 16px;
     color: #000000;
 }
 
@@ -1245,7 +1266,32 @@ div.b {
 
 
 /*For Ads */
+.fixed-ads{
+    position: fixed;
+    z-index: 5;
+    overflow: hidden;
+    background: #f5f5f5;
+    width: 67.4%;
+   
+}
 
+.fixed-nav{
+    position: fixed;
+    z-index: 4;
+    overflow: hidden;
+    background: #f5f5f5;
+    width: 66.5%;
+    margin-top:26px;
+   
+}
+.fixed-ads-fluid{
+    position: fixed;
+    z-index: 5;
+    overflow: hidden;
+    background: #f5f5f5;
+    width: 81.999%;
+    
+}
 .ads-card,
 .ads-card2 {
     /* width: 18rem; */
@@ -1599,7 +1645,9 @@ div.b {
 .p-t-5 {
     padding-top: 5px !important;
 }
-
+.p-t-130{
+    padding-top:130px;
+}
 .p-b-5 {
     padding-bottom: 5px;
 }
@@ -1791,7 +1839,7 @@ li.userprofile-name>a {
 .maintab-content {
     padding: 7px;
     /*for no scroll*/
-    margin: 85px 0 0 0;
+    margin: 70px 0 0 0;
 }
 
 .tab-content {
@@ -2477,7 +2525,7 @@ body::-webkit-scrollbar-thumb {
 /* Newdetails */
 
 .p5 {
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 2px;
 }
 
@@ -2531,12 +2579,12 @@ body::-webkit-scrollbar-thumb {
 
 .jssor-slider {
     position: relative;
-    top: 0px;
+    top: 17px;
     width: 700px;
     height: 100px;
     overflow: hidden;
     visibility: hidden;
-    margin: 0 auto 10px;
+    margin: 0 auto 30px;
 }
 
 .top-ad-slider {
@@ -3083,8 +3131,11 @@ body::-webkit-scrollbar-thumb {
       .fade-enter, .fade-leave-to {
       opacity: 0;
       } */
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> acbe23369ab2edcefbaea1433c06364da07b25cd
 
 /* start one page */
 
