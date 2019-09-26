@@ -64,8 +64,6 @@ class JobApplyController extends Controller
             $jobapply->home_address = $request->home_address;
             $jobapply->phone = $request->phone;
             $jobapply->email = $request->email;
-            $jobapply->qualification = $request->qualification;
-            $jobapply->workable_days = $request->workable_day;
             $jobapply->skill = $string;
             $jobapply->remark = $request->remark;
             //  return $jobapply;

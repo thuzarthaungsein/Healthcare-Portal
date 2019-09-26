@@ -49,6 +49,7 @@ import nursingFavouriteMail from './components/nursingFavouriteMail.vue';
 import nursingMailConfirm from './components/nursingMailConfirm.vue';
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import modal from './components/modal.vue';
+import termsAndConditions from './components/termsAndConditions.vue';
 export const routes = [
     {
         name: 'home',
@@ -307,7 +308,9 @@ export const routes = [
     path: '/modal',
     component: modal
   },
-
-
-
+  {
+    name: 'termsAndConditions',
+    path: '/termsAndConditions',
+    component: termsAndConditions
+  },
 ];
