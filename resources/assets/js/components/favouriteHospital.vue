@@ -117,9 +117,7 @@
                 <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
             </div>
-            <!--end Tab panes-->
-
-        
+            <!--end Tab panes-->        
     </div>
 </template>
 

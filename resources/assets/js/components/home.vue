@@ -2,18 +2,18 @@
 <div>
         <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
-        <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="active nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
-        <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-        <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
-        <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
+        <li role="presentation" class="subtab1 nav-item" :class="subtab1active"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
+        <li role="presentation" class="subtab2 nav-item" :class="subtab2active"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+        <li role="presentation" class="subtab3 nav-item" :class="subtab3active"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護検索</a></li>
+        <li role="presentation" class="subtab5 nav-item" :class="subtab4active"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
               <div class="tab-content tab-content1 tabs">
-               <div role="tabpanel" class="tab-pane active" id="tab1"> <News></News> </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
+               <div role="tabpanel" class="tab-pane" id="tab1" :class="{active:subtab1active, fade:fade1}"> <News></News> </div>
+                <div role="tabpanel" class="tab-pane" id="tab2" :class="{active:subtab2active, fade:fade2}"><hospitalSearch></hospitalSearch></div>
+                <div role="tabpanel" class="tab-pane" id="tab3" :class="{active:subtab3active, fade:fade3}"><nursingSearch></nursingSearch></div>
+                <div role="tabpanel" class="tab-pane" id="tab4" :class="{active:subtab4active, fade:fade4}"><jobSearch></jobSearch></div>
               </div>
             <!--end Tab panes-->
         </div>
@@ -48,18 +48,19 @@ export default {
                 l_storage_nus_history: [],
                 l_storage_hos_fav: [],
                 l_storage_nus_fav: [],
+                subtab1active: '',
+                subtab2active: '',
+                subtab3active: '',
+                subtab4active: '',
+                fade1: true,
+                fade2: true,
+                fade3: true,
+                fade4: true,
             }
         },
         created() {
-                if(this.$route.params.page) {
-                       $('#navtab .nav-item').removeClass('active');
-                       $('#navtab .nav-item a').removeClass('active');
-                       $('.tab-pane').removeClass('active');
-                       $('#navtab .subtab2').addClass('active');
-                       $('#navtab .subtab2 a').addClass('active');
-                       $('#tab2').addClass('active');
-                       console.log("tab");
-               }
+                this.start();
+                
                 // Push data
                 this.l_storage_hos_fav.push(1);
                 this.l_storage_nus_fav.push(1);
@@ -67,10 +68,8 @@ export default {
                 this.l_storage_hos_history.push(2);
                 this.l_storage_hos_history.push(3);
                 this.l_storage_nus_history.push(1);
-
                 this.l_storage_hos_fav.push(2);
-                this.l_storage_nus_fav.push(2);
-                
+                this.l_storage_nus_fav.push(2);                
                 this.l_storage_nus_history.push(2);
 
                 // Set LocalStorage data
@@ -79,21 +78,29 @@ export default {
                localStorage.setItem("hospital_fav",this.l_storage_hos_fav);
                localStorage.setItem("nursing_fav",this.l_storage_nus_fav);
 
-               
-
-        //        localStorage.setItem('name', 'SNY');
-        //        const person = {
-        //                name: "SNY",
-        //                location: "Ygn",
-        //        }
-        //        localStorage.setItem('user', JSON.stringify(person));
-
             this.getAllCat();
             this.getPostByFirstCat();
             this.getLatestPostByFirstCatID();
             this.getLatestPostFromAllCat();
         },
         methods: {
+                start() {
+                        if(this.$route.params.page) {
+                               if(this.$route.params.page == 'subtab2') {
+                                       this.fade2 = false;
+                                       this.subtab2active = 'active';
+                               }
+                               else if(this.$route.params.page == 'subtab3') {
+                                       this.fade3 = false;
+                                       this.subtab3active = 'active';
+                               }
+                        }
+                        else{
+                                this.fade1 = false;
+                                this.subtab1active = 'active';
+                        }
+                //     this.$route.params.page? (this.$route.params.page == 'subtab2'? (this.subtab2active = 'active') : (this.subtab3active = 'active')) : (this.subtab1active = 'active');
+                },
                 getAllCat: function() {
                      this.axios
                         .get('/api/home')
