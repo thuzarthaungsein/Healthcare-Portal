@@ -9,6 +9,7 @@ use App\Cooperate_Medical;
 use App\method_payment;
 use App\Customer;
 use App\Staff;
+use App\Transition;
 use DB;
 
 class NursingProfileController extends Controller
@@ -155,6 +156,24 @@ class NursingProfileController extends Controller
        );
 
        $customer->update($uploadData);
+    }
+
+    public function AcceptanceTransition($id,Request $request) {
+        $request = $request->all();
+
+        $transition = Transition::where('customer_id', $id)
+                        ->delete();
+
+        for($i=0; $i<count($request); $i++) { 
+            if($request[$i] != '') {
+                $uploadData = array(
+                    'customer_id' => $id,
+                    'acceptance_id' =>  $i,
+                    'status'=>  $request[$i]
+               );
+               DB::table('transition')->insert($uploadData);
+            } 
+        }
 
     }
 }

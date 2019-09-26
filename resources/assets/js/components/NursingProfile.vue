@@ -23,7 +23,7 @@
                                                                 <div class="col-md-3">
                                                                         <input type="file" name="" class=" m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
                                                                         <div class="col-md-12" v-bind:class="img.classname">
-                                                                                <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
+                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-md-9">
@@ -349,11 +349,11 @@
                                             <div class="row">
                                                     <div class="col-md-6" v-for="medical in medical_acceptance" :key="medical.id">
                                                             <div class="col-md-12 accept-box">
-                                                                    {{medical.name}}
+                                                                    {{medical.name}} {{medical.id}}
                                                                     <div class="float-right">
-                                                                            <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-check green"></i></label>
-                                                                            <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-times red"></i></label>
-                                                                            <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                                            <label><input type="radio" :name="'medical'+medical.id" v-model="acceptance[medical.id]" value="accept"> <i class="fas fa-check green"></i></label>
+                                                                            <label><input type="radio" :name="'medical'+medical.id" v-model="acceptance[medical.id]" value="unaccept"> <i class="fas fa-times red"></i></label>
+                                                                            <label><input type="radio" :name="'medical'+medical.id" v-model="acceptance[medical.id]" value="negotiate"> <i class="fas fa-adjust blue"></i></label>
                                                                     </div>
                                                             </div>
                                                     </div>
@@ -490,6 +490,7 @@ export default {
                 feature_list:[],
                 medical_acceptance:[],
                 customer_info:[], nursing_info:[], staff_info:[],
+                acceptance: [],
 
                 img_arr:[],img_list:[],
                 video_arr:[],video_list:[],
@@ -552,14 +553,13 @@ export default {
                 this.axios
                 .get('/api/medical/medicalacceptance')
                 .then(response => {
-                        console.log(response);
                         this.medical_acceptance = response.data;
                 });
 
                 this.axios
                 .get('/api/feature/'+this.profile_type+'/'+this.id)
                 .then(response=>{
-                        console.log(response.data);
+                       
                         this.feature_list = response.data;
                 });
 
@@ -607,7 +607,7 @@ export default {
                     $('.feature-'+check_id).attr('checked','true');
             },
             preview_image(img_class) {
-                   $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+                $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
             },
 
             DeltArr(indx,type) {
@@ -712,7 +712,6 @@ export default {
                 for(var i = 0; i< video.length; i++) {
                         this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                 }
-                console.log(this.video_list);
 
                 var cooperate = document.getElementsByClassName('gallery-area-cooperate');
                
@@ -723,7 +722,6 @@ export default {
                                                 expense:cooperate[i].getElementsByClassName('expense')[0].value,
                                                 remark:cooperate[i].getElementsByClassName('remark')[0].value});
                 }
-               //console.log(this.cooperate_list);
 
                 var payment = document.getElementsByClassName('gallery-area-payment');
                 for(var i = 0; i< payment.length; i++) {
@@ -744,7 +742,6 @@ export default {
                                                 initial_deprecration:payment[i].getElementsByClassName('initial-deprecration')[0].value,
                                                 other_message_refund:payment[i].getElementsByClassName('other-message-refund')[0].value});
                 }
-               //console.log(this.payment_list);
               
 
                var chek_feature=[];
@@ -767,7 +764,7 @@ export default {
                 this.axios
                         .post(`/api/nursing/galleryupdate/${this.id}`,this.gallery_list)
                         .then((response) => {
-                        alert('Successfully Updated!')
+                        
                         }).catch(error=>{
 
                         if(error.response.status == 422){
@@ -777,72 +774,81 @@ export default {
                         }
                 }) ;
 
-                this.axios
-                        .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
-                        .then((response) => {
-                        alert('Successfully Updated!')
-                        }).catch(error=>{
+                // this.axios
+                //         .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
+                //         .then((response) => {
+                //         alert('Successfully Updated!')
+                //         }).catch(error=>{
 
-                        if(error.response.status == 422){
+                //         if(error.response.status == 422){
 
-                        this.errors = error.response.data.errors
+                //         this.errors = error.response.data.errors
 
-                        }
-                }) ;
+                //         }
+                // }) ;
 
-                this.axios
-                        .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
-                        .then((response) => {
-                        alert('Successfully Updated!')
-                        }).catch(error=>{
+                // this.axios
+                //         .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
+                //         .then((response) => {
+                //         alert('Successfully Updated!')
+                //         }).catch(error=>{
 
-                        if(error.response.status == 422){
+                //         if(error.response.status == 422){
 
-                        this.errors = error.response.data.errors
+                //         this.errors = error.response.data.errors
 
-                        }
-                }) ;
+                //         }
+                // }) ;
 
-                this.axios
-                        .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
-                        .then((response) => {
-                        alert('Successfully Updated!')
-                        }).catch(error=>{
+                // this.axios
+                //         .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
+                //         .then((response) => {
+                       
+                //         }).catch(error=>{
 
-                        if(error.response.status == 422){
+                //         if(error.response.status == 422){
 
-                        this.errors = error.response.data.errors
+                //         this.errors = error.response.data.errors
 
-                        }
-                }) ;
+                //         }
+                // }) ;
 
-                this.axios
-                        .post(`/api/customer/profile/${this.id}`,this.customer_info)
-                        .then((response) => {
-                        alert('Successfully Updated!')
-                        }).catch(error=>{
+                // this.axios
+                //         .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                //         .then((response) => {
+                //         alert('Successfully Updated!')
+                //         }).catch(error=>{
 
-                        if(error.response.status == 422){
+                //         if(error.response.status == 422){
 
-                        this.errors = error.response.data.errors
+                //         this.errors = error.response.data.errors
 
-                        }
-                }) ;
+                //         }
+                // }) ;
 
-                this.axios
-                        .post(`/api/staff/profile/${this.id}`,this.staf_info)
-                        .then((response) => {
-                        alert('Successfully Updated!')
-                        }).catch(error=>{
+                // this.axios
+                //         .post(`/api/staff/profile/${this.id}`,this.staf_info)
+                //         .then((response) => {
+                //         alert('Successfully Updated!')
+                //         }).catch(error=>{
 
-                        if(error.response.status == 422){
+                //         if(error.response.status == 422){
 
-                        this.errors = error.response.data.errors
+                //         this.errors = error.response.data.errors
 
-                        }
-                }) ;
+                //         }
+                // }) ;
 
-            }
+                // this.axios
+                //         .post(`/api/acceptance/transition/${this.id}`,this.acceptance)
+                //         .then((response) => {
+                      
+                //         }).catch(error=>{
+                //                 if(error.response.status == 422) {
+                //                         this.errors = error.response.data.errors
+                //                 }
+                //         }) ;
+                }
         }
 }
 

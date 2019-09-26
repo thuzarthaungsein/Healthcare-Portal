@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api end
 
-// login route api sta rt
+// login route api start
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('approve/{id}','registerController@approve');
@@ -187,6 +187,7 @@ Route::post('nursing/paymentmethod/{id}', 'NursingProfileController@paymentupdat
 Route::post('nursing/profile/{id}', 'NursingProfileController@profileupdate');
 Route::post('customer/profile/{id}', 'NursingProfileController@Customerprofileupdate');
 Route::post('staff/profile/{id}', 'NursingProfileController@Staffprofileupdate');
+Route::post('acceptance/transition/{id}', 'NursingProfileController@AcceptanceTransition');
 
 // Home Page
 Route::get('home', 'HomeController@index');
