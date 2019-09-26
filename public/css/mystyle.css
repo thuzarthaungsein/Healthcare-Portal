@@ -2209,7 +2209,19 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     border-left: 3px solid #f27a24;
     color: #fff !important;
 }
+#headerbar .router-link-exact-active {
+    font-weight: bold;
+    color: #fff !important;
+    border-left: none !important;
+    background-color: transparent;
+}
 
+#headerbar .navbar-dark .navbar-nav .nav-link {
+    color: #fff !important;
+}
+#headerbar a{
+    color: #fff !important;
+}
 .router-link-exact-active>i.fa,
 .router-link-exact-active>i.fas {
     color: #f27a24 !important;
@@ -3512,3 +3524,12 @@ screen and (min-width: 750px) {
     color: #fff;
 }
 
+/* end one page */
+
+/*danger*/
+.sp1{
+    border:.5px solid red;
+    font-size: 11px;
+    padding: 2px;
+}
+/*danger*/

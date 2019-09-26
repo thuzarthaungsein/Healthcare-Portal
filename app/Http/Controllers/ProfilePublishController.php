@@ -127,7 +127,7 @@ class ProfilePublishController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**
@@ -151,5 +151,11 @@ class ProfilePublishController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getStaffbyCustomerId($customer_id) {
+        $staff = Staff::where("customer_id",$customer_id)->get();
+
+        return $staff;
     }
 }
