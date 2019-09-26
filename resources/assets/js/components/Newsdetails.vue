@@ -32,9 +32,9 @@
                                                         <di class="col-12 detail-subwrapper">
                                                                 <img
                                                                         :src="'/upload/news/'+ newdetails.photo"
-                                                                        class="img-responsive img_2 news_photo detail-image"
+                                                                        class="img-responsive img_2 detail-image"
                                                                         >
-                                                                <span id="overview-text">
+                                                                <span id="overview-text" class="overview-text">
                                                                         {{newdetails.body}}
                                                                 </span>
                                                         </di>
