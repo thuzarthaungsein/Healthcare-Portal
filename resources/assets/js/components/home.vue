@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import News from './News.vue'
-import hospitalSearch from './hospitalSearch.vue'
-import nursingSearch from './nursingSearch.vue'
-import jobSearch from './jobSearch.vue'
+import News from "./News.vue";
+import hospitalSearch from "./hospitalSearch.vue";
+import nursingSearch from "./nursingSearch.vue";
+import jobSearch from "./jobSearch.vue";
 // import ProfilePublish from './ProfilePublish.vue'
 
 export default {
@@ -72,11 +72,10 @@ export default {
                 this.l_storage_nus_fav.push(2);                
                 this.l_storage_nus_history.push(2);
 
-                // Set LocalStorage data
-               localStorage.setItem("hospital_history",this.l_storage_hos_history);
-               localStorage.setItem("nursing_history",this.l_storage_nus_history);
-               localStorage.setItem("hospital_fav",this.l_storage_hos_fav);
-               localStorage.setItem("nursing_fav",this.l_storage_nus_fav);
+    this.l_storage_hos_fav.push(2);
+    this.l_storage_nus_fav.push(2);
+    this.l_storage_hos_history.push(1);
+    this.l_storage_nus_history.push(2);
 
             this.getAllCat();
             this.getPostByFirstCat();
@@ -143,4 +142,4 @@ export default {
 
 }
 
- </script>
+</script>

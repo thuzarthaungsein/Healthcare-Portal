@@ -105,6 +105,9 @@
         }
 }
 </script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
 <style scoped>
 /*for jssor*/
    /*jssor slider loading skin spin css*/

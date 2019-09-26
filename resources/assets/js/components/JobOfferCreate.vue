@@ -1,13 +1,14 @@
 <template>
  <div class="row">
       <div class="col-12">
-          <div class="card ">
-                    <div class="card-header text-center">
-                        <h4 style="padding-top: 20px;"> Job Create </h4>
+          <div class="card   text-dark">
+               <div class="card-body ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="page-header header">仕事投稿を作成</h4>
+                        <br>
                     </div>
-                    <div class="card-body ">
-
-                        <div class="row">
+                   
                          <div class="col-sm-1"></div>
                          <div class="col-sm-9">
                                 <form @submit.prevent ="add" class="m-t-16">
@@ -98,7 +99,7 @@
                                         <div class="form-group row" v-for="emstatus in joboffer.employment_status" :key="emstatus.id" >
                                                 <div class="col-sm-3 text-right">
                                                         <label for ="neareststation" ><strong> Employment Status :</strong>  </label>
-                                                </div>
+                                                </div>   
                                                 <div class="col-sm-9" >
                                                     <label> <input type = "checkbox" id = "pcheck" value = "Part" name = "part_time" v-model="emstatus.pchecked" > <strong>Part Time </strong></label>
                                                     <label> <input type = "checkbox" id = "fcheck" value= "Full" name = "full_time" v-model="emstatus.fchecked" ><strong> Full Time </strong> </label>
