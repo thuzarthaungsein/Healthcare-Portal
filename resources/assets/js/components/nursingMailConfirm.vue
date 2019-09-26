@@ -202,26 +202,22 @@
                     desire: '',
                     hope: '',
                     fav_mail: [{}],
+                    fav_id: [{}],
+                    fav_name: [{}],
                     arr_reserve: [{}],
                     arr_document: [{}],
-                    selectedValue: 0,
+                    selectedValue: 0
                 },
                 errors: [],
                 fav_nursing: [],
                 local_sto: '',
                 post_list: [],
-                city_list: [],
-                post: '',
-                selectedCity: '',
-                zipStreet: '',
-                zipPref: '',
-                all_fav: [],
-                all_mail: []
+                city_list: []
             }
         },
         created() {
             this.comments = JSON.parse(localStorage.getItem("inputValue"));
-            console.log('confirm',this.comments.fav_mail)
+            console.log('confirm',this.comments)
             if (this.comments.present) {
                 this.comments.present = 'する';
             } else {
@@ -240,18 +236,19 @@
         },
         methods: {
             add() {
-                this.axios.post('/api/nurse/add', this.comments)
-                    .then((response) => {
-                        alert('Mail Sent Successfully !')
-                    }).catch(error => {
-                        if (error.response.status == 422) {
-                            this.errors = error.response.data.errors
-                        }
-                    })
-                   
+                    axios.post('/api/nurse/add', this.comments)
+                        .then((response) => {
+                            alert('Mail Sent Successfully !')
+                            location.href = "nursingFavouriteMail";
+                        }).catch(error => {
+                            if (error.response.status == 422) {
+                                this.errors = error.response.data.errors
+                            }
+                        })
                     localStorage.removeItem("item");
                     localStorage.removeItem("inputValue");
-                    console.log('confirm',this.comments.fav_mail)
+                    localStorage.removeItem("reserve");
+                    localStorage.removeItem("document");
                 },
                 // back() {
                 //     this.$router.push({
