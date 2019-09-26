@@ -146,20 +146,29 @@
 
                 </ul>
 
-                <ul class="navbar-nav pad-free pc">
+                <ul class="navbar-nav pad-free pc" id="headerbar">
 
                     <li class="fav-item fav-color btn all-btn m-r-10">
                         <i class="fa fa-star m-r-5"> </i>&nbsp; お気に入り
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
-                        <span style="padding-right: 11px;">2件<br>病院</span>
-                        <span style="border-left: 1px solid #fff;padding-left: 11px;">5件<br>介護</span>
+                        <router-link to="/favouriteHospital" class="nav-link">
+                            <span style="padding-right: 11px;">
+                            <span id="hos-fav-local"></span>件<br>病院</span>
+                        </router-link>
+                        <router-link to="/favouriteNursing" class="nav-link">
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;"><span id="nus-fav-local"></span>件<br>介護</span>
+                        </router-link>
                         </p>
                     </li>
                     <li class="fav-item history-color btn all-btn m-r-10" >
                         <i class="fa fa-bookmark m-r-5"></i>&nbsp; 最近見た施設<!-- <span class="list">10</span>件<br>最近見た施設  -->
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
-                            <span style="padding-right: 11px;">10件<br>病院</span>
-                            <span style="border-left: 1px solid #fff;padding-left: 11px;">9件<br>介護</span>
+                        <router-link to="/hospital_history" class="nav-link">
+                            <span style="padding-right: 11px;"><span id="hos-his-local"></span>件<br>病院</span>
+                        </router-link>
+                        <router-link to="/nursing_history" class="nav-link">
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;"><span id="nus-his-local"></span>件<br>介護</span>
+                        </router-link>
                         </p>
                     </li>
                 </ul>
@@ -534,9 +543,11 @@
                             <div class="container-fluid main-wrapper">
 
                                 <!--slider for ads-->
-
-                                <div class="col-md-auto pad-free">
-
+                                @if(Auth::check())
+                                    <div class="col-md-10 pad-free fixed-ads">
+                                @else
+                                    <div class="col-md-12 pad-free fixed-ads-fluid">
+                                @endif
                                     <!--jssor carousel-->
 
                                     <div id="jssor_1" class="jssor-slider">
@@ -597,7 +608,7 @@
 
 
 
-                                <div class="row justify-content-md-center">
+                                <div class="row justify-content-md-center p-t-130">
 
                                     <div class="col-12 col-lg-12 col-md-10 tab">
 
@@ -731,7 +742,10 @@
 
  $(document).ready(function() {
 
-
+    $("#hos-his-local").html(localStorage.getItem("hospital_history").split(",").length);
+    $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
+    $("#hos-fav-local").html(localStorage.getItem("hospital_fav").split(",").length);
+    $("#nus-fav-local").html(localStorage.getItem("nursing_fav").split(",").length);
 
     $('.DataTable').DataTable();
     var csrf = "{{ csrf_token() }}";

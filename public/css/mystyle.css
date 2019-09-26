@@ -288,24 +288,74 @@ body {
 .category_news_title {
     /* text-align: center; */
     padding: 15px;
+    padding-left: 0px;
 }
 .category_news_title span {
-    border-left: 5px solid #f9793c;
+    /* border-left: 5px solid #f9793c; */
     padding-left: 10px;
+    font-weight: bold;
 }
 .category_box {
-    border-top: 2px dashed #eee;
-    padding-top: 15px;
-    margin-top: 20px;
+    border-top: 1px dashed #1aa985;
+    padding-top: 10px;
+    margin-top: 10px;
 }
 .img-box img {
     /* border: 1px solid #eee; */
     /* padding: 3px 5px 3px 3px; */
     border-radius: 3px;
 }
+.txt-box{
+    line-height: 1.357;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    top: -0.2rem;
+    max-height: 75px;
+    padding-left: 25px;
+}
 .txt-box .smallads-title {
     font-size: 1em !important;
 }
+.h-color0 span {
+    border-left: 5px solid #37b4bd;
+    color: #37b4bd;    
+}
+.h-color1 span {
+    border-left: 5px solid #a3774a; 
+    color: #a3774a;       
+}
+.h-color2 span {
+    border-left: 5px solid #9579ef; 
+    color: #9579ef;       
+}
+.h-color3 span {
+    border-left: 5px solid #21d1de; 
+    color: #21d1de;       
+}
+.h-color4 span {
+    border-left: 5px solid #d1291d; 
+    color: #d1291d;       
+}
+
+.bordertop-color0{
+    border-top: 1px dashed #37b4bd;
+}
+.bordertop-color1{
+    border-top: 1px dashed #a3774a;
+}
+.bordertop-color2{
+    border-top: 1px dashed #9579ef;
+}
+.bordertop-color3{
+    border-top: 1px dashed #21d1de;
+}
+.bordertop-color4{
+    border-top: 1px dashed #d1291d;
+}
+
+
 
 /* End Profile */
 
@@ -1068,8 +1118,8 @@ textarea {
 }
 
 .source-title {
-    font-weight: 800;
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 20px;
     line-height: 1.538;
     text-transform: uppercase;
     color: #000;
@@ -1093,7 +1143,7 @@ textarea {
 }
 
 .source-img-small {
-    font-size: 14px;
+    font-size: 16px;
     color: #000000;
 }
 
@@ -1201,7 +1251,22 @@ div.b {
 
 
 /*For Ads */
-
+.fixed-ads{
+    position: fixed;
+    z-index: 5;
+    overflow: hidden;
+    background: #f5f5f5;
+    width: 67.4%;
+   
+}
+.fixed-ads-fluid{
+    position: fixed;
+    z-index: 5;
+    overflow: hidden;
+    background: #f5f5f5;
+    width: 81.999%;
+    
+}
 .ads-card,
 .ads-card2 {
     /* width: 18rem; */
@@ -1380,6 +1445,8 @@ div.b {
     .adslist-card {
         /* height: 71px; */
         width: 100%;
+        padding: 10px 0px 10px 0px;
+
     }
     .userview-sidebar {
         background-color: #f5f5f5;
@@ -1457,7 +1524,7 @@ div.b {
 }
 
 .m-t-8 {
-    margin-top: 13px;
+    margin-top: 8px;
 }
 
 .m-lr-0 {
@@ -1553,7 +1620,9 @@ div.b {
 .p-t-5 {
     padding-top: 5px !important;
 }
-
+.p-t-130{
+    padding-top:130px;
+}
 .p-b-5 {
     padding-bottom: 5px;
 }
@@ -1581,6 +1650,10 @@ div.b {
 .main-color {
     color: #333;
 }
+.primary-color{
+    color: #118063 !important;
+}
+    
 
 .white {
     color: #fff;
@@ -1741,7 +1814,7 @@ li.userprofile-name>a {
 .maintab-content {
     padding: 7px;
     /*for no scroll*/
-    margin: 85px 0 0 0;
+    margin: 70px 0 0 0;
 }
 
 .tab-content {
@@ -2009,6 +2082,14 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     border-left: 3px solid #f27a24;
     color: #fff !important;
 }
+#headerbar .router-link-exact-active {
+    font-weight: bold;
+    color: #fff !important;
+}
+
+#headerbar .navbar-dark .navbar-nav .nav-link {
+    color: #fff !important;
+}
 
 .router-link-exact-active>i.fa,
 .router-link-exact-active>i.fas {
@@ -2140,7 +2221,7 @@ ul.main-tab li:after {
     font-weight: bold;
     clear: both;
     margin-top: 20px;
-    color: #aaa;
+    color: #000;
     text-align: left;
 }
 
@@ -2227,7 +2308,6 @@ screen and (min-width: 750px) {
         border: 0px solid #ffffff;
         border-radius: 5px;
         padding: 15px;
-<<<<<<< HEAD
         font-family: arial;
     }
     /* End Hospital Search */
@@ -2353,7 +2433,6 @@ screen and (min-width: 750px) {
         height: 120px;
     }
     /* .top-ad-slider .ads-img {
-=======
         font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
       }  
       
@@ -2429,7 +2508,7 @@ body::-webkit-scrollbar-thumb {
 /* Newdetails */
 
 .p5 {
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 2px;
 }
 
@@ -2483,12 +2562,12 @@ body::-webkit-scrollbar-thumb {
 
 .jssor-slider {
     position: relative;
-    top: 0px;
+    top: 17px;
     width: 700px;
     height: 100px;
     overflow: hidden;
     visibility: hidden;
-    margin: 0 auto 10px;
+    margin: 0 auto 30px;
 }
 
 .top-ad-slider {
@@ -2518,7 +2597,6 @@ body::-webkit-scrollbar-thumb {
 
 
 /* .top-ad-slider .ads-img {
->>>>>>> 82f36e8f314c3545b7df96b042ade78b187465e8
     width: auto;
     margin-right: 13.2px;
 } */
@@ -3036,15 +3114,8 @@ body::-webkit-scrollbar-thumb {
       .fade-enter, .fade-leave-to {
       opacity: 0;
       } */
-<<<<<<< HEAD
-=======
-
-
 
 /* start one page */
-
-
-
 
 .page {
     display: block;
@@ -3105,4 +3176,3 @@ body::-webkit-scrollbar-thumb {
 
 /* end one page */
 
->>>>>>> 82f36e8f314c3545b7df96b042ade78b187465e8

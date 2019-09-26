@@ -56,12 +56,14 @@ export default {
                 // Push data
                 this.l_storage_hos_fav.push(1);
                 this.l_storage_nus_fav.push(1);
+                this.l_storage_hos_history.push(1);
                 this.l_storage_hos_history.push(2);
+                this.l_storage_hos_history.push(3);
                 this.l_storage_nus_history.push(1);
 
                 this.l_storage_hos_fav.push(2);
                 this.l_storage_nus_fav.push(2);
-                this.l_storage_hos_history.push(1);
+                
                 this.l_storage_nus_history.push(2);
 
                 // Set LocalStorage data
