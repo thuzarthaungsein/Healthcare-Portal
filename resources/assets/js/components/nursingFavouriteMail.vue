@@ -33,17 +33,27 @@
                                 <!--inputform-->
                                 <form class="col-md-12">
                                     <h3 style="border-bottom:1px solid green;width:47%;margin-bottom:30px;">資料請求される方について</h3>
-                                    <div class="form-group">
+                                    <div class="row">
+                                    <div class="form-group col-md-6">
                                         <label>お名前 <span class="error sp1">必須</span></label>
                                         <!-- <input type="text" class="form-control" placeholder="お名前を入力してください。"> -->
                                         <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" v-model="comments.name" @change="someHandler"/>
                                         <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                                         <br />
                                     </div>
-                                    <div class="form-group">
+                                     <div class="form-group col-md-6">
+                                        <p class="m-t-39">例）探し 太郎</p>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="form-group col-md-6">
                                         <label>ふりがな <span class="error sp1">必須</span></label>
                                         <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="someHandler"/>
                                         <span v-if="errors.furigana" class="error">{{errors.furigana[0]}}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                             <p class="m-t-39"> 例）さがし たろう</p>
+                                    </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -112,18 +122,25 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>プレゼントのご希望:<span class="error sp1">必須</span></label>
+                                        <label>プレゼントのご希望:</label>
                                         <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
                                     </div>
-                                    <button type="button" class="submit1 btn btn-primary continue m-l-15 m-t-15" @click="add()" :disabled="isdisable">同意して進む</button>
-
+                                   <table>
+                                        <tr>
+                                            <td>
+                                                 <router-link :to="{name: 'favouriteNursing'}" class="btn btn-danger all-btn m-l-10">戻る</router-link>
+                                            </td>
+                                            <td>
+                                                 <button type="button" class="submit2 btn btn-primary m-t-0 m-l-10" @click="add()" :disabled="isdisable">同意して進む</button>
+                                            </td>
+                                        </tr>
+                                    </table>
                                     <!--next_form-->
                                     <div class="m-t-30">
                                         <h3 style="border-bottom:1px solid green;width:47%;margin-bottom:30px;">入居対象者様について</h3>
                                         <div class="col-md-6">
                                             <label>
-                                                入居対象者様とのご関係<span class="error">*</span></label>
-
+                                                入居対象者様とのご関係<span class="error"></span></label>
                                             <select class="form-control" id="relation"  v-model="comments.relation">
                                                 <option value="">選択してください</option>
                                                 <option value="本人">本人</option>
@@ -135,10 +152,9 @@
                                                 <option value="その他">その他</option>
                                             </select>
                                         </div>
-
                                         <div class="row">
                                             <div class="form-group col-md-6 m-t-30 m-l-10">
-                                                <label>お名前:<span class="error">*</span></label>
+                                                <label>お名前:<span class="error"></span></label>
                                                 <input type="text" id="ttname" name="ttname" class="form-control" placeholder="お名前を入力してください。"  v-model="comments.ttname">
                                                 <br>
                                             </div>
@@ -152,13 +168,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>性別:<span class="error">*</span></label>
+                                        <label>性別:<span class="error"></span></label>
                                         <input type="radio" id="sex" name="sex" value="男性"  v-model="comments.sex">&nbsp;男性
                                         <input type="radio" id="sex" name="sex" value="女性"  v-model="comments.sex">&nbsp;女性
                                         <input type="radio" id="sex" name="sex" value="夫婦"  v-model="comments.sex">&nbsp;夫婦
                                     </div>
                                     <div class="col-md-6">
-                                        <label>年齢<span class="error">*</span></label>
+                                        <label>年齢<span class="error"></span></label>
                                         <select class="form-control" id="years"  v-model="comments.years">
                                             <option value="">選択してください</option>
                                             <optgroup label="50代">
@@ -237,7 +253,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 m-t-30">
-                                        <label>介護度<span class="error">*</span></label>
+                                        <label>介護度<span class="error"></span></label>
                                         <select class="form-control" id="nursing"  v-model="comments.nursing">
                                             <option value="">選択してください</option>
                                             <option value="自立">自立</option>
@@ -250,24 +266,37 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6 m-t-30">
-                                        <label>認知症:<span class="error">*</span></label>
+                                        <label>認知症:<span class="error"></span></label>
                                         <input type="radio" id="fect" name="fect" value="あり"  v-model="comments.fect">あり
                                         <input type="radio" id="fect" name="fect" value="なし"  v-model="comments.fect">なし
                                         <input type="radio" id="fect" name="fect" value="わからない"  v-model="comments.fect">わからない
                                     </div>
                                     <div class="form-group col-md-8 m-t-30">
-                                        <label>認知症:<span class="error">*</span></label>
+                                        <label>入居希望時期:<span class="error">*</span></label>
                                         <input type="radio" id="desire" name="desire" value="できるだけ早く"  v-model="comments.desire">できるだけ早く
                                         <input type="radio" id="desire" name="desire" value="３ヶ月以内"  v-model="comments.desire">３ヶ月以内
                                         <input type="radio" id="desire" name="desire" value="半年以内"  v-model="comments.desire">半年以内
                                         <input type="radio" id="desire" name="desire" value="1年以内"  v-model="comments.desire">1年以内
                                         <input type="radio" id="desire" name="desire" value="未定"  v-model="comments.desire">未定
                                     </div>
-                                    <div class="col-md-6">
-                                        <label>ご要望や、お困りごと、その他お問い合わせ:<span class="error">*</span></label>
+                                    <div class="col-md-6 m-b-20">
+                                        <label>ご要望や、お困りごと、その他お問い合わせ:<span class="error"></span></label>
                                         <textarea name="hope" id="hope" cols="30" rows="10"  v-model="comments.hope"></textarea>
                                     </div>
-                                    <button type="button" class="submit2 btn btn-primary continue m-l-15 m-t-15" @click="add()">同意して進む</button>
+                                 
+
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                 <router-link :to="{name: 'favouriteNursing'}" class="btn btn-danger all-btn m-l-10">戻る</router-link>
+                                            </td>
+                                            <td>
+                                                 <button type="button" class="submit2 btn btn-primary m-t-0 m-l-10" @click="add()" :disabled="isdisable">同意して進む</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                  
+                                  
                                 </form>
                             </div>
                         </div>
@@ -337,7 +366,7 @@
                 .then(response => {
                     this.city_list = response.data;
                 });
-            if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
+            if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != ''){
                     this.btn_disable=false;
                 }else{
                     this.btn_disable=true;
@@ -387,7 +416,7 @@
                 });
             },
             someHandler: function(){
-                if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
+                if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != ''){
                     this.btn_disable=false;
                 }else{
                     this.btn_disable=true;
