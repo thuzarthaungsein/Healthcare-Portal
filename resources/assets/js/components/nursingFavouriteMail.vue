@@ -329,7 +329,6 @@
                     arr_reserve: [{}],
                     arr_document: [{}],
                     selectedValue: 0,
-
                 },
                 errors: [],
                 fav_nursing: [],
