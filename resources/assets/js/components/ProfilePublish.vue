@@ -41,107 +41,21 @@
                 </div>
         </div>
          <div class="row ele m-lr-0" id="element2">
-              <div class="row list-wrap m-lr-0">
-                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Features</strong></p></div>
-
-              </div>
-
-              <h5 class="header">special Features</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Short Name </li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Information from Clinic</li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Subject </li>
-                  </ul>
-              </div>
-              <h5 class="header">Consultation hours</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Consultation hours</li>
-                  </ul>
-              </div>
-              <h5 class="header">Facility</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li >Facility</li>
-                  </ul>
-              </div>
-              <h5 class="header">special Features</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Short Name </li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Information from Clinic</li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Subject </li>
-                  </ul>
-              </div>
-              <h5 class="header">Consultation hours</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Consultation hours</li>
-                  </ul>
-              </div>
-              <h5 class="header">Facility</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li >Facility</li>
-                  </ul>
-              </div>
-              <h5 class="header">special Features</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Short Name </li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Information from Clinic</li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Subject </li>
-                  </ul>
-              </div>
-              <h5 class="header">Consultation hours</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Consultation hours</li>
-                  </ul>
-              </div>
-              <h5 class="header">Facility</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li >Facility</li>
-                  </ul>
-              </div>
+             <h5 class="header">Features</h5>
+               <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-8">{{nurseprofile.feature}}</div>
           </div>
           <div class="row ele m-lr-0" id="element3">
-              <div class="row list-wrap m-lr-0">
-                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Cost</strong></p></div>
-              </div>
-              <h5 class="header">cost</h5>
+              <h5 class="header">Cost</h5>
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th width="30%">
+                                <font>method of payment</font>
+                            </th>
+                            <td width="70%">
+                                <font>method of payment test</font>
+                            </td>
+                        </tr>
+                    </table>
           </div>
 
           <div class="row ele m-lr-0" id="element4">
@@ -153,19 +67,35 @@
 
           </div>
            <div class="row ele m-lr-0" id="element5">
+               <h5 class="header">Map</h5>
               <div class="row list-wrap m-lr-0">
                   <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Map</strong></p></div>
 
               </div>
-              <h5 class="header">Map</h5>
+
 
           </div>
            <div class="row ele m-lr-0" id="element6">
-              <div class="row list-wrap m-lr-0">
-                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Review</strong></p></div>
+               <h5 class="header">Review</h5>
+              <div class="row" v-for="comment in comments" :key="comment.id">
+                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
+                                     <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
+                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
+                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                        <br/><br/>
+                                      <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
+                                         <div class="content hideContent">{{comment.comment}}</div>
+                                     </div> -->
+                                     <!-- <button onclick="function()">See more</button> -->
+                    <div class="row col-md-12 m-lr-0">
+                        <p class="showContent"> {{comment.comment}}</p>
+                            <span class="displaytext">{{comment.comment}}</span>
+                                <a class="mt-2 readMore" href ="#">続きを読む</a>
 
-              </div>
-              <h5 class="header">Review</h5>
+                    </div>
+
+                </div>
+
 
           </div>
            <div class="row ele m-lr-0" id="element7">
@@ -186,6 +116,8 @@ export default {
       return {
           customer:[],
           features:[],
+          nursing_profiles:[],
+          comments:[],
       }
   },
   created() {
@@ -196,7 +128,14 @@ export default {
         this.axios.get(`/api/special`).then(response => {
             this.features= response.data;
         });
-  }
+        this.axios.get('/api/nurse') .then(response => {
+                    this.nursing_profiles = response.data;
+        });
+         this.axios.get('/api/comments/comment').then(response => {
+                    this.comments = response.data;
+
+        });
+  },
 }
 </script>
 
