@@ -434,44 +434,44 @@ export default {
                        this.hospital_info.push({access:access,subject:subject,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,special_features:special_features,facilities:facilities});
 
-                        // this.axios
-                        //         .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
-                        //                 .then((response) => {
+                        this.axios
+                                .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
+                                        .then((response) => {
                                         
-                        //                 }).catch(error=>{
+                                        }).catch(error=>{
 
-                        //                 if(error.response.status == 422){
+                                        if(error.response.status == 422){
 
-                        //                 this.errors = error.response.data.errors
+                                        this.errors = error.response.data.errors
 
-                        //         }
-                        // }) ;
+                                }
+                        }) ;
 
-                        // this.axios
-                        //         .post(`/api/customer/profile/${this.id}`,this.customer_info)
-                        //                 .then((response) => {
-                        //                 alert('Successfully Updated!')
-                        //                 }).catch(error=>{
+                        this.axios
+                                .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                                        .then((response) => {
+                                        alert('Successfully Updated!')
+                                        }).catch(error=>{
 
-                        //                 if(error.response.status == 422){
+                                        if(error.response.status == 422){
 
-                        //                 this.errors = error.response.data.errors
+                                        this.errors = error.response.data.errors
 
-                        //         }
-                        // }) ;
+                                }
+                        }) ;
 
-                        // this.axios
-                        //         .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
-                        //                 .then((response) => {
+                        this.axios
+                                .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
+                                        .then((response) => {
                                 
-                        //                 }).catch(error=>{
+                                        }).catch(error=>{
 
-                        //                 if(error.response.status == 422){
+                                        if(error.response.status == 422){
 
-                        //                 this.errors = error.response.data.errors
+                                        this.errors = error.response.data.errors
 
-                        //         }
-                        // }) ;
+                                }
+                        }) ;
 
                         this.axios
                                 .post(`/api/schedule/update/${this.id}`,this.schedule_list)
