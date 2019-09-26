@@ -2782,6 +2782,11 @@ body::-webkit-scrollbar-thumb {
     .hos-img img {
         width: 160px;
     }
+    .list-logo img {
+        width: 96%;
+        height: 94%;
+        margin: auto;
+    }
     .list-wrap {
         padding: 7px 0;
         margin-bottom: 2px;
