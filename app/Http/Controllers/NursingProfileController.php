@@ -139,13 +139,13 @@ class NursingProfileController extends Controller
 
     public function Customerprofileupdate($id,Request $request) {
         $request = $request->all();
-
+        
         $customer = Customer::find($id);
         $uploadData = array(
-            'name' => $request['name'],
-            'email' =>  $request['email'],
-            'phone'=>  $request['phone'],
-            'address'=>  $request['address']
+            'name' => $request[0]['name'],
+            'email' =>  $request[0]['email'],
+            'phone'=>  $request[0]['phone'],
+            'address'=>  $request[0]['address']
        );
 
        $customer->update($uploadData);

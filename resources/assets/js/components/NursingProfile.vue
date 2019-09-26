@@ -498,7 +498,7 @@ export default {
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
                 id:1, profile_type:'nursing',
-                profile_arr:[],staf_info:[],cust_info:[], test:[],
+                profile_arr:[],staf_info:[],customer_info:[], test:[],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -671,6 +671,7 @@ export default {
                 this.video_list = [];
                 this.cooperate_list = [];
                 this.payment_list = [];
+                this.customer_info = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
@@ -705,7 +706,7 @@ export default {
                 var num_staff = $('.num-staff').text();
                 var nursing_remarks = $('.nursing-remarks').text();
 
-                this.cust_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
+                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
                 this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:nursing_remarks});
             
@@ -822,6 +823,7 @@ export default {
                 //         }
                 // }) ;
 
+                // to check again
                 // this.axios
                 //         .post(`/api/customer/profile/${this.id}`,this.customer_info)
                 //         .then((response) => {
