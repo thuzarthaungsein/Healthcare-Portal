@@ -12,14 +12,13 @@
 
         <!-- Tab panes -->
             <div class="tab-content tab-content1 tabs">
-                <div role="tabpanel" class="tab-pane fade" id="tab1"><news></news></div>
-                <div role="tabpanel" class="tab-pane active" id="tab2">
-                    
+                <div role="tabpanel" class="tab-pane fade" id="tab1"><News></News></div>
+                <div role="tabpanel" class="tab-pane active" id="tab2">                    
                     <div class="d-flex justify-content-between">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="/">ホーム</a>
+                                    <span @click="changeRoute()" class="link-span">ホーム</span>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
                             </ol>
@@ -125,16 +124,16 @@
 </template>
 
 <script>
-import news from './news.vue'
-import hospitalSearch from './hospitalSearch.vue'
+import News from './News.vue'
+// import hospitalSearch from './hospitalSearch.vue'
 import nursingSearch from './nursingSearch.vue'
 import jobSearch from './jobSearch.vue'
     export default {
         components: {
-                news,
+                News,
                 nursingSearch,
                 jobSearch,
-                hospitalSearch
+                // hospitalSearch
         },
         data() {
                 return {
@@ -165,6 +164,9 @@ import jobSearch from './jobSearch.vue'
                     });
             },
             methods: {
+                changeRoute(){
+                    this.$router.push({name:'home', params: {page:'subtab2'}});
+                },
                 deleteLocalSto: function(id) {
                     if (confirm("Are you sure you want to delete?")) {
                         alert('Delete Successfully!');

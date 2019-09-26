@@ -1,8 +1,8 @@
 <template>
 <div>
         <!--menu tabs-->
-        <ul class="nav nav-tabs card-head-tabs" role="tablist">
-        <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-newspaper"></i> ニュース</a></li>
+        <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
+        <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="active nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
         <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
         <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
         <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
@@ -10,9 +10,7 @@
         <!--end menu tabs-->
         <!-- Tab panes -->
               <div class="tab-content tab-content1 tabs">
-               <div role="tabpanel" class="tab-pane in active" id="tab1">
-                  <News></News>
-                </div>
+               <div role="tabpanel" class="tab-pane active" id="tab1"> <News></News> </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
@@ -53,6 +51,15 @@ export default {
             }
         },
         created() {
+                if(this.$route.params.page) {
+                       $('#navtab .nav-item').removeClass('active');
+                       $('#navtab .nav-item a').removeClass('active');
+                       $('.tab-pane').removeClass('active');
+                       $('#navtab .subtab2').addClass('active');
+                       $('#navtab .subtab2 a').addClass('active');
+                       $('#tab2').addClass('active');
+                       console.log("tab");
+               }
                 // Push data
                 this.l_storage_hos_fav.push(1);
                 this.l_storage_nus_fav.push(1);
@@ -71,6 +78,8 @@ export default {
                localStorage.setItem("nursing_history",this.l_storage_nus_history);
                localStorage.setItem("hospital_fav",this.l_storage_hos_fav);
                localStorage.setItem("nursing_fav",this.l_storage_nus_fav);
+
+               
 
         //        localStorage.setItem('name', 'SNY');
         //        const person = {

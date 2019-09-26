@@ -2242,6 +2242,11 @@ ul.main-tab li:after {
 
 /* Hospital Search */
 
+.link-span {
+    cursor: pointer;
+    
+}
+
 .search-map {
     background: white;
     padding: 0px 15px 15px 15px !important;
