@@ -53,9 +53,8 @@
                   <div class="col-sm-4">
                     <router-link
                       :to="{name: 'joboffercreate', params:{id:job.id}}"
-                      class="btn main-bg-color white all-btn"
-                    >Edit</router-link>
-                    <button class="btn btn-danger all-btn" @click="deleteJob(job.id)">Delete</button>
+                      class="btn main-bg-color white all-btn">編集</router-link>
+                    <button class="btn btn-danger all-btn" @click="deleteJob(job.id)">削除</button>
                     <!-- <router-link :to="{name: 'job_details', params:{id:job.id}}" class="btn btn all-btn secondary-bg-color white">Delete</router-link> -->
                     <!-- <a href="../jobs/job_search_details.html"  class="btn btn all-btn secondary-bg-color white">詳細を見る</a> -->
                   </div>

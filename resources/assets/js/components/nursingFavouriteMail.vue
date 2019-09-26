@@ -282,9 +282,7 @@
                                     <div class="col-md-6 m-b-20">
                                         <label>ご要望や、お困りごと、その他お問い合わせ:<span class="error"></span></label>
                                         <textarea name="hope" id="hope" cols="30" rows="10"  v-model="comments.hope"></textarea>
-                                    </div>
-                                 
-
+                                    </div>        
                                     <table>
                                         <tr>
                                             <td>
@@ -294,9 +292,7 @@
                                                  <button type="button" class="submit2 btn btn-primary m-t-0 m-l-10" @click="add()" :disabled="isdisable">同意して進む</button>
                                             </td>
                                         </tr>
-                                    </table>
-                                  
-                                  
+                                    </table>                                
                                 </form>
                             </div>
                         </div>
