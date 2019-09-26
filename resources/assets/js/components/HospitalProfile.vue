@@ -27,32 +27,57 @@
                     <div class="form-group">
                             <label class="heading-lbl">フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">+</span>
                             <div class="col-md-12">
-                                    <div class="row" id="gallery-photo"></div>
+                                    <div class="row" id="gallery-photo">
+                                            <!-- Add by + Button -->
+                                                <div class="col-md-12 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
+                                                                <div class="col-md-3">
+                                                                        <input type="file" name="" class=" m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
+                                                                        <div class="col-md-12" v-bind:class="img.classname">
+                                                                                <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="img.title">
+                                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="img.description"></textarea>
+                                                                </div>
+                                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">削除</a>
+                                                       
+                                                </div>
+                                    </div>
                             </div>                                        
                     </div>
                     <div class="form-group">
                             <label class="heading-lbl">動画</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">+</span>
                             <div class="col-md-12">
-                                    <div class="row" id="gallery-video"></div>
+                                    <div class="row" id="gallery-video">
+                                        <!-- Add by + Button -->
+                                        <div class="col-md-12 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
+                                                <div class="col-md-3">
+                                                        <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-model="video.url">
+                                                </div>
+                                                <div class="col-md-9">
+                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="video.title">
+                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="video.description"></textarea>
+                                                </div>
+                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">削除</a>
+                                        </div>
+                                    </div>
                             </div>                                        
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">診療科目<span class="error">*</span></label>
-                            <!-- <textarea name="medicaldepartment" class="form-control"></textarea> -->
-                              <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
+                            <textarea name="medicaldepartment" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">専門医<span class="error">*</span></label>
-                            <!-- <textarea name="specialist" class="form-control"></textarea> -->
-                              <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
+                            <textarea name="specialist" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">医院からのお知らせ<span class="error">*</span></label>
-                            <!-- <textarea name="detailsinfo" class="form-control"></textarea> -->
-                              <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
+                            <textarea name="detailsinfo" class="form-control"></textarea>
                     </div>
 
                     <!-- <div class="form-group">
@@ -75,44 +100,44 @@
                                         </tr>
                                         <tr>
                                                 <td>Monday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from0"> <span>To:</span><input type="text" class="form-control am-to0"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from0"> <span>To:</span><input type="text" class="form-control pm-to0"></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Tuesday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from1"> <span>To:</span><input type="text" class="form-control am-to1"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from1"> <span>To:</span><input type="text" class="form-control pm-to1"></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Wed</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from2"> <span>To:</span><input type="text" class="form-control am-to2"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from2"> <span>To:</span><input type="text" class="form-control pm-to2"></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Thu</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from3"> <span>To:</span><input type="text" class="form-control am-to3"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from3"> <span>To:</span><input type="text" class="form-control pm-to3"></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Friday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from4"> <span>To:</span><input type="text" class="form-control am-to4"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from4"> <span>To:</span><input type="text" class="form-control pm-to4"></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sat</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from5"> <span>To:</span><input type="text" class="form-control am-to5"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from5"> <span>To:</span><input type="text" class="form-control pm-to5"></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sunday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from6"> <span>To:</span><input type="text" class="form-control am-to6"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from6"> <span>To:</span><input type="text" class="form-control pm-to6"></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td></td>
                                         </tr>
                                 </table>
@@ -121,8 +146,7 @@
 
                     <div class="form-group">
                         <label class="heading-lbl">休診日</label>
-                        <!-- <textarea name="close-day" class="form-control"></textarea> -->
-                          <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
+                        <textarea name="close-day" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -140,24 +164,16 @@
                         </div>
                     </div>
 
-                    <!-- <div class="form-group">
-                        <label class="heading-lbl">こだわりの特長<span class="error">*</span></label>
-                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()">+</span>
-
-                        <div class="col-md-12" id="special-features">
-
-                        </div>
-                    </div> -->
-
                     <div class="form-group">
-                        <label  class="heading-lbl">こだわりの特長</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down"></i></span>
+                        <label class="heading-lbl">こだわりの特長<span class="error">*</span></label>
+                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down"></i></span>
 
                         <div class="col-md-12 special-feature-toggle-div toggle-div">
                                 <div class="row">
                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
-                                                <label>
-                                                <input type="checkbox"  name="special-features" :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)">
-                                                {{feat.name}}
+                                                 <label>
+                                                        <input type="checkbox"  name="special-features" :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
+                                                                {{feat.name}}
                                                 </label>
                                         </div>
                                 </div>                                        
@@ -171,8 +187,7 @@
 
                     <div class="form-group">
                             <label class="heading-lbl">混雑状況</label>
-                            <!-- <textarea name="congestion" class="form-control"></textarea> -->
-                              <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
+                            <textarea name="congestion" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -186,13 +201,11 @@
 
                                 <div class="form-group">
                                         <label>住所<span class="error">*</span></label>
-                                        <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                          <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
+                                        <textarea name="address" rows="10" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
                                         <label>交通 / アクセス<span class="error">*</span></label>
-                                        <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                          <quill-editor v-model="content" ref="myQuilEditor" :options="editorOption" />
+                                        <textarea name="address" rows="10" class="form-control"></textarea>
                                 </div>
                         </div>
                     </div>
@@ -220,7 +233,7 @@
                     <!-- End Map -->
 
                     <div class="row">
-                            <span class="btn news-post-btn all-btn m-t-15" @click="createProfile()">Create</span>
+                            <span class="btn news-post-btn all-btn m-t-15" @click="Create_Profile()">Create</span>
                             <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
                     </div>
             </div>               
@@ -229,40 +242,27 @@
 </template>
 
 <script>
-import 'quill/dist/quill.snow.css'
-import {quillEditor} from 'vue-quill-editor'
-import {Button, Input,Select} from 'iview'
 import GoogleMap from './GoogleMap.vue'
 export default {
         components: {
         GoogleMap,
-        Button,
-        Input,
-        Select,
-        quillEditor
         },
-       
        data() {
                 return {
                         fac_list: [],
+                        img_arr:[],img_list:[], 
+                        video_arr:[], video_list:[],
                         feature_list:[],
-                        count:-1, v_count: -1,
-                        type:'',
-                        title:[], v_title:[],
-                        description:[], v_description:[],
-                        img:[],
-                        img_list:[], video_list:[],
-                        shedule_am:[], shedule_pm:[], schedule_list:[],
-                        content: '',
-                        editorOption:{
-                        debug:'info',
-                        placeholder:'Type your post...',
-                        readonly:true,
-                        theme:'snow',
-                }
+                        profile_type:'hospital',id : 1, // test_id
                 }
         },
         created(){
+                this.axios
+                .get('/api/customersinfo')
+                .then(response=>{
+                this.fac_list = response.data;
+                });
+
                 this.axios
                 .get('/api/facilities')
                 .then(response=>{
@@ -270,9 +270,22 @@ export default {
                 });
 
                 this.axios
-                .get('/api/featurelist')
+                .get('/api/hospital-pgallery/'+this.id)
                 .then(response=>{
-                this.feature_list = response.data;
+                        this.img_arr = response.data;
+                });
+
+                this.axios
+                .get('/api/hospital-vgallery/'+this.id)
+                .then(response=>{
+                        this.video_arr = response.data;
+                });
+
+                this.axios
+                .get('/api/feature/'+this.profile_type+'/'+this.id)
+                .then(response=>{
+                        console.log(response.data);
+                        this.feature_list = response.data;
                 });
         },
         methods: {
@@ -289,94 +302,69 @@ export default {
                     $(".hos-fac-toggle-div").toggle('medium');
             },
 
+            preview_image(img_class) {
+                   $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+            },
             featureCheck(check_id) {
                     $('.feature-'+check_id).attr('checked','true');
             },
+            DeltArr(indx,type) {
+                    var arr_list = [];
+                    var arr_count = document.getElementsByClassName('gallery-area-'+type);
+                    for(var i=0; i< arr_count.length; i++) {
+                            arr_list[i] = document.getElementsByClassName('gallery-area-'+type);
+                    }
 
-            galleryAdd() {
-
-                    var date = new Date;
-                    var s = date.getMilliseconds();
-                    var m = date.getMinutes();
-                    var h = date.getHours();
-                    var classname = "class"+h+m+s;
-                    var c = "'"+classname+"'";
-                    this.type = 0;
-
-                     var photo = document.getElementsByClassName('gallery-area-photo');
-                     if(photo.length == 0) {
-                             this.count = this.count + 1;
-                     } else {
-                             this.count = photo.length;
-                     }
-
-                    $("#gallery-photo").append('<div id="gallery-photo'+this.count+'" class="row col-md-12"><div id="galleryarea-photo'+this.count+'" class="row col-md-12 gallery-area-photo gallery_'+this.count+'"><div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 '+classname+' img'+this.count+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description"></textarea></div><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.count+','+this.type+')">削除</a></div></div>');
+                    for(var i=0; i<= arr_count.length; i++) {
+                            if(i == indx) {
+                                    arr_list.splice(indx,1);
+                                    var ele = document.getElementById(type+indx);
+                                    var parentEle = document.getElementById('gallery-'+type);
+                                    parentEle.removeChild(ele);
+                            }
+                    }
+                    
             },
-
-             galleryVideoAdd() {
+            galleryAdd() {
                     var date = new Date;
                     var s = date.getMilliseconds();
                     var m = date.getMinutes();
                     var h = date.getHours();
-                    this.type = 1;
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
-                  
-                    var video = document.getElementsByClassName('gallery-area-video');
 
-                     if(video.length == 0) {
-                             this.v_count = this.v_count + 1;
-                     } else {
-                             this.v_count = video.length;
-                     }
+                    this.img_arr.push({classname:classname,photo:'',title:'',description:''});
+            },
+            galleryVideoAdd() {
 
-                    $("#gallery-video").append('<div id="gallery-video'+this.v_count+'" class="row col-md-12"><div id="galleryarea-video'+this.v_count+'" class="row col-md-12 gallery-area-video gallery_'+this.v_count+'"><div class="col-md-3"></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description"></textarea></div><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.v_count+','+this.type+')">削除</a></div></div>');
+                   this.video_arr.push({title:'',description:'',url:''});
+
             },
             
             specialFeAdd() {
-                    $(".special-feature-toggle-div").toggle('medium');
+                     $(".special-feature-toggle-div").toggle('medium');
             },
+            Create_Profile () {
+                    this.img_list = [];
+                    this.video_list = [];
 
-            createProfile() {
-                var photo = document.getElementsByClassName('gallery-area-photo');
-                var video = document.getElementsByClassName('gallery-area-video');
-                var feature = document.getElementsByClassName('special-feature-checked');
-                
-                for (var i = 0; i < photo.length; i++) {
-                        this.img[i] = $('.gallery-area-photo.gallery_'+i+' .img'+i+' .show-img').attr('src'); 
-                        this.title[i] = $('.gallery-area-photo.gallery_'+i+' .title').val(); 
-                        this.description[i] = $('.gallery-area-photo.gallery_'+i+' .description').val(); 
-
-                        this.img_list.push({img: this.img[i],title: this.title[i], description: this.description[i]});
-                }
-                console.log(this.img_list);
-
-                for (var i = 0; i < video.length; i++) {
-                        this.v_title[i] = $('.gallery-area-video.gallery_'+i+' .title').val();
-                        this.v_description[i] = $('.gallery-area-video.gallery_'+i+' .description').val();
-
-                        this.video_list.push({title: this.v_title[i], description: this.v_description[i]});
-                }
-                console.log(this.video_list);
-
-                // Consultation
-                for(var j = 0; j< 2; j++) {
-                        for(var i = 0; i< 7; i++) {
-                                if(j == 0) { this.shedule_am[i] = $('.form-control.am-from'+i+'').val() + '-' + $('.form-control.am-to'+i+'').val(); } 
-                                if(j == 1) { this.shedule_pm[i] = $('.form-control.pm-from'+i+'').val() + '-' + $('.form-control.pm-to'+i+'').val(); }
+                    var img = document.getElementsByClassName('gallery-area-photo');
+                        for(var i = 0; i< img.length; i++) {
+                           this.img_list.push({img:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                         }
+                        console.log(this.img_list);
 
-                        if(j == 0) { this.schedule_list.push({am: this.shedule_am}); }
-                        if(j == 1) { this.schedule_list.push({pm: this.shedule_pm}); }
-                }
-                console.log(this.schedule_list);
+                    var video = document.getElementsByClassName('gallery-area-video');
+                        for(var i = 0; i< video.length; i++) {
+                           this.video_list.push({url:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
+                        }
+                        console.log(this.video_list);
 
-                // Special Features
-                var chek_feature = [];
-                $.each($("input[name='special-features']:checked"), function(){ 
-                        chek_feature.push({ feature: $(this).val()});
-                });
-                console.log(chek_feature);return;
+                     var chek_feature = [];
+                        $.each($("input[name='special-features']:checked"), function(){ 
+                                chek_feature.push({ feature: $(this).val()});
+                        });
+                        console.log(chek_feature);return;
             }
 
         }

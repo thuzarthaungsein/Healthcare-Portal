@@ -42,6 +42,7 @@ $(".path").hover(
 
     });
 
+<<<<<<< HEAD
 
 
 // $('.postal').on('keyup',function(e){
@@ -122,6 +123,12 @@ $(".path").mouseout(function() {
 
         'opacity': '1'
 
+=======
+  $(".path").mouseout(function(){
+    $('.'+$(this).data('info')).css({
+      'background':'transparent',
+      'opacity':'1'
+>>>>>>> f86027671a8d37b6511e358c195e4d5b9acff982
     });
 
 
@@ -202,6 +209,7 @@ $(".path").mouseout(function() {
 
             type: 'post',
 
+<<<<<<< HEAD
             data: { "title": title, "id": id },
 
             url: url,
@@ -223,6 +231,53 @@ $(".path").mouseout(function() {
                 $('.text').empty();
 
                 var getCity = data.getCity;
+=======
+*/
+// $(function() {
+//     $('#btnSubmit').on('click', function() {
+//       // your code goes here
+//       $('#outputSpan').val($('#name').val());
+//       $('#outputfurigana').val($('#furigana').val());
+//       $('#outputpostal').val($('.postal').val());
+//       $('#outputdivision').val($('#division').val());
+//       $('#outputcity').val($('#city').val());
+//       $('#outputphone').val($('#phone').val());
+//       $('#outputmail').val($('#mail').val());
+
+//     //   $('#outputpresent').val($('#present').val());
+//       $('#outputpresent').val($('input:checkbox[name=present]:checked').val());
+
+//       $('#outputrelation').val($('#relation').val());
+//       $('#outputttname').val($('#ttname').val());
+
+//       $('#outputsex').val($('input:radio[name=sex]:checked').val());
+//     //   alert($('input:radio[name=sex]:checked').val());
+
+//       $('#outputyears').val($('#years').val());
+//       $('#outputnursing').val($('#nursing').val());
+
+//     //   $('#outputfect').val($('#fect').val());
+
+//       $('#outputfect').val($('input:radio[name=fect]:checked').val());
+//     //   alert($('input:radio[name=fect]:checked').val());
+
+//     //   $('#outputdesire').val($('#desire').val());
+//       $('#outputdesire').val($('input:radio[name=desire]:checked').val());
+
+//       $('#outputhope').val($('#hope').val());
+//       // not triiger output tab to be open
+//       $('[href="#output"]').trigger('click');
+//     });
+//   });
+    $(".checkbox").on("click", function() {
+        if ($(".checkbox:checked").length == $(".checkbox").length) {
+            $(".select_all").prop("checked", true);
+        } else {
+            $(".select_all").prop("checked", false);
+        }
+    });
+     });
+>>>>>>> f86027671a8d37b6511e358c195e4d5b9acff982
 
                 var townships = data.getTownships;
 
@@ -1081,5 +1136,16 @@ function DeltArr(index, type) {
 
 
     }
+<<<<<<< HEAD
 
 }
+=======
+    $('input[name="number"]').keyup(function(e)
+  {
+  if (/\D/g.test(this.value))
+  {
+    // Filter non-digits from input value.
+    this.value = this.value.replace(/\D/g, '');
+  }
+});
+>>>>>>> f86027671a8d37b6511e358c195e4d5b9acff982

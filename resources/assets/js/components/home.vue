@@ -52,34 +52,41 @@ import jobSearch from "./jobSearch.vue";
 // import ProfilePublish from './ProfilePublish.vue'
 
 export default {
-  components: {
-    News,
-    hospitalSearch,
-    nursingSearch,
-    jobSearch
-  },
-  mounted() {
-    // console.log[l_storage_hos_history];
-  },
-  data() {
-    return {
-      cats: [],
-      posts: [],
-      latest_post: [],
-      latest_post_all_cats: [],
+    components: {
+     News,
+     hospitalSearch,
+     nursingSearch,
+     jobSearch
+    },
+     mounted() {
+                // console.log[l_storage_hos_history];
+        },
+        data() {
+            return {
+                cats: [],
+                posts: [],
+                latest_post: [],
+                latest_post_all_cats: [],
 
-      l_storage_hos_history: [],
-      l_storage_nus_history: [],
-      l_storage_hos_fav: [],
-      l_storage_nus_fav: []
-    };
-  },
-  created() {
-    // Push data
-    this.l_storage_hos_fav.push(1);
-    this.l_storage_nus_fav.push(1);
-    this.l_storage_hos_history.push(2);
-    this.l_storage_nus_history.push(1);
+                l_storage_hos_history: [],
+                l_storage_nus_history: [],
+                l_storage_hos_fav: [],
+                l_storage_nus_fav: [],
+            }
+        },
+        created() {
+                // Push data
+                this.l_storage_hos_fav.push(1);
+                this.l_storage_nus_fav.push(1);
+                this.l_storage_hos_history.push(1);
+                this.l_storage_hos_history.push(2);
+                this.l_storage_hos_history.push(3);
+                this.l_storage_nus_history.push(1);
+
+                this.l_storage_hos_fav.push(2);
+                this.l_storage_nus_fav.push(2);
+                
+                this.l_storage_nus_history.push(2);
 
     this.l_storage_hos_fav.push(2);
     this.l_storage_nus_fav.push(2);
