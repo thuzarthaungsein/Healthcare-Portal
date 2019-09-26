@@ -1,31 +1,57 @@
 <template>
 <div class="card profile" style="border:none;">
-    <form class="col-md-12">
+    <form class="col-md-12 form-class">
             <div class="col-md-12 pad-free">
                     <div class="form-group">
                             <label class="heading-lbl">名前<span class="error">*</span></label>
-                            <input type="text" class="form-control" placeholder="Name">
+                            <input type="text" class="form-control customer-name" placeholder="Name" v-model="customer_info.name">
                     </div>
                     <div class="form-group">
                             <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
-                            <input type="text" class="form-control"  placeholder="Email">
+                            <input type="text" class="form-control customer-email"  placeholder="Email" v-model="customer_info.email">
                     </div>
                     <div class="form-group">
                             <label class="heading-lbl">電話番号<span class="error">*</span></label>
-                            <input type="text" class="form-control"  placeholder="Phone">
+                            <input type="text" class="form-control customer-phone"  placeholder="Phone" v-model="customer_info.phone">
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">Add</span>
                             <div class="col-md-12">
-                                    <div class="row" id ="gallery-photo"></div>
+                                    <div class="row" id ="gallery-photo">
+                                            <div class="col-md-12 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
+                                                                <div class="col-md-3">
+                                                                        <input type="file" name="" class=" m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
+                                                                        <div class="col-md-12" v-bind:class="img.classname">
+                                                                                <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="img.title">
+                                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="img.description"></textarea>
+                                                                </div>
+                                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">削除</a>
+                                                       
+                                                </div>
+                                    </div>
                             </div>
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">動画</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">Add</span>
                             <div class="col-md-12">
-                                    <div class="row" id="gallery-video"></div>
+                                    <div class="row" id="gallery-video">
+                                            <div class="col-md-12 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
+                                                <div class="col-md-3">
+                                                        <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-model="video.url">
+                                                </div>
+                                                <div class="col-md-9">
+                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="video.title">
+                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="video.description"></textarea>
+                                                </div>
+                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">削除</a>
+                                            </div>
+                                    </div>
                             </div>
                     </div>
 
@@ -48,7 +74,139 @@
                                         <label class="heading-lbl">支払い方法<span class="error">*</span></label>
                                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="methodAdd()">Add</span>
 
-                                        <div class="col-md-12 pad-free" id="gallery-payment"></div>
+                                        <div class="col-md-12 pad-free" id="gallery-payment">
+                                                <!-- test -->
+                                                <div class="pad-free col-md-12 gallery-area-payment" v-bind:id="'payment'+indx" v-for="(payment,indx) in payment_arr" :key="payment.id">
+        <div class="col-md-12 m-t-15 m-b-15">
+            <table class="table">
+                <tr>
+                    <th>
+                        <span class="btn all-btn main-bg-color m-l-10" style="min-width:0px;"><i class="fa fa-edit"></i></span>
+                        <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">削除</a> 
+                        <label class="col-md-3 title-lbl float-right">タイプ名</label>
+                    </th>
+                    <th>
+                        <input type="text" name="method[]" class="form-control payment-name" v-model="payment.payment_name">
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <h3 class="title-lbl">料金概要</h3>
+            <table class="table">
+                <tr>
+                    <th>入居時にかかる費用</th>
+                    <th>
+                        <input type="text" name="exp[]" class="form-control expense-moving" v-model="payment.expense_moving">
+                    </th>
+                </tr>
+                <tr>
+                    <th>居室タイプ</th>
+                    <th>
+                        <input type="text" name="exp[]" class="form-control living-room-type" v-model="payment.living_room_type">
+                    </th>
+                </tr>
+                <tr>
+                    <th>月額利用料</th>
+                    <th>
+                        <input type="text" name="exp[]" class="form-control monthly-fees" v-model="payment.monthly_fees">
+                    </th>
+                </tr>
+                <tr>
+                    <th>広さ</th>
+                    <th>
+                        <input type="text" name="exp[]" class="form-control area" v-model="payment.area">
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <h3 class="title-lbl">料金詳細</h3>
+            <table class="table">
+                <tr>
+                    <th class="title-lbl">
+                        <span>入居にかかる費用</span>
+                    </th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>入居一時金または敷金</th>
+                    <th>
+                        <input type="text" name="breakdown[]" class="form-control deposit" v-model="payment.deposit">
+                    </th>
+                </tr>
+                <tr>
+                    <th>その他（使途）</th>
+                    <th>
+                        <input type="text" name="breakdown[]" class="form-control other-use" v-model="payment.other_use">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="title-lbl"><span>月額費用</span></th><th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>賃料</th>
+                    <th>
+                        <input type="text" name="breakdown[]" class="form-control rent" v-model="payment.rent">
+                    </th>
+                </tr>
+                <tr>
+                    <th>管理費</th>
+                    <th>
+                        <input type="text" name="breakdown[]" class="form-control admin-expense" v-model="payment.admin_expense">
+                    </th>
+                </tr>
+                <tr>
+                    <th>食費</th>
+                    <th>
+                        <input type="text" name="breakdown[]" class="form-control food-expense" v-model="payment.food_expense">
+                    </th>
+                </tr>
+                <tr>   
+                    <th>介護上乗せ金（生活サービス費）</th>
+                    <th>   
+                        <input type="text" name="breakdown[]" class="form-control nurse-care-surcharge" v-model="payment.nurse_care_surcharge">
+                    </th>
+                </tr>
+                <tr>
+                    <th>その他</th>
+                    <th>
+                        <input type="text" name="breakdown[]" class="form-control other-monthly-cost" v-model="payment.other_monthly_cost">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="title-lbl"><span>返還金について</span></th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>返還制度</th>
+                    <th>
+                        <input type="text" name="breakdown[]" class="form-control refund-system" v-model="payment.refund_system">
+                    </th>
+                </tr>
+                <tr>
+                    <th>償却期間</th>
+                    <th>   
+                        <input type="text" name="breakdown[]" class="form-control depreciation-period" v-model="payment.depreciation_period">
+                    </th>
+                </tr>
+                <tr>
+                    <th>初期償却</th>
+                    <th>
+                        <input type="text" name="breakdown[]" class="form-control initial-deprecration" v-model="payment.initial_deprecration">
+                    </th>
+                </tr>
+                <tr>
+                    <th>その他メッセージ</th>
+                    <th>
+                        <input type="text" name="breakdown[]" class="form-control other-message-refund" v-model="payment.other_message_refund">
+                    </th>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+                                        </div>
                                 </div>
                             </td>
                         </tr>
@@ -57,84 +215,84 @@
                             <td>
                                 <label class="heading-lbl">施設の概要</label>
                                 <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="nurseFacToggleDiv()"><i class="fas fa-sort-down"></i></span>
-
+                                <!-- testtest -->
                                 <div class="nurse-fac-toggle-div toggle-div">
                                         <table class="table table-striped table-bordered">
                                                 <tr>
                                                         <td style="width:30%">事業主体</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td>   -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor class="business-entity" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.business_entity"/></td>
 
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">開設年月日</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td>  -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="date-of-establishment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.date_of_establishment"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">土地の権利形態</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="land-right-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.land_right_form"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">建物の権利形態</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="building-right-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.building_right_form"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">敷地面積</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="site-area" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.site_area"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">延床面積</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="floor-area" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.floor_area"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">構造</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="construction" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.construction"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">定員</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="capacity" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.capacity"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">総居室・戸数</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="num-rooms" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.num_rooms"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">居住の権利形態</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="residence-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.residence_form"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">類型</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="fac-type" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.fac_type"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">入居条件</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="occupancy-condition" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.occupancy_condition"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">居室区分・間取り等</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="room-floor" ref="myQuilEditor" :options="editorOption"  v-model="nursing_info.room_floor"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">居室設備</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="equipment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.equipment"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:30%">共用施設・設備</td>
                                                         <!-- <td style="width:70%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:70%"> <quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:70%"> <quill-editor  class="living-room-facilities" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.living_room_facilities"/></td>
                                                 </tr>
                                         </table>
                                 </div>
@@ -146,7 +304,34 @@
                                 <div class="form-group">
                                         <label class="heading-lbl">協力医療機関<span class="error">*</span></label>
                                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="cooperateAdd()">Add</span>
-                                        <div class="col-md-12 pad-free" id="gallery-cooperation"></div>
+                                        <div class="col-md-12 pad-free" id="gallery-cooperate">
+                                                <!-- cooperation -->
+                                                <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                                        <div class="form-group"> 
+                                                                <label>名前 :</label> 
+                                                                <input type="text" class="form-control" name="co-medical-header[]" v-model="cooperate.name"> 
+                                                        </div>
+                                                        <table class="table table-bordered">
+                                                        <tr>
+                                                                <th style="width:30%">診療科目</th>
+                                                                <th style="width:70%"><textarea class="form-control clinical-sub" name="clinical-sub" v-model="cooperate.clinical_subject"></textarea></th>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>協力内容</th>
+                                                                <th><textarea class="form-control details" name="details" v-model="cooperate.details"></textarea></th>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>診療費用</th>
+                                                                <th><textarea class="form-control expense" name="expense" v-model="cooperate.medical_expense"></textarea></th>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>備考</th>
+                                                                <th><textarea class="form-control remark" name="remark" v-model="cooperate.remark"></textarea></th>
+                                                        </tr>
+                                                        </table>
+                                                        <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'cooperate')">削除</a>
+                                                </div>
+                                        </div>
                                 </div>
                             </td>
                         </tr>
@@ -193,26 +378,26 @@
                                                 <tr>
                                                         <td style="width:20%">介護に関わる職員体制（入居者：職員）</td>
                                                         <!-- <td style="width:32%"><textarea class="form-control"></textarea></td>  -->
-                                                        <td style="width:32%"><quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                        <td style="width:32%"><quill-editor  ref="myQuilEditor" class="staff" :options="editorOption" v-model="staff_info.staff"/></td>
 
                                                         <td style="width:16%">介護職員</td>
                                                         <!-- <td style="width:32%"><textarea class="form-control"></textarea></td>   -->
-                                                         <td style="width:32%"><quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:32%"><quill-editor  ref="myQuilEditor" class="nursing-staff" :options="editorOption" v-model="staff_info.nursing_staff"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td style="width:20%">夜間の最少職員数</td>
                                                         <!-- <td style="width:32%"><textarea class="form-control"></textarea></td> -->
-                                                         <td style="width:32%"><quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:32%"><quill-editor  ref="myQuilEditor" class="min-num-staff" :options="editorOption" v-model="staff_info.min_num_staff"/></td>
                                                         <td style="width:16%">看護職員数</td>
                                                         <!-- <td style="width:32%"><textarea class="form-control"></textarea></td>    -->
-                                                         <td style="width:32%"><quill-editor  ref="myQuilEditor" :options="editorOption" /></td>
+                                                         <td style="width:32%"><quill-editor  ref="myQuilEditor" class="num-staff" :options="editorOption" v-model="staff_info.num_staff"/></td>
                                                 </tr>
                                         </table>
 
                                         <div class="form-group">
                                                 <label for="">備考</label>
                                                 <!-- <textarea name="" class="form-control"></textarea> -->
-                                              <quill-editor  ref="myQuilEditor" name="" :options="editorOption" />
+                                              <quill-editor  ref="myQuilEditor" name="" :options="editorOption" class="nursing-remarks" v-model="staff_info.remarks"/>
                                         </div>
                                 </div>
                             </td>
@@ -228,7 +413,7 @@
                                                 <div class="row">
                                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
                                                                 <label>
-                                                                 <input type="checkbox"  name="special-features" :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)">
+                                                                 <input type="checkbox"  name="special-features" :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
                                                                         {{feat.name}}
                                                                 </label>
                                                          </div>
@@ -303,6 +488,15 @@ export default {
                 fac_list: [],
                 feature_list:[],
                 medical_acceptance:[],
+                customer_info:[], nursing_info:[], staff_info:[],
+
+                img_arr:[],img_list:[],
+                video_arr:[],video_list:[],
+                cooperate_arr:[], cooperate_list:[],
+                payment_arr:[],payment_list:[],
+                id:1, profile_type:'nursing',
+
+                // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
                 type:'',
                 title:[], v_title:[],
@@ -313,7 +507,8 @@ export default {
                 security_deposit:[],other_use:[], rent:[], management_fee:[],
                 food_expense:[],life_service:[],cost_other:[],return_system:[],
                 depreciation_period:[],initial_depreciation:[],other_message:[],
-                img_list:[], video_list:[], cooperate_list:[], payment_list:[],meth_details:[],
+                cooperate_list:[], payment_list:[],meth_details:[],
+                // end
                 content: '',
                 editorOption:{
                         debug:'info',
@@ -325,6 +520,26 @@ export default {
         }
         },
         created(){
+
+                this.axios
+                .get('/api/customerinfo/'+this.id)
+                .then(response=>{
+                        this.customer_info = response.data;
+                });
+
+                this.axios
+                .get('/api/nursinginfo/'+this.id)
+                .then(response=>{
+                        this.nursing_info = response.data;
+                });
+
+                this.axios
+                .get('/api/staffinfo/'+this.id)
+                .then(response=>{
+                        this.staff_info = response.data;
+                      
+                });
+
                 this.axios
                 .get('/api/facilities')
                 .then(response=>{
@@ -339,10 +554,37 @@ export default {
                 });
 
                 this.axios
-                .get('/api/featurelist')
+                .get('/api/feature/'+this.profile_type+'/'+this.id)
                 .then(response=>{
+                        console.log(response.data);
                         this.feature_list = response.data;
                 });
+
+                this.axios
+                .get('/api/nursing-pgallery/'+this.id)
+                .then(response=>{
+                        this.img_arr = response.data;
+                });
+
+                this.axios
+                .get('/api/nursing-vgallery/'+this.id)
+                .then(response=>{
+                        this.video_arr = response.data;
+                });
+
+                this.axios
+                .get('/api/nursing-cooperate/'+this.id)
+                .then(response=>{
+                        this.cooperate_arr = response.data;
+                });
+
+                this.axios
+                .get('/api/nursing-payment/'+this.id)
+                .then(response=>{
+                        this.payment_arr = response.data;
+                });
+
+             
         },
         methods: {
 
@@ -362,6 +604,24 @@ export default {
                     $('.feature-'+check_id).attr('checked','true');
             },
 
+            DeltArr(indx,type) {
+                    var arr_list = [];
+                    var arr_count = document.getElementsByClassName('gallery-area-'+type);
+                    for(var i=0; i< arr_count.length; i++) {
+                            arr_list[i] = document.getElementsByClassName('gallery-area-'+type);
+                    }
+
+                    for(var i=0; i<= arr_count.length; i++) {
+                            if(i == indx) {
+                                    arr_list.splice(indx,1);
+                                    var ele = document.getElementById(type+indx);
+                                    var parentEle = document.getElementById('gallery-'+type);
+                                    parentEle.removeChild(ele);
+                            }
+                    }
+                    
+            },
+
             galleryAdd() {
                     var date = new Date;
                     var s = date.getMilliseconds();
@@ -369,58 +629,23 @@ export default {
                     var h = date.getHours();
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
-                    this.type = 0;
 
-                     var photo = document.getElementsByClassName('gallery-area-photo');
-                     if(photo.length == 0) {
-                             this.count = this.count + 1;
-                     } else {
-                             this.count = photo.length;
-                     }
-
-                     $("#gallery-photo").append('<div id="gallery-photo'+this.count+'" class="row col-md-12"><div id="galleryarea-photo'+this.count+'" class="row col-md-12 gallery-area-photo gallery_'+this.count+'"><div class="col-md-3"><input type="file" name="" class=" m-b-15 '+classname+'" id="upload_img" onChange="showImg('+c+',event)"><div class="col-md-12 '+classname+' img'+this.count+'"></div></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description"></textarea></div><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.count+','+this.type+')">削除</a></div></div>');
+                    this.img_arr.push({classname:classname,photo:'',title:'',description:''});
             },
 
              galleryVideoAdd() {
-                    var date = new Date;
-                    var s = date.getMilliseconds();
-                    var m = date.getMinutes();
-                    var h = date.getHours();
-                    this.type = 1;
-                    var classname = "class"+h+m+s;
-                    var c = "'"+classname+"'";
-                  
-                    var video = document.getElementsByClassName('gallery-area-video');
-
-                     if(video.length == 0) {
-                             this.v_count = this.v_count + 1;
-                     } else {
-                             this.v_count = video.length;
-                     }
-
-                     $("#gallery-video").append('<div id="gallery-video'+this.v_count+'" class="row col-md-12"><div id="galleryarea-video'+this.v_count+'" class="row col-md-12 gallery-area-video gallery_'+this.v_count+'"><div class="col-md-3"></div><div class="col-md-9"><input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title"><textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description"></textarea></div><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.v_count+','+this.type+')">削除</a></div></div>');
+                   this.video_arr.push({title:'',description:'',url:''});
             },
 
             methodAdd() {
-                    this.type = 3;
-                    var payment = document.getElementsByClassName('gallery-area-payment');
-                     if(payment.length == 0) {
-                             this.p_count = this.p_count + 1;
-                     } else {
-                             this.p_count = payment.length;
-                     }
-                     $("#gallery-payment").append('<div id="gallery-payment'+this.p_count+'" class="method-box"><div id="galleryarea-payment'+this.p_count+'" class="pad-free col-md-12 gallery-area-payment gallery_'+this.p_count+'"><div class="col-md-12 m-t-15 m-b-15"><table class="table"><tr><th><span class="btn all-btn main-bg-color m-l-10" style="min-width:0px;"><i class="fa fa-edit"></i></span><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.p_count+','+this.type+')">削除</a> <label class="col-md-3 title-lbl float-right">タイプ名</label></th><th><input type="text" name="method[]" class="form-control method"></th></tr></table></div><div class="col-md-12"><h3 class="title-lbl">料金概要</h3><table class="table"><tr><th>入居時にかかる費用</th><th><input type="text" name="exp[]" class="form-control expense-move-in"></th></tr> <tr><th>居室タイプ</th><th><input type="text" name="exp[]" class="form-control room-type"></th></tr><tr><th>月額利用料</th><th><input type="text" name="exp[]" class="form-control monthly-usage"></th></tr><tr><th>広さ</th><th><input type="text" name="exp[]" class="form-control breadth"></th></tr></table></div><div class="col-md-12"><h3 class="title-lbl">料金詳細</h3><table class="table"><tr><th class="title-lbl"><span>入居にかかる費用</span></th><th>&nbsp;</th></tr> <tr><th>入居一時金または敷金</th><th><input type="text" name="breakdown[]" class="form-control security-deposit"></th></tr><tr><th>その他（使途）</th><th><input type="text" name="breakdown[]" class="form-control other-use"></th></tr><tr><th class="title-lbl"><span>月額費用</span></th><th>&nbsp;</th></tr> <tr><th>賃料</th><th><input type="text" name="breakdown[]" class="form-control rent"></th></tr><tr><th>管理費</th><th><input type="text" name="breakdown[]" class="form-control management-fee"></th></tr><tr><th>食費</th><th><input type="text" name="breakdown[]" class="form-control food-expense"></th></tr><tr><th>介護上乗せ金（生活サービス費）</th><th><input type="text" name="breakdown[]" class="form-control life-service"></th></tr><tr><th>その他</th><th><input type="text" name="breakdown[]" class="form-control cost-other"></th></tr><tr><th class="title-lbl"><span>返還金について</span></th><th>&nbsp;</th></tr><tr><th>返還制度</th><th><input type="text" name="breakdown[]" class="form-control return-system"></th></tr><tr><th>償却期間</th><th><input type="text" name="breakdown[]" class="form-control depreciation-period"></th></tr><tr><th>初期償却</th><th><input type="text" name="breakdown[]" class="form-control initial-depreciation"></th></tr><tr><th>その他メッセージ</th><th><input type="text" name="breakdown[]" class="form-control other-message"></th></tr></table></div></div></div>');
+                   this.payment_arr.push({payment_name:'',expense_moving:'',monthly_fees:'',living_room_type:'',
+                                        area:'',details:'',deposit:'',other_use:'',rent:'',admin_expense:'',food_expense:'',
+                                        nurse_care_surcharge:'',other_monthly_cost:'',refund_system:'',depreciation_period:'',
+                                        initial_deprecration:'',other_message_refund:''});
             },
 
             cooperateAdd() {
-                    this.type = 2;
-                    var cooperation = document.getElementsByClassName('gallery-area-cooperation'); 
-                     if(cooperation.length == 0) {
-                             this.c_count = this.c_count + 1;
-                     } else {
-                             this.c_count = cooperation.length;
-                     }
-                     $("#gallery-cooperation").append('<div class="col-md-12 pad-free m-t-20" id="gallery-cooperation'+this.c_count+'"><div id="galleryarea-cooperation'+this.c_count+'" class="ccol-md-12 pad-free m-t-20 gallery-area-cooperation gallery_'+this.c_count+'"><div class="form-group"> <label>名前 :</label> <input type="text" class="form-control" name="co-medical-header[]"> </div><table class="table table-bordered"><tr><th style="width:30%">診療科目</th><th style="width:70%"><textarea class="form-control clinical-sub" name="clinical-sub"></textarea></th></tr><tr><th>協力内容</th><th><textarea class="form-control details" name="details"></textarea></th></tr><tr><th>診療費用</th><th><textarea class="form-control expense" name="expense"></textarea></th></tr><tr><th>備考</th><th><textarea class="form-control remark" name="remark"></textarea></th></tr></table><a class="mr-auto text-danger btn delete-borderbtn" onClick="DeltArr('+this.c_count+','+this.type+')">削除</a></div></div>');
+                    this.cooperate_arr.push({name:'',clinical_subject:'',details:'',medical_expense:'',remark:''});
             },
 
             acceptanceList() {
@@ -432,68 +657,88 @@ export default {
             },
 
             createProfile() {
-                var photo = document.getElementsByClassName('gallery-area-photo');
-                var video = document.getElementsByClassName('gallery-area-video');
-                var cooperation = document.getElementsByClassName('gallery-area-cooperation');
-                var payment = document.getElementsByClassName('gallery-area-payment');
+                this.img_list = [];
+                this.video_list = [];
+                this.cooperate_list = [];
+                this.payment_list = [];
 
-                for (var i = 0; i < photo.length; i++) {
-                        this.img[i] = $('.gallery-area-photo.gallery_'+i+' .img'+i+' .show-img').attr('src');
-                        this.title[i] = $('.gallery-area-photo.gallery_'+i+' .title').val();
-                        this.description[i] = $('.gallery-area-photo.gallery_'+i+' .description').val(); 
+                var customer_name = $('.customer-name').val();
+                var customer_email = $('.customer-email').val();
+                var customer_phone = $('.customer-phone').val();
 
-                        this.img_list.push({img: this.img[i],title: this.title[i], description: this.description[i]});
+                var business_entity = $('.business-entity').text();
+                var date_of_establishment = $('.date-of-establishment').text();
+                var land_right_form = $('.land-right-form').text();
+                var building_right_form = $('.building-right-form').text();
+                var site_area = $('.site-area').text();
+                var floor_area = $('.floor-area').text();
+                var construction = $('.construction').text();
+                var capacity = $('.capacity').text();
+                var num_rooms = $('.num-rooms').text();
+                var residence_form = $('.residence-form').text();
+                var fac_type = $('.fac-type').text();
+                var occupancy_condition = $('.occupancy-condition').text();
+                var room_floor = $('.room-floor').text();
+                var living_room_facilities = $('.living-room-facilities').text();
+                var equipment = $('.equipment').text();
+
+
+                var staff = $('.staff').text();
+                var nursing_staff = $('.nursing-staff').text();
+                var min_num_staff = $('.min-num-staff').text();
+                var num_staff = $('.num-staff').text();
+                var nursing_remarks = $('.nursing-remarks').text();
+            
+
+                var img = document.getElementsByClassName('gallery-area-photo');
+                for(var i = 0; i< img.length; i++) {
+                        this.img_list.push({img:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
                 console.log(this.img_list);
 
-                for (var i = 0; i < video.length; i++) {
-                        this.v_title[i] = $('.gallery-area-video.gallery_'+i+' .title').val();
-                        this.v_description[i] = $('.gallery-area-video.gallery_'+i+' .description').val();
-
-                        this.video_list.push({title: this.v_title[i], description: this.v_description[i]});
+                var video = document.getElementsByClassName('gallery-area-video');
+                for(var i = 0; i< video.length; i++) {
+                        this.video_list.push({url:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                 }
                 console.log(this.video_list);
 
-                for (var i = 0; i < cooperation.length; i++) {
-                        this.sub[i] = $('.gallery-area-cooperation.gallery_'+i+' .clinical-sub').val();
-                        this.coop_details[i] = $('.gallery-area-cooperation.gallery_'+i+' .details').val();
-                        this.expense[i] = $('.gallery-area-cooperation.gallery_'+i+' .expense').val();
-                        this.remark[i] = $('.gallery-area-cooperation.gallery_'+i+' .remark').val();
-
-                        this.cooperate_list.push({sub: this.sub[i], details: this.coop_details[i],expense: this.expense[i],remark: this.remark[i]});
+                var cooperate = document.getElementsByClassName('gallery-area-cooperate');
+               
+                for(var i = 0; i< cooperate.length; i++) {
+                        this.cooperate_list.push({subject:cooperate[i].getElementsByClassName('clinical-sub')[0].value,
+                                                details:cooperate[i].getElementsByClassName('details')[0].value,
+                                                expense:cooperate[i].getElementsByClassName('expense')[0].value,
+                                                remark:cooperate[i].getElementsByClassName('remark')[0].value});
                 }
-                console.log(this.cooperate_list);
-                for (var i = 0; i < payment.length; i++) {
-                        this.method[i] = $('.gallery-area-payment.gallery_'+i+' .method').val();
-                        this.move_in[i] = $('.gallery-area-payment.gallery_'+i+' .expense-move-in').val();
-                        this.room_type[i] = $('.gallery-area-payment.gallery_'+i+' .room-type').val();
-                        this.monthly_usage[i] = $('.gallery-area-payment.gallery_'+i+' .monthly-usage').val();
-                        this.breadth[i] = $('.gallery-area-payment.gallery_'+i+' .breadth').val();
-                        // this.meth_details[i] = $('.gallery-area-payment.gallery_'+i+' .details').val();
-                        this.security_deposit[i] = $('.gallery-area-payment.gallery_'+i+' .security-deposit').val();
-                        this.other_use[i] = $('.gallery-area-payment.gallery_'+i+' .other-use').val();
-                        this.rent[i] = $('.gallery-area-payment.gallery_'+i+' .rent').val();
-                        this.management_fee[i] = $('.gallery-area-payment.gallery_'+i+' .management-fee').val();
-                        this.food_expense[i] = $('.gallery-area-payment.gallery_'+i+' .food-expense').val();
-                        this.life_service[i] = $('.gallery-area-payment.gallery_'+i+' .life-service').val();
-                        this.cost_other[i] = $('.gallery-area-payment.gallery_'+i+' .cost-other').val();
-                        this.return_system[i] = $('.gallery-area-payment.gallery_'+i+' .return-system').val();
-                        this.depreciation_period[i] = $('.gallery-area-payment.gallery_'+i+' .depreciation-period').val();
-                        this.initial_depreciation[i] = $('.gallery-area-payment.gallery_'+i+' .initial-depreciation').val();
-                        this.other_message[i] = $('.gallery-area-payment.gallery_'+i+' .other-message').val();
+               console.log(this.cooperate_list);
 
-                        this.payment_list.push({method: this.method[i], move_in: this.move_in[i],room_type: this.room_type[i],monthly_usage: this.monthly_usage[i],breadth: this.breadth[i],
-                        security_deposit: this.security_deposit[i],other_use: this.other_use[i],rent: this.rent[i],management_fee: this.management_fee[i],
-                        food_expense: this.food_expense[i],life_service: this.life_service[i],cost_other: this.cost_other[i],return_system: this.return_system[i],
-                        depreciation_period: this.depreciation_period[i],initial_depreciation: this.initial_depreciation[i],other_message: this.other_message[i]});
+                var payment = document.getElementsByClassName('gallery-area-payment');
+                for(var i = 0; i< payment.length; i++) {
+                        this.payment_list.push({payment_name:payment[i].getElementsByClassName('payment-name')[0].value,
+                                                expense_moving:payment[i].getElementsByClassName('expense-moving')[0].value,
+                                                monthly_fees:payment[i].getElementsByClassName('monthly-fees')[0].value,
+                                                living_room_type:payment[i].getElementsByClassName('living-room-type')[0].value,
+                                                area:payment[i].getElementsByClassName('area')[0].value,
+                                                deposit:payment[i].getElementsByClassName('deposit')[0].value,
+                                                other_use:payment[i].getElementsByClassName('other-use')[0].value,
+                                                rent:payment[i].getElementsByClassName('rent')[0].value,
+                                                admin_expense:payment[i].getElementsByClassName('admin-expense')[0].value,
+                                                food_expense:payment[i].getElementsByClassName('food-expense')[0].value,
+                                                nurse_care_surcharge:payment[i].getElementsByClassName('nurse-care-surcharge')[0].value,
+                                                other_monthly_cost:payment[i].getElementsByClassName('other-monthly-cost')[0].value,
+                                                refund_system:payment[i].getElementsByClassName('refund-system')[0].value,
+                                                depreciation_period:payment[i].getElementsByClassName('depreciation-period')[0].value,
+                                                initial_deprecration:payment[i].getElementsByClassName('initial-deprecration')[0].value,
+                                                other_message_refund:payment[i].getElementsByClassName('other-message-refund')[0].value});
                 }
-                console.log(this.payment_list);
+               console.log(this.payment_list);
+              
 
                 var chek_feature = [];
                 $.each($("input[name='special-features']:checked"), function(){ 
                         chek_feature.push({ feature: $(this).val()});
                 });
-                console.log(chek_feature);return;
+                console.log(chek_feature);
 
             }
         }
