@@ -516,13 +516,15 @@
               <div class="map">
                 <svg
                   class="map_svg"
-                  viewBox="140 220 400 420"
+                  viewBox="88 220 400 420"
                   preserveAspectRatio="xMidYMid meet"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                   mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586"
                   width="100%"
                   height="730"
+                  @click="getStateClick"
+                  @mouseover="getStateHover"
                 >
                   <path
                     id="1"
@@ -1150,6 +1152,18 @@ import asidebar from './aside.vue'
 export default {
   components: {    
      asidebar
+    },
+    methods:{
+      getStateClick(e){
+        if(e.target.tagName==='path'){
+          alert(e)
+        }
+      },
+      getStateHover(e){
+        if(e.target.tagName==='path'){
+          console.log(e)
+        }
+      }
     }
 }
 </script>

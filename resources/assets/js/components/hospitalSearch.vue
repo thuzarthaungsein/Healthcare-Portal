@@ -1,5 +1,5 @@
 <template>
-  <div class="search-map card-body">
+  <div class="search-map card-body" @click="getStateClick" @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
         <div class="row">
@@ -14,27 +14,27 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="1"
                             data-info="Hokkaido"
                             class="path Hokkaido card-text"
                           >北海道</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="2" data-info="Aomori" class="path Aomori card-text">青森県</a>
+                          <a href="#" id="2" data-info="Aomori" class="path Aomori card-text">青森県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="3" data-info="Iwate" class="path Iwate card-text">岩手県</a>
+                          <a href="#" id="3" data-info="Iwate" class="path Iwate card-text">岩手県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="4" data-info="Miyagi" class="path Miyagi card-text">宮城県</a>
+                          <a href="#" id="4" data-info="Miyagi" class="path Miyagi card-text">宮城県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="5" data-info="Akita" class="path Akita card-text">秋田県</a>
+                          <a href="#" id="5" data-info="Akita" class="path Akita card-text">秋田県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="6"
                             data-info="Yamagata"
                             class="path Yamagata card-text"
@@ -42,7 +42,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="7"
                             data-info="Fukushima"
                             class="path Fukushima card-text"
@@ -59,31 +59,31 @@
                     <div class="card-body">
                       <p class="card-text map-text">
                         <span class="spanclass">
-                          <a href="#!" id="8" data-info="Ibaraki" class="path Ibaraki card-text">茨城県</a>
+                          <a href="#" id="8" data-info="Ibaraki" class="path Ibaraki card-text">茨城県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="9" data-info="Tochigi" class="path Tochigi card-text">栃木県</a>
+                          <a href="#" id="9" data-info="Tochigi" class="path Tochigi card-text">栃木県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="10" data-info="Gunma" class="path Gunma card-text">群馬県</a>
+                          <a href="#" id="10" data-info="Gunma" class="path Gunma card-text">群馬県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="11"
                             data-info="Saitama"
                             class="path Saitama card-text"
                           >埼玉県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="12" data-info="Chiba" class="path Chiba card-text">千葉県</a>
+                          <a href="#" id="12" data-info="Chiba" class="path Chiba card-text">千葉県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="13" data-info="Tokyo" class="path Tokyo card-text">東京都</a>
+                          <a href="#" id="13" data-info="Tokyo" class="path Tokyo card-text">東京都</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="14"
                             data-info="Kanagawa"
                             class="path Kanagawa card-text"
@@ -101,25 +101,25 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="15"
                             data-info="Niigata"
                             class="path Niigata card-text"
                           >新潟県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="16" data-info="Toyama" class="path Toyama card-text">富山県</a>
+                          <a href="#" id="16" data-info="Toyama" class="path Toyama card-text">富山県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="17"
                             data-info="Ishikawa"
                             class="path Ishikawa card-text"
                           >石川県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="18" data-info="Fukui" class="path Fukui card-text">福井県</a>
+                          <a href="#" id="18" data-info="Fukui" class="path Fukui card-text">福井県</a>
                         </span>
                       </p>
                     </div>
@@ -133,28 +133,28 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="19"
                             data-info="Yamanashi"
                             class="path Yamanashi card-text"
                           >山梨県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="20" data-info="Nagano" class="path Nagano card-text">長野県</a>
+                          <a href="#" id="20" data-info="Nagano" class="path Nagano card-text">長野県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="21" data-info="Gifu" class="path Gifu card-text">岐阜県</a>
+                          <a href="#" id="21" data-info="Gifu" class="path Gifu card-text">岐阜県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="22"
                             data-info="Shizuoka"
                             class="path Shizuoka card-text"
                           >静岡県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="23" data-info="Aichi" class="path Aichi card-text">愛知県</a>
+                          <a href="#" id="23" data-info="Aichi" class="path Aichi card-text">愛知県</a>
                         </span>
                       </p>
                     </div>
@@ -167,26 +167,26 @@
                     <div class="card-body">
                       <p class="card-text map-text">
                         <span class="spanclass">
-                          <a href="#!" id="24" data-info="Mie" class="path Mie card-text">三重県</a>
+                          <a href="#" id="24" data-info="Mie" class="path Mie card-text">三重県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="25" data-info="Shiga" class="path Shiga card-text">滋賀県</a>
+                          <a href="#" id="25" data-info="Shiga" class="path Shiga card-text">滋賀県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="26" data-info="Kyoto" class="path Kyoto card-text">京都府</a>
+                          <a href="#" id="26" data-info="Kyoto" class="path Kyoto card-text">京都府</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="27" data-info="Osaka" class="path Osaka card-text">大阪府</a>
+                          <a href="#" id="27" data-info="Osaka" class="path Osaka card-text">大阪府</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="28" data-info="Hyogo" class="path Hyogo card-text">兵庫県</a>
+                          <a href="#" id="28" data-info="Hyogo" class="path Hyogo card-text">兵庫県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="29" data-info="Nara" class="path Nara card-text">奈良県</a>
+                          <a href="#" id="29" data-info="Nara" class="path Nara card-text">奈良県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="30"
                             data-info="Wakayama"
                             class="path Wakayama card-text"
@@ -204,7 +204,7 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="31"
                             data-info="Tottori"
                             class="path Tottori card-text"
@@ -212,7 +212,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="32"
                             data-info="Shimane"
                             class="path Shimane card-text"
@@ -220,7 +220,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="33"
                             data-info="Okayama"
                             class="path Okayama card-text"
@@ -228,7 +228,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="34"
                             data-info="Hiroshima"
                             class="path Hiroshima card-text"
@@ -236,7 +236,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="35"
                             data-info="Yamaguchi"
                             class="path Yamaguchi card-text"
@@ -254,20 +254,20 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="36"
                             data-info="Tokushima"
                             class="path Tokushima card-text"
                           >徳島県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="37" data-info="Kagawa" class="path Kagawa card-text">香川県</a>
+                          <a href="#" id="37" data-info="Kagawa" class="path Kagawa card-text">香川県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="38" data-info="Ehime" class="path Ehime card-text">愛媛県</a>
+                          <a href="#" id="38" data-info="Ehime" class="path Ehime card-text">愛媛県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="39" data-info="Kochi" class="path Kochi card-text">高知県</a>
+                          <a href="#" id="39" data-info="Kochi" class="path Kochi card-text">高知県</a>
                         </span>
                       </p>
                     </div>
@@ -281,18 +281,18 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="40"
                             data-info="Fukuoka"
                             class="path Fukuoka card-text"
                           >福岡県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="41" data-info="Saga" class="path Saga card-text">佐賀県</a>
+                          <a href="#" id="41" data-info="Saga" class="path Saga card-text">佐賀県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="42"
                             data-info="Nagasaki"
                             class="path Nagasaki card-text"
@@ -300,18 +300,18 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="43"
                             data-info="Kumamoto"
                             class="path Kumamoto card-text"
                           >熊本県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="44" data-info="Oita" class="path Oita card-text">大分県</a>
+                          <a href="#" id="44" data-info="Oita" class="path Oita card-text">大分県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="45"
                             data-info="Miyazaki"
                             class="path Miyazaki card-text"
@@ -319,7 +319,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="46"
                             data-info="Kagoshima"
                             class="path Kagoshima card-text"
@@ -327,7 +327,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="47"
                             data-info="Okinawa"
                             class="path Okinawa card-text"
@@ -392,13 +392,14 @@
             <div class="map">
               <svg
                 class="map_svg"
-                viewBox="140 220 400 420"
+                viewBox="88 220 400 420"
                 preserveAspectRatio="xMidYMid meet"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586"
                 width="100%"
                 height="730"
+                
               >
                 <path
                   id="1"
@@ -906,8 +907,8 @@
           <div class="card-body">
             <div class="row col-12 pad-free">
               <div class="col-10">
-                <select name id="select" class="form-control custom-select select m-b-10">
-                  <option></option>
+                <select name id="select" class="form-control custom-select m-b-10" >
+                  <option v-for = "city in cities" :value="city.id">{{city.city_name}}</option>
                 </select>
               </div>
               <div class="col-2 pad-free text" id="text"></div>
@@ -923,6 +924,46 @@
     <input type="button" id="save_value" name="save_value" value="Save" />
   </div>
 </template>
+
+
+<script>
+import asidebar from "./aside.vue";
+export default {
+  components: {
+    asidebar
+  },
+  data(){
+    return{
+      id:'',
+      cities:[],
+      getCity:[],
+      getTownships:[],
+      show:true,
+
+    }
+  },
+  methods:{
+      getStateClick(e){
+        if(e.target.tagName === 'A' || e.target.tagName ==='path'){
+          const id = e.target.id;
+          this.axios.post('api/getmap/'+id+'')
+          .then((response)=>{
+          this.cities = response.data.city
+          this.getCity = response.data.getCity
+          this.getTownships = response.data.getTownships
+         })
+        }
+      },
+      getStateHover(e){
+        if(e.target.tagName ==='path'){
+         //console.log(e)
+        }
+      }
+    }
+};
+</script>
+
+
 <style scoped>
 .path {
   cursor: pointer;
@@ -1009,13 +1050,3 @@ span:hover::before {
   display: inline-block;
 }
 </style>
-
-<script>
-import asidebar from "./aside.vue";
-export default {
-  components: {
-    asidebar
-  }
-};
-</script>
-

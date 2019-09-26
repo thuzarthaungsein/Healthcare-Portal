@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use DB;
 class SearchMapController extends Controller
 {
-    public function getMap(Request $request){
+    public function getMap(Request $request, $id){
 
+        // return response()->json($id);
+        
         $title = $request->title;
         $mapid = $request->id;
 
