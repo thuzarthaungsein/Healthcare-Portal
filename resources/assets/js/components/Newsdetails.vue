@@ -29,7 +29,7 @@
                                                                 <h4 class="h_4 header">{{newdetails.title}}</h4>
                                                                 <p class="set-date"><small style="color:#aaa;"><i class="fa fa-calendar-alt"></i> &nbsp;&nbsp;{{newdetails.created_at}}</small></p>
                                                         </div>
-                                                        <di class="col-12 detail-subwrapper">
+                                                        <div class="col-12 detail-subwrapper">
                                                                 <img
                                                                         :src="'/upload/news/'+ newdetails.photo"
                                                                         class="img-responsive img_2 news_photo detail-image"
@@ -37,7 +37,7 @@
                                                                 <span id="overview-text">
                                                                         {{newdetails.body}}
                                                                 </span>
-                                                        </di>
+                                                        </div>
                                                         <!-- <div class="col-md-8">
                                                                 <p class="p5">{{newdetails.body}}</p>
                                                         </div> -->
