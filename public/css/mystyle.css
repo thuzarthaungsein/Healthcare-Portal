@@ -3176,3 +3176,10 @@ body::-webkit-scrollbar-thumb {
 
 /* end one page */
 
+/*danger*/
+.sp1{
+    border:.5px solid red;
+    font-size: 11px;
+    padding: 2px;
+}
+/*danger*/

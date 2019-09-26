@@ -80,7 +80,7 @@
                 <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
             </div>
         </div>
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <div class="col-sm-3">
                 <label for ="qualification"  ><strong>保有資格 : </strong>  </label>
             </div>
@@ -95,7 +95,7 @@
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="workable_day" v-model="jobApply.workable_day"  >
             </div>
-        </div>
+        </div> -->
         <!-- <div class="form-group row">
             <div class="col-sm-3">
                 <label for ="skill"  ><strong>Skill : </strong>  </label>
@@ -118,7 +118,8 @@
                 <label for ="terms"  ><strong> 個人情報について : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
             </div>
             <div class="col-sm-9">
-                <label> <input type="checkbox" v-model="jobApply.terms"> 契約条件に同意します。 </label>
+                <label for="">「プライバシーポリシー」をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。</label>
+                <label> <input type="checkbox" v-model="jobApply.terms"> 同意する </label>
                 <div v-if="errors.terms" class="text-danger">{{ errors.terms }}</div>
             </div>
         </div>
