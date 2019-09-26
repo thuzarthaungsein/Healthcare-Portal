@@ -46,10 +46,10 @@
             <div class="card card-default m-b-20" v-for="facility in facilities" :key="facility.id">
               <div class="card-body">
                 <div class="row">
-                  <div class="col-md-10 m-t-8">
+                  <div class="col-md-9 m-t-8">
                     <p>{{facility.description}}</p>
                   </div>
-                  <div class="col-md-2" style="margin-top: 8px;">
+                  <div class="col-md-3 text-right" style="margin-top: 8px;">
                     <router-link
                       :to="{name: 'editfacility', params: { id: facility.id }}"
                       class="btn edit-borderbtn"

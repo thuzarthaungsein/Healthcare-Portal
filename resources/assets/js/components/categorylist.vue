@@ -11,7 +11,7 @@
       <!--card-->
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="col-md-12 scrolldiv">
-          <div v-if="this.categories.length === 0" class="card card-default card-wrap">
+          <div v-if="categories == 0" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -43,8 +43,8 @@
             <div class="card card-default m-b-20" v-for="category in categories" :key="category.id">
               <div class="card-body">
                 <div class="row">
-                  <div class="col-md-10 m-t-8">{{category.name}}</div>
-                  <div class="col-md-2 pad-free">
+                  <div class="col-md-9 m-t-8">{{category.name}}</div>
+                  <div class="col-md-3 text-right">
                     <small>
                       <router-link
                         :to="{name:'editcategory', params:{id : category.id}}"

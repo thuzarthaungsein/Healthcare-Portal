@@ -28,99 +28,17 @@
               <div class="row list-wrap m-lr-0">
                   <div class="col-lg-3 col-md-4 col-sm-12">
                       <p><strong>Information</strong></p>
+                      <div class="row">
+                        <div class="col-sm-5 detail_profile_left">
+                           left
+                        
+                        </div>
+                        <div class="col-sm-7 detail_profile_right">
+                            
+                        </div>
+                    </div>
                   </div> 
-              </div>
-
-              <h5 class="header">special Features</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Short Name </li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Information from Clinic</li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Subject </li>
-                  </ul>
-              </div>
-              <h5 class="header">Consultation hours</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Consultation hours</li>
-                  </ul>
-              </div>
-              <h5 class="header">Facility</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li >Facility</li>
-                  </ul>
-              </div>
-              <h5 class="header">special Features</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Short Name </li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Information from Clinic</li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Subject </li>
-                  </ul>
-              </div>
-              <h5 class="header">Consultation hours</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Consultation hours</li>
-                  </ul>
-              </div>
-              <h5 class="header">Facility</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li >Facility</li>
-                  </ul>
-              </div>
-              <h5 class="header">special Features</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Short Name </li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container">
-                      <li > Information from Clinic</li>
-                  </ul>
-              </div>
-              <h5 class="header">Information from clinic</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Subject </li>
-                  </ul>
-              </div>
-              <h5 class="header">Consultation hours</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li > Consultation hours</li>
-                  </ul>
-              </div>
-              <h5 class="header">Facility</h5>
-              <div class="row m-lr-0">
-                    <ul class="fac_container" >
-                      <li >Facility</li>
-                  </ul>
-              </div>
+              </div>             
           </div>
      
     

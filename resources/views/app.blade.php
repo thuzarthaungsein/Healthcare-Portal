@@ -131,23 +131,23 @@
                     <li class="fav-item fav-color btn all-btn m-r-10">
                         <i class="fa fa-star m-r-5"> </i>&nbsp; お気に入り
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
-                        <router-link to="/favouriteHospital" class="nav-link">
+                        <router-link to="/favouriteHospital">
                             <span style="padding-right: 11px;">
-                            <span id="hos-fav-local"></span>件<br>病院</span>
+                            <span id="hos-fav-local"></span>&nbsp;件<br>病院</span>
                         </router-link>
-                        <router-link to="/favouriteNursing" class="nav-link">
-                            <span style="border-left: 1px solid #fff;padding-left: 11px;"><span id="nus-fav-local"></span>件<br>介護</span>
+                        <router-link to="/favouriteNursing">
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;"><span id="nus-fav-local"></span>&nbsp;件<br>介護</span>
                         </router-link>
                         </p>
                     </li>
                     <li class="fav-item history-color btn all-btn m-r-10" >
                         <i class="fa fa-bookmark m-r-5"></i>&nbsp; 最近見た施設<!-- <span class="list">10</span>件<br>最近見た施設  -->
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
-                        <router-link to="/hospital_history" class="nav-link">
-                            <span style="padding-right: 11px;"><span id="hos-his-local"></span>件<br>病院</span>
+                        <router-link to="/hospital_history">
+                            <span style="padding-right: 11px;"><span id="hos-his-local"></span>&nbsp;件<br>病院</span>
                         </router-link>
-                        <router-link to="/nursing_history" class="nav-link">
-                            <span style="border-left: 1px solid #fff;padding-left: 11px;"><span id="nus-his-local"></span>件<br>介護</span>
+                        <router-link to="/nursing_history">
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;"><span id="nus-his-local"></span>&nbsp;件<br>介護</span>
                         </router-link>
                         </p>
                     </li>
