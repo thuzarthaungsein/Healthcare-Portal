@@ -1030,11 +1030,11 @@
             <div class="card-body">
               <div class="row col-12 pad-free">
                 <div class="col-10">
-                  <select name="" id="select" class="form-control custom-select select m-b-10">
+                  <select name="" class="form-control custom-select select m-b-10">
                     <option ></option>
                   </select>
                 </div>
-                <div class="col-2 pad-free text" id="text">                          
+                <div class="col-2 pad-free text">                          
                 </div>                                                      
               </div>     
                                     
