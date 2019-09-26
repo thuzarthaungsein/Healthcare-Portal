@@ -3722,15 +3722,13 @@ color: #fff !important;
         font-size: 12px;
         font-weight: bold;
     }
-    
     .breadcrumb-item>a {
-        color: #6c757d;
-        /* font-weight: bold; */
+        color: #19a984;
+        font-weight: bold;
     }
     
     .breadcrumb-item.active {
-        color: #19a984;
-        /* font-weight: bold; */
+        color: #6c757d;
     }
     
     .breadcrumb-item.active>a {
