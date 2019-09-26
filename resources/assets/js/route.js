@@ -49,6 +49,7 @@ import nursingFavouriteMail from "./components/nursingFavouriteMail.vue";
 import nursingMailConfirm from "./components/nursingMailConfirm.vue";
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import modal from "./components/modal.vue";
+
 export const routes = [{
         name: "home",
         path: "/",
@@ -295,5 +296,10 @@ export const routes = [{
         name: "modal",
         path: "/modal",
         component: modal
+    },
+    {
+        name: "joboffercreate",
+        path: "/joboffercreate",
+        component: joboffercreate
     }
 ];

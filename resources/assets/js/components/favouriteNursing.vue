@@ -280,7 +280,6 @@ export default {
           this.selectedValue = response.data[0].c_Id;
         });
     },
-
     addingMail() {
       for (var i = 0; i < this.fav_nursing.length; i++) {
         this.fav_email.push({

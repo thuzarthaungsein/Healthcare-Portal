@@ -138,11 +138,17 @@ $(".path").mouseout(function() {
 
     $(".path").on("click", function(e) {
         e.preventDefault();
+
         $(".path").removeClass("selected");
+
         $(".path.selected").attr("class", "");
+
         $("." + $(this).data("info")).addClass("selected");
+
         var title = $(this).attr("title");
+
         var id = $(this).attr("id");
+
         var url = "/api/getmap";
 
         $.ajax({
