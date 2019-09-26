@@ -1,13 +1,14 @@
 <template>
  <div class="row">
       <div class="col-12">
-          <div class="card ">
-                    <div class="card-header text-center">
-                        <h4 style="padding-top: 20px;"> Job Create </h4>
+          <div class="card   text-dark">
+               <div class="card-body ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="page-header header">仕事投稿を作成</h4>
+                        <br>
                     </div>
-                    <div class="card-body ">
-
-                        <div class="row">
+                   
                          <div class="col-sm-1"></div>
                          <div class="col-sm-9">
                                 <form @submit.prevent ="add" class="m-t-16">

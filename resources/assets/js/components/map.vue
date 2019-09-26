@@ -293,14 +293,14 @@
   </svg>
 </template>
 <style type="text/css">
-path {
-  cursor: pointer;
-  fill: grey;
-}
-.selected {
-  fill: #002868;
-  stroke: #339999;
-  stroke-width: 1px;
-  stroke-linejoin: round;
-}
+    path {
+    cursor: pointer;
+    fill: grey
+    }
+    .selected {
+    fill: #002868;
+    stroke: #339999;
+    stroke-width: 1px;
+    stroke-linejoin: round;
+    }
 </style>

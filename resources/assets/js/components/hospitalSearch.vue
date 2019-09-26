@@ -392,7 +392,7 @@
             <div class="map">
               <svg
                 class="map_svg"
-                viewBox="140 220 400 420"
+                viewBox="88 220 400 420"
                 preserveAspectRatio="xMidYMid meet"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"

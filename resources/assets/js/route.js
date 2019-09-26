@@ -297,10 +297,5 @@ export const routes = [
         name: "modal",
         path: "/modal",
         component: modal
-    },
-    {
-        name: "joboffercreate",
-        path: "/joboffercreate",
-        component: joboffercreate
     }
 ];
