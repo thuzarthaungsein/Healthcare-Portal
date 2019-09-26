@@ -129,7 +129,9 @@ class NursingProfileController extends Controller
             'living_room_facilities' =>  $request[0]['living_room_facilities'],
             'equipment' =>  $request[0]['equipment'],
             'special_features' =>  $request[0]['special_features'],
-            'acceptance_remark' =>  $request[0]['acceptance_remark']
+            'acceptance_remark' =>  $request[0]['acceptance_remark'],
+            'latitude' =>  $request[0]['latitude'],
+            'longitude' =>  $request[0]['longitude']
        );
 
        $nursing->update($uploadData);

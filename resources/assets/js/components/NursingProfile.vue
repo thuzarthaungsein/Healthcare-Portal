@@ -525,6 +525,8 @@ export default {
         },
         created(){
 
+               
+
                 this.axios
                 .get('/api/customerinfo/'+this.id)
                 .then(response=>{
@@ -664,6 +666,7 @@ export default {
             },
 
             createProfile() {
+
                 this.img_list = [];
                 this.video_list = [];
                 this.cooperate_list = [];
@@ -692,6 +695,8 @@ export default {
                 var living_room_facilities = $('.living-room-facilities').text();
                 var equipment = $('.equipment').text();
                 var acceptance_remark = $('.acceptance-remark').text();
+                var latitude = $('#new_lat').val();
+                var longitude = $('#new_long').val();
 
 
                 var staff = $('.staff').text();
@@ -759,7 +764,7 @@ export default {
                
                 this.profile_arr.push({access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
-                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:acceptance_remark});
+                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:acceptance_remark,latitude:latitude,longitude:longitude});
 
                 this.gallery_list = this.img_list.concat(this.video_list);
 
