@@ -2540,6 +2540,11 @@ screen and (min-width: 750px) {
         left: 40px;
         margin-top: -3px;
     }
+    .map-text a.Wakayama:after,
+    .map-text a.Kagoshima:after,
+    .map-text a.Kanagawa:after {
+        left: 50px;
+    }
     .info-box {
         display: none;
         position: absolute;
