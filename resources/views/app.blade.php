@@ -157,11 +157,11 @@
                         <i class="fa fa-star m-r-5"> </i>&nbsp; お気に入り
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
                         <router-link to="/favouriteHospital">
-                            <span style="padding-right: 11px;">
+                            <span style="padding-right: 11px;float:right;">
                             <span id="hos-fav-local"></span>&nbsp;件<br>病院</span>
                         </router-link>
                         <router-link to="/favouriteNursing">
-                            <span style="border-left: 1px solid #fff;padding-left: 11px;"><span id="nus-fav-local"></span>&nbsp;件<br>介護</span>
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;float:right;"><span id="nus-fav-local"></span>&nbsp;件<br>介護</span>
                         </router-link>
                         </p>
                     </li>
@@ -169,10 +169,10 @@
                         <i class="fa fa-bookmark m-r-5"></i>&nbsp; 最近見た施設<!-- <span class="list">10</span>件<br>最近見た施設  -->
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
                         <router-link to="/hospital_history">
-                            <span style="padding-right: 11px;"><span id="hos-his-local"></span>&nbsp;件<br>病院</span>
+                            <span style="padding-right: 11px;float:right;"><span id="hos-his-local"></span>&nbsp;件<br>病院</span>
                         </router-link>
                         <router-link to="/nursing_history">
-                            <span style="border-left: 1px solid #fff;padding-left: 11px;"><span id="nus-his-local"></span>&nbsp;件<br>介護</span>
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;float:right;"><span id="nus-his-local"></span>&nbsp;件<br>介護</span>
                         </router-link>
                         </p>
                     </li>
