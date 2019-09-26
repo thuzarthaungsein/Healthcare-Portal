@@ -21,7 +21,7 @@
                                     <li class="breadcrumb-item">
                                         <span @click="changeRoute()" class="link-span">ホーム</span>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
+                                    <li class="breadcrumb-item active" aria-current="page">病院のお気に入り</li>
                                 </ol>
                             </nav>
                         </div>
