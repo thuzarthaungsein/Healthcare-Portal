@@ -361,7 +361,7 @@
                                             <div class="form-group">
                                                     <label for="">備考</label>
                                                     <!-- <textarea name="" class="form-control"></textarea> -->
-                                                    <quill-editor  ref="myQuilEditor" :options="editorOption" name="" />
+                                                    <quill-editor  ref="myQuilEditor" :options="editorOption" name="" class="acceptance-remark" v-model="nursing_info.acceptance_remark"/>
 
                                             </div>
                                     </div>
@@ -437,12 +437,12 @@
                                         <div class="form-group">
                                                 <label>住所<span class="error">*</span></label>
                                                 <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" />
+                                                <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" class="customer-address" v-model="customer_info.address"/>
                                         </div>
                                         <div class="form-group">
                                                 <label>交通 / アクセス<span class="error">*</span></label>
                                                 <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" />
+                                                <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
                                         </div>
                                 </div>
                             </td>
@@ -498,7 +498,7 @@ export default {
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
                 id:1, profile_type:'nursing',
-                profile_arr:[],staf_info:[],cust_info:[],
+                profile_arr:[],staf_info:[],cust_info:[], test:[],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -511,7 +511,7 @@ export default {
                 security_deposit:[],other_use:[], rent:[], management_fee:[],
                 food_expense:[],life_service:[],cost_other:[],return_system:[],
                 depreciation_period:[],initial_depreciation:[],other_message:[],
-                cooperate_list:[], payment_list:[],meth_details:[],
+                cooperate_list:[], payment_list:[],meth_details:[], 
                 // end
                 content: '',
                 editorOption:{
@@ -608,6 +608,7 @@ export default {
             },
             preview_image(img_class) {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+                this.test = event.target.files[0]
             },
 
             DeltArr(indx,type) {
@@ -671,7 +672,9 @@ export default {
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
                 var customer_phone = $('.customer-phone').val();
+                var customer_address = $('.customer-address').text();
 
+                var access = $('.transporation-access').text();
                 var method = $('.nursing-payment-method').val();
                 var business_entity = $('.business-entity').text();
                 var date_of_establishment = $('.date-of-establishment').text();
@@ -688,6 +691,7 @@ export default {
                 var room_floor = $('.room-floor').text();
                 var living_room_facilities = $('.living-room-facilities').text();
                 var equipment = $('.equipment').text();
+                var acceptance_remark = $('.acceptance-remark').text();
 
 
                 var staff = $('.staff').text();
@@ -696,7 +700,7 @@ export default {
                 var num_staff = $('.num-staff').text();
                 var nursing_remarks = $('.nursing-remarks').text();
 
-                this.cust_info.push({ name:customer_name,email:customer_email,phone:customer_phone});
+                this.cust_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
                 this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:nursing_remarks});
             
@@ -704,7 +708,7 @@ export default {
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
                         // var pname= img[i].getElementsByClassName('hospital-image')[0].src.split('hospital_profile/');
-                        this.img_list.push({type:"photo",photo:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+                        this.img_list.push({type:"photo",photo:this.test,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
                 //console.log(this.img_list);
 
@@ -753,9 +757,9 @@ export default {
                 });
                 special_features = chek_feature.join(',');
                
-                this.profile_arr.push({method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
-                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features});
+                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:acceptance_remark});
 
                 this.gallery_list = this.img_list.concat(this.video_list);
 

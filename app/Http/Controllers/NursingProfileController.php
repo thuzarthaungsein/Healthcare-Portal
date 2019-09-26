@@ -33,10 +33,15 @@ class NursingProfileController extends Controller
     public function galleryupdate($id,Request $request) {
         $request = $request->all();
 
-        $gallery = Gallery::where('customer_id', $id)
-                        ->delete();
+        // $gallery = Gallery::where('customer_id', $id)
+        //                 ->delete();
 
         for($i=0; $i<count($request); $i++) {
+            if(is_object($request[0]['photo'])) {
+                echo 'Yes';
+            }else {
+                echo 'No';
+            }exit;
             $data = array(
                 'customer_id' => $id,
                 'type' => $request[$i]['type'],
@@ -44,7 +49,7 @@ class NursingProfileController extends Controller
                 'title'=>$request[$i]['title'],
                 'description'=>$request[$i]['description'],
                 'created_at' => date('Y/m/d H:i:s'),
-                'updated_at' =>date('Y/m/d H:i:s')
+                'updated_at' => date('Y/m/d H:i:s')
             );
             DB::table('galleries')->insert($data);
         }
@@ -107,6 +112,7 @@ class NursingProfileController extends Controller
     
         $nursing = NursingProfile::where('customer_id',$id);
         $uploadData = array(
+            'access' => $request[0]['access'],
             'business_entity' => $request[0]['business_entity'],
             'date_of_establishment' =>  $request[0]['date_of_establishment'],
             'land_right_form'=>  $request[0]['land_right_form'],
@@ -122,8 +128,8 @@ class NursingProfileController extends Controller
             'room_floor' =>  $request[0]['room_floor'],
             'living_room_facilities' =>  $request[0]['living_room_facilities'],
             'equipment' =>  $request[0]['equipment'],
-            'special_features' =>  $request[0]['special_features']
-
+            'special_features' =>  $request[0]['special_features'],
+            'acceptance_remark' =>  $request[0]['acceptance_remark']
        );
 
        $nursing->update($uploadData);
@@ -136,7 +142,8 @@ class NursingProfileController extends Controller
         $uploadData = array(
             'name' => $request['name'],
             'email' =>  $request['email'],
-            'phone'=>  $request['phone']
+            'phone'=>  $request['phone'],
+            'address'=>  $request['address']
        );
 
        $customer->update($uploadData);
