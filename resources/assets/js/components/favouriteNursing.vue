@@ -25,8 +25,8 @@
                 <a href="#">{{nur_profile.name}}</a>
               </h5>
                             <div class="col-lg-2 col-md-12 mb-5">
-                                <div class="hos-img">
-                                    <img class="col-md-12" v-bind:src="'/images/' + nur_profile.logo" alt style />
+                                <div class="hos-img list-logo">
+                                    <img v-bind:src="'/images/' + nur_profile.logo" alt style />
                                 </div>
                                 <button class="btn btn-danger all-btn hos-btn" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
                                 <div class="row mt-2">
