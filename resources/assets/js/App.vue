@@ -28,7 +28,7 @@
          
           <ads></ads>        
            
-          <div class="row justify-content-md-center">
+          <div class="row justify-content-md-center p-t-130">
             <div class="col-10 tab">
                <!--menu tabs-->
           

@@ -1,789 +1,294 @@
 <template>
-    <div class="card">
-       
-        <div v-if="type == 'hospital'">
-            <div class="card-header tab-card-header">
-                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                        <li class="nav-item nav-line" id="category-id" >
-                            <a class="nav-link active" href="#one" id="one-tab" data-toggle="tab" role="tab" aria-controls="one" aria-selected="true">Information</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#two"  id="two-tab" data-toggle="tab" role="tab" aria-controls="two" aria-selected="true" >Map</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#three"  id="three-tab" data-toggle="tab" role="tab" aria-controls="three" aria-selected="true" >Review</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#four"  id="four-tab" data-toggle="tab" role="tab" aria-controls="four" aria-selected="true" >Job Offer</a>
-                        </li>
-
-                </ul>
-            </div>
-
-            <div class="tab-content tab-content2 scroll2" id="myTabContent">
-                <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
-                <div class="row">
-                        <div class="col-sm-5 detail_profile_left">
-                           <div class="thumbnail-img">
-                             <div class="card-carousel">
-                                <div class="card-img">
-                                    <img :src="currentImage" alt="">
-                                    <!-- <div class="actions">
-                                        <span @click="prevImage" class="prev">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span @click="nextImage" class="next">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </span>
-                                    </div> -->
-                                </div>
-                                <div class="thumbnails">
-                                    <div
-                                        v-for="(image, index) in  images"
-                                        :key="image.id"
-                                        :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
-                                        @click="activateImage(index)" >
-                                        <img :src="image.thumb">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-sm-7 detail_profile_right">
-                            <div class="row list-wrap m-lr-0">
-                                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address</strong></p></div>
-                                <div class="col-lg-9 col-md-8 col-sm-12"><p><a href="#" target="_blank">example</a></p></div>
-                            </div>
-
-                            <h5 class="header">special Features</h5>
-                            <div class="row m-lr-0">
-                                  <ul class="fac_container" v-for="special in special_features" :key="special.id">
-                                    <li >{{special.short_name}}</li>
-                                </ul>
-                            </div>
-                            <h5 class="header">Information from clinic</h5>
-                            <div class="row m-lr-0">
-                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                                    <li >{{hospital.details_info}}</li>
-                                </ul>
-                            </div>
-                            <h5 class="header">Information from clinic</h5>
-                            <div class="row m-lr-0">
-                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                                    <li >{{hospital.subject}}</li>
-                                </ul>
-                            </div>
-                            <h5 class="header">Consultation hours</h5>
-                            <div class="row m-lr-0">
-                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                                    <li >{{hospital.closed_day}}</li>
-                                </ul>
-                            </div>
-                            <h5 class="header">Facility</h5>
-                            <div class="row m-lr-0">
-                                  <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                                    <li >{{hospital.facilities}}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
-                    <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
-                          <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true"   />
-                       </GmapMap>
-
-                       <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
-                           <div class="col-md-2 text-left ">
-                               Official Site  :
-                           </div>
-                           <div class="col-md-10 text-left">
-                               www.google.com
-                           </div>
-
-                           <div class="col-md-2 text-left" style="padding-top:20px;" >
-                               Access :
-                           </div>
-                           <div class="col-md-10 text-left" style="padding-top:20px;">
-                              {{m.access}}
-                           </div>
-                            <div class="col-md-2 text-left" style="padding-top:20px;" >
-                               Congeston :
-                           </div>
-                           <div class="col-md-10 text-left" style="padding-top:20px;">
-                              {{m.congestion}}
-                           </div>
-
-                           <div class="col-md-2 text-left" style="padding-top:20px;" >
-                               City/Township :
-                           </div>
-                           <div class="col-md-10 text-left" style="padding-top:20px;">
-                               {{this.address}}
-                           </div>
-                      </div>
-
-                </div>
-                <div class="tab-pane fade p-1" id="three" role="tabpanel" aria-labelledby="three-tab">
-                    <div class="row" v-for="comment in comments" :key="comment.id">
-                                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
-                                     <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
-                                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
-                                    <br/><br/>
-                                      <div class="row col-md-12 m-lr-0">
-                                          <p class="showContent"> {{comment.comment}}</p>
-                                                <span class="displaytext">
-                                                       {{comment.comment}}
-                                                </span>
-                                                <a class="mt-2 readMore" >続きを読む</a>
-
-                                </div>
-
-                        </div>
-                </div>
-                <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
-                     <joboffer></joboffer>
-                </div>
-                <!-- <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
-                    <div class="row">
-                        <h1>tab5</h1>
-                    </div>
-                </div>
-                <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
-                    <div class="row">
-                        <h1>tab6</h1>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-
-        <div v-if="type == 'nursing'">
-            <div class="card-header tab-card-header">
-                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                        <li class="nav-item nav-line" id="category-id" >
-                            <a class="nav-link active" href="#one" id="one-tab" data-toggle="tab" role="tab" aria-controls="one" aria-selected="true">Information</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#two"  id="two-tab" data-toggle="tab" role="tab" aria-controls="two" aria-selected="true" >Features</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#three"  id="three-tab" data-toggle="tab" role="tab" aria-controls="three" aria-selected="true" >Cost</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#four"  id="four-tab" data-toggle="tab" role="tab" aria-controls="four" aria-selected="true" >Equipment</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#five"  id="five-tab" data-toggle="tab" role="tab" aria-controls="five" aria-selected="true" >Map</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#six"  id="six-tab" data-toggle="tab" role="tab" aria-controls="six" aria-selected="true" >Review</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#seven"  id="seven-tab" data-toggle="tab" role="tab" aria-controls="seven" aria-selected="true" >Job Offer</a>
-                        </li>
-
-                </ul>
-            </div>
-
-            <div class="tab-content tab-content2 scroll2" id="myTabContent">
-                <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
-                <div class="row">
-                        <div class="col-sm-5 detail_profile_left ">
-                        <div class="thumbnail-img">
-                             <div class="card-carousel">
-                                <div class="card-img">
-                                    <img :src="currentImage" alt="">
-                                    <!-- <div class="actions">
-                                        <span @click="prevImage" class="prev">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span @click="nextImage" class="next">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </span>
-                                    </div> -->
-                                </div>
-                                <div class="thumbnails">
-                                    <div
-                                        v-for="(image, index) in  images"
-                                        :key="image.id"
-                                        :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
-                                        @click="activateImage(index)"
-                                    >
-                                        <img :src="image.thumb">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-sm-7 detail_profile_right">
-                            <div class="row list-wrap m-lr-0">
-                                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address</strong></p></div>
-                                <div class="col-lg-9 col-md-8 col-sm-12"><p><a href="#" target="_blank">example</a></p></div>
-                            </div>
-
-                            <h5 class="header">special Features</h5>
-                            <div class="row m-lr-0">
-                                <ul class="fac_container" v-for="special in special_features" :key="special.id">
-                                    <li >{{special.short_name}}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade p-1" id="two" role="tabpanel" aria-labelledby="two-tab">
-                    <h5 class="header">Features</h5>
-                    <div class="row m-lr-0">
-                        <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="fac_container">
-                            {{nurseprofile.feature}}
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade p-1" id="three" role="tabpanel" aria-labelledby="three-tab">
-                    <div class="row">
-                        <div  v-for="cost in method_payment" :key="cost.id" class="col-md-6 offset-md-3" >
-                            <table border="1" class="table">
-                                                <tr>
-                                                        <td style="width:30%" >Payment Name : </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.payment_name}}</div></td>
-                                                </tr>
-                                                 <tr>
-                                                        <td style="width:30%">Expense : </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.expense_moving}}</div></td>
-                                                </tr>
-                                                <tr>
-                                                        <td style="width:30%">Monthly Fees : </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.monthly_fees}}</div></td>
-                                                </tr>
-                                                <tr>
-                                                        <td style="width:30%">Living Room Type : </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.living_room_type}}</div></td>
-                                                </tr>
-                                                 <tr>
-                                                        <td style="width:30%">Area: </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.area}}</div></td>
-                                                </tr>
-                                                <tr>
-                                                        <td style="width:30%">Remark: </td>
-                                                        <td style="width:70%"><div class="col-md-10 m-t-8 ">{{cost.remark}}</div></td>
-                                                </tr>
-
-                                </table>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="tab-pane fade p-1" id="four" role="tabpanel" aria-labelledby="four-tab">
-                    <div class="row" >
-                        <div class="col-md-12">
-                         <h2 align="center"> Facility </h2>
-
-                        </div>
-                        <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12 " >
-                             <table border="1" class="table">
-                                <tbody>
-                                    <tr>
-                                    <td> Business entity</td>
-                                    <td>{{nus.business_entity}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Date of establishment</td>
-                                    <td>{{nus.date_of_establishment}}</td>
-                                </tr>
-                                  <tr>
-                                    <td> Land rights form </td>
-                                    <td>{{nus.land_right_form}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Building rights form</td>
-                                    <td>{{nus.building_right_form}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Site area</td>
-                                    <td>{{nus.site_area}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Total floor area</td>
-                                    <td>{{nus.floor_area}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Construction</td>
-                                    <td>{{nus.construction}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Capacity</td>
-                                    <td>{{nus.capacity}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Total number of rooms / units </td>
-                                    <td>{{nus.num_rooms}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Right of residence form </td>
-                                    <td>{{nus.residence_form}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Type </td>
-                                    <td>{{nus.fac_type}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Occupancy conditions</td>
-                                    <td>{{nus.occupancy_condition}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Room division, floor plan, etc </td>
-                                    <td>{{nus.room_floor}}</td>
-                                </tr>
-                                 <tr>
-                                    <td> Living room facilities</td>
-                                    <td>{{nus.living_room_facilities}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Common facilities / equipment </td>
-                                    <td>{{nus.equipment}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row" >
-                        <div class="col-md-12">
-                         <h2 align="center"> Cooperate Medical </h2>
-
-                        </div>
-                        <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12 " >
-                             <table border="1" class="table">
-                                <tbody>
-                                    <tr>
-                                        <td> Clinical Subject</td>
-                                        <td>{{comedical.clinical_subject}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Details</td>
-                                        <td>{{comedical.details}}</td>
-                                    </tr>
-                                </tbody>
-                             </table>
-                        </div>
-                    </div>
-                     <div class="row" >
-                        <div class="col-md-12">
-                         <h2 align="center"> Medical Acceptance </h2>
-
-                        </div>
-                        <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-12 " >
-                             <table border="1" class="table">
-                                <tbody>
-                                    <tr>
-                                        <td> Name </td>
-                                        <td>{{maccept.name}}</td>
-                                    </tr>
-
-                                </tbody>
-                             </table>
-                        </div>
-                    </div>
-                     <div class="row" >
-                        <div class="col-md-12">
-                         <h2 align="center"> Staff </h2>
-
-                        </div>
-                        <div v-for="st in staff" :key="st.id" class="col-md-12 " >
-                             <table border="1" class="table">
-                                <tbody>
-                                    <tr>
-                                        <td> Staff     </td>
-                                        <td>{{st.staff}}</td>
-                                         <td> Nursing Staff     </td>
-                                        <td>{{st.nursing_staff}}</td>
-                                    </tr>
-                                     <tr>
-                                        <td> Min num of Staff     </td>
-                                        <td>{{st.min_num_staff}}</td>
-                                         <td> Num of Staff     </td>
-                                        <td>{{st.num_staff}}</td>
-                                    </tr>
-
-                                </tbody>
-                             </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade p-1" id="five" role="tabpanel" aria-labelledby="five-tab">
-                       <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
-                          <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
-                       </GmapMap>
-
-                       <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
-                           <div class="col-md-2 text-left ">
-                               Official Site  :
-                           </div>
-                           <div class="col-md-10 text-left">
-                               www.google.com
-                           </div>
-
-                           <div class="col-md-2 text-left" style="padding-top:20px;" >
-                               Access :
-                           </div>
-                           <div class="col-md-10 text-left" style="padding-top:20px;">
-                              {{m.access}}
-                           </div>
-
-                           <div class="col-md-2 text-left" style="padding-top:20px;" >
-                               City/Township :
-                           </div>
-                           <div class="col-md-10 text-left" style="padding-top:20px;">
-                               {{this.address}}
-                           </div>
-                      </div>
-
-
-
-                </div>
-                <div class="tab-pane fade p-1" id="six" role="tabpanel" aria-labelledby="six-tab">
-                        <div class="row" v-for="comment in comments" :key="comment.id">
-                                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
-                                     <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
-                                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
-                                    <br/><br/>
-                                      <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
-                                         <div class="content hideContent">{{comment.comment}}</div>
-                                     </div> -->
-                                     <!-- <button onclick="function()">See more</button> -->
-                                      <div class="row col-md-12 m-lr-0">
-                                          <p class="showContent"> {{comment.comment}}</p>
-                                                <span class="displaytext">
-                                                       {{comment.comment}}
-                                                </span>
-                                                <a class="mt-2 readMore" href ="#">続きを読む</a>
-                                
-                                </div>
-
-                        </div>
-                </div>
-                <div class="tab-pane fade p-1" id="seven" role="tabpanel" aria-labelledby="seven-tab">
-
-                       <joboffer></joboffer>
-
-                </div>
-            </div>
-        </div>
-
-
+  <div id="app">
+    <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
+       <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
+         Information
+      </button>
+       <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
+         Features
+      </button>
+       <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
+         Cost
+      </button>
+       <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn">
+         Equipment
+      </button>
+       <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn">
+         Map
+      </button>
+       <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn">
+         Review
+      </button>
+       <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn">
+         Job Offer
+      </button>
     </div>
-</template>
+    
+         <div class="row m-lr-0 ele" id="element1">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12">
+                      <p><strong>Information</strong></p>
+                  </div> 
+              </div>
 
- <script>
- import joboffer from './JobOfferList.vue'
- export default { 
-    name: "GoogleMap",
-      components:{
-                    joboffer
-                },
-
-  data() {
-            var that = this;
-            return {
-
-                markers: [
-                    { position: { lat: 0, lng: 0 } },
-                ],
-                center: { lat: 0, lng: 0 },
-                address: '',
-                google:[],
-                nusfacilities:[],
-                cooperate_medical:[],
-                medical_acceptance:[],
-                staff:[],
-                hospitals:[],
-                nursing_profiles:[],
-                special_features:[],
-                method_payment:[],
-                comments:[],
-                activeImage: 0,
-                index: 0,
-                pageNum: 0,
-                type : 'nursing',
-                opts: {
-                    start: 0,
-                    dir: 'v',
-                    loop: false,
-                    duration:500,
-                    beforeChange: function(ele, current, next) {
-                        console.log('before', current, next)
-                        that.index = next;
-                    },
-                    afterChange: function(ele, current) {
-                        that.index = current;
-                        console.log('after', current)
-                    }
-                },
-                images: [
-                    {
-                        id: '1',
-                        big: 'images/p1.jpeg',
-                        thumb: 'images/thumbs/p1.jpeg'
-                    },
-                    {
-                        id: '2',
-                        big: 'images/p2.jpeg',
-                        thumb: 'images/thumbs/p2.jpeg'
-                    },
-                    {
-                        id: '3',
-                        big: 'images/p3.jpeg',
-                        thumb: 'images/thumbs/p3.jpeg'
-                    },
-                    {
-                        id: '4',
-                        big: 'images/p4.jpeg',
-                        thumb: 'images/thumbs/p4.jpeg'
-                    }
-                ],
-            };
-        },
-        created(){
-            if(this.type == "nursing")
-            {
-                this.axios.get('/api/feature/featurelist').then(response => {
-                    this.special_features = response.data;
-                });
-
-                this.axios.get('/api/nusprofile/feature') .then(response => {
-                    this.nursing_profiles = response.data.feature;
-                });
-
-                this.axios .get('/api/nusprofile/cost').then(response => {
-                    this.method_payment = response.data.cost;
-
-                });
-
-                this.axios.get('/api/comments/comment').then(response => {
-                    this.comments = response.data;
-
-                });
-
-                this.axios.get('/api/nusprofile/nusfacilities').then(response => {
-                    this.nusfacilities = response.data.facility;
-
-                });
-
-                this.axios.get('/api/nusprofile/cooperatemedical').then(response => {
-                    this.cooperate_medical = response.data.comedical;
-
-                });
-
-                    this.axios.get('/api/nusprofile/medicalacceptance').then(response => {
-                    this.medical_acceptance = response.data.medical;
-
-                });
-
-                    this.axios.get('/api/nusprofile/staff').then(response => {
-                    this.staff = response.data.staff;
-                    
-
-                });
-
-                    this.axios.get('/api/nusprofile/googlefornurse').then(response => {
-                    this.google = response.data.nurselatlong;
-                    this.markers[0]['position']['lat']  = response.data.nurselatlong[0]['latitude'];
-                    this.markers[0]['position']['lng']  = response.data.nurselatlong[0]['longitude'];
-                    this.center['lat'] = response.data.nurselatlong[0]['latitude'];
-                    this.center['lng'] = response.data.nurselatlong[0]['longitude'];
-
-                });
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+          </div>
+     
+    
 
        
-                            var geocoder= new google.maps.Geocoder;
-                            
-                            var latlng = {lat: 16.82150100, lng: 96.12982600};
-                            
-                            geocoder.geocode({'location': latlng}, function(results, status) {
-                            if (status === 'OK') {
-                               
-                                if (results[1]) {
-                                        this.address=  results[1].formatted_address
+         <div class="row ele m-lr-0" id="element2">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Features</strong></p></div>
+                
+              </div>
 
-                                    }
-                                }
-                            })
-            }
-            else{
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+              <h5 class="header">special Features</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Short Name </li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container">
+                      <li > Information from Clinic</li>
+                  </ul>
+              </div>
+              <h5 class="header">Information from clinic</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Subject </li>
+                  </ul>
+              </div>
+              <h5 class="header">Consultation hours</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li > Consultation hours</li>
+                  </ul>
+              </div>
+              <h5 class="header">Facility</h5>
+              <div class="row m-lr-0">
+                    <ul class="fac_container" >
+                      <li >Facility</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="row ele m-lr-0" id="element3">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Cost</strong></p></div>                
+              </div>
+              <h5 class="header">cost</h5>              
+          </div>
 
-                this.axios.get('/api/nusprofile/googleforhospital').then(response => {
-                    this.google = response.data.hoslatlong;
-                    this.markers[0]['position']['lat']  = response.data.hoslatlong[0]['latitude'];
-                    this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
-                    this.center['lat'] = response.data.hoslatlong[0]['latitude'];
-                    this.center['lng'] = response.data.hoslatlong[0]['longitude'];
-                  
-
-                });
-                this.axios.get('/api/feature/featurelist').then(response => {
-                    this.special_features = response.data;
-                });
-                this.axios.get('/api/comments/comment').then(response => {
-                    this.comments = response.data;
-
-                });
-                this.axios.get('/api/nusprofile/hospital').then(response => {
-                    this.hospitals = response.data.hospital;
-                })
-            }
-
-
-          },
-          methods: {
-              moveTo: function(index) {
-
-                this.$refs.fullpage.$fullpage.moveTo(index, true);
-            },
-              nextImage() {
-                var active = this.activeImage + 1;
-                if(active >= this.images.length) {
-                    active = 0;
-                }
-                this.activateImage(active);
-            },
-
-                prevImage() {
-                    var active = this.activeImage - 1;
-                    if(active < 0) {
-                        active = this.images.length - 1;
-                    }
-                    this.activateImage(active);
-                },
-                activateImage(imageIndex) {
-                    this.activeImage = imageIndex;
-                }
-
-
-        },
-
- }
-
-</script>
-
+          <div class="row ele m-lr-0" id="element4">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Equipment</strong></p></div>
+                
+              </div>
+              <h5 class="header">Equipment</h5>
+              
+          </div>
+           <div class="row ele m-lr-0" id="element5">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Map</strong></p></div>
+                
+              </div>
+              <h5 class="header">Map</h5>
+              
+          </div>
+           <div class="row ele m-lr-0" id="element6">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Review</strong></p></div>
+                
+              </div>
+              <h5 class="header">Review</h5>
+              
+          </div>
+           <div class="row ele m-lr-0" id="element7">            
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Job Offer</strong></p></div>
+                
+              </div>
+              <h5 class="header">Job Offer</h5>
+              
+          </div>
+         
+  </div>
+</template>
 
 
 <style scoped>
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    color: #fff !important;
-    font-weight: bold;
-    background-color: #1aa985  !important;
-    border-top: 1px solid #1aa985  ;
-    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
+.fixed-nav{
+    position: fixed;
+    z-index: 4;
+    overflow: hidden;
+    background: #fff;
+    width: 65.9%;
+    margin-top:-1px;
+   
 }
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
-    border: 1px solid #1aa985  !important;
+.top-fixed-btn{
+  border: 1px solid #b7dad2;
+  box-shadow: 0px 2px 1px rgba(70, 70, 70, 0.3);
+  color: #095c5f;
+  background: #b7dad2;
+  width: 145px;
+  cursor: pointer;
+  padding: 10px;
 }
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
-    border-color: transparent   #ecede1   transparent   #ecede1   !important;
-}
-.thumbnail-img{
-    width: 100%;
-    padding: 20px;
-    line-height: 150px;
-    vertical-align: middle;
-    border: 1px solid #b7dad2;
-    border-bottom: 1px solid #b7dad2;
-    background-color: #f5f5f2;
-    margin: 0 auto 20px;
-    text-align: center;
-}
-.thumbnail-img img {
-    width: 100%;
-}
-
-.card-carousel {
-    user-select: none;
-    position: relative;
-}
-
-.progressbar {
-    display: block;
-    width: 100%;
-    height: 5px;
-    position: absolute;
-    background-color: rgba(221, 221, 221, 0.25);
-    z-index: 1;
-}
-
-.progressbar > div {
-    background-color: rgba(255, 255, 255, 0.52);
-    height: 100%;
-}
-
-.thumbnails {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-}
-
-.thumbnail-image {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 2px;
-}
-
-.thumbnail-image > img {
-    width: 100%;
-    height: auto;
-    transition: all 250ms;
-}
-
-.thumbnail-image:hover > img,
-.thumbnail-image.active > img {
-    opacity: 0.6;
-    box-shadow: 2px 2px 6px 1px rgba(0,0,0, 0.5);
-}
-
-.card-img {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.card-img > img {
-    display: block;
-    margin: 0 auto;
-}
-
-.actions {
-    font-size: 1.5em;
-    height: 40px;
-    position: absolute;
-    top: 50%;
-    margin-top: -20px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #585858;
-}
-
-.actions > span {
-    cursor: pointer;
-    transition: all 250ms;
-}
-
-.actions > span.prev {
-    margin-left: 5px;
-}
-
-.actions > span.next {
-    margin-right: 5px;
-}
-
-.actions > span:hover {
-    color: #eee;
+.ele{
+  margin-top: 27px;  
+  padding-top: 60px;
 }
 </style>
-
-
-
-
-
-
-
 

@@ -161,12 +161,16 @@
                   <br />
                 </div>-->
               </div>
-              <div class="col-lg-3 col-md-12">
-                <ul class="fac_container">
-                  <li
-                    v-for="feature in nur_profile.special_features"
-                    :key="feature.id"
-                  >{{ feature }}</li>
+            </div>
+
+            <div class="col-md-4">
+              <div
+                class="fac_container"
+                v-for="feature in nur_profile.special_features"
+                :key="feature.id"
+              >
+                <ul class="equipment">
+                  <li>{{ feature }}</li>
                 </ul>
               </div>
             </div>
@@ -178,70 +182,130 @@
   </div>
 </template>
 
+
+
 <script>
 export default {
   data() {
     return {
       errors: [],
+
       fav_nursing: [],
+
       local_sto: "",
+
       post_list: [],
+
       city_list: [],
+
       post: "",
+
       selectedCity: "",
+
       zipStreet: "",
+
       zipPref: "",
+
       selectedValue: 0,
+
       fav_email: [],
+
       arr_email: [],
+
       reserv_status: [],
-      decument_status: []
+
+      decument_status: [],
+
+      all_check: []
     };
   },
 
   created() {
-    this.axios.get("/api/hospital/postList").then(response => {
-      this.post_list = response.data;
-      //console.log(this.post_list);
-    });
+    this.axios
+      .get("/api/hospital/postList")
+
+      .then(response => {
+        this.post_list = response.data;
+
+        //console.log(this.post_list);
+      });
+
     this.local_sto = localStorage.getItem("nursing_fav");
+
     this.getAllFavourite(this.local_sto);
-    this.axios.get("/api/hospital/citiesList").then(response => {
-      this.city_list = response.data;
-    });
+
+    this.axios
+      .get("/api/hospital/citiesList")
+
+      .then(response => {
+        this.city_list = response.data;
+      });
   },
 
   methods: {
     getAllFavourite: function(local_storage) {
-      this.axios.post("/api/nursing_fav/" + local_storage).then(response => {
-        this.fav_nursing = response.data;
-      });
+      this.axios
+
+        .post("/api/nursing_fav/" + local_storage)
+
+        .then(response => {
+          this.fav_nursing = response.data;
+        });
     },
+
     removeFav(nur) {
       if (confirm("Are you sure you want to delete?")) {
         this.fav_nursing.splice(nur, 1);
+
         var splitarray = this.local_sto.split(",");
+
         splitarray = splitarray.splice(nur.toString(), 1);
+
         localStorage.setItem("nursing_fav", splitarray);
       }
     },
+
     addDistributionGroup: function() {
       var selectedId = this.post;
+
       this.axios
+
         .post("/api/hospital/selectedCity/" + selectedId)
+
         .then(response => {
           this.zipStreet = response.data[0].street;
+
           this.zipPref = response.data[0].pref;
+
           this.selectedValue = response.data[0].c_Id;
         });
     },
     addingMail() {
       for (var i = 0; i < this.fav_nursing.length; i++) {
-        this.fav_email.push(this.fav_nursing[i]["email"]);
+        this.fav_email.push({
+          email: this.fav_nursing[i]["email"],
+          arr_reserve: this.reserv_status,
+          arr_document: this.decument_status
+        });
       }
-      console.log("reserv", this.reserv_status);
-      console.log("document", this.decument_status);
-      console.log("email", this.fav_email);
+
+      // console.log('reserv', this.reserv_status)
+
+      // console.log('document', this.decument_status)
+
+      // console.log('email', this.fav_email);
+
+      localStorage.setItem("item", JSON.stringify(this.fav_email));
+
+      // console.log(JSON.parse(localStorage.getItem("item")));
+
+      this.$router.push({
+        name: "nursingFavouriteMail"
+
+        // params: { favmail: this.fav_email},
+
+        // props: true
+      });
     }
   }
 };

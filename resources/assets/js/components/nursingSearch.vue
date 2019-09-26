@@ -2,153 +2,468 @@
 <div class="search-map card-body">
   <div class="row">
     <div class="col-md-10">
-          <div class="row">
-            <div class="col-sm-7 divisions">
-                    <div class="row">    
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background-color:#ef7979">北海道・東北</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">  
-                                <span class="spanclass"> <a href="#!" id="1" data-info="Hokkaido" class="path Hokkaido card-text" >北海道</a></span>  
-                                <span class="spanclass"> <a href="#!" id="2" data-info="Aomori" class="path Aomori card-text" >青森県</a></span>
-                                <span class="spanclass"> <a href="#!" id="3" data-info="Iwate" class="path Iwate card-text" >岩手県</a></span>
-                                <span class="spanclass"> <a href="#!" id="4" data-info="Miyagi" class="path Miyagi card-text" >宮城県</a></span>
-                                <span class="spanclass"> <a href="#!" id="5" data-info="Akita" class="path Akita card-text" >秋田県</a></span>
-                                <span class="spanclass"> <a href="#!" id="6" data-info="Yamagata" class="path Yamagata card-text" >山形県</a></span> 
-                                <span class="spanclass"> <a href="#!" id="7" data-info="Fukushima" class="path Fukushima card-text" >福島県</a></span>
-                              </p>
-                            </div>
-                          </div>  
-                        </div>
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background-color:#87ef79">関東</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">
-                                <span class="spanclass"><a href="#!" id="8" data-info="Ibaraki" class="path Ibaraki card-text" >茨城県</a></span>
-                                <span class="spanclass"><a href="#!" id="9" data-info="Tochigi" class="path Tochigi card-text" >栃木県</a></span>
-                                <span class="spanclass"><a href="#!" id="10" data-info="Gunma" class="path Gunma card-text" >群馬県</a></span> 
-                                <span class="spanclass"><a href="#!" id="11" data-info="Saitama" class="path Saitama card-text" >埼玉県</a></span>
-                                <span class="spanclass"><a href="#!" id="12" data-info="Chiba" class="path Chiba card-text" >千葉県</a></span>
-                                <span class="spanclass"><a href="#!" id="13" data-info="Tokyo" class="path Tokyo card-text" >東京都</a></span>
-                                <span class="spanclass"><a href="#!" id="14" data-info="Kanagawa" class="path Kanagawa card-text">神奈川県</a></span>        
-                              </p>
-                            </div>
-                          </div>  
-                        </div>   
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background-color:#79efdb">東海</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">                            
-                                <span class="spanclass"><a href="#!" id="15" data-info="Niigata" class="path Niigata card-text" >新潟県</a></span>
-                                <span class="spanclass"><a href="#!" id="16" data-info="Toyama" class="path Toyama card-text" >富山県</a></span>
-                                <span class="spanclass"><a href="#!" id="17" data-info="Ishikawa" class="path Ishikawa card-text" >石川県</a></span>
-                                <span class="spanclass"><a href="#!" id="18" data-info="Fukui" class="path Fukui card-text" >福井県</a></span>
-                                <span class="spanclass"><a href="#!" id="19" data-info="Yamanashi" class="path Yamanashi card-text" >山梨県</a></span>
-                                <span class="spanclass"><a href="#!" id="20" data-info="Nagano" class="path Nagano card-text" >長野県</a></span>
-                                <span class="spanclass"><a href="#!" id="21" data-info="Gifu" class="path Gifu card-text" >岐阜県</a></span>
-                                <span class="spanclass"><a href="#!" id="22" data-info="Shizuoka" class="path Shizuoka card-text" >静岡県</a></span>
-                                <span class="spanclass"><a href="#!" id="23" data-info="Aichi" class="path Aichi card-text" >愛知県</a></span>        
-                              </p>
-                            </div>
-                          </div>  
-                        </div>
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                          <div class="card-header pad-10" style="background:#9579ef">近畿</div>
-                          <div class="card-body">
-                            <p class="card-text map-text">
-                              <span class="spanclass"><a href="#!" id="24" data-info="Mie" class="path Mie card-text" >三重県</a></span> 
-                              <span class="spanclass"><a href="#!" id="25" data-info="Shiga" class="path Shiga card-text" >滋賀県</a></span>
-                              <span class="spanclass"><a href="#!" id="26" data-info="Kyoto" class="path Kyoto card-text" >京都府</a></span>
-                              <span class="spanclass"><a href="#!" id="27" data-info="Osaka" class="path Osaka card-text" >大阪府</a></span>
-                              <span class="spanclass"><a href="#!" id="28" data-info="Hyogo" class="path Hyogo card-text" >兵庫県</a></span>                         
-                              <span class="spanclass"><a href="#!" id="29" data-info="Nara" class="path Nara card-text" >奈良県</a></span>                        
-                              <span class="spanclass"><a href="#!" id="30" data-info="Wakayama" class="path Wakayama card-text" >和歌山県</a></span>
-                                                      
-                            </p>
-                          </div>
-                        </div>  
-                        </div>
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                          <div class="card-header pad-10" style="background:#ffed4a;">中国・四国</div>
-                          <div class="card-body">
-                            <p class="card-text map-text">
-                              <span class="spanclass"><a href="#!" id="31" data-info="Tottori" class="path Tottori card-text" >鳥取県</a></span>
-                              <span class="spanclass"><a href="#!" id="32" data-info="Shimane" class="path Shimane card-text" >島根県</a></span>
-                              <span class="spanclass"><a href="#!" id="33" data-info="Okayama" class="path Okayama card-text" >岡山県</a></span>
-                              <span class="spanclass"><a href="#!" id="34" data-info="Hiroshima" class="path Hiroshima card-text" >広島県</a></span>
-                              <span class="spanclass"><a href="#!" id="35" data-info="Yamaguchi" class="path Yamaguchi card-text" >山口県</a></span>   
-                            </p>
-                          </div>
-                          </div>
-                        </div>
-                      
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background:#cc79ef">中国・四国</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">
-                                <span class="spanclass"><a href="#!" id="36" data-info="Tokushima" class="path Tokushima card-text" >徳島県</a></span>
-                                <span class="spanclass"><a href="#!" id="37" data-info="Kagawa" class="path Kagawa card-text" >香川県</a></span>
-                                <span class="spanclass"><a href="#!" id="38" data-info="Ehime" class="path Ehime card-text" >愛媛県</a></span>
-                                <span class="spanclass"><a href="#!" id="39" data-info="Kochi" class="path Kochi card-text" >高知県</a></span>                            
-                              </p>
-                            </div>
-                          </div>  
-                        </div>  
-
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background-color:#93d3f5">九州・沖縄</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">
-                                <span class="spanclass"> <a href="#!" id="40" data-info="Fukuoka" class="path Fukuoka card-text" >福岡県</a></span>                           
-                                <span class="spanclass"><a href="#!" id="41" data-info="Saga" class="path Saga card-text" >佐賀県</a></span>
-                                <span class="spanclass"><a href="#!" id="42" data-info="Nagasaki" class="path Nagasaki card-text" >長崎県</a></span>
-                                <span class="spanclass"><a href="#!" id="43" data-info="Kumamoto" class="path Kumamoto card-text" >熊本県</a></span>
-                                <span class="spanclass"><a href="#!" id="44" data-info="Oita" class="path Oita card-text" >大分県</a></span>
-                                <span class="spanclass"><a href="#!" id="45" data-info="Miyazaki" class="path Miyazaki card-text" >宮崎県</a></span>
-                                <span class="spanclass"><a href="#!" id="46" data-info="Kagoshima" class="path Kagoshima card-text" >鹿児島県</a></span>
-                                <span class="spanclass"><a href="#!" id="47" data-info="Okinawa" class="path Okinawa card-text" >沖縄県</a></span>                  
-                              </p>
-                            </div>
-                          </div>  
-                        </div>                 
-                    
-                        
-                              
-                      <div class="card-body">
-                            <div class="row col-12 pad-free">
-                            <div class="col-10">
-                              <select name="" id="select" class="form-control custom-select select m-b-10">
-                                <option ></option>
-                              </select>
-                            </div>
-                            <div class="col-2 pad-free text" id="text">                          
-                            </div>                                                      
-                            </div>     
-                                              
-                            <div class="row col-12 nursgingcheckbox">
-                             
-                            </div>
-                      </div>
-                      </div>
-                     
-            </div>
+        <div class="row">           
             <div class="info-box"></div>
-            <div class="col-sm-5">
+
+            <div class="col-sm-11 map-wrap">
+              <!-- <div class="divisions">
+                <div class="row">    
+                  <div class="col-sm-3">
+                    <div class="card  mb-3">
+                      <div class="card-header pad-10" style="background-color:#ef7979">北海道・東北</div>
+                      <div class="card-body">
+                        <p class="card-text map-text">  
+                          <span class="spanclass"> <a href="#!" id="1" data-info="Hokkaido" class="path Hokkaido card-text" >北海道</a></span>  
+                          <span class="spanclass"> <a href="#!" id="2" data-info="Aomori" class="path Aomori card-text" >青森県</a></span>
+                          <span class="spanclass"> <a href="#!" id="3" data-info="Iwate" class="path Iwate card-text" >岩手県</a></span>
+                          <span class="spanclass"> <a href="#!" id="4" data-info="Miyagi" class="path Miyagi card-text" >宮城県</a></span>
+                          <span class="spanclass"> <a href="#!" id="5" data-info="Akita" class="path Akita card-text" >秋田県</a></span>
+                          <span class="spanclass"> <a href="#!" id="6" data-info="Yamagata" class="path Yamagata card-text" >山形県</a></span> 
+                          <span class="spanclass"> <a href="#!" id="7" data-info="Fukushima" class="path Fukushima card-text" >福島県</a></span>
+                        </p>
+                      </div>
+                    </div>  
+                  </div>
+
+                  <div class="col-sm-3">
+                    <div class="card  mb-3">
+                      <div class="card-header pad-10" style="background-color:#87ef79">関東</div>
+                      <div class="card-body">
+                        <p class="card-text map-text">
+                          <span class="spanclass"><a href="#!" id="8" data-info="Ibaraki" class="path Ibaraki card-text" >茨城県</a></span>
+                          <span class="spanclass"><a href="#!" id="9" data-info="Tochigi" class="path Tochigi card-text" >栃木県</a></span>
+                          <span class="spanclass"><a href="#!" id="10" data-info="Gunma" class="path Gunma card-text" >群馬県</a></span> 
+                          <span class="spanclass"><a href="#!" id="11" data-info="Saitama" class="path Saitama card-text" >埼玉県</a></span>
+                          <span class="spanclass"><a href="#!" id="12" data-info="Chiba" class="path Chiba card-text" >千葉県</a></span>
+                          <span class="spanclass"><a href="#!" id="13" data-info="Tokyo" class="path Tokyo card-text" >東京都</a></span>
+                          <span class="spanclass"><a href="#!" id="14" data-info="Kanagawa" class="path Kanagawa card-text">神奈川県</a></span>        
+                        </p>
+                      </div>
+                    </div>  
+                  </div>   
+
+                  <div class="col-sm-3">
+                    <div class="card  mb-3">
+                      <div class="card-header pad-10" style="background-color:#79efdb">東海</div>
+                      <div class="card-body">
+                        <p class="card-text map-text">                            
+                          <span class="spanclass"><a href="#!" id="15" data-info="Niigata" class="path Niigata card-text" >新潟県</a></span>
+                          <span class="spanclass"><a href="#!" id="16" data-info="Toyama" class="path Toyama card-text" >富山県</a></span>
+                          <span class="spanclass"><a href="#!" id="17" data-info="Ishikawa" class="path Ishikawa card-text" >石川県</a></span>
+                          <span class="spanclass"><a href="#!" id="18" data-info="Fukui" class="path Fukui card-text" >福井県</a></span>
+                          <span class="spanclass"><a href="#!" id="19" data-info="Yamanashi" class="path Yamanashi card-text" >山梨県</a></span>
+                          <span class="spanclass"><a href="#!" id="20" data-info="Nagano" class="path Nagano card-text" >長野県</a></span>
+                          <span class="spanclass"><a href="#!" id="21" data-info="Gifu" class="path Gifu card-text" >岐阜県</a></span>
+                          <span class="spanclass"><a href="#!" id="22" data-info="Shizuoka" class="path Shizuoka card-text" >静岡県</a></span>
+                          <span class="spanclass"><a href="#!" id="23" data-info="Aichi" class="path Aichi card-text" >愛知県</a></span>        
+                        </p>
+                      </div>
+                    </div>  
+                  </div>
+
+                  <div class="col-sm-3">
+                    <div class="card  mb-3">
+                    <div class="card-header pad-10" style="background:#9579ef">近畿</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass"><a href="#!" id="24" data-info="Mie" class="path Mie card-text" >三重県</a></span> 
+                        <span class="spanclass"><a href="#!" id="25" data-info="Shiga" class="path Shiga card-text" >滋賀県</a></span>
+                        <span class="spanclass"><a href="#!" id="26" data-info="Kyoto" class="path Kyoto card-text" >京都府</a></span>
+                        <span class="spanclass"><a href="#!" id="27" data-info="Osaka" class="path Osaka card-text" >大阪府</a></span>
+                        <span class="spanclass"><a href="#!" id="28" data-info="Hyogo" class="path Hyogo card-text" >兵庫県</a></span>                         
+                        <span class="spanclass"><a href="#!" id="29" data-info="Nara" class="path Nara card-text" >奈良県</a></span>                        
+                        <span class="spanclass"><a href="#!" id="30" data-info="Wakayama" class="path Wakayama card-text" >和歌山県</a></span>
+                                                
+                      </p>
+                    </div>
+                  </div>  
+                  </div>
+
+                  <div class="col-sm-3">
+                    <div class="card  mb-3">
+                    <div class="card-header pad-10" style="background:#ffed4a;">中国・四国</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass"><a href="#!" id="31" data-info="Tottori" class="path Tottori card-text" >鳥取県</a></span>
+                        <span class="spanclass"><a href="#!" id="32" data-info="Shimane" class="path Shimane card-text" >島根県</a></span>
+                        <span class="spanclass"><a href="#!" id="33" data-info="Okayama" class="path Okayama card-text" >岡山県</a></span>
+                        <span class="spanclass"><a href="#!" id="34" data-info="Hiroshima" class="path Hiroshima card-text" >広島県</a></span>
+                        <span class="spanclass"><a href="#!" id="35" data-info="Yamaguchi" class="path Yamaguchi card-text" >山口県</a></span>   
+                      </p>
+                    </div>
+                    </div>
+                  </div>                 
+
+                  <div class="col-sm-3">
+                    <div class="card  mb-3">
+                      <div class="card-header pad-10" style="background:#cc79ef">中国・四国</div>
+                      <div class="card-body">
+                        <p class="card-text map-text">
+                          <span class="spanclass"><a href="#!" id="36" data-info="Tokushima" class="path Tokushima card-text" >徳島県</a></span>
+                          <span class="spanclass"><a href="#!" id="37" data-info="Kagawa" class="path Kagawa card-text" >香川県</a></span>
+                          <span class="spanclass"><a href="#!" id="38" data-info="Ehime" class="path Ehime card-text" >愛媛県</a></span>
+                          <span class="spanclass"><a href="#!" id="39" data-info="Kochi" class="path Kochi card-text" >高知県</a></span>                            
+                        </p>
+                      </div>
+                    </div>  
+                  </div>  
+
+                  <div class="col-sm-3">
+                    <div class="card  mb-3">
+                      <div class="card-header pad-10" style="background-color:#93d3f5">九州・沖縄</div>
+                      <div class="card-body">
+                        <p class="card-text map-text">
+                          <span class="spanclass"> <a href="#!" id="40" data-info="Fukuoka" class="path Fukuoka card-text" >福岡県</a></span>                           
+                          <span class="spanclass"><a href="#!" id="41" data-info="Saga" class="path Saga card-text" >佐賀県</a></span>
+                          <span class="spanclass"><a href="#!" id="42" data-info="Nagasaki" class="path Nagasaki card-text" >長崎県</a></span>
+                          <span class="spanclass"><a href="#!" id="43" data-info="Kumamoto" class="path Kumamoto card-text" >熊本県</a></span>
+                          <span class="spanclass"><a href="#!" id="44" data-info="Oita" class="path Oita card-text" >大分県</a></span>
+                          <span class="spanclass"><a href="#!" id="45" data-info="Miyazaki" class="path Miyazaki card-text" >宮崎県</a></span>
+                          <span class="spanclass"><a href="#!" id="46" data-info="Kagoshima" class="path Kagoshima card-text" >鹿児島県</a></span>
+                          <span class="spanclass"><a href="#!" id="47" data-info="Okinawa" class="path Okinawa card-text" >沖縄県</a></span>                  
+                        </p>
+                      </div>
+                    </div>  
+                  </div>                        
+                </div>        
+              </div> -->
+
+              <div class="divisions">
+                <div class="row">    
+                  <div class="col-sm-2 hokkaido-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#6699cc">北海道・東北</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="1"
+                            data-info="Hokkaido"
+                            class="path Hokkaido card-text"
+                          >北海道</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="2" data-info="Aomori" class="path Aomori card-text">青森県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="3" data-info="Iwate" class="path Iwate card-text">岩手県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="4" data-info="Miyagi" class="path Miyagi card-text">宮城県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="5" data-info="Akita" class="path Akita card-text">秋田県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="6"
+                            data-info="Yamagata"
+                            class="path Yamagata card-text"
+                          >山形県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="7"
+                            data-info="Fukushima"
+                            class="path Fukushima card-text"
+                          >福島県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2 kanto-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#71d5cb">関東</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a href="#!" id="8" data-info="Ibaraki" class="path Ibaraki card-text">茨城県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="9" data-info="Tochigi" class="path Tochigi card-text">栃木県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="10" data-info="Gunma" class="path Gunma card-text">群馬県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="11"
+                            data-info="Saitama"
+                            class="path Saitama card-text"
+                          >埼玉県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="12" data-info="Chiba" class="path Chiba card-text">千葉県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="13" data-info="Tokyo" class="path Tokyo card-text">東京都</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="14"
+                            data-info="Kanagawa"
+                            class="path Kanagawa card-text"
+                          >神奈川県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 hokuriku-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#75b777">北陸</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="15"
+                            data-info="Niigata"
+                            class="path Niigata card-text"
+                          >新潟県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="16" data-info="Toyama" class="path Toyama card-text">富山県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="17"
+                            data-info="Ishikawa"
+                            class="path Ishikawa card-text"
+                          >石川県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="18" data-info="Fukui" class="path Fukui card-text">福井県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 tokai-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="19"
+                            data-info="Yamanashi"
+                            class="path Yamanashi card-text"
+                          >山梨県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="20" data-info="Nagano" class="path Nagano card-text">長野県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="21" data-info="Gifu" class="path Gifu card-text">岐阜県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="22"
+                            data-info="Shizuoka"
+                            class="path Shizuoka card-text"
+                          >静岡県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="23" data-info="Aichi" class="path Aichi card-text">愛知県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 kinki-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background:#efb838">近畿</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a href="#!" id="24" data-info="Mie" class="path Mie card-text">三重県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="25" data-info="Shiga" class="path Shiga card-text">滋賀県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="26" data-info="Kyoto" class="path Kyoto card-text">京都府</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="27" data-info="Osaka" class="path Osaka card-text">大阪府</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="28" data-info="Hyogo" class="path Hyogo card-text">兵庫県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="29" data-info="Nara" class="path Nara card-text">奈良県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="30"
+                            data-info="Wakayama"
+                            class="path Wakayama card-text"
+                          >和歌山県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 chugoku-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background:#f58c3f;">中国</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="31"
+                            data-info="Tottori"
+                            class="path Tottori card-text"
+                          >鳥取県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="32"
+                            data-info="Shimane"
+                            class="path Shimane card-text"
+                          >島根県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="33"
+                            data-info="Okayama"
+                            class="path Okayama card-text"
+                          >岡山県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="34"
+                            data-info="Hiroshima"
+                            class="path Hiroshima card-text"
+                          >広島県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="35"
+                            data-info="Yamaguchi"
+                            class="path Yamaguchi card-text"
+                          >山口県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 shikoku-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background:#f1a296;">四国</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="36"
+                            data-info="Tokushima"
+                            class="path Tokushima card-text"
+                          >徳島県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="37" data-info="Kagawa" class="path Kagawa card-text">香川県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="38" data-info="Ehime" class="path Ehime card-text">愛媛県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="39" data-info="Kochi" class="path Kochi card-text">高知県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2 okinawa-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="40"
+                            data-info="Fukuoka"
+                            class="path Fukuoka card-text"
+                          >福岡県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="41" data-info="Saga" class="path Saga card-text">佐賀県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="42"
+                            data-info="Nagasaki"
+                            class="path Nagasaki card-text"
+                          >長崎県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="43"
+                            data-info="Kumamoto"
+                            class="path Kumamoto card-text"
+                          >熊本県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#!" id="44" data-info="Oita" class="path Oita card-text">大分県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="45"
+                            data-info="Miyazaki"
+                            class="path Miyazaki card-text"
+                          >宮崎県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="46"
+                            data-info="Kagoshima"
+                            class="path Kagoshima card-text"
+                          >鹿児島県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#!"
+                            id="47"
+                            data-info="Okinawa"
+                            class="path Okinawa card-text"
+                          >沖縄県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>                   
+                </div>        
+              </div>
               <!-- <div id="text"></div> -->           
-              <svg class="map_svg" viewBox="100 0 400 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586" width="437.33432" height="516.01587"> 
+              <!-- <svg class="map_svg" viewBox="100 0 400 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586" width="437.33432" height="516.01587"> 
                       <path id="23" data-info="Aichi" title="Aichi" class="path Aichi" stroke="#9c9696" fill="#79efdb" d="M274.27,277.6l-0.17,-0.35l0.5,-1.77l-0.86,-1.4l0.11,-1.46l0.46,-1.37l-0.25,-0.32l-0.89,0.36l-1.14,-0.35l0,0l-0.97,-1.57l-0.32,-1.21l0,0l0.22,-2.19l1.69,-2.97l1.28,0.15l1.66,-0.5l1.48,-1.13l-0.02,0.57l1.18,0.87l-0.03,0.65l0.5,0.21l-0.09,0.48l0.27,0.32l0.32,0.15l0.3,-0.21l0.94,0.39l0.52,0.71l0.85,-0.17l0.92,-0.73l0.63,-0.01l0.75,0.47l-0.07,0.24l0.84,0.05l-0.02,0.31l0.99,0.5l1.72,-1.4l0.8,-0.08l0,0l-0.32,0.83l0.64,0.81l-0.01,0.51l1.26,-0.26l0.85,-0.55l1.56,0.3l0.22,0.39l0.84,-0.27l0,0l-0.31,0.98l0.52,0.5l-0.58,0.57l0.08,0.47l-0.46,0.24l-1.46,2l-0.03,1.06l-1.28,1.93l-2.75,1.53l-0.43,1.23l0.16,2.32l0,0l-3.41,0.79l-3.43,1.23l-2.03,0.27l-0.26,-0.21l0.8,-1.71l0.49,0.05l0.25,0.57l2.36,-1.02l0.86,-0.53l-0.1,-0.44l0.45,-0.36l0.48,0.15l0.22,-0.19l0.21,-1.14l-0.57,-0.7l-1.69,-0.31l-0.52,0.46l-0.24,0.93l-0.81,-0.57l-2.13,0.25l-1.42,-1.37l0.31,-1.08l-0.44,-0.19l-0.42,0.59l-0.27,2.22l1.02,0.93l0.15,0.88l-1.69,-0.6L274.27,277.6z"/>
                       <path id="5" data-info="Akita" title="Akita" class="path Akita" stroke="#9c9696" fill="#ef7979" d="M337.52,155.13l-0.69,-2.75l-1.39,-1.62l0.51,-0.81l0.74,0.23l0.6,0.89l0.19,-1.14l-0.26,-0.41l0.4,-0.61l0.19,-1.4l-0.34,-1.41l-1.07,-0.44l-0.45,0.43l-0.54,0.81l-0.61,2.06l0.54,0.42l-0.08,1.26l-0.75,-0.29l-0.89,0.15l-0.19,0.25l0.17,0.85l-2.1,-0.09l-0.96,-1.84l-0.22,-1.3l0.14,-0.73l1.93,1.32l0.67,-0.21l1.48,-1.46l0.87,-1.57l0.8,-2.39l0.6,-3l0.03,-1.67l-1.72,-1.81l0,0l0.51,-0.11l1.13,0.35l0.26,-0.87l0.77,-0.35l0.54,0.32l0.21,0.49l1.48,-0.13l0.81,0.28l1.35,-0.38l0.86,0.18l0.5,-1l1.31,-0.11l0.27,0.84l0.8,0l1.15,1.19l1,-0.84l1.25,0.84l0.79,-0.63l0.76,-0.05l0.72,-0.62l0.71,0.1l0.24,-1.08l1.23,-0.49l-0.16,2.35l2.13,-0.23l0.28,1.84l-0.41,0.27l-0.5,1.22l0.14,1.31l0,0l-0.4,0.57l-0.61,0.22l-0.81,1.11l0.4,0.49l-0.15,1.56l-0.52,0.46l-0.05,2.68l0.62,2.5l-0.56,0.18l-0.49,-0.48l-0.82,0.45l0.07,1.06l1.12,0.66l-0.82,1.47l-0.39,0.14l0.66,1.17l0.13,1.08l-0.51,1.19l-0.27,-0.03l-0.61,0.86l-0.42,0.11l0.21,0.72l-0.43,1.34l-0.78,0.85l0.05,0.81l-0.45,0.12l-0.05,0.65l0.39,0.09l0.6,1.25l-0.15,0.92l0.53,0.75l1.12,0.77l-0.33,1.06l0.85,0.44l-0.6,0.3l-0.47,0.83l0.27,0.22l-0.28,0.97l0.97,0.38l0.14,0.4l-0.79,1.37l0.08,1.15l0,0l-0.71,0.17l-1.64,1.57l-1.76,0.36l-0.27,-0.18l0,0l-0.24,-0.45l-1.52,-0.53l-0.58,-1.8l-1.06,-0.08l-0.35,-0.77l-1.08,0.27l-3.08,-0.94l-0.79,-0.7l-0.71,-0.18l-0.2,-1.17l-0.98,0.24l-0.37,0.46l-2.51,-0.41l0,0l0.68,-1.47l-0.23,-0.93l0.39,-0.78l-0.04,-0.53l0.39,-0.61l0.7,-0.11l0.94,-2.39l0.8,-4.19L337.52,155.13z"/>
                       <path id="2" data-info="Aomori" title="Aomori" class="path Aomori" stroke="#9c9696" fill="#ef7979" d="M358.65,125.37l0.92,-0.83l0.58,-1.05l0.57,-1.85l0.23,-2.45l0.59,-1.14l-0.72,-2.06l-0.86,-1.04l-0.79,-0.08l-0.85,1.61l-1.13,0.81l-1.52,-0.42l-0.67,0.65l-1.81,0.34l-0.85,0.87l-0.93,-0.47l0.69,-4.59l0.42,-0.66l0.31,-1.84l1.43,-2.03l-0.22,-0.82l0.3,-0.55l1.72,1.57l1.32,0.11l0.89,0.5l1.57,1.97l1.46,0.85l0.89,0.11l1,-0.37l2.04,-1.67l-1.49,6.85l-0.1,5.09l0.55,5.55l1.37,4.86l1.18,1.09l0.67,-0.39l0.23,0.55l1.91,1.89l0,0l-0.47,0.54l-1.39,0.62l-0.11,0.83l-0.89,0.69l-1.24,-0.77l-0.68,0.09l-1.72,1.1l-0.68,-1.08l-1.96,1.49l-1.52,0.38l-0.74,0.5l-0.04,0.72l-0.46,0.02l-1,0.78l-0.94,-0.01l-0.46,-0.68l0,0l-0.14,-1.31l0.5,-1.22l0.41,-0.27l-0.28,-1.84l-2.13,0.23l0.16,-2.35l-1.23,0.49l-0.24,1.08l-0.71,-0.1l-0.72,0.62l-0.76,0.05l-0.79,0.63l-1.25,-0.84l-1,0.84l-1.15,-1.19l-0.8,0l-0.27,-0.84l-1.31,0.11l-0.5,1l-0.86,-0.18l-1.35,0.38l-0.81,-0.28l-1.48,0.13l-0.21,-0.49l-0.54,-0.32l-0.77,0.35l-0.26,0.87l-1.13,-0.35l-0.51,0.11l0,0l0.26,-1.78l-0.19,-1.44l-0.45,-0.86l-0.96,0.05l-0.15,-0.82l1.78,-1.42l1.02,-1.8l0.65,-0.44l0.61,-0.25l1.23,0.69l1.43,-1.07l0.81,-0.1l0.42,-0.61l1.02,-3.61l0.07,-3.8l-0.69,-0.75l-0.7,-0.08l0.17,-0.39l0.88,0.23l0.38,-0.43l0.4,-2.95l1.09,0.69l0.67,0.99l0.64,0.36l0.67,-0.19l1,-1.01l1.09,0.38l0.65,0.72l-0.11,2.27l0.39,2.52l0.73,3.28l0.93,1.19l1.33,-0.11l1.19,-1.28l0.22,-0.56l-0.22,-1.24l0.33,-1.45l1.49,0.54l0.68,0.96l-0.18,0.55l0.73,-0.01l0.92,0.45l0.53,0.88L358.65,125.37z"/>
@@ -196,17 +511,545 @@
                       <path id="35" data-info="Yamaguchi" title="Yamaguchi" class="path Yamaguchi" stroke="#9c9696" fill="#ffed4a" d="M169.03,294.88l-0.59,-0.41l-0.35,0.88l-0.74,0.35l-0.29,-0.2l0.15,-0.59l-0.44,-0.14l-0.77,1.46l-1.72,1.03l-2.18,-0.78l0.08,-0.79l-2.26,-1.28l-0.69,0.38l-0.32,0.88l-1.84,1.78l-0.19,-0.59l0.46,-0.87l-0.03,-1.68l-1.06,-1.52l0.12,-0.61l0.75,-0.13l0.55,-1.11l-0.24,-1.21l-1.07,-1.17l0.3,-0.16l0.38,-1.37l2.64,-0.41l-0.3,-0.48l-1.22,-0.38l0.28,-0.82l0.92,0.74l1.08,-0.34l0.52,0.15l1.09,1.11l2.96,-0.26l0.62,-0.83l1.02,0.03l1.44,-1.68l-0.27,-0.66l0.35,-0.56l0.7,0.14l0.7,-0.71l0.34,-0.42l0.03,-0.86l0.46,-0.11l0.38,-0.88l0.25,-0.23l0.97,0.29l0.47,-0.49l0,0l0.83,2.54l-0.43,0.16l-0.02,0.82l-0.66,0.64l0.61,1.65l1.87,-0.04l-0.55,1.54l0.17,0.77l0.87,0.86l1.05,-0.1l0.94,-0.7l0.69,0.63l1.12,-1.58l-0.43,-0.89l0.15,-0.31l0.48,-0.71l0.81,-0.45l0,0l0.3,0.68l-0.17,0.81l0.24,1.36l0.92,0.78l-0.08,0.63l0.5,1.46l1.28,0.31l0.33,-0.19l0,0l0.24,0.49l-0.29,0.52l0.37,0.47l-0.98,0.91l0.24,2.96l-0.57,0.96l-1.09,0.12l0.01,1.62l0.58,0.68l-0.33,0.63l-0.49,-1.07l-1.43,-0.73l-0.37,0.17l-3.61,-2.76l-0.47,0.6l-0.03,0.55l-0.91,-0.2l1.12,-1.18l-1.25,-0.71l-0.52,-0.08l-1.82,0.55l-2.1,0.96L169.03,294.88zM184.17,298.5l-0.9,-0.14l-0.52,0.46l-0.58,-0.87l-0.06,-0.79l1.18,-0.95l1.36,1.13l0.98,0.06l1.26,-0.85l1.1,0.06l-1.26,0.96l-0.71,-0.01l-0.19,0.31l0.19,0.83l-0.87,0.1l-0.1,-0.82l-0.44,-0.1l-0.54,0.09L184.17,298.5z"/>
                       <path id="19" data-info="Yamanashi" title="Yamanashi" class="path Yamanashi" stroke="#9c9696" fill="#79efdb" d="M319.27,255.52L319.25,258.13L318.91,258.83L318.42,259.35L317.71,259.45L317.25,260.1L315.46,260.93L315.06,262.06L315.06,262.06L314.39,262.45L313.69,262.38L313.32,262.65L310.52,263.12L310.07,262.15L309.04,262.27L308.47,261.01L307.48,261.92L307.53,263.63L307.1,264.24L307.5,266.9L306.78,267.53L305.54,267.41L304.85,266.91L304.16,264.22L303.4,263.86L302.64,264.38L301.96,263.87L301.63,262.57L302.09,261.64L301.86,260.57L302.24,259.39L301.3,256.21L301.3,256.21L300.57,254.44L301.57,253.34L300.69,252.48L301.66,250.51L301.86,250.39L302.58,251.01L304.35,248.3L305.78,248.88L305.77,249.55L306.25,250.08L306.73,249.99L306.95,249.58L308.71,249.61L309.25,250.75L310.22,250.74L310.95,249.8L311.35,249.81L311.35,249.81L312.37,250.04L312.66,250.68L313.82,250.88L314.51,251.41L315.6,251.12L315.6,251.12L317.17,254.36z"/>
                       <path id="6" data-info="Yamagata" title="Yamagata" class="path Yamagata" stroke="#9c9696" fill="#ef7979" d="M341.93,199.04l-0.3,1.71l0.04,2.01l0.55,0.41l-1.33,1.61l-1.3,-0.26l-0.74,0.56l-1.47,-1.12l-1.23,0.46l-0.97,-1.68l-0.33,0.35l-0.63,0.07l-0.61,-0.39l-0.94,0.58l-0.63,-0.68l-0.79,0.18l0,0l-0.45,-0.77l-0.45,0.13l-0.66,-0.32l-0.66,-1.16l0.59,-3.17l0.69,-0.51l-0.35,-0.76l0.34,-0.82l-0.16,-1.31l0.52,-0.82l1.58,0.22l1.37,-0.86l0.79,-1.59l-1.15,-1.23l-1.84,-0.48l-0.8,-1.13l0.4,-1.99l-0.24,-0.29l-1.48,-0.32l-1.81,-0.96l0,0l1.17,-3.08l1.74,-1.51l1.14,-1.5l1.13,-4.08l0.61,-1.04l0.7,-2.64l-0.18,-0.58l0,0l2.51,0.41l0.37,-0.46l0.98,-0.24l0.2,1.17l0.71,0.18l0.79,0.7l3.08,0.94l1.08,-0.27l0.35,0.77l1.06,0.08l0.58,1.8l1.52,0.53l0.24,0.45l0,0l-0.23,0.35l1.06,1.02l0.19,1.06l0.83,0.45l-0.68,1.1l0.22,0.97l-0.43,1.15l-0.4,0.1l-0.66,-0.35l-0.1,0.23l0.61,1.37l0.03,0.54l-0.38,0.65l0.27,0.91l0.6,0.39l0.2,0.7l-0.61,1.6l-1.09,1.14l0.16,0.6l-1.05,1.32l-0.16,1.02l0.23,1.23l-1.11,1.58l-0.19,1.02l-0.99,0.55l-1.72,0.01L341.93,199.04z"/>
-              </svg>
+              </svg> -->
+
+              <div class="map">
+                <svg
+                  class="map_svg"
+                  viewBox="140 220 400 420"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586"
+                  width="100%"
+                  height="730"
+                >
+                  <path
+                    id="1"
+                    data-info="Hokkaido"
+                    title="Hokkaido"
+                    class="path Hokkaido"
+                    stroke="#333333"
+                    fill="#6699cc"
+                    d="M378.27,247.63h86.97v55.8h-62.62l0.09,8.05h-24.44V247.63z"
+                  />
+                  <path
+                    data-v-6121795b
+                    id="2"
+                    data-info="Aomori"
+                    title="Aomori"
+                    stroke="#333333"
+                    fill="#6699cc"
+                    d="M377.33,317.77h65.18v21.09h-65.18V317.77z"
+                    class="path Aomori"
+                  />
+                  <path
+                    data-v-6121795b
+                    id="3"
+                    data-info="Iwate"
+                    title="Iwate"
+                    stroke="#333333"
+                    fill="#6699cc"
+                    d="M377.33,338.86h32.59v23.24h-32.59V338.86z"
+                    class="path Iwate"
+                  />
+                  <path
+                    data-v-6121795b
+                    id="4"
+                    data-info="Miyagi"
+                    title="Miyagi"
+                    stroke="#333333"
+                    fill="#6699cc"
+                    d="M409.92,338.86h32.59v23.24h-32.59V338.86z"
+                    class="path Miyagi"
+                  />
+                  <path
+                    data-v-6121795b
+                    id="5"
+                    data-info="Akita"
+                    title="Akita"
+                    stroke="#333333"
+                    fill="#6699cc"
+                    d="M377.33,362.11h32.59v24.01h-19.39l-0.13-8.34l-13.07-0.13V362.11z"
+                    class="path Akita"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="6"
+                    data-info="Yamagata"
+                    title="Yamagata"
+                    stroke="#333333"
+                    fill="#6699cc"
+                    d="M442.51,362.11v24.01h-32.59v-24.01H442.51z"
+                    class="path Yamagata"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="7"
+                    data-info="Fukushima"
+                    title="Fukushima"
+                    stroke="#333333"
+                    fill="#6699cc"
+                    d="M390.53,386.12h51.98v23.62h-52.48L390.53,386.12z"
+                    class="path Fukushima"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="8"
+                    data-info="Ibaraki"
+                    title="Ibaraki"
+                    stroke="#333333"
+                    fill="#71d5cb"
+                    d="M426.21,440.8l-0.51-31.06h16.8v31.06H426.21z"
+                    class="path Ibaraki"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="9"
+                    data-info="Tochigi"
+                    title="Tochigi"
+                    stroke="#333333"
+                    fill="#71d5cb"
+                    d="M401.96,409.74h23.75v23.36h-23.75V409.74z"
+                    class="path Tochigi"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="10"
+                    data-info="Gunma"
+                    title="Gunma"
+                    stroke="#333333"
+                    fill="#71d5cb"
+                    d="M378.46,409.74h23.49v23.36h-23.49V409.74z"
+                    class="path Gunma"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="11"
+                    data-info="Saitama"
+                    title="Saitama"
+                    stroke="#333333"
+                    fill="#71d5cb"
+                    d="M425.71,433.09v19.45h-47.24v-19.45H425.71z"
+                    class="path Saitama"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="12"
+                    data-info="Chiba"
+                    title="Chiba"
+                    stroke="#333333"
+                    fill="#71d5cb"
+                    d="M426.21,440.8h16.29v56.21c0,0-16.04,1.26-16.29,0C425.96,495.75,426.21,440.8,426.21,440.8z"
+                    class="path Chiba"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="13"
+                    data-info="Tokyo"
+                    title="Tokyo"
+                    stroke="#333333"
+                    fill="#71d5cb"
+                    d="M390.02,453.18l35.68-0.63v13.77h-10.86l0.13,6.57h-24.76L390.02,453.18z"
+                    class="path Tokyo"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="14"
+                    data-info="Kanagawa"
+                    title="Kanagawa"
+                    stroke="#333333"
+                    fill="#71d5cb"
+                    d="M378.46,472.88h36.51v24.69l-24.95-0.44v-12.63l-11.56,0.13V472.88z"
+                    class="path Kanagawa"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="15"
+                    data-info="Niigata"
+                    title="Niigata"
+                    stroke="#333333"
+                    fill="#75b777"
+                    d="M377.33,377.65l13.07,0.13l-0.38,31.96h-31.26v-24.83h18.32L377.33,377.65z"
+                    class="path Niigata"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="16"
+                    data-info="Toyama"
+                    title="Toyama"
+                    stroke="#333333"
+                    fill="#75b777"
+                    d="M335.07,384.91h23.68v24.83h-23.68V384.91z"
+                    class="path Toyama"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="17"
+                    data-info="Ishikawa"
+                    title="Ishikawa"
+                    stroke="#333333"
+                    fill="#75b777"
+                    d="M318.59,377.65h16.48v32.08h-16.48V377.65z"
+                    class="path Ishikawa"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="18"
+                    data-info="Fukui"
+                    title="Fukui"
+                    stroke="#333333"
+                    fill="#75b777"
+                    d="M303.05,416.93h15.54v-7.19h16.48v23.36c0,0-32.02,0.44-32.02,0S303.05,416.93,303.05,416.93z"
+                    class="path Fukui"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="19"
+                    data-info="Yamanashi"
+                    title="Yamanashi"
+                    stroke="#333333"
+                    fill="#c0c743"
+                    d="M366.72,472.06v-19.52l23.31,0.63v18.88H366.72z"
+                    class="path Yamanashi"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="20"
+                    data-info="Nagano"
+                    title="Nagano"
+                    stroke="#333333"
+                    fill="#c0c743"
+                    d="M350.8,409.74h27.66v42.81h-11.75v19.52H350.8V409.74z"
+                    class="path Nagano"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="21"
+                    data-info="Gifu"
+                    title="Gifu"
+                    stroke="#333333"
+                    fill="#c0c743"
+                    d="M335.07,409.74h15.73v62.33h-15.73V409.74z"
+                    class="path Gifu"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="22"
+                    data-info="Shizuoka"
+                    title="Shizuoka"
+                    stroke="#333333"
+                    fill="#c0c743"
+                    d="M358.76,472.88h19.71v11.75l11.56-0.13v12.63l-31.26-0.82V472.88z"
+                    class="path Shizuoka"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="23"
+                    data-info="Aichi"
+                    title="Aichi"
+                    stroke="#333333"
+                    fill="#c0c743"
+                    d="M335.07,472.06l23.68,0.82v23.43h-23.68V472.06z"
+                    class="path Aichi"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="24"
+                    data-info="Mie"
+                    title="Mie"
+                    stroke="#333333"
+                    fill="#efb838"
+                    d="M319.06,456.97h16.01l1.07,55.07h-17.08V456.97z"
+                    class="path Mie"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="25"
+                    data-info="Shiga"
+                    title="Shiga"
+                    stroke="#333333"
+                    fill="#efb838"
+                    d="M319.06,433.29l16.01-0.2v23.87h-16.01V433.29z"
+                    class="path Shiga"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="26"
+                    data-info="Kyoto"
+                    title="Kyoto"
+                    stroke="#333333"
+                    fill="#efb838"
+                    d="M287.89,417.05l15.16-0.13v16.17l16.01,0.2v23.68h-31.17V417.05z"
+                    class="path Kyoto"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="27"
+                    data-info="Osaka"
+                    title="Osaka"
+                    stroke="#333333"
+                    fill="#efb838"
+                    d="M287.89,484.19v-27.22h15.58v27.22H287.89z"
+                    class="path Osaka"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="28"
+                    data-info="Hyogo"
+                    title="Hyogo"
+                    stroke="#333333"
+                    fill="#efb838"
+                    d="M271.73,416.93l16.17,0.13v48h-16.17V416.93z"
+                    class="path Hyogo"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="29"
+                    data-info="Nara"
+                    title="Nara"
+                    stroke="#333333"
+                    fill="#efb838"
+                    d="M303.48,456.97h15.58v39.35h-16.01L303.48,456.97z"
+                    class="path Nara"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="309"
+                    data-info="Wakayama"
+                    title="Wakayama"
+                    stroke="#333333"
+                    fill="#efb838"
+                    d="M303.48,484.19l-0.43,12.13h16.01v15.73h-31.17v-27.85H303.48zz"
+                    class="path Wakayama"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="31"
+                    data-info="Tottori"
+                    title="Tottori"
+                    stroke="#333333"
+                    fill="#f58c3f"
+                    d="M256.32,416.93h15.41v24.06l-15.41-0.19V416.93z"
+                    class="path Tottori"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="32"
+                    data-info="Shimane"
+                    title="Shimane"
+                    stroke="#333333"
+                    fill="#f58c3f"
+                    d="M240.65,416.93h15.66v23.87l-15.66,0.19V416.93zz"
+                    class="path Shimane"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="33"
+                    data-info="Okayama"
+                    title="Okayama"
+                    stroke="#333333"
+                    fill="#f58c3f"
+                    d="M256.32,465.05V440.8l15.41,0.19v24.06H256.32z"
+                    class="path Okayama"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="34"
+                    data-info="Hiroshima"
+                    title="Hiroshima"
+                    stroke="#333333"
+                    fill="#f58c3f"
+                    d="M240.65,440.99l15.66-0.19v24.25h-15.66V440.99z"
+                    class="path Hiroshima"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="35"
+                    data-info="Yamaguchi"
+                    title="Yamaguchi"
+                    stroke="#333333"
+                    fill="#f58c3f"
+                    d="M224.23,416.93h16.42v48.13h-16.42V416.93z"
+                    class="path Yamaguchi"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="36"
+                    data-info="Tokushima"
+                    title="Tokushima"
+                    stroke="#333333"
+                    fill="#f1a296"
+                    d="M279.81,492.59h-27.54v-20.53h27.54V492.59z"
+                    class="path Tokushima"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="37"
+                    data-info="Kagawa"
+                    title="Kagawa"
+                    stroke="#333333"
+                    fill="#f1a296"
+                    d="M224.23,472.06h28.04v20.53h-28.04V472.06z"
+                    class="path Kagawa"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="38"
+                    data-info="Ehime"
+                    title="Ehime"
+                    stroke="#333333"
+                    fill="#f1a296"
+                    d="M224.23,512.04v-19.45h28.04v19.45H224.23z"
+                    class="path Ehime"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="39"
+                    data-info="Kochi"
+                    title="Kochi"
+                    stroke="#333333"
+                    fill="#f1a296"
+                    d="M279.81,512.04h-27.54v-19.45h27.54V512.04z"
+                    class="path Kochi"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="40"
+                    data-info="Fukuoka"
+                    title="Fukuoka"
+                    stroke="#333333"
+                    fill="#e77a72"
+                    d="M162.08,416.93h16.17l-1.26,36l-14.91-0.38V416.93z"
+                    class="path Fukuoka"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="41"
+                    data-info="Saga"
+                    title="Saga"
+                    stroke="#333333"
+                    fill="#e77a72"
+                    d="M145,416.93h17.08v35.62L145,452.93V416.93z"
+                    class="path Saga"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="42"
+                    data-info="Nagasaki"
+                    title="Nagasaki"
+                    stroke="#333333"
+                    fill="#e77a72"
+                    d="M177.75,452.55v-35.62h39.66v16.17h-16.17v19.45H177.75z"
+                    class="path Nagasaki"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="43"
+                    data-info="Kumamoto"
+                    title="Kumamoto"
+                    stroke="#333333"
+                    fill="#e77a72"
+                    d="M217.41,460.76h-16.17v-27.66h16.17V460.76z"
+                    class="path Kumamoto"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="44"
+                    data-info="Oita"
+                    title="Oita"
+                    stroke="#333333"
+                    fill="#e77a72"
+                    d="M217.41,488.04h-16.17v-27.28h16.17V488.04z"
+                    class="path Oita"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="45"
+                    data-info="Miyazaki"
+                    title="Miyazaki"
+                    stroke="#333333"
+                    fill="#e77a72"
+                    d="M177.75,452.55h23.49v35.49h-23.49V452.55z"
+                    class="path Miyazaki"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="46"
+                    data-info="Kagoshima"
+                    title="Kagoshima"
+                    stroke="#333333"
+                    fill="#e77a72"
+                    d="M177.75,488.04h39.66v24h-39.66V488.04z"
+                    class="path Kagoshima"
+                  />
+                  <path
+                    data-v-5cde3559
+                    id="47"
+                    data-info="Okinawa"
+                    title="Okinawa"
+                    stroke="#333333"
+                    fill="#e77a72"
+                    d="M176.99,519.62h16.8V544h-16.8V519.62z"
+                    class="path Okinawa"
+                  />
+                  <path
+                    stroke="#333333"
+                    fill="none"
+                    stroke-width="1.8px"
+                    d="M224.23,416.93h94.36v-39.27h16.48v7.25h42l0.25-67.14h65.18v179.24h-16.29l-0.51-30.69h-10.86l-0.05,30.82l-78.94-0.34l-0.07,15.25h-48.27l-0.19-46.42l-63.09-0.57V416.93z"
+                  />
+                  <path
+                    stroke="#333333"
+                    fill="none"
+                    stroke-width="1.8px"
+                    d="M224.23,472.06h55.58v39.98h-55.58V472.06z"
+                  />
+                  <path
+                    stroke="#333333"
+                    fill="none"
+                    stroke-width="1.8px"
+                    d="M145,416.93h72.41v95.12h-39.66v-58.61L145,452.93V416.93z"
+                  />
+                  <path
+                    stroke="#333333"
+                    fill="none"
+                    stroke-width="1.8px"
+                    d="M176.99,519.62h16.8V544h-16.8V519.62z"
+                  />
+                  <path
+                    stroke="#333333"
+                    fill="none"
+                    stroke-width="1.8px"
+                    d="M378.27,248.11l86.97-0.47v55.8h-62.62l-0.19,8.05h-24.16V248.11z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="row col-12 pad-free">
+                <div class="col-10">
+                  <select name="" id="select" class="form-control custom-select select m-b-10">
+                    <option ></option>
+                  </select>
+                </div>
+                <div class="col-2 pad-free text" id="text">                          
+                </div>                                                      
+              </div>     
+                                    
+              <div class="row col-12 nursgingcheckbox">
+                    
+              </div>
             </div>
         </div>
     </div>
-    <div class="col-md-2 p-l-0">
+    <!-- <div class="col-md-2 p-l-0">
       <asidebar></asidebar> 
-    </div>
+    </div> -->
   </div>
   <input type="button" id="save_value" name="save_value" value="Save" />
 </div>
-
 </template>
 <style scoped>
   

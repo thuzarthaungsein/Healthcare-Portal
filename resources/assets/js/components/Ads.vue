@@ -1,5 +1,5 @@
 <template>
-         <div class="col-md-auto">
+         <div class="col-md-auto fixed-ads">
               <!--jssor carousel-->
                           <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:100px;overflow:hidden;visibility:hidden;margin-bottom:10px;">
         <!-- Loading Screen -->
