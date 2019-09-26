@@ -16,11 +16,11 @@
                     <div v-for="hos_profile in fav_hospital" :key="hos_profile.id" class="col-lg-12 pt-3 bd">
                         <div class="row m-0">
                             <h5 class="m-b-10 col-12 hos-tit">
-                <a href="#">{{hos_profile.name}}</a>
-              </h5>
+                                <a href="#">{{hos_profile.name}}</a>
+                            </h5>
                             <div class="col-lg-2 col-md-12 mb-5">
-                                <div class="hos-img">
-                                    <img class="col-md-12" v-bind:src="'/images/' + hos_profile.logo" alt style />
+                                <div class="hos-img list-logo">
+                                    <img v-bind:src="'/images/' + hos_profile.logo" alt style />
                                 </div>
                                 <button class="btn btn-danger all-btn hos-btn" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>
                             </div>
