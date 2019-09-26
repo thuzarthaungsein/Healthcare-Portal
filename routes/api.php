@@ -33,17 +33,10 @@ Route::group(['middleware' => ['auth']], function() {
 // login route api sta rt
 Route::group(['middleware' => ['auth:api']], function() {
 
-    Route::group(['prefix' => 'nusprofile'], function () {
+    Route::group(['prefix' => 'profile'], function () {
     Route::get('approve/{id}','registerController@approve');
-    Route::get('nusfacilities', 'ProfilePublishController@index');
-    Route::get('cooperatemedical', 'ProfilePublishController@index');
-    Route::get('medicalacceptance', 'ProfilePublishController@index');
-    Route::get('staff', 'ProfilePublishController@index');
-    Route::get('googlefornurse', 'ProfilePublishController@index');
-    Route::get('googleforhospital', 'ProfilePublishController@index');
-    Route::get('feature','ProfilePublishController@index');
-    Route::get('cost','ProfilePublishController@index');
-    Route::get('hospital','ProfilePublishController@hospital');
+    Route::get('nursing','ProfilePublishController@index');
+    Route::get('hospital','ProfilePublishController@index');
 });
 
     // Category

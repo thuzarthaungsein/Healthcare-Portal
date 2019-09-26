@@ -16,7 +16,7 @@
                                   <span v-if="errors.name" class="error">{{errors.name[0]}}</span>  
                             </div>
 
-                            <div class="form-group ">
+                            <div class="form-group">
                                 <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
                                 <button class="btn news-post-btn all-btn">カテゴリを投稿する</button>                                
                             </div>

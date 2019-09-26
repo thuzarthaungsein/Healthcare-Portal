@@ -9,6 +9,8 @@ use App\Cooperate_Medical;
 use App\Medical;
 use App\Staff;
 use App\HospitalProfile;
+use App\AcceptanceTransaction;
+use DB;
 
 class ProfilePublishController extends Controller
 {
@@ -19,18 +21,32 @@ class ProfilePublishController extends Controller
      */
     public function index()
     {
-        //$nurse = NursingProfile::all()->toArray();
-         $feature = NursingProfile::select('feature')->where('id',1)->get();
-        $facility = NursingProfile::where('customer_id',5)->get();
-        $comedical = Cooperate_Medical::all()->toArray();
-        $medical = Medical::select('name')->where('id',1)->get();
-        $staff = Staff::where('id',1)->get();
-        $nurselatlong = NursingProfile::where('id',1)->get();
-        $hoslatlong = HospitalProfile::where('id',1)->get();
-        $hospital = HospitalProfile::where('id',4)->get();
+      
+        $feature = NursingProfile::select('feature')->where('id',1)->get();
+        $facility = NursingProfile::where('customer_id',1)->get();
+        $comedical = Cooperate_Medical::where('customer_id',1)->get();
+        $medicalacceptance = Medical::select('id','name')->get();
+
+        $medical =  DB::table('acceptance_transactions') ->select('acceptance_transactions.accept_type','medical_acceptance.name')
+                        ->join('medical_acceptance','medical_acceptance.id','=','acceptance_transactions.medical_acceptance_id')
+                        ->where('acceptance_transactions.customer_id','=',1)->get(); 
+                                  
+        $staff = Staff::where('customer_id',1)->get();
+        
+      
+        $nurselatlong =  DB::table('customers') ->select('customers.address','nursing_profiles.*')
+                             ->join('nursing_profiles','nursing_profiles.customer_id','=','customers.id')
+                             ->where('nursing_profiles.customer_id','=',1)->get();
+        $hoslatlong =  DB::table('customers') ->select('customers.address','hospital_profiles.*')
+                             ->join('hospital_profiles','hospital_profiles.customer_id','=','customers.id')
+                             ->where('hospital_profiles.customer_id','=',1)->get();
+                          
+      
+        $hospital = HospitalProfile::where('customer_id',1)->get();
         $cost =method_payment::where('id',1)->get();
-        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medical"=>$medical,"staff"=>$staff,"nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost));
-        // return $feature;
+        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff,
+           "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical));
+      
   
     }
 
