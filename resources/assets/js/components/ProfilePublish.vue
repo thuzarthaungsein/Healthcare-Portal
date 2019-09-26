@@ -51,11 +51,95 @@
                             <th width="30%">
                                 <font>method of payment</font>
                             </th>
-                            <td width="70%">
+                            <td width="50%">
                                 <font>method of payment test</font>
                             </td>
                         </tr>
                     </table>
+                    <div class="cost_tb"  v-for="cost in method_payment" :key="cost.id">
+                        <table class="cost_table">
+                            <tbody>
+                            <tr>
+                                <th width="150">入居にかかる費用(Expense)</th>
+                                    <td >{{cost.expense_moving}}</td>
+                                    <th>居室タイプ(type)</th>
+                                    <td>{{cost.living_room_type}}</td>
+                            </tr>
+                            <tr>
+                                <th width="150">月額料金 (monthly)</th>
+                                    <td>{{cost.monthly_fees}}</td>
+                                <th>広さ(area)</th>
+                                    <td>{{cost.area}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="cost_btnwrapper">
+                            <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.customer_id">View</button>
+                        </div> <br/>
+
+
+                    <div class="collapse card-body" :id="'costDetails' + cost.customer_id">
+                            <table class="cost_table">
+                                <h4>入居にかかる費用(Expense Moving)</h4>
+                            <tbody>
+                                <tr>
+                                    <th width="300">入居一時金または(deposit)</th>
+                                        <td>{{cost.deposit}}</td>
+                                </tr>
+                                <tr>
+                                    <th>その他（使途）(other)</th>
+                                        <td>{{cost.other_use}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                         <table class="cost_table">
+                                <h4>月額費用(Monthly Cost)</h4>
+                            <tbody>
+                                <tr>
+                                    <th width="300">賃料 (rent)</th>
+                                    <td>{{cost.rent}}</td>
+                                </tr>
+                                <tr>
+                                    <th>管理費(admin_expense)</th>
+                                    <td>{{cost.admin_expense}}</td>
+                                </tr>
+                                <tr>
+                                    <th>食費 (food_expense)</th>
+                                    <td>{{cost.food_expense}}</td>
+                                </tr>
+                                <tr>
+                                    <th>介護上乗せ金（生活サービス費(nursing care)</th>
+                                    <td>{{cost.nurse_care_surcharge}}</td>
+                                </tr>
+                                <tr>
+                                    <th>その他 (other monthly cost)</th>
+                                    <td>{{cost.other_monthly_cost}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="cost_table">
+                                <h4>返還金について(refund system)</h4>
+                            <tbody>
+                                <tr>
+                                    <th width="300">返還制度 (refund)</th>
+                                    <td>{{cost.refund_system}}</td>
+                                </tr>
+                                <tr>
+                                    <th>償却期間(Depreciation)</th>
+                                    <td>{{cost.depreciation_period}}</td>
+                                </tr>
+                                <tr>
+                                    <th>初期償却(InitialDepreciation)</th>
+                                    <td>{{cost.initial_deprecration}}</td>
+                                </tr>
+                                <tr>
+                                    <th>その他メッセージ(other message)</th>
+                                    <td>{{cost.other_message_refund}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                         </div>
+                    </div>
           </div>
 
           <div class="row ele m-lr-0" id="element4">
@@ -118,6 +202,7 @@ export default {
           features:[],
           nursing_profiles:[],
           comments:[],
+          method_payment:[],
       }
   },
   created() {
@@ -135,6 +220,12 @@ export default {
                     this.comments = response.data;
 
         });
+        this.axios .get('/api/cost').then(response => {
+                    this.method_payment = response.data;
+
+        });
+
+
   },
 }
 </script>
@@ -162,5 +253,59 @@ export default {
 .ele{
   margin-top: 27px;
   padding-top: 60px;
+}
+.cost_tb{
+    border: 1px solid #ccc;
+    /* border-left: 0px; */
+    /* border-bottom: 0px; */
+    padding-bottom: 1px;
+    background: #fff;
+    /* padding: 10px;*/
+    padding-bottom: 20px;
+}
+.cost_table{
+    width: 820px;
+    height: 81px;
+    float: left;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: -2px;
+}
+.cost_table h4 {
+    border-left: 6px solid #b7dad2;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    font-size: 1.286em;
+    line-height: 1.3;
+    margin-top: 30px;
+    padding-top: 2px;
+}
+.cost_table th{
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: center;
+    background: #f0f0f0;
+    color: #000;
+    line-height: 1.7;
+    vertical-align: top;
+    min-width: 100px;
+}
+.cost_table td{
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+    line-height: 1.7;
+    background: #fff;
+}
+.cost_btnwrapper{
+    float: right;
+    width: 158px;
+    text-align: center;
+    padding-top: 21px;
+}
+.cost_btnwrapper .okbtn{
+    width: 125px;
+    margin-bottom: 0;
+    padding-left: 20px;
+    padding-right: 0;
 }
 </style>

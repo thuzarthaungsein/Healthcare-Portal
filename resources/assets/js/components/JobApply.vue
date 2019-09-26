@@ -1,10 +1,10 @@
 <template>
 <div class="col-md-12 scrolldiv">
-    <h4 class="h_4 text-center header">Job Apply Form</h4>
+    <h4 class="h_4 text-center header">求人応募フォーム</h4>
     <div class="col-md-7 offset-md-3 register_box" v-if="type == 'register'">
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="first_name"  ><strong>First Name : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="first_name"> <strong> お名前 : </strong>  <img src="/images/require_field.gif" alt="必須" > </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="first_name" placeholder="トラスト　太郎" v-model="jobApply.first_name"  >
@@ -12,100 +12,100 @@
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="last_name"><strong>Last Name : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="last_name"><strong> お名前フリガナ : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name"  >
+                <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name" >
                 <div v-if="errors.last_name" class="text-danger">{{ errors.last_name }}</div>
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="birthday"  ><strong>Birthday : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="birthday"  ><strong>生年月日 : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="birthday" v-model="jobApply.birthday"  >
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="gender"  ><strong> Gender : </strong>   </label>
+            <div class="col-sm-3">
+                <label for ="gender"  ><strong> 性別 : </strong>   </label>
             </div>
             <div class="col-sm-9">
-                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="0"  > Male </label>
-                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="1" >Female </label>
+                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="0"  > 女性 </label>
+                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="1" > 男性 </label>
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="postal"  ><strong>Postal : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="postal"  > <strong> 郵便番号 : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal"  >
+                <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal" v-on:keyup="getPostal" >
                 <div v-if="errors.postal" class="text-danger">{{ errors.postal }}</div>
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="str_address"  ><strong>Street Address : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="str_address"  ><strong>住所: </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="str_address" v-model="jobApply.str_address"  >
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="home_address"  ><strong>Home Address : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="home_address"  ><strong>番地以下 : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="home_address" v-model="jobApply.home_address"  >
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="phone"  ><strong>Phone : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="phone"  ><strong> 電話番号 : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone"  >
+                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone">
                 <div v-if="errors.phone" class="text-danger">{{ errors.phone }}</div>
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="email"  ><strong>Email : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="email"  ><strong> メールアドレス : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="email" placeholder="user@email.com" v-model="jobApply.email"  >
+                <input type="text" class="form-control box" id="email" placeholder="sample@gmail.com" v-model="jobApply.email">
                 <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="qualification"  ><strong>Qualification : </strong>  </label>
+        <!-- <div class="form-group row">
+            <div class="col-sm-3">
+                <label for ="qualification"  ><strong>保有資格 : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="qualification" v-model="jobApply.qualification"  >
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="workable_day"  ><strong>Workable Days : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="workable_day"  ><strong>就業可能日数 </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="workable_day" v-model="jobApply.workable_day"  >
             </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-3 text-right">
+        </div> -->
+        <!-- <div class="form-group row">
+            <div class="col-sm-3">
                 <label for ="skill"  ><strong>Skill : </strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="skill" v-model="jobApply.skill"  >
             </div>
-        </div>
+        </div> -->
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
+            <div class="col-sm-3">
                 <label for ="remark"  ><strong>Remark : </strong>  </label>
             </div>
             <div class="col-sm-9">
@@ -114,17 +114,17 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-sm-3 text-right">
-                <label for ="terms"  ><strong>Terms & Conditions : </strong>  </label>
+            <div class="col-sm-3">
+                <label for ="terms"  ><strong> 個人情報について : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
             </div>
             <div class="col-sm-9">
-                <!-- <input type="text" class="form-control box" id="remark" v-model="jobApply.remark"  > -->
-                <label> <input type="checkbox" v-model="jobApply.terms"> Accept terms and conditions. </label>
+                <label for="">「プライバシーポリシー」をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。</label>
+                <label> <input type="checkbox" v-model="jobApply.terms"> 同意する </label>
                 <div v-if="errors.terms" class="text-danger">{{ errors.terms }}</div>
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn main-bg-color white all-btn" @click="showConfirm()">確認画面へ進む</button>
+            <button type="submit" :disabled='isDisabled' class="btn main-bg-color white all-btn" @click="checkValidate()">確認画面へ進む</button>
         </div>
         <br>
     </div>
@@ -132,7 +132,7 @@
     <div class="col-md-7 offset-md-3 confirm_box" v-if="type == 'confirm'">
         <form @submit.prevent="apply">
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="first_name"  ><strong>First Name : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -140,7 +140,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="last_name"  ><strong>Last Name : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -148,7 +148,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="birthday"  ><strong>Birthday : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -156,16 +156,16 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="gender"  ><strong> Gender : </strong>   </label>
                 </div>
                 <div class="col-sm-9">
-                    <span v-if="jobApply.gender == 0">Male</span>
-                    <span v-if="jobApply.gender == 1">Female</span>
+                    <span v-if="jobApply.gender == 0">女性</span>
+                    <span v-if="jobApply.gender == 1">男性</span>
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="postal"  ><strong>Postal : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -173,7 +173,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="str_address"  ><strong>Street Address : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -181,7 +181,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="home_address"  ><strong>Home Address : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -189,7 +189,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="phone"  ><strong>Phone : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -197,7 +197,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="email"  ><strong>Email : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -205,7 +205,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="qualification"  ><strong>Qualification : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -213,7 +213,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="workable_day"  ><strong>Workable Days : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -221,7 +221,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="skill"  ><strong>Skill : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -229,7 +229,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3">
                     <label for ="remark"  ><strong>Remark : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
@@ -259,6 +259,10 @@ export default {
                 errors: {
                     first_name: '',
                     last_name: '',
+                    postal: '',
+                    phone: '',
+                    email: '',
+                    terms: ''
                 },
 
                 jobApply: {
@@ -283,6 +287,7 @@ export default {
                         }],
                     },
                     type: 'register',
+                    city_list: [],
             }
     },
      created(){
@@ -292,10 +297,42 @@ export default {
                  this.Job.fields = response.data;
 
                 });
-
+        this.axios.get('/api/hospital/citiesList')
+                .then(response => {
+                    this.city_list = response.data;
+                });
+    },
+    computed: {
+        isDisabled: function(){
+            return !this.jobApply.terms;
+        }
     },
     methods: {
+            getPostal: function(event) {
+                if (this.jobApply.postal.length > 4) {
+                    var postal = this.jobApply.postal;
+                    this.axios
+                        .post('/api/hospital/postList/' + postal)
+                        .then(response => {
+                            var post_data = response.data;
+                            var length = response.data.length;
+                            console.log(response);
+                            if (length > 0) {
+                                var pref = post_data[0]['city_id'];
+                                if (post_data[0]['street'] == '') {
+                                    this.jobApply.str_address = post_data[0]['city'];
+                                } else {
+                                    this.jobApply.str_address = post_data[0]['pref'] + ' - ' + post_data[0]['city'] + ' - ' + post_data[0]['street'];
+                                }
+                            } else {
+                                this.jobApply.city = '';
+                                $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+                            }
+                        });
+                }
+            },
             apply() {
+                console.log(this.jobApply);
                 this.axios.post('/api/jobapply',this.jobApply)
                     .then((response) => {
                     alert('Successful Apply');
@@ -311,9 +348,8 @@ export default {
             getcheckbox(job)
             {
                this.jobApply.skills.push(job);
-
             },
-            showConfirm() {
+            checkValidate() {
                 if(this.jobApply.first_name) {
                     this.errors.first_name = "";
                 }
@@ -332,14 +368,25 @@ export default {
                 else {
                     this.errors.postal = "ニュースの題名が必須です。";
                 }
+                if(this.jobApply.phone) {
+                    this.errors.phone = "";
+                }
+                else {
+                    this.errors.phone = "ニュースの題名が必須です。";
+                }
+                if(this.jobApply.email) {
+                    this.errors.email = "";
+                }
+                else {
+                    this.errors.email = "ニュースの題名が必須です。";
+                }
                 if(this.jobApply.terms) {
                     this.errors.terms = "";
                 }
                 else {
                     this.errors.terms = "ニュースの題名が必須です。";
                 }
-
-                if(!this.errors.first_name && !this.errors.first_name && !this.errors.postal && !this.errors.terms) {
+                if(!this.errors.first_name && !this.errors.first_name && !this.errors.postal && !this.errors.phone && !this.errors.email && !this.errors.terms) {
                     this.type = 'confirm';
                 }
             },

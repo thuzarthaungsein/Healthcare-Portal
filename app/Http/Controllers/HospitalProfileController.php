@@ -71,7 +71,6 @@ class HospitalProfileController extends Controller
         $selectedCity = DB::select($query);
         return $selectedCity;
     }
-
     /**
      * Show the form for creating a new resource.
      *

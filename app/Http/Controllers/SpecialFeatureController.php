@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\special_feature;
+use App\NursingProfile;
+use App\HospitalProfile;
 use Illuminate\Http\Request;
 use DB;
 
@@ -18,6 +20,29 @@ class SpecialFeatureController extends Controller
     public function create()
     {
 
+    }
+
+    public function getFeaturebyProfileType($profile_type,$customer_id) {
+        $cooperate_list = special_feature::where('type','=',$profile_type)->get()->toArray();
+
+        if($profile_type == 'nursing') {
+            $profile_feature = NursingProfile::where('customer_id','=',$customer_id)->value('special_features');
+        }
+        if($profile_type == 'hospital') {
+            $profile_feature = HospitalProfile::where('customer_id','=',$customer_id)->value('special_features');
+        }
+        
+        $feature = explode(',',$profile_feature); 
+      
+        for($indx=0; $indx<count($feature); $indx++) {
+            for($sec_indx = 0; $sec_indx<count($cooperate_list); $sec_indx++) {
+                if($feature[$indx] == $cooperate_list[$sec_indx]['id']) {
+                    $cooperate_list[$sec_indx]['checked'] = "checked";
+                } 
+            }
+        }
+
+        return $cooperate_list;
     }
 
     public function store(Request $request)

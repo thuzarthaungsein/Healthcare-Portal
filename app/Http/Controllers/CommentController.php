@@ -12,10 +12,10 @@ class CommentController extends Controller
     protected $zipcode;
     public function index()
     {
-        //$comment =Comment::all()->toArray();
-        $comment = Comment::where('id',1)->get();
-         return $comment;
-         //return array_reverse($comment);
+        $comment =Comment::all()->toArray();
+        // $comment = Comment::where('id',1)->get();
+        //  return $comment;
+        return array_reverse($comment);
     }
 
 

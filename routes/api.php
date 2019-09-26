@@ -134,6 +134,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('add', 'SpecialFeatureController@store');
         Route::get('edit/{id}', 'SpecialFeatureController@edit');
         Route::get('featurelist', 'SpecialFeatureController@index');
+        Route::get('nursing-feature/{type}', 'SpecialFeatureController@getFeaturebyProfileType');
         Route::post('update/{id}', 'SpecialFeatureController@update');
         Route::delete('delete/{id}','SpecialFeatureController@destroy');
     });
@@ -169,6 +170,21 @@ Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('featurelist', 'SpecialFeatureController@index');
+
+Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
+
+Route::get('hospital-pgallery/{id}','GalleryController@getPhotobyCustomerId');
+Route::get('hospital-vgallery/{id}','GalleryController@getVideobyCustomerId');
+
+Route::get('nursing-pgallery/{id}','GalleryController@getPhotobyCustomerId');
+Route::get('nursing-vgallery/{id}','GalleryController@getVideobyCustomerId');
+
+Route::get('nursing-cooperate/{id}','CooperateMedicalController@getCooperateByCustomerId');
+Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerId');
+
+Route::get('customerinfo/{id}','CustomerController@edit');
+Route::get('nursinginfo/{id}','NursingProfileController@edit');
+Route::get('staffinfo/{id}', 'ProfilePublishController@getStaffbyCustomerId');
 
 // Home Page
 Route::get('home', 'HomeController@index');
@@ -228,7 +244,7 @@ Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
 Route::get('nurse','ProfilePublishController@index');
-Route::get('cost','ProfilePublishController@show');
+Route::get('cost','ProfilePublishController@getCost');
 Route::get('hospital','ProfilePublishController@hospital');
 Route::get('special','ProfilePublishController@getSpecialfeature');
 // Route::group(['prefix' => 'new'], function () {

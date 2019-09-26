@@ -2092,6 +2092,14 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     border-left: 3px solid #f27a24;
     color: #fff !important;
 }
+#headerbar .router-link-exact-active {
+    font-weight: bold;
+    color: #fff !important;
+}
+
+#headerbar .navbar-dark .navbar-nav .nav-link {
+    color: #fff !important;
+}
 
 .router-link-exact-active>i.fa,
 .router-link-exact-active>i.fas {
@@ -3179,3 +3187,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* end one page */
+<<<<<<< HEAD
+=======
+
+/*danger*/
+.sp1{
+    border:.5px solid red;
+    font-size: 11px;
+    padding: 2px;
+}
+/*danger*/
+>>>>>>> f86027671a8d37b6511e358c195e4d5b9acff982

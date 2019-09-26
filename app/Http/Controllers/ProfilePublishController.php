@@ -10,6 +10,7 @@ use App\Medical;
 use App\Staff;
 use App\HospitalProfile;
 use App\special_feature;
+use App\Customer;
 use DB;
 class ProfilePublishController extends Controller
 {
@@ -46,6 +47,16 @@ class ProfilePublishController extends Controller
         }
         return $special;
      }
+     public function getCost(){
+
+     $sql = "SELECT method_payment.* from method_payment   JOIN customers ON method_payment.customer_id= customers.id";
+     $nurseCost = DB::select($sql);
+     return $nurseCost;
+    // foreach($nurseCost as $nuscost){
+
+    //  }
+      }
+
 
     //  public function getSpecialfeature($id){
     //      $specialfeature=NursingProfile::select('special_features')->where('customer_id',$id)->get();
@@ -127,8 +138,8 @@ class ProfilePublishController extends Controller
     public function show()
     {
         //
-        // $cost =method_payment::all()->toArray();
-        return $cost;
+        //$cost =method_payment::all()->toArray();
+        //return $cost;
 
     }
 
@@ -140,7 +151,7 @@ class ProfilePublishController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -164,5 +175,11 @@ class ProfilePublishController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getStaffbyCustomerId($customer_id) {
+        $staff = Staff::where("customer_id",$customer_id)->get();
+
+        return $staff;
     }
 }
