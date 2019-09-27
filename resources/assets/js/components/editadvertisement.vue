@@ -50,15 +50,18 @@
                                     <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
                                 </div>
                             </div>
+
+
+                            
                             <div class="image_show"></div>
                             <div class="form-group image_update" id="x-image"> </div>
-
                             <div class="form-group">
                                 <router-link to="/ads" class="btn btn-danger all-btn">戻る</router-link>
                                 <button class="btn news-post-btn all-btn">更新</button>
                             </div>
                                 </form>
                             </div>
+
                          </div>
                     </div>
             </div>
@@ -108,9 +111,12 @@ export default {
               },
               updateselected()
               {
-                   $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
+                   $('.image_update').append("<div id='x-image' class='col-md-2' @click='removeFile'><span class='img-close-btn' >X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
               },
-
+             removeFile(){
+                 console.log(this.photo)
+                 this.photo = ''
+             },
               updateCheck: function (check){
                      this.advertisement.location.shift()
                if(check == "topbar"){
