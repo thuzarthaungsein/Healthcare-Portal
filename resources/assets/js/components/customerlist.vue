@@ -110,11 +110,28 @@ export default {
   },
   methods: {
     deleteCustomer(id) {
-      this.axios.delete(`/api/customer/delete/${id}`).then(response => {
-        flash("Delete Success", "success");
+    
+     this.$swal({
+        title: "確認",
+        text: "削除よろしいでしょうか",
+        type: "warning",
+        width: 350,
+        height: 200,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#b1abab",
+        cancelButtonTextColor: "#000",
+        confirmButtonText: "削除",
+        cancelButtonText: "キャンセル",
+        confirmButtonClass: "all-btn",
+        cancelButtonClass: "all-btn"
+      }).then(response=>{
+          this.axios.delete(`/api/customer/delete/${id}`).then(response => {
+        //flash("Delete Success", "success");
         let a = this.customers.map(item => item.id).indexOf(id);
         this.customers.splice(a, 1);
       });
+      });   
     },
     comfirm(id) {
       this.axios.get(`/api/confirm/${id}`).then(response => {

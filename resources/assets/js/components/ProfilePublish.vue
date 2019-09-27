@@ -186,28 +186,7 @@
 </template>
 
 
-<style scoped>
-.fixed-nav{
-    position: fixed;
-    z-index: 4;
-    overflow: hidden;
-    background: #fff;
-    width: 65.9%;
-    margin-top:-1px;
-   
-}
-.top-fixed-btn{
-  border: 1px solid #b7dad2;
-  box-shadow: 0px 2px 1px rgba(70, 70, 70, 0.3);
-  color: #095c5f;
-  background: #b7dad2;
-  width: 145px;
-  cursor: pointer;
-  padding: 10px;
-}
-.ele{
-  margin-top: 27px;  
-  padding-top: 60px;
-}
+<style>
+
 </style>
 

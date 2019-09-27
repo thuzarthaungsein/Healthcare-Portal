@@ -98,7 +98,7 @@ export default {
                     this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '作成した',
+                            title: '更新されました',
                             showConfirmButton: false,
                             timer: 1500,
                             width: 250,
