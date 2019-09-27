@@ -9,7 +9,7 @@
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="first_name" placeholder="トラスト　太郎" v-model="jobApply.first_name"  >
                 <div v-if="errors.first_name" class="text-danger">{{ errors.first_name }}</div>
-            </div>    
+            </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
@@ -35,7 +35,7 @@
             <div class="col-sm-9">
                 <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="0"  > 女性 </label>
                 <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="1" > 男性 </label>
-            </div>    
+            </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
@@ -121,7 +121,7 @@
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.first_name }} </span>
-                </div>    
+                </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
@@ -146,7 +146,7 @@
                 <div class="col-sm-9">
                     <span v-if="jobApply.gender == 0">女性</span>
                     <span v-if="jobApply.gender == 1">男性</span>
-                </div>    
+                </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">

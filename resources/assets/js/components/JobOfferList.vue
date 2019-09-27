@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="row m-b-10" v-if="this.jobs.length !== 0">
-        <div class="col-md-12">
+        <!-- <div class="col-md-12">
           <router-link
             to="/joboffercreate"
             class="float-right main-bg-color create-btn all-btn"
@@ -10,7 +10,7 @@
           >
             <i class="fas fa-plus-circle"></i> 新しい投稿を作成
           </router-link>
-        </div>
+        </div> -->
       </div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">

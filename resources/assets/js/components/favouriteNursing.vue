@@ -149,7 +149,7 @@
                 this.axios.get('/api/hospital/postList')
                     .then(response => {
                         this.post_list = response.data;
-                        //console.log(this.post_list); 
+                        //console.log(this.post_list);
                     });
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
