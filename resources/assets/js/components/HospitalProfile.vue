@@ -288,12 +288,6 @@ export default {
                         this.img_arr = response.data;
                 });
 
-                //  this.axios
-                // .get('/api/schedule/'+this.id)
-                // .then(response=>{
-                //         this.img_arr = response.data;
-                // });
-
                 this.axios
                 .get('/api/hospital-vgallery/'+this.id)
                 .then(response=>{
@@ -303,14 +297,12 @@ export default {
                 this.axios
                 .get('/api/feature/'+this.profile_type+'/'+this.id)
                 .then(response=>{
-                        // console.log(response.data);
                         this.feature_list = response.data;
                 });
 
                 this.axios
                 .get('/api/facility/'+this.profile_type+'/'+this.id)
                 .then(response=>{
-                        // console.log(response.data);
                         this.fac_list = response.data;
                 });
         },
@@ -436,62 +428,70 @@ export default {
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                      console.log(this.schedule_list);
+                     
 
                        this.hospital_info.push({access:access,subject:subject,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,special_features:special_features,facilities:facilities});
+                        
+                        if(this.gallery_list.length > 0) {
+                                this.axios
+                                        .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
+                                                .then((response) => {
+                                                
+                                                }).catch(error=>{
 
-                        this.axios
-                                .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
-                                        .then((response) => {
+                                                if(error.response.status == 422){
+
+                                                this.errors = error.response.data.errors
+
+                                        }
+                                }) ;
+                        }
+
+                        if(this.customer_info.length > 0) {
+                                this.axios
+                                        .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                                                .then((response) => {
+                                                alert('Successfully Updated!')
+                                                }).catch(error=>{
+
+                                                if(error.response.status == 422){
+
+                                                this.errors = error.response.data.errors
+
+                                        }
+                                }) ;
+                        }
+
+                        if(this.hospital_info.length > 0) {
+                                this.axios
+                                        .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
+                                                .then((response) => {
                                         
-                                        }).catch(error=>{
+                                                }).catch(error=>{
 
-                                        if(error.response.status == 422){
+                                                if(error.response.status == 422){
 
-                                        this.errors = error.response.data.errors
+                                                this.errors = error.response.data.errors
 
-                                }
-                        }) ;
+                                        }
+                                }) ;
+                        }
 
-                        this.axios
-                                .post(`/api/customer/profile/${this.id}`,this.customer_info)
-                                        .then((response) => {
-                                        alert('Successfully Updated!')
-                                        }).catch(error=>{
+                        if(this.schedule_list.length > 0) {
+                                this.axios
+                                        .post(`/api/schedule/update/${this.id}`,this.schedule_list)
+                                                .then((response) => {
+                                        
+                                                }).catch(error=>{
 
-                                        if(error.response.status == 422){
+                                                if(error.response.status == 422){
 
-                                        this.errors = error.response.data.errors
+                                                this.errors = error.response.data.errors
 
-                                }
-                        }) ;
-
-                        this.axios
-                                .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
-                                        .then((response) => {
-                                
-                                        }).catch(error=>{
-
-                                        if(error.response.status == 422){
-
-                                        this.errors = error.response.data.errors
-
-                                }
-                        }) ;
-
-                        this.axios
-                                .post(`/api/schedule/update/${this.id}`,this.schedule_list)
-                                        .then((response) => {
-                                
-                                        }).catch(error=>{
-
-                                        if(error.response.status == 422){
-
-                                        this.errors = error.response.data.errors
-
-                                }
-                        }) ;
+                                        }
+                                }) ;
+                        }
             }
 
         }

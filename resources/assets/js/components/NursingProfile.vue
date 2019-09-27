@@ -775,97 +775,109 @@ export default {
 
                 this.gallery_list = this.img_list.concat(this.video_list);
 
+                if(this.gallery_list.length > 0) {
+                        this.axios
+                                .post(`/api/nursing/galleryupdate/${this.id}`,this.gallery_list)
+                                .then((response) => {
+                                
+                                }).catch(error=>{
 
+                                if(error.response.status == 422){
 
-                this.axios
-                        .post(`/api/nursing/galleryupdate/${this.id}`,this.gallery_list)
-                        .then((response) => {
-                        
-                        }).catch(error=>{
+                                this.errors = error.response.data.errors
 
-                        if(error.response.status == 422){
-
-                        this.errors = error.response.data.errors
-
-                        }
-                }) ;
-
-                this.axios
-                        .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
-                        .then((response) => {
-                        alert('Successfully Updated!')
-                        }).catch(error=>{
-
-                        if(error.response.status == 422){
-
-                        this.errors = error.response.data.errors
-
-                        }
-                }) ;
-
-                this.axios
-                        .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
-                        .then((response) => {
-                        alert('Successfully Updated!')
-                        }).catch(error=>{
-
-                        if(error.response.status == 422){
-
-                        this.errors = error.response.data.errors
-
-                        }
-                }) ;
-
-                this.axios
-                        .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
-                        .then((response) => {
-                       
-                        }).catch(error=>{
-
-                        if(error.response.status == 422){
-
-                        this.errors = error.response.data.errors
-
-                        }
-                }) ;
-
-              // check
-                this.axios
-                        .post(`/api/customer/profile/${this.id}`,this.customer_info)
-                        .then((response) => {
-                        alert('Successfully Updated!')
-                        }).catch(error=>{
-
-                        if(error.response.status == 422){
-
-                        this.errors = error.response.data.errors
-
-                        }
-                }) ;
-
-                this.axios
-                        .post(`/api/staff/profile/${this.id}`,this.staf_info)
-                        .then((response) => {
-                        alert('Successfully Updated!')
-                        }).catch(error=>{
-
-                        if(error.response.status == 422){
-
-                        this.errors = error.response.data.errors
-
-                        }
-                }) ;
-
-                this.axios
-                        .post(`/api/acceptance/transition/${this.id}`,this.acceptance)
-                        .then((response) => {
-                      
-                        }).catch(error=>{
-                                if(error.response.status == 422) {
-                                        this.errors = error.response.data.errors
                                 }
                         }) ;
                 }
+
+                if(this.cooperate_list.length > 0) {
+                        this.axios
+                                .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
+                                .then((response) => {
+                               
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.payment_list.length > 0) {
+                        this.axios
+                                .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
+                                .then((response) => {
+                                
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.profile_arr.length > 0) {
+                        this.axios
+                                .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
+                                .then((response) => {
+                        
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.customer_info.length > 0) {
+                        // check
+                        this.axios
+                                .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                                .then((response) => {
+                               
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.staf_info.length > 0) {
+                        this.axios
+                                .post(`/api/staff/profile/${this.id}`,this.staf_info)
+                                .then((response) => {
+                               
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.acceptance.length > 0) {
+                        this.axios
+                                .post(`/api/acceptance/transition/${this.id}`,this.acceptance)
+                                .then((response) => {
+                                         alert('Successfully Updated!')
+                                }).catch(error=>{
+                                        if(error.response.status == 422) {
+                                                this.errors = error.response.data.errors
+                                        }
+                        }) ;
+                }
+            }
         }
 }
 
