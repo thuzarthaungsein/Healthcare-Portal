@@ -8,7 +8,7 @@
               <li class="breadcrumb-item">
                 <a href="/">ホーム</a>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
+              <li class="breadcrumb-item active" aria-current="page">介護の歴史</li>
             </ol>
           </nav>
         </div>
@@ -20,8 +20,8 @@
               <a href="#">{{nur_profile.name}}</a>
             </h5>
             <div class="col-lg-2 col-md-12 mb-5">
-              <div class="hos-img">
-                <img class="col-md-12" v-bind:src="'/images/' + nur_profile.logo" alt />
+              <div class="hos-img list-logo">
+                <img v-bind:src="'/images/' + nur_profile.logo" alt />
               </div>
               <button class="btn btn-danger all-btn hos-btn">最近見た施設から削除</button>
               <button class="btn fav-color all-btn hos-btn mt-2">検討リストに追加</button>

@@ -8,7 +8,7 @@
                             <li class="breadcrumb-item">
                                 <a href="/">ホーム</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
+                            <li class="breadcrumb-item active" aria-current="page">介護のお気に入り</li>
                         </ol>
                     </nav>
                     <div class="select_all">
@@ -25,20 +25,20 @@
                 <a href="#">{{nur_profile.name}}</a>
               </h5>
                             <div class="col-lg-2 col-md-12 mb-5">
-                                <div class="hos-img">
-                                    <img class="col-md-12" v-bind:src="'/images/' + nur_profile.logo" alt style />
+                                <div class="hos-img list-logo">
+                                    <img v-bind:src="'/images/' + nur_profile.logo" alt style />
                                 </div>
                                 <button class="btn btn-danger all-btn hos-btn" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
                                 <div class="row mt-2">
                                     <div class="col-6">
                                         <label class="btn news-post-btn all-btn hos-btn">
-                                            <input type="checkbox" class="checkbox1" name="reservation" v-model="reserv_status[nur_profile.id]" />
+                                            <input type="checkbox" class="checkbox1" name="reservation" v-model="reserv_status[nur_profile.id]" @change="checkSingle()"/>
                                             <span class="checkmark"></span>見学予約
                                         </label>
                                     </div>
                                     <div class="col-6">
                                         <label class="btn all-btn secondary-bg-color hos-btn">
-                                            <input type="checkbox" class="checkbox2" value="documentation" name="documentation" v-model="document_status[nur_profile.id]" />
+                                            <input type="checkbox" class="checkbox2" value="documentation" name="documentation" v-model="document_status[nur_profile.id]" @change="checkSingle()"/>
                                             <span class="checkmark"></span>資料請求
                                         </label>
                                     </div>
@@ -122,6 +122,8 @@
     </div>
 </template>
 
+
+
 <script>
     export default {
         data() {
@@ -156,7 +158,6 @@
                         this.city_list = response.data;
                     });
             },
-
             methods: {
                 deleteLocalSto: function(id) {
                     if (confirm("Are you sure you want to delete?")) {
@@ -227,6 +228,19 @@
                         }
                     }
 
+                },
+                checkSingle() {
+                    for (var i = 0; i < this.fav_nursing.length; i++) {
+                        var j = this.fav_nursing[i].id;
+                        if (this.document_status[j] == true && this.reserv_status[j] == true)  {
+                            $('.check-all-btn').prop("checked", true);
+                        }
+                        else if (this.document_status[j] == false && this.reserv_status[j] == false){
+                            $('.check-all-btn').prop("checked", false);
+                        }else{
+                            $('.check-all-btn').prop("checked", false);
+                        }
+                    }
                 }
             }
     };

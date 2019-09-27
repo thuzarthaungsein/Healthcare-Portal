@@ -31,6 +31,7 @@
         "iview": "^3.5.0",
         "jquery-bootstrap-scrolling-tabs": "^2.6.1",
         "laravel-mix-svg-vue": "^0.2.2",
+        "passport": "^0.4.0",
         "quill-better-table": "^1.1.15",
         "quill-table": "^1.0.0",
         "vue-axios": "^2.1.4",

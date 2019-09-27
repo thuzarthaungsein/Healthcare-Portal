@@ -4,15 +4,15 @@
             <div class="col-md-12 pad-free">
                     <div class="form-group">
                             <label class="heading-lbl">名前<span class="error">*</span></label>
-                            <input type="text" class="form-control" placeholder="Name">
+                            <input type="text" class="form-control customer-name" placeholder="Name" v-model="customer_info.name">
                     </div>
                     <div class="form-group">
                             <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
-                            <input type="text" class="form-control"  placeholder="Email">
+                            <input type="text" class="form-control customer-email"  placeholder="Email" v-model="customer_info.email">
                     </div>                
                     <div class="form-group">
                             <label class="heading-lbl">電話番号<span class="error">*</span></label>
-                            <input type="text" class="form-control"  placeholder="Phone">
+                            <input type="text" class="form-control customer-phone"  placeholder="Phone" v-model="customer_info.phone">
                     </div>
                     
                     <!-- <div class="form-group">
@@ -67,17 +67,17 @@
 
                     <div class="form-group">
                             <label class="heading-lbl">診療科目<span class="error">*</span></label>
-                            <textarea name="medicaldepartment" class="form-control"></textarea>
+                            <textarea name="medicaldepartment" class="form-control subject" v-model="hospital_info.subject"></textarea>
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">専門医<span class="error">*</span></label>
-                            <textarea name="specialist" class="form-control"></textarea>
+                            <textarea name="specialist" class="form-control specialist" v-model="hospital_info.specialist"></textarea>
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">医院からのお知らせ<span class="error">*</span></label>
-                            <textarea name="detailsinfo" class="form-control"></textarea>
+                            <textarea name="detailsinfo" class="form-control details-info" v-model="hospital_info.details_info"></textarea>
                     </div>
 
                     <!-- <div class="form-group">
@@ -100,44 +100,44 @@
                                         </tr>
                                         <tr>
                                                 <td>Monday</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from0"> <span>To:</span><input type="text" class="form-control am-to0"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from0"> <span>To:</span><input type="text" class="form-control pm-to0"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Tuesday</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from1"> <span>To:</span><input type="text" class="form-control am-to1"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from1"> <span>To:</span><input type="text" class="form-control pm-to1"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Wed</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from2"> <span>To:</span><input type="text" class="form-control am-to2"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from2"> <span>To:</span><input type="text" class="form-control pm-to2"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Thu</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from3"> <span>To:</span><input type="text" class="form-control am-to3"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from3"> <span>To:</span><input type="text" class="form-control pm-to3"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Friday</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from4"> <span>To:</span><input type="text" class="form-control am-to4"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from4"> <span>To:</span><input type="text" class="form-control pm-to4"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sat</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from5"> <span>To:</span><input type="text" class="form-control am-to5"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from5"> <span>To:</span><input type="text" class="form-control pm-to5"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sunday</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from6"> <span>To:</span><input type="text" class="form-control am-to6"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from6"> <span>To:</span><input type="text" class="form-control pm-to6"></td>
                                                 <td></td>
                                         </tr>
                                 </table>
@@ -146,7 +146,7 @@
 
                     <div class="form-group">
                         <label class="heading-lbl">休診日</label>
-                        <textarea name="close-day" class="form-control"></textarea>
+                        <textarea name="close-day" class="form-control close-day" v-model="hospital_info.closed_day"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -156,7 +156,7 @@
                                 <div class="row">
                                         <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
                                                 <label>
-                                                <input type="checkbox">
+                                                <input type="checkbox" name="facility" :class="'facility-'+fac.id"  v-bind:value="fac.id" @click="facilityCheck(fac.id)" v-model="fac.checked">
                                                 {{fac.description}}
                                                 </label>
                                         </div>
@@ -182,12 +182,12 @@
 
                     <div class="form-group">
                             <label class="heading-lbl">公式サイト</label>
-                            <input type="text" name="official-website" class="form-control">
+                            <input type="text" name="official-website" class="form-control website" v-model="hospital_info.website">
                     </div>
 
                     <div class="form-group">
                             <label class="heading-lbl">混雑状況</label>
-                            <textarea name="congestion" class="form-control"></textarea>
+                            <textarea name="congestion" class="form-control congestion" v-model="hospital_info.congestion"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -201,11 +201,11 @@
 
                                 <div class="form-group">
                                         <label>住所<span class="error">*</span></label>
-                                        <textarea name="address" rows="10" class="form-control"></textarea>
+                                        <textarea name="address" rows="10" class="form-control customer-address" v-model="customer_info.address"></textarea>
                                 </div>
                                 <div class="form-group">
                                         <label>交通 / アクセス<span class="error">*</span></label>
-                                        <textarea name="address" rows="10" class="form-control"></textarea>
+                                        <textarea name="access" rows="10" class="form-control access" v-model="hospital_info.access"></textarea>
                                 </div>
                         </div>
                     </div>
@@ -251,22 +251,28 @@ export default {
                 return {
                         fac_list: [],
                         img_arr:[],img_list:[], 
-                        video_arr:[], video_list:[],
+                        video_arr:[], video_list:[],gallery_list:[],
                         feature_list:[],
                         profile_type:'hospital',id : 1, // test_id
+                        shedule_am:[],shedule_pm:[],
+                        schedule_list:[],
+                        customer_info:[],
+                        hospital_info:[],
                 }
         },
         created(){
-                this.axios
-                .get('/api/customersinfo')
-                .then(response=>{
-                this.fac_list = response.data;
-                });
 
                 this.axios
-                .get('/api/facilities')
+                .get('/api/customerinfo/'+this.id)
                 .then(response=>{
-                this.fac_list = response.data;
+                        this.customer_info = response.data;
+                });
+
+                
+                this.axios
+                .get('/api/hospitalinfo/'+this.id)
+                .then(response=>{
+                        this.hospital_info = response.data;
                 });
 
                 this.axios
@@ -274,6 +280,12 @@ export default {
                 .then(response=>{
                         this.img_arr = response.data;
                 });
+
+                //  this.axios
+                // .get('/api/schedule/'+this.id)
+                // .then(response=>{
+                //         this.img_arr = response.data;
+                // });
 
                 this.axios
                 .get('/api/hospital-vgallery/'+this.id)
@@ -284,8 +296,15 @@ export default {
                 this.axios
                 .get('/api/feature/'+this.profile_type+'/'+this.id)
                 .then(response=>{
-                        console.log(response.data);
+                        // console.log(response.data);
                         this.feature_list = response.data;
+                });
+
+                 this.axios
+                .get('/api/facility/'+this.profile_type+'/'+this.id)
+                .then(response=>{
+                        // console.log(response.data);
+                        this.fac_list = response.data;
                 });
         },
         methods: {
@@ -304,6 +323,9 @@ export default {
 
             preview_image(img_class) {
                    $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+            },
+            facilityCheck(check_id) {
+                    $('.facility-'+check_id).attr('checked','true');
             },
             featureCheck(check_id) {
                     $('.feature-'+check_id).attr('checked','true');
@@ -347,24 +369,122 @@ export default {
             Create_Profile () {
                     this.img_list = [];
                     this.video_list = [];
+                    this.gallery_list = [];
+                    this.customer_info = [];
+                    this.hospital_info = [];
 
+                    var name = $('.customer-name').val();
+                    var email = $('.customer-email').val();
+                    var phone = $('.customer-phone').val();
+                    var address = $('.customer-address').val();
+                    this.customer_info.push({name:name,email:email,phone:phone,address:address});
+
+                    
+                    var access = $('.access').val();
+                    var subject = $('.subject').val();
+                    var specialist = $('.specialist').val();
+                    var details_info = $('.details-info').val();
+                    var close_day = $('.close-day').val();
+                    var website = $('.website').val();
+                    var congestion = $('.congestion').val();
+                   
+               
                     var img = document.getElementsByClassName('gallery-area-photo');
                         for(var i = 0; i< img.length; i++) {
-                           this.img_list.push({img:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+                           this.img_list.push({type:"photo",photo:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                         }
-                        console.log(this.img_list);
+                       
 
                     var video = document.getElementsByClassName('gallery-area-video');
                         for(var i = 0; i< video.length; i++) {
-                           this.video_list.push({url:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
+                           this.video_list.push({type:"video",photo:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                         }
-                        console.log(this.video_list);
+                        
+                     this.gallery_list = this.img_list.concat(this.video_list);
 
                      var chek_feature = [];
+                     var special_features ;
                         $.each($("input[name='special-features']:checked"), function(){ 
-                                chek_feature.push({ feature: $(this).val()});
+                                chek_feature.push($(this).val());
                         });
-                        console.log(chek_feature);return;
+                
+                        special_features = chek_feature.join(',');
+        
+
+                     var chek_facility = [];
+                     var facilities ;
+                        $.each($("input[name='facility']:checked"), function(){ 
+                               chek_facility.push($(this).val());
+                        });
+
+                        facilities = chek_facility.join(',');
+
+                     // Consultation
+                     for(var j = 0; j< 2; j++) {
+                        for(var i = 0; i< 7; i++) {
+                                if(j == 0) { this.shedule_am[i] = $('.form-control.am-from'+i+'').val() + '-' + $('.form-control.am-to'+i+'').val(); } 
+                                if(j == 1) { this.shedule_pm[i] = $('.form-control.pm-from'+i+'').val() + '-' + $('.form-control.pm-to'+i+'').val(); }
+                        }
+
+                        if(j == 0) { this.schedule_list.push(this.shedule_am); }
+                        if(j == 1) { this.schedule_list.push(this.shedule_pm); }
+                      }
+                      console.log(this.schedule_list);
+
+                       this.hospital_info.push({access:access,subject:subject,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       congestion:congestion,special_features:special_features,facilities:facilities});
+
+                        this.axios
+                                .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
+                                        .then((response) => {
+                                        
+                                        }).catch(error=>{
+
+                                        if(error.response.status == 422){
+
+                                        this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+
+                        this.axios
+                                .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                                        .then((response) => {
+                                        alert('Successfully Updated!')
+                                        }).catch(error=>{
+
+                                        if(error.response.status == 422){
+
+                                        this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+
+                        this.axios
+                                .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
+                                        .then((response) => {
+                                
+                                        }).catch(error=>{
+
+                                        if(error.response.status == 422){
+
+                                        this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+
+                        this.axios
+                                .post(`/api/schedule/update/${this.id}`,this.schedule_list)
+                                        .then((response) => {
+                                
+                                        }).catch(error=>{
+
+                                        if(error.response.status == 422){
+
+                                        this.errors = error.response.data.errors
+
+                                }
+                        }) ;
             }
 
         }

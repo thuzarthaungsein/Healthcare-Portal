@@ -26,6 +26,25 @@
 
 
          <div class="row m-lr-0 ele" id="element1">
+              <div class="row list-wrap m-lr-0">
+                  <div class="col-lg-3 col-md-4 col-sm-12">
+                      <p><strong>Information</strong></p>
+                      <div class="row">
+                        <div class="col-sm-5 detail_profile_left">
+                           left
+
+                        </div>
+                        <div class="col-sm-7 detail_profile_right">
+
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+
+
+
+         <div class="row m-lr-0 ele" id="element1">
              <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
                 <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
                 <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
