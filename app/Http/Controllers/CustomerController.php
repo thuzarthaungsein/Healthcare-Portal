@@ -20,7 +20,7 @@ class CustomerController extends Controller
 
         // $customers = Customer::all()->toArray();
         // return array_reverse($customers);
-        $customer =Customer::where('id',1)->get();
+        $customer =Customer::all();
         return $customer;
     }
 

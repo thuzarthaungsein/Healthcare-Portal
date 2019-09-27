@@ -24,8 +24,6 @@ class ProfilePublishController extends Controller
      */
     public function index()
     {
-
-
         $feature = NursingProfile::select('feature')->where('customer_id',4)->get();
         $facility = NursingProfile::where('customer_id',1)->get();
         $comedical = Cooperate_Medical::where('customer_id',1)->get();
@@ -36,7 +34,6 @@ class ProfilePublishController extends Controller
                         ->where('acceptance_transactions.customer_id','=',1)->get();
 
         $staff = Staff::where('customer_id',1)->get();
-
 
         $nurselatlong =  DB::table('customers') ->select('customers.address','nursing_profiles.*')
                              ->join('nursing_profiles','nursing_profiles.customer_id','=','customers.id')
@@ -53,12 +50,7 @@ class ProfilePublishController extends Controller
 
         return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff,
            "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical));
-
-
     }
-
-
-
 
     public function getComment()
     {
@@ -72,38 +64,18 @@ class ProfilePublishController extends Controller
         return $customer;
     }
 
-
-
-
-     public function getSpecialfeature(){
-        $sfeature=NursingProfile::select('special_features')->where('customer_id',3)->value('special_features');
-        $array =explode(',',$sfeature);
-
-        for($i = 0;$i<count($array);$i++)
-        {
-
-            $specialfeature[] =special_feature::find($array[$i]);
-
+    public function getSpecialfeature($type){
+        if($type == 'hospital'){
+            $hosfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
         }
-          return response()->json($specialfeature);
-     }
+        else{
+            $sfeature=NursingProfile::select('special_features')->where('customer_id',3)->value('special_features');
+        }        
 
-     public function getSpecialhospital(){
-        $hosfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
-        $array =explode(',',$hosfeature);
-
-        for($i = 0;$i<count($array);$i++)
-        {
-
-            $hospitalspecialfeature[] =special_feature::find($array[$i]);
-
-        }
-          return response()->json($hospitalspecialfeature);
-     }
-
-
-
-
+        $sql = "SELECT * FROM special_features WHERE id IN (".$sfeature.")";
+        $specialfeature = DB::select($sql);
+        return response()->json($specialfeature);
+    }
 
     public function create()
     {
