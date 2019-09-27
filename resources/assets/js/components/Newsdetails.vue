@@ -10,17 +10,17 @@
       </li>
       <li role="presentation" class="subtab2 nav-item">
         <a href="#tab2" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-briefcase-medical"></i> 病院検索
+          <i class="fas fa-briefcase-medical"></i> 病院
         </a>
       </li>
       <li role="presentation" class="subtab3 nav-item">
         <a href="#tab3" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-user-md"></i> 介護検索
+          <i class="fas fa-user-md"></i> 介護
         </a>
       </li>
       <li role="presentation" class="subtab5 nav-item">
         <a href="#tab4" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-users"></i> 求人検索
+          <i class="fas fa-users"></i> 求人
         </a>
       </li>
     </ul>
