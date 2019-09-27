@@ -18,8 +18,10 @@ class CustomerController extends Controller
     public function index()
     {
 
-        $customers = Customer::all()->toArray();
-        return array_reverse($customers);
+        // $customers = Customer::all()->toArray();
+        // return array_reverse($customers);
+        $customer =Customer::where('id',1)->get();
+        return $customer;
     }
 
     public function uploadvideo(Request $request)

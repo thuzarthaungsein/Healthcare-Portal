@@ -10,15 +10,11 @@ class JobController extends Controller
 
     public function index()
     {
-        $jobs = Job::all()->toArray();
-        return array_reverse($jobs);
+        $jobs = Job::all()->toarray();
+        $profilejob = Job::where('customer_id',1)->get();
+        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob) );
+       
     }
-
-    // public function getskill()
-    // {
-    //     $skill = Job::select('skills')->get();
-    //     return $skill;
-    // }
 
 
     public function create()

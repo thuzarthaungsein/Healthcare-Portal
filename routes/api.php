@@ -33,17 +33,14 @@ Route::group(['middleware' => ['auth']], function() {
 // login route api start
 Route::group(['middleware' => ['auth:api']], function() {
 
-    Route::group(['prefix' => 'nusprofile'], function () {
+    Route::group(['prefix' => 'profile'], function () {
     Route::get('approve/{id}','registerController@approve');
-    Route::get('nusfacilities', 'ProfilePublishController@index');
-    Route::get('cooperatemedical', 'ProfilePublishController@index');
-    Route::get('medicalacceptance', 'ProfilePublishController@index');
-    Route::get('staff', 'ProfilePublishController@index');
-    Route::get('googlefornurse', 'ProfilePublishController@index');
-    Route::get('googleforhospital', 'ProfilePublishController@index');
-    Route::get('feature','ProfilePublishController@index');
-    Route::get('cost','ProfilePublishController@index');
-    Route::get('hospital','ProfilePublishController@hospital');
+    Route::get('nursing','ProfilePublishController@index');
+    Route::get('hospital','ProfilePublishController@index');
+    Route::get('specialfeature','ProfilePublishController@getSpecialfeature');
+    Route::get('comment','ProfilePublishController@getComment');
+    Route::get('customer','ProfilePublishController@getCustomer');
+    
 });
 
     // Category
@@ -260,10 +257,7 @@ Route::group(['prefix' => 'nurse'], function () {
 Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
-// Route::group(['prefix' => 'new'], function () {
-//     Route::post('add', 'PostController@add');
-//     Route::get('editPost/{id}', 'PostController@edit');
-//     Route::post('update/{id}', 'PostController@update');
-//     Route::delete('delete/{id}', 'PostController@delete');
-//     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
-// });
+
+Route::get('cost','ProfilePublishController@getCost');
+Route::get('hospital','ProfilePublishController@hospital');
+
