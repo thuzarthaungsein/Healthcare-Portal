@@ -78,7 +78,7 @@
                         </div> <br/>
 
 
-                    <div class="collapse card-body" :id="'costDetails' + cost.customer_id">
+                    <div class="collapse" :id="'costDetails' + cost.customer_id">
                             <table class="cost_table">
                                 <h4>入居にかかる費用(Expense Moving)</h4>
                             <tbody>
