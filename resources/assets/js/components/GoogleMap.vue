@@ -130,10 +130,8 @@ export default {
       });
     },
     getPostal: function(event) {
-                        console.log(this.comment.postal)
                 if (this.comment.postal.length > 4) {
                     var postal = this.comment.postal;
-                    console.log(this.comment.postal)
                     this.axios
                         .post('/api/hospital/postList/' + postal)
                         .then(response => {
