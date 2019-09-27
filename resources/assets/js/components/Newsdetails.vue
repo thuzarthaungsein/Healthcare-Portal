@@ -2,7 +2,7 @@
   <div>
     <!-- news details-->
     <!--menu tabs-->
-    <ul class="nav nav-tabs card-head-tabs" role="tablist">
+    <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
       <li role="presentation" class="active subtab1 nav-item">
         <a href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
           <i class="fas fa-newspaper"></i> ニュース
