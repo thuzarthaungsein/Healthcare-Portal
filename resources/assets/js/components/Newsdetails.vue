@@ -87,15 +87,18 @@
                   </p>
                 </div>
                 <div class="col-12">
-                  <div class="float-left mr-4">
+                  <div class="float-left mr-4" style="max-width:500px;">
+                    <div
+                      class="img-wrap mb-2"
+                      style="width:100%;background:#f5f5f5;text-align: center;padding: 30px;">
                     <img
                       :src="'/upload/news/'+ newdetails.photo"
-                      class="img-responsive img_2 mb-1"
-                      style="width:500px;"
+                      class="img-responsive img_2"
+                      style="max-width:100%;"
                     />
+                    </div>
                     <p class="img_2 mb-1">
-                      {{newdetails.main_point}}
-                      <br />
+                      {{newdetails.main_point}}                     
                     </p>
                   </div>
                   <div>

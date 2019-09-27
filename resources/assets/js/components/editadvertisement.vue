@@ -111,7 +111,7 @@ export default {
               },
               updateselected()
               {
-                   $('.image_update').append("<div id='x-image' class='col-md-2' @click='removeFile'><span class='img-close-btn' >X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
+                   $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
               },
              removeFile(){
                  console.log(this.photo)
