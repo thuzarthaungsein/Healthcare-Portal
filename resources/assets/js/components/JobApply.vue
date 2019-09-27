@@ -33,15 +33,9 @@
                 <label for ="gender"  ><strong> 性別 <span class="error sp1">必須</span></strong>   </label>
             </div>
             <div class="col-sm-9">
-<<<<<<< HEAD
                 <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Male"  > 女性 </label>
                 <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Female" > 男性 </label>
             </div>    
-=======
-                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="0"  > 女性 </label>
-                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="1" > 男性 </label>
-            </div>
->>>>>>> 20fa75a2aaa0ccf65e3422a30f5cb08a1a077228
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
@@ -150,15 +144,9 @@
                     <label for ="gender"  ><strong> 性別 : </strong>   </label>
                 </div>
                 <div class="col-sm-9">
-<<<<<<< HEAD
                     <span v-if="jobApply.gender == 'Male'">女性</span>
                     <span v-if="jobApply.gender == 'Female'">男性</span>
                 </div>    
-=======
-                    <span v-if="jobApply.gender == 0">女性</span>
-                    <span v-if="jobApply.gender == 1">男性</span>
-                </div>
->>>>>>> 20fa75a2aaa0ccf65e3422a30f5cb08a1a077228
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
