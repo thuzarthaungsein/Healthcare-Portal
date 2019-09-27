@@ -3,9 +3,9 @@
         <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
         <li role="presentation" class="subtab1 nav-item" :class="subtab1active"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
-        <li role="presentation" class="subtab2 nav-item" :class="subtab2active"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-        <li role="presentation" class="subtab3 nav-item" :class="subtab3active"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護検索</a></li>
-        <li role="presentation" class="subtab5 nav-item" :class="subtab4active"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人検索</a></li>
+        <li role="presentation" class="subtab2 nav-item" :class="subtab2active"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院</a></li>
+        <li role="presentation" class="subtab3 nav-item" :class="subtab3active"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護</a></li>
+        <li role="presentation" class="subtab5 nav-item" :class="subtab4active"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人</a></li>
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
