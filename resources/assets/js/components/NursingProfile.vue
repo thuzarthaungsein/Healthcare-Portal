@@ -530,9 +530,6 @@ export default {
         }
         },
         created(){
-
-               
-
                 this.axios
                 .get('/api/customerinfo/'+this.id)
                 .then(response=>{

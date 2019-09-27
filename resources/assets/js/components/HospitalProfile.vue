@@ -254,7 +254,8 @@ export default {
                         img_arr:[],img_list:[], 
                         video_arr:[], video_list:[],gallery_list:[],
                         feature_list:[],
-                        profile_type:'hospital',id : 2, // test_id
+                        profile_type:'hospital',
+                        id:2, // test_id
                         schedule_arr:[],sshedule_am:[],shedule_pm:[],
                         schedule_list:[],
                         customer_info:[],
@@ -262,13 +263,13 @@ export default {
                 }
         },
         created(){
-
+                
                  this.axios
                 .get('/api/schedule/'+this.id)
                 .then(response=>{
                         this.schedule_arr = response.data;
                 });
-                return;
+              
 
                 this.axios
                 .get('/api/customerinfo/'+this.id)
