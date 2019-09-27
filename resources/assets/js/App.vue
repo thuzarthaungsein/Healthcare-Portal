@@ -69,7 +69,7 @@
         </div>
         
          <div class="container-fluid footer">
-                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
+                <span>Copyright©Management Partners Corp.All Rights Reserved.</span>
         </div>
       </section>
     </div>
@@ -105,6 +105,9 @@
         }
 }
 </script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
 <style scoped>
 /*for jssor*/
    /*jssor slider loading skin spin css*/

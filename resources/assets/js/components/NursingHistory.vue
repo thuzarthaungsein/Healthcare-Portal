@@ -8,7 +8,7 @@
               <li class="breadcrumb-item">
                 <a href="/">ホーム</a>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
+              <li class="breadcrumb-item active" aria-current="page">介護の歴史</li>
             </ol>
           </nav>
         </div>
