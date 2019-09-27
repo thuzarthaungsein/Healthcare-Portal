@@ -1,5 +1,4 @@
-<div>
-    
+<div>    
     Name : {{$getComment->name}}  <br>
     furigana : {{$getComment->furigana}}  <br>
     postal : {{$getComment->postal}}  <br>
@@ -15,5 +14,24 @@
     nursing : {{$getComment->nursing}}  <br> 
     fect : {{$getComment->fect}}  <br>
     desire : {{$getComment->desire}}  <br> 
-    hope : {{$getComment->hope}}  <br>  
+    hope : {{$getComment->hope}}  <br> 
+    @if(isset($getComment->arr_reserve[$getComment->fav_id]))
+      @if($getComment->arr_reserve[$getComment->fav_id] == true)
+        Reservation : Yes <br> 
+      @else 
+        Reservation : No <br> 
+      @endif
+    @else
+    Reservation : No <br> 
+    @endif
+    @if(isset($getComment->arr_document[$getComment->fav_id]))
+      @if($getComment->arr_document[$getComment->fav_id] == true)
+        Documentation : Yes <br> 
+      @else 
+      Documentation : No <br> 
+      @endif
+    @else
+    Documentation : No <br> 
+    @endif
+
 </div>

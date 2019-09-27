@@ -20,6 +20,7 @@ class CreateNursingProfilesTable extends Migration
             $table->text('website')->nullable();
             $table->string('gallery')->nullable();
             $table->text('feature')->nullable();
+            $table->string('method')->nullable();
             $table->text('business_entity')->nullable();
             $table->text('date_of_establishment')->nullable();
             $table->text('land_right_form')->nullable();

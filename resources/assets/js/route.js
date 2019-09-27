@@ -309,6 +309,4 @@ export const routes = [
     component: modal
   },
 
-
-
 ];

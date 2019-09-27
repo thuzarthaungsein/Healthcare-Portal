@@ -7,11 +7,9 @@
 
 
 require('./bootstrap');
-require('es6-promise/auto');
 // window.Vue = require('vue');
 
 // import App from './App.vue';
-// import 'es6-promise/auto';
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
@@ -85,3 +83,6 @@ const app = new Vue({
     // render: h => h(App),
 
 });
+/*start scrolltest*/
+/*end scrolltest*/
+

@@ -38,7 +38,7 @@
                                                                         class="img-responsive img_2 news_photo"
                                                                         >
                                                                 <p class="img_2">
-                                                                        {{newdetails.main_point}} <br> 
+                                                                        {{newdetails.main_point}} <br>
                                                                         <!-- <span><time datetime="2019-06-07">2019年6月7日</time></span> -->
                                                                 </p>
                                                                 <p class="img_2 header" style="font-size:22px;">もっと記事を見る</p>
@@ -49,7 +49,7 @@
                                                                         </router-link>
                                                                 </div>
 
-                                                        </div>                                
+                                                        </div>
                                                         <div class="row col-md-12 m-lr-0 m-t-15" style="border-top: 2px dashed #eee;">
                                                                 <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div>
                                                                 <div class="col-sm-3 col-md-3 m-t-15 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
