@@ -157,7 +157,17 @@ export default {
             //ads.photo=this.advertisement.photo
                 this.axios.post(`/api/advertisement/update/${this.$route.params.id}`, adsData)
                     .then((response) => {
-                          alert('Successfully Updated!')
+                         // alert('Successfully Updated!')
+                        this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '更新されました',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            width: 250,
+                            height: 200,
+
+                        })
                         this.$router.push({name: 'ads'});
                     });
             }

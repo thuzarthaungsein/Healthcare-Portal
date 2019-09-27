@@ -209,13 +209,23 @@ $('#save_value').click(function(){
 
         }
     }
-    function closebtn() {
-      if (confirm("Are you sure you want to delete?")) {
-          var image_x = document.getElementById("x-image");
-          image_x.parentNode.removeChild(image_x);
-          document.getElementById("showimage").style.display = "block";
-      }
-  }
+  //   function closebtn() {
+  //     this.$swal({
+  //       position: 'top-end',
+  //       type: 'success',
+  //       title: '更新されました',
+  //       showConfirmButton: false,
+  //       timer: 1500,
+  //       width: 250,
+  //       height: 200,
+
+  //   })
+        
+  //         var image_x = document.getElementById("x-image");
+  //         image_x.parentNode.removeChild(image_x);
+  //         document.getElementById("showimage").style.display = "block";
+      
+  // }
 
     // function closebtn(){
     //     if(confirm("Are you sure you want to delete?"))
@@ -407,7 +417,9 @@ $('#save_value').click(function(){
         image_x.parentNode.removeChild(image_x);
         document.getElementById('showimage').style.display = 'block';
     }
-}
+  }
+
+
 function showImg(c,event) {
   $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
 }
