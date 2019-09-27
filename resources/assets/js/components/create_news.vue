@@ -58,13 +58,13 @@
                                         {{category.name}}
                                     </option>
                                 </select>
-                                <span v-if="errors.category_id" class="error">{{errors.category_id[0]}}</span>
+                                <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
                             </div>
 
                             <div class="row col-md-12">
                                 <div class="col-md-4" v-for="news in related_news" :key="news.id">
                                     <label>
-                                        <input type="checkbox" :value="news.id" id="aaa" v-model="checkedNews">
+                                        <input type="checkbox" :value="news.id" v-model="checkedNews">
                                         <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
                                             <div class="card-body news-post">
                                                 <div class="row">
@@ -90,7 +90,7 @@
                         </form>
                     </div>
                 </div>
-                {{ categories }}
+                <!-- {{ categories }} -->
             </div>
         </div>
     </div>
@@ -121,7 +121,7 @@
                 }
             },
             created() {
-                axios.get('/api/category/category_list')
+                this.axios.get('/api/category/category_list')
                     .then(function(response) {
                         this.categories = response.data;
                     }.bind(this));
@@ -140,7 +140,7 @@
                         fData.append('body', this.news.body)
                         fData.append('category_id', this.news.category_id)
                         fData.append('related_news', this.checkedNews)
-                        axios.post('/api/new/add', fData)
+                        this.axios.post('/api/new/add', fData)
                             .then(response => {
                                 this.$router.push({
                                     name: 'news_list'
@@ -150,7 +150,6 @@
                     if(error.response.status == 422){
 
                         this.errors = error.response.data.errors
-
                     }
                 })
                     },
@@ -168,8 +167,3 @@
             }
     }
 </script>
-<style>
-/* #aaa {
-    display: none;
-} */
-</style>

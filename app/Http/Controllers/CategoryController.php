@@ -21,15 +21,13 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
 
      */
-
-
     // function __construct()
     // {
     //      $this->middleware('permission:role-list');
     //      $this->middleware('permission:role-create', ['only' => ['create','store']]);
     //      $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
     //      $this->middleware('permission:role-delete', ['only' => ['destroy']]);
-    // }
+    // }    
 
 
 
@@ -53,17 +51,17 @@ class CategoryController extends Controller
     //add category
     public function add(Request $request)
     {
-
+return $request;
         $request->validate([
             'name' => 'required|unique:categories',
 
         ]);
 
-        $category = new Category([
-            'name' => $request->input('name'),
-            'user_id' => 1,
-            'recordstatus' => 2
-        ]);
+        $category = new Category();
+        $category->name = $request->input('name');
+        $category->user_id = 1;
+        $category->recordstatus = 1;
+
         $category ->save();
         return $category;
 
@@ -83,7 +81,11 @@ class CategoryController extends Controller
 
         ]);
         $category = Category::find($id);
-        $category->update($request->all());
+        $category->name = $request->input('name');
+        $category->user_id = 1;
+        $category->recordstatus = 1;
+        $category -> save();
+        // $category->update($request->all());
 
         return response()->json('The Facility successfully updated');
     }
@@ -93,6 +95,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
         return response()->json('The Category successfully deleted');
+        
+        
     }
     public function create()
 

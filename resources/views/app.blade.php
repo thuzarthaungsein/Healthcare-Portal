@@ -25,14 +25,22 @@
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
 
+<!-- <script src="{{ asset('js/vue.js') }}"></script> -->
+
+
+
 
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script> -->
-
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyCNpeRgwCQoHIlLn-X8TIB9SnO8iLPt808&callback=initMap" async defer></script>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<script src="{{ asset('js/vue-scrollto.js') }}"></script>
+
+<!-- Include after Vue (before closing body) -->
+<script src="https://unpkg.com/vue-fullpage.js/dist/vue-fullpage.min.js"></script>
 
 <!-- Fonts -->
 
@@ -50,6 +58,10 @@
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+
+
 
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
 
@@ -140,20 +152,29 @@
 
                 </ul>
 
-                <ul class="navbar-nav pad-free pc">
+                <ul class="navbar-nav pad-free pc" id="headerbar">
 
                     <li class="fav-item fav-color btn all-btn m-r-10">
-                        <i class="fa fa-star m-r-5"> </i>&nbsp; 検討リスト
+                        <i class="fa fa-star m-r-5"> </i>&nbsp; お気に入り
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
-                        <span style="padding-right: 11px;">2件<br>病院</span>
-                        <span style="border-left: 1px solid #fff;padding-left: 11px;">5件<br>介護</span>
+                        <router-link to="/favouriteHospital">
+                            <span style="padding-right: 11px;float:right;">
+                            <span id="hos-fav-local"></span>&nbsp;件<br>病院</span>
+                        </router-link>
+                        <router-link to="/favouriteNursing">
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;float:right;"><span id="nus-fav-local"></span>&nbsp;件<br>介護</span>
+                        </router-link>
                         </p>
                     </li>
                     <li class="fav-item history-color btn all-btn m-r-10" >
                         <i class="fa fa-bookmark m-r-5"></i>&nbsp; 最近見た施設<!-- <span class="list">10</span>件<br>最近見た施設  -->
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
-                            <span style="padding-right: 11px;">10件<br>病院</span>
-                            <span style="border-left: 1px solid #fff;padding-left: 11px;">9件<br>介護</span>
+                        <router-link to="/hospital_history">
+                            <span style="padding-right: 11px;float:right;"><span id="hos-his-local"></span>&nbsp;件<br>病院</span>
+                        </router-link>
+                        <router-link to="/nursing_history">
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;float:right;"><span id="nus-his-local"></span>&nbsp;件<br>介護</span>
+                        </router-link>
                         </p>
                     </li>
                 </ul>
@@ -174,8 +195,8 @@
 
                 <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;カテゴ一覧</router-link></li>
 
-                <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;施設一覧</router-link></li>
-                <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Special Feature</router-link></li>
+                <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;&nbsp;施設一覧</router-link></li>
+                <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;特殊機能</router-link></li>
                 <li>
 
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link"><i class="fa fa-user-lock"></i>&nbsp;Pages</a>
@@ -184,7 +205,7 @@
 
                         <li>
 
-                            <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link>
+                            <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;事業者パスワードリセット</router-link>
 
                         </li>
 
@@ -447,12 +468,12 @@
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
 
-                    <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-list"></i>&nbsp;施設一覧</router-link></li>
-                    <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Special Feature</router-link></li>
+                    <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;施設一覧</router-link></li>
+                    <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;特殊機能</router-link></li>
                     <li>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link text-pre"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
-                            <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;User Password Reset</router-link></li>
+                            <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;事業者パスワードリセット</router-link></li>
                             <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者</router-link></li>
                         </ul>
                     </li>
@@ -528,9 +549,11 @@
                             <div class="container-fluid main-wrapper">
 
                                 <!--slider for ads-->
-
-                                <div class="col-md-auto pad-free">
-
+                                @if(Auth::check())
+                                    <div class="col-md-10 pad-free fixed-ads">
+                                @else
+                                    <div class="col-md-12 pad-free fixed-ads-fluid">
+                                @endif
                                     <!--jssor carousel-->
 
                                     <div id="jssor_1" class="jssor-slider">
@@ -591,7 +614,7 @@
 
 
 
-                                <div class="row justify-content-md-center">
+                                <div class="row justify-content-md-center p-t-130">
 
                                     <div class="col-12 col-lg-12 col-md-10 tab">
 
@@ -691,7 +714,7 @@
 
 </div>
 
-<script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+<script src="/js/app.js" type="text/javascript"></script>
 
   <!-- script for editor -->
 
@@ -725,7 +748,10 @@
 
  $(document).ready(function() {
 
-
+    $("#hos-his-local").html(localStorage.getItem("hospital_history").split(",").length);
+    $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
+    $("#hos-fav-local").html(localStorage.getItem("hospital_fav").split(",").length);
+    $("#nus-fav-local").html(localStorage.getItem("nursing_fav").split(",").length);
 
     $('.DataTable').DataTable();
     var csrf = "{{ csrf_token() }}";

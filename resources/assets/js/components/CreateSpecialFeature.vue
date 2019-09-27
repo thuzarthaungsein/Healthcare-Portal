@@ -17,14 +17,14 @@
                             </div>
                             <div class="form-group">
                                 <label>Feature Short Name :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="feature.short_name"  placeholder="Feature Short Name" >
+                                <input type="text" class="form-control" v-model="feature.short_name"  placeholder="Feature Short Name" >
                                  <span v-if="errors.short_name" class="error">{{errors.short_name[0]}}</span>
                             </div>
                             <div class="form_group">
                                 <select v-model="selectedValue" name="type" class="form-control" @change="onChange()">
                                         <option value="選択してください">選択してください。</option>
                                         <option value="病院">病院</option>
-                                        <option value="看護">看護</option>
+                                        <option value="介護施設">介護施設</option>
 
                                 </select>
                             </div> <br/>
@@ -52,34 +52,36 @@ export default {
                         name: '',
                         short_name:'',
                         type:'',
-                        user_id:'',
-                        recordstatus: ''
                     },
-                    // selectedValue:0
+                    selectedValue:'選択してください'
             }
         },
           created() {
-            this.axios
-                .get(`/api/feature/edit/${this.$route.params.id}`)
-                .then((response) => {
+              if(this.$route.params.id){
+                  this.axios
+                    .get(`/api/feature/edit/${this.$route.params.id}`)
+                    .then((response) => {
 
                     this.feature = response.data;
                     if(this.feature.type == '病院')
                     {
                         this.selectedValue = '病院';
                     }
-                    else if (this.feature.type == '看護') {
-                        this.selectedValue = '看護';
+                    else if (this.feature.type == '介護施設') {
+                        this.selectedValue = '介護施設';
                     }else {
                         this.selectedValue='選択してください'
                     }
 
                 });
+              }
         },
 
 
          methods: {
             add() {
+                console.log("add");
+                console.log(this.feature);
                   if( `${this.$route.params.id}` == "undefined")
                   {
                             axios.post('/api/feature/add', this.feature)
@@ -87,7 +89,8 @@ export default {
                          this.name = ''
                          this.short_name=''
                          this.type=''
-                    alert('Successfully Created')
+                         console.log(response);
+                    alert('Successfully Created');
                      this.$router.push({name: 'featurelist'});
                     }).catch(error=>{
 
@@ -105,6 +108,7 @@ export default {
             onChange: function(){
 
                this.feature.type = this.selectedValue;
+               console.log(this.feature);
 
            },
             updateFeature() {

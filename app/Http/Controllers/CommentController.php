@@ -12,8 +12,10 @@ class CommentController extends Controller
     protected $zipcode;
     public function index()
     {
-         $comment =Comment::all()->toArray();
-         return array_reverse($comment);
+        //$comment =Comment::all()->toArray();
+        $comment = Comment::where('id',2)->get();
+         return $comment;
+         //return array_reverse($comment);
     }
 
 
@@ -25,36 +27,57 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
-       
+
         // $request->validate([
         //     'title' => 'required',
         //     'comment' =>'required',
-        //     'email' => 'required|email',  
+        //     'email' => 'required|email',
         //     'fzipcode' => 'required|numeric',
-        //     'lzipcode' => 'required|numeric', 
+        //     'lzipcode' => 'required|numeric',
         // ],[
         //     'fzipcode.required' => 'First zipcode is required',
         //     'lzipcode.required' => 'Second zipcode is required'
         // ]);
-     
 
-    
-        $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
-           
-        $comment = new Comment ([
-
-            'title' => $request->input('title'),
-            'comment' => $request->input('comment'),
-            'email' => $request->input('email'),
-            'name' =>  $request->input('name'),
-            'year' => $request->input('year'),
-            'gender' => $request->input('gender'),
-            'zipcode' =>  $zipcode,
-            'customer_id' => 1,
-            'status' => 0,
-            'recordstatus' => 2
+        $request->validate([
+            'title' => 'required',
+            'comment' =>'required',
+            'email' => 'required|email',
 
         ]);
+
+
+
+
+
+        $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
+
+        // $comment = new Comment ([
+
+        //     'title' => $request->input('title'),
+        //     'comment' => $request->input('comment'),
+        //     'email' => $request->input('email'),
+        //     'name' =>  $request->input('name'),
+        //     'year' => $request->input('year'),
+        //     'gender' => $request->input('gender'),
+        //     'zipcode' =>  $zipcode,
+        //     'customer_id' => 1,
+        //     'status' => 0,
+        //     'recordstatus' => 2
+
+        // ]);
+
+        $comment = new Comment();
+        $comment->title = $request->input('title');
+        $comment->comment = $request->input('comment');
+        $comment->email = $request->input('email');
+        $comment->name =  $request->input('name');
+        $comment->year = $request->input('year');
+        $comment->gender = $request->input('gender');
+        $comment->zipcode = $zipcode;
+        $comment->customer_id = 1;
+        $comment->status = 0;
+        $comment->recordstatus = 1;
         $comment ->save();
 
         $getComment = Comment::findOrFail($comment->id);
