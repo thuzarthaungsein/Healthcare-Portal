@@ -1522,9 +1522,16 @@ ol.sub-ol li, ul.sub-ul li {
 .m-t-71 {
     margin-top: 71px;
 }
+.m-t-0{
+    margin-top:0px;
+}
 
 .m-t-8 {
     margin-top: 8px;
+}
+.m-t-39
+{
+    margin-top: 39px;
 }
 
 .m-lr-0 {
@@ -5210,10 +5217,19 @@ border-bottom: 0;
 
 /* end one page */
 
-/*danger*/
-.sp1{
-    border:.5px solid red;
-    font-size: 11px;
-    padding: 2px;
+/*required*/
+.sp1 {
+    border: none;
+    padding: 2px 5px;
+    background: #f55e5e;
+    color: white;
+    content: '必須';
+    border-radius: 3px;
+    /* font-weight: normal; */
+    font-size: 0.9em;
 }
-/*danger*/
+
+.jt1
+{
+    background-color: #b7dad2;
+}
