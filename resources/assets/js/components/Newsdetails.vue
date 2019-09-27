@@ -2,7 +2,7 @@
   <div>
     <!-- news details-->
     <!--menu tabs-->
-    <ul class="nav nav-tabs card-head-tabs" role="tablist">
+    <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
       <li role="presentation" class="active subtab1 nav-item">
         <a href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
           <i class="fas fa-newspaper"></i> ニュース
@@ -10,17 +10,17 @@
       </li>
       <li role="presentation" class="subtab2 nav-item">
         <a href="#tab2" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-briefcase-medical"></i> 病院検索
+          <i class="fas fa-briefcase-medical"></i> 病院
         </a>
       </li>
       <li role="presentation" class="subtab3 nav-item">
         <a href="#tab3" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-user-md"></i> 介護検索
+          <i class="fas fa-user-md"></i> 介護
         </a>
       </li>
       <li role="presentation" class="subtab5 nav-item">
         <a href="#tab4" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-users"></i> 求人検索
+          <i class="fas fa-users"></i> 求人
         </a>
       </li>
     </ul>
@@ -62,10 +62,10 @@
                 <p class="img_2">
                   {{newdetails.main_point}}
                   <br />
-                  
+
                 </p>
                 <p class="img_2 header" style="font-size:22px;">もっと記事を見る</p>
-                
+
                 <div
                   class="col-sm-12 pad-free"
                   v-for="latest_new in latest_news"

@@ -9,7 +9,7 @@
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="first_name" placeholder="トラスト　太郎" v-model="jobApply.first_name"  >
                 <div v-if="errors.first_name" class="text-danger">{{ errors.first_name }}</div>
-            </div>    
+            </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
@@ -33,9 +33,15 @@
                 <label for ="gender"  ><strong> 性別 <span class="error sp1">必須</span></strong>   </label>
             </div>
             <div class="col-sm-9">
+<<<<<<< HEAD
                 <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Male"  > 女性 </label>
                 <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Female" > 男性 </label>
             </div>    
+=======
+                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="0"  > 女性 </label>
+                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="1" > 男性 </label>
+            </div>
+>>>>>>> 20fa75a2aaa0ccf65e3422a30f5cb08a1a077228
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
@@ -121,7 +127,7 @@
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.first_name }} </span>
-                </div>    
+                </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
@@ -144,9 +150,15 @@
                     <label for ="gender"  ><strong> 性別 : </strong>   </label>
                 </div>
                 <div class="col-sm-9">
+<<<<<<< HEAD
                     <span v-if="jobApply.gender == 'Male'">女性</span>
                     <span v-if="jobApply.gender == 'Female'">男性</span>
                 </div>    
+=======
+                    <span v-if="jobApply.gender == 0">女性</span>
+                    <span v-if="jobApply.gender == 1">男性</span>
+                </div>
+>>>>>>> 20fa75a2aaa0ccf65e3422a30f5cb08a1a077228
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
