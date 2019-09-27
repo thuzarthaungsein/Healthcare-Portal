@@ -115,7 +115,7 @@
                                         <label>プレゼントのご希望:<span class="error sp1">必須</span></label>
                                         <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
                                     </div>
-                                    <button type="button" class="submit1 btn btn-primary continue m-l-15 m-t-15" @click="add()" disabled>同意して進む</button>
+                                    <button type="button" class="submit1 btn btn-primary continue m-l-15 m-t-15" @click="add()" :disabled="isdisable">同意して進む</button>
 
                                     <!--next_form-->
                                     <div class="m-t-30">
@@ -313,18 +313,17 @@
                 city_list: [],
                 post: '',
                 selectedCity: '',
-                zipStreet: '',
-                zipPref: '',
                 all_mail: [],
                 bk_data: [],
                 bk_postal: 0,
                 reservation: [],
-                documentation: []
+                documentation: [],
+                btn_disable: false
             }
         },
         computed: {
-            isComplete () {
-                return this.username && this.password && this.email;
+            isdisable:function() {
+                return this.btn_disable;
             }
         },
         created() {
@@ -339,11 +338,9 @@
                     this.city_list = response.data;
                 });
             if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
-                    $('.submit1').prop('disabled', true);
-                    $('.submit2').prop('disabled', true);
+                    this.btn_disable=false;
                 }else{
-                    $('.submit1').prop('disabled', false);
-                     $('.submit2').prop('disabled', false);
+                    this.btn_disable=true;
                 }
         },
         methods: {
@@ -391,11 +388,9 @@
             },
             someHandler: function(){
                 if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
-                    $('.submit1').prop('disabled',false);
-                    $('.submit2').prop('disabled',false);
+                    this.btn_disable=false;
                 }else{
-                    $('.submit1').prop('disabled', true);
-                     $('.submit2').prop('disabled', true);
+                    this.btn_disable=true;
                 }
             },
         }

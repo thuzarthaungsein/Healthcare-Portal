@@ -8,7 +8,7 @@
                             <li class="breadcrumb-item">
                                 <a href="/">ホーム</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
+                            <li class="breadcrumb-item active" aria-current="page">介護のお気に入り</li>
                         </ol>
                     </nav>
                     <div class="select_all">
@@ -25,8 +25,8 @@
                 <a href="#">{{nur_profile.name}}</a>
               </h5>
                             <div class="col-lg-2 col-md-12 mb-5">
-                                <div class="hos-img">
-                                    <img class="col-md-12" v-bind:src="'/images/' + nur_profile.logo" alt style />
+                                <div class="hos-img list-logo">
+                                    <img v-bind:src="'/images/' + nur_profile.logo" alt style />
                                 </div>
                                 <button class="btn btn-danger all-btn hos-btn" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
                                 <div class="row mt-2">
@@ -121,6 +121,8 @@
         </div>
     </div>
 </template>
+
+
 
 <script>
     export default {

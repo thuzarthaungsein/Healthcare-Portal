@@ -25,8 +25,6 @@ class CreateJobAppliesTable extends Migration
             $table->string('home_address');
             $table->string('phone');
             $table->string('email');
-            $table->string('qualification');
-            $table->string('workable_days');
             $table->string('skill');
             $table->text('remark');
             $table->timestamps();

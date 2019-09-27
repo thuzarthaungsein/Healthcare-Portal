@@ -2,11 +2,11 @@
         <div>
                 <!-- news details-->
                 <!--menu tabs-->
-                <ul class="nav nav-tabs card-head-tabs" role="tablist">
-                <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-newspaper"></i> ニュース</a></li>
-                <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-                <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
-                <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
+                <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
+                        <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-newspaper"></i> ニュース</a></li>
+                        <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+                        <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
+                        <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
                 </ul>
                 <!--end menu tabs-->
 
@@ -29,27 +29,36 @@
                                                                 <h4 class="h_4 header">{{newdetails.title}}</h4>
                                                                 <p class="set-date"><small style="color:#aaa;"><i class="fa fa-calendar-alt"></i> &nbsp;&nbsp;{{newdetails.created_at}}</small></p>
                                                         </div>
-                                                        <div class="col-md-8">
-                                                                <p class="p5">{{newdetails.body}}</p>
+                                                        <div class="col-12 detail-subwrapper">
+                                                                <img
+                                                                        :src="'/upload/news/'+ newdetails.photo"
+                                                                        class="img-responsive img_2 news_photo detail-image"
+                                                                        >
+                                                                <span id="overview-text">
+                                                                        {{newdetails.body}}
+                                                                </span>
                                                         </div>
-                                                        <div class="col-md-4 mt-2 related-area" >
+                                                        <!-- <div class="col-md-8">
+                                                                <p class="p5">{{newdetails.body}}</p>
+                                                        </div> -->
+                                                        <!-- <div class="col-md-4 mt-2 related-area" >
                                                                 <img
                                                                         :src="'/upload/news/'+ newdetails.photo"
                                                                         class="img-responsive img_2 news_photo"
                                                                         >
                                                                 <p class="img_2">
                                                                         {{newdetails.main_point}} <br> 
-                                                                        <!-- <span><time datetime="2019-06-07">2019年6月7日</time></span> -->
+                                                                      
                                                                 </p>
-                                                                <p class="img_2 header" style="font-size:22px;">もっと記事を見る</p>
+                                                                <p class="img_2 header" style="font-size:22px;">もっと記事を見る</p> -->
                                                                 <!-- 関連ニュース -->
-                                                                <div class="col-sm-12 pad-free" v-for="latest_new in latest_news" :key="latest_new.id">
+                                                                <!-- <div class="col-sm-12 pad-free" v-for="latest_new in latest_news" :key="latest_new.id">
                                                                         <router-link :to="'/newsdetails/'+ latest_new.id">
                                                                                 <span>{{ latest_new.main_point }}</span>
                                                                         </router-link>
                                                                 </div>
 
-                                                        </div>                                
+                                                        </div>                                 -->
                                                         <div class="row col-md-12 m-lr-0 m-t-15" style="border-top: 2px dashed #eee;">
                                                                 <div class="row col-md-12 text-center m-lr-0"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div>
                                                                 <div class="col-sm-3 col-md-3 m-t-15 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">

@@ -30,17 +30,21 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api end
 
-// login route api sta rt
+// login route api start
 Route::group(['middleware' => ['auth:api']], function() {
 
+    Route::group(['prefix' => 'nusprofile'], function () {
     Route::get('approve/{id}','registerController@approve');
     Route::get('nusfacilities', 'ProfilePublishController@index');
-    Route::get('cooperatemedical', 'ProfilePublishController@getcooperatemedical');
-    Route::get('medicalacceptance', 'ProfilePublishController@getmedicalacceptance');
-    Route::get('staff', 'ProfilePublishController@getstaff');
-    Route::get('google', 'ProfilePublishController@getGoogleMap');
-
-
+    Route::get('cooperatemedical', 'ProfilePublishController@index');
+    Route::get('medicalacceptance', 'ProfilePublishController@index');
+    Route::get('staff', 'ProfilePublishController@index');
+    Route::get('googlefornurse', 'ProfilePublishController@index');
+    Route::get('googleforhospital', 'ProfilePublishController@index');
+    Route::get('feature','ProfilePublishController@index');
+    Route::get('cost','ProfilePublishController@index');
+    Route::get('hospital','ProfilePublishController@hospital');
+});
 
     // Category
     Route::group(['prefix' => 'category'], function () {
@@ -181,6 +185,13 @@ Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerI
 Route::get('customerinfo/{id}','CustomerController@edit');
 Route::get('nursinginfo/{id}','NursingProfileController@edit');
 Route::get('staffinfo/{id}', 'ProfilePublishController@getStaffbyCustomerId');
+Route::post('nursing/galleryupdate/{id}', 'NursingProfileController@galleryupdate');
+Route::post('nursing/cooperate/{id}', 'NursingProfileController@cooperateupdate');
+Route::post('nursing/paymentmethod/{id}', 'NursingProfileController@paymentupdate');
+Route::post('nursing/profile/{id}', 'NursingProfileController@profileupdate');
+Route::post('customer/profile/{id}', 'NursingProfileController@Customerprofileupdate');
+Route::post('staff/profile/{id}', 'NursingProfileController@Staffprofileupdate');
+Route::post('acceptance/transition/{id}', 'NursingProfileController@AcceptanceTransition');
 
 // Home Page
 Route::get('home', 'HomeController@index');
@@ -239,8 +250,6 @@ Route::group(['prefix' => 'nurse'], function () {
 Route::group(['prefix' => 'new'], function () {
     Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
-Route::get('nurse','ProfilePublishController@index');
-Route::get('cost','ProfilePublishController@show');
 // Route::group(['prefix' => 'new'], function () {
 //     Route::post('add', 'PostController@add');
 //     Route::get('editPost/{id}', 'PostController@edit');

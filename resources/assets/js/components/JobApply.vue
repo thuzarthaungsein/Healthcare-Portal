@@ -80,22 +80,6 @@
                 <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-sm-3">
-                <label for ="qualification"  ><strong>保有資格 : </strong>  </label>
-            </div>
-            <div class="col-sm-9">
-                <input type="text" class="form-control box" id="qualification" v-model="jobApply.qualification"  >
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-3">
-                <label for ="workable_day"  ><strong>就業可能日数 </strong>  </label>
-            </div>
-            <div class="col-sm-9">
-                <input type="text" class="form-control box" id="workable_day" v-model="jobApply.workable_day"  >
-            </div>
-        </div>
         <!-- <div class="form-group row">
             <div class="col-sm-3">
                 <label for ="skill"  ><strong>Skill : </strong>  </label>
@@ -118,7 +102,8 @@
                 <label for ="terms"  ><strong> 個人情報について : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
             </div>
             <div class="col-sm-9">
-                <label> <input type="checkbox" v-model="jobApply.terms"> 契約条件に同意します。 </label>
+                <label for=""><router-link to="/termsAndConditions" > 「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。</label>
+                <label> <input type="checkbox" v-model="jobApply.terms"> 同意する </label>
                 <div v-if="errors.terms" class="text-danger">{{ errors.terms }}</div>
             </div>
         </div>
@@ -203,30 +188,14 @@
                     <span>{{ jobApply.email }} </span>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-sm-3">
-                    <label for ="qualification"  ><strong>Qualification : </strong>  </label>
-                </div>
-                <div class="col-sm-9">
-                    <span>{{ jobApply.qualification }} </span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-3">
-                    <label for ="workable_day"  ><strong>Workable Days : </strong>  </label>
-                </div>
-                <div class="col-sm-9">
-                    <span>{{ jobApply.workable_day }} </span>
-                </div>
-            </div>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <div class="col-sm-3">
                     <label for ="skill"  ><strong>Skill : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.skill }} </span>
                 </div>
-            </div>
+            </div> -->
             <div class="form-group row">
                 <div class="col-sm-3">
                     <label for ="remark"  ><strong>Remark : </strong>  </label>
@@ -274,8 +243,6 @@ export default {
                         home_address: '',
                         phone:'',
                         email:'',
-                        qualification: '',
-                        workable_day:'',
                         skills:[],
                         remark: '',
                         terms: false
@@ -319,7 +286,7 @@ export default {
                             if (length > 0) {
                                 var pref = post_data[0]['city_id'];
                                 if (post_data[0]['street'] == '') {
-                                    this.jobApply.str_address = post_data[0]['city'];
+                                    this.jobApply.str_address = post_data[0]['pref'] + ' - ' + post_data[0]['city'];
                                 } else {
                                     this.jobApply.str_address = post_data[0]['pref'] + ' - ' + post_data[0]['city'] + ' - ' + post_data[0]['street'];
                                 }
@@ -331,7 +298,6 @@ export default {
                 }
             },
             apply() {
-                console.log(this.jobApply);
                 this.axios.post('/api/jobapply',this.jobApply)
                     .then((response) => {
                     alert('Successful Apply');
