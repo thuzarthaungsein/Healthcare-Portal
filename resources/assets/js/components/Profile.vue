@@ -11,7 +11,7 @@
                         </li>
                     
                          <li role="presentation" class="subtab2 nav-item">
-                        <label for="nursing" class="typelabel nav-link" id="nursing-lbl">
+                        <label for="nursing" class="typelabel dim-btn nav-link" id="nursing-lbl">
                                 <i class="fas fa-id-badge"></i>
                                 <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> View
                         </label>

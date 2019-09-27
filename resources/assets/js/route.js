@@ -170,6 +170,11 @@ export const routes = [
         component: JobOfferList
     },
     {
+        name: "joboffercreate",
+        path: "/joboffercreate",
+        component: joboffercreate
+    },
+    {
         name: "profilepublish",
         path: "/profilepublish",
         component: ProfilePublish
