@@ -21,7 +21,7 @@
                                     <div class="row" id ="gallery-photo">
                                             <div class="col-md-12 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                                                 <div class="col-md-3">
-                                                                        <input type="file" name="" class=" m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
+                                                                        <input type="file" name="" class="nursing-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
                                                                         <div class="col-md-12" v-bind:class="img.classname">
                                                                                 <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
                                                                         </div>
@@ -503,7 +503,7 @@ export default {
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
                 id:1, profile_type:'nursing',
-                profile_arr:[],staf_info:[],customer_info:[], test:[],
+                profile_arr:[],staf_info:[],customer_info:[], test:'',
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -616,6 +616,7 @@ export default {
             preview_image(img_class) {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
                 this.test = event.target.files[0]
+                //console.log(this.test);return;
             },
 
             DeltArr(indx,type) {
@@ -630,7 +631,7 @@ export default {
                                     arr_list.splice(indx,1);
                                     var ele = document.getElementById(type+indx);
                                     var parentEle = document.getElementById('gallery-'+type);
-                                    parentEle.removeChild(ele);
+                                    parentEle.removeChild(ele);          
                             }
                     }
                     
@@ -719,8 +720,10 @@ export default {
 
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
-                        // var pname= img[i].getElementsByClassName('hospital-image')[0].src.split('hospital_profile/');
-                        this.img_list.push({type:"photo",photo:this.test,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+
+                        var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
+                        var file_name = file.name;
+                        this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
                 //console.log(this.img_list);
 
@@ -761,7 +764,7 @@ export default {
               
 
                var chek_feature=[];
-               var special_features ;
+               var special_features;
         
                 $.each($("input[name='special-features']:checked"), function(){ 
                         var i = i+ 0;
