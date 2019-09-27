@@ -23,7 +23,8 @@
                                                                 <div class="col-md-3">
                                                                         <input type="file" name="" class="nursing-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
                                                                         <div class="col-md-12" v-bind:class="img.classname">
-                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
+                                                                                <input type="hidden" class="already-photo" v-model="img.photo">
+                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo">
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-md-9">
@@ -722,7 +723,11 @@ export default {
                 for(var i = 0; i< img.length; i++) {
 
                         var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
-                        var file_name = file.name;
+                        if(file) {
+                                var file_name = file.name;
+                        } else {
+                                var file_name = img[i].getElementsByClassName('already-photo')[0].value;
+                        }
                         this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
                 //console.log(this.img_list);
