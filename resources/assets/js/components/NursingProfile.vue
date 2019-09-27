@@ -424,6 +424,11 @@
                             </td>
                         </tr>
 
+                        <div class="form-group">
+                            <label class="heading-lbl">公式サイト</label>
+                            <input type="text" name="official-website" class="form-control website" v-model="nursing_info.website">
+                    </div>
+
                         <tr>
                             <td>
                                 <label class="heading-lbl">地図</label>
@@ -498,7 +503,7 @@ export default {
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
                 id:1, profile_type:'nursing',
-                profile_arr:[],staf_info:[],cust_info:[], test:[],
+                profile_arr:[],staf_info:[],customer_info:[], test:[],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -671,6 +676,7 @@ export default {
                 this.video_list = [];
                 this.cooperate_list = [];
                 this.payment_list = [];
+                this.customer_info = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
@@ -705,7 +711,7 @@ export default {
                 var num_staff = $('.num-staff').text();
                 var nursing_remarks = $('.nursing-remarks').text();
 
-                this.cust_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
+                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
                 this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:nursing_remarks});
             
@@ -762,7 +768,7 @@ export default {
                 });
                 special_features = chek_feature.join(',');
                
-                this.profile_arr.push({access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:acceptance_remark,latitude:latitude,longitude:longitude});
 
@@ -783,80 +789,81 @@ export default {
                         }
                 }) ;
 
-                // this.axios
-                //         .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
-                //         .then((response) => {
-                //         alert('Successfully Updated!')
-                //         }).catch(error=>{
+                this.axios
+                        .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
 
-                //         if(error.response.status == 422){
+                        if(error.response.status == 422){
 
-                //         this.errors = error.response.data.errors
+                        this.errors = error.response.data.errors
 
-                //         }
-                // }) ;
+                        }
+                }) ;
 
-                // this.axios
-                //         .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
-                //         .then((response) => {
-                //         alert('Successfully Updated!')
-                //         }).catch(error=>{
+                this.axios
+                        .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
 
-                //         if(error.response.status == 422){
+                        if(error.response.status == 422){
 
-                //         this.errors = error.response.data.errors
+                        this.errors = error.response.data.errors
 
-                //         }
-                // }) ;
+                        }
+                }) ;
 
-                // this.axios
-                //         .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
-                //         .then((response) => {
+                this.axios
+                        .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
+                        .then((response) => {
                        
-                //         }).catch(error=>{
+                        }).catch(error=>{
 
-                //         if(error.response.status == 422){
+                        if(error.response.status == 422){
 
-                //         this.errors = error.response.data.errors
+                        this.errors = error.response.data.errors
 
-                //         }
-                // }) ;
+                        }
+                }) ;
 
-                // this.axios
-                //         .post(`/api/customer/profile/${this.id}`,this.customer_info)
-                //         .then((response) => {
-                //         alert('Successfully Updated!')
-                //         }).catch(error=>{
+              // check
+                this.axios
+                        .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
 
-                //         if(error.response.status == 422){
+                        if(error.response.status == 422){
 
-                //         this.errors = error.response.data.errors
+                        this.errors = error.response.data.errors
 
-                //         }
-                // }) ;
+                        }
+                }) ;
 
-                // this.axios
-                //         .post(`/api/staff/profile/${this.id}`,this.staf_info)
-                //         .then((response) => {
-                //         alert('Successfully Updated!')
-                //         }).catch(error=>{
+                this.axios
+                        .post(`/api/staff/profile/${this.id}`,this.staf_info)
+                        .then((response) => {
+                        alert('Successfully Updated!')
+                        }).catch(error=>{
 
-                //         if(error.response.status == 422){
+                        if(error.response.status == 422){
 
-                //         this.errors = error.response.data.errors
+                        this.errors = error.response.data.errors
 
-                //         }
-                // }) ;
+                        }
+                }) ;
 
-                // this.axios
-                //         .post(`/api/acceptance/transition/${this.id}`,this.acceptance)
-                //         .then((response) => {
+                this.axios
+                        .post(`/api/acceptance/transition/${this.id}`,this.acceptance)
+                        .then((response) => {
                       
-                //         }).catch(error=>{
-                //                 if(error.response.status == 422) {
-                //                         this.errors = error.response.data.errors
-                //                 }
-                //         }) ;
+                        }).catch(error=>{
+                                if(error.response.status == 422) {
+                                        this.errors = error.response.data.errors
+                                }
+                        }) ;
                 }
         }
 }
