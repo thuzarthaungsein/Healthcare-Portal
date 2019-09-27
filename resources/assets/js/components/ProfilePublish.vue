@@ -649,6 +649,7 @@
           } else {
             $(".readMore").text("ReadMore");
             $(".displaytext").slideUp();
+            $('.showContent').css("display", "block");
           }
 
             }
