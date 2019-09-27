@@ -1608,9 +1608,16 @@ ol.sub-ol li, ul.sub-ul li {
 .m-t-71 {
     margin-top: 71px;
 }
+.m-t-0{
+    margin-top:0px;
+}
 
 .m-t-8 {
     margin-top: 8px;
+}
+.m-t-39
+{
+    margin-top: 39px;
 }
 
 .m-lr-0 {
@@ -5084,10 +5091,17 @@ screen and (min-width: 750px) {
 
 /* end one page */
 
-/*danger*/
-.sp1{
-    border:.5px solid red;
-    font-size: 11px;
+/*required*/
+.sp1 {
+    border: none;
+    font-size: 8px;
     padding: 2px;
+    background: red;
+    color: white;
+    content: '必須';
 }
-/*danger*/
+
+.jt1
+{
+    background-color: #b7dad2;
+}
