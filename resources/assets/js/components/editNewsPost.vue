@@ -86,6 +86,7 @@
                     </div>
                 </div>
             </div>
+            <pre>{{ news.photo }}</pre>
         </div>
     </div>
 </template>

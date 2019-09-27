@@ -62,10 +62,10 @@
                 <p class="img_2">
                   {{newdetails.main_point}}
                   <br />
-                  
+
                 </p>
                 <p class="img_2 header" style="font-size:22px;">もっと記事を見る</p>
-                
+
                 <div
                   class="col-sm-12 pad-free"
                   v-for="latest_new in latest_news"

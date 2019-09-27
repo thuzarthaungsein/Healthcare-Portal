@@ -38,9 +38,10 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::get('nursing','ProfilePublishController@index');
     Route::get('hospital','ProfilePublishController@index');
     Route::get('specialfeature','ProfilePublishController@getSpecialfeature');
+    Route::get('hospitalspecialfeature','ProfilePublishController@getSpecialhospital');
     Route::get('comment','ProfilePublishController@getComment');
     Route::get('customer','ProfilePublishController@getCustomer');
-    
+
 });
 
     // Category

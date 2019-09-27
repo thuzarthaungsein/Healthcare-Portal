@@ -23,8 +23,8 @@
             <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn">
                 Job Offer
             </button>
-            </div>    
-      
+            </div>
+
             <div class="row m-lr-0 ele" id="element1">
              <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
                 <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
@@ -141,8 +141,8 @@
                          </div>
                     </div>
           </div>
-            
-            <div class="row ele m-lr-0" id="element4">            
+
+            <div class="row ele m-lr-0" id="element4">
                 <div class="row" >
                             <div class="col-md-12">
                             <h2 align="center"> Facility </h2>
@@ -215,8 +215,8 @@
                                 </table>
                             </div>
                         </div>
-                        
-                        
+
+
                         <div class="row" style="width: 100%;" >
                             <div class="col-md-12">
                             <h2 align="center"> Cooperate Medical </h2>
@@ -240,7 +240,7 @@
                                 </table>
                             </div>
                         </div>
-                 
+
                         <div class="row" >
                             <div class="col-md-12">
                             <h2 align="center"> Medical Acceptance </h2>
@@ -254,17 +254,17 @@
                                             <i v-if="ma.name === maccept.name && ma.accept_type === 'negotiable'" class="fas fa-adjust blue"></i>
                                     </div>
                                     {{maccept.name}}
-    
+
                                 </div>
-                                
-                            </div> 
+
+                            </div>
                         </div>
                         <div class="row col-md-12 float: right" style="display: flex; justify-content: flex-end" >
                             <label for="" class="m-r-15"><i class="fas fa-check green"></i> 受入れ可</label>
                             <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
                             <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
                         </div>
-                    
+
                         <div class="row" style="width:100%">
                             <div class="col-md-12">
                             <h2 align="center"> Staff </h2>
@@ -291,10 +291,10 @@
                             </div>
                         </div>
                     </div>
-                    
-                
-            <div class="row ele m-lr-0" id="element5">            
-                
+
+
+            <div class="row ele m-lr-0" id="element5">
+
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
                             <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="false" @click="center=m.position" />
@@ -322,11 +322,11 @@
                                 {{m.address}}
                             </div>
                         </div>
-                    </div>     
+                    </div>
 
-                
+
             </div>
-             
+
             <div class="row ele m-lr-0" id="element6">
                <h5 class="header">Review</h5>
               <div class="row" v-for="comment in comments" :key="comment.id">
@@ -342,16 +342,16 @@
                     <div class="row col-md-12 m-lr-0">
                         <p class="showContent"> {{comment.comment}}</p>
                             <span class="displaytext">{{comment.comment}}</span>
-                                <a class="mt-2 readMore" href ="#">続きを読む</a>
+                                <a class="mt-2 readMore" @click="review()" href ="#">ReadMore</a>
 
                     </div>
 
                 </div>
           </div>
-             
-            <div class="ele m-lr-0" id="element7">    
+
+            <div class="ele m-lr-0" id="element7">
                 <joboffer profile="profile"></joboffer>
-                
+
             </div>
       </div>
       <div v-if="type == 'hospital'">
@@ -369,13 +369,44 @@
                 Job Offer
             </button>
             </div>
-            <div class="row ele m-lr-0" id="element1"> 
-                <h1>element1 for hospital</h1>
+            <div class="row ele m-lr-0" id="element1">
+                <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
+                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
+                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
+                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Phone :</strong></p></div>
+                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
             </div>
-            <div class="row ele m-lr-0" id="element2"> 
-                <h1>element1 for hospital</h1>
+
+             <h5 class="header">special Features</h5>
+                <div class="row m-lr-0">
+                    <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
+                        <li>{{special.short_name}}</li>
+                    </ul>
+                </div>
             </div>
-            <div class="row ele m-lr-0" id="element3"> 
+            <div class="row ele m-lr-0" id="element2">
+
+                <h5 class="header">Review</h5>
+              <div class="row" v-for="comment in comments" :key="comment.id">
+                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
+                                     <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
+                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
+                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                        <br/><br/>
+                                      <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
+                                         <div class="content hideContent">{{comment.comment}}</div>
+                                     </div> -->
+                                     <!-- <button onclick="function()">See more</button> -->
+                    <div class="row col-md-12 m-lr-0">
+                        <p class="showContent"> {{comment.comment}}</p>
+                            <span class="displaytext">{{comment.comment}}</span>
+                                <a class="mt-2 readMore" @click="review()" href ="#">ReadMore</a>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="row ele m-lr-0" id="element3">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                             <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
                             <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
@@ -409,14 +440,14 @@
                                 {{m.address}}
                             </div>
                         </div>
-                    </div>    
+                    </div>
             </div>
-            <div class="ele m-lr-0" id="element4">    
+            <div class="ele m-lr-0" id="element4">
                 <joboffer profile="profile"></joboffer>
-                
+
             </div>
-      </div>      
-    
+      </div>
+
 
   </div>
 </template>
@@ -424,8 +455,8 @@
 
 <script>
  import joboffer from './JobSearchListComponent.vue'
- export default { 
-   
+ export default {
+
       components:{
                     joboffer
                 },
@@ -433,7 +464,7 @@
   data() {
             var that = this;
             return {
-              
+
                 markers: [
                     { position: { lat: 0, lng: 0 } },
                 ],
@@ -492,16 +523,16 @@
                 ],
             };
         },
-    
+
         created(){
-          
-          
+
+
             if(this.type == "nursing")
             {
-            
 
-                this.axios.get('/api/profile/nursing') .then(response => { 
-                 
+
+                this.axios.get('/api/profile/nursing') .then(response => {
+
                     this.nursing_profiles = response.data.feature;
                     this.method_payment = response.data.cost;
                     this.nusfacilities = response.data.facility;
@@ -514,51 +545,53 @@
                     this.markers[0]['position']['lng']  = response.data.nurselatlong[0]['longitude'];
                     this.center['lat'] = response.data.nurselatlong[0]['latitude'];
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
-                  
-                 
+
+
                 });
-                
-                this.axios.get('/api/profile/specialfeature') .then(response => { 
+
+                this.axios.get('/api/profile/specialfeature') .then(response => {
                     this.specialfeature = response.data;
                 });
 
-                  this.axios.get('/api/profile/comment') .then(response => { 
+                  this.axios.get('/api/profile/comment') .then(response => {
                       this.comments = response.data;
                 });
 
-                  this.axios.get('/api/profile/customer') .then(response => { 
+                  this.axios.get('/api/profile/customer') .then(response => {
                       this.customer = response.data;
                 });
 
-               
 
-                // var geocoder = new google.maps.Geocoder; 
+
+                // var geocoder = new google.maps.Geocoder;
                 // var latlng = {lat: 16.92840000, lng: 96.23460000 };
                 // geocoder.geocode({'location': latlng}, function(results, status) {
                 // if (status === 'OK') {
-                
+
                 //     if (results[1]) {
-                        
+
                 //             this.address =  results[1].formatted_address
                 //             return this.address;
                 //         }
                 //     }
-                    
-                    
+
+
                 // })
 
             }
             else{
 
-                this.axios.get('/api/feature/featurelist').then(response => {
-                    this.special_features = response.data;
+                this.axios.get('/api/profile/hospitalspecialfeature').then(response => {
+                    this.specialfeature = response.data;
                 });
-                this.axios.get('/api/comments/comment').then(response => {
-                    this.comments = response.data;
-
+                 this.axios.get('/api/profile/comment') .then(response => {
+                      this.comments = response.data;
+                });
+                 this.axios.get('/api/profile/customer') .then(response => {
+                      this.customer = response.data;
                 });
                 this.axios.get('/api/profile/hospital').then(response => {
-                   
+
                     this.google = response.data.hoslatlong;
                     this.markers[0]['position']['lat']  = response.data.hoslatlong[0]['latitude'];
                     this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
@@ -566,19 +599,19 @@
                     this.center['lng'] = response.data.hoslatlong[0]['longitude'];
                 })
 
-                var geocoder = new google.maps.Geocoder; 
+                var geocoder = new google.maps.Geocoder;
                 var latlng = {lat: 16.92840000, lng: 96.23460000 };
                 geocoder.geocode({'location': latlng}, function(results, status) {
                 if (status === 'OK') {
-                
+
                     if (results[1]) {
-                        
+
                             this.address =  results[1].formatted_address
                             return this.address;
                         }
                     }
-                    
-                    
+
+
                 })
             }
 
@@ -607,7 +640,19 @@
             activateImage(imageIndex) {
                 this.activeImage = imageIndex;
             },
- 
+            review(){
+             var elem = $(".readMore").text();
+            if (elem == "ReadMore") {
+            $(".readMore").text("ReadLess");
+            $('.showContent').css("display", "none");
+            $(".displaytext").slideDown();
+          } else {
+            $(".readMore").text("ReadMore");
+            $(".displaytext").slideUp();
+            $('.showContent').css("display", "block");
+          }
+
+            }
         },
 
  }
