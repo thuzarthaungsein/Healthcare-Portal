@@ -31,7 +31,7 @@
                                             <!-- Add by + Button -->
                                                 <div class="col-md-12 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                                                 <div class="col-md-3">
-                                                                        <input type="file" name="" class=" m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
+                                                                        <input type="file" name="" class="hospital-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
                                                                         <div class="col-md-12" v-bind:class="img.classname">
                                                                                 <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
                                                                         </div>
@@ -390,7 +390,11 @@ export default {
                
                     var img = document.getElementsByClassName('gallery-area-photo');
                         for(var i = 0; i< img.length; i++) {
-                           this.img_list.push({type:"photo",photo:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+
+                           var file = img[i].getElementsByClassName('hospital-photo')[0].files[0];
+                           var file_name = file.name;
+
+                           this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                         }
                        
 
