@@ -61,7 +61,7 @@ export default {
         }
       });
       // Remove the previous marker
-      this.markers.shift()  
+      this.markers.shift()   
       // Scroll the map to the new position
       this.$refs.map.$mapPromise.then((map) => {
         map.panTo({

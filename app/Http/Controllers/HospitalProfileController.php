@@ -25,7 +25,7 @@ class HospitalProfileController extends Controller
     }
 
     function getFavouriteHospital($local_sto) {
-        $query = "SELECT hospital_profiles.* ,customers.name, customers.email, customers.phone, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
+        $query = "SELECT hospital_profiles.* ,customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
                     JOIN customers ON hospital_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
                     JOIN cities ON townships.city_id = cities.id
@@ -39,7 +39,7 @@ class HospitalProfileController extends Controller
     }
 
     function getFavouriteNursing($local_sto) {
-        $query = "SELECT nursing_profiles.* ,customers.name, customers.email, customers.phone, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
+        $query = "SELECT nursing_profiles.* ,customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
                     JOIN customers ON nursing_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
                     JOIN cities ON townships.city_id = cities.id

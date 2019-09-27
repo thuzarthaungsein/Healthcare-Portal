@@ -703,6 +703,7 @@ export default {
                 var acceptance_remark = $('.acceptance-remark').text();
                 var latitude = $('#new_lat').val();
                 var longitude = $('#new_long').val();
+                var website = $('.website').val();
 
 
                 var staff = $('.staff').text();

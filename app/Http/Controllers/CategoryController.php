@@ -51,7 +51,7 @@ class CategoryController extends Controller
     //add category
     public function add(Request $request)
     {
-
+return $request;
         $request->validate([
             'name' => 'required|unique:categories',
 
