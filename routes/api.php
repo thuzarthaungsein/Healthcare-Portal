@@ -194,6 +194,7 @@ Route::post('nursing/profile/{id}', 'NursingProfileController@profileupdate');
 Route::post('hospital/profile/{id}', 'HospitalProfileController@profileupdate');
 
 Route::post('schedule/update/{id}', 'ScheduleController@update');
+Route::get('schedule/{id}', 'ScheduleController@getSchedulebyCustomerId');
 
 Route::post('customer/profile/{id}', 'NursingProfileController@Customerprofileupdate');
 Route::post('staff/profile/{id}', 'NursingProfileController@Staffprofileupdate');

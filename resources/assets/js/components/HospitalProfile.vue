@@ -100,44 +100,44 @@
                                         </tr>
                                         <tr>
                                                 <td>Monday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from0"> <span>To:</span><input type="text" class="form-control am-to0"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from0"> <span>To:</span><input type="text" class="form-control pm-to0"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from0" v-model="schedule_arr.am_mon_from"> <span>To:</span><input type="text" class="form-control am-to0" v-model="schedule_arr.am_mon_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from0" v-model="schedule_arr.pm_mon_from"> <span>To:</span><input type="text" class="form-control pm-to0" v-model="schedule_arr.pm_mon_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Tuesday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from1"> <span>To:</span><input type="text" class="form-control am-to1"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from1"> <span>To:</span><input type="text" class="form-control pm-to1"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from1" v-model="schedule_arr.am_tue_from"> <span>To:</span><input type="text" class="form-control am-to1" v-model="schedule_arr.am_tue_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from1" v-model="schedule_arr.pm_tue_from"> <span>To:</span><input type="text" class="form-control pm-to1" v-model="schedule_arr.pm_tue_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Wed</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from2"> <span>To:</span><input type="text" class="form-control am-to2"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from2"> <span>To:</span><input type="text" class="form-control pm-to2"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from2" v-model="schedule_arr.am_wed_from"> <span>To:</span><input type="text" class="form-control am-to2" v-model="schedule_arr.am_wed_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from2" v-model="schedule_arr.pm_wed_from"> <span>To:</span><input type="text" class="form-control pm-to2" v-model="schedule_arr.pm_wed_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Thu</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from3"> <span>To:</span><input type="text" class="form-control am-to3"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from3"> <span>To:</span><input type="text" class="form-control pm-to3"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from3" v-model="schedule_arr.am_thu_from"> <span>To:</span><input type="text" class="form-control am-to3" v-model="schedule_arr.am_thu_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from3" v-model="schedule_arr.pm_thu_from"> <span>To:</span><input type="text" class="form-control pm-to3" v-model="schedule_arr.pm_thu_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Friday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from4"> <span>To:</span><input type="text" class="form-control am-to4"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from4"> <span>To:</span><input type="text" class="form-control pm-to4"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from4" v-model="schedule_arr.am_fri_from"> <span>To:</span><input type="text" class="form-control am-to4" v-model="schedule_arr.am_fri_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from4" v-model="schedule_arr.pm_fri_from"> <span>To:</span><input type="text" class="form-control pm-to4" v-model="schedule_arr.pm_fri_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sat</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from5"> <span>To:</span><input type="text" class="form-control am-to5"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from5"> <span>To:</span><input type="text" class="form-control pm-to5"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from5" v-model="schedule_arr.am_sat_from"> <span>To:</span><input type="text" class="form-control am-to5" v-model="schedule_arr.am_sat_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from5" v-model="schedule_arr.pm_sat_from"> <span>To:</span><input type="text" class="form-control pm-to5" v-model="schedule_arr.pm_sat_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sunday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from6"> <span>To:</span><input type="text" class="form-control am-to6"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from6"> <span>To:</span><input type="text" class="form-control pm-to6"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from6" v-model="schedule_arr.am_sun_from"> <span>To:</span><input type="text" class="form-control am-to6" v-model="schedule_arr.am_sun_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from6" v-model="schedule_arr.pm_sun_from"> <span>To:</span><input type="text" class="form-control pm-to6" v-model="schedule_arr.pm_sun_to"></td>
                                                 <td></td>
                                         </tr>
                                 </table>
@@ -253,14 +253,21 @@ export default {
                         img_arr:[],img_list:[], 
                         video_arr:[], video_list:[],gallery_list:[],
                         feature_list:[],
-                        profile_type:'hospital',id : 1, // test_id
-                        shedule_am:[],shedule_pm:[],
+                        profile_type:'hospital',id : 2, // test_id
+                        schedule_arr:[],sshedule_am:[],shedule_pm:[],
                         schedule_list:[],
                         customer_info:[],
                         hospital_info:[],
                 }
         },
         created(){
+
+                 this.axios
+                .get('/api/schedule/'+this.id)
+                .then(response=>{
+                        this.schedule_arr = response.data;
+                });
+                return;
 
                 this.axios
                 .get('/api/customerinfo/'+this.id)
@@ -300,7 +307,7 @@ export default {
                         this.feature_list = response.data;
                 });
 
-                 this.axios
+                this.axios
                 .get('/api/facility/'+this.profile_type+'/'+this.id)
                 .then(response=>{
                         // console.log(response.data);
