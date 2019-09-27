@@ -43,9 +43,7 @@
             <p>OOPS!!</p>
             <p class="record-txt01">表示するデータありません</p>
             <p>表示するデータありません‼新しいデータを作成してください。</p>
-            <a href="/create_news" class="main-bg-color create-btn all-btn">
-              <i class="fas fa-plus-circle"></i> 新しいデータ作成
-            </a>
+           
           </div>
           <div
             v-else
