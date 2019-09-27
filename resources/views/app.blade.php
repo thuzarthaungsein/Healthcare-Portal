@@ -21,7 +21,7 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
 <!-- <script src="{{ asset('js/vue.js') }}"></script> -->
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
 
@@ -32,7 +32,7 @@
 <!-- <script src="https://maps.google.com/maps/api/js?key=AIzaSyCNpeRgwCQoHIlLn-X8TIB9SnO8iLPt808&callback=initMap" async defer></script> -->
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+
 
 <!-- Include after Vue (before closing body) -->
 <script src="https://unpkg.com/vue-fullpage.js/dist/vue-fullpage.min.js"></script>

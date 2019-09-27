@@ -903,83 +903,185 @@
               </svg>
             </div>
           </div>
-
-
-          <div id="accordion" class="col-10 select">
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <span class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" v-for="city in getCity">
-                    <i class="fa" aria-hidden="true"></i>
-                        {{city.city_name}}
-                  </button>
-                  <select  id="select" class="form-control col-3 custom-select mt-2 mr-auto" v-model="id">
-                    <option v-for = "city in cities" :value="city.id" >{{city.city_name}}</option>
-                  </select>
-                </span>
-                
-              </div>
-
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                <div  class="row checkbox" >
-                    <div  class="col-sm-3" v-for="township in getTownships" :key="township.id" :v-model="id">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input"  :id="township.id" :value="township.id">
-                      <label class="custom-control-label" :for="township.id">{{township.township_name}}</label>
+         
+            <table class="table card-2 col-10 select">
+              <tbody>
+                <tr>
+                  <th>地域</th>
+                  <td>
+                    <select  id="select" class="form-control col-3 custom-select mt-2" v-model="id">
+                      <option v-for = "city in cities" :value="city.id" >{{city.city_name}}</option>
+                    </select>
+                    <button @click="toggleContent" class="btn btn-link" v-for="city in getCity" >
+                      <i class="fa" aria-hidden="true"></i>
+                          <!-- <em>{{city.city_name}}</em> -->
+                          <span id="close"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                    </button>
+                   
+                    <div  class="toBeToggled" id="toBeToggled">
+                      <div  class="row pl-3 pt-3">
+                        <div class="custom-control custom-checkbox col-sm-3"  v-for="township in getTownships" :key="township.id">
+                          <input type="checkbox" class="custom-control-input"  :id="township.id" :v-model="id" :value="township.id" @click="getCheck($event)">
+                          <label class="custom-control-label" :for="township.id">{{township.township_name}}</label>
+                        </div>
+                      </div>
                     </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    費用
+                  </th>
+                  <td>
+                    <table class="text-center" width="50%">
+                      <tbody>
+                        <tr>
+                          <td>入居時</td>
+                          <td>
+                            <select class="form-control custom-select" name="" id="">
+                              <option value="" selected="selected">下限なし</option>
+                              <option value="0">0円</option>
+                              <option value="500000">50万円</option>
+                              <option value="1000000">100万円</option>
+                              <option value="2000000">200万円</option>
+                              <option value="3000000">300万円</option>
+                              <option value="4000000">400万円</option>
+                              <option value="5000000">500万円</option>
+                              <option value="6000000">600万円</option>
+                              <option value="7000000">700万円</option>
+                              <option value="8000000">800万円</option>
+                              <option value="9000000">900万円</option>
+                              <option value="10000000">1,000万円</option>
+                              <option value="20000000">2,000万円</option>
+                              <option value="30000000">3,000万円</option>
+                            </select>
+                          </td>
+                          <td>～</td>
+                          <td>
+                            <select class="form-control custom-select" name="" id="">
+                              <option value="" selected="selected">上限なし</option>
+                              <option value="0">0円</option>
+                              <option value="500000">50万円</option>
+                              <option value="1000000">100万円</option>
+                              <option value="2000000">200万円</option>
+                              <option value="3000000">300万円</option>
+                              <option value="4000000">400万円</option>
+                              <option value="5000000">500万円</option>
+                              <option value="6000000">600万円</option>
+                              <option value="7000000">700万円</option>
+                              <option value="8000000">800万円</option>
+                              <option value="9000000">900万円</option>
+                              <option value="10000000">1,000万円</option>
+                              <option value="20000000">2,000万円</option>
+                              <option value="30000000">3,000万円</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>月額</td>
+                          <td>
+                          <select class="form-control custom-select" name="" id="">
+                            <option value="" selected="selected">下限なし</option>
+                            <option value="0">0円</option>
+                            <option value="100000">10万円</option>
+                            <option value="150000">15万円</option>
+                            <option value="200000">20万円</option>
+                            <option value="250000">25万円</option>
+                            <option value="300000">30万円</option>
+                            <option value="350000">35万円</option>
+                            <option value="400000">40万円</option>
+                            <option value="450000">45万円</option>
+                            <option value="500000">50万円</option>
+                          </select>
+                          </td>
+                          <td>～</td>
+                          <td>
+                            <select class="form-control custom-select" name="" id="">
+                              <option value="" selected="selected">上限なし</option>
+                              <option value="0">0円</option>
+                              <option value="100000">10万円</option>
+                              <option value="150000">15万円</option>
+                              <option value="200000">20万円</option>
+                              <option value="250000">25万円</option>
+                              <option value="300000">30万円</option>
+                              <option value="350000">35万円</option>
+                              <option value="400000">40万円</option>
+                              <option value="450000">45万円</option>
+                              <option value="500000">50万円</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan='4'>
+                            <button @click="ShowHide" class="btn btn-link">
+                              <i class="fa" aria-hidden="true"></i>
+                                  <span id="close1"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr class="toBeToggled1 ShowHide">
+                  <th>
+                  入居時の条件
+                  </th>
+                  <td>
+                    <div  class="row pl-3 pt-3">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input col-sm-1" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">自立</label>
+                      </div>
+                      <div class="custom-control custom-checkbox col-sm-1">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2">
+                        <label class="custom-control-label" for="customCheck2">要支援</label>
+                      </div>
+                      <div class="custom-control custom-checkbox col-sm-1">
+                        <input type="checkbox" class="custom-control-input" id="customCheck3">
+                        <label class="custom-control-label" for="customCheck3">要介護</label>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <i class="fa" aria-hidden="true"></i>
-                      費用
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <i class="fa" aria-hidden="true"></i>
-                    入居時の条件
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="card-body">
-            <div class="row col-12 pad-free">
-              <div class="col-10">
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>特長</th>
+                  <td>
+                      <div  class="row pl-3 pt-3">
+                        <div class="custom-control custom-checkbox col-sm-3"  v-for="features in special_features" :key="features.id">
+                          <input type="checkbox" class="custom-control-input"  :id="features.id" :v-model="id" :value="features.id" @click="">
+                          <label class="custom-control-label" :for="features.id">{{features.name}}</label>
+                        </div>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>施設の種類</th>
+                  <td>
+                      <div  class="row pl-3 pt-3">
+                        <div class="custom-control custom-checkbox col-sm-3"  v-for="fac_type in fac_types" :key="fac_type.id">
+                          <input type="checkbox" class="custom-control-input"  :id="fac_type.id" :v-model="fac_id[fac_type.id]" :value="fac_type.id">
+                          <label class="custom-control-label" :for="fac_type.id">{{fac_type.description}}</label>
+                        </div>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>医療面・診療科目</th>
+                  <td>
+                      <div  class="row pl-3 pt-3">
+                        <div class="custom-control custom-checkbox col-sm-3"  v-for="medical in medical_acceptance" :key="medical.id">
+                          <input type="checkbox" class="custom-control-input"  :id="medical.id" :v-model="id" :value="medical.id" @click="">
+                          <label class="custom-control-label" :for="medical.id">{{medical.name}}</label>
+                        </div>
+                      </div>
+                  </td>
+                </tr>
                 
-              </div>
-              <div class="col-2 pad-free text" id="text">
-              
-              </div>
-            </div>
-            
-          </div>
+              </tbody>
+            </table>
+         
         </div>
       </div>
       <!-- <div class="col-md-2 p-l-0">
@@ -994,21 +1096,53 @@
 <script>
 import asidebar from "./aside.vue";
 export default {
-  components: {
-    asidebar
-  },
-  data(){
-    return{
-      id:'',
-      townshipID:'',
-      cities:[],
-      getCity:[],
-      getTownships:[],
-      show:true,
+    components: {
+      asidebar
+    },
+    data(){
+      return{
+        id:'',
+        townshipID:'',
+        cities:[],
+        getCity:[],
+        getTownships:[],
+        special_features:[], 
+        fac_types:[],
+        fac_id:[],                 
+        medical_acceptance:[],
+        toggleCheck: true,
+        toggleCheck_1: false,
 
-    }
-  },
+
+      }
+    },
   methods:{
+    toggleContent() {
+        this.toggleCheck = !this.toggleCheck;
+            if (this.toggleCheck == true) {
+                $('#close').empty();
+                $("#toBeToggled").slideDown();
+                $('#close').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
+
+            } else {
+                $('#close').empty();
+                $("#toBeToggled").slideUp();
+                $('#close').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+            }
+        },
+        ShowHide() {
+        this.toggleCheck_1 = !this.toggleCheck_1;
+            if (this.toggleCheck_1 == true) {
+                $('#close1').empty();
+                $(".ShowHide").slideDown();
+                $('#close1').append('<i class="fas fa-arrow-circle-up"></i> もっと見る');
+
+            } else {
+                $('#close1').empty();
+                $(".ShowHide").slideUp();
+                $('#close1').append('<i class="fas fa-arrow-circle-down"></i> close');
+            }
+        },
       getStateClick(e){
         // console.log(e.target.tagName)
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
@@ -1016,10 +1150,14 @@ export default {
           const id = e.target.id;
           this.axios.post('api/getmap/'+id+'')
           .then((response)=>{
+            console.log(response.data.fac_types)
           $('.select').removeClass('select');
           this.cities = response.data.city
           this.getCity = response.data.getCity
           this.getTownships = response.data.getTownships
+          this.special_features= response.data.special_features
+          this.fac_types= response.data.fac_types
+          this.medical_acceptance= response.data.medical_acceptance
           this.id = id
          })
         }else if(e.target.tagName ==='OPTION'){
@@ -1032,6 +1170,11 @@ export default {
           this.getTownships = response.data.getTownships
           this.id = id
          })
+        }
+      },
+      getCheck(e){
+        if(e.target.checked){
+          console.log(e.target.value)
         }
       },
       getStateHover(e){
@@ -1136,6 +1279,28 @@ span:hover::before {
 
 [data-toggle="collapse"].collapsed .fa:before {
   content: "\f13a";
+}
+
+
+.card-2 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius:10px;
+}
+.toBeToggled {
+    display: block;
+}
+
+.toBeToggled1 {
+    display: none;
+}
+table{
+  border-top:none !important;
+}
+table > tbody > tr th{
+  background-color: #e8e7e7;
+  text-align:right;
+  width:140px;
+  padding:25px;
 }
 
 </style>
