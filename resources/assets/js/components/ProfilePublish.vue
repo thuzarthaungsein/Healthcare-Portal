@@ -26,12 +26,13 @@
             </div>
 
             <div class="row m-lr-0 ele" id="element1">
-             <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
-                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
-                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
-                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Phone :</strong></p></div>
-                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
-            </div>
+                <div class="row">
+                    <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
+                        <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
+                        <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
+                        <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Phone :</strong></p></div>
+                        <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
+                    </div>
 
              <h5 class="header">special Features</h5>
                 <div class="row m-lr-0">
@@ -39,6 +40,7 @@
                         <li>{{special.short_name}}</li>
                     </ul>
                 </div>
+            </div>
         </div>
          <div class="row ele m-lr-0" id="element2">
              <h5 class="header">Features</h5>
@@ -340,9 +342,9 @@
                                      </div> -->
                                      <!-- <button onclick="function()">See more</button> -->
                     <div class="row col-md-12 m-lr-0">
-                        <p class="showContent"> {{comment.comment}}</p>
-                            <span class="displaytext">{{comment.comment}}</span>
-                                <a class="mt-2 readMore" @click="review()" href ="#">ReadMore</a>
+                             <p class="showContent"> {{comment.comment}}</p>
+                            <span  class="displaytext" :id="'test'+comment.id">{{comment.comment}}</span>
+                                <a class="mt-2 readMore"  href="#" @click="review(comment.id)">ReadMore</a>
 
                     </div>
 
@@ -399,8 +401,8 @@
                                      <!-- <button onclick="function()">See more</button> -->
                     <div class="row col-md-12 m-lr-0">
                         <p class="showContent"> {{comment.comment}}</p>
-                            <span class="displaytext">{{comment.comment}}</span>
-                                <a class="mt-2 readMore" @click="review()" href ="#">ReadMore</a>
+                            <span class="displaytext" :id="'test'+comment.id">{{comment.comment}}</span>
+                                <a class="mt-2 readMore" @click="review(comment.id)" href ="#">ReadMore</a>
 
                     </div>
 
@@ -484,7 +486,8 @@
                 activeImage: 0,
                 index: 0,
                 pageNum: 0,
-                type : 'hospital',
+                // type : 'hospital',
+                type:'nursing',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -640,16 +643,19 @@
             activateImage(imageIndex) {
                 this.activeImage = imageIndex;
             },
-            review(){
+            review(id){
              var elem = $(".readMore").text();
             if (elem == "ReadMore") {
-            $(".readMore").text("ReadLess");
-            $('.showContent').css("display", "none");
-            $(".displaytext").slideDown();
+                 $(".readMore").text("ReadLess");
+                $('.showContent').css("display", "block");
+                $(".displaytext").slideDown();
+                $("#test"+id).removeClass("displaytext");
+
           } else {
-            $(".readMore").text("ReadMore");
-            $(".displaytext").slideUp();
-            $('.showContent').css("display", "block");
+                $(".readMore").text("ReadMore");
+                $('.showContent').css("display", "none");
+                $(".displaytext").slideUp();
+                $("#test"+id).removeClass("displaytext");
           }
 
             }

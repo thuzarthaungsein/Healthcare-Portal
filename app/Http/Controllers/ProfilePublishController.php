@@ -62,7 +62,11 @@ class ProfilePublishController extends Controller
 
     public function getComment()
     {
-        $comment = Comment::where('customer_id',1)->get();
+        //$comment=Comment::all();
+        // $comment = Comment::where('customer_id',1)->get();
+        // return $comment;
+        $sql = "SELECT comments.title,comments.email,comments.year,comments.comment from comments  JOIN nursing_profiles ON comments.customer_id= nursing_profiles.customer_id";
+        $comment = DB::select($sql);
         return $comment;
     }
 
