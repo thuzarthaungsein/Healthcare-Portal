@@ -1,3 +1,4 @@
+
 var timeout;
 $(".path").hover(
   function() {
@@ -309,25 +310,25 @@ $('#save_value').click(function(){
         } else {
             $(".select_all").prop("checked", false);
         }
+      });
     });
-     });
 
      /* start nurse profile*/
 
-     $(".readMore").on('click', function(event) {
-        if ($(this).hasClass('opened')) {
-            $(this).removeClass('opened');
-            $(this).parent().find('.displaytext').slideToggle('fast');
-        }
-        else {
-            $(this).addClass('opened');
-             $('.showContent').css("display", "none");
-            $('.readMore').css("display", "none");
-            $(this).parent().find('.displaytext').slideToggle('fast');
 
+      $(".readMore").click(function() {
+        var elem = $(".readMore").text();
+        if (elem == "ReadMore") {
+          //Stuff to do when btn is in the read more state
+          $(".readMore").text("ReadLess");
+          $(".displaytext").slideDown();
+        } else {
+          //Stuff to do when btn is in the read less state
+          $(".readMore").text("ReadMore");
+          $(".displaytext").slideUp();
         }
-    });
-
+      });
+   
      /* end nurse profile*/
 
 /*select check
@@ -401,6 +402,8 @@ $('#save_value').click(function(){
   // });
 
   function closebtn(){
+   
+    
     if(confirm("Are you sure you want to delete?"))
     {
         var image_x = document.getElementById('x-image');
@@ -408,6 +411,7 @@ $('#save_value').click(function(){
         document.getElementById('showimage').style.display = 'block';
     }
 }
+
 function showImg(c,event) {
   $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
 }

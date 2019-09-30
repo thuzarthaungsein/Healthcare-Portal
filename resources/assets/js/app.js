@@ -83,6 +83,3 @@ const app = new Vue({
     // render: h => h(App),
 
 });
-/*start scrolltest*/
-/*end scrolltest*/
-

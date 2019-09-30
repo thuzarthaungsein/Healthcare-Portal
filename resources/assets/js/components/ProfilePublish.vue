@@ -297,7 +297,7 @@
                 
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
-                            <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
+                            <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="false" @click="center=m.position" />
                            </GmapMap>
 
                         <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
@@ -342,7 +342,7 @@
                     <div class="row col-md-12 m-lr-0">
                         <p class="showContent"> {{comment.comment}}</p>
                             <span class="displaytext">{{comment.comment}}</span>
-                                <a class="mt-2 readMore" href ="#">続きを読む</a>
+                                <a class="mt-2 readMore" href ="#">ReadMore</a>
 
                     </div>
 
@@ -453,7 +453,7 @@
                 activeImage: 0,
                 index: 0,
                 pageNum: 0,
-                type : 'nursing',
+                type : 'hospital',
                 opts: {
                     start: 0,
                     dir: 'v',

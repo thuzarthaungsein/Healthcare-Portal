@@ -29,6 +29,7 @@ class userNursingMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.userNursingMail');
+        return $this->view('mail.userNursingMail')
+                    ->subject("予約メール");;
     }
 }

@@ -11,7 +11,7 @@
                         </li>
 
                          <li role="presentation" class="subtab2 nav-item">
-                        <label for="nursing" class="typelabel nav-link" id="nursing-lbl">
+                        <label for="nursing" class="typelabel dim-btn nav-link" id="nursing-lbl">
                                 <i class="fas fa-id-badge"></i>
                                 <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> View
                         </label>
@@ -41,7 +41,7 @@
         </div>
 
         <div v-if="type == 'hospital'" >
-                <ul class="nav nav-tabs card-head-tabs" role="tablist">
+                <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist">
                         <li role="presentation" class="active subtab1 nav-item">
 
                        <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
@@ -65,7 +65,7 @@
                                 <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> View
                         </label>
                 </div> -->
-                <div class="tab-content tab-content1 tabs fixed-ads">
+                <div class="tab-content tab-content1 tabs">
                 <form class="col-md-12 pad-free ">
                         <div class="col-md-12 pad-free tab-pane" v-if="btntype == 'create'">
                              <hospitalProfile></hospitalProfile>
@@ -97,7 +97,7 @@ export default {
         },
        data() {
                 return {
-                        type: 'nursing',
+                        type: 'hospital',
                         btntype: 'view',
                 }
         },
