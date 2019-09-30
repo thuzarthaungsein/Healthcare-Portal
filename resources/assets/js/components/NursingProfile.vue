@@ -1,5 +1,5 @@
 <template>
-<div class="card profile" style="border:none;">
+<div class="card profile m-t-22 " style="border:none;">
     <form class="col-md-12 form-class">
             <div class="col-md-12 pad-free">
                     <div class="form-group">
