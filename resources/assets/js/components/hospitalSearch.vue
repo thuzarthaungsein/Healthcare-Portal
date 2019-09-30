@@ -919,12 +919,14 @@
                     </button>
                    
                     <div  class="toBeToggled" id="toBeToggled">
-                      <div  class="row pl-3 pt-3">
-                        <div class="custom-control custom-checkbox col-sm-3"  v-for="township in getTownships" :key="township.id">
-                          <input type="checkbox" class="custom-control-input"  :id="township.id" :v-model="id" :value="township.id" @click="getCheck($event)">
-                          <label class="custom-control-label" :for="township.id">{{township.township_name}}</label>
-                        </div>
+
+                      <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
+                        <label class="form-check-label" :for="township.id">
+                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID[township.id]" @click="getCheck($event)"> 
+                        {{township.township_name}}
+                        </label>
                       </div>
+
                     </div>
                   </td>
                 </tr>
@@ -1030,52 +1032,67 @@
                   </th>
                   <td>
                     <div  class="row pl-3 pt-3">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input col-sm-1" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">自立</label>
+
+                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> 
+                          自立
+                        </label>
                       </div>
-                      <div class="custom-control custom-checkbox col-sm-1">
-                        <input type="checkbox" class="custom-control-input" id="customCheck2">
-                        <label class="custom-control-label" for="customCheck2">要支援</label>
+                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> 
+                          要支援
+                        </label>
                       </div>
-                      <div class="custom-control custom-checkbox col-sm-1">
-                        <input type="checkbox" class="custom-control-input" id="customCheck3">
-                        <label class="custom-control-label" for="customCheck3">要介護</label>
+                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> 
+                          要介護
+                        </label>
                       </div>
+                     
                     </div>
                   </td>
                 </tr>
                 <tr class="toBeToggled1 ShowHide">
                   <th>特長</th>
                   <td>
-                      <div  class="row pl-3 pt-3">
-                        <div class="custom-control custom-checkbox col-sm-3"  v-for="features in special_features" :key="features.id">
-                          <input type="checkbox" class="custom-control-input"  :id="features.id" :v-model="id" :value="features.id" @click="">
-                          <label class="custom-control-label" :for="features.id">{{features.name}}</label>
-                        </div>
+                      <div class="form-check form-check-inline col-sm-2"  v-for="features in special_features" :key="features.id">
+                        <label class="form-check-label" :for="features.id">
+                        <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)"> 
+                        {{features.name}}
+                        </label>
                       </div>
+
                   </td>
                 </tr>
                 <tr class="toBeToggled1 ShowHide">
                   <th>施設の種類</th>
                   <td>
-                      <div  class="row pl-3 pt-3">
-                        <div class="custom-control custom-checkbox col-sm-3"  v-for="fac_type in fac_types" :key="fac_type.id">
-                          <input type="checkbox" class="custom-control-input"  :id="fac_type.id" :v-model="fac_id[fac_type.id]" :value="fac_type.id">
-                          <label class="custom-control-label" :for="fac_type.id">{{fac_type.description}}</label>
-                        </div>
-                      </div>
+                  <div class="form-check form-check-inline col-sm-2"  v-for="fac_type in fac_types" :key="fac_type.id">
+                    <label class="form-check-label" :for="fac_type.id">
+                    <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id"> 
+                     {{fac_type.description}}
+                    </label>
+                  </div>
+
                   </td>
                 </tr>
                 <tr class="toBeToggled1 ShowHide">
                   <th>医療面・診療科目</th>
                   <td>
-                      <div  class="row pl-3 pt-3">
-                        <div class="custom-control custom-checkbox col-sm-3"  v-for="medical in medical_acceptance" :key="medical.id">
-                          <input type="checkbox" class="custom-control-input"  :id="medical.id" :v-model="id" :value="medical.id" @click="">
-                          <label class="custom-control-label" :for="medical.id">{{medical.name}}</label>
-                        </div>
+                      <div class="form-check form-check-inline col-sm-2"  v-for="medical in medical_acceptance" :key="medical.id">
+                        <label class="form-check-label" :for="medical.id">
+                        <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id" > 
+                          {{medical.name}}
+                        </label>
                       </div>
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <td colspan="2">
+                    <input type="button" id="save_value" name="save_value" value="Save" />
                   </td>
                 </tr>
                 
@@ -1088,7 +1105,7 @@
         <asidebar></asidebar>
       </div>-->
     </div>
-    <input type="button" id="save_value" name="save_value" value="Save" />
+    
   </div>
 </template>
 
@@ -1102,16 +1119,19 @@ export default {
     data(){
       return{
         id:'',
-        townshipID:'',
+        townshipID:[],
+        township_id:[],
         cities:[],
         getCity:[],
         getTownships:[],
         special_features:[], 
         fac_types:[],
-        fac_id:[],                 
+        fac_id:[],      
         medical_acceptance:[],
         toggleCheck: true,
         toggleCheck_1: false,
+        
+        
 
 
       }
@@ -1168,13 +1188,22 @@ export default {
           this.cities = response.data.city
           this.getCity = response.data.getCity
           this.getTownships = response.data.getTownships
+          this.special_features= response.data.special_features
+          this.fac_types= response.data.fac_types
+          this.medical_acceptance= response.data.medical_acceptance
           this.id = id
          })
         }
       },
       getCheck(e){
         if(e.target.checked){
-          console.log(e.target.value)
+           this.township_id.push(e.target.value);
+           console.log(this.township_id);
+        }
+      },
+      features(e){
+        if(e.target.checked){
+          alert('1');
         }
       },
       getStateHover(e){
