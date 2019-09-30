@@ -556,7 +556,7 @@ width: 100%; */
 
 .collapse.show {
     display: block;
-    background: rgba(199, 220, 217, 1);
+    /* background: rgba(199, 220, 217, 1); */
 }
 
 .registerform_container {
