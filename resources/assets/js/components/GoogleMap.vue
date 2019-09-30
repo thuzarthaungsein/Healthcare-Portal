@@ -8,6 +8,11 @@
                 <!-- <span @click="addMarker">Add</span> -->
               </div>
               <br/>
+              <div class="col-md-12 pad-free" v-if="address_btn">
+                <label>住所:</label>
+                {{comment.gmap_city}}
+              </div>
+              <br/>
           <GmapMap
             id="googlemap"
             ref="map"
@@ -24,7 +29,18 @@
               @dragend="updateCoordinates"
             />
           </GmapMap>
-
+          <div class="form-group">
+            <label>郵便番号<span class="error">*</span></label>
+            <input type="text" v-model="comment.postal" name="postal" class="postal form-control" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7"/>
+            <div id="jsErrorMessage"></div>
+          </div>
+          <div class="form-group">
+            <label>市区町村、番地（建物名）<span class="error">*</span></label>
+            <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="comment.city">
+            <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>
+            <br/>
+            <button type="button" class="submit2 btn btn-primary m-t-0 m-l-10" @click="searchAddress()">同意して進む</button>
+          </div>
           <input type="hidden" name="new_lat" v-model="new_lat" id="new_lat">
           <input type="hidden" name="new_long" v-model="new_long" id="new_long">
         </div>
@@ -42,7 +58,13 @@ export default {
       center: { lat: 35.6803997, lng: 139.76901739 },
       selected: '',
       new_lat: '',
-      new_long: ''
+      new_long: '',
+      comment: {
+        postal: '',
+        city: '',
+        gmap_city: ''
+      },
+      address_btn: false,
     }
   },
   created() {   
@@ -105,7 +127,41 @@ export default {
           lng: position.coords.longitude
         };
       });
-    }
+    },
+    getPostal: function(event) {
+                        console.log(this.comment.postal)
+                if (this.comment.postal.length > 4) {
+                    var postal = this.comment.postal;
+                    console.log(this.comment.postal)
+                    this.axios
+                        .post('/api/hospital/postList/' + postal)
+                        .then(response => {
+                            var post_data = response.data;
+                            var length = response.data.length;
+                            if (length > 0) {
+                                var pref = post_data[0]['city_id'];
+                                if (post_data[0]['street'] == '') {
+                                    this.comment.city = post_data[0]['pref'] + ' - ' +  post_data[0]['city'];
+                                } else {
+                                    this.comment.city = post_data[0]['pref'] + ' - ' + post_data[0]['city'] + ' - ' + post_data[0]['street'];
+                                }
+                                $('#jsErrorMessage').html('<div></div>');
+                            }else {
+                                this.comment.city = '';
+                                $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+                            }
+                        });
+                }
+            },
+            searchAddress (){
+              this.address_btn = true;
+              if(this.address_btn){
+                this.comment.gmap_city = this.comment.city;
+              }else{
+                this.comment.gmap_city = '';
+              }
+              
+            }
   }
 };
 
