@@ -23,8 +23,8 @@
                             <div class="form_group">
                                 <select v-model="selectedValue" name="type" class="form-control" @change="onChange()">
                                         <option value="選択してください">選択してください。</option>
-                                        <option value="病院">病院</option>
-                                        <option value="介護施設">介護施設</option>
+                                        <option value="hospital">hospital</option>
+                                        <option value="nursing">nursing</option>
 
                                 </select>
                             </div> <br/>
@@ -63,12 +63,12 @@ export default {
                     .then((response) => {
 
                     this.feature = response.data;
-                    if(this.feature.type == '病院')
+                    if(this.feature.type == 'hospital')
                     {
-                        this.selectedValue = '病院';
+                        this.selectedValue = 'hospital';
                     }
-                    else if (this.feature.type == '介護施設') {
-                        this.selectedValue = '介護施設';
+                    else if (this.feature.type == 'nursing') {
+                        this.selectedValue = 'nursing';
                     }else {
                         this.selectedValue='選択してください'
                     }
@@ -80,8 +80,6 @@ export default {
 
          methods: {
             add() {
-                console.log("add");
-                console.log(this.feature);
                   if( `${this.$route.params.id}` == "undefined")
                   {
                             axios.post('/api/feature/add', this.feature)
@@ -89,7 +87,6 @@ export default {
                          this.name = ''
                          this.short_name=''
                          this.type=''
-                         console.log(response);
                     alert('Successfully Created');
                      this.$router.push({name: 'featurelist'});
                     }).catch(error=>{
@@ -108,7 +105,6 @@ export default {
             onChange: function(){
 
                this.feature.type = this.selectedValue;
-               console.log(this.feature);
 
            },
             updateFeature() {

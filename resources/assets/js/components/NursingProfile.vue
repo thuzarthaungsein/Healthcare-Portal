@@ -21,9 +21,10 @@
                                     <div class="row" id ="gallery-photo">
                                             <div class="col-md-12 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                                                 <div class="col-md-3">
-                                                                        <input type="file" name="" class=" m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
+                                                                        <input type="file" name="" class="nursing-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
                                                                         <div class="col-md-12" v-bind:class="img.classname">
-                                                                                <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
+                                                                                <input type="hidden" class="already-photo" v-model="img.photo">
+                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo">
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-md-9">
@@ -43,7 +44,7 @@
                                     <div class="row" id="gallery-video">
                                             <div class="col-md-12 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
                                                 <div class="col-md-3">
-                                                        <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-model="video.url">
+                                                        <input type="text" name="url" placeholder="url" class="form-control m-b-15 video-url" v-model="video.photo">
                                                 </div>
                                                 <div class="col-md-9">
                                                         <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="video.title">
@@ -73,6 +74,7 @@
                                 <div class="form-group">
                                         <label class="heading-lbl">支払い方法<span class="error">*</span></label>
                                         <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="methodAdd()">Add</span>
+                                        <input type="text"  class="form-control nursing-payment-method" v-model="nursing_info.method">
 
                                         <div class="col-md-12 pad-free" id="gallery-payment">
                                                 <!-- test -->
@@ -309,7 +311,7 @@
                                                 <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
                                                         <div class="form-group"> 
                                                                 <label>名前 :</label> 
-                                                                <input type="text" class="form-control" name="co-medical-header[]" v-model="cooperate.name"> 
+                                                                <input type="text" class="form-control cooperate-name" name="co-medical-header[]" v-model="cooperate.name"> 
                                                         </div>
                                                         <table class="table table-bordered">
                                                         <tr>
@@ -348,11 +350,11 @@
                                             <div class="row">
                                                     <div class="col-md-6" v-for="medical in medical_acceptance" :key="medical.id">
                                                             <div class="col-md-12 accept-box">
-                                                                    {{medical.name}}
+                                                                    {{medical.name}} {{medical.id}}
                                                                     <div class="float-right">
-                                                                            <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-check green"></i></label>
-                                                                            <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-times red"></i></label>
-                                                                            <label><input type="radio" :name="'medical'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                                            <label><input type="radio" :name="'medical'+medical.id" v-model="acceptance[medical.id]" value="accept"> <i class="fas fa-check green"></i></label>
+                                                                            <label><input type="radio" :name="'medical'+medical.id" v-model="acceptance[medical.id]" value="unaccept"> <i class="fas fa-times red"></i></label>
+                                                                            <label><input type="radio" :name="'medical'+medical.id" v-model="acceptance[medical.id]" value="negotiate"> <i class="fas fa-adjust blue"></i></label>
                                                                     </div>
                                                             </div>
                                                     </div>
@@ -360,7 +362,7 @@
                                             <div class="form-group">
                                                     <label for="">備考</label>
                                                     <!-- <textarea name="" class="form-control"></textarea> -->
-                                                    <quill-editor  ref="myQuilEditor" :options="editorOption" name="" />
+                                                    <quill-editor  ref="myQuilEditor" :options="editorOption" name="" class="acceptance-remark" v-model="nursing_info.acceptance_remark"/>
 
                                             </div>
                                     </div>
@@ -413,7 +415,7 @@
                                                 <div class="row">
                                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
                                                                 <label>
-                                                                 <input type="checkbox"  name="special-features" :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
+                                                                 <input type="checkbox"  name="special-features"    v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
                                                                         {{feat.name}}
                                                                 </label>
                                                          </div>
@@ -422,6 +424,11 @@
                                 </div>
                             </td>
                         </tr>
+
+                        <div class="form-group">
+                            <label class="heading-lbl">公式サイト</label>
+                            <input type="text" name="official-website" class="form-control website" v-model="nursing_info.website">
+                    </div>
 
                         <tr>
                             <td>
@@ -432,16 +439,16 @@
                                         <div class="col-md-12">
                                             <GoogleMap></GoogleMap>
                                         </div>
-
+                                        
                                         <div class="form-group">
                                                 <label>住所<span class="error">*</span></label>
                                                 <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" />
+                                                <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" class="customer-address" v-model="customer_info.address"/>
                                         </div>
                                         <div class="form-group">
                                                 <label>交通 / アクセス<span class="error">*</span></label>
                                                 <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" />
+                                                <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
                                         </div>
                                 </div>
                             </td>
@@ -489,12 +496,15 @@ export default {
                 feature_list:[],
                 medical_acceptance:[],
                 customer_info:[], nursing_info:[], staff_info:[],
+                acceptance: [],
 
                 img_arr:[],img_list:[],
                 video_arr:[],video_list:[],
+                gallery_list:[],
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
                 id:1, profile_type:'nursing',
+                profile_arr:[],staf_info:[],customer_info:[], test:'',
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -507,7 +517,7 @@ export default {
                 security_deposit:[],other_use:[], rent:[], management_fee:[],
                 food_expense:[],life_service:[],cost_other:[],return_system:[],
                 depreciation_period:[],initial_depreciation:[],other_message:[],
-                cooperate_list:[], payment_list:[],meth_details:[],
+                cooperate_list:[], payment_list:[],meth_details:[], 
                 // end
                 content: '',
                 editorOption:{
@@ -516,11 +526,9 @@ export default {
                         readonly:true,
                         theme:'snow',
                 }
-
         }
         },
         created(){
-
                 this.axios
                 .get('/api/customerinfo/'+this.id)
                 .then(response=>{
@@ -549,14 +557,13 @@ export default {
                 this.axios
                 .get('/api/medical/medicalacceptance')
                 .then(response => {
-                        console.log(response);
                         this.medical_acceptance = response.data;
                 });
 
                 this.axios
                 .get('/api/feature/'+this.profile_type+'/'+this.id)
                 .then(response=>{
-                        console.log(response.data);
+                       
                         this.feature_list = response.data;
                 });
 
@@ -603,6 +610,11 @@ export default {
             featureCheck(check_id) {
                     $('.feature-'+check_id).attr('checked','true');
             },
+            preview_image(img_class) {
+                $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+                this.test = event.target.files[0]
+                //console.log(this.test);return;
+            },
 
             DeltArr(indx,type) {
                     var arr_list = [];
@@ -616,7 +628,7 @@ export default {
                                     arr_list.splice(indx,1);
                                     var ele = document.getElementById(type+indx);
                                     var parentEle = document.getElementById('gallery-'+type);
-                                    parentEle.removeChild(ele);
+                                    parentEle.removeChild(ele);          
                             }
                     }
                     
@@ -657,15 +669,20 @@ export default {
             },
 
             createProfile() {
+
                 this.img_list = [];
                 this.video_list = [];
                 this.cooperate_list = [];
                 this.payment_list = [];
+                this.customer_info = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
                 var customer_phone = $('.customer-phone').val();
+                var customer_address = $('.customer-address').text();
 
+                var access = $('.transporation-access').text();
+                var method = $('.nursing-payment-method').val();
                 var business_entity = $('.business-entity').text();
                 var date_of_establishment = $('.date-of-establishment').text();
                 var land_right_form = $('.land-right-form').text();
@@ -681,6 +698,10 @@ export default {
                 var room_floor = $('.room-floor').text();
                 var living_room_facilities = $('.living-room-facilities').text();
                 var equipment = $('.equipment').text();
+                var acceptance_remark = $('.acceptance-remark').text();
+                var latitude = $('#new_lat').val();
+                var longitude = $('#new_long').val();
+                var website = $('.website').val();
 
 
                 var staff = $('.staff').text();
@@ -688,29 +709,39 @@ export default {
                 var min_num_staff = $('.min-num-staff').text();
                 var num_staff = $('.num-staff').text();
                 var nursing_remarks = $('.nursing-remarks').text();
+
+                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
+
+                this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:nursing_remarks});
             
 
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
-                        this.img_list.push({img:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+
+                        var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
+                        if(file) {
+                                var file_name = file.name;
+                        } else {
+                                var file_name = img[i].getElementsByClassName('already-photo')[0].value;
+                        }
+                        this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
-                console.log(this.img_list);
+                //console.log(this.img_list);
 
                 var video = document.getElementsByClassName('gallery-area-video');
                 for(var i = 0; i< video.length; i++) {
-                        this.video_list.push({url:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
+                        this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                 }
-                console.log(this.video_list);
 
                 var cooperate = document.getElementsByClassName('gallery-area-cooperate');
                
                 for(var i = 0; i< cooperate.length; i++) {
                         this.cooperate_list.push({subject:cooperate[i].getElementsByClassName('clinical-sub')[0].value,
+                                                name:cooperate[i].getElementsByClassName('cooperate-name')[0].value,
                                                 details:cooperate[i].getElementsByClassName('details')[0].value,
                                                 expense:cooperate[i].getElementsByClassName('expense')[0].value,
                                                 remark:cooperate[i].getElementsByClassName('remark')[0].value});
                 }
-               console.log(this.cooperate_list);
 
                 var payment = document.getElementsByClassName('gallery-area-payment');
                 for(var i = 0; i< payment.length; i++) {
@@ -731,15 +762,125 @@ export default {
                                                 initial_deprecration:payment[i].getElementsByClassName('initial-deprecration')[0].value,
                                                 other_message_refund:payment[i].getElementsByClassName('other-message-refund')[0].value});
                 }
-               console.log(this.payment_list);
               
 
-                var chek_feature = [];
+               var chek_feature=[];
+               var special_features;
+        
                 $.each($("input[name='special-features']:checked"), function(){ 
-                        chek_feature.push({ feature: $(this).val()});
+                        var i = i+ 0;
+                        chek_feature.push($(this).val());
                 });
-                console.log(chek_feature);
+                special_features = chek_feature.join(',');
+               
+                this.profile_arr.push({website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                                        site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
+                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:acceptance_remark,latitude:latitude,longitude:longitude});
 
+                this.gallery_list = this.img_list.concat(this.video_list);
+
+                if(this.gallery_list.length > 0) {
+                        this.axios
+                                .post(`/api/nursing/galleryupdate/${this.id}`,this.gallery_list)
+                                .then((response) => {
+                                
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.cooperate_list.length > 0) {
+                        this.axios
+                                .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
+                                .then((response) => {
+                               
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.payment_list.length > 0) {
+                        this.axios
+                                .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
+                                .then((response) => {
+                                
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.profile_arr.length > 0) {
+                        this.axios
+                                .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
+                                .then((response) => {
+                        
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.customer_info.length > 0) {
+                        // check
+                        this.axios
+                                .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                                .then((response) => {
+                               
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.staf_info.length > 0) {
+                        this.axios
+                                .post(`/api/staff/profile/${this.id}`,this.staf_info)
+                                .then((response) => {
+                               
+                                }).catch(error=>{
+
+                                if(error.response.status == 422){
+
+                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+
+                if(this.acceptance.length > 0) {
+                        this.axios
+                                .post(`/api/acceptance/transition/${this.id}`,this.acceptance)
+                                .then((response) => {
+                                         alert('Successfully Updated!')
+                                }).catch(error=>{
+                                        if(error.response.status == 422) {
+                                                this.errors = error.response.data.errors
+                                        }
+                        }) ;
+                }
             }
         }
 }

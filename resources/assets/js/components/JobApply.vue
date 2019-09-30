@@ -4,16 +4,16 @@
     <div class="col-md-7 offset-md-3 register_box" v-if="type == 'register'">
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="first_name"> <strong> お名前 : </strong>  <img src="/images/require_field.gif" alt="必須" > </label>
+                <label for ="first_name"> <strong> お名前 <span class="error sp1">必須</span></strong>   </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="first_name" placeholder="トラスト　太郎" v-model="jobApply.first_name"  >
                 <div v-if="errors.first_name" class="text-danger">{{ errors.first_name }}</div>
-            </div>    
+            </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="last_name"><strong> お名前フリガナ : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
+                <label for ="last_name"><strong> お名前フリガナ <span class="error sp1">必須</span></strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name" >
@@ -22,7 +22,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="birthday"  ><strong>生年月日 : </strong>  </label>
+                <label for ="birthday"  ><strong>生年月日 <span class="error sp1">必須</span></strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="birthday" v-model="jobApply.birthday"  >
@@ -30,16 +30,16 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="gender"  ><strong> 性別 : </strong>   </label>
+                <label for ="gender"  ><strong> 性別 <span class="error sp1">必須</span></strong>   </label>
             </div>
             <div class="col-sm-9">
-                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="0"  > 女性 </label>
-                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="1" > 男性 </label>
+                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Male"  > 女性 </label>
+                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Female" > 男性 </label>
             </div>    
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="postal"  > <strong> 郵便番号 : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
+                <label for ="postal"  > <strong> 郵便番号 <span class="error sp1">必須</span></strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal" v-on:keyup="getPostal" >
@@ -48,7 +48,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="str_address"  ><strong>住所: </strong>  </label>
+                <label for ="str_address"  ><strong>住所 <span class="error sp1">必須</span></strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="str_address" v-model="jobApply.str_address"  >
@@ -56,7 +56,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="home_address"  ><strong>番地以下 : </strong>  </label>
+                <label for ="home_address"  ><strong>番地以下 <span class="error sp1">必須</span></strong>  </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="home_address" v-model="jobApply.home_address"  >
@@ -64,7 +64,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="phone"  ><strong> 電話番号 : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
+                <label for ="phone"  ><strong> 電話番号 <span class="error sp1">必須</span></strong> </label>
             </div>
             <div class="col-sm-9">
                 <input type="text" class="form-control box" id="phone" v-model="jobApply.phone">
@@ -73,29 +73,13 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="email"  ><strong> メールアドレス : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
+                <label for ="email"  ><strong> メールアドレス <span class="error sp1">必須</span></strong>  </label>
             </div>
             <div class="col-sm-9">
-                <input type="text" class="form-control box" id="email" placeholder="sample@gmail.com" v-model="jobApply.email">
+                <input type="text" class="form-control box" id="email" placeholder="例：abc@gmail.com" v-model="jobApply.email">
                 <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
             </div>
         </div>
-        <!-- <div class="form-group row">
-            <div class="col-sm-3">
-                <label for ="qualification"  ><strong>保有資格 : </strong>  </label>
-            </div>
-            <div class="col-sm-9">
-                <input type="text" class="form-control box" id="qualification" v-model="jobApply.qualification"  >
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-3">
-                <label for ="workable_day"  ><strong>就業可能日数 </strong>  </label>
-            </div>
-            <div class="col-sm-9">
-                <input type="text" class="form-control box" id="workable_day" v-model="jobApply.workable_day"  >
-            </div>
-        </div> -->
         <!-- <div class="form-group row">
             <div class="col-sm-3">
                 <label for ="skill"  ><strong>Skill : </strong>  </label>
@@ -106,7 +90,7 @@
         </div> -->
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="remark"  ><strong>Remark : </strong>  </label>
+                <label for ="remark"  ><strong>リマーク <span class="error sp1">必須</span></strong>  </label>
             </div>
             <div class="col-sm-9">
                 <textarea name="remark" class="form-control" cols="50" rows="5" v-model="jobApply.remark"></textarea>
@@ -115,10 +99,10 @@
 
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="terms"  ><strong> 個人情報について : </strong> <img src="/images/require_field.gif" alt="必須" > </label>
+                <label for ="terms"  ><strong> 個人情報について <span class="error sp1">必須</span></strong> </label>
             </div>
             <div class="col-sm-9">
-                <label for="">「プライバシーポリシー」をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。</label>
+                <label for=""><router-link to="/termsAndConditions" target="_blank"> 「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。</label>
                 <label> <input type="checkbox" v-model="jobApply.terms"> 同意する </label>
                 <div v-if="errors.terms" class="text-danger">{{ errors.terms }}</div>
             </div>
@@ -133,15 +117,15 @@
         <form @submit.prevent="apply">
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="first_name"  ><strong>First Name : </strong>  </label>
+                    <label for ="first_name"  ><strong>お名前 : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.first_name }} </span>
-                </div>    
+                </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="last_name"  ><strong>Last Name : </strong>  </label>
+                    <label for ="last_name"  ><strong>お名前フリガナ : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.last_name }} </span>
@@ -149,7 +133,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="birthday"  ><strong>Birthday : </strong>  </label>
+                    <label for ="birthday"  ><strong>生年月日 : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.birthday }} </span>
@@ -157,16 +141,16 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="gender"  ><strong> Gender : </strong>   </label>
+                    <label for ="gender"  ><strong> 性別 : </strong>   </label>
                 </div>
                 <div class="col-sm-9">
-                    <span v-if="jobApply.gender == 0">女性</span>
-                    <span v-if="jobApply.gender == 1">男性</span>
+                    <span v-if="jobApply.gender == 'Male'">女性</span>
+                    <span v-if="jobApply.gender == 'Female'">男性</span>
                 </div>    
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="postal"  ><strong>Postal : </strong>  </label>
+                    <label for ="postal"  ><strong>郵便番号 : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.postal }} </span>
@@ -174,7 +158,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="str_address"  ><strong>Street Address : </strong>  </label>
+                    <label for ="str_address"  ><strong>住所  : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.str_address }} </span>
@@ -182,7 +166,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="home_address"  ><strong>Home Address : </strong>  </label>
+                    <label for ="home_address"  ><strong>番地以下 : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.home_address }} </span>
@@ -190,7 +174,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="phone"  ><strong>Phone : </strong>  </label>
+                    <label for ="phone"  ><strong>電話番号 : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.phone }} </span>
@@ -198,7 +182,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="email"  ><strong>Email : </strong>  </label>
+                    <label for ="email"  ><strong>メールアドレス : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.email }} </span>
@@ -206,7 +190,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="qualification"  ><strong>Qualification : </strong>  </label>
+                    <label for ="qualification"  ><strong>資格 : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.qualification }} </span>
@@ -214,7 +198,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="workable_day"  ><strong>Workable Days : </strong>  </label>
+                    <label for ="workable_day"  ><strong>実行可能日 : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.workable_day }} </span>
@@ -222,7 +206,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="skill"  ><strong>Skill : </strong>  </label>
+                    <label for ="skill"  ><strong>スキル : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.skill }} </span>
@@ -230,7 +214,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for ="remark"  ><strong>Remark : </strong>  </label>
+                    <label for ="remark"  ><strong>リマーク : </strong>  </label>
                 </div>
                 <div class="col-sm-9">
                     <span>{{ jobApply.remark }} </span>
@@ -238,15 +222,14 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn main-bg-color white all-btn " @click="editUserInfo()">Back</button>
-                <button type="submit" class="btn main-bg-color white all-btn ">Register</button>
+                <button type="submit" class="btn main-bg-color white all-btn " @click="editUserInfo()">戻る</button>
+                <button type="submit" class="btn main-bg-color white all-btn ">登録</button>
             </div><br>
                 <!-- <div v-if="success" class="alert alert-success mt-3">Apply sent!</div> -->
 
                 <!-- <router-link to="" class="btn main-bg-color white all-btn">Apply</router-link> -->
         </form>
     </div>
-
     <div class="col-md-7 offset-md-3 confirm_box" v-if="type == 'completed'">
         <h5>Your job has been applied successfully.</h5><br>
     </div>
@@ -275,8 +258,6 @@ export default {
                         home_address: '',
                         phone:'',
                         email:'',
-                        qualification: '',
-                        workable_day:'',
                         skills:[],
                         remark: '',
                         terms: false
@@ -316,11 +297,10 @@ export default {
                         .then(response => {
                             var post_data = response.data;
                             var length = response.data.length;
-                            console.log(response);
                             if (length > 0) {
                                 var pref = post_data[0]['city_id'];
                                 if (post_data[0]['street'] == '') {
-                                    this.jobApply.str_address = post_data[0]['city'];
+                                    this.jobApply.str_address = post_data[0]['pref'] + ' - ' + post_data[0]['city'];
                                 } else {
                                     this.jobApply.str_address = post_data[0]['pref'] + ' - ' + post_data[0]['city'] + ' - ' + post_data[0]['street'];
                                 }
@@ -332,11 +312,11 @@ export default {
                 }
             },
             apply() {
-                console.log(this.jobApply);
                 this.axios.post('/api/jobapply',this.jobApply)
                     .then((response) => {
                     alert('Successful Apply');
                     this.jobApply = response.data;
+                    this.errors.email = this.jobApply;
                     this.type = 'completed';
 
                     }).catch(error=>{

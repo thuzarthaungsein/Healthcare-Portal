@@ -35,6 +35,7 @@ class CreateNursingProfilesTable extends Migration
             $table->text('occupancy_condition')->nullable();
             $table->text('room_floor')->nullable();
             $table->text('living_room_facilities')->nullable();
+            $table->text('website')->nullable();
             $table->text('equipment')->nullable();
             $table->text('acceptance_remark')->nullable();
             $table->text('dementia')->nullable();

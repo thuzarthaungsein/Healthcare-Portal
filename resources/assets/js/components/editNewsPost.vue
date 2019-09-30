@@ -86,7 +86,6 @@
                     </div>
                 </div>
             </div>
-            <pre>{{ news.photo }}</pre>
         </div>
     </div>
 </template>
@@ -121,7 +120,13 @@
                     .then((response) => {
                         this.news = response.data;
                         this.checkedNews = [];
-                        this.checkedNews = this.news.related_news.split(',');
+                        if(this.news.related_news != ''){
+                            this.checkedNews = this.news.related_news.split(',');
+                        }
+                        else{
+                            this.checkedNews = "";
+                        }
+                        
                         this.updateselected();
                         this.selectedValue = this.news.category_id;
                     });

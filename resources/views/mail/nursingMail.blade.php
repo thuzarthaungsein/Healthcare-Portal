@@ -1,37 +1,37 @@
 <div>    
-    Name : {{$getComment->name}}  <br>
-    furigana : {{$getComment->furigana}}  <br>
-    postal : {{$getComment->postal}}  <br>
-    division: {{$getComment->division}}  <br>
-    city : {{$getComment->city}}  <br>
-    phone : {{$getComment->phone}}  <br>
-    mail : {{$getComment->mail}}  <br> 
-    present : {{$getComment->present}}  <br> 
-    relation : {{$getComment->relation}}  <br> 
-    ttname : {{$getComment->ttname}}  <br> 
-    sex : {{$getComment->sex}}  <br> 
-    years : {{$getComment->years}}  <br> 
-    nursing : {{$getComment->nursing}}  <br> 
-    fect : {{$getComment->fect}}  <br>
-    desire : {{$getComment->desire}}  <br> 
-    hope : {{$getComment->hope}}  <br> 
+    お名前 : {{$getComment->name}}  <br>
+    ふりがな : {{$getComment->furigana}}  <br>
+    郵便番号 : {{$getComment->postal}}  <br>
+    都道府県: {{$getComment->division}}  <br>
+    市区町村 、番地（建物名） : {{$getComment->city}}  <br>
+    電話番号  : {{$getComment->phone}}  <br>
+    メールアドレス : {{$getComment->mail}}  <br> 
+    プレゼントのご希望 : {{$getComment->present}}  <br> 
+    入居対象者様とのご関係 : {{$getComment->relation}}  <br> 
+    お名前 : {{$getComment->ttname}}  <br> 
+    性別 : {{$getComment->sex}}  <br> 
+    年齢 : {{$getComment->years}}  <br> 
+    介護度 : {{$getComment->nursing}}  <br> 
+    認知症 : {{$getComment->fect}}  <br>
+    入居希望時期 : {{$getComment->desire}}  <br> 
+    ご要望や、お困りごと、その他お問い合わせ : {{$getComment->hope}}  <br> 
     @if(isset($getComment->arr_reserve[$getComment->fav_id]))
       @if($getComment->arr_reserve[$getComment->fav_id] == true)
-        Reservation : Yes <br> 
+          見学予約 : はい <br> 
       @else 
-        Reservation : No <br> 
+          見学予約 : いいえ <br> 
       @endif
     @else
-    Reservation : No <br> 
+        見学予約 : いいえ <br> 
     @endif
     @if(isset($getComment->arr_document[$getComment->fav_id]))
       @if($getComment->arr_document[$getComment->fav_id] == true)
-        Documentation : Yes <br> 
+          資料請求 : はい <br> 
       @else 
-      Documentation : No <br> 
+          資料請求 : いいえ <br> 
       @endif
     @else
-    Documentation : No <br> 
+        資料請求 : いいえ <br> 
     @endif
 
 </div>

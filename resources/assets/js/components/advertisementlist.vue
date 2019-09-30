@@ -94,12 +94,37 @@ export default {
     //     this.isOpen = !this.isOpen;
     // },
     deleteAds(id) {
-      if (confirm("Are you sure you want to delete?")) {
+      this.$swal({
+        title: "確認",
+        text: "削除よろしいでしょうか",
+        type: "warning",
+        width: 350,
+        height: 200,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#b1abab",
+        cancelButtonTextColor: "#000",
+        confirmButtonText: "削除",
+        cancelButtonText: "キャンセル",
+        confirmButtonClass: "all-btn",
+        cancelButtonClass: "all-btn"
+      }).then(response=>{
         this.axios.delete(`/api/advertisement/delete/${id}`).then(response => {
-          alert("Delete Successfully!");
+          //alert("Delete Successfully!");
           let a = this.advertisements.map(item => item.id).indexOf(id);
           this.advertisements.splice(a, 1);
+          this.$swal({
+              title: "削除された",
+              text: "ファイルが削除されました。",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#dc3545"
+            });
         });
+      })
+      
       }
     },
 
@@ -112,6 +137,5 @@ export default {
       });
     }
   }
-};
 </script>
 

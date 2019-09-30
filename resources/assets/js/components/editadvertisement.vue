@@ -50,15 +50,18 @@
                                     <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
                                 </div>
                             </div>
+
+
+                            
                             <div class="image_show"></div>
                             <div class="form-group image_update" id="x-image"> </div>
-
                             <div class="form-group">
                                 <router-link to="/ads" class="btn btn-danger all-btn">戻る</router-link>
                                 <button class="btn news-post-btn all-btn">更新</button>
                             </div>
                                 </form>
                             </div>
+
                          </div>
                     </div>
             </div>
@@ -110,7 +113,9 @@ export default {
               {
                    $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
               },
-
+             removeFile(){
+                 this.photo = ''
+             },
               updateCheck: function (check){
                      this.advertisement.location.shift()
                if(check == "topbar"){
@@ -157,7 +162,17 @@ export default {
             //ads.photo=this.advertisement.photo
                 this.axios.post(`/api/advertisement/update/${this.$route.params.id}`, adsData)
                     .then((response) => {
-                          alert('Successfully Updated!')
+                         // alert('Successfully Updated!')
+                        this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '更新されました',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            width: 250,
+                            height: 200,
+
+                        })
                         this.$router.push({name: 'ads'});
                     });
             }
