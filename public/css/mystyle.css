@@ -1704,6 +1704,9 @@ ol.sub-ol li, ul.sub-ul li {
     box-shadow: none !important;
     min-width: 60px;
 }
+.btn:hover{
+    cursor: pointer;
+}
 
 .confirm-borderbtn {
     border: 1px solid #6cb2eb !important;
@@ -5207,4 +5210,26 @@ border-bottom: 0;
     .eg-txt {
         margin-top: 10px;
     }
+}
+/*feature list*/
+.custom-table{
+  /* border: 1px solid #ced4da; */
+  border: solid 1px #91c796;
+}
+.custom-table thead th{
+    border-bottom: 1px solid #91c796;
+    border-top: 1px solid #91c796;
+    color: #095c5f;
+    font-weight: bold;
+    font-size: 18px;
+}
+.custom-table > .table th, .table td {
+    padding: 0.50rem;
+}
+.custom-table > tbody tr:hover {
+    color: #212529;
+    background-color: rgb(245, 255, 253) !important;
+}
+.custom-table th, .custom-table td{
+    /* border-top: 1px dashed #91c796; */
 }

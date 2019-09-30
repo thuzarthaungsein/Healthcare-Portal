@@ -166,8 +166,7 @@
       </div>
       <div role="tabpanel" class="tab-pane fade" id="tab3">
         <nursingSearch></nursingSearch>
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
+      </div>     
       <div role="tabpanel" class="tab-pane fade" id="tab4">
         <jobSearch></jobSearch>
       </div>
