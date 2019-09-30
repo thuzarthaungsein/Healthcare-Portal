@@ -2,10 +2,10 @@
 <div>
         <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
-        <li role="presentation" @click="changeRoute()" class="subtab1 nav-item" :class="subtab1active"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
-        <li role="presentation" @click="changeRoute()" class="subtab2 nav-item" :class="subtab2active"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院</a></li>
-        <li role="presentation" @click="changeRoute()" class="subtab3 nav-item" :class="subtab3active"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護</a></li>
-        <li role="presentation" @click="changeRoute()" class="subtab5 nav-item" :class="subtab4active"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人</a></li>
+        <li role="presentation"  class="subtab1 nav-item" :class="subtab1active"><a @click="changeRoute" href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
+        <li role="presentation"  class="subtab2 nav-item" :class="subtab2active"><a @click="changeRoute" href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院</a></li>
+        <li role="presentation"  class="subtab3 nav-item" :class="subtab3active"><a @click="changeRoute" href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護</a></li>
+        <li role="presentation"  class="subtab5 nav-item" :class="subtab4active"><a @click="changeRoute" href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人</a></li>
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
@@ -89,6 +89,7 @@ localStorage.setItem("hospital_history", this.l_storage_hos_history);
         methods: {
                 start() {
                         if(this.$route.params.page) {
+                               //console.log(this.$route.params.page)
                                if(this.$route.params.page == 'subtab2') {
                                        this.fade2 = false;
                                        this.subtab2active = 'active';
@@ -97,11 +98,42 @@ localStorage.setItem("hospital_history", this.l_storage_hos_history);
                                        this.fade3 = false;
                                        this.subtab3active = 'active';
                                }
+                               else if(this.$route.params.page == '#tab2'){
+                                        this.fade1 = false;
+                                        this.fade2 = false;
+                                        this.fade3 = false;
+                                        this.fade4 = false;
+                                        this.subtab2active = 'active';
+                               }
+                               else if(this.$route.params.page == '#tab3'){
+                                        this.fade1 = false;
+                                        this.fade2 = false;
+                                        this.fade3 = false;
+                                        this.fade4 = false;
+                                        this.subtab3active = 'active';
+                               }
+                               else if(this.$route.params.page == '#tab4'){
+                                        this.fade1 = false;
+                                        this.fade2 = false;
+                                        this.fade3 = false;
+                                        this.fade4 = false;
+                                        this.subtab4active = 'active';
+                               }
+                               else if(this.$route.params.page == '#tab1'){
+                                        this.fade1 = false;
+                                        this.fade2 = false;
+                                        this.fade3 = false;
+                                        this.fade4 = false;
+                                        this.subtab1active = 'active';
+                               }
+                              
                         }
                         else{
                                 this.fade1 = false;
                                 this.subtab1active = 'active';
                         }
+
+
                 //     this.$route.params.page? (this.$route.params.page == 'subtab2'? (this.subtab2active = 'active') : (this.subtab3active = 'active')) : (this.subtab1active = 'active');
                 },
                 getAllCat: function() {
@@ -142,8 +174,9 @@ localStorage.setItem("hospital_history", this.l_storage_hos_history);
                                 this.latest_post_all_cats = response.data;
                         });
                 },
-                changeRoute(){
-                    this.$router.push({name:'home'});
+                changeRoute(e){
+                   // console.log(e.target.tagName);
+                    //this.$router.push({name:'home'});
                 },
         }
 
