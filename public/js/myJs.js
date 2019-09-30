@@ -138,7 +138,7 @@ $('#save_value').click(function(){
   $(':checkbox:checked').each(function(){
     checkvalue.push(parseInt($(this).val()));
   });
-  console.log(checkvalue);
+  // console.log(checkvalue);
 });
 
 

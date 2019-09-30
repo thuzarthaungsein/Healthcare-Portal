@@ -80,8 +80,6 @@ export default {
 
          methods: {
             add() {
-                console.log("add");
-                console.log(this.feature);
                   if( `${this.$route.params.id}` == "undefined")
                   {
                             axios.post('/api/feature/add', this.feature)
@@ -89,7 +87,6 @@ export default {
                          this.name = ''
                          this.short_name=''
                          this.type=''
-                         console.log(response);
                     alert('Successfully Created');
                      this.$router.push({name: 'featurelist'});
                     }).catch(error=>{
@@ -108,7 +105,6 @@ export default {
             onChange: function(){
 
                this.feature.type = this.selectedValue;
-               console.log(this.feature);
 
            },
             updateFeature() {

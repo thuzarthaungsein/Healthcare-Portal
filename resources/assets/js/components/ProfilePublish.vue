@@ -490,12 +490,10 @@
                     loop: false,
                     duration:500,
                     beforeChange: function(ele, current, next) {
-                        console.log('before', current, next)
                         that.index = next;
                     },
                     afterChange: function(ele, current) {
                         that.index = current;
-                        console.log('after', current)
                     }
                 },
                 images: [

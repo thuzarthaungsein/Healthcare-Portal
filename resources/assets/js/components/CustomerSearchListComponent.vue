@@ -58,7 +58,7 @@ export default {
                         });
                 },
                 goProfile() {
-                        console.log("Go");
+                        // console.log("Go");
                 }
         }
 }

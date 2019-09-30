@@ -99,7 +99,6 @@ export default {
   },
   created() {
     this.axios.get("/api/job/index").then(response => {
-      console.log(response.data.jobs);
       this.jobs = response.data.jobs;
     });
     this.axios.get("/api/user").then(response => {
