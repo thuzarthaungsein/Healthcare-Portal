@@ -43,9 +43,7 @@
             <p>OOPS!!</p>
             <p class="record-txt01">表示するデータありません</p>
             <p>表示するデータありません‼新しいデータを作成してください。</p>
-            <a href="/create_news" class="main-bg-color create-btn all-btn">
-              <i class="fas fa-plus-circle"></i> 新しいデータ作成
-            </a>
+           
           </div>
           <div
             v-else
@@ -110,11 +108,28 @@ export default {
   },
   methods: {
     deleteCustomer(id) {
-      this.axios.delete(`/api/customer/delete/${id}`).then(response => {
-        flash("Delete Success", "success");
+    
+     this.$swal({
+        title: "確認",
+        text: "削除よろしいでしょうか",
+        type: "warning",
+        width: 350,
+        height: 200,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#b1abab",
+        cancelButtonTextColor: "#000",
+        confirmButtonText: "削除",
+        cancelButtonText: "キャンセル",
+        confirmButtonClass: "all-btn",
+        cancelButtonClass: "all-btn"
+      }).then(response=>{
+          this.axios.delete(`/api/customer/delete/${id}`).then(response => {
+        //flash("Delete Success", "success");
         let a = this.customers.map(item => item.id).indexOf(id);
         this.customers.splice(a, 1);
       });
+      });   
     },
     comfirm(id) {
       this.axios.get(`/api/confirm/${id}`).then(response => {

@@ -94,7 +94,17 @@ export default {
 
                 this.axios.post('/api/advertisement/add',adsData)
                     .then((response) => {
-                    alert('Successfully Created')
+                    //alert('Successfully Created')
+                    this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '更新されました',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            width: 250,
+                            height: 200,
+
+                        })
                     this.$router.push({name: 'ads'});
                     }).catch(error=>{
 

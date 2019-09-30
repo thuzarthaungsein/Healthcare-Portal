@@ -41,9 +41,9 @@
         </div>
 
         <div v-if="type == 'hospital'" >
-                <ul class="nav nav-tabs card-head-tabs" role="tablist">
-                        <li role="presentation" class="active subtab1 nav-item">
-
+                <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist">
+                        <li role="presentation" class="subtab1 nav-item">
+                        
                        <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
                                <i class="fa fa-plus-circle"></i>
                                 <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> Create
@@ -65,8 +65,8 @@
                                 <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> View
                         </label>
                 </div> -->
-                <div class="tab-content tab-content1 tabs fixed-ads">
-                <form class="col-md-12 pad-free ">
+                <div class="tab-content tab-content1 tabs">  
+                <form class="col-md-12 pad-free "> 
                         <div class="col-md-12 pad-free tab-pane" v-if="btntype == 'create'">
                              <hospitalProfile></hospitalProfile>
                         </div>
@@ -97,7 +97,7 @@ export default {
         },
        data() {
                 return {
-                        type: 'nursing',
+                        type: 'hospital',
                         btntype: 'view',
                 }
         },
