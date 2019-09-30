@@ -61,6 +61,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'TypeController@edit');
         Route::post('update/{id}', 'TypeController@update');
         Route::delete('delete/{id}', 'TypeController@destroy');
+        Route::post('search', 'TypeController@search');
     });
     // End Type
 
