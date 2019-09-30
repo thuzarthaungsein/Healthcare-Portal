@@ -50,17 +50,15 @@
                                                 <div class="form-group m-0 row bd">
                                                     <div class="col-md-3 col-sm-12 form-left"><label>お名前 <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
-                                                        <input type="text" id="tbname" name="name" class="form-control float-left" placeholder="お名前を入力してください。" v-model="comments.name" @change="someHandler"/>
-                                                        <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
-                                                        <span class="eg-txt float-left">例）探し 太郎</span>
+                                                        <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" v-model="comments.name" @change="aggreBtn" @focusout="focusName"/>
+                                                       <span class="error m-l-30" v-if="comment_focus">※入力は必須です。</span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-0 row bd">
                                                     <div class="col-md-3 col-sm-12 form-left"> <label>ふりがな <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
-                                                        <input type="text" id="furigana" name="furigana" class="form-control float-left" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="someHandler"/>
-                                                        <span class="eg-txt float-left"> 例）さがし たろう</span>
-                                                        <span v-if="errors.furigana" class="error">{{errors.furigana[0]}}</span>
+                                                        <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="aggreBtn" @focusout="focusFuri"/>
+                                                        <span class="error m-l-30" v-if="furigana_focus">※入力は必須です。</span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-0 row bd">
@@ -68,17 +66,19 @@
                                                     <div class="col-md-9 col-sm-12 form-right">
                                                         <div class="form-group row pl-3">
                                                             <div class="col-md-12 "><label> 郵便番号 <span class="error sp1">必須</span></label></div>
-                                                            <div class="col-md-12 p-0">
-                                                                <input type="text" v-model="comments.postal" name="postal" class="postal form-control  float-left" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="someHandler"/>
-                                                                <span v-if="errors.postal" class="error">{{errors.postal[0]}}</span>
-                                                                <div id="jsErrorMessage"></div>
-                                                                 <span class="eg-txt float-left">例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a>)</span>
+                                                            <div class="col-md-6 p-0">
+                                                                <input type="text" v-model="comments.postal" name="postal" class="postal form-control full-wd" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="aggreBtn" @focusout="focusPostal"/>
+                                                                <span class="error m-l-30" v-if="postal_focus">※入力は必須です。</span>
+                                                                <div id="jsErrorMessage" class="m-l-30"></div>
+                                                            </div>
+                                                            <div class="col-md-6 eg-txt">
+                                                                <p>例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a>)</p>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row pl-3">
                                                             <div class="col-md-12 "><label>  都道府県<span class="error sp1">必須</span></label></div>
                                                             <div class="col-md-12 p-0">
-                                                                <select v-model="comments.selectedValue" class="division form-control" id="division" @change="someHandler">
+                                                                <select v-model="comments.selectedValue" class="division form-control" id="division" @change="aggreBtn">
                                                                     <option value="0">選択してください。</option>
                                                                     <option v-for="cities in city_list" :key="cities.id" v-bind:value="cities.id">
                                                                         {{cities.city_name}}
@@ -87,24 +87,33 @@
                                                                 <span v-if="errors.division" class="error">{{errors.division[0]}}</span>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group row pl-3">
-                                                            <div class="col-md-12 "><label>市区町村、番地（建物名）<span class="error sp1">必須</span></label></div>
-                                                            <div class="col-md-12 p-0">
-                                                                <input type="text" id="city" name="city" class="city form-control float-left" placeholder="市区町村、番地を入力してください。" v-model="comments.city" @change="someHandler">
-                                                                <span v-if="errors.city" class="error">{{errors.city[0]}}</span>
-                                                                <span class="eg-txt float-left">例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</span>
+                                                    </div>
+                                                     <div class="col-md-3 col-sm-12 form-left"><label>市区町村、番地（建物名）<span class="error sp1">必須</span></label></div>
+                                                    <div class="col-md-9 col-sm-12 form-right">
+                                                    <div class="form-group row pl-3">
+                                                            <div class="col-md-6 p-0">
+                                                                <input type="text" id="city" name="city" class="city form-control full-wd" placeholder="市区町村、番地を入力してください。" v-model="comments.city" @change="aggreBtn" @focusout="focusCity">
+                                                             
+                                                            </div>
+                                                            <div class="col-md-6 eg-txt pr-5">
+                                                                <p>例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-0 row bd">
+                                                   
+                                                </div>
+                                                <div class="form-group m-0 row bd">
                                                     <div class="col-md-3 col-sm-12 form-left"><label>電話番号 <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
                                                     <div class="form-group row pl-3">
-                                                            <div class="col-md-12 p-0">
-                                                                <input type="text" id="phone" name="number" class="form-control  float-left" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="someHandler">
-                                                                <span v-if="errors.phone" class="error">{{errors.phone[0]}}</span>
-                                                                <span class="eg-txt float-left">例）0312345678（半角）</span>
+                                                            <div class="col-md-6 p-0">
+                                                                <input type="text" id="phone" name="number" class="form-control full-wd" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="aggreBtn" @focusout="focusPhone">
+                                                                 <span class="error m-l-30" v-if="phone_focus">※入力は必須です。</span>
+                                                            </div>
+                                                            <div class="col-md-6 eg-txt">
+                                                                <p>例）0312345678（半角）</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -113,20 +122,24 @@
                                                     <div class="col-md-3 col-sm-12 form-left"><label>メールアドレス <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
                                                     <div class="form-group row pl-3">
-                                                            <div class="col-md-12 p-0">
-                                                                <input type="text" id="mail" name="mail" class="form-control float-left" placeholder="メールアドレスを入力してください。" v-model="comments.mail" @change="someHandler">
-                                                                <span v-if="errors.mail" class="error">{{errors.mail[0]}}</span>
-                                                                <span class="float-left eg-txt"> 例）abc@example.jp （半角）</span>
+                                                            <div class="col-md-6 p-0">
+                                                                <input type="text" id="mail" name="mail" class="form-control full-wd" placeholder="メールアドレスを入力してください。" v-model="comments.mail" @change="aggreBtn" @focusout="focusMail">
+                                                                   <span class="error m-l-30" v-if="mail_focus">※入力は必須です。</span>
+                                                            </div>
+                                                            <div class="col-md-6 eg-txt">
+                                                                <p> 例）abc@example.jp （半角）</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-0 row bd-all">
-                                                    <div class="col-md-3 col-sm-12 form-left"><label>プレゼントのご希望:<span class="error sp1">必須</span></label></div>
+                                                    <div class="col-md-3 col-sm-12 form-left"><label>プレゼントのご希望:</label></div>
                                                     <div class="col-md-9 col-sm-12 form-right pl-4">
-                                                        <input type="checkbox" id="present"  name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
+                                                        <input type="checkbox" id="present"  name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="aggreBtn">「早分かり用語集」プレゼントを希望する
                                                     </div>
                                                 </div>
+
+                                                
                                                 <!-- <div class="form-group">
                                                     <label>お名前 <span class="error sp1">必須</span></label>
                                                     <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" v-model="comments.name" @change="someHandler"/>
@@ -207,14 +220,24 @@
                                                     <label>プレゼントのご希望:<span class="error sp1">必須</span></label>
                                                     <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
                                                 </div> -->
-                                                <button type="button" class="submit1 btn all-btn main-bg-color continue m-l-15 mt-4  submit" @click="add()" :disabled="isdisable">同意して進む</button>
+                                                <div class="mt-4 col-sm-3 submit txt-err" v-if="btn_disable">   
+                                                    <div class="error">※未入力の必須項目がございます</div>
+                                                </div> 
+
+                                              <div>
+                                                      <router-link :to="{name: 'favouriteNursing'}" type="button" class="btn btn main-bg-color continue m-l-15 mt-4 col-lg-2 col-sm-4 submit">戻る</router-link>&nbsp;
+                                                    <button type="button" class="submit1 btn btn-danger continue m-l-15 col-lg-2 col-sm-4 submit" @click="add()" :disabled="isdisable">同意して進む</button>
+                                              </div>
+                                                
+
+                                                
 
                                                 <!--next_form-->
                                                 <div class="m-t-30">
                                                     <h3 class="form-tit">入居対象者様について</h3>
                                                     <div class="form-group m-0 row bd">
                                                         <div class="col-md-3 col-sm-12 form-left">
-                                                            <label>入居対象者様とのご関係<span class="error">*</span></label></div>
+                                                            <label>入居対象者様とのご関係</label></div>
                                                         <div class="col-md-9 col-sm-12 form-right">
                                                             <select class="form-control" id="relation"  v-model="comments.relation">
                                                             <option value="">選択してください</option>
@@ -229,14 +252,14 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group m-0 row bd">
-                                                        <div class="col-md-3 col-sm-12 form-left"><label>お名前<span class="text-danger">*</span></label></div>
+                                                        <div class="col-md-3 col-sm-12 form-left"><label>お名前</label></div>
                                                         <div class="col-md-9 col-sm-12 form-right">                                           
                                                             <input type="text" id="ttname" name="ttname" class="form-control float-left" placeholder="お名前を入力してください。"  v-model="comments.ttname">
                                                             <span class="eg-txt float-left">例）さがし　たろう</span>   
                                                         </div>
                                                     </div>
                                                     <div class="form-group m-0 row bd">
-                                                        <div class="col-md-3 col-sm-12 form-left"><label>性別<span class="text-danger">*</span></label></div>
+                                                        <div class="col-md-3 col-sm-12 form-left"><label>性別</label></div>
                                                         <div class="col-md-9 col-sm-12 form-right pl-4">                                           
                                                             <input type="radio" id="sex" name="sex" value="男性"  v-model="comments.sex">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
                                                             <input type="radio" id="sex" name="sex" value="女性"    v-model="comments.sex">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
@@ -244,7 +267,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group m-0 row bd">
-                                                        <div class="col-md-3 col-sm-12 form-left"><label>年齢<span class="text-danger">*</span></label></div>
+                                                        <div class="col-md-3 col-sm-12 form-left"><label>年齢</label></div>
                                                         <div class="col-md-9 col-sm-12 form-right">                                           
                                                             <select class="form-control" id="years"  v-model="comments.years">
                                                                 <option value="">選択してください</option>
@@ -325,7 +348,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group m-0 row bd">
-                                                        <div class="col-md-3 col-sm-12 form-left"><label>介護度<span class="text-danger">*</span></label></div>
+                                                        <div class="col-md-3 col-sm-12 form-left"><label>介護度</label></div>
                                                         <div class="col-md-9 col-sm-12 form-right">                                           
                                                             <select class="form-control" id="nursing"  v-model="comments.nursing">
                                                                 <option value="">選択してください</option>
@@ -340,7 +363,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group m-0 row bd">
-                                                        <div class="col-md-3 col-sm-12 form-left"><label>認知症<span class="text-danger">*</span></label></div>
+                                                        <div class="col-md-3 col-sm-12 form-left"><label>認知症</label></div>
                                                         <div class="col-md-9 col-sm-12 form-right pl-4">                                           
                                                         <input type="radio" id="fect" name="fect" value="あり"  v-model="comments.fect">&nbsp;あり&nbsp;&nbsp;&nbsp;&nbsp;
                                                             <input type="radio" id="fect" name="fect" value="なし"  v-model="comments.fect">&nbsp;なし&nbsp;&nbsp;&nbsp;&nbsp;
@@ -348,7 +371,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group m-0 row bd">
-                                                        <div class="col-md-3 col-sm-12 form-left"><label>認知症<span class="text-danger">*</span></label></div>
+                                                        <div class="col-md-3 col-sm-12 form-left"><label>認知症</label></div>
                                                         <div class="col-md-9 col-sm-12 form-right pl-4">                                           
                                                             <input type="radio" id="desire" name="desire" value="できるだけ早く"  v-model="comments.desire">&nbsp;できるだけ早く<br>
                                                             <input type="radio" id="desire" name="desire" value="３ヶ月以内"  v-model="comments.desire">&nbsp;３ヶ月以内<br>
@@ -358,7 +381,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group m-0 row bd-all">
-                                                        <div class="col-md-3 col-sm-12 form-left"><label>ご要望や、お困りごと、その他お問い合わせ<span class="text-danger">*</span></label></div>
+                                                        <div class="col-md-3 col-sm-12 form-left"><label>ご要望や、お困りごと、その他お問い合わせ</label></div>
                                                         <div class="col-md-9 col-sm-12 form-right pl-4">                                           
                                                             <textarea name="hope" id="hope" class="mail-txt"   v-model="comments.hope" ></textarea>
                                                         </div>
@@ -510,7 +533,13 @@
                                                     <label>ご要望や、お困りごと、その他お問い合わせ:<span class="error">*</span></label>
                                                     <textarea name="hope" id="hope" cols="30" rows="10"  v-model="comments.hope"></textarea>
                                                 </div> -->
-                                                <button type="button" class="submit2 btn all-btn main-bg-color continue m-l-15 m-t-15 submit" @click="add()">同意して進む</button>
+                                                <div class="mt-4 col-sm-3 submit txt-err
+                                                " v-if="btn_disable">   
+                                                    <div class="error">※未入力の必須項目がございます</div>
+                                                </div> 
+                                                <router-link :to="{name: 'favouriteNursing'}" type="button" class="btn btn main-bg-color continue m-l-15 mt-4 col-lg-2 col-sm-4 submit">戻る</router-link>&nbsp;
+                                                    <button type="button" class="submit1 btn btn-danger continue m-l-15 col-lg-2 col-sm-4 submit" @click="add()" :disabled="isdisable">同意して進む</button>
+
                                             </form>
                                         </div>
                                     </div>
@@ -527,17 +556,7 @@
     </div>
 </template>
 <script>
-import News from './News.vue'
-import hospitalSearch from './hospitalSearch.vue'
-// import nursingSearch from './nursingSearch.vue'
-import jobSearch from './jobSearch.vue'
     export default {
-        components: {
-                News,
-                // nursingSearch,
-                jobSearch,
-                hospitalSearch,
-        },
        data() {
             return {
                 comments: {
@@ -563,7 +582,6 @@ import jobSearch from './jobSearch.vue'
                     arr_reserve: [{}],
                     arr_document: [{}],
                     selectedValue: 0,
-
                 },
                 errors: [],
                 fav_nursing: [],
@@ -603,7 +621,7 @@ import jobSearch from './jobSearch.vue'
                 .then(response => {
                     this.city_list = response.data;
                 });
-            if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
+            if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != ''){
                     this.btn_disable=false;
                     //  $('#error-msg').html('<div class="error"></div>');
                 }else{
@@ -612,9 +630,6 @@ import jobSearch from './jobSearch.vue'
             
         },
         methods: {
-            changeRoute(){
-                this.$router.push({name:'home', params: {page:'subtab3'}});
-            },
             getPostal: function(event) {
                 if (this.comments.postal.length > 4) {
                     var postal = this.comments.postal;
@@ -658,8 +673,8 @@ import jobSearch from './jobSearch.vue'
                     name: 'nursingMailConfirm',
                 });
             },
-            someHandler: function(){
-                if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
+            aggreBtn: function(){
+                if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != ''){
                     this.btn_disable=false;
                 }else{
                     this.btn_disable=true;

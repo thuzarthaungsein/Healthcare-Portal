@@ -1595,6 +1595,10 @@ ul.sub-ul li {
 .m-l-17 {
     margin-left: 17px;
 }
+.m-l-30
+{
+    margin-left: 30px;
+}
 
 .m-t-10 {
     margin-top: 10px !important;
@@ -5444,6 +5448,11 @@ button.confirmed {
 }
 .err{
     color: red;
+}
+
+.txt-err
+{
+    text-align: center;
 }
 
 /*required*/

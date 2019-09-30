@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div>
     <!--menu tabs-->
     <ul class="nav nav-tabs card-head-tabs col-12" role="tablist" id="navtab">
       <li role="presentation" class="subtab1 nav-item">
