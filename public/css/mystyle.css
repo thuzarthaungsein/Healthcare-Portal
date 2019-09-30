@@ -1363,12 +1363,20 @@ div.b {
 }
 .sitepolicy ol li, .privacy ol li  {
     font-weight: 700;
+    font-size: 15px;
 }
 .sitepolicy ol li span, .privacy ol li {
     font-weight: 500;
+    font-size: 15px;
 }
 ol.sub-ol li, ul.sub-ul li {
     font-weight: 500;
+    font-size: 15px;
+}
+.office_contact {
+    text-align: center;
+    font-size: 15px;
+
 }
 /*End Terms & conditions */
 

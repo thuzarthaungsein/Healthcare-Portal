@@ -33,9 +33,9 @@
                 <label for ="gender"  ><strong> 性別 <span class="error sp1">必須</span></strong>   </label>
             </div>
             <div class="col-sm-9">
-                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="0"  > 女性 </label>
-                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="1" > 男性 </label>
-            </div>
+                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Male"  > 女性 </label>
+                <label> <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Female" > 男性 </label>
+            </div>    
         </div>
         <div class="form-group row">
             <div class="col-sm-3">
@@ -102,7 +102,7 @@
                 <label for ="terms"  ><strong> 個人情報について <span class="error sp1">必須</span></strong> </label>
             </div>
             <div class="col-sm-9">
-                <label for=""><router-link to="/termsAndConditions" > 「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。</label>
+                <label for=""><router-link to="/termsAndConditions" target="_blank"> 「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。</label>
                 <label> <input type="checkbox" v-model="jobApply.terms"> 同意する </label>
                 <div v-if="errors.terms" class="text-danger">{{ errors.terms }}</div>
             </div>
@@ -144,9 +144,9 @@
                     <label for ="gender"  ><strong> 性別 : </strong>   </label>
                 </div>
                 <div class="col-sm-9">
-                    <span v-if="jobApply.gender == 0">女性</span>
-                    <span v-if="jobApply.gender == 1">男性</span>
-                </div>
+                    <span v-if="jobApply.gender == 'Male'">女性</span>
+                    <span v-if="jobApply.gender == 'Female'">男性</span>
+                </div>    
             </div>
             <div class="form-group row">
                 <div class="col-sm-3">
@@ -230,7 +230,6 @@
                 <!-- <router-link to="" class="btn main-bg-color white all-btn">Apply</router-link> -->
         </form>
     </div>
-
     <div class="col-md-7 offset-md-3 confirm_box" v-if="type == 'completed'">
         <h5>Your job has been applied successfully.</h5><br>
     </div>
@@ -317,6 +316,7 @@ export default {
                     .then((response) => {
                     alert('Successful Apply');
                     this.jobApply = response.data;
+                    this.errors.email = this.jobApply;
                     this.type = 'completed';
 
                     }).catch(error=>{
