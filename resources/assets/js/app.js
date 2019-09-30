@@ -50,6 +50,8 @@ import CKEditor from '@ckeditor/ckeditor5-vue';
 Vue.use( CKEditor );
 //end editor
 
+import ReadMore from 'vue-read-more';
+Vue.use(ReadMore);
 
 window.events = new Vue();
 window.flash = function(message) {
