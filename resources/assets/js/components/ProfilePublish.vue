@@ -411,7 +411,7 @@
                             <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
                            </GmapMap>
 
-                        <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                        <div  class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
                             <div class="col-md-2 text-left ">
                                 Official Site  :
                             </div>

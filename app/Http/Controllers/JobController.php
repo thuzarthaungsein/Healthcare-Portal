@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use Illuminate\Http\Request;
+use DB;
 
 class JobController extends Controller
 {
@@ -11,17 +12,16 @@ class JobController extends Controller
     public function index()
     {
    
-        $jobs = Job::all()->toarray();
-        $profilejob = Job::where('customer_id',1)->get();
-        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob) );
+      
+        $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
+                     ->join('jobs','jobs.customer_id','=','customers.id')->get();
+       
+        $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
+                           ->join('jobs','jobs.customer_id','=','customers.id')
+                           ->where('jobs.customer_id','=',1)->get();
+        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
        
     }
-
-    // public function getJob()
-    // {
-    //     $profilejob = Job::where('customer_id',1)->get();
-    //     return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob) );
-    // }
 
 
     public function create()
