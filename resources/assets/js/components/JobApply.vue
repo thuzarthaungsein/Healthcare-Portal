@@ -211,7 +211,7 @@
                 <div class="col-sm-9">
                     <span>{{ jobApply.skill }} </span>
                 </div>
-            </div> -->
+            </div>
             <div class="form-group row">
                 <div class="col-sm-3">
                     <label for ="remark"  ><strong>リマーク : </strong>  </label>

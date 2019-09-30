@@ -43,16 +43,15 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group row">
-                  <div class="col-6">
+                  <div class="col-12">
                     <input
                       type="text"
                       class="form-control"
                       placeholder="検索"
                       id="search-item"
-                      @keyup="searchbyCategory()"
                     />
                   </div>
-                  <div class="col-6 row align-items-baseline">
+                  <!-- <div class="col-6 row align-items-baseline">
                     <div class="col-md-3">
                       <label for="selectBox col-form-label">カテゴリー</label>
                     </div>
@@ -66,7 +65,7 @@
                         >{{category.name}}</option>
                       </select>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
