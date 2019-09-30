@@ -904,7 +904,7 @@
             </div>
           </div>
          
-            <table class="table card-2 col-10 select">
+            <table class="table card-2 col-10 hospitalselect">
               <tbody>
                 <tr>
                   <th>地域</th>
@@ -1070,26 +1070,16 @@
                 <tr class="toBeToggled1 ShowHide">
                   <th>施設の種類</th>
                   <td>
-                  <div class="form-check form-check-inline col-sm-2"  v-for="fac_type in fac_types" :key="fac_type.id">
-                    <label class="form-check-label" :for="fac_type.id">
-                    <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id"> 
-                     {{fac_type.description}}
+                  <div class="form-check form-check-inline col-sm-2"  v-for="subject in subjects" :key="subject.id">
+                    <label class="form-check-label" :for="subject.id">
+                    <input class="form-check-input" type="checkbox" :id="subject.id" :value="subject.id"> 
+                     {{subject.name}}
                     </label>
                   </div>
 
                   </td>
                 </tr>
-                <tr class="toBeToggled1 ShowHide">
-                  <th>医療面・診療科目</th>
-                  <td>
-                      <div class="form-check form-check-inline col-sm-2"  v-for="medical in medical_acceptance" :key="medical.id">
-                        <label class="form-check-label" :for="medical.id">
-                        <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id" > 
-                          {{medical.name}}
-                        </label>
-                      </div>
-                  </td>
-                </tr>
+                
                 <tr class="text-center">
                   <td colspan="2">
                     <input type="button" id="save_value" name="save_value" value="Save" />
@@ -1128,6 +1118,7 @@ export default {
         fac_types:[],
         fac_id:[],      
         medical_acceptance:[],
+        subjects:[],
         toggleCheck: true,
         toggleCheck_1: false,
         
@@ -1164,37 +1155,36 @@ export default {
             }
         },
       getStateClick(e){
-        // console.log(e.target.tagName)
+         console.log(e.target.tagName)
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
           const id = e.target.id;
           this.axios.post('api/getmap/'+id+'')
           .then((response)=>{
             console.log(response.data.fac_types)
-          $('.select').removeClass('select');
+          $('.hospitalselect').removeClass('hospitalselect');
           this.cities = response.data.city
           this.getCity = response.data.getCity
           this.getTownships = response.data.getTownships
           this.special_features= response.data.special_features
-          this.fac_types= response.data.fac_types
-          this.medical_acceptance= response.data.medical_acceptance
+          this.subjects = response.data.subjects
           this.id = id
          })
-        }else if(e.target.tagName ==='OPTION'){
+        }else if(e.target.tagName ==='SELECT'){
+          console.log(e.target.tagName)
           const id = this.id;
           this.axios.post('api/getmap/'+id+'')
           .then((response)=>{
-          $('.select').removeClass('select');
+          $('.hospitalselect').removeClass('hospitalselect');
           this.cities = response.data.city
           this.getCity = response.data.getCity
           this.getTownships = response.data.getTownships
           this.special_features= response.data.special_features
-          this.fac_types= response.data.fac_types
-          this.medical_acceptance= response.data.medical_acceptance
+          this.subjects = response.data.subjects
           this.id = id
          })
         }
-      },
+      }, 
       getCheck(e){
         if(e.target.checked){
            this.township_id.push(e.target.value);
@@ -1267,7 +1257,7 @@ a:hover {
   cursor: pointer;
 }
 
-.select {
+.hospitalselect {
   display: none;
 }
 span.tooltip {

@@ -98,7 +98,7 @@
                     />
                     </div>
                     <p class="img_2 mb-1">
-                      {{newdetails.main_point}}                     
+                      {{newdetails.main_point}}
                     </p>
                   </div>
                   <div>

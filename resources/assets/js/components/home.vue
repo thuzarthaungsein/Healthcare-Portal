@@ -60,7 +60,7 @@ export default {
         },
         created() {
                 this.start();
-                
+
                 // Push data
                 this.l_storage_hos_fav.push(1);
                 this.l_storage_nus_fav.push(1);
@@ -69,7 +69,7 @@ export default {
                 this.l_storage_hos_history.push(3);
                 this.l_storage_nus_history.push(1);
                 this.l_storage_hos_fav.push(2);
-                this.l_storage_nus_fav.push(2);                
+                this.l_storage_nus_fav.push(2);
                 this.l_storage_nus_history.push(2);
 
     this.l_storage_hos_fav.push(3);
@@ -126,7 +126,7 @@ localStorage.setItem("hospital_history", this.l_storage_hos_history);
                                         this.fade4 = false;
                                         this.subtab1active = 'active';
                                }
-                              
+
                         }
                         else{
                                 this.fade1 = false;

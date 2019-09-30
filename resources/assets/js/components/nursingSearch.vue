@@ -1180,7 +1180,7 @@ export default {
           this.medical_acceptance= response.data.medical_acceptance
           this.id = id
          })
-        }else if(e.target.tagName ==='OPTION'){
+        }else if(e.target.tagName ==='SELECT'){
           const id = this.id;
           this.axios.post('http://localhost:8000/api/getmap/'+id+'')
           .then((response)=>{

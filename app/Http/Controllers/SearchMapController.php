@@ -19,6 +19,7 @@ class SearchMapController extends Controller
         $getTownships = DB::table('townships')->where('city_id',$getCityId)->get();
         $special_features = DB::table('special_features')->get();
         $fac_types = DB::table('fac_types')->get();
+        $subjects = DB::table('subjects')->get();
         $medical_acceptance = DB::table('medical_acceptance')->get();
 
         return response()->json(['getTownships'=>$getTownships,
@@ -26,7 +27,8 @@ class SearchMapController extends Controller
                                  'city'=>$city,
                                  'special_features'=>$special_features,
                                  'fac_types'=>$fac_types,
-                                 'medical_acceptance'=>$medical_acceptance]);
+                                 'medical_acceptance'=>$medical_acceptance,
+                                 'subjects'=>$subjects]);
     }
     public function getCity(Request $request)
     {
