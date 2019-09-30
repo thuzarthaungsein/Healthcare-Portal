@@ -37,11 +37,13 @@ class PostController extends Controller
             'title' => 'required',
             'main_point' => 'required',
             'category_id' => 'required',
+            'related_news' => 'required',
             'body' => 'required',
         ],[
             'title.required' => 'ニュースの題名が必須です。',
             'main_point.required' => 'ニュースの主な情報が必須です。',
             'category_id.required' => 'ニュースのカテゴリーが必須です。',
+            'related_news.required' => 'ニュースのカテゴリーが必須です。',
             'body.required' => 'ニュースの内容が必須です。',
         ]);
 
@@ -116,7 +118,6 @@ class PostController extends Controller
     public function show_related($id) {
 
         $related_news = Post::select('related_news','category_id')->where('id',$id)->get();
-                
         if($related_news[0]["related_news"] != null) {
             $sql = "select * from posts where id in(".$related_news[0]["related_news"].")";
             $news = DB::select($sql);
@@ -128,6 +129,7 @@ class PostController extends Controller
         $latest = Post::select('*')->where('category_id',$related_news[0]["category_id"])->orderBy('created_at','DESC')->limit('5')->get();
 
         $data = array("related_news"=>$news, "latest_news" => $latest);
+        return $data;
 
         return response()->json($data);
     }
@@ -157,11 +159,13 @@ class PostController extends Controller
             'title' => 'required',
             'main_point' => 'required',
             'category_id' => 'required',
+            'related_news' => 'required',
             'body' => 'required',
         ],[
             'title.required' => 'ニュースの題名が必須です。',
             'main_point.required' => 'ニュースの主な情報が必須です。',
             'category_id.required' => 'ニュースのカテゴリーが必須です。',
+            'related_news.required' => 'ニュースのカテゴリーが必須です。',
             'body.required' => 'ニュースの内容が必須です。',
         ]);
         if(is_object($request->photo)){

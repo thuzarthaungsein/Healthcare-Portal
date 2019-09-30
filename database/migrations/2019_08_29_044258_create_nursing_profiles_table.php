@@ -20,6 +20,7 @@ class CreateNursingProfilesTable extends Migration
             $table->text('website')->nullable();
             $table->string('gallery')->nullable();
             $table->text('feature')->nullable();
+            $table->string('method')->nullable();
             $table->text('business_entity')->nullable();
             $table->text('date_of_establishment')->nullable();
             $table->text('land_right_form')->nullable();
@@ -34,10 +35,9 @@ class CreateNursingProfilesTable extends Migration
             $table->text('occupancy_condition')->nullable();
             $table->text('room_floor')->nullable();
             $table->text('living_room_facilities')->nullable();
+            $table->text('website')->nullable();
             $table->text('equipment')->nullable();
-            $table->text('medical_acceptable')->nullable();
-            $table->text('medical_unacceptable')->nullable();
-            $table->text('medical_negotiable')->nullable();
+            $table->text('acceptance_remark')->nullable();
             $table->text('dementia')->nullable();
             $table->text('staff_system')->nullable();
             $table->text('special_features')->nullable();

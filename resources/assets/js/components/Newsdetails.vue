@@ -2,7 +2,7 @@
   <div>
     <!-- news details-->
     <!--menu tabs-->
-    <ul class="nav nav-tabs card-head-tabs" role="tablist">
+    <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
       <li role="presentation" class="active subtab1 nav-item">
         <a href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
           <i class="fas fa-newspaper"></i> ニュース
@@ -10,17 +10,17 @@
       </li>
       <li role="presentation" class="subtab2 nav-item">
         <a href="#tab2" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-briefcase-medical"></i> 病院検索
+          <i class="fas fa-briefcase-medical"></i> 病院
         </a>
       </li>
       <li role="presentation" class="subtab3 nav-item">
         <a href="#tab3" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-user-md"></i> 介護検索
+          <i class="fas fa-user-md"></i> 介護
         </a>
       </li>
       <li role="presentation" class="subtab5 nav-item">
         <a href="#tab4" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-users"></i> 求人検索
+          <i class="fas fa-users"></i> 求人
         </a>
       </li>
     </ul>
@@ -29,7 +29,7 @@
     <!-- Tab panes -->
     <div class="tab-content tab-content1 tabs">
       <div role="tabpanel" class="tab-pane active" id="tab1">
-        <div class="col-sm-12">
+        <div class="col-sm-12 pad-free">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
@@ -42,7 +42,7 @@
         <div class="justify-content-md-center scrolldiv2">
           <div class="col-md-12">
             <div class="row m-lr-0 mb-3">
-              <div class="col-md-12">
+              <!-- <div class="col-md-12">
                 <h4 class="h_4 header">{{newdetails.title}}</h4>
                 <p class="set-date">
                   <small style="color:#aaa;">
@@ -62,10 +62,10 @@
                 <p class="img_2">
                   {{newdetails.main_point}}
                   <br />
-                  <!-- <span><time datetime="2019-06-07">2019年6月7日</time></span> -->
+
                 </p>
                 <p class="img_2 header" style="font-size:22px;">もっと記事を見る</p>
-                <!-- 関連ニュース -->
+
                 <div
                   class="col-sm-12 pad-free"
                   v-for="latest_new in latest_news"
@@ -75,9 +75,59 @@
                     <span>{{ latest_new.main_point }}</span>
                   </router-link>
                 </div>
+              </div>-->
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="h_4 header">{{newdetails.title}}</h4>
+                  <p class="set-date">
+                    <small style="color:#aaa;">
+                      <i class="fa fa-calendar-alt"></i>
+                      &nbsp;&nbsp;{{newdetails.created_at}}
+                    </small>
+                  </p>
+                </div>
+                <div class="col-12">
+                  <div class="float-left mr-4" style="max-width:500px;">
+                    <div
+                      class="img-wrap mb-2"
+                      style="width:100%;background:#f5f5f5;text-align: center;padding: 30px;"
+                    >
+                      <img
+                        :src="'/upload/news/'+ newdetails.photo"
+                        class="img-responsive img_2"
+                        style="max-width:100%;"
+                      />
+                    </div>
+                    <p class="img_2 mb-1">{{newdetails.main_point}}</p>
+                  </div>
+                  <div>
+                    <p class="p5 mb-2">{{newdetails.body}}</p>
+                  </div>
+                </div>
+                <div class="col-md-12 mt-2 related-area">
+                  <p
+                    class="img_2 header"
+                    style="font-size:22px;width:20%;line-height:1;margin-bottom:10px;"
+                  >もっと記事を見る</p>
+                  <br />
+                  <!-- 関連ニュース -->
+                  <div
+                    class="pad-free"
+                    v-for="latest_new in latest_news"
+                    :key="latest_new.id"
+                    style="display:inline;margin-right:10px;"
+                  >
+                    <router-link :to="'/newsdetails/'+ latest_new.id">
+                      <span>{{ latest_new.main_point }} |</span>
+                    </router-link>
+                  </div>
+                </div>
               </div>
-              <div class="row col-md-12 m-lr-0 m-t-15" style="border-top: 2px dashed #eee;">
-                <div class="row col-md-12 text-center m-lr-0">
+              <div
+                class="row col-md-12 m-lr-0 m-t-15 pad-free"
+                style="border-top: 2px dashed #eee;"
+              >
+                <div class="row col-md-12 text-center m-lr-0 pad-free">
                   <h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4>
                 </div>
                 <div

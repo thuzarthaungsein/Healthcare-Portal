@@ -17,7 +17,7 @@ class CreateGalleriesTable extends Migration
             $table->increments('id');
             $table->integer('customer_id');
             $table->string('photo');
-            $table->string('header')->nullable();
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

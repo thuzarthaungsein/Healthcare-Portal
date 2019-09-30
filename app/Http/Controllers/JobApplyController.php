@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\JobApply;
 use Illuminate\Http\Request;
 use App\Job;
+use App\Mail\jobApplyMail;
+use App\Mail\jobApplyMail2;
 class JobApplyController extends Controller
 {
     /**
@@ -37,13 +39,6 @@ class JobApplyController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'birthday' =>'required',
-             'address' => 'required',
-             'phone' => 'required',
-             'email' => 'required',
-        ]);
                 $string = '';
                 $count = count($request->skills);
 
@@ -58,18 +53,23 @@ class JobApplyController extends Controller
                     }
 
                 }
-
-
-
             $jobapply = new JobApply;
-            $jobapply->name=$request->name;
-            $jobapply->birthday=$request->birthday;
-            $jobapply->address=$request->address;
-            $jobapply->phone=$request->phone;
-            $jobapply->email=$request->email;
-            $jobapply->work_time=$request->work_time;
-            $jobapply->skill=$string;
-            $jobapply->save();
+            $jobapply->job_id = 1;
+            $jobapply->first_name = $request->first_name;
+            $jobapply->last_name = $request->last_name;
+            $jobapply->birthday = $request->birthday;
+            $jobapply->gender = $request->gender;
+            $jobapply->postal = $request->postal;
+            $jobapply->street_address = $request->str_address;
+            $jobapply->home_address = $request->home_address;
+            $jobapply->phone = $request->phone;
+            $jobapply->email = $request->email;
+            $jobapply->skill = $string;
+            $jobapply->remark = $request->remark;
+            //  return $jobapply;
+             $jobapply->save();
+             \Mail::to('sawnwaiyan2011@gmail.com')->send(new jobApplyMail($jobapply));
+             \Mail::to($jobapply->email)->send(new jobApplyMail2($jobapply));
              return response()->json('Apply successfully ');
 
     }

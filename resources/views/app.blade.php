@@ -25,8 +25,8 @@
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
 
-<script src="{{ asset('js/vue.js') }}"></script>
-<script src="{{ asset('js/vue-scrollto.js') }}"></script>
+<!-- <script src="{{ asset('js/vue.js') }}"></script> -->
+
 
 
 
@@ -36,10 +36,12 @@
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyCNpeRgwCQoHIlLn-X8TIB9SnO8iLPt808&callback=initMap" async defer></script>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<script src="{{ asset('js/vue-scrollto.js') }}"></script>
 
 <!-- Include after Vue (before closing body) -->
 <script src="https://unpkg.com/vue-fullpage.js/dist/vue-fullpage.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
 
 <!-- Fonts -->
 
@@ -151,20 +153,29 @@
 
                 </ul>
 
-                <ul class="navbar-nav pad-free pc">
+                <ul class="navbar-nav pad-free pc" id="headerbar">
 
                     <li class="fav-item fav-color btn all-btn m-r-10">
                         <i class="fa fa-star m-r-5"> </i>&nbsp; お気に入り
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
-                        <span style="padding-right: 11px;">2件<br>病院</span>
-                        <span style="border-left: 1px solid #fff;padding-left: 11px;">5件<br>介護</span>
+                        <router-link to="/favouriteHospital">
+                            <span style="padding-right: 11px;float:right;">
+                            <span id="hos-fav-local"></span>&nbsp;件<br>病院</span>
+                        </router-link>
+                        <router-link to="/favouriteNursing">
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;float:right;"><span id="nus-fav-local"></span>&nbsp;件<br>介護</span>
+                        </router-link>
                         </p>
                     </li>
                     <li class="fav-item history-color btn all-btn m-r-10" >
                         <i class="fa fa-bookmark m-r-5"></i>&nbsp; 最近見た施設<!-- <span class="list">10</span>件<br>最近見た施設  -->
                         <p style="display:flex; color:#fff;margin:5px;line-height:1.2em;">
-                            <span style="padding-right: 11px;">10件<br>病院</span>
-                            <span style="border-left: 1px solid #fff;padding-left: 11px;">9件<br>介護</span>
+                        <router-link to="/hospital_history">
+                            <span style="padding-right: 11px;float:right;"><span id="hos-his-local"></span>&nbsp;件<br>病院</span>
+                        </router-link>
+                        <router-link to="/nursing_history">
+                            <span style="border-left: 1px solid #fff;padding-left: 11px;float:right;"><span id="nus-his-local"></span>&nbsp;件<br>介護</span>
+                        </router-link>
                         </p>
                     </li>
                 </ul>
@@ -738,7 +749,10 @@
 
  $(document).ready(function() {
 
-
+    $("#hos-his-local").html(localStorage.getItem("hospital_history").split(",").length);
+    $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
+    $("#hos-fav-local").html(localStorage.getItem("hospital_fav").split(",").length);
+    $("#nus-fav-local").html(localStorage.getItem("nursing_fav").split(",").length);
 
     $('.DataTable').DataTable();
     var csrf = "{{ csrf_token() }}";

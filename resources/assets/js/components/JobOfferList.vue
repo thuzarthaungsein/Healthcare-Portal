@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="row m-b-10" v-if="this.jobs.length !== 0">
-        <div class="col-md-12">
+        <!-- <div class="col-md-12">
           <router-link
             to="/joboffercreate"
             class="float-right main-bg-color create-btn all-btn"
@@ -10,7 +10,7 @@
           >
             <i class="fas fa-plus-circle"></i> 新しい投稿を作成
           </router-link>
-        </div>
+        </div> -->
       </div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -73,32 +73,13 @@
             <div v-for="job in jobs" :key="job.id" class="card card-default m-b-20">
               <div class="card-body news-post">
                 <div class="row">
-                  <!-- <div class="col-md-2">
-                                                <img  :src="'images/'+ (job.location)" class="col-md-12" alt="" />
-                  </div>-->
-                  <div class="col-md-10">
-                    <div class="col-sm-8 pad-free mb-2">
-                      <b>
-                        <router-link
-                          :to="{name: 'job_details', params:{id:job.id}}"
-                          class="mr-auto"
-                        >{{job.title}}</router-link>
-                        <!-- <a href="../jobs/job_search_details.html" class="mr-auto">{{job.title}} </a> -->
-                      </b>
-                    </div>
-                    <p>{{job.description}}</p>
-                    <p>{{job.working_hours}}</p>
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <router-link
-                          :to="{name: 'joboffercreate', params:{id:job.id}}"
-                          class="btn main-bg-color white all-btn"
-                        >Edit</router-link>
-                        <button class="btn btn-danger all-btn" @click="deleteJob(job.id)">Delete</button>
-                        <!-- <router-link :to="{name: 'job_details', params:{id:job.id}}" class="btn btn all-btn secondary-bg-color white">Delete</router-link> -->
-                        <!-- <a href="../jobs/job_search_details.html"  class="btn btn all-btn secondary-bg-color white">詳細を見る</a> -->
-                      </div>
-                    </div>
+                  <div class="col-sm-4">
+                    <router-link
+                      :to="{name: 'joboffercreate', params:{id:job.id}}"
+                      class="btn main-bg-color white all-btn">編集</router-link>
+                    <button class="btn btn-danger all-btn" @click="deleteJob(job.id)">削除</button>
+                    <!-- <router-link :to="{name: 'job_details', params:{id:job.id}}" class="btn btn all-btn secondary-bg-color white">Delete</router-link> -->
+                    <!-- <a href="../jobs/job_search_details.html"  class="btn btn all-btn secondary-bg-color white">詳細を見る</a> -->
                   </div>
                 </div>
               </div>
@@ -118,7 +99,8 @@ export default {
   },
   created() {
     this.axios.get("/api/job/index").then(response => {
-      this.jobs = response.data;
+      console.log(response.data.jobs);
+      this.jobs = response.data.jobs;
     });
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)

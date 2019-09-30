@@ -48,11 +48,12 @@ import specialfeature from "./components/CreateSpecialFeature.vue";
 import nursingFavouriteMail from "./components/nursingFavouriteMail.vue";
 import nursingMailConfirm from "./components/nursingMailConfirm.vue";
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
-import modal from "./components/modal.vue";
-
-export const routes = [{
-        name: "home",
-        path: "/",
+import modal from './components/modal.vue';
+import termsAndConditions from './components/termsAndConditions.vue';
+export const routes = [
+    {
+        name: 'home',
+        path: '/',
         component: home
     },
     {
@@ -169,6 +170,11 @@ export const routes = [{
         component: JobOfferList
     },
     {
+        name: "joboffercreate",
+        path: "/joboffercreate",
+        component: joboffercreate
+    },
+    {
         name: "profilepublish",
         path: "/profilepublish",
         component: ProfilePublish
@@ -238,68 +244,68 @@ export const routes = [{
         component: editadvertisement
     },
     {
-        name: "nursing_history",
-        path: "/nursing_history",
-        component: NursingHistory
+      name: 'nursing_history',
+      path: '/nursing_history',
+      component: NursingHistory
     },
     {
-        name: "google_map",
-        path: "/google_map",
-        component: GoogleMap
+      name: 'google_map',
+      path: '/google_map',
+      component: GoogleMap
     },
     {
-        name: "hospital_profile",
-        path: "/hospital_profile",
-        component: HospitalProfile
-    },
+      name: 'hospital_profile',
+      path: '/hospital_profile',
+      component: HospitalProfile
+     },
     {
-        name: "nursing_profile",
-        path: "/nursing_profile",
-        component: NursingProfile
-    },
-    {
-        name: "videoupload",
-        path: "/videoupload",
-        component: VideoUpload
-    },
-    {
-        name: "comment",
-        path: "/comment",
-        component: comment
-    },
-    {
-        name: "commentlist",
-        path: "/commentlist",
-        component: commentlist
-    },
-    {
-        name: "specialfeature",
-        path: "/specialfeature",
-        component: specialfeature
-    },
-    {
-        name: "featurelist",
-        path: "/featurelist",
-        component: featurelist
-    },
-    {
-        name: "nursingFavouriteMail",
-        path: "/nursingFavouriteMail",
-        component: nursingFavouriteMail
-    },
-    {
-        name: "nursingMailConfirm",
-        path: "/nursingMailConfirm",
-        component: nursingMailConfirm
-    },
-    {
-        name: "modal",
-        path: "/modal",
-        component: modal
-    },
-    {
-        name: "joboffercreate",
-        path: "/joboffercreate",
-        component: joboffercreate
-    }
+      name: 'nursing_profile',
+      path: '/nursing_profile',
+      component: NursingProfile
+     },
+  {
+    name: 'videoupload',
+    path: '/videoupload',
+    component: VideoUpload
+  },
+  {
+    name: 'comment',
+    path: '/comment',
+    component: comment
+  },
+  {
+    name: 'commentlist',
+    path: '/commentlist',
+    component: commentlist
+  },
+  {
+    name: 'specialfeature',
+    path: '/specialfeature',
+    component: specialfeature
+  },
+  {
+    name: 'featurelist',
+    path: '/featurelist',
+    component: featurelist
+  },
+  {
+    name: 'nursingFavouriteMail',
+    path: '/nursingFavouriteMail',
+    component: nursingFavouriteMail
+  },
+  {
+    name: 'nursingMailConfirm',
+    path: '/nursingMailConfirm',
+    component: nursingMailConfirm
+  },
+  {
+    name: 'modal',
+    path: '/modal',
+    component: modal
+  },
+  {
+    name: 'termsAndConditions',
+    path: '/termsAndConditions',
+    component: termsAndConditions
+  },
 ];
