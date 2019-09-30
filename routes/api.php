@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'JobController@edit');
         Route::post('update/{id}', 'JobController@update');
         Route::delete('delete/{id}', 'JobController@destroy');
+        Route::post('search', 'JobController@search');
     });
     // End Job
 
