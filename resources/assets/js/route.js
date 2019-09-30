@@ -163,7 +163,6 @@ export const routes = [
         path: "/profile",
         component: Profile
     },
-
     {
         name: "jobofferlist",
         path: "/jobofferlist",
