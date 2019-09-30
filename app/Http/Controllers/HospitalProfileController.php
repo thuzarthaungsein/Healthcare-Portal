@@ -144,6 +144,13 @@ class HospitalProfileController extends Controller
         return response()->json('The successfully deleted');
     }
 
+    public function movePhoto(Request $request) {
+        $request = $request->all();
+
+        $destination = 'upload/hospital_profile/'.$request['photo'];
+        $upload_img = move_uploaded_file($request['file'], $destination);
+    }
+
     public function galleryupdate($id,Request $request) {
         $request = $request->all();
 

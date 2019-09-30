@@ -177,6 +177,8 @@ Route::get('hospital-vgallery/{id}','GalleryController@getVideobyCustomerId');
 
 Route::get('nursing-pgallery/{id}','GalleryController@getPhotobyCustomerId');
 Route::get('nursing-vgallery/{id}','GalleryController@getVideobyCustomerId');
+Route::post('nursing/movephoto','NursingProfileController@movePhoto');
+Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
 
 Route::get('nursing-cooperate/{id}','CooperateMedicalController@getCooperateByCustomerId');
 Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerId');
