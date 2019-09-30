@@ -2,15 +2,15 @@
 <div>
         <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
-        <li role="presentation" class="subtab1 nav-item" :class="subtab1active"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
-        <li role="presentation" class="subtab2 nav-item" :class="subtab2active"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院</a></li>
-        <li role="presentation" class="subtab3 nav-item" :class="subtab3active"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護</a></li>
-        <li role="presentation" class="subtab5 nav-item" :class="subtab4active"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人</a></li>
+        <li role="presentation" @click="changeRoute()" class="subtab1 nav-item" :class="subtab1active"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
+        <li role="presentation" @click="changeRoute()" class="subtab2 nav-item" :class="subtab2active"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院</a></li>
+        <li role="presentation" @click="changeRoute()" class="subtab3 nav-item" :class="subtab3active"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護</a></li>
+        <li role="presentation" @click="changeRoute()" class="subtab5 nav-item" :class="subtab4active"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人</a></li>
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
               <div class="tab-content tab-content1 tabs">
-               <div role="tabpanel" class="tab-pane" id="tab1" :class="{active:subtab1active, fade:fade1}"> <News></News> </div>
+               <div role="tabpanel"  class="tab-pane" id="tab1" :class="{active:subtab1active, fade:fade1}"> <News></News> </div>
                 <div role="tabpanel" class="tab-pane" id="tab2" :class="{active:subtab2active, fade:fade2}"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane" id="tab3" :class="{active:subtab3active, fade:fade3}"><nursingSearch></nursingSearch></div>
                 <div role="tabpanel" class="tab-pane" id="tab4" :class="{active:subtab4active, fade:fade4}"><jobSearch></jobSearch></div>
@@ -141,6 +141,9 @@ localStorage.setItem("hospital_history", this.l_storage_hos_history);
                         .then(response => {
                                 this.latest_post_all_cats = response.data;
                         });
+                },
+                changeRoute(){
+                    this.$router.push({name:'home'});
                 },
         }
 

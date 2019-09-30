@@ -243,67 +243,6 @@ export const routes = [
         component: editadvertisement
     },
     {
-<<<<<<< HEAD
-        name: "nursing_history",
-        path: "/nursing_history",
-        component: NursingHistory
-    },
-    {
-        name: "google_map",
-        path: "/google_map",
-        component: GoogleMap
-    },
-    {
-        name: "hospital_profile",
-        path: "/hospital_profile",
-        component: HospitalProfile
-    },
-    {
-        name: "nursing_profile",
-        path: "/nursing_profile",
-        component: NursingProfile
-    },
-    {
-        name: "videoupload",
-        path: "/videoupload",
-        component: VideoUpload
-    },
-    {
-        name: "comment",
-        path: "/comment",
-        component: comment
-    },
-    {
-        name: "commentlist",
-        path: "/commentlist",
-        component: commentlist
-    },
-    {
-        name: "specialfeature",
-        path: "/specialfeature",
-        component: specialfeature
-    },
-    {
-        name: "featurelist",
-        path: "/featurelist",
-        component: featurelist
-    },
-    {
-        name: "nursingFavouriteMail",
-        path: "/nursingFavouriteMail",
-        component: nursingFavouriteMail
-    },
-    {
-        name: "nursingMailConfirm",
-        path: "/nursingMailConfirm",
-        component: nursingMailConfirm
-    },
-    {
-        name: "modal",
-        path: "/modal",
-        component: modal
-    }
-=======
       name: 'nursing_history',
       path: '/nursing_history',
       component: NursingHistory
@@ -368,5 +307,4 @@ export const routes = [
     path: '/termsAndConditions',
     component: termsAndConditions
   },
->>>>>>> cc697b0522b5ee8c412a31bc130ea5b311a25134
 ];

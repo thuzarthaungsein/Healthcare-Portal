@@ -1,151 +1,344 @@
 <template>
-  <div class="search-map card-body">
-    <div class="row">
+  <div class="search-map card-body" @click="getStateClick" @mouseover="getStateHover">
+    <div class="row" id="hos">
       <div class="col-md-12">
         <div class="row">
-          <!-- <div class="col-sm-7 divisions">
-                    <div class="row">    
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background-color:#ef7979">北海道・東北</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">  
-                                <span class="spanclass"> <a href="#!" id="1" data-info="Hokkaido" class="path Hokkaido card-text" >北海道</a></span>  
-                                <span class="spanclass"> <a href="#!" id="2" data-info="Aomori" class="path Aomori card-text" >青森県</a></span>
-                                <span class="spanclass"> <a href="#!" id="3" data-info="Iwate" class="path Iwate card-text" >岩手県</a></span>
-                                <span class="spanclass"> <a href="#!" id="4" data-info="Miyagi" class="path Miyagi card-text" >宮城県</a></span>
-                                <span class="spanclass"> <a href="#!" id="5" data-info="Akita" class="path Akita card-text" >秋田県</a></span>
-                                <span class="spanclass"> <a href="#!" id="6" data-info="Yamagata" class="path Yamagata card-text" >山形県</a></span> 
-                                <span class="spanclass"> <a href="#!" id="7" data-info="Fukushima" class="path Fukushima card-text" >福島県</a></span>
-                              </p>
-                            </div>
-                          </div>  
-                        </div>
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background-color:#87ef79">関東</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">
-                                <span class="spanclass"><a href="#!" id="8" data-info="Ibaraki" class="path Ibaraki card-text" >茨城県</a></span>
-                                <span class="spanclass"><a href="#!" id="9" data-info="Tochigi" class="path Tochigi card-text" >栃木県</a></span>
-                                <span class="spanclass"><a href="#!" id="10" data-info="Gunma" class="path Gunma card-text" >群馬県</a></span> 
-                                <span class="spanclass"><a href="#!" id="11" data-info="Saitama" class="path Saitama card-text" >埼玉県</a></span>
-                                <span class="spanclass"><a href="#!" id="12" data-info="Chiba" class="path Chiba card-text" >千葉県</a></span>
-                                <span class="spanclass"><a href="#!" id="13" data-info="Tokyo" class="path Tokyo card-text" >東京都</a></span>
-                                <span class="spanclass"><a href="#!" id="14" data-info="Kanagawa" class="path Kanagawa card-text">神奈川県</a></span>        
-                              </p>
-                            </div>
-                          </div>  
-                        </div>   
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background-color:#79efdb">東海</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">                            
-                                <span class="spanclass"><a href="#!" id="15" data-info="Niigata" class="path Niigata card-text" >新潟県</a></span>
-                                <span class="spanclass"><a href="#!" id="16" data-info="Toyama" class="path Toyama card-text" >富山県</a></span>
-                                <span class="spanclass"><a href="#!" id="17" data-info="Ishikawa" class="path Ishikawa card-text" >石川県</a></span>
-                                <span class="spanclass"><a href="#!" id="18" data-info="Fukui" class="path Fukui card-text" >福井県</a></span>
-                                <span class="spanclass"><a href="#!" id="19" data-info="Yamanashi" class="path Yamanashi card-text" >山梨県</a></span>
-                                <span class="spanclass"><a href="#!" id="20" data-info="Nagano" class="path Nagano card-text" >長野県</a></span>
-                                <span class="spanclass"><a href="#!" id="21" data-info="Gifu" class="path Gifu card-text" >岐阜県</a></span>
-                                <span class="spanclass"><a href="#!" id="22" data-info="Shizuoka" class="path Shizuoka card-text" >静岡県</a></span>
-                                <span class="spanclass"><a href="#!" id="23" data-info="Aichi" class="path Aichi card-text" >愛知県</a></span>        
-                              </p>
-                            </div>
-                          </div>  
-                        </div>
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                          <div class="card-header pad-10" style="background:#9579ef">近畿</div>
-                          <div class="card-body">
-                            <p class="card-text map-text">
-                              <span class="spanclass"><a href="#!" id="24" data-info="Mie" class="path Mie card-text" >三重県</a></span> 
-                              <span class="spanclass"><a href="#!" id="25" data-info="Shiga" class="path Shiga card-text" >滋賀県</a></span>
-                              <span class="spanclass"><a href="#!" id="26" data-info="Kyoto" class="path Kyoto card-text" >京都府</a></span>
-                              <span class="spanclass"><a href="#!" id="27" data-info="Osaka" class="path Osaka card-text" >大阪府</a></span>
-                              <span class="spanclass"><a href="#!" id="28" data-info="Hyogo" class="path Hyogo card-text" >兵庫県</a></span>                         
-                              <span class="spanclass"><a href="#!" id="29" data-info="Nara" class="path Nara card-text" >奈良県</a></span>                        
-                              <span class="spanclass"><a href="#!" id="30" data-info="Wakayama" class="path Wakayama card-text" >和歌山県</a></span>
-                                                      
-                            </p>
-                          </div>
-                        </div>  
-                        </div>
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                          <div class="card-header pad-10" style="background:#ffed4a;">中国・四国</div>
-                          <div class="card-body">
-                            <p class="card-text map-text">
-                              <span class="spanclass"><a href="#!" id="31" data-info="Tottori" class="path Tottori card-text" >鳥取県</a></span>
-                              <span class="spanclass"><a href="#!" id="32" data-info="Shimane" class="path Shimane card-text" >島根県</a></span>
-                              <span class="spanclass"><a href="#!" id="33" data-info="Okayama" class="path Okayama card-text" >岡山県</a></span>
-                              <span class="spanclass"><a href="#!" id="34" data-info="Hiroshima" class="path Hiroshima card-text" >広島県</a></span>
-                              <span class="spanclass"><a href="#!" id="35" data-info="Yamaguchi" class="path Yamaguchi card-text" >山口県</a></span>   
-                            </p>
-                          </div>
-                          </div>
-                        </div>
-                      
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background:#cc79ef">中国・四国</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">
-                                <span class="spanclass"><a href="#!" id="36" data-info="Tokushima" class="path Tokushima card-text" >徳島県</a></span>
-                                <span class="spanclass"><a href="#!" id="37" data-info="Kagawa" class="path Kagawa card-text" >香川県</a></span>
-                                <span class="spanclass"><a href="#!" id="38" data-info="Ehime" class="path Ehime card-text" >愛媛県</a></span>
-                                <span class="spanclass"><a href="#!" id="39" data-info="Kochi" class="path Kochi card-text" >高知県</a></span>                            
-                              </p>
-                            </div>
-                          </div>  
-                        </div>  
-
-
-                        <div class="col-sm-3">
-                          <div class="card  mb-3">
-                            <div class="card-header pad-10" style="background-color:#93d3f5">九州・沖縄</div>
-                            <div class="card-body">
-                              <p class="card-text map-text">
-                                <span class="spanclass"> <a href="#!" id="40" data-info="Fukuoka" class="path Fukuoka card-text" >福岡県</a></span>                           
-                                <span class="spanclass"><a href="#!" id="41" data-info="Saga" class="path Saga card-text" >佐賀県</a></span>
-                                <span class="spanclass"><a href="#!" id="42" data-info="Nagasaki" class="path Nagasaki card-text" >長崎県</a></span>
-                                <span class="spanclass"><a href="#!" id="43" data-info="Kumamoto" class="path Kumamoto card-text" >熊本県</a></span>
-                                <span class="spanclass"><a href="#!" id="44" data-info="Oita" class="path Oita card-text" >大分県</a></span>
-                                <span class="spanclass"><a href="#!" id="45" data-info="Miyazaki" class="path Miyazaki card-text" >宮崎県</a></span>
-                                <span class="spanclass"><a href="#!" id="46" data-info="Kagoshima" class="path Kagoshima card-text" >鹿児島県</a></span>
-                                <span class="spanclass"><a href="#!" id="47" data-info="Okinawa" class="path Okinawa card-text" >沖縄県</a></span>                  
-                              </p>
-                            </div>
-                          </div>  
-                        </div>                 
-                    
-                        
-                    
-                      <div class="card-body">
-                            <div class="row col-12 pad-free">
-                            <div class="col-10">
-                              <select name="" id="select" class="form-control custom-select select m-b-10">
-                                <option ></option>
-                              </select>
-                            </div>
-                            <div class="col-2 pad-free text" id="text">                          
-                            </div>                                                      
-                            </div>                       
-                            <div id="jobcheckbox" class="row col-12 jobcheckbox">
-                             
-                            </div>
-                      </div>
-                      </div>
-                     
-          </div>-->
           <div class="info-box"></div>
           <div class="col-sm-11 map-wrap">
+            <div class="divisions">
+              <div class="row">
+                <div class="col-sm-2 hokkaido-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#6699cc">北海道・東北</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="1"
+                            data-info="Hokkaido"
+                            class="path Hokkaido card-text"
+                          >北海道</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="2" data-info="Aomori" class="path Aomori card-text">青森県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="3" data-info="Iwate" class="path Iwate card-text">岩手県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="4" data-info="Miyagi" class="path Miyagi card-text">宮城県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="5" data-info="Akita" class="path Akita card-text">秋田県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="6"
+                            data-info="Yamagata"
+                            class="path Yamagata card-text"
+                          >山形県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="7"
+                            data-info="Fukushima"
+                            class="path Fukushima card-text"
+                          >福島県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2 kanto-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#71d5cb">関東</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a href="#" id="8" data-info="Ibaraki" class="path Ibaraki card-text">茨城県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="9" data-info="Tochigi" class="path Tochigi card-text">栃木県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="10" data-info="Gunma" class="path Gunma card-text">群馬県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="11"
+                            data-info="Saitama"
+                            class="path Saitama card-text"
+                          >埼玉県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="12" data-info="Chiba" class="path Chiba card-text">千葉県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="13" data-info="Tokyo" class="path Tokyo card-text">東京都</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="14"
+                            data-info="Kanagawa"
+                            class="path Kanagawa card-text"
+                          >神奈川県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 hokuriku-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#75b777">北陸</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="15"
+                            data-info="Niigata"
+                            class="path Niigata card-text"
+                          >新潟県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="16" data-info="Toyama" class="path Toyama card-text">富山県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="17"
+                            data-info="Ishikawa"
+                            class="path Ishikawa card-text"
+                          >石川県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="18" data-info="Fukui" class="path Fukui card-text">福井県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 tokai-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="19"
+                            data-info="Yamanashi"
+                            class="path Yamanashi card-text"
+                          >山梨県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="20" data-info="Nagano" class="path Nagano card-text">長野県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="21" data-info="Gifu" class="path Gifu card-text">岐阜県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="22"
+                            data-info="Shizuoka"
+                            class="path Shizuoka card-text"
+                          >静岡県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="23" data-info="Aichi" class="path Aichi card-text">愛知県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 kinki-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background:#efb838">近畿</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a href="#" id="24" data-info="Mie" class="path Mie card-text">三重県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="25" data-info="Shiga" class="path Shiga card-text">滋賀県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="26" data-info="Kyoto" class="path Kyoto card-text">京都府</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="27" data-info="Osaka" class="path Osaka card-text">大阪府</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="28" data-info="Hyogo" class="path Hyogo card-text">兵庫県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="29" data-info="Nara" class="path Nara card-text">奈良県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="30"
+                            data-info="Wakayama"
+                            class="path Wakayama card-text"
+                          >和歌山県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 chugoku-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background:#f58c3f;">中国</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="31"
+                            data-info="Tottori"
+                            class="path Tottori card-text"
+                          >鳥取県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="32"
+                            data-info="Shimane"
+                            class="path Shimane card-text"
+                          >島根県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="33"
+                            data-info="Okayama"
+                            class="path Okayama card-text"
+                          >岡山県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="34"
+                            data-info="Hiroshima"
+                            class="path Hiroshima card-text"
+                          >広島県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="35"
+                            data-info="Yamaguchi"
+                            class="path Yamaguchi card-text"
+                          >山口県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 shikoku-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background:#f1a296;">四国</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="36"
+                            data-info="Tokushima"
+                            class="path Tokushima card-text"
+                          >徳島県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="37" data-info="Kagawa" class="path Kagawa card-text">香川県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="38" data-info="Ehime" class="path Ehime card-text">愛媛県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="39" data-info="Kochi" class="path Kochi card-text">高知県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2 okinawa-box">
+                  <div class="card mb-3">
+                    <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div>
+                    <div class="card-body">
+                      <p class="card-text map-text">
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="40"
+                            data-info="Fukuoka"
+                            class="path Fukuoka card-text"
+                          >福岡県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="41" data-info="Saga" class="path Saga card-text">佐賀県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="42"
+                            data-info="Nagasaki"
+                            class="path Nagasaki card-text"
+                          >長崎県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="43"
+                            data-info="Kumamoto"
+                            class="path Kumamoto card-text"
+                          >熊本県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a href="#" id="44" data-info="Oita" class="path Oita card-text">大分県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="45"
+                            data-info="Miyazaki"
+                            class="path Miyazaki card-text"
+                          >宮崎県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="46"
+                            data-info="Kagoshima"
+                            class="path Kagoshima card-text"
+                          >鹿児島県</a>
+                        </span>
+                        <span class="spanclass">
+                          <a
+                            href="#"
+                            id="47"
+                            data-info="Okinawa"
+                            class="path Okinawa card-text"
+                          >沖縄県</a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <!-- <div id="text"></div> -->
             <!-- <svg class="map_svg" viewBox="100 0 400 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586" width="437.33432" height="516.01587"> 
                       <path id="23" data-info="Aichi" title="Aichi" class="path Aichi" stroke="#9c9696" fill="#79efdb" d="M274.27,277.6l-0.17,-0.35l0.5,-1.77l-0.86,-1.4l0.11,-1.46l0.46,-1.37l-0.25,-0.32l-0.89,0.36l-1.14,-0.35l0,0l-0.97,-1.57l-0.32,-1.21l0,0l0.22,-2.19l1.69,-2.97l1.28,0.15l1.66,-0.5l1.48,-1.13l-0.02,0.57l1.18,0.87l-0.03,0.65l0.5,0.21l-0.09,0.48l0.27,0.32l0.32,0.15l0.3,-0.21l0.94,0.39l0.52,0.71l0.85,-0.17l0.92,-0.73l0.63,-0.01l0.75,0.47l-0.07,0.24l0.84,0.05l-0.02,0.31l0.99,0.5l1.72,-1.4l0.8,-0.08l0,0l-0.32,0.83l0.64,0.81l-0.01,0.51l1.26,-0.26l0.85,-0.55l1.56,0.3l0.22,0.39l0.84,-0.27l0,0l-0.31,0.98l0.52,0.5l-0.58,0.57l0.08,0.47l-0.46,0.24l-1.46,2l-0.03,1.06l-1.28,1.93l-2.75,1.53l-0.43,1.23l0.16,2.32l0,0l-3.41,0.79l-3.43,1.23l-2.03,0.27l-0.26,-0.21l0.8,-1.71l0.49,0.05l0.25,0.57l2.36,-1.02l0.86,-0.53l-0.1,-0.44l0.45,-0.36l0.48,0.15l0.22,-0.19l0.21,-1.14l-0.57,-0.7l-1.69,-0.31l-0.52,0.46l-0.24,0.93l-0.81,-0.57l-2.13,0.25l-1.42,-1.37l0.31,-1.08l-0.44,-0.19l-0.42,0.59l-0.27,2.22l1.02,0.93l0.15,0.88l-1.69,-0.6L274.27,277.6z"/>
@@ -196,341 +389,6 @@
                       <path id="19" data-info="Yamanashi" title="Yamanashi" class="path Yamanashi" stroke="#9c9696" fill="#79efdb" d="M319.27,255.52L319.25,258.13L318.91,258.83L318.42,259.35L317.71,259.45L317.25,260.1L315.46,260.93L315.06,262.06L315.06,262.06L314.39,262.45L313.69,262.38L313.32,262.65L310.52,263.12L310.07,262.15L309.04,262.27L308.47,261.01L307.48,261.92L307.53,263.63L307.1,264.24L307.5,266.9L306.78,267.53L305.54,267.41L304.85,266.91L304.16,264.22L303.4,263.86L302.64,264.38L301.96,263.87L301.63,262.57L302.09,261.64L301.86,260.57L302.24,259.39L301.3,256.21L301.3,256.21L300.57,254.44L301.57,253.34L300.69,252.48L301.66,250.51L301.86,250.39L302.58,251.01L304.35,248.3L305.78,248.88L305.77,249.55L306.25,250.08L306.73,249.99L306.95,249.58L308.71,249.61L309.25,250.75L310.22,250.74L310.95,249.8L311.35,249.81L311.35,249.81L312.37,250.04L312.66,250.68L313.82,250.88L314.51,251.41L315.6,251.12L315.6,251.12L317.17,254.36z"/>
                       <path id="6" data-info="Yamagata" title="Yamagata" class="path Yamagata" stroke="#9c9696" fill="#ef7979" d="M341.93,199.04l-0.3,1.71l0.04,2.01l0.55,0.41l-1.33,1.61l-1.3,-0.26l-0.74,0.56l-1.47,-1.12l-1.23,0.46l-0.97,-1.68l-0.33,0.35l-0.63,0.07l-0.61,-0.39l-0.94,0.58l-0.63,-0.68l-0.79,0.18l0,0l-0.45,-0.77l-0.45,0.13l-0.66,-0.32l-0.66,-1.16l0.59,-3.17l0.69,-0.51l-0.35,-0.76l0.34,-0.82l-0.16,-1.31l0.52,-0.82l1.58,0.22l1.37,-0.86l0.79,-1.59l-1.15,-1.23l-1.84,-0.48l-0.8,-1.13l0.4,-1.99l-0.24,-0.29l-1.48,-0.32l-1.81,-0.96l0,0l1.17,-3.08l1.74,-1.51l1.14,-1.5l1.13,-4.08l0.61,-1.04l0.7,-2.64l-0.18,-0.58l0,0l2.51,0.41l0.37,-0.46l0.98,-0.24l0.2,1.17l0.71,0.18l0.79,0.7l3.08,0.94l1.08,-0.27l0.35,0.77l1.06,0.08l0.58,1.8l1.52,0.53l0.24,0.45l0,0l-0.23,0.35l1.06,1.02l0.19,1.06l0.83,0.45l-0.68,1.1l0.22,0.97l-0.43,1.15l-0.4,0.1l-0.66,-0.35l-0.1,0.23l0.61,1.37l0.03,0.54l-0.38,0.65l0.27,0.91l0.6,0.39l0.2,0.7l-0.61,1.6l-1.09,1.14l0.16,0.6l-1.05,1.32l-0.16,1.02l0.23,1.23l-1.11,1.58l-0.19,1.02l-0.99,0.55l-1.72,0.01L341.93,199.04z"/>
             </svg>-->
-            <div class="divisions">
-              <div class="row">
-                <div class="col-sm-2 hokkaido-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#6699cc">北海道・東北</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="1"
-                            data-info="Hokkaido"
-                            class="path Hokkaido card-text"
-                          >北海道</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="2" data-info="Aomori" class="path Aomori card-text">青森県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="3" data-info="Iwate" class="path Iwate card-text">岩手県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="4" data-info="Miyagi" class="path Miyagi card-text">宮城県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="5" data-info="Akita" class="path Akita card-text">秋田県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="6"
-                            data-info="Yamagata"
-                            class="path Yamagata card-text"
-                          >山形県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="7"
-                            data-info="Fukushima"
-                            class="path Fukushima card-text"
-                          >福島県</a>
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-2 kanto-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#71d5cb">関東</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#!" id="8" data-info="Ibaraki" class="path Ibaraki card-text">茨城県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="9" data-info="Tochigi" class="path Tochigi card-text">栃木県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="10" data-info="Gunma" class="path Gunma card-text">群馬県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="11"
-                            data-info="Saitama"
-                            class="path Saitama card-text"
-                          >埼玉県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="12" data-info="Chiba" class="path Chiba card-text">千葉県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="13" data-info="Tokyo" class="path Tokyo card-text">東京都</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="14"
-                            data-info="Kanagawa"
-                            class="path Kanagawa card-text"
-                          >神奈川県</a>
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-3 hokuriku-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#75b777">北陸</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="15"
-                            data-info="Niigata"
-                            class="path Niigata card-text"
-                          >新潟県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="16" data-info="Toyama" class="path Toyama card-text">富山県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="17"
-                            data-info="Ishikawa"
-                            class="path Ishikawa card-text"
-                          >石川県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="18" data-info="Fukui" class="path Fukui card-text">福井県</a>
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-3 tokai-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="19"
-                            data-info="Yamanashi"
-                            class="path Yamanashi card-text"
-                          >山梨県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="20" data-info="Nagano" class="path Nagano card-text">長野県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="21" data-info="Gifu" class="path Gifu card-text">岐阜県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="22"
-                            data-info="Shizuoka"
-                            class="path Shizuoka card-text"
-                          >静岡県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="23" data-info="Aichi" class="path Aichi card-text">愛知県</a>
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-4 kinki-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background:#efb838">近畿</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#!" id="24" data-info="Mie" class="path Mie card-text">三重県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="25" data-info="Shiga" class="path Shiga card-text">滋賀県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="26" data-info="Kyoto" class="path Kyoto card-text">京都府</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="27" data-info="Osaka" class="path Osaka card-text">大阪府</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="28" data-info="Hyogo" class="path Hyogo card-text">兵庫県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="29" data-info="Nara" class="path Nara card-text">奈良県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="30"
-                            data-info="Wakayama"
-                            class="path Wakayama card-text"
-                          >和歌山県</a>
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-3 chugoku-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background:#f58c3f;">中国</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="31"
-                            data-info="Tottori"
-                            class="path Tottori card-text"
-                          >鳥取県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="32"
-                            data-info="Shimane"
-                            class="path Shimane card-text"
-                          >島根県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="33"
-                            data-info="Okayama"
-                            class="path Okayama card-text"
-                          >岡山県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="34"
-                            data-info="Hiroshima"
-                            class="path Hiroshima card-text"
-                          >広島県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="35"
-                            data-info="Yamaguchi"
-                            class="path Yamaguchi card-text"
-                          >山口県</a>
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-3 shikoku-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background:#f1a296;">四国</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="36"
-                            data-info="Tokushima"
-                            class="path Tokushima card-text"
-                          >徳島県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="37" data-info="Kagawa" class="path Kagawa card-text">香川県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="38" data-info="Ehime" class="path Ehime card-text">愛媛県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="39" data-info="Kochi" class="path Kochi card-text">高知県</a>
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-2 okinawa-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="40"
-                            data-info="Fukuoka"
-                            class="path Fukuoka card-text"
-                          >福岡県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="41" data-info="Saga" class="path Saga card-text">佐賀県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="42"
-                            data-info="Nagasaki"
-                            class="path Nagasaki card-text"
-                          >長崎県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="43"
-                            data-info="Kumamoto"
-                            class="path Kumamoto card-text"
-                          >熊本県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#!" id="44" data-info="Oita" class="path Oita card-text">大分県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="45"
-                            data-info="Miyazaki"
-                            class="path Miyazaki card-text"
-                          >宮崎県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="46"
-                            data-info="Kagoshima"
-                            class="path Kagoshima card-text"
-                          >鹿児島県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a
-                            href="#!"
-                            id="47"
-                            data-info="Okinawa"
-                            class="path Okinawa card-text"
-                          >沖縄県</a>
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div class="map">
               <svg
                 class="map_svg"
@@ -541,6 +399,7 @@
                 mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586"
                 width="100%"
                 height="730"
+                
               >
                 <path
                   id="1"
@@ -1044,24 +903,319 @@
               </svg>
             </div>
           </div>
-          <div class="card-body">
-            <div class="row col-12 pad-free">
-              <div class="col-10">
-                <select name id="select" class="form-control custom-select select m-b-10">
-                  <option></option>
-                </select>
-              </div>
-              <div class="col-2 pad-free text" id="text"></div>
-            </div>
+         
+            <table class="table card-2 col-10 select">
+              <tbody>
+                <tr>
+                  <th>地域</th>
+                  <td>
+                    <select  id="select" class="form-control col-3 custom-select mt-2" v-model="id">
+                      <option v-for = "city in cities" :value="city.id" >{{city.city_name}}</option>
+                    </select>
+                    <button @click="toggleContent3" class="btn btn-link" v-for="city in getCity" >
+                      <i class="fa" aria-hidden="true"></i>
+                          <!-- <em>{{city.city_name}}</em> -->
+                          <span id="close3"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                    </button>
+                   
+                    <div  class="toBeToggled3" id="toBeToggled3">
 
-            <div id="jobcheckbox" class="row col-12 jobcheckbox"></div>
-          </div>
+                      <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
+                        <label class="form-check-label" :for="township.id">
+                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID[township.id]" @click="getCheck($event)"> 
+                        {{township.township_name}}
+                        </label>
+                      </div>
+
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    費用
+                  </th>
+                  <td>
+                    <table class="text-center" width="50%">
+                      <tbody>
+                        <tr>
+                          <td>入居時</td>
+                          <td>
+                            <select class="form-control custom-select" name="" id="">
+                              <option value="" selected="selected">下限なし</option>
+                              <option value="0">0円</option>
+                              <option value="500000">50万円</option>
+                              <option value="1000000">100万円</option>
+                              <option value="2000000">200万円</option>
+                              <option value="3000000">300万円</option>
+                              <option value="4000000">400万円</option>
+                              <option value="5000000">500万円</option>
+                              <option value="6000000">600万円</option>
+                              <option value="7000000">700万円</option>
+                              <option value="8000000">800万円</option>
+                              <option value="9000000">900万円</option>
+                              <option value="10000000">1,000万円</option>
+                              <option value="20000000">2,000万円</option>
+                              <option value="30000000">3,000万円</option>
+                            </select>
+                          </td>
+                          <td>～</td>
+                          <td>
+                            <select class="form-control custom-select" name="" id="">
+                              <option value="" selected="selected">上限なし</option>
+                              <option value="0">0円</option>
+                              <option value="500000">50万円</option>
+                              <option value="1000000">100万円</option>
+                              <option value="2000000">200万円</option>
+                              <option value="3000000">300万円</option>
+                              <option value="4000000">400万円</option>
+                              <option value="5000000">500万円</option>
+                              <option value="6000000">600万円</option>
+                              <option value="7000000">700万円</option>
+                              <option value="8000000">800万円</option>
+                              <option value="9000000">900万円</option>
+                              <option value="10000000">1,000万円</option>
+                              <option value="20000000">2,000万円</option>
+                              <option value="30000000">3,000万円</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>月額</td>
+                          <td>
+                          <select class="form-control custom-select" name="" id="">
+                            <option value="" selected="selected">下限なし</option>
+                            <option value="0">0円</option>
+                            <option value="100000">10万円</option>
+                            <option value="150000">15万円</option>
+                            <option value="200000">20万円</option>
+                            <option value="250000">25万円</option>
+                            <option value="300000">30万円</option>
+                            <option value="350000">35万円</option>
+                            <option value="400000">40万円</option>
+                            <option value="450000">45万円</option>
+                            <option value="500000">50万円</option>
+                          </select>
+                          </td>
+                          <td>～</td>
+                          <td>
+                            <select class="form-control custom-select" name="" id="">
+                              <option value="" selected="selected">上限なし</option>
+                              <option value="0">0円</option>
+                              <option value="100000">10万円</option>
+                              <option value="150000">15万円</option>
+                              <option value="200000">20万円</option>
+                              <option value="250000">25万円</option>
+                              <option value="300000">30万円</option>
+                              <option value="350000">35万円</option>
+                              <option value="400000">40万円</option>
+                              <option value="450000">45万円</option>
+                              <option value="500000">50万円</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan='4'>
+                            <button @click="ShowHide" class="btn btn-link">
+                              <i class="fa" aria-hidden="true"></i>
+                                  <span id="close1"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr class="toBeToggled1 ShowHide">
+                  <th>
+                  入居時の条件
+                  </th>
+                  <td>
+                    <div  class="row pl-3 pt-3">
+
+                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> 
+                          自立
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> 
+                          要支援
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> 
+                          要介護
+                        </label>
+                      </div>
+                     
+                    </div>
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>特長</th>
+                  <td>
+                      <div class="form-check form-check-inline col-sm-2"  v-for="features in special_features" :key="features.id">
+                        <label class="form-check-label" :for="features.id">
+                        <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)"> 
+                        {{features.name}}
+                        </label>
+                      </div>
+
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>施設の種類</th>
+                  <td>
+                  <div class="form-check form-check-inline col-sm-2"  v-for="fac_type in fac_types" :key="fac_type.id">
+                    <label class="form-check-label" :for="fac_type.id">
+                    <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id"> 
+                     {{fac_type.description}}
+                    </label>
+                  </div>
+
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>医療面・診療科目</th>
+                  <td>
+                      <div class="form-check form-check-inline col-sm-2"  v-for="medical in medical_acceptance" :key="medical.id">
+                        <label class="form-check-label" :for="medical.id">
+                        <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id" > 
+                          {{medical.name}}
+                        </label>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <td colspan="2">
+                    <input type="button" id="save_value" name="save_value" value="Save" />
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+         
         </div>
       </div>
+      <!-- <div class="col-md-2 p-l-0">
+        <asidebar></asidebar>
+      </div>-->
     </div>
-    <input type="button" id="save_value" name="save_value" value="Save" />
+    
   </div>
 </template>
+
+
+<script>
+import asidebar from "./aside.vue";
+export default {
+    components: {
+      asidebar
+    },
+    data(){
+      return{
+        id:'',
+        townshipID:[],
+        township_id:[],
+        cities:[],
+        getCity:[],
+        getTownships:[],
+        special_features:[], 
+        fac_types:[],
+        fac_id:[],      
+        medical_acceptance:[],
+        toggleCheck: true,
+        toggleCheck_1: false,
+        
+        
+
+
+      }
+    },
+  methods:{
+    toggleContent3() {
+        this.toggleCheck = !this.toggleCheck;
+            if (this.toggleCheck == true) {
+                $('#close3').empty();
+                $("#toBeToggled3").slideDown();
+                $('#close3').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
+
+            } else {
+                $('#close3').empty();
+                $("#toBeToggled3").slideUp();
+                $('#close3').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+            }
+        },
+        ShowHide() {
+        this.toggleCheck_1 = !this.toggleCheck_1;
+            if (this.toggleCheck_1 == true) {
+                $('#close1').empty();
+                $(".ShowHide").slideDown();
+                $('#close1').append('<i class="fas fa-arrow-circle-up"></i> もっと見る');
+
+            } else {
+                $('#close1').empty();
+                $(".ShowHide").slideUp();
+                $('#close1').append('<i class="fas fa-arrow-circle-down"></i> close');
+            }
+        },
+      getStateClick(e){
+        // console.log(e.target.tagName)
+        if(e.target.tagName === 'A' || e.target.tagName ==='path'){
+
+          const id = e.target.id;
+          this.axios.post('api/getmap/'+id+'')
+          .then((response)=>{
+            console.log(response.data.fac_types)
+          $('.select').removeClass('select');
+          this.cities = response.data.city
+          this.getCity = response.data.getCity
+          this.getTownships = response.data.getTownships
+          this.special_features= response.data.special_features
+          this.fac_types= response.data.fac_types
+          this.medical_acceptance= response.data.medical_acceptance
+          this.id = id
+         })
+        }else if(e.target.tagName ==='OPTION'){
+          const id = this.id;
+          this.axios.post('api/getmap/'+id+'')
+          .then((response)=>{
+          $('.select').removeClass('select');
+          this.cities = response.data.city
+          this.getCity = response.data.getCity
+          this.getTownships = response.data.getTownships
+          this.special_features= response.data.special_features
+          this.fac_types= response.data.fac_types
+          this.medical_acceptance= response.data.medical_acceptance
+          this.id = id
+         })
+        }
+      },
+      getCheck(e){
+        if(e.target.checked){
+           this.township_id.push(e.target.value);
+           console.log(this.township_id);
+        }
+      },
+      features(e){
+        if(e.target.checked){
+          alert('1');
+        }
+      },
+      getStateHover(e){
+        if(e.target.tagName ==='path'){
+         //console.log(e)
+        }
+      }
+    }
+};
+</script>
+
+
 <style scoped>
 .path {
   cursor: pointer;
@@ -1147,14 +1301,35 @@ span.tooltip::before {
 span:hover::before {
   display: inline-block;
 }
+
+[data-toggle="collapse"] .fa:before {  
+  content: "\f139";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+  content: "\f13a";
+}
+
+
+.card-2 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius:10px;
+}
+.toBeToggled2 {
+    display: block;
+}
+
+.toBeToggled1 {
+    display: none;
+}
+table{
+  border-top:none !important;
+}
+table > tbody > tr th{
+  background-color: #e8e7e7;
+  text-align:right;
+  width:140px;
+  padding:25px;
+}
+
 </style>
-
-<script>
-import asidebar from "./aside.vue";
-export default {
-  components: {
-    asidebar
-  }
-};
-</script>
-
