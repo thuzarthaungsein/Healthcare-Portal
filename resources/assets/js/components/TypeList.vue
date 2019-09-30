@@ -16,7 +16,7 @@
             </div>
                 <div class="row m-b-15">
                     <div class="col-md-12">
-                        <router-link class="float-right" style="color: blue;" to="/createfacility" >  Create New Type</router-link>
+                        <router-link class="float-right" style="color: blue;" to="/type" >  新しいタイプを作成</router-link>
                     </div>
                     <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
                 </div>
