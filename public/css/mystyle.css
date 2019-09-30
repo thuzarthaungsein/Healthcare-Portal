@@ -5393,6 +5393,24 @@ button.confirmed {
     padding: 0.375rem 1.75rem;
 }
 
+/* end one page */
+
+/*required*/
+.sp1 {
+    border: none;
+    padding: 2px 5px;
+    background: #f55e5e;
+    color: white;
+    content: '必須';
+    border-radius: 3px;
+    /* font-weight: normal; */
+    font-size: 0.9em;
+}
+
+.jt1
+{
+    background-color: #b7dad2;
+}
 .eg-txt {
     padding-left: 20px;
     width: 45%;
