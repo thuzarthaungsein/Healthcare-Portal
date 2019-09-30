@@ -169,7 +169,6 @@ export default {
         .post("/api/nursing_history/" + local_storage)
         .then(response => {
           this.nur_profiles = response.data;
-          console.log(this.nur_profiles);
         });
     }
   }

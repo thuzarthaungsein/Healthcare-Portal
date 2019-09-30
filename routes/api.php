@@ -25,8 +25,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api start
 
-    Route::post('getmap','SearchMapController@getMap');
-    Route::post('getCity','SearchMapController@getCity');
+    Route::post('getmap/{id}','SearchMapController@getMap');
+    Route::get('getCity','SearchMapController@getCity');
 
 // public route api end
 
@@ -195,6 +195,7 @@ Route::post('nursing/profile/{id}', 'NursingProfileController@profileupdate');
 Route::post('hospital/profile/{id}', 'HospitalProfileController@profileupdate');
 
 Route::post('schedule/update/{id}', 'ScheduleController@update');
+Route::get('schedule/{id}', 'ScheduleController@getSchedulebyCustomerId');
 
 Route::post('customer/profile/{id}', 'NursingProfileController@Customerprofileupdate');
 Route::post('staff/profile/{id}', 'NursingProfileController@Staffprofileupdate');
@@ -235,6 +236,11 @@ Route::group(['prefix' => 'hospital'], function () {
     Route::get('favourite_list', 'HospitalProfileController@index');
     Route::delete('delete/{id}', 'HospitalProfileController@destroy');
 });
+ Route::group(['prefix' => 'hospital'], function () {
+        Route::get('postList', 'HospitalProfileController@getPostalList');
+        Route::get('citiesList', 'HospitalProfileController@getCitiesName');
+        Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
+    });
 
 Route::group(['prefix' => 'comments'], function () {
     Route::post('add', 'CommentController@store');

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\JobApply;
 use Illuminate\Http\Request;
 use App\Job;
-use App\Mail\jobApplyMail;
-use App\Mail\jobApplyMail2;
+use App\Mail\jobApplyMailToUser;
+use App\Mail\jobApplyMailToCustomer;
+use App\Mail\jobApplyMailToAdmin;
+use DB;
 class JobApplyController extends Controller
 {
     /**
@@ -67,9 +69,23 @@ class JobApplyController extends Controller
             $jobapply->skill = $string;
             $jobapply->remark = $request->remark;
             //  return $jobapply;
+            $infos = DB::table('jobs')
+                            ->join('customers', 'customers.id', '=', 'jobs.customer_id')
+                            ->select('jobs.title','customers.email')
+                            ->where('jobs.id', '=', 2)
+                            ->get();
+            foreach($infos as $info) {
+                $job_title = $info->title;
+                $customer_mail = $info->email;
+            }
+            
+            $admin_email = 'softguide.sawnwaiyannaing@gmail.com';
              $jobapply->save();
-             \Mail::to('sawnwaiyan2011@gmail.com')->send(new jobApplyMail($jobapply));
-             \Mail::to($jobapply->email)->send(new jobApplyMail2($jobapply));
+             $jobapply->job_title = $job_title;
+             \Mail::to($customer_mail)->send(new jobApplyMailToCustomer($jobapply));
+             \Mail::to($jobapply->email)->send(new jobApplyMailToUser($jobapply));
+             \Mail::to($admin_email)->send(new jobApplyMailToAdmin($jobapply));
+
              return response()->json('Apply successfully ');
 
     }

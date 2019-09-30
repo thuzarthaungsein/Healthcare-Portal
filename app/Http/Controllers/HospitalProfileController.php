@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\HospitalProfile;
 use App\Gallery;
 use DB;
+use App\Category;
 
 class HospitalProfileController extends Controller
 {

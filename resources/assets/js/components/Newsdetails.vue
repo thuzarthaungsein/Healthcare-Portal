@@ -226,7 +226,6 @@ export default {
       this.axios.get(`/api/relatednews/${pid}`).then(response => {
         this.latest_post_all_cats = response.data.related_news;
         this.latest_news = response.data.latest_news;
-        console.log(response);
       });
     }
   }
