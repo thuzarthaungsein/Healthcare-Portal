@@ -249,8 +249,7 @@
 
                         <div class="row" >
                             <div class="col-md-12">
-                            <h2 align="center"> Medical Acceptance </h2>
-
+                                <h2 align="center"> Medical Acceptance </h2>
                             </div>
                             <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-4" >
                                 <div class="col-md-12 accept-box">
@@ -261,7 +260,6 @@
                                     </div>
                                     {{maccept.name}}
                                 </div>
-
                             </div>
                         </div>
                         <div class="row col-md-12 float: right" style="display: flex; justify-content: flex-end" >
@@ -280,7 +278,7 @@
                                     <table border="1" class="table">
                                         <tbody>
                                             <tr>
-                                                <td> 介護に関わる職員体制（入居者：職員）   </td>
+                                                <td> 介護に関わる職員体制（入居者：職員）</td>
                                                 <td>{{st.staff}}</td>
                                                 <td> 介護職員    </td>
                                                 <td>{{st.nursing_staff}}</td>
@@ -291,7 +289,6 @@
                                                 <td>     看護職員数     </td>
                                                 <td>{{st.num_staff}}</td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -385,7 +382,6 @@
             </div>
 
              <h5 class="header">special Features</h5>
-             {{specialfeature}}
                 <div class="row m-lr-0">
                     <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                         <li>{{special.short_name}}</li>
@@ -494,12 +490,10 @@
                     loop: false,
                     duration:500,
                     beforeChange: function(ele, current, next) {
-                        console.log('before', current, next)
                         that.index = next;
                     },
                     afterChange: function(ele, current) {
                         that.index = current;
-                        console.log('after', current)
                     }
                 },
                 images: [

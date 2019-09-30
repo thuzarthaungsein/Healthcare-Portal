@@ -128,7 +128,6 @@ export default {
             onChange: function(){
 
                this.feature.type = this.selectedValue;
-               console.log(this.feature);
 
            },
             updateFeature() {

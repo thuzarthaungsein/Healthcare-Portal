@@ -35,13 +35,12 @@ class NursingProfileController extends Controller
 
         // $gallery = Gallery::where('customer_id', $id)
         //                 ->delete();
-
         for($i=0; $i<count($request); $i++) {
-            if(is_object($request[0]['photo'])) {
-                echo 'Yes';
-            }else {
-                echo 'No';
-            }exit;
+            // if(is_object($request[0]['photo'])) {
+            //     echo 'Yes';
+            // }else {
+            //     echo 'No';
+            // }exit;
             $data = array(
                 'customer_id' => $id,
                 'type' => $request[$i]['type'],

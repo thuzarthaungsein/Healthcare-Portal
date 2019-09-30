@@ -162,7 +162,6 @@
         },
         created() {
             this.comments = JSON.parse(localStorage.getItem("inputValue"));
-            console.log('confirm',this.comments)
             if (this.comments.present) {
                 this.comments.present = 'する';
             } else {
@@ -171,7 +170,6 @@
             this.axios.get('/api/hospital/citiesList')
                 .then(response => {
                     this.city_list = response.data;
-                    console.log('testing', this.comments.division)
                     for (var i = 0; i < this.city_list.length; i++) {
                         if (this.comments.division == this.city_list[i].id) {
                             this.comments.division = this.city_list[i].city_name;
@@ -184,7 +182,7 @@
                     axios.post('/api/nurse/add', this.comments)
                         .then((response) => {
                             alert('Mail Sent Successfully !')
-                            location.href = "nursingFavouriteMail";
+                            location.href = "favouriteNursing";
                         }).catch(error => {
                             if (error.response.status == 422) {
                                 this.errors = error.response.data.errors
