@@ -122,6 +122,7 @@ export default {
     };
   },
   created() {
+ 
     this.axios.get("/api/job/index").then(response => {
       this.jobs = response.data.jobs;
     });

@@ -27,17 +27,23 @@ class ProfilePublishController extends Controller
         $feature = NursingProfile::select('feature')->where('customer_id',4)->get();
         $facility = NursingProfile::where('customer_id',1)->get();
         $comedical = Cooperate_Medical::where('customer_id',1)->get();
+
+        //forshow all medical acceptance
         $medicalacceptance = Medical::select('id','name')->get();
 
+        //forshow custom icon
         $medical =  DB::table('acceptance_transactions') ->select('acceptance_transactions.accept_type','medical_acceptance.name')
                         ->join('medical_acceptance','medical_acceptance.id','=','acceptance_transactions.medical_acceptance_id')
                         ->where('acceptance_transactions.customer_id','=',1)->get();
 
         $staff = Staff::where('customer_id',1)->get();
 
+         //for nursing map
         $nurselatlong =  DB::table('customers') ->select('customers.address','nursing_profiles.*')
                              ->join('nursing_profiles','nursing_profiles.customer_id','=','customers.id')
-                             ->where('nursing_profiles.customer_id','=',4)->get();
+                             ->where('nursing_profiles.customer_id','=',1)->get();
+
+        //for hospital map
         $hoslatlong =  DB::table('customers') ->select('customers.address','hospital_profiles.*')
                              ->join('hospital_profiles','hospital_profiles.customer_id','=','customers.id')
                              ->where('hospital_profiles.customer_id','=',3)->get();
