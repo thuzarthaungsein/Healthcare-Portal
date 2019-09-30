@@ -402,7 +402,7 @@
 
                     </div> -->
                      <div class="row col-md-12 m-lr-0">
-                        <div v-readMore:25= comment.comment></div>
+                        <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
                     </div>
                 </div>
             </div>
