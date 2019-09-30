@@ -5,26 +5,27 @@
               <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="page-header header">Feature Creation</h4>
-                            <br>
+                            <!-- <h4 class="page-header header" id="myspan">特殊機能作成</h4> -->
+                            <h4 class="page-header header">{{ header }}</h4>
                         </div>
                         <div class="col-md-12">
                              <form @submit.prevent="add">
                             <div class="form-group">
-                                <label>Feature Name :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="Feature Name" >
+                                <label>機能名 :<span class="error">*</span></label>
+                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="機能名" >
                                 <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                             </div>
                             <div class="form-group">
-                                <label>Feature Short Name :<span class="error">*</span></label>
-                                <input type="text" class="form-control" v-model="feature.short_name"  placeholder="Feature Short Name" >
+                                <label>機能の短い名前 :<span class="error">*</span></label>
+                                <input type="text" class="form-control" v-model="feature.short_name"  placeholder="機能の短い名前" >
                                  <span v-if="errors.short_name" class="error">{{errors.short_name[0]}}</span>
                             </div>
                             <div class="form_group">
+                                <label> カテゴリー:<span class="error">*</span></label>
                                 <select v-model="selectedValue" name="type" class="form-control" @change="onChange()">
                                         <option value="選択してください">選択してください。</option>
-                                        <option value="hospital">hospital</option>
-                                        <option value="nursing">nursing</option>
+                                        <option value="hospital">病院</option>
+                                        <option value="nursing">介護</option>
 
                                 </select>
                             </div> <br/>
@@ -32,7 +33,7 @@
                             <div class="form-group ">
                                 <router-link class="btn btn-danger all-btn" to="/featurelist" > キャンセル </router-link>
                                 <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->
-                                <button class="btn news-post-btn all-btn">Create</button>
+                                <button class="btn news-post-btn all-btn">{{subtitle}}</button>
                             </div>
                                 </form>
                             </div>
@@ -53,16 +54,21 @@ export default {
                         short_name:'',
                         type:'',
                     },
-                    selectedValue:'選択してください'
+                    selectedValue:'選択してください',
+                    header: '特殊機能作成',
+                    subtitle: '作る'
             }
         },
           created() {
               if(this.$route.params.id){
+              //  alert('title');
+                //  this.title = this.title.toUpperCase();
+              
                   this.axios
                     .get(`/api/feature/edit/${this.$route.params.id}`)
                     .then((response) => {
 
-                    this.feature = response.data;
+                    this.feature = response.data;                    
                     if(this.feature.type == 'hospital')
                     {
                         this.selectedValue = 'hospital';
@@ -72,6 +78,10 @@ export default {
                     }else {
                         this.selectedValue='選択してください'
                     }
+                      this.header = '特別な機能更新';
+                        this.subtitle = '更新';
+                        return this.header;
+                        return this.subtitle;
 
                 });
               }
@@ -80,6 +90,9 @@ export default {
 
          methods: {
             add() {
+                // console.log("add");
+                // console.log(this.feature);
+                // alert('add');
                   if( `${this.$route.params.id}` == "undefined")
                   {
                             axios.post('/api/feature/add', this.feature)
@@ -87,7 +100,17 @@ export default {
                          this.name = ''
                          this.short_name=''
                          this.type=''
-                    alert('Successfully Created');
+                         console.log(response);
+                    //alert('Successfully Created');
+                    this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '作成されました',
+                            showConfirmButton: false,
+                            timer: 1800,
+                            width: 250,
+                            height: 200,
+                        })
                      this.$router.push({name: 'featurelist'});
                     }).catch(error=>{
 
@@ -112,7 +135,16 @@ export default {
                 .post(`/api/feature/update/${this.$route.params.id}`, this.feature)
                 .then((response) => {
                     //this.name = ''
-                    alert('Successfully Updated!')
+                    //alert('Successfully Updated!')
+                    this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '作成されました',
+                            showConfirmButton: false,
+                            timer: 1800,
+                            width: 250,
+                            height: 200,
+                        })
                     this.$router.push({name: 'featurelist'});
                 }).catch(error=>{
 
