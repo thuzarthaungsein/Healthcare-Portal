@@ -439,7 +439,7 @@
                                         <div class="col-md-12">
                                             <GoogleMap></GoogleMap>
                                         </div>
-
+                                        
                                         <div class="form-group">
                                                 <label>住所<span class="error">*</span></label>
                                                 <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
@@ -526,7 +526,6 @@ export default {
                         readonly:true,
                         theme:'snow',
                 }
-
         }
         },
         created(){

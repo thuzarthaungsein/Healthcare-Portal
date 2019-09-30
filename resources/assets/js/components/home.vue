@@ -88,6 +88,7 @@ localStorage.setItem("hospital_history", this.l_storage_hos_history);
         },
         methods: {
                 start() {
+                      
                         if(this.$route.params.page) {
                                if(this.$route.params.page == 'subtab2') {
                                        this.fade2 = false;

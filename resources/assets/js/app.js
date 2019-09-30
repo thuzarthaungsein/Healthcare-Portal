@@ -14,7 +14,7 @@ import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 
-import {routes} from './route';
+import {routes} from './route'; 
 import * as VueGoogleMaps from "vue2-google-maps";
 // import Vue from 'vue';
 import Autocomplete from 'vuejs-auto-complete';

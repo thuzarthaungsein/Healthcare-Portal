@@ -163,7 +163,6 @@ export const routes = [
         path: "/profile",
         component: Profile
     },
-
     {
         name: "jobofferlist",
         path: "/jobofferlist",
@@ -253,16 +252,16 @@ export const routes = [
       path: '/google_map',
       component: GoogleMap
     },
-    {
-      name: 'hospital_profile',
-      path: '/hospital_profile',
-      component: HospitalProfile
-     },
-    {
-      name: 'nursing_profile',
-      path: '/nursing_profile',
-      component: NursingProfile
-     },
+    // {
+    //   name: 'hospital_profile',
+    //   path: '/hospital_profile',
+    //   component: HospitalProfile
+    //  },
+    // {
+    //   name: 'nursing_profile',
+    //   path: '/nursing_profile',
+    //   component: NursingProfile
+    //  },
   {
     name: 'videoupload',
     path: '/videoupload',

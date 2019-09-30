@@ -26,125 +26,124 @@
             </div>
 
             <div class="row m-lr-0 ele" id="element1">
-             <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
-                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
-                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
-                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Phone :</strong></p></div>
-                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
-            </div>
+                <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
+                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
+                    <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
+                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Phone :</strong></p></div>
+                    <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
+                </div>
 
-             <h5 class="header">special Features</h5>
+                <h5 class="header">special Features</h5>
                 <div class="row m-lr-0">
                     <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                         <li>{{special.short_name}}</li>
                     </ul>
                 </div>
-        </div>
-         <div class="row ele m-lr-0" id="element2">
-             <h5 class="header">Features</h5>
-               <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-8">{{nurseprofile.feature}}</div>
-          </div>
-          <div class="row ele m-lr-0" id="element3">
-              <h5 class="header">Cost</h5>
-                    <table class="table table-striped table-bordered">
-                        <tr>
-                            <th width="30%">
-                                <font>method of payment</font>
-                            </th>
-                            <td width="50%">
-                                <font>method of payment test</font>
-                            </td>
-                        </tr>
-                    </table>
-                <div v-if="method_payment.length > 0">
-                    <div class="cost_tb"  v-for="cost in method_payment" :key="cost.id">
-                        <table class="cost_table">
-                            <tbody>
+            </div>
+            <div class="row ele m-lr-0" id="element2">
+                <h5 class="header">Features</h5>
+                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-8">{{nurseprofile.feature}}</div>
+            </div>
+            <div class="row ele m-lr-0" id="element3">
+                <h5 class="header">Cost</h5>
+                        <table class="table table-striped table-bordered">
                             <tr>
-                                <th width="150">入居にかかる費用(Expense)</th>
-                                    <td >{{cost.expense_moving}}</td>
-                                    <th>居室タイプ(type)</th>
-                                    <td>{{cost.living_room_type}}</td>
+                                <th width="30%">
+                                    <font>method of payment</font>
+                                </th>
+                                <td width="50%">
+                                    <font>method of payment test</font>
+                                </td>
                             </tr>
-                            <tr>
-                                <th width="150">月額料金 (monthly)</th>
-                                    <td>{{cost.monthly_fees}}</td>
-                                <th>広さ(area)</th>
-                                    <td>{{cost.area}}</td>
-                            </tr>
-                            </tbody>
                         </table>
-                        <div class="cost_btnwrapper">
-                            <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.customer_id">View</button>
-                        </div> <br/>
-
-
-                        <div class="collapse" :id="'costDetails' + cost.customer_id">
+                    <div v-if="method_payment.length > 0">
+                        <div class="cost_tb"  v-for="cost in method_payment" :key="cost.id">
                             <table class="cost_table">
-                                <h4>入居にかかる費用(Expense Moving)</h4>
                                 <tbody>
-                                    <tr>
-                                        <th width="300">入居一時金または(deposit)</th>
-                                            <td>{{cost.deposit}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>その他（使途）(other)</th>
-                                            <td>{{cost.other_use}}</td>
-                                    </tr>
+                                <tr>
+                                    <th width="150">入居にかかる費用(Expense)</th>
+                                        <td >{{cost.expense_moving}}</td>
+                                        <th>居室タイプ(type)</th>
+                                        <td>{{cost.living_room_type}}</td>
+                                </tr>
+                                <tr>
+                                    <th width="150">月額料金 (monthly)</th>
+                                        <td>{{cost.monthly_fees}}</td>
+                                    <th>広さ(area)</th>
+                                        <td>{{cost.area}}</td>
+                                </tr>
                                 </tbody>
                             </table>
-                            <table class="cost_table">
-                                    <h4>月額費用(Monthly Cost)</h4>
-                                <tbody>
-                                    <tr>
-                                        <th width="300">賃料 (rent)</th>
-                                        <td>{{cost.rent}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>管理費(admin_expense)</th>
-                                        <td>{{cost.admin_expense}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>食費 (food_expense)</th>
-                                        <td>{{cost.food_expense}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>介護上乗せ金（生活サービス費(nursing care)</th>
-                                        <td>{{cost.nurse_care_surcharge}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>その他 (other monthly cost)</th>
-                                        <td>{{cost.other_monthly_cost}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table class="cost_table">
-                                    <h4>返還金について(refund system)</h4>
-                                <tbody>
-                                    <tr>
-                                        <th width="300">返還制度 (refund)</th>
-                                        <td>{{cost.refund_system}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>償却期間(Depreciation)</th>
-                                        <td>{{cost.depreciation_period}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>初期償却(InitialDepreciation)</th>
-                                        <td>{{cost.initial_deprecration}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>その他メッセージ(other message)</th>
-                                        <td>{{cost.other_message_refund}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                         </div>
+                            <div class="cost_btnwrapper">
+                                <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.customer_id">View</button>
+                            </div> <br/>
 
+
+                            <div class="collapse" :id="'costDetails' + cost.customer_id">
+                                <table class="cost_table">
+                                    <h4>入居にかかる費用(Expense Moving)</h4>
+                                    <tbody>
+                                        <tr>
+                                            <th width="300">入居一時金または(deposit)</th>
+                                                <td>{{cost.deposit}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>その他（使途）(other)</th>
+                                                <td>{{cost.other_use}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="cost_table">
+                                        <h4>月額費用(Monthly Cost)</h4>
+                                    <tbody>
+                                        <tr>
+                                            <th width="300">賃料 (rent)</th>
+                                            <td>{{cost.rent}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>管理費(admin_expense)</th>
+                                            <td>{{cost.admin_expense}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>食費 (food_expense)</th>
+                                            <td>{{cost.food_expense}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>介護上乗せ金（生活サービス費(nursing care)</th>
+                                            <td>{{cost.nurse_care_surcharge}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>その他 (other monthly cost)</th>
+                                            <td>{{cost.other_monthly_cost}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="cost_table">
+                                        <h4>返還金について(refund system)</h4>
+                                    <tbody>
+                                        <tr>
+                                            <th width="300">返還制度 (refund)</th>
+                                            <td>{{cost.refund_system}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>償却期間(Depreciation)</th>
+                                            <td>{{cost.depreciation_period}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>初期償却(InitialDepreciation)</th>
+                                            <td>{{cost.initial_deprecration}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>その他メッセージ(other message)</th>
+                                            <td>{{cost.other_message_refund}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-          </div>
-
+            </div>
             <div class="row ele m-lr-0" id="element4">
                 <div class="row" >
                             <div class="col-md-12">
@@ -249,8 +248,7 @@
 
                         <div class="row" >
                             <div class="col-md-12">
-                            <h2 align="center"> Medical Acceptance </h2>
-
+                                <h2 align="center"> Medical Acceptance </h2>
                             </div>
                             <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-4" >
                                 <div class="col-md-12 accept-box">
@@ -261,7 +259,6 @@
                                     </div>
                                     {{maccept.name}}
                                 </div>
-
                             </div>
                         </div>
                         <div class="row col-md-12 float: right" style="display: flex; justify-content: flex-end" >
@@ -280,7 +277,7 @@
                                     <table border="1" class="table">
                                         <tbody>
                                             <tr>
-                                                <td> 介護に関わる職員体制（入居者：職員）   </td>
+                                                <td> 介護に関わる職員体制（入居者：職員）</td>
                                                 <td>{{st.staff}}</td>
                                                 <td> 介護職員    </td>
                                                 <td>{{st.nursing_staff}}</td>
@@ -291,48 +288,43 @@
                                                 <td>     看護職員数     </td>
                                                 <td>{{st.num_staff}}</td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-
+            </div>
             <div class="row ele m-lr-0" id="element5">
 
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
-                            <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="false" @click="center=m.position" />
+                            <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
                            </GmapMap>
 
-                        <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
-                            <div class="col-md-2 text-left ">
-                                Official Site  :
-                            </div>
-                            <div class="col-md-10 text-left">
-                               {{m.website}}
-                            </div>
+                            <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                                <div class="col-md-2 text-left ">
+                                    Official Site  :
+                                </div>
+                                <div class="col-md-10 text-left">
+                                {{m.website}}
+                                </div>
 
-                            <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                Access :
-                            </div>
-                            <div class="col-md-10 text-left" style="padding-top:20px;">
-                                {{m.access}}
-                            </div>
+                                <div class="col-md-2 text-left" style="padding-top:20px;" >
+                                    Access :
+                                </div>
+                                <div class="col-md-10 text-left" style="padding-top:20px;">
+                                    {{m.access}}
+                                </div>
 
-                            <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                City/Township :
+                                <div class="col-md-2 text-left" style="padding-top:20px;" >
+                                    City/Township :
+                                </div>
+                                <div class="col-md-10 text-left" style="padding-top:20px;">
+                                    {{m.address}}
+                                </div>
                             </div>
-                            <div class="col-md-10 text-left" style="padding-top:20px;">
-                                {{m.address}}
-                            </div>
-                        </div>
-                    </div>
-
-
-            </div>
+                      </div>
+                 </div>
 
             <div class="row ele m-lr-0" id="element6">
                <h5 class="header">Review</h5>
@@ -354,14 +346,15 @@
                     </div>
 
                 </div>
-          </div>
+            </div>
 
             <div class="ele m-lr-0" id="element7">
                 <joboffer profile="profile"></joboffer>
 
             </div>
-      </div>
-      <div v-if="type == 'hospital'">
+    </div>
+     
+    <div v-if="type == 'hospital'">
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
                 Information
@@ -385,7 +378,6 @@
             </div>
 
              <h5 class="header">special Features</h5>
-             {{specialfeature}}
                 <div class="row m-lr-0">
                     <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                         <li>{{special.short_name}}</li>
@@ -452,8 +444,9 @@
             <div class="ele m-lr-0" id="element4">
                 <joboffer profile="profile"></joboffer>
             </div>
-      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -494,12 +487,10 @@
                     loop: false,
                     duration:500,
                     beforeChange: function(ele, current, next) {
-                        console.log('before', current, next)
                         that.index = next;
                     },
                     afterChange: function(ele, current) {
                         that.index = current;
-                        console.log('after', current)
                     }
                 },
                 images: [
@@ -528,6 +519,7 @@
         },
 
         created(){
+          
             if(this.type == "nursing")
             {
                 this.axios.get('/api/profile/nursing') .then(response => {
@@ -543,6 +535,14 @@
                     this.markers[0]['position']['lng']  = response.data.nurselatlong[0]['longitude'];
                     this.center['lat'] = response.data.nurselatlong[0]['latitude'];
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
+               
+                    if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
+                    {
+                         this.center['lat'] = 35.6803997;
+                         this.center['lng'] = 139.76901739;
+                         this.markers[0]['position']['lat']  = 35.6803997;
+                         this.markers[0]['position']['lng']  = 139.76901739;
+                    }
 
                 });
 
@@ -563,10 +563,10 @@
                 this.axios.get(`/api/profile/specialfeature/${this.type}`).then(response => {
                     this.specialfeature = response.data;
                 });
-                 this.axios.get('/api/profile/comment') .then(response => {
+                 this.axios.get('/api/profile/comment').then(response => {
                       this.comments = response.data;
                 });
-                 this.axios.get('/api/profile/customer') .then(response => {
+                 this.axios.get('/api/profile/customer').then(response => {
                       this.customer = response.data;
                 });
                 this.axios.get('/api/profile/hospital').then(response => {
@@ -575,22 +575,16 @@
                     this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
                     this.center['lat'] = response.data.hoslatlong[0]['latitude'];
                     this.center['lng'] = response.data.hoslatlong[0]['longitude'];
-                })
-
-                var geocoder = new google.maps.Geocoder;
-                var latlng = {lat: 16.92840000, lng: 96.23460000 };
-                geocoder.geocode({'location': latlng}, function(results, status) {
-                if (status === 'OK') {
-
-                    if (results[1]) {
-
-                            this.address =  results[1].formatted_address
-                            return this.address;
-                        }
+                    if(response.data.hoslatlong[0]['latitude'] == 0 && response.data.hoslatlong[0]['longitude'] == 0)
+                    {
+                         this.center['lat'] = 35.6803997;
+                         this.center['lng'] = 139.76901739;
+                         this.markers[0]['position']['lat']  = 35.6803997;
+                         this.markers[0]['position']['lng']  = 139.76901739;
                     }
-
-
                 })
+
+              
             }
 
 
