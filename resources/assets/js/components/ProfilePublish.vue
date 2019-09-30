@@ -348,11 +348,9 @@
                                          <div class="content hideContent">{{comment.comment}}</div>
                                      </div> -->
                                      <!-- <button onclick="function()">See more</button> -->
-                    <div class="row col-md-12 m-lr-0">
-                             <p class="showContent"> {{comment.comment}}</p>
-                            <span  class="displaytext" :id="'test'+comment.id">{{comment.comment}}</span>
-                                <a class="mt-2 readMore"  href="#" @click="review(comment.id)">ReadMore</a>
 
+                    <div class="row col-md-12 m-lr-0">
+                        <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
                     </div>
 
                 </div>
@@ -407,13 +405,15 @@
                             <div class="content hideContent">{{comment.comment}}</div>
                         </div> -->
                         <!-- <button onclick="function()">See more</button> -->
-                    <div class="row col-md-12 m-lr-0">
+                    <!-- <div class="row col-md-12 m-lr-0">
                         <p class="showContent"> {{comment.comment}}</p>
                             <span class="displaytext" :id="'test'+comment.id">{{comment.comment}}</span>
                                 <a class="mt-2 readMore" @click="review(comment.id)" href ="#">ReadMore</a>
 
+                    </div> -->
+                     <div class="row col-md-12 m-lr-0">
+                        <div v-readMore:25= comment.comment></div>
                     </div>
-
                 </div>
             </div>
             <div class="row ele m-lr-0" id="element3">
@@ -474,6 +474,7 @@
                 markers: [
                     { position: { lat: 0, lng: 0 } },
                 ],
+
                 center: { lat: 0, lng: 0 },
                 address: '',
                 google:[],
@@ -505,6 +506,7 @@
                         console.log('after', current)
                     }
                 },
+
                 images: [
                     {
                         id: '1',
@@ -621,23 +623,7 @@
             activateImage(imageIndex) {
                 this.activeImage = imageIndex;
             },
-            review(id){
-             var elem = $(".readMore").text();
-            if (elem == "ReadMore") {
-                 $(".readMore").text("ReadLess");
-                $('.showContent').css("display", "block");
-                $(".displaytext").slideDown();
-                $("#test"+id).removeClass("displaytext");
-
-          } else {
-                $(".readMore").text("ReadMore");
-                $('.showContent').css("display", "none");
-                $(".displaytext").slideUp();
-                $("#test"+id).removeClass("displaytext");
-          }
-
-            }
-        },
+        }
 
  }
 
@@ -670,13 +656,13 @@
   padding-top: 60px;
 }
 .cost_tb{
-    border: 1px solid #ccc;
-    /* border-left: 0px; */
-    /* border-bottom: 0px; */
+    /* border: 1px solid #ccc; */
+    border-left: 0px;
+     border-bottom: 0px;
     padding-bottom: 1px;
-    background: #fff;
-    /* padding: 10px;*/
-    padding-bottom: 20px;
+     background: #fff;
+     padding: 10px;
+    /* padding-bottom: 20px; */
 }
 .cost_table{
     width: 820px;

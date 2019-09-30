@@ -39,6 +39,7 @@
         "vue-fullpage.js": "^0.1.4",
         "vue-google-maps": "^0.1.21",
         "vue-quill-editor": "^3.0.6",
+        "vue-read-more": "^1.1.1",
         "vue-router": "^3.1.2",
         "vue-sweetalert": "^0.1.18",
         "vue-template-compiler": "^2.6.10",

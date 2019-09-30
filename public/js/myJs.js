@@ -208,7 +208,7 @@ $('#save_value').click(function(){
             isDivThere ++;
 
         }
-    } 
+    }
 
 
 /*select check
@@ -397,7 +397,7 @@ $('#save_value').click(function(){
   // });
 
   function closebtn(){
-   
+
     if(confirm("Are you sure you want to delete?"))
     {
         var image_x = document.getElementById('x-image');
@@ -417,12 +417,12 @@ $('#save_value').click(function(){
   //     //closeOnCancel: false
   //   },
   //   function (isConfirm){
-  //     if(isConfirm){        
+  //     if(isConfirm){
   //         var image_x = document.getElementById('x-image');
   //         image_x.parentNode.removeChild(image_x);
-  //         document.getElementById('showimage').style.display = 'block';        
+  //         document.getElementById('showimage').style.display = 'block';
   //     }
-      
+
   //   }
   //   );
   // };
