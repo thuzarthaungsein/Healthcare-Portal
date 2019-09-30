@@ -46,13 +46,13 @@
             </div>
             <div class="row ele m-lr-0" id="element3">
                 <h5 class="header">Cost</h5>
-                        <table class="table table-striped table-bordered">
+                        <table class="table table-striped table-bordered" v-for="nusmethod in nus_method" :key="nusmethod.id">
                             <tr>
                                 <th width="30%">
                                     <font>method of payment</font>
                                 </th>
                                 <td width="50%">
-                                    <font>method of payment test</font>
+                                    <font>{{nusmethod.method}}</font>
                                 </td>
                             </tr>
                         </table>
@@ -75,17 +75,17 @@
                                 </tbody>
                             </table>
                             <div class="cost_btnwrapper">
-                                <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.customer_id">View</button>
+                                <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id">View</button>
                             </div> <br/>
 
 
-                            <div class="collapse" :id="'costDetails' + cost.customer_id">
+                            <div class="collapse" :id="'costDetails' + cost.id">
                                 <table class="cost_table">
                                     <h4>入居にかかる費用(Expense Moving)</h4>
                                     <tbody>
                                         <tr>
                                             <th width="300">入居一時金または(deposit)</th>
-                                                <td>{{cost.deposit}}</td>
+                                            <td>{{cost.deposit}}</td>
                                         </tr>
                                         <tr>
                                             <th>その他（使途）(other)</th>
@@ -329,20 +329,19 @@
             <div class="row ele m-lr-0" id="element6">
                <h5 class="header">Review</h5>
               <div class="row" v-for="comment in comments" :key="comment.id">
-                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
+                    <div class="col-md-12">タイトル:{{comment.title}}</div><br/>
                                      <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
-                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                    <div class="col-md-6">電子メールアドレス:{{comment.email}}</div>
+                    <div class="col-md-6">年月日投稿:{{comment.year}}</div>
                         <br/><br/>
                                       <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
                                          <div class="content hideContent">{{comment.comment}}</div>
                                      </div> -->
                                      <!-- <button onclick="function()">See more</button> -->
 
-                    <div class="row col-md-12 m-lr-0">
-                        <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
+                    <div class="row col-md-6 m-lr-0">
+                        <read-more more-str="read more" :text="comment.comment" :max-chars="20"></read-more>
                     </div>
-
                 </div>
             </div>
 
@@ -386,10 +385,10 @@
 
                 <h5 class="header">Review</h5>
               <div class="row" v-for="comment in comments" :key="comment.id">
-                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
+                    <div class="col-md-12">タイトル:{{comment.title}}</div><br/>
                                      <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
-                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                    <div class="col-md-5">電子メールアドレス:{{comment.email}}</div>
+                    <div class="col-md-3">年月日投稿:{{comment.year}}</div>
                         <br/><br/>
                         <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
                             <div class="content hideContent">{{comment.comment}}</div>
@@ -401,7 +400,7 @@
                                 <a class="mt-2 readMore" @click="review(comment.id)" href ="#">ReadMore</a>
 
                     </div> -->
-                     <div class="row col-md-12 m-lr-0">
+                     <div class="row col-md-12">
                         <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
                     </div>
                 </div>
@@ -472,6 +471,7 @@
                 customer:[],
                 specialfeature:[],
                 nusfacilities:[],
+                nus_method:[],
                 cooperate_medical:[],
                 medical_acceptance:[],
                 medical:[],
@@ -527,6 +527,7 @@
             {
                 this.axios.get('/api/profile/nursing') .then(response => {
                     this.nursing_profiles = response.data.feature;
+                    this.nus_method= response.data.method;
                     this.method_payment = response.data.cost;
                     this.nusfacilities = response.data.facility;
                     this.cooperate_medical = response.data.comedical;
@@ -667,7 +668,7 @@
     border-left: 6px solid #b7dad2;
     padding-left: 10px;
     margin-bottom: 10px;
-    font-size: 1.286em;
+    font-size:14px;
     line-height: 1.3;
     margin-top: 30px;
     padding-top: 2px;
