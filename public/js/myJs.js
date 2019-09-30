@@ -208,32 +208,7 @@ $('#save_value').click(function(){
             isDivThere ++;
 
         }
-    }
-    function closebtn() {
-      if (confirm("Are you sure you want to delete?")) {
-          var image_x = document.getElementById("x-image");
-          image_x.parentNode.removeChild(image_x);
-          document.getElementById("showimage").style.display = "block";
-      }
-  }
-
-    // function closebtn(){
-    //     if(confirm("Are you sure you want to delete?"))
-    //     {
-    //         var image_x = document.getElementById('x-image');
-    //         image_x.parentNode.removeChild(image_x);
-    //         document.getElementById('showimage').style.display = 'block';
-    //     }
-    // }
-
-  //   function closebtn() {
-  //     if (confirm("Are you sure you want to delete?")) {
-  //         var image_x = document.getElementById("x-image");
-  //         image_x.parentNode.removeChild(image_x);
-  //         document.getElementById("showimage").style.display = "block";
-  //     }
-  // }
-
+    } 
 
 
 /*select check
@@ -315,6 +290,7 @@ $('#save_value').click(function(){
 
      /* start nurse profile*/
 
+<<<<<<< HEAD
 
       $(".readMore").click(function() {
         var elem = $(".readMore").text();
@@ -329,6 +305,42 @@ $('#save_value').click(function(){
         }
       });
    
+=======
+    //  $(".readMore").on('click', function(event) {
+    //     if ($(this).hasClass('opened')) {
+    //         $(this).removeClass('opened');
+    //         $(this).parent().find('.displaytext').slideToggle('fast');
+    //     }
+    //     else {
+    //         $(this).addClass('opened');
+    //         $('.showContent').css("display", "none");
+    //         $('.readMore').css("display", "none");
+    //         $(this).parent().find('.displaytext').slideToggle('fast');
+
+    //     }
+    // });
+    // $(document).ready(function () {
+    //     $(".displaytext").hide();
+    //     $(".readMore").on("click", function () {
+    //         var txt = $(".displaytext").is(':visible') ? 'Read More' : 'Read Less';
+    //         $(".readMore").text(txt);
+    //         $(this).next('.displaytext').slideToggle(200);
+    //     });
+    // });
+
+        // $(".readMore").click(function() {
+        //   var elem = $(".readMore").text();
+        //   if (elem == "ReadMore") {
+        //     $(".readMore").text("ReadLess");
+        //     $('.showContent').css("display", "none");
+        //     $(".displaytext").slideDown();
+        //   } else {
+        //     $(".readMore").text("ReadMore");
+        //     $(".displaytext").slideUp();
+        //   }
+        // });
+
+>>>>>>> fdcbb6c080b54544bc203b0f65347d453dc3d614
      /* end nurse profile*/
 
 /*select check
@@ -403,14 +415,42 @@ $('#save_value').click(function(){
 
   function closebtn(){
    
+<<<<<<< HEAD
     
+=======
+>>>>>>> fdcbb6c080b54544bc203b0f65347d453dc3d614
     if(confirm("Are you sure you want to delete?"))
     {
         var image_x = document.getElementById('x-image');
         image_x.parentNode.removeChild(image_x);
         document.getElementById('showimage').style.display = 'block';
     }
+<<<<<<< HEAD
 }
+=======
+  }
+  // function closebtn(){
+  //   swal({
+  //     title: "Are you sure?",
+  //     text: "You will not be able to recover this imaginary file!",
+  //     type: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#DD6B55',
+  //     confirmButtonText: 'Yes, delete it!',
+  //     closeOnConfirm: false,
+  //     //closeOnCancel: false
+  //   },
+  //   function (isConfirm){
+  //     if(isConfirm){        
+  //         var image_x = document.getElementById('x-image');
+  //         image_x.parentNode.removeChild(image_x);
+  //         document.getElementById('showimage').style.display = 'block';        
+  //     }
+      
+  //   }
+  //   );
+  // };
+>>>>>>> fdcbb6c080b54544bc203b0f65347d453dc3d614
 
 function showImg(c,event) {
   $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");
