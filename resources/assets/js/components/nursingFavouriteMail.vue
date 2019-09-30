@@ -37,8 +37,8 @@
                                     <div class="form-group col-md-6">
                                         <label>お名前 <span class="error sp1">必須</span></label>
                                         <!-- <input type="text" class="form-control" placeholder="お名前を入力してください。"> -->
-                                        <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" v-model="comments.name" @change="someHandler"/>
-                                        <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                                        <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" v-model="comments.name" @change="aggreBtn" @focusout="focusName"/>
+                                            <span class="error" v-if="comment_focus">※入力は必須です。</span>
                                         <br />
                                     </div>
                                      <div class="form-group col-md-6">
@@ -48,8 +48,8 @@
                                     <div class="row">
                                     <div class="form-group col-md-6">
                                         <label>ふりがな <span class="error sp1">必須</span></label>
-                                        <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="someHandler"/>
-                                        <span v-if="errors.furigana" class="error">{{errors.furigana[0]}}</span>
+                                        <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="aggreBtn" @focusout="focusFuri"/>
+                                        <span class="error" v-if="furigana_focus">※入力は必須です。</span>
                                     </div>
                                     <div class="col-md-6">
                                              <p class="m-t-39"> 例）さがし たろう</p>
@@ -60,19 +60,18 @@
                                             <label>ご住所:<span class="error">*</span></label>
                                             <br>
                                             <label>郵便番号 <span class="error sp1">必須</span></label>
-                                            <input type="text" v-model="comments.postal" name="postal" class="postal form-control" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="someHandler"/>
-                                            <span v-if="errors.postal" class="error">{{errors.postal[0]}}</span>
+                                            <input type="text" v-model="comments.postal" name="postal" class="postal form-control" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="aggreBtn" @focusout="focusPostal"/>
+                                            <span class="error" v-if="postal_focus">※入力は必須です。</span>
                                             <div id="jsErrorMessage"></div>
                                             <br>
 
                                             <label> 都道府県<span class="error sp1">必須</span></label>
-                                            <select v-model="comments.selectedValue" class="division form-control" id="division" @change="someHandler">
+                                            <select v-model="comments.selectedValue" class="division form-control" id="division" @change="aggreBtn">
                                                 <option value="0">選択してください。</option>
                                                 <option v-for="cities in city_list" :key="cities.id" v-bind:value="cities.id">
                                                     {{cities.city_name}}
                                                 </option>
-                                            </select>
-                                            <span v-if="errors.division" class="error">{{errors.division[0]}}</span>
+                                            </select>                                            
                                         </div>
                                         <br>
                                         <div class="col-md-6 m-t-71">
@@ -86,16 +85,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label>市区町村、番地（建物名）:<span class="error sp1">必須</span></label>
-                                        <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="comments.city" @change="someHandler">
-                                        <span v-if="errors.city" class="error">{{errors.city[0]}}</span>
+                                        <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="comments.city" @change="aggreBtn" @focusout="focusCity">
+                                        <span class="error" v-if="city_focus">※入力は必須です。</span>
                                         <!-- <input type="text" class="form-control" id="city" placeholder="市区町村、番地を入力してください。" v-model="zipStreet"> -->
                                         <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label>電話番号 <span class="error sp1">必須</span></label>
-                                            <input type="text" id="phone" name="number" class="form-control" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="someHandler">
-                                            <span v-if="errors.phone" class="error">{{errors.phone[0]}}</span>
+                                            <input type="text" id="phone" name="number" class="form-control" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="aggreBtn" @focusout="focusPhone">
+                                            <span class="error" v-if="phone_focus">※入力は必須です。</span>
                                             <br>
                                         </div>
                                         <div class="col-md-6" style="margin-top:40px;">
@@ -109,8 +108,8 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label>メールアドレス <span class="error sp1">必須</span></label>
-                                            <input type="text" id="mail" name="mail" class="form-control" placeholder="メールアドレスを入力してください。" v-model="comments.mail" @change="someHandler">
-                                            <span v-if="errors.mail" class="error">{{errors.mail[0]}}</span>
+                                            <input type="text" id="mail" name="mail" class="form-control" placeholder="メールアドレスを入力してください。" v-model="comments.mail" @change="aggreBtn" @focusout="focusMail">
+                                            <span class="error" v-if="mail_focus">※入力は必須です。</span>
                                             <br>
                                         </div>
                                         <div class="col-md-6" style="margin-top:40px;">
@@ -123,14 +122,17 @@
                                     </div>
                                     <div class="form-group">
                                         <label>プレゼントのご希望:</label>
-                                        <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
-                                    </div>
+                                        <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="aggreBtn">「早分かり用語集」プレゼントを希望する <br>
+                                     </div> 
+                                     <div class="m-b-11" v-if="btn_disable">   
+                                            <div class="error">※未入力の必須項目がございます</div>
+                                     </div>                              
                                    <table>
-                                        <tr>
+                                        <tr>                                            
                                             <td>
                                                  <router-link :to="{name: 'favouriteNursing'}" class="btn btn-danger all-btn m-l-10">戻る</router-link>
                                             </td>
-                                            <td>
+                                            <td>                                    
                                                  <button type="button" class="submit2 btn btn-primary m-t-0 m-l-10" @click="add()" :disabled="isdisable">同意して進む</button>
                                             </td>
                                         </tr>
@@ -294,6 +296,8 @@
                                         </tr>
                                     </table>                                
                                 </form>
+
+                                
                             </div>
                         </div>
                     </div>
@@ -342,7 +346,14 @@
                 bk_postal: 0,
                 reservation: [],
                 documentation: [],
-                btn_disable: false
+                btn_disable: false,
+                comment_focus: false,
+                furigana_focus: false,
+                postal_focus: false,
+                city_focus: false,
+                phone_focus: false,
+                mail_focus: false
+                
             }
         },
         computed: {
@@ -363,9 +374,11 @@
                 });
             if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != ''){
                     this.btn_disable=false;
+                    //  $('#error-msg').html('<div class="error"></div>');
                 }else{
                     this.btn_disable=true;
                 }
+            
         },
         methods: {
             getPostal: function(event) {
@@ -385,6 +398,7 @@
                                 }
                                 this.comments.selectedValue = pref;
                                 this.comments.division = pref;
+                                 $('#jsErrorMessage').html('<div class="error"></div>');
                             } else {
                                 this.comments.city = '';
                                 this.comments.selectedValue = 0;
@@ -410,12 +424,55 @@
                     name: 'nursingMailConfirm',
                 });
             },
-            someHandler: function(){
+            aggreBtn: function(){
                 if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != ''){
                     this.btn_disable=false;
                 }else{
                     this.btn_disable=true;
                 }
+            },
+            focusName: function(event) {
+                if(this.comments.name != ''){
+                    this.comment_focus=false;
+                }else{
+                    this.comment_focus=true;  
+                    document.getElementById('tbname').style.backgroundColor = black;                  
+                }                
+            },
+            focusFuri: function(event) {
+                if(this.comments.furigana != ''){
+                    this.furigana_focus=false;
+                }else{
+                    this.furigana_focus=true;                    
+                }                
+            },
+            focusPostal: function(event) {
+                if(this.comments.postal != ''){
+                    this.postal_focus=false;
+                }else{
+                    this.postal_focus=true;                    
+                }                
+            },
+            focusCity: function(event) {
+                if(this.comments.city != ''){
+                    this.city_focus=false;
+                }else{
+                    this.city_focus=true;                    
+                }                
+            },
+            focusPhone: function(event) {
+                if(this.comments.phone != ''){
+                    this.phone_focus=false;
+                }else{
+                    this.phone_focus=true;                    
+                }                
+            },
+            focusMail: function(event) {
+                if(this.comments.mail != ''){
+                    this.mail_focus=false;
+                }else{
+                    this.mail_focus=true;                    
+                }                
             },
         }
     }
