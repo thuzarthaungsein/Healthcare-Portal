@@ -138,7 +138,7 @@ $('#save_value').click(function(){
   $(':checkbox:checked').each(function(){
     checkvalue.push(parseInt($(this).val()));
   });
-  console.log(checkvalue);
+  // console.log(checkvalue);
 });
 
 
@@ -533,11 +533,12 @@ function new_link()
 
         }
     }
-    $('input[name="number"]').keyup(function(e)
-  {
-  if (/\D/g.test(this.value))
-  {
-    // Filter non-digits from input value.
-    this.value = this.value.replace(/\D/g, '');
-  }
-});
+  
+//   $('input[name="number"]').keyup(function(e)
+//   {
+//   if (/\D/g.test(this.value))
+//   {
+//     // Filter non-digits from input value.
+//     this.value = this.value.replace(/\D/g, '');
+//   }
+// });

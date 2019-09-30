@@ -76,7 +76,7 @@ export default {
         created() {
               this.axios.get("/api/get_latest_post_all_cat")
                 .then(response => {
-                    console.log(response.data);
+                    // console.log(response.data);
                         var data = response.data;
                          var posts = "";
                         for (var i = 0; i < data.length; i++) {

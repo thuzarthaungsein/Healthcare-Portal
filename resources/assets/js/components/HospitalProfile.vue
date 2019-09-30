@@ -31,8 +31,9 @@
                                             <!-- Add by + Button -->
                                                 <div class="col-md-12 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                                                 <div class="col-md-3">
-                                                                        <input type="file" name="" class=" m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
+                                                                        <input type="file" name="" class="hospital-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
                                                                         <div class="col-md-12" v-bind:class="img.classname">
+                                                                                <input type="hidden" class="already-photo" v-model="img.photo">
                                                                                 <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
                                                                         </div>
                                                                 </div>
@@ -100,44 +101,44 @@
                                         </tr>
                                         <tr>
                                                 <td>Monday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from0"> <span>To:</span><input type="text" class="form-control am-to0"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from0"> <span>To:</span><input type="text" class="form-control pm-to0"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from0" v-model="schedule_arr.am_mon_from"> <span>To:</span><input type="text" class="form-control am-to0" v-model="schedule_arr.am_mon_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from0" v-model="schedule_arr.pm_mon_from"> <span>To:</span><input type="text" class="form-control pm-to0" v-model="schedule_arr.pm_mon_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Tuesday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from1"> <span>To:</span><input type="text" class="form-control am-to1"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from1"> <span>To:</span><input type="text" class="form-control pm-to1"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from1" v-model="schedule_arr.am_tue_from"> <span>To:</span><input type="text" class="form-control am-to1" v-model="schedule_arr.am_tue_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from1" v-model="schedule_arr.pm_tue_from"> <span>To:</span><input type="text" class="form-control pm-to1" v-model="schedule_arr.pm_tue_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Wed</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from2"> <span>To:</span><input type="text" class="form-control am-to2"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from2"> <span>To:</span><input type="text" class="form-control pm-to2"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from2" v-model="schedule_arr.am_wed_from"> <span>To:</span><input type="text" class="form-control am-to2" v-model="schedule_arr.am_wed_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from2" v-model="schedule_arr.pm_wed_from"> <span>To:</span><input type="text" class="form-control pm-to2" v-model="schedule_arr.pm_wed_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Thu</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from3"> <span>To:</span><input type="text" class="form-control am-to3"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from3"> <span>To:</span><input type="text" class="form-control pm-to3"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from3" v-model="schedule_arr.am_thu_from"> <span>To:</span><input type="text" class="form-control am-to3" v-model="schedule_arr.am_thu_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from3" v-model="schedule_arr.pm_thu_from"> <span>To:</span><input type="text" class="form-control pm-to3" v-model="schedule_arr.pm_thu_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Friday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from4"> <span>To:</span><input type="text" class="form-control am-to4"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from4"> <span>To:</span><input type="text" class="form-control pm-to4"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from4" v-model="schedule_arr.am_fri_from"> <span>To:</span><input type="text" class="form-control am-to4" v-model="schedule_arr.am_fri_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from4" v-model="schedule_arr.pm_fri_from"> <span>To:</span><input type="text" class="form-control pm-to4" v-model="schedule_arr.pm_fri_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sat</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from5"> <span>To:</span><input type="text" class="form-control am-to5"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from5"> <span>To:</span><input type="text" class="form-control pm-to5"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from5" v-model="schedule_arr.am_sat_from"> <span>To:</span><input type="text" class="form-control am-to5" v-model="schedule_arr.am_sat_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from5" v-model="schedule_arr.pm_sat_from"> <span>To:</span><input type="text" class="form-control pm-to5" v-model="schedule_arr.pm_sat_to"></td>
                                                 <td></td>
                                         </tr>
                                         <tr>
                                                 <td>Sunday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from6"> <span>To:</span><input type="text" class="form-control am-to6"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from6"> <span>To:</span><input type="text" class="form-control pm-to6"></td>
+                                                <td><span>From:</span><input type="text" class="form-control am-from6" v-model="schedule_arr.am_sun_from"> <span>To:</span><input type="text" class="form-control am-to6" v-model="schedule_arr.am_sun_to"></td>
+                                                <td><span>From:</span><input type="text" class="form-control pm-from6" v-model="schedule_arr.pm_sun_from"> <span>To:</span><input type="text" class="form-control pm-to6" v-model="schedule_arr.pm_sun_to"></td>
                                                 <td></td>
                                         </tr>
                                 </table>
@@ -198,7 +199,18 @@
                                 <div class="col-md-12">
                                     <GoogleMap></GoogleMap>
                                 </div>
-
+                                <div class="form-group">
+                                        <label>郵便番号<span class="error">*</span></label>
+                                        <input type="text" v-model="this.postal" name="postal" class="postal form-control" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7"/>
+                                        <div id="jsErrorMessage"></div>
+                                </div>
+                                <div class="form-group">
+                                        <label>市区町村、番地（建物名）:<span class="error sp1">必須</span></label>
+                                        <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="this.city">
+                                        <!-- <span v-if="errors.city" class="error">{{errors.city[0]}}</span> -->
+                                        <!-- <input type="text" class="form-control" id="city" placeholder="市区町村、番地を入力してください。" v-model="zipStreet"> -->
+                                        <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>
+                                </div>
                                 <div class="form-group">
                                         <label>住所<span class="error">*</span></label>
                                         <textarea name="address" rows="10" class="form-control customer-address" v-model="customer_info.address"></textarea>
@@ -253,14 +265,24 @@ export default {
                         img_arr:[],img_list:[], 
                         video_arr:[], video_list:[],gallery_list:[],
                         feature_list:[],
-                        profile_type:'hospital',id : 1, // test_id
-                        shedule_am:[],shedule_pm:[],
+                        profile_type:'hospital',
+                        id:2, // test_id
+                        schedule_arr:[],sshedule_am:[],shedule_pm:[],
                         schedule_list:[],
                         customer_info:[],
                         hospital_info:[],
+                        city: '',
+                        postal: ''
                 }
         },
         created(){
+                
+                 this.axios
+                .get('/api/schedule/'+this.id)
+                .then(response=>{
+                        this.schedule_arr = response.data;
+                });
+              
 
                 this.axios
                 .get('/api/customerinfo/'+this.id)
@@ -281,12 +303,6 @@ export default {
                         this.img_arr = response.data;
                 });
 
-                //  this.axios
-                // .get('/api/schedule/'+this.id)
-                // .then(response=>{
-                //         this.img_arr = response.data;
-                // });
-
                 this.axios
                 .get('/api/hospital-vgallery/'+this.id)
                 .then(response=>{
@@ -296,14 +312,12 @@ export default {
                 this.axios
                 .get('/api/feature/'+this.profile_type+'/'+this.id)
                 .then(response=>{
-                        // console.log(response.data);
                         this.feature_list = response.data;
                 });
 
-                 this.axios
+                this.axios
                 .get('/api/facility/'+this.profile_type+'/'+this.id)
                 .then(response=>{
-                        // console.log(response.data);
                         this.fac_list = response.data;
                 });
         },
@@ -391,7 +405,16 @@ export default {
                
                     var img = document.getElementsByClassName('gallery-area-photo');
                         for(var i = 0; i< img.length; i++) {
-                           this.img_list.push({type:"photo",photo:img[i].getElementsByClassName('hospital-image')[0].src,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+
+                           var file = img[i].getElementsByClassName('hospital-photo')[0].files[0];
+                         if(file) {
+                                var file_name = file.name;
+                        } else {
+                                var file_name = img[i].getElementsByClassName('already-photo')[0].value;
+                        }
+
+
+                           this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                         }
                        
 
@@ -429,63 +452,96 @@ export default {
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                      console.log(this.schedule_list);
+                     
 
                        this.hospital_info.push({access:access,subject:subject,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,special_features:special_features,facilities:facilities});
+                        
+                        if(this.gallery_list.length > 0) {
+                                this.axios
+                                        .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
+                                                .then((response) => {
+                                                
+                                                }).catch(error=>{
 
-                        this.axios
-                                .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
-                                        .then((response) => {
+                                                if(error.response.status == 422){
+
+                                                this.errors = error.response.data.errors
+
+                                        }
+                                }) ;
+                        }
+
+                        if(this.customer_info.length > 0) {
+                                this.axios
+                                        .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                                                .then((response) => {
+                                                alert('Successfully Updated!')
+                                                }).catch(error=>{
+
+                                                if(error.response.status == 422){
+
+                                                this.errors = error.response.data.errors
+
+                                        }
+                                }) ;
+                        }
+
+                        if(this.hospital_info.length > 0) {
+                                this.axios
+                                        .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
+                                                .then((response) => {
                                         
-                                        }).catch(error=>{
+                                                }).catch(error=>{
 
-                                        if(error.response.status == 422){
+                                                if(error.response.status == 422){
 
-                                        this.errors = error.response.data.errors
+                                                this.errors = error.response.data.errors
 
-                                }
-                        }) ;
+                                        }
+                                }) ;
+                        }
 
-                        this.axios
-                                .post(`/api/customer/profile/${this.id}`,this.customer_info)
-                                        .then((response) => {
-                                        alert('Successfully Updated!')
-                                        }).catch(error=>{
+                        if(this.schedule_list.length > 0) {
+                                this.axios
+                                        .post(`/api/schedule/update/${this.id}`,this.schedule_list)
+                                                .then((response) => {
+                                        
+                                                }).catch(error=>{
 
-                                        if(error.response.status == 422){
+                                                if(error.response.status == 422){
 
-                                        this.errors = error.response.data.errors
-
-                                }
-                        }) ;
-
-                        this.axios
-                                .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
-                                        .then((response) => {
-                                
-                                        }).catch(error=>{
-
-                                        if(error.response.status == 422){
-
-                                        this.errors = error.response.data.errors
+                                                this.errors = error.response.data.errors
 
                                 }
                         }) ;
-
-                        this.axios
-                                .post(`/api/schedule/update/${this.id}`,this.schedule_list)
-                                        .then((response) => {
-                                
-                                        }).catch(error=>{
-
-                                        if(error.response.status == 422){
-
-                                        this.errors = error.response.data.errors
-
+                }
+            },
+            getPostal: function(event) {
+                if (this.postal.length > 4) {
+                    var postal = this.postal;
+                    this.axios
+                        .post('/api/hospital/postList/' + postal)
+                        .then(response => {
+                            var post_data = response.data;
+                            var length = response.data.length;
+                            if (length > 0) {
+                                var pref = post_data[0]['city_id'];
+                                if (post_data[0]['street'] == '') {
+                                    this.city = post_data[0]['city'];
+                                } else {
+                                    this.city = post_data[0]['city'] + ' - ' + post_data[0]['street'];
                                 }
-                        }) ;
-            }
+                                // this.comments.selectedValue = pref;
+                                // this.comments.division = pref;
+                            } else {
+                                this.city = '';
+                                // this.comments.selectedValue = 0;
+                                $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+                            }
+                        });
+                }
+            },
 
         }
 }

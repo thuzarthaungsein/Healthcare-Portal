@@ -114,7 +114,6 @@ export default {
                    $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
               },
              removeFile(){
-                 console.log(this.photo)
                  this.photo = ''
              },
               updateCheck: function (check){

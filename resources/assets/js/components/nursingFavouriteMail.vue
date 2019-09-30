@@ -587,7 +587,14 @@ import jobSearch from './jobSearch.vue'
                 bk_postal: 0,
                 reservation: [],
                 documentation: [],
-                btn_disable: false
+                btn_disable: false,
+                comment_focus: false,
+                furigana_focus: false,
+                postal_focus: false,
+                city_focus: false,
+                phone_focus: false,
+                mail_focus: false
+                
             }
         },
         computed: {
@@ -608,9 +615,11 @@ import jobSearch from './jobSearch.vue'
                 });
             if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
                     this.btn_disable=false;
+                    //  $('#error-msg').html('<div class="error"></div>');
                 }else{
                     this.btn_disable=true;
                 }
+            
         },
         methods: {
             changeRoute(){
@@ -633,6 +642,7 @@ import jobSearch from './jobSearch.vue'
                                 }
                                 this.comments.selectedValue = pref;
                                 this.comments.division = pref;
+                                 $('#jsErrorMessage').html('<div class="error"></div>');
                             } else {
                                 this.comments.city = '';
                                 this.comments.selectedValue = 0;
@@ -664,6 +674,49 @@ import jobSearch from './jobSearch.vue'
                 }else{
                     this.btn_disable=true;
                 }
+            },
+            focusName: function(event) {
+                if(this.comments.name != ''){
+                    this.comment_focus=false;
+                }else{
+                    this.comment_focus=true;  
+                    document.getElementById('tbname').style.backgroundColor = black;                  
+                }                
+            },
+            focusFuri: function(event) {
+                if(this.comments.furigana != ''){
+                    this.furigana_focus=false;
+                }else{
+                    this.furigana_focus=true;                    
+                }                
+            },
+            focusPostal: function(event) {
+                if(this.comments.postal != ''){
+                    this.postal_focus=false;
+                }else{
+                    this.postal_focus=true;                    
+                }                
+            },
+            focusCity: function(event) {
+                if(this.comments.city != ''){
+                    this.city_focus=false;
+                }else{
+                    this.city_focus=true;                    
+                }                
+            },
+            focusPhone: function(event) {
+                if(this.comments.phone != ''){
+                    this.phone_focus=false;
+                }else{
+                    this.phone_focus=true;                    
+                }                
+            },
+            focusMail: function(event) {
+                if(this.comments.mail != ''){
+                    this.mail_focus=false;
+                }else{
+                    this.mail_focus=true;                    
+                }                
             },
         }
     }
