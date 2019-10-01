@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="btntype == 'view'">
-                             <profilePublish></profilePublish>
+                             <profilePublish :cusid = cusid :type= type></profilePublish>
                         </div>
 
                 </form>
@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="btntype == 'view'">
-                             <profilePublish></profilePublish>
+                             <profilePublish :cusid = cusid :type= type></profilePublish>
                         </div>
                 </form>
                 </div>
@@ -86,7 +86,6 @@ import nursingProfile from './NursingProfile.vue'
 import profilePublish from './ProfilePublish.vue'
 export default {
         ready: function() {
-
                 Vue.nextTick(function () {
                 }.bind(this))
         },
@@ -97,16 +96,19 @@ export default {
         },
        data() {
                 return {
-                        type: 'nursing',
+                        type: '',
                         btntype: 'view',
                 }
         },
         created(){
-              this.axios
-                .get('/api/user')
-                .then(response=>{
-                // this.fac_list = response.data;
-                });
+                if(this.$route.params.type) {
+                        this.type = this.$route.params.type;
+                        console.log(this.type);
+                }       
+                if(this.$route.params.cusid) {
+                        this.cusid = this.$route.params.cusid;
+                }       
+                
         },
         methods: {
                 changeBtnType() {
