@@ -415,7 +415,7 @@
                                                 <div class="row">
                                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
                                                                 <label>
-                                                                 <input type="checkbox"  name="special-features"    v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
+                                                                 <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
                                                                         {{feat.name}}
                                                                 </label>
                                                          </div>
