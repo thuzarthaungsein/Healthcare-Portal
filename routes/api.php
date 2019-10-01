@@ -151,6 +151,7 @@ Route::group(['prefix' => 'category'], function () {
 Route::group(['prefix' => 'advertisement'], function () {
     Route::post('search', 'AdvertisementController@search');
     Route::get('ads', 'AdvertisementController@index');
+    Route::post('search','AdvertisementController@search');
 });
 
 Route::group(['prefix' => 'facility'], function () {
