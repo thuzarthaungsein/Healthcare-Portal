@@ -151,7 +151,6 @@ Route::group(['prefix' => 'category'], function () {
 Route::group(['prefix' => 'advertisement'], function () {
     Route::post('search', 'AdvertisementController@search');
     Route::get('ads', 'AdvertisementController@index');
-    Route::post('search','AdvertisementController@search');
 });
 
 Route::group(['prefix' => 'facility'], function () {
@@ -186,7 +185,7 @@ Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
 Route::get('nursing-cooperate/{id}','CooperateMedicalController@getCooperateByCustomerId');
 Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerId');
 
-Route::get('customerinfo/{id}','CustomerController@getCustomerInfo');
+Route::get('customerinfo/{id}','CustomerController@edit');
 Route::get('nursinginfo/{id}','NursingProfileController@edit');
 Route::get('hospitalinfo/{id}','HospitalProfileController@edit');
 Route::get('staffinfo/{id}', 'ProfilePublishController@getStaffbyCustomerId');
