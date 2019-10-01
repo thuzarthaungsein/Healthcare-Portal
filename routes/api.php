@@ -136,6 +136,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('nursing-feature/{type}', 'SpecialFeatureController@getFeaturebyProfileType');
         Route::post('update/{id}', 'SpecialFeatureController@update');
         Route::delete('delete/{id}','SpecialFeatureController@destroy');
+        Route::post('search','SpecialFeatureController@search');
     });
     //End SpecialFeature
 
