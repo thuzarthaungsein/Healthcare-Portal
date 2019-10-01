@@ -90,10 +90,10 @@
         </div> -->
         <div class="form-group row">
             <div class="col-sm-3">
-                <label for ="remark"  ><strong>リマーク <span class="error sp1">必須</span></strong>  </label>
+                <label for ="remark"  ><strong>連絡事項 <span class="error sp1">必須</span></strong>  </label>
             </div>
             <div class="col-sm-9">
-                <textarea name="remark" class="form-control" cols="50" rows="5" v-model="jobApply.remark"></textarea>
+                <textarea name="remark" placeholder="連絡事項等がございましたらご記入をおねがいいたます。" class="form-control" cols="50" rows="5" v-model="jobApply.remark"></textarea>
             </div>
         </div>
 
