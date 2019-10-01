@@ -1,5 +1,5 @@
 <template>
-  <div class="search-map card-body">
+  <div class="search-map card-body" @click="getStateClick" @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
         <div class="row">
@@ -14,27 +14,27 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="1"
                             data-info="Hokkaido"
                             class="path Hokkaido card-text"
                           >北海道</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="2" data-info="Aomori" class="path Aomori card-text">青森県</a>
+                          <a href="#" id="2" data-info="Aomori" class="path Aomori card-text">青森県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="3" data-info="Iwate" class="path Iwate card-text">岩手県</a>
+                          <a href="#" id="3" data-info="Iwate" class="path Iwate card-text">岩手県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="4" data-info="Miyagi" class="path Miyagi card-text">宮城県</a>
+                          <a href="#" id="4" data-info="Miyagi" class="path Miyagi card-text">宮城県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="5" data-info="Akita" class="path Akita card-text">秋田県</a>
+                          <a href="#" id="5" data-info="Akita" class="path Akita card-text">秋田県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="6"
                             data-info="Yamagata"
                             class="path Yamagata card-text"
@@ -42,7 +42,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="7"
                             data-info="Fukushima"
                             class="path Fukushima card-text"
@@ -59,31 +59,31 @@
                     <div class="card-body">
                       <p class="card-text map-text">
                         <span class="spanclass">
-                          <a href="#!" id="8" data-info="Ibaraki" class="path Ibaraki card-text">茨城県</a>
+                          <a href="#" id="8" data-info="Ibaraki" class="path Ibaraki card-text">茨城県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="9" data-info="Tochigi" class="path Tochigi card-text">栃木県</a>
+                          <a href="#" id="9" data-info="Tochigi" class="path Tochigi card-text">栃木県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="10" data-info="Gunma" class="path Gunma card-text">群馬県</a>
+                          <a href="#" id="10" data-info="Gunma" class="path Gunma card-text">群馬県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="11"
                             data-info="Saitama"
                             class="path Saitama card-text"
                           >埼玉県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="12" data-info="Chiba" class="path Chiba card-text">千葉県</a>
+                          <a href="#" id="12" data-info="Chiba" class="path Chiba card-text">千葉県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="13" data-info="Tokyo" class="path Tokyo card-text">東京都</a>
+                          <a href="#" id="13" data-info="Tokyo" class="path Tokyo card-text">東京都</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="14"
                             data-info="Kanagawa"
                             class="path Kanagawa card-text"
@@ -101,25 +101,25 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="15"
                             data-info="Niigata"
                             class="path Niigata card-text"
                           >新潟県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="16" data-info="Toyama" class="path Toyama card-text">富山県</a>
+                          <a href="#" id="16" data-info="Toyama" class="path Toyama card-text">富山県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="17"
                             data-info="Ishikawa"
                             class="path Ishikawa card-text"
                           >石川県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="18" data-info="Fukui" class="path Fukui card-text">福井県</a>
+                          <a href="#" id="18" data-info="Fukui" class="path Fukui card-text">福井県</a>
                         </span>
                       </p>
                     </div>
@@ -133,28 +133,28 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="19"
                             data-info="Yamanashi"
                             class="path Yamanashi card-text"
                           >山梨県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="20" data-info="Nagano" class="path Nagano card-text">長野県</a>
+                          <a href="#" id="20" data-info="Nagano" class="path Nagano card-text">長野県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="21" data-info="Gifu" class="path Gifu card-text">岐阜県</a>
+                          <a href="#" id="21" data-info="Gifu" class="path Gifu card-text">岐阜県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="22"
                             data-info="Shizuoka"
                             class="path Shizuoka card-text"
                           >静岡県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="23" data-info="Aichi" class="path Aichi card-text">愛知県</a>
+                          <a href="#" id="23" data-info="Aichi" class="path Aichi card-text">愛知県</a>
                         </span>
                       </p>
                     </div>
@@ -167,26 +167,26 @@
                     <div class="card-body">
                       <p class="card-text map-text">
                         <span class="spanclass">
-                          <a href="#!" id="24" data-info="Mie" class="path Mie card-text">三重県</a>
+                          <a href="#" id="24" data-info="Mie" class="path Mie card-text">三重県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="25" data-info="Shiga" class="path Shiga card-text">滋賀県</a>
+                          <a href="#" id="25" data-info="Shiga" class="path Shiga card-text">滋賀県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="26" data-info="Kyoto" class="path Kyoto card-text">京都府</a>
+                          <a href="#" id="26" data-info="Kyoto" class="path Kyoto card-text">京都府</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="27" data-info="Osaka" class="path Osaka card-text">大阪府</a>
+                          <a href="#" id="27" data-info="Osaka" class="path Osaka card-text">大阪府</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="28" data-info="Hyogo" class="path Hyogo card-text">兵庫県</a>
+                          <a href="#" id="28" data-info="Hyogo" class="path Hyogo card-text">兵庫県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="29" data-info="Nara" class="path Nara card-text">奈良県</a>
+                          <a href="#" id="29" data-info="Nara" class="path Nara card-text">奈良県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="30"
                             data-info="Wakayama"
                             class="path Wakayama card-text"
@@ -204,7 +204,7 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="31"
                             data-info="Tottori"
                             class="path Tottori card-text"
@@ -212,7 +212,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="32"
                             data-info="Shimane"
                             class="path Shimane card-text"
@@ -220,7 +220,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="33"
                             data-info="Okayama"
                             class="path Okayama card-text"
@@ -228,7 +228,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="34"
                             data-info="Hiroshima"
                             class="path Hiroshima card-text"
@@ -236,7 +236,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="35"
                             data-info="Yamaguchi"
                             class="path Yamaguchi card-text"
@@ -254,20 +254,20 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="36"
                             data-info="Tokushima"
                             class="path Tokushima card-text"
                           >徳島県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="37" data-info="Kagawa" class="path Kagawa card-text">香川県</a>
+                          <a href="#" id="37" data-info="Kagawa" class="path Kagawa card-text">香川県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="38" data-info="Ehime" class="path Ehime card-text">愛媛県</a>
+                          <a href="#" id="38" data-info="Ehime" class="path Ehime card-text">愛媛県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="39" data-info="Kochi" class="path Kochi card-text">高知県</a>
+                          <a href="#" id="39" data-info="Kochi" class="path Kochi card-text">高知県</a>
                         </span>
                       </p>
                     </div>
@@ -281,18 +281,18 @@
                       <p class="card-text map-text">
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="40"
                             data-info="Fukuoka"
                             class="path Fukuoka card-text"
                           >福岡県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="41" data-info="Saga" class="path Saga card-text">佐賀県</a>
+                          <a href="#" id="41" data-info="Saga" class="path Saga card-text">佐賀県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="42"
                             data-info="Nagasaki"
                             class="path Nagasaki card-text"
@@ -300,18 +300,18 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="43"
                             data-info="Kumamoto"
                             class="path Kumamoto card-text"
                           >熊本県</a>
                         </span>
                         <span class="spanclass">
-                          <a href="#!" id="44" data-info="Oita" class="path Oita card-text">大分県</a>
+                          <a href="#" id="44" data-info="Oita" class="path Oita card-text">大分県</a>
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="45"
                             data-info="Miyazaki"
                             class="path Miyazaki card-text"
@@ -319,7 +319,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="46"
                             data-info="Kagoshima"
                             class="path Kagoshima card-text"
@@ -327,7 +327,7 @@
                         </span>
                         <span class="spanclass">
                           <a
-                            href="#!"
+                            href="#"
                             id="47"
                             data-info="Okinawa"
                             class="path Okinawa card-text"
@@ -399,6 +399,7 @@
                 mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586"
                 width="100%"
                 height="730"
+                
               >
                 <path
                   id="1"
@@ -902,27 +903,319 @@
               </svg>
             </div>
           </div>
+         
+            <table class="table card-2 col-10 select">
+              <tbody>
+                <tr>
+                  <th>地域</th>
+                  <td>
+                    <select  id="select" class="form-control col-3 custom-select mt-2" v-model="id">
+                      <option v-for = "city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
+                    </select>
+                    <button @click="toggleContent" class="btn btn-link" v-for="city in getCity" :key="city.id">
+                      <i class="fa" aria-hidden="true"></i>
+                          <!-- <em>{{city.city_name}}</em> -->
+                          <span id="close"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                    </button>
+                   
+                    <div  class="toBeToggled" id="toBeToggled">
 
-          <div class="card-body">
-            <div class="row col-12 pad-free">
-              <div class="col-10">
-                <select name id="select" class="form-control custom-select select m-b-10">
-                  <option></option>
-                </select>
-              </div>
-              <div class="col-2 pad-free text" id="text"></div>
-            </div>
-            <div id="checkbox" class="row col-12 checkbox"></div>
-          </div>
+                      <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
+                        <label class="form-check-label" :for="township.id">
+                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID[township.id]" @click="getCheck($event)"> 
+                        {{township.township_name}}
+                        </label>
+                      </div>
+
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    費用
+                  </th>
+                  <td>
+                    <table class="text-center" width="50%">
+                      <tbody>
+                        <tr>
+                          <td>入居時</td>
+                          <td>
+                            <select class="form-control custom-select" name="" id="">
+                              <option value="" selected="selected">下限なし</option>
+                              <option value="0">0円</option>
+                              <option value="500000">50万円</option>
+                              <option value="1000000">100万円</option>
+                              <option value="2000000">200万円</option>
+                              <option value="3000000">300万円</option>
+                              <option value="4000000">400万円</option>
+                              <option value="5000000">500万円</option>
+                              <option value="6000000">600万円</option>
+                              <option value="7000000">700万円</option>
+                              <option value="8000000">800万円</option>
+                              <option value="9000000">900万円</option>
+                              <option value="10000000">1,000万円</option>
+                              <option value="20000000">2,000万円</option>
+                              <option value="30000000">3,000万円</option>
+                            </select>
+                          </td>
+                          <td>～</td>
+                          <td>
+                            <select class="form-control custom-select" name="" id="">
+                              <option value="" selected="selected">上限なし</option>
+                              <option value="0">0円</option>
+                              <option value="500000">50万円</option>
+                              <option value="1000000">100万円</option>
+                              <option value="2000000">200万円</option>
+                              <option value="3000000">300万円</option>
+                              <option value="4000000">400万円</option>
+                              <option value="5000000">500万円</option>
+                              <option value="6000000">600万円</option>
+                              <option value="7000000">700万円</option>
+                              <option value="8000000">800万円</option>
+                              <option value="9000000">900万円</option>
+                              <option value="10000000">1,000万円</option>
+                              <option value="20000000">2,000万円</option>
+                              <option value="30000000">3,000万円</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>月額</td>
+                          <td>
+                          <select class="form-control custom-select" name="" id="">
+                            <option value="" selected="selected">下限なし</option>
+                            <option value="0">0円</option>
+                            <option value="100000">10万円</option>
+                            <option value="150000">15万円</option>
+                            <option value="200000">20万円</option>
+                            <option value="250000">25万円</option>
+                            <option value="300000">30万円</option>
+                            <option value="350000">35万円</option>
+                            <option value="400000">40万円</option>
+                            <option value="450000">45万円</option>
+                            <option value="500000">50万円</option>
+                          </select>
+                          </td>
+                          <td>～</td>
+                          <td>
+                            <select class="form-control custom-select" name="" id="">
+                              <option value="" selected="selected">上限なし</option>
+                              <option value="0">0円</option>
+                              <option value="100000">10万円</option>
+                              <option value="150000">15万円</option>
+                              <option value="200000">20万円</option>
+                              <option value="250000">25万円</option>
+                              <option value="300000">30万円</option>
+                              <option value="350000">35万円</option>
+                              <option value="400000">40万円</option>
+                              <option value="450000">45万円</option>
+                              <option value="500000">50万円</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan='4'>
+                            <button @click="ShowHide" class="btn btn-link">
+                              <i class="fa" aria-hidden="true"></i>
+                                  <span id="close1"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr class="toBeToggled1 ShowHide">
+                  <th>
+                  入居時の条件
+                  </th>
+                  <td>
+                    <div  class="row pl-3 pt-3">
+
+                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> 
+                          自立
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> 
+                          要支援
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> 
+                          要介護
+                        </label>
+                      </div>
+                     
+                    </div>
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>特長</th>
+                  <td>
+                      <div class="form-check form-check-inline col-sm-2"  v-for="features in special_features" :key="features.id">
+                        <label class="form-check-label" :for="features.id">
+                        <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)"> 
+                        {{features.name}}
+                        </label>
+                      </div>
+
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>施設の種類</th>
+                  <td>
+                  <div class="form-check form-check-inline col-sm-2"  v-for="fac_type in fac_types" :key="fac_type.id">
+                    <label class="form-check-label" :for="fac_type.id">
+                    <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id"> 
+                     {{fac_type.description}}
+                    </label>
+                  </div>
+
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>医療面・診療科目</th>
+                  <td>
+                      <div class="form-check form-check-inline col-sm-2"  v-for="medical in medical_acceptance" :key="medical.id">
+                        <label class="form-check-label" :for="medical.id">
+                        <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id" > 
+                          {{medical.name}}
+                        </label>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <td colspan="2">
+                    <input type="button" id="save_value" name="save_value" value="Save" />
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+         
         </div>
       </div>
       <!-- <div class="col-md-2 p-l-0">
         <asidebar></asidebar>
       </div>-->
     </div>
-    <input type="button" id="save_value" name="save_value" value="Save" />
+    
   </div>
 </template>
+
+
+<script>
+import asidebar from "./aside.vue";
+export default {
+    components: {
+      asidebar
+    },
+    data(){
+      return{
+        id:'',
+        townshipID:[],
+        township_id:[],
+        cities:[],
+        getCity:[],
+        getTownships:[],
+        special_features:[], 
+        fac_types:[],
+        fac_id:[],      
+        medical_acceptance:[],
+        toggleCheck: true,
+        toggleCheck_1: false,
+        
+        
+
+
+      }
+    },
+  methods:{
+    toggleContent() {
+        this.toggleCheck = !this.toggleCheck;
+            if (this.toggleCheck == true) {
+                $('#close').empty();
+                $("#toBeToggled").slideDown();
+                $('#close').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
+
+            } else {
+                $('#close').empty();
+                $("#toBeToggled").slideUp();
+                $('#close').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+            }
+        },
+        ShowHide() {
+        this.toggleCheck_1 = !this.toggleCheck_1;
+            if (this.toggleCheck_1 == true) {
+                $('#close1').empty();
+                $(".ShowHide").slideDown();
+                $('#close1').append('<i class="fas fa-arrow-circle-up"></i> もっと見る');
+
+            } else {
+                $('#close1').empty();
+                $(".ShowHide").slideUp();
+                $('#close1').append('<i class="fas fa-arrow-circle-down"></i> close');
+            }
+        },
+      getStateClick(e){
+        // console.log(e.target.tagName)
+        if(e.target.tagName === 'A' || e.target.tagName ==='path'){
+
+          const id = e.target.id;
+          this.axios.post('api/getmap/'+id+'')
+          .then((response)=>{
+            console.log(response.data.fac_types)
+          $('.select').removeClass('select');
+          this.cities = response.data.city
+          this.getCity = response.data.getCity
+          this.getTownships = response.data.getTownships
+          this.special_features= response.data.special_features
+          this.fac_types= response.data.fac_types
+          this.medical_acceptance= response.data.medical_acceptance
+          this.id = id
+         })
+        }else if(e.target.tagName ==='OPTION'){
+          const id = this.id;
+          this.axios.post('api/getmap/'+id+'')
+          .then((response)=>{
+          $('.select').removeClass('select');
+          this.cities = response.data.city
+          this.getCity = response.data.getCity
+          this.getTownships = response.data.getTownships
+          this.special_features= response.data.special_features
+          this.fac_types= response.data.fac_types
+          this.medical_acceptance= response.data.medical_acceptance
+          this.id = id
+         })
+        }
+      },
+      getCheck(e){
+        if(e.target.checked){
+           this.township_id.push(e.target.value);
+           console.log(this.township_id);
+        }
+      },
+      features(e){
+        if(e.target.checked){
+          alert('1');
+        }
+      },
+      getStateHover(e){
+        if(e.target.tagName ==='path'){
+         //console.log(e)
+        }
+      }
+    }
+};
+</script>
+
+
 <style scoped>
 .path {
   cursor: pointer;
@@ -1008,14 +1301,35 @@ span.tooltip::before {
 span:hover::before {
   display: inline-block;
 }
+
+[data-toggle="collapse"] .fa:before {  
+  content: "\f139";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+  content: "\f13a";
+}
+
+
+.card-2 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius:10px;
+}
+.toBeToggled {
+    display: block;
+}
+
+.toBeToggled1 {
+    display: none;
+}
+table{
+  border-top:none !important;
+}
+table > tbody > tr th{
+  background-color: #e8e7e7;
+  text-align:right;
+  width:140px;
+  padding:25px;
+}
+
 </style>
-
-<script>
-import asidebar from "./aside.vue";
-export default {
-  components: {
-    asidebar
-  }
-};
-</script>
-
