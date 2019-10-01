@@ -124,9 +124,9 @@ export default {
             });
         });
       })
-      
-      }
-    },
+
+      },
+
 
     searchAdvertisment() {
       var search_word = $("#search-item").val();
@@ -136,6 +136,7 @@ export default {
         this.advertisements = response.data;
       });
     }
+     }
   }
 </script>
 

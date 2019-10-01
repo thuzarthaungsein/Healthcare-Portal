@@ -13,30 +13,24 @@
                              <form @submit.prevent="updateAds">
                             <div class="form-group">
 
-                                            <label for="title"><strong>タイトル :</strong></label>
-
+                                                <label>タイトル : <span class="error">*</span></label>
                                                 <input type="title" class="form-control box" id="title"  name="title" v-model="advertisement.title">
                                                 <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
 
                                     </div>
                             <div class="form-group">
 
-                                            <label for="description"><strong>描写:</strong></label>
-
+                                            <label>描写 : <span class="error"></span></label>
                                             <textarea name="description" class="form-control" cols="50" rows="5" v-model="advertisement.description"></textarea>
-                                            <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
 
                                     </div>
                             <div class="form-group">
+                                <label>リンク : <span class="error"></span></label>
+                                <input type="link" class="form-control box" id="link"  name="link" v-model="advertisement.link">
 
-                                            <label for="link"><strong>リンク:</strong></label>
-
-                                            <input type="link" class="form-control box" id="link"  name="link" v-model="advertisement.link">
-                                            <span v-if="errors.link" class="error">{{errors.link[0]}}</span>
-
-                                    </div>
+                            </div>
                             <div class="form-group">
-                                    <label for ="location" ><strong> ロケーション :</strong>  </label>
+                                     <label>ロケーション : <span class="error">*</span></label><br/>
                                 <div class="col-sm-9" v-for="advertisements in advertisement.location" :key="advertisements.id">
                                     <label> <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (240px*120px 300円)</label><br/>
                                     <label> <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(167px*100px 200円)</label>
@@ -44,15 +38,15 @@
                                 </div>
                             </div>
                              <div class="form-group" style="display:none" id="showimage">
-                                <label for ="photo" ><strong>メディア:</strong>  </label><br/>
-
+                                <label>メディア : <span class="error">*</span></label><br/>
                                 <div class="custom-file">
                                     <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
+                                    <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span>
                                 </div>
                             </div>
 
 
-                            
+
                             <div class="image_show"></div>
                             <div class="form-group image_update" id="x-image"> </div>
                             <div class="form-group">
