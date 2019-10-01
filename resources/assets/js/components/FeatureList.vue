@@ -38,12 +38,7 @@
             <hr />
             <h5 class="header">特徴リスト</h5>
             <div class="col-md-12 pad-free scrolldiv">
-              <div
-                v-if="!this.features.length"
-                class="container-fuid"
-                style="padding-top:30px; height:700px; text-align:center "
-              >No Record Data</div>
-              <div v-else class="container-fuid">
+              <div class="container-fuid">
                 <table class="table table-hover custom-table">
                   <thead style="background-color:rgb(183, 218, 210);">
                     <tr>
@@ -112,11 +107,13 @@ export default {
         cancelButtonText: "キャンセル",
         confirmButtonClass: "all-btn",
         cancelButtonClass: "all-btn"
-     }).then(response => {
-         this.axios.delete(`/api/feature/delete/${id}`).then(response => {
-      //   alert("Delete Successfully!");
-          let i = this.features.map(item => item.id).indexOf(id); // find index of your object
-          this.features.splice(i, 1);
+      }).then(response => {
+        this.axios
+          .delete(`/api/feature/delete/${id}`)
+          .then(response => {
+            //   alert("Delete Successfully!");
+            let i = this.features.map(item => item.id).indexOf(id); // find index of your object
+            this.features.splice(i, 1);
             this.$swal({
               title: "削除された",
               text: "ファイルが削除されました。",
