@@ -547,6 +547,7 @@
                 });
 
                 this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
+                    console.log(response.data);
                     this.specialfeature = response.data;
                 });
 
