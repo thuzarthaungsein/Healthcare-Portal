@@ -152,13 +152,12 @@ class AdvertisementController extends Controller
         $request = $request->all();
 
         $search_word = $request['search_word'];
-        $search_categories = Advertisement::query()
+        $advertisement = Advertisement::query()
                             ->where('title', 'LIKE', "%{$search_word}%")
-                            ->orwhere('description', 'LIKE', "%{$search_word}%")
                             ->orderBy('id','DESC')
                             ->get()
                             ->toArray();
-        return $search_categories;
+        return $advertisement;
 
     }
 }

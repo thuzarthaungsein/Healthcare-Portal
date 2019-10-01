@@ -107,6 +107,12 @@ class CustomerController extends Controller
         return response()->json($customer);
     }
 
+    public function getCustomerInfo($id) {
+        $customer = Customer::find($id);
+
+        return response()->json($customer);
+    }
+
     public function update($id,Request $request)
     {
         $customer = Customer::find($id);

@@ -558,16 +558,16 @@ export default {
                 profile_arr:[],staf_info:[],customer_info:[], test:'',
 
                 // to delete
-                count:-1, v_count: -1, c_count: -1, p_count: -1,
-                type:'',
-                title:[], v_title:[],
-                description:[], v_description:[],
+                count:-1, v_count: -1, c_count: -1, p_count: -1, 
+                type:'', 
+                title:[], v_title:[], 
+                description:[], v_description:[], 
                 img:[], 
-                sub:[], coop_details:[], expense:[],remark:[],
-                method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[],
-                security_deposit:[],other_use:[], rent:[], management_fee:[],
-                food_expense:[],life_service:[],cost_other:[],return_system:[],
-                depreciation_period:[],initial_depreciation:[],other_message:[],
+                sub:[], coop_details:[], expense:[],remark:[], 
+                method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[], 
+                security_deposit:[],other_use:[], rent:[], management_fee:[], 
+                food_expense:[],life_service:[],cost_other:[],return_system:[], 
+                depreciation_period:[],initial_depreciation:[],other_message:[], 
                 cooperate_list:[], payment_list:[],meth_details:[], 
                 // end
                 content: '',
@@ -795,10 +795,20 @@ export default {
 
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
-
                         var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
                         if(file) {
                                 var file_name = file.name;
+                                        let fd = new FormData();
+                                        fd.append('file' ,file )
+                                        fd.append('photo' ,file_name )
+                                        this.axios.post('/api/nursing/movephoto', fd)
+                                                .then(response => {
+                                                }).catch(error=>{
+                                                        console.log(error);
+                                                if(error.response.status == 422){
+                                                        this.errors = error.response.data.errors
+                                                }
+                                        })
                         } else {
                                 var file_name = img[i].getElementsByClassName('already-photo')[0].value;
                         }

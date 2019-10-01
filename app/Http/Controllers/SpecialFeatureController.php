@@ -102,4 +102,18 @@ class SpecialFeatureController extends Controller
         $feature->delete();
         return response()->json('The Feature successfully deleted');
     }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+
+        $special_feature = special_feature::query()
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->orwhere('short_name', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
+                            ->get()
+                            ->toArray();
+        return $special_feature;
+    }
 }
