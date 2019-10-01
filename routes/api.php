@@ -186,7 +186,7 @@ Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
 Route::get('nursing-cooperate/{id}','CooperateMedicalController@getCooperateByCustomerId');
 Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerId');
 
-Route::get('customerinfo/{id}','CustomerController@edit');
+Route::get('customerinfo/{id}','CustomerController@getCustomerInfo');
 Route::get('nursinginfo/{id}','NursingProfileController@edit');
 Route::get('hospitalinfo/{id}','HospitalProfileController@edit');
 Route::get('staffinfo/{id}', 'ProfilePublishController@getStaffbyCustomerId');
