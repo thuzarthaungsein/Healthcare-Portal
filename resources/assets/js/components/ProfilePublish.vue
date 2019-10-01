@@ -343,7 +343,7 @@
                                      <!-- <button onclick="function()">See more</button> -->
 
                     <div class="row col-md-6 m-lr-0">
-                        <read-more more-str="read more" :text="comment.comment" :max-chars="20"></read-more>
+                        <read-more more-str="read more"  :text="comment.comment" :max-chars="20"></read-more>
                     </div>
                 </div>
             </div>
