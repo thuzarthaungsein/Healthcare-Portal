@@ -915,7 +915,7 @@
                     <button @click="toggleContent2" class="btn btn-link" v-for="city in getCity" >
                       <i class="fa" aria-hidden="true"></i>
                           <!-- <em>{{city.city_name}}</em> -->
-                          <span id="close2"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                          <span id="close3"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
                     </button>
                    
                     <div  class="toBeToggled2" id="toBeToggled2">
@@ -1013,14 +1013,6 @@
                             </select>
                           </td>
                         </tr>
-                        <tr>
-                          <td colspan='4'>
-                            <button @click="ShowHide" class="btn btn-link">
-                              <i class="fa" aria-hidden="true"></i>
-                                  <span id="close1"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
-                            </button>
-                          </td>
-                        </tr>
                       </tbody>
                     </table>
                   </td>
@@ -1091,6 +1083,14 @@
                   </td>
                 </tr>
                 <tr class="text-center">
+                  <td colspan='2'>
+                    <button @click="ShowHide" class="btn btn-link">
+                      <i class="fa" aria-hidden="true"></i>
+                          <span id="close1"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="text-center">
                   <td colspan="2">
                     <input type="button" id="save_value" name="save_value" value="Save" />
                   </td>
@@ -1138,16 +1138,17 @@ export default {
     },
   methods:{
     toggleContent2() {
+      
         this.toggleCheck = !this.toggleCheck;
             if (this.toggleCheck == true) {
-                $('#close2').empty();
+                $('#close3').empty();
                 $("#toBeToggled2").slideDown();
-                $('#close2').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
+                $('#close3').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
 
             } else {
-                $('#close2').empty();
+                $('#close3').empty();
                 $("#toBeToggled2").slideUp();
-                $('#close2').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+                $('#close3').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
             }
         },
         ShowHide() {
@@ -1155,12 +1156,12 @@ export default {
             if (this.toggleCheck_1 == true) {
                 $('#close1').empty();
                 $(".ShowHide").slideDown();
-                $('#close1').append('<i class="fas fa-arrow-circle-up"></i> もっと見る');
-
+                $('#close1').append('<i class="fas fa-arrow-circle-up"></i> close');
+              
             } else {
                 $('#close1').empty();
                 $(".ShowHide").slideUp();
-                $('#close1').append('<i class="fas fa-arrow-circle-down"></i> close');
+                $('#close1').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
             }
         },
       getStateClick(e){
