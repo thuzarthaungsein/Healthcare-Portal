@@ -352,9 +352,9 @@
                                                             <div class="col-md-12 accept-box">
                                                                     {{medical.name}} {{medical.id}}
                                                                     <div class="float-right">
-                                                                            <label><input type="radio" :name="'medical'+medical.id" v-model="acceptance[medical.id]" value="accept"> <i class="fas fa-check green"></i></label>
-                                                                            <label><input type="radio" :name="'medical'+medical.id" v-model="acceptance[medical.id]" value="unaccept"> <i class="fas fa-times red"></i></label>
-                                                                            <label><input type="radio" :name="'medical'+medical.id" v-model="acceptance[medical.id]" value="negotiate"> <i class="fas fa-adjust blue"></i></label>
+                                                                            <label><input type="radio" :name="'medical'+medical.id" :checked="medical.accept_checked" value="accept"> <i class="fas fa-check green"></i></label>
+                                                                            <label><input type="radio" :name="'medical'+medical.id" :checked="medical.unaccept_checked" value="unaccept"> <i class="fas fa-times red"></i></label>
+                                                                            <label><input type="radio" :name="'medical'+medical.id" :checked="medical.negotiate_checked" value="negotiate"> <i class="fas fa-adjust blue"></i></label>
                                                                     </div>
                                                             </div>
                                                     </div>
@@ -555,7 +555,7 @@ export default {
                 });
 
                 this.axios
-                .get('/api/medical/medicalacceptance')
+                .get('/api/medical/acceptancewithtransactions/'+this.id)
                 .then(response => {
                         this.medical_acceptance = response.data;
                 });

@@ -206,6 +206,8 @@ Route::post('customer/profile/{id}', 'NursingProfileController@Customerprofileup
 Route::post('staff/profile/{id}', 'NursingProfileController@Staffprofileupdate');
 Route::post('acceptance/transition/{id}', 'NursingProfileController@AcceptanceTransition');
 
+Route::get('medical/acceptancewithtransactions/{id}', 'MedicalController@getAcceptanceWithTransactions');
+
 // Home Page
 Route::get('home', 'HomeController@index');
 Route::post('posts', 'HomeController@getPosts');
