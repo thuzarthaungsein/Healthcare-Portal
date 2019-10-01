@@ -16,6 +16,7 @@
             </div>
                 <div class="row m-b-15">
                     <div class="col-md-12">
+                         <router-link class="float-leftbtn btn main-bg-color white all-btn" style="color: blue;" to="/type" >戻る</router-link>
                         <router-link class="float-right" style="color: blue;" to="/createfacility" >  Create New Type</router-link>
                     </div>
                     <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
@@ -40,9 +41,9 @@
                                 <p> {{type.name}} </p>
                             </div>
                             <div class="col-md-3" style="margin-top: 8px;">
-                                    <router-link :to="{name: 'type', params: { id: type.id }}" class="btn main-bg-color white all-btn">Edit </router-link>
+                                    <router-link :to="{name: 'type', params: { id: type.id }}" class="btn main-bg-color white all-btn">編集 </router-link>
                                 
-                                <button class="btn btn-danger all-btn"   @click="deleteType(type.id)" >Delete</button>
+                                <button class="btn btn-danger all-btn"   @click="deleteType(type.id)" >削除</button>
                             </div>
                         </div>
                     </div>
