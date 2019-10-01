@@ -35,7 +35,7 @@
                                                                         <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description white-bg-color" v-model="img.description"></textarea>
                                                                 </div>
                                                                 <div class="col-md-12 text-right">
-                                                                        <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">削除</a>
+                                                                        <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')"> <i class="fa fa-trash"></i> 削除</a>
                                                                 </div>
                                                                
                                                        
@@ -58,7 +58,7 @@
                                                         <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description white-bg-color" v-model="video.description"></textarea>
                                                 </div>
                                                 <div class="col-md-12 text-right">
-                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">削除</a>
+                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')"> <i class="fa fa-trash"></i> 削除</a>
                                                 </div>
                                             </div>
                                     </div>
@@ -89,10 +89,12 @@
                                                 <table class="table">
                                                         <tr>
                                                         <td colspan="2" class="text-right" style="border:none;!important">
-                                                                <span class="btn edit-borderbtn" style="min-width:0px;">編集
-                                                                        <!-- <i class="fa fa-edit"></i> -->
+                                                                <span class="btn edit-borderbtn" style="min-width:0px;">
+                                                                <i class="fa fa-edit"></i> 編集
+                                                                      
                                                                 </span>
-                                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">削除</a>                                                                
+                                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
+                                                                         <i class="fa fa-trash"></i> 削除</a>                                                                
                                                         </td>
                                                         </tr>
                                                         <tr>
@@ -352,8 +354,8 @@
                                                                         <th><textarea class="form-control remark white-bg-color" name="remark" v-model="cooperate.remark"></textarea></th>
                                                                 </tr>
                                                                 </table>
-                                                                <div class="float-right">
-                                                                        <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'cooperate')">削除</a>
+                                                                <div class="clearfix">
+                                                                        <a class="mr-auto text-danger btn delete-borderbtn float-right" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
                                                                 </div>
                                                                 
                                                         </div>
@@ -504,8 +506,8 @@
                         </tr>
                    </table>
                 <!-- end table 7 for 公式サイト -->
-                <div class="row col-12">
-                        <span class="btn secondary-bg-color all-btn m-t-15" @click="createProfile()">Create</span>
+                <div class="row col-2 col-offset-6 mx-auto">
+                        <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">Create</span>
                 </div>
             </div>
 
