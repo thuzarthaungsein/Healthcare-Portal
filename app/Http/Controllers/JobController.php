@@ -11,9 +11,9 @@ class JobController extends Controller
     public function index()
     {
    
-        $jobs = Job::all()->toarray();
-        $profilejob = Job::where('customer_id',1)->get();
-        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob) );
+        // $jobs = Job::all()->toarray();
+        $profilejob = Job::where('customer_id',auth()->user()->id)->get();
+        return response()->json(array('profilejob'=>$profilejob) );
        
     }
 
@@ -85,7 +85,7 @@ class JobController extends Controller
         $job = new Job();
 
         $job->title =$request->input('title');
-        $job->customer_id= 1;
+        $job->customer_id= auth()->user()->id;
         $job->description = $request->input('description');
         $job->skills = $string;
         $job->location = $request->input('location');
