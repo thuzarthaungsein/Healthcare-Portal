@@ -71,16 +71,16 @@ export default {
                 this.l_storage_hos_fav.push(2);
                 this.l_storage_nus_fav.push(2);                
                 this.l_storage_nus_history.push(2);
+                this.l_storage_hos_fav.push(3);
+                this.l_storage_nus_fav.push(3);
+                this.l_storage_hos_history.push(4);
+                this.l_storage_nus_history.push(3);
 
-    this.l_storage_hos_fav.push(3);
-    this.l_storage_nus_fav.push(3);
-    this.l_storage_hos_history.push(4);
-    this.l_storage_nus_history.push(3);
-
-localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
-localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
-localStorage.setItem("nursing_history", this.l_storage_nus_history);
-localStorage.setItem("hospital_history", this.l_storage_hos_history);
+                localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
+                localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
+                localStorage.setItem("nursing_history", this.l_storage_nus_history);
+                localStorage.setItem("hospital_history", this.l_storage_hos_history);
+                
             this.getAllCat();
             this.getPostByFirstCat();
             this.getLatestPostByFirstCatID();

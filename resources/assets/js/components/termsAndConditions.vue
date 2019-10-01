@@ -2,6 +2,7 @@
 <div class="col-md-12 scrolldiv">
     <h4 class="h_4 text-center header">プライバシーポリシー</h4>
     <div class="col-md-8 container">
+        <!-- <a @click="$router.go(-1)" class="btn btn-danger all-btn float-right" to="/jobofferlist"> Back </a> -->
         <div class="title">
             <h5>個人情報保護方針</h5>
         </div>
