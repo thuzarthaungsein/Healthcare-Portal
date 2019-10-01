@@ -50,14 +50,16 @@
                                                 <div class="form-group m-0 row bd">
                                                     <div class="col-md-3 col-sm-12 form-left"><label>お名前 <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
-                                                        <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" v-model="comments.name" @change="someHandler"/>
+                                                        <input type="text" id="tbname" name="name" class="form-control float-left" placeholder="お名前を入力してください。" v-model="comments.name" @change="someHandler"/>
                                                         <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                                                        <span class="eg-txt float-left">例）探し 太郎</span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-0 row bd">
                                                     <div class="col-md-3 col-sm-12 form-left"> <label>ふりがな <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
-                                                        <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="someHandler"/>
+                                                        <input type="text" id="furigana" name="furigana" class="form-control float-left" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="someHandler"/>
+                                                        <span class="eg-txt float-left"> 例）さがし たろう</span>
                                                         <span v-if="errors.furigana" class="error">{{errors.furigana[0]}}</span>
                                                     </div>
                                                 </div>
@@ -66,13 +68,11 @@
                                                     <div class="col-md-9 col-sm-12 form-right">
                                                         <div class="form-group row pl-3">
                                                             <div class="col-md-12 "><label> 郵便番号 <span class="error sp1">必須</span></label></div>
-                                                            <div class="col-md-6 p-0">
-                                                                <input type="text" v-model="comments.postal" name="postal" class="postal form-control full-wd" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="someHandler"/>
+                                                            <div class="col-md-12 p-0">
+                                                                <input type="text" v-model="comments.postal" name="postal" class="postal form-control  float-left" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="someHandler"/>
                                                                 <span v-if="errors.postal" class="error">{{errors.postal[0]}}</span>
                                                                 <div id="jsErrorMessage"></div>
-                                                            </div>
-                                                            <div class="col-md-6 eg-txt">
-                                                                <p>例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a>)</p>
+                                                                 <span class="eg-txt float-left">例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a>)</span>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row pl-3">
@@ -87,18 +87,12 @@
                                                                 <span v-if="errors.division" class="error">{{errors.division[0]}}</span>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group m-0 row bd">
-                                                    <div class="col-md-3 col-sm-12 form-left"><label>市区町村、番地（建物名）<span class="error sp1">必須</span></label></div>
-                                                    <div class="col-md-9 col-sm-12 form-right">
-                                                    <div class="form-group row pl-3">
-                                                            <div class="col-md-6 p-0">
-                                                                <input type="text" id="city" name="city" class="city form-control full-wd" placeholder="市区町村、番地を入力してください。" v-model="comments.city" @change="someHandler">
+                                                        <div class="form-group row pl-3">
+                                                            <div class="col-md-12 "><label>市区町村、番地（建物名）<span class="error sp1">必須</span></label></div>
+                                                            <div class="col-md-12 p-0">
+                                                                <input type="text" id="city" name="city" class="city form-control float-left" placeholder="市区町村、番地を入力してください。" v-model="comments.city" @change="someHandler">
                                                                 <span v-if="errors.city" class="error">{{errors.city[0]}}</span>
-                                                            </div>
-                                                            <div class="col-md-6 eg-txt pr-5">
-                                                                <p>例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</p>
+                                                                <span class="eg-txt float-left">例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -107,12 +101,10 @@
                                                     <div class="col-md-3 col-sm-12 form-left"><label>電話番号 <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
                                                     <div class="form-group row pl-3">
-                                                            <div class="col-md-6 p-0">
-                                                                <input type="text" id="phone" name="number" class="form-control full-wd" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="someHandler">
+                                                            <div class="col-md-12 p-0">
+                                                                <input type="text" id="phone" name="number" class="form-control  float-left" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="someHandler">
                                                                 <span v-if="errors.phone" class="error">{{errors.phone[0]}}</span>
-                                                            </div>
-                                                            <div class="col-md-6 eg-txt">
-                                                                <p>例）0312345678（半角）</p>
+                                                                <span class="eg-txt float-left">例）0312345678（半角）</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -121,12 +113,10 @@
                                                     <div class="col-md-3 col-sm-12 form-left"><label>メールアドレス <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
                                                     <div class="form-group row pl-3">
-                                                            <div class="col-md-6 p-0">
-                                                                <input type="text" id="mail" name="mail" class="form-control full-wd" placeholder="メールアドレスを入力してください。" v-model="comments.mail" @change="someHandler">
+                                                            <div class="col-md-12 p-0">
+                                                                <input type="text" id="mail" name="mail" class="form-control float-left" placeholder="メールアドレスを入力してください。" v-model="comments.mail" @change="someHandler">
                                                                 <span v-if="errors.mail" class="error">{{errors.mail[0]}}</span>
-                                                            </div>
-                                                            <div class="col-md-6 eg-txt">
-                                                                <p> 例）abc@example.jp （半角）</p>
+                                                                <span class="float-left eg-txt"> 例）abc@example.jp （半角）</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -217,7 +207,7 @@
                                                     <label>プレゼントのご希望:<span class="error sp1">必須</span></label>
                                                     <input type="checkbox" id="present" name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="someHandler">「早分かり用語集」プレゼントを希望する
                                                 </div> -->
-                                                <button type="button" class="submit1 btn main-bg-color continue m-l-15 mt-4 col-lg-2 col-sm-4 submit" @click="add()" :disabled="isdisable">同意して進む</button>
+                                                <button type="button" class="submit1 btn all-btn main-bg-color continue m-l-15 mt-4  submit" @click="add()" :disabled="isdisable">同意して進む</button>
 
                                                 <!--next_form-->
                                                 <div class="m-t-30">
@@ -370,7 +360,7 @@
                                                     <div class="form-group m-0 row bd-all">
                                                         <div class="col-md-3 col-sm-12 form-left"><label>ご要望や、お困りごと、その他お問い合わせ<span class="text-danger">*</span></label></div>
                                                         <div class="col-md-9 col-sm-12 form-right pl-4">                                           
-                                                            <textarea name="hope" id="hope" cols="40" rows="50"  v-model="comments.hope" ></textarea>
+                                                            <textarea name="hope" id="hope" class="mail-txt"   v-model="comments.hope" ></textarea>
                                                         </div>
                                                     </div>
                                                     <!-- <div class="col-md-6">
@@ -520,7 +510,7 @@
                                                     <label>ご要望や、お困りごと、その他お問い合わせ:<span class="error">*</span></label>
                                                     <textarea name="hope" id="hope" cols="30" rows="10"  v-model="comments.hope"></textarea>
                                                 </div> -->
-                                                <button type="button" class="submit2 btn main-bg-color continue m-l-15 m-t-15 submit col-lg-2 col-sm-4" @click="add()">同意して進む</button>
+                                                <button type="button" class="submit2 btn all-btn main-bg-color continue m-l-15 m-t-15 submit" @click="add()">同意して進む</button>
                                             </form>
                                         </div>
                                     </div>
@@ -587,7 +577,14 @@ import jobSearch from './jobSearch.vue'
                 bk_postal: 0,
                 reservation: [],
                 documentation: [],
-                btn_disable: false
+                btn_disable: false,
+                comment_focus: false,
+                furigana_focus: false,
+                postal_focus: false,
+                city_focus: false,
+                phone_focus: false,
+                mail_focus: false
+                
             }
         },
         computed: {
@@ -608,9 +605,11 @@ import jobSearch from './jobSearch.vue'
                 });
             if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.present != ''){
                     this.btn_disable=false;
+                    //  $('#error-msg').html('<div class="error"></div>');
                 }else{
                     this.btn_disable=true;
                 }
+            
         },
         methods: {
             changeRoute(){
@@ -633,6 +632,7 @@ import jobSearch from './jobSearch.vue'
                                 }
                                 this.comments.selectedValue = pref;
                                 this.comments.division = pref;
+                                 $('#jsErrorMessage').html('<div class="error"></div>');
                             } else {
                                 this.comments.city = '';
                                 this.comments.selectedValue = 0;
@@ -664,6 +664,49 @@ import jobSearch from './jobSearch.vue'
                 }else{
                     this.btn_disable=true;
                 }
+            },
+            focusName: function(event) {
+                if(this.comments.name != ''){
+                    this.comment_focus=false;
+                }else{
+                    this.comment_focus=true;  
+                    document.getElementById('tbname').style.backgroundColor = black;                  
+                }                
+            },
+            focusFuri: function(event) {
+                if(this.comments.furigana != ''){
+                    this.furigana_focus=false;
+                }else{
+                    this.furigana_focus=true;                    
+                }                
+            },
+            focusPostal: function(event) {
+                if(this.comments.postal != ''){
+                    this.postal_focus=false;
+                }else{
+                    this.postal_focus=true;                    
+                }                
+            },
+            focusCity: function(event) {
+                if(this.comments.city != ''){
+                    this.city_focus=false;
+                }else{
+                    this.city_focus=true;                    
+                }                
+            },
+            focusPhone: function(event) {
+                if(this.comments.phone != ''){
+                    this.phone_focus=false;
+                }else{
+                    this.phone_focus=true;                    
+                }                
+            },
+            focusMail: function(event) {
+                if(this.comments.mail != ''){
+                    this.mail_focus=false;
+                }else{
+                    this.mail_focus=true;                    
+                }                
             },
         }
     }

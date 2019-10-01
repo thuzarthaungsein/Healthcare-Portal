@@ -14,7 +14,7 @@ import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 
-import {routes} from './route';
+import {routes} from './route'; 
 import * as VueGoogleMaps from "vue2-google-maps";
 // import Vue from 'vue';
 import Autocomplete from 'vuejs-auto-complete';
@@ -50,6 +50,8 @@ import CKEditor from '@ckeditor/ckeditor5-vue';
 Vue.use( CKEditor );
 //end editor
 
+import ReadMore from 'vue-read-more';
+Vue.use(ReadMore);
 
 window.events = new Vue();
 window.flash = function(message) {

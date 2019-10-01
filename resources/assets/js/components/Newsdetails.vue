@@ -90,16 +90,15 @@
                   <div class="float-left mr-4" style="max-width:500px;">
                     <div
                       class="img-wrap mb-2"
-                      style="width:100%;background:#f5f5f5;text-align: center;padding: 30px;">
-                    <img
-                      :src="'/upload/news/'+ newdetails.photo"
-                      class="img-responsive img_2"
-                      style="max-width:100%;"
-                    />
+                      style="width:100%;background:#f5f5f5;text-align: center;padding: 30px;"
+                    >
+                      <img
+                        :src="'/upload/news/'+ newdetails.photo"
+                        class="img-responsive img_2"
+                        style="max-width:100%;"
+                      />
                     </div>
-                    <p class="img_2 mb-1">
-                      {{newdetails.main_point}}                     
-                    </p>
+                    <p class="img_2 mb-1">{{newdetails.main_point}}</p>
                   </div>
                   <div>
                     <p class="p5 mb-2">{{newdetails.body}}</p>
@@ -166,8 +165,7 @@
       </div>
       <div role="tabpanel" class="tab-pane fade" id="tab3">
         <nursingSearch></nursingSearch>
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
+      </div>     
       <div role="tabpanel" class="tab-pane fade" id="tab4">
         <jobSearch></jobSearch>
       </div>
@@ -226,7 +224,6 @@ export default {
       this.axios.get(`/api/relatednews/${pid}`).then(response => {
         this.latest_post_all_cats = response.data.related_news;
         this.latest_news = response.data.latest_news;
-        console.log(response);
       });
     }
   }

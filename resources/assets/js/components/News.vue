@@ -263,10 +263,7 @@ export default {
                         this.axios
                         .get('/api/get_latest_posts_by_catId')
                         .then(response => {
-                                console.log("response");
-                                console.log(response);
                                 this.post_groups = this.groupBy(response.data, 'name');
-                                console.log(this.groupBy(response.data, 'name'));
 
                                 // for(var i=0; i<response.data.length; i++) {
                                 //         this.tmp_title[i] = response.data[i].title;

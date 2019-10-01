@@ -42,11 +42,9 @@
                                         </div>
 
                                           <div class="form-group row">
-                                                <div class="col-sm-10">
-
-                                                </div>
+                                                <router-link class="btn btn-danger all-btn" to="/typelist" > キャンセル </router-link>
                                                 <div class="col-sm-2">
-                                                     <button class="btn news-post-btn">Create</button>
+                                                     <button class="btn news-post-btn">投稿する</button>
                                                 </div>
                                         </div>
                                 </form>
@@ -105,8 +103,6 @@ export default {
                         this.Type.parent = response.data.parent;
                         this.selectedValue = response.data.parent;
                         this.TypeList.name = response.data.name;
-                        console.log(this.selectedValue);
-
                     }
 
                 });

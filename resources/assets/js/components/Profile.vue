@@ -97,7 +97,7 @@ export default {
         },
        data() {
                 return {
-                        type: 'hospital',
+                        type: 'nursing',
                         btntype: 'view',
                 }
         },
@@ -105,7 +105,6 @@ export default {
               this.axios
                 .get('/api/user')
                 .then(response=>{
-                console.log(response);
                 // this.fac_list = response.data;
                 });
         },
