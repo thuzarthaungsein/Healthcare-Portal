@@ -83,15 +83,24 @@
                                         <textarea name="neareststation" class="form-control" cols="50" rows="5" v-model="joboffer.nearest_station"></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group row" v-for="emstatus in joboffer.employment_status" :key="emstatus.id">
+                                <div class="form-group row" >
                                     <div class="col-sm-3 ">
                                         <label for="neareststation"><strong> 雇用形態 </strong><span class="error sp1">必須</span> </label>
                                     </div>
                                     <div class="col-sm-9">
+
                                         <label>
-                                            <input type="checkbox" id="pcheck" value="Part" name="part_time" v-model="emstatus.pchecked"> <strong>パート </strong></label>
+                                           <input type="radio"  value="ContractEmployee"  v-model="joboffer.employmentstatus"> <strong>契約社員 </strong>
+                                        </label>
                                         <label>
-                                            <input type="checkbox" id="fcheck" value="Full" name="full_time" v-model="emstatus.fchecked"><strong> 正職員 </strong> </label>
+                                            <input type="radio"  value="Part"  v-model="joboffer.employmentstatus"> <strong>非常勤 </strong>
+                                        </label>
+                                        <label>
+                                            <input type="radio"  value="Full"  v-model="joboffer.employmentstatus"><strong> 正職員 </strong> 
+                                        </label>
+                                          <label>
+                                            <input type="radio"  value="Other"  v-model="joboffer.employmentstatus"><strong> その他 </strong> 
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -176,7 +185,7 @@
     export default {
         data() {
                 return {
-                    errors: [],
+                    errors: [],          
                     joboffer: {
                         title: '',
                         customer_id: '',
@@ -187,22 +196,31 @@
                         }],
                         location: '',
                         nearest_station: '',
+                        employmentstatus:'',
                         employment_status: [{
                             pchecked: false,
-                            fchecked: false
+                            fchecked: false,
+                            echecked: false,
+                            cchecked: false,
+                            ochecked: false
                         }],
                         salary: '',
                         insurance: '',
                         working_hours: '',
                         holidays: '',
                         user_id: '',
-                        recordstatus: ''
+                        recordstatus: '',
+                       
+                      
                     },
                     ischeck: ''
                 }
             },
             created() {
-                if (this.$route.params.id) {
+                this.joboffer.employmentstatus = "ContractEmployee";
+              
+                if(this.$route.params.id){
+                 
                     this.axios
                         .get(`/api/job/edit/${this.$route.params.id}`)
                         .then((response) => {
@@ -215,9 +233,10 @@
                             this.createskill(arr);
                             this.joboffer.location = response.data.location;
                             this.joboffer.nearest_station = response.data.nearest_station;
-                            //this.joboffer.employment_status = response.data.employment_status;
-                            this.ischeck = response.data.employment_status;
-                            this.createCheck(this.ischeck);
+                            this.joboffer.employmentstatus = response.data.employment_status;
+                           
+                            // this.ischeck = response.data.employment_status;
+                            // this.createCheck(this.ischeck);
                             this.joboffer.salary = response.data.salary;
                             this.joboffer.allowances = response.data.allowances;
                             this.joboffer.insurance = response.data.insurance;
@@ -230,8 +249,11 @@
             },
             methods: {
                 add() {
-                        if (`${this.$route.params.id}` == "undefined") {
-                            this.axios.post('/api/job/add', this.joboffer)
+                        if (this.$route.params.id) {
+                            this.updateJob();
+                        } else {
+                           
+                             this.axios.post('/api/job/add', this.joboffer)
                                 .then((response) => {
                                     this.title = '',
                                         this.description = '',
@@ -249,8 +271,7 @@
                                         this.errors = error.response.data.errors
                                     }
                                 })
-                        } else {
-                            this.updateJob();
+                           
                         }
                     },
                     addRow: function() {
@@ -277,12 +298,10 @@
                         if (check == "Full") {
                             this.joboffer.employment_status.push({
                                 fchecked: 1,
-                                pchecked: 0
                             });
                         } else if (check == "Part") {
                             this.joboffer.employment_status.push({
-                                fchecked: 0,
-                                pchecked: 1
+                                pchecked: 1,
                             });
                         } else {
                             this.joboffer.employment_status.push({
