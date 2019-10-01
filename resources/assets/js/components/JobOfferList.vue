@@ -124,7 +124,8 @@ export default {
   created() {
  
     this.axios.get("/api/job/index").then(response => {
-      this.jobs = response.data.jobs;
+      console.log(response);
+      this.jobs = response.data.profilejob;
     });
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)
