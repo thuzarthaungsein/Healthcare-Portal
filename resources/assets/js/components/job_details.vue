@@ -73,6 +73,9 @@
                         <router-link to="/jobapply" class="btn secondary-bg-color white all-btn">この案件に応募</router-link>
                     </div>
                 </div>
+                <div class="row">
+                    Job Number : {{job_details.id}}
+                </div>
             </div>
         </div>
     
