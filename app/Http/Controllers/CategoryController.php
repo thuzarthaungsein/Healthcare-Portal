@@ -27,7 +27,7 @@ class CategoryController extends Controller
     //      $this->middleware('permission:role-create', ['only' => ['create','store']]);
     //      $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
     //      $this->middleware('permission:role-delete', ['only' => ['destroy']]);
-    // }    
+    // }
 
 
 
@@ -51,7 +51,7 @@ class CategoryController extends Controller
     //add category
     public function add(Request $request)
     {
-return $request;
+
         $request->validate([
             'name' => 'required|unique:categories',
 
@@ -95,8 +95,8 @@ return $request;
         $category = Category::find($id);
         $category->delete();
         return response()->json('The Category successfully deleted');
-        
-        
+
+
     }
     public function create()
 

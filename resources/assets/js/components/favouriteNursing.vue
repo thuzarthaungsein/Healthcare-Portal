@@ -33,11 +33,11 @@
                                         <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる
                                     </label>
                                 </div>
-                            </div>                       
+                            </div>
                         </div>
                         <div class="row m-0">
                             <form @submit.prevent="add" class="col-md-12 pad-free">
-                                <!-- <div class="d-flex justify-content-between">                                
+                                <!-- <div class="d-flex justify-content-between">
                                     <div class="select_all">
                                         <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
                                             <input type="checkbox" @change="checkAll()" class="check-all-btn" />
@@ -151,7 +151,7 @@
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
             </div>
-            <!--end Tab panes-->         
+            <!--end Tab panes-->
     </div>
 </template>
 
