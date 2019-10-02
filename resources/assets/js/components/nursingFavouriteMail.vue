@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><span @click="changeRoute()" class="link-span">介護検索</span></li>
+                            <li class="breadcrumb-item"><span @click="changeRoute()" class="link-span">介護のお気に入り</span></li>
                             <li class="breadcrumb-item active">必要項目のご入力</li>
                         </ol>
                     </nav>
@@ -42,7 +42,7 @@
                                     <div class="col-md-12 p-0">
                                         <input type="text" v-model="comments.postal" name="postal" class="postal form-control float-left" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="aggreBtn" @focusout="focusPostal"/>
                                         <span class="error m-l-30" v-if="postal_focus">※入力は必須です。</span>
-                                        <div id="jsErrorMessage" class="m-l-30"></div>
+                                        <div id="jsErrorMessage" class="float-left eg-txt"></div>
                                         <span class="float-left eg-txt">例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a>)</span>
                                     </div>
                                 </div>

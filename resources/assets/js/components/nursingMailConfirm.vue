@@ -9,7 +9,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <span @click="changeRoute()" class="link-span">介護検索</span>
+                <span @click="changeRoute()" class="link-span">介護のお気に入り</span>
               </li>
               <li class="breadcrumb-item">
                 <a href="/">必要項目のご入力</a>
@@ -276,10 +276,10 @@
             <div class="text-center">
               <router-link
                 :to="{name: 'nursingFavouriteMail', params: {input_data: this.comments, bk_postal: this.comments.selectedValue}, props: true}"
-                class="btn btn-success m-r-8"
+                class="btn btn-danger all-btn m-r-8"
               >入力画面に戻る</router-link>&nbsp;
               <button
-                class="btn btn-danger m-t-15 m-l-10 m-b-15 submit-button"
+                class="btn main-bg-color all-btn m-t-15 m-l-10 m-b-15 submit-button"
                 id="myButton"
               >上記内容を送信する</button>
             </div>
