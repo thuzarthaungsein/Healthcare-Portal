@@ -3,9 +3,9 @@
         <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
         <li role="presentation"  class="subtab1 nav-item" :class="subtab1active"><a @click="changeRoute" href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
-        <li role="presentation"  class="subtab2 nav-item" :class="subtab2active"><a @click="changeRoute" href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院</a></li>
-        <li role="presentation"  class="subtab3 nav-item" :class="subtab3active"><a @click="changeRoute" href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護</a></li>
-        <li role="presentation"  class="subtab5 nav-item" :class="subtab4active"><a @click="changeRoute" href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人</a></li>
+        <li role="presentation"  class="subtab2 nav-item" :class="subtab2active"><a @click="changeRoute" href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+        <li role="presentation"  class="subtab3 nav-item" :class="subtab3active"><a @click="changeRoute" href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護検索</a></li>
+        <li role="presentation"  class="subtab5 nav-item" :class="subtab4active"><a @click="changeRoute" href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
@@ -71,16 +71,16 @@ export default {
                 this.l_storage_hos_fav.push(2);
                 this.l_storage_nus_fav.push(2);
                 this.l_storage_nus_history.push(2);
+                this.l_storage_hos_fav.push(3);
+                this.l_storage_nus_fav.push(3);
+                this.l_storage_hos_history.push(4);
+                this.l_storage_nus_history.push(3);
 
-    this.l_storage_hos_fav.push(3);
-    this.l_storage_nus_fav.push(3);
-    this.l_storage_hos_history.push(4);
-    this.l_storage_nus_history.push(3);
-
-localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
-localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
-localStorage.setItem("nursing_history", this.l_storage_nus_history);
-localStorage.setItem("hospital_history", this.l_storage_hos_history);
+                localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
+                localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
+                localStorage.setItem("nursing_history", this.l_storage_nus_history);
+                localStorage.setItem("hospital_history", this.l_storage_hos_history);
+                
             this.getAllCat();
             this.getPostByFirstCat();
             this.getLatestPostByFirstCatID();
@@ -88,6 +88,7 @@ localStorage.setItem("hospital_history", this.l_storage_hos_history);
         },
         methods: {
                 start() {
+                      
                         if(this.$route.params.page) {
                                //console.log(this.$route.params.page)
                                if(this.$route.params.page == 'subtab2') {

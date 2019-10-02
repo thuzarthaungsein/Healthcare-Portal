@@ -6,14 +6,14 @@
 
                         <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
                                 <i class="fa fa-plus-circle"></i>
-                                <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> Create
+                                <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> 作成
                         </label>
                         </li>
 
                          <li role="presentation" class="subtab2 nav-item">
                         <label for="nursing" class="typelabel dim-btn nav-link" id="nursing-lbl">
                                 <i class="fas fa-id-badge"></i>
-                                <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> View
+                                <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> myページ
                         </label>
                          </li>
                 </ul>
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="btntype == 'view'">
-                             <profilePublish></profilePublish>
+                             <profilePublish :cusid = cusid :type= type></profilePublish>
                         </div>
 
                 </form>
@@ -46,14 +46,14 @@
                         
                        <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
                                <i class="fa fa-plus-circle"></i>
-                                <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> Create
+                                <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> 作成
                         </label>
                         </li>
 
                          <li role="presentation" class="subtab2 nav-item">
                         <label for="nursing" class="typelabel dim-btn nav-link" id="nursing-lbl">
                                  <i class="fas fa-id-badge"></i>
-                                <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> View
+                                <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> myページ
                         </label>
                          </li>
                 </ul>
@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="col-md-12 pad-free" v-if="btntype == 'view'">
-                             <profilePublish></profilePublish>
+                             <profilePublish :cusid = cusid :type= type></profilePublish>
                         </div>
                 </form>
                 </div>
@@ -86,7 +86,6 @@ import nursingProfile from './NursingProfile.vue'
 import profilePublish from './ProfilePublish.vue'
 export default {
         ready: function() {
-
                 Vue.nextTick(function () {
                 }.bind(this))
         },
@@ -102,11 +101,17 @@ export default {
                 }
         },
         created(){
-              this.axios
-                .get('/api/user')
-                .then(response=>{
-                // this.fac_list = response.data;
-                });
+                if(this.$route.params.type) {
+                        this.type = this.$route.params.type;
+                        console.log(this.type);
+                }       
+                if(this.$route.params.cusid) {
+                        this.cusid = this.$route.params.cusid;
+                }
+                else{
+                        this.cusid = 1;
+                }    
+                
         },
         methods: {
                 changeBtnType() {

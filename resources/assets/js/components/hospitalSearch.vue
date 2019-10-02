@@ -294,9 +294,9 @@
                 <th>地域</th>
                 <td>
                   <select id="select" class="form-control col-3 custom-select mt-2" v-model="id">
-                    <option v-for="city in cities" :value="city.id">{{city.city_name}}</option>
+                    <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
                   </select>
-                  <button @click="toggleContent" class="btn btn-link" v-for="city in getCity">
+                  <button @click="toggleContent" class="btn btn-link">
                     <i class="fa" aria-hidden="true"></i>
                     <!-- <em>{{city.city_name}}</em> -->
                     <span id="close"><i class="fas fa-arrow-circle-up"></i> Close Township</span>

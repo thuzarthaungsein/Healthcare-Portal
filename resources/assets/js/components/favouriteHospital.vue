@@ -3,10 +3,10 @@
         <!-- news details-->
         <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
-            <li role="presentation" class="subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
-            <li role="presentation" class="active subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-briefcase-medical"></i> 病院</a></li>
-            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護</a></li>
-            <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人</a></li>
+                <li role="presentation" class="subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
+                <li role="presentation" class="active subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+                <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
+                <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
         <!--end menu tabs-->
 
@@ -33,7 +33,8 @@
                                 <div v-for="hos_profile in fav_hospital" :key="hos_profile.id" class="col-lg-12 pt-3 bd">
                                     <div class="row m-0">
                                         <h5 class="m-b-10 col-12 hos-tit">
-                                            <a href="#">{{hos_profile.name}}</a>
+                                            <!-- <a href="#">{{hos_profile.name}}</a> -->
+                                            <router-link :to="{name: 'profile', params: {cusid:2, type: 'hospital'}}" >{{hos_profile.name}}</router-link>
                                         </h5>
                                         <div class="col-lg-2 col-md-12 mb-5">
                                             <div class="hos-img list-logo">

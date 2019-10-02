@@ -42,11 +42,9 @@
                                         </div>
 
                                           <div class="form-group row">
-                                                <div class="col-sm-10">
-
-                                                </div>
+                                                <router-link class="btn btn-danger all-btn" to="/typelist" > キャンセル </router-link>
                                                 <div class="col-sm-2">
-                                                     <button class="btn news-post-btn">Create</button>
+                                                     <button class="btn news-post-btn">投稿する</button>
                                                 </div>
                                         </div>
                                 </form>
@@ -91,31 +89,32 @@ export default {
               }.bind(this));
         },
         mounted() {
-             this.axios
+            if(this.$route.params.id)
+            {
+               this.axios
                .get(`/api/types/edit/${this.$route.params.id}`)
                 .then((response) => {
-
-                    if( `${this.$route.params.id}` == "undefined")
-                    {
-
-                    }
-                    else{
-
+                    
                         this.Type.name = response.data.name;
                         this.Type.parent = response.data.parent;
                         this.selectedValue = response.data.parent;
                         this.TypeList.name = response.data.name;
-                    }
-
+                
                 });
+            }
+             
 
         },
 
          methods: {
             add() {
-                if( `${this.$route.params.id}` == "undefined")
+                if(this.$route.params.id)
                 {
-                    this.axios.post('/api/types/add', this.Type)
+                     this.updateType();
+                }
+                else{
+                
+                      this.axios.post('/api/types/add', this.Type)
                         .then((response) => {
                             this.name = ''
                         alert('Successfully Created')
@@ -127,10 +126,7 @@ export default {
                         this.errors = error.response.data.errors
 
                     }
-                })
-                }
-                else{
-                     this.updateType();
+                  })
                 }
             },
              getParent: function(){

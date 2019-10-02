@@ -23,7 +23,8 @@
                                         <img class="img-responsive fit-image" v-bind:src="'/images/' + customer.logo" alt="">
                                         <div class="overlay">
                                                 <h2></h2>
-                                                <span class="btn btn-sm all-btn secondary-bg-color" @click="goProfile()">Profile</span>
+                                                <!-- <span class="btn btn-sm all-btn secondary-bg-color" @click="goProfile()">Profile</span> -->
+                                                <router-link :to="{name: 'profile', params: {cusid:customer.id, type:customer.type_id == 2?'hospital':'nursing'}}" class="btn btn-sm all-btn secondary-bg-color">Profile</router-link>
                                         </div>
                                         <div class="info">
                                                 <div class="row">

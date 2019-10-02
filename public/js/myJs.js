@@ -148,7 +148,7 @@ $('#save_value').click(function(){
             isDivThere ++;
 
         }
-    } 
+    }
 
 
 /*select check
@@ -225,45 +225,25 @@ $('#save_value').click(function(){
         } else {
             $(".select_all").prop("checked", false);
         }
+      });
     });
-     });
 
      /* start nurse profile*/
 
-    //  $(".readMore").on('click', function(event) {
-    //     if ($(this).hasClass('opened')) {
-    //         $(this).removeClass('opened');
-    //         $(this).parent().find('.displaytext').slideToggle('fast');
-    //     }
-    //     else {
-    //         $(this).addClass('opened');
-    //         $('.showContent').css("display", "none");
-    //         $('.readMore').css("display", "none");
-    //         $(this).parent().find('.displaytext').slideToggle('fast');
 
-    //     }
-    // });
-    // $(document).ready(function () {
-    //     $(".displaytext").hide();
-    //     $(".readMore").on("click", function () {
-    //         var txt = $(".displaytext").is(':visible') ? 'Read More' : 'Read Less';
-    //         $(".readMore").text(txt);
-    //         $(this).next('.displaytext').slideToggle(200);
-    //     });
-    // });
-
-        // $(".readMore").click(function() {
-        //   var elem = $(".readMore").text();
-        //   if (elem == "ReadMore") {
-        //     $(".readMore").text("ReadLess");
-        //     $('.showContent').css("display", "none");
-        //     $(".displaytext").slideDown();
-        //   } else {
-        //     $(".readMore").text("ReadMore");
-        //     $(".displaytext").slideUp();
-        //   }
-        // });
-
+      $(".readMore").click(function() {
+        var elem = $(".readMore").text();
+        if (elem == "ReadMore") {
+          //Stuff to do when btn is in the read more state
+          $(".readMore").text("ReadLess");
+          $(".displaytext").slideDown();
+        } else {
+          //Stuff to do when btn is in the read less state
+          $(".readMore").text("ReadMore");
+          $(".displaytext").slideUp();
+        }
+      });
+   
      /* end nurse profile*/
 
 /*select check
@@ -337,14 +317,16 @@ $('#save_value').click(function(){
   // });
 
   function closebtn(){
-   
+
     if(confirm("Are you sure you want to delete?"))
     {
         var image_x = document.getElementById('x-image');
         image_x.parentNode.removeChild(image_x);
         document.getElementById('showimage').style.display = 'block';
     }
-  }
+}
+
+  
   // function closebtn(){
   //   swal({
   //     title: "Are you sure?",
@@ -357,12 +339,12 @@ $('#save_value').click(function(){
   //     //closeOnCancel: false
   //   },
   //   function (isConfirm){
-  //     if(isConfirm){        
+  //     if(isConfirm){
   //         var image_x = document.getElementById('x-image');
   //         image_x.parentNode.removeChild(image_x);
-  //         document.getElementById('showimage').style.display = 'block';        
+  //         document.getElementById('showimage').style.display = 'block';
   //     }
-      
+
   //   }
   //   );
   // };
