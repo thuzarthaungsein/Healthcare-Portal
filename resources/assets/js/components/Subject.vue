@@ -1,0 +1,161 @@
+<template>
+
+<div class="row">
+      <div class="col-12">
+          <div class="card ">
+                    <div class="card-header text-center">
+                        <h4 style="padding-top: 20px;"> Subject Create </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                         <div class="col-sm-1"></div>
+                         <div class="col-sm-9">  
+                                <form @submit.prevent ="add" class="m-t-16">
+                                        <div class="form-group row">
+                                            <div class="col-sm-3 text-right">
+                                                <label for ="name"  ><strong> Subject Name : <span class="error">*</span></strong>  </label>
+                                            </div>
+                                             <div class="col-sm-9">
+                                                <input type="name" class="form-control box" id="name"  name="name" v-model="Subject.name"  >
+                                             </div>
+                                        </div>
+                                          <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                                                </div>
+                                         </div>
+
+                                        <div class="form-group row">
+                                                <div class="col-sm-3 text-right">
+                                                        <label for ="description" ><strong> Parent :</strong>  </label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <select v-model="selectedValue" class="form-control" @change='getParent()'>
+                                                        <option value="0">None</option>
+                                                        <option v-for="Subjectlist in SubjectList" :key="Subjectlist.id" v-bind:value="Subjectlist.id">
+                                                           {{Subjectlist.name}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                        </div>
+
+                                          <div class="form-group row">
+                                                <div class="col-sm-10">
+
+                                                </div>
+                                                <div class="col-sm-2">
+                                                     <button class="btn news-post-btn">Create</button>
+                                                </div>
+                                        </div>
+                                </form>
+                           </div>
+                            <div class="col-sm-2"></div>
+
+                       </div>
+
+                     </div>
+                </div>
+             </div>
+         </div>
+</template>
+
+
+<script>
+export default {
+          data() {
+            return {
+                 errors:[
+                ],
+                //  Parents : [ { id: 0,name : 'None'},{ id: 1, name: 'Hospital' },{ id: 2, name: 'Nursing' }],
+                 Subject: {
+                        name: '',
+                        parent:'',
+                    },
+                SubjectList:{
+                        id: '',
+                        name: ''
+                   },
+
+                selectedValue:0
+
+            }
+        },
+         created() {
+
+             this.axios.get('/api/subjects/subjectlist')
+              .then(function (response) {
+                   this.SubjectList = response.data;
+                   console.log(this.SubjectList);
+
+              }.bind(this));
+        },
+        mounted() {
+           
+            if(this.$route.params.id)
+            {
+              
+                this.axios
+               .get(`/api/subjects/edit/${this.$route.params.id}`)
+                .then((response) => {
+                        this.Subject.name = response.data.name;
+                        this.Subject.parent = response.data.parent;
+                        this.selectedValue = response.data.parent;
+                        this.SubjectList.name = response.data.name;
+                });
+            }
+             
+
+        },
+
+         methods: {
+            add() {
+                if(this.$route.params.id)
+                {   
+                       this.updateSubject();    
+                }
+                else{
+                  this.axios.post('/api/subjects/add', this.Subject)
+                        .then((response) => {
+                            this.name = ''
+                        alert('Successfully Created')
+                        this.$router.push({name: 'subjectlist'});
+                        }).catch(error=>{
+
+                    if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                    }
+                })
+                }
+            },
+             getParent: function(){
+
+               this.Subject.parent = this.selectedValue;
+
+           },
+           updateSubject() {
+             
+
+                this.axios
+                    .post(`api/subjects/update/${this.$route.params.id}`, this.Subject)
+                    .then((response) => {
+                        this.name = ''
+                          alert('Successfully Updated!')
+                        this.$router.push({name: 'subjectlist'});
+                    }).catch(error=>{
+
+                    if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                    }
+                })   ;
+            },
+
+        }
+
+}
+</script>
