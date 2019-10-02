@@ -383,6 +383,30 @@
                         <li>{{special.short_name}}</li>
                     </ul>
                 </div>
+                <h5 class="header">Information for clinic</h5>
+                    <div class="row m-lr-0">
+                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                            <li >{{hospital.details_info}}</li>
+                        </ul>
+                </div>
+                <h5 class="header">Clinic Subject</h5>
+                    <div class="row m-lr-0">
+                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                            <li >{{hospital.subject}}</li>
+                        </ul>
+                    </div>
+                <h5 class="header">Consultation hours</h5>
+                    <div class="row m-lr-0">
+                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                            <li >{{hospital.closed_day}}</li>
+                        </ul>
+                    </div>
+                <h5 class="header">Facility</h5>
+                    <div class="row m-lr-0">
+                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                            <li >{{hospital.facilities}}</li>
+                        </ul>
+                    </div>
             </div>
             <div class="row ele m-lr-0" id="element2">
 
@@ -403,7 +427,7 @@
                                 <a class="mt-2 readMore" @click="review(comment.id)" href ="#">ReadMore</a>
 
                     </div> -->
-                     <div class="row col-md-12">
+                     <div class="row col-md-6 m-lr-0">
                         <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
                     </div>
                 </div>
@@ -479,13 +503,14 @@
                 medical_acceptance:[],
                 medical:[],
                 staff:[],
+                hospitals:[],
                 nursing_profiles:[],
                 method_payment:[],
                 comments:[],
                 activeImage: 0,
                 index: 0,
                 pageNum: 0,
-                type : 'nursing',
+                type : 'hospital',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -577,6 +602,7 @@
                       this.customer = response.data;
                 });
                 this.axios.get('/api/profile/hospital').then(response => {
+                    this.hospitals = response.data.hospital;
                     this.google = response.data.hoslatlong;
                     this.markers[0]['position']['lat']  = response.data.hoslatlong[0]['latitude'];
                     this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
