@@ -88,6 +88,11 @@ export const routes = [
         component: CustomerSearchListComponent
     },
     {
+        name: "newssearchlist",
+        path: "/newssearchlist",
+        component: NewsSearchListComponent
+    },
+    {
         name: "custedit",
         path: "/custsedit",
         component: custedit
