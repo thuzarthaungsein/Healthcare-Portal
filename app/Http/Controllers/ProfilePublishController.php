@@ -14,6 +14,7 @@ use DB;
 use App\special_feature;
 use App\Customer;
 use App\Comment;
+use App\Schedule;
 
 class ProfilePublishController extends Controller
 {
@@ -55,6 +56,9 @@ class ProfilePublishController extends Controller
         $sql = "SELECT method_payment.* from method_payment   JOIN customers ON method_payment.customer_id= customers.id";
         $cost = DB::select($sql);
 
+        // $query ="SELECT schedule.* from schedule JOIN hospital_profiles ON  schedule.customer_id=hospital_profiles.customer_id";
+        // $schedule =DB::select($query);
+
         return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff,
            "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical,"method"=>$method));
     }
@@ -87,6 +91,19 @@ class ProfilePublishController extends Controller
         $specialfeature = DB::select($sql);
         return response()->json($specialfeature);
     }
+    // public function getSchedule($customer_id){
+    //     $schedule_am = Schedule::where('customer_id', $customer_id)
+    //                         ->where('part', '=', 'am')
+    //                         ->get()
+    //                         ->toArray();
+    //     $schedule_pm = Schedule::where('customer_id', $customer_id)
+    //                         ->where('part', '=', 'pm')
+    //                         ->get()
+    //                         ->toArray();
+    //     $schedule = array_merge($schedule_am,$schedule_pm);
+
+    //     return $schedule;
+    // }
 
     public function create()
     {

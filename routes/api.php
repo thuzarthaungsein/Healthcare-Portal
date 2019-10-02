@@ -154,6 +154,7 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('specialfeature/{type}','ProfilePublishController@getSpecialfeature');
     Route::get('comment','ProfilePublishController@getComment');
     Route::get('customer','ProfilePublishController@getCustomer');
+    Route::get('schedule','ProfilePublishController@getSchdule');
 });
 
 Route::group(['prefix' => 'job'], function () {

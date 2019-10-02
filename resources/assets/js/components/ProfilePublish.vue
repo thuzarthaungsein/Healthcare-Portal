@@ -383,11 +383,11 @@
                         <li>{{special.short_name}}</li>
                     </ul>
                 </div>
-                <h5 class="header">Information for clinic</h5>
+                <h5 class="header">医院からのお知らせ</h5>
                     <div class="row m-lr-0">
-                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                            <li >{{hospital.details_info}}</li>
-                        </ul>
+                            <div class="col-md-10 m-2" v-for="hospital in hospitals" :key="hospital.id">
+                                <p>{{hospital.details_info}}</p>
+                            </div>
                 </div>
                 <h5 class="header">Clinic Subject</h5>
                     <div class="row m-lr-0">
@@ -396,10 +396,52 @@
                         </ul>
                     </div>
                 <h5 class="header">Consultation hours</h5>
-                    <div class="row m-lr-0">
-                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                    <!-- <div class="row m-lr-0">
+                        <ul class="fac_container" v-for="hospital in schedule" :key="hospital.id">
                             <li >{{hospital.closed_day}}</li>
                         </ul>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-12">
+                                <table class="table table-bordered" v-for="(schedule,index) in schedules" :key="index">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" >Date</th>
+                                            <th scope="col">AM</th>
+                                            <th scope="col">PM</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                            <th scope="row">Mon</th>
+                                                <td >{{schedule.mon}}</td>
+                                    </tr>
+                                    <tr>
+                                            <th scope="row">Tue</th>
+                                                <td >{{schedule.tue}}</td>
+                                    </tr>
+                                    <tr>
+                                            <th scope="row">Wed</th>
+                                                <td >{{schedule.wed}}</td>
+                                    </tr>
+                                    <tr>
+                                            <th scope="row">Thu</th>
+                                                <td >{{schedule.thu}}</td>
+                                    </tr>
+                                    <tr>
+                                            <th scope="row">Fri</th>
+                                                <td >{{schedule.fri}}</td>
+                                    </tr>
+                                    <tr>
+                                            <th scope="row">Sat</th>
+                                                <td >{{schedule.sat}}</td>
+                                    </tr>
+                                    <tr>
+                                            <th scope="row">Sun</th>
+                                                <td >{{schedule.sun}}</td>
+                                    </tr>
+                                </table>
+                        </div>
+
                     </div>
                 <h5 class="header">Facility</h5>
                     <div class="row m-lr-0">
@@ -503,6 +545,7 @@
                 medical_acceptance:[],
                 medical:[],
                 staff:[],
+                schedules:[],
                 hospitals:[],
                 nursing_profiles:[],
                 method_payment:[],
@@ -608,6 +651,8 @@
                 });
                 this.axios.get('/api/profile/hospital').then(response => {
                     this.hospitals = response.data.hospital;
+                    this.schedules = response.data.schedule;
+                    console.log(this.schedules);
                     this.google = response.data.hoslatlong;
                     this.markers[0]['position']['lat']  = response.data.hoslatlong[0]['latitude'];
                     this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
