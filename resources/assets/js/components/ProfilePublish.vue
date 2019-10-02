@@ -485,7 +485,7 @@
                 activeImage: 0,
                 index: 0,
                 pageNum: 0,
-                type : 'nursing',
+                // type : 'nursing',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -522,6 +522,11 @@
                     }
                 ],
             };
+        },
+        
+        props:{
+                cusid:Number,
+                type:String                
         },
 
         created(){
