@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="row m-b-10" v-if="this.jobs.length !== 0">
-        <!-- <div class="col-md-12">
+        <div class="col-md-12">
           <router-link
             to="/joboffercreate"
             class="float-right main-bg-color create-btn all-btn"
@@ -10,7 +10,7 @@
           >
             <i class="fas fa-plus-circle"></i> 新しい投稿を作成
           </router-link>
-        </div> -->
+        </div>
       </div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -27,10 +27,6 @@
               <i class="fa fa-exclamation"></i>
             </p>
             <p>OOPS!!</p>
-            <!-- <p style="font-size:30px;color:#69C1A8;font-weight:bold;margin:20px 0;">
-            <span style="font-size:50px;">NO</span>
-            <span style="color:#769BD0;">RECORD</span> DATA
-            </p>-->
             <p class="record-txt01">表示するデータありません</p>
             <p>表示するデータありません‼新しいデータを作成してください。</p>
             <a href="/joboffercreate" class="main-bg-color create-btn all-btn">
@@ -39,7 +35,7 @@
           </div>
 
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">求人検索</h4>
+            <h4 class="main-color m-b-10">求人採用検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group row">
@@ -66,19 +62,60 @@
                         >{{category.name}}</option>
                       </select>
                     </div>
-                  </div> -->
+                  </div>-->
                 </div>
               </div>
             </div>
             <hr />
-            <h5 class="header">ジョブリスト</h5>
-            <div class="card card-default m-b-20" v-for="job in jobs" :key="job.id">
+            <h5 class="header">求人採用一覧</h5>
+            <table class="table table-hover custom-table">
+              <thead style="background-color:rgb(183, 218, 210);">
+                <tr>
+                  <th>施設種別</th>
+                  <th>仕事内容</th>
+                  <th>雇用形態</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="job in jobs" :key="job.id">
+                  <th>{{job.title}}</th>
+                  <th>{{job.description}}</th>
+                  <th>{{job.employment_status}}</th>
+                  <th class="text-right">
+                    <!-- <button class="btn btn-sm btn-primary all-btn" v-if="getUser.status == 1">Approved</button> -->
+                    <small>
+                      <router-link
+                        :to="{name: 'joboffercreate', params:{id:job.id}}"
+                        class="btn edit-borderbtn"
+                      >編集</router-link>
+                    </small>
+                    <small>
+                      <a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a>
+                    </small>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <!-- <div class="card card-default m-b-20" v-for="job in jobs" :key="job.id">
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-9 m-t-8">
-                    <label><strong>Title : </strong>{{job.title}}</label><br>
-                    <label><strong>Description : </strong>{{job.description}}</label><br>
-                    <label><strong>Type : </strong>{{job.employment_status}}</label><br>
+                    <label>
+                      <strong>Title :</strong>
+                      {{job.title}}
+                    </label>
+                    <br />
+                    <label>
+                      <strong>Description :</strong>
+                      {{job.description}}
+                    </label>
+                    <br />
+                    <label>
+                      <strong>Type :</strong>
+                      {{job.employment_status}}
+                    </label>
+                    <br />
                     <small>
                       <router-link
                         :to="{name: 'joboffercreate', params:{id:job.id}}"
@@ -86,29 +123,12 @@
                       >編集</router-link>
                     </small> &nbsp;
                     <small>
-                      <a
-                        class="btn text-danger delete-borderbtn"
-                        @click="deleteJob(job.id)"
-                      >削除</a>
+                      <a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a>
                     </small>
                   </div>
-                  <!-- <div class="col-md-3 text-right">
-                    <small>
-                      <router-link
-                        :to="{name: 'joboffercreate', params:{id:job.id}}"
-                        class="btn edit-borderbtn"
-                      >編集</router-link>
-                    </small> &nbsp;
-                    <small>
-                      <a
-                        class="btn text-danger delete-borderbtn"
-                        @click="deleteJob(job.id)"
-                      >削除</a>
-                    </small>
-                  </div> -->
                 </div>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>

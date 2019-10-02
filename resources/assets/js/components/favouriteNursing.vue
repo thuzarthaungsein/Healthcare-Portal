@@ -49,7 +49,7 @@
                                     <div v-for="nur_profile in fav_nursing" :key="nur_profile.id" class="col-lg-12 pt-3 bd">
                                         <div class="row m-0">
                                             <h5 class="m-b-10 col-12 hos-tit">
-                                                <a href="#">{{nur_profile.name}}</a>
+                                                <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}" >{{nur_profile.name}}</router-link>
                                             </h5>
                                             <div class="col-lg-2 col-md-12 mb-5">
                                                 <div class="hos-img list-logo">
@@ -151,9 +151,7 @@
                 <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
             </div>
-            <!--end Tab panes--> 
-
-        
+            <!--end Tab panes-->         
     </div>
 </template>
 
@@ -191,17 +189,10 @@ import jobSearch from './jobSearch.vue'
             },
             created() {
                 $('.checkbox1').prop("checked", true);
-                this.axios.get('/api/hospital/postList')
-                    .then(response => {
-                        this.post_list = response.data;
-                        //console.log(this.post_list);
-                    });
+                
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
-                this.axios.get('/api/hospital/citiesList')
-                    .then(response => {
-                        this.city_list = response.data;
-                    });
+                
             },
             methods: {
                 changeRoute(){
