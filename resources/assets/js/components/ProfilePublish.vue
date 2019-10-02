@@ -24,21 +24,56 @@
                 Job Offer
             </button>
             </div>
-
+           
             <div class="row m-lr-0 ele" id="element1">
-                <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
-                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
-                    <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
-                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Phone :</strong></p></div>
-                    <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
-                </div>
-
-                <h5 class="header">special Features</h5>
-                <div class="row m-lr-0">
-                    <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
-                        <li>{{special.short_name}}</li>
-                    </ul>
-                </div>
+                 <h5 class="header">Information</h5>
+                <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
+                    <!--for slideimage-->
+                    <div class="col-sm-5 detail_profile_left">
+                           <div class="thumbnail-img">
+                             <div class="card-carousel">
+                                <div class="card-img">
+                                    <img :src="currentImage" alt="">
+                                    <!-- <div class="actions">
+                                        <span @click="prevImage" class="prev">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span @click="nextImage" class="next">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </span>
+                                    </div> -->
+                                </div>
+                                <div class="thumbnails">
+                                    <div
+                                        v-for="(image, index) in  images"
+                                        :key="image.id"
+                                        :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
+                                        @click="activateImage(index)"
+                                    >
+                                        <img :src="image.thumb">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    <!--end for slide image-->
+                    <!--for address-->
+                     <div class="col-sm-7 detail_profile_right">
+                        <div class="row list-wrap m-lr-0">
+                            <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
+                            <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
+                            <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Phone :</strong></p></div>
+                            <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
+                        </div>
+                        <h5 class="header">special Features</h5>
+                        <div class="row m-lr-0">
+                            <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
+                                <li>{{special.short_name}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--end for address-->                   
+                </div>                
             </div>
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="header">Features</h5>
@@ -46,9 +81,10 @@
             </div>
             <div class="row ele m-lr-0" id="element3">
                 <h5 class="header col-md-12">Cost</h5>
-                    <table class="table table-striped table-bordered">
+                    <div class="col-12">
+                        <table class="table table-striped table-bordered">
                         <tr>
-                            <th>
+                            <th class="custom-bg-color">
                                 <font>method of payment</font>
                             </th>
                             <td>
@@ -56,10 +92,11 @@
                             </td>
                         </tr>
                     </table>
-                    <div v-if="method_payment.length > 0" class="col-md-12 pad-free">
+                    </div>
+                    <div v-if="method_payment.length > 0" class="col-md-12">
                         <div class="cost_tb" v-for="cost in method_payment" :key="cost.id">
-                            <div class="row">
-                                <div class="col-md-10">
+                            <div class="row col-12 pad-free">
+                                <div class="col-md-11">
                                     <table class="table table-bordered cost_table">
                                         <tbody>
                                         <tr>
@@ -77,14 +114,14 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="cost_btnwrapper col-md-2">
-                                    <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id">View</button>
-                                </div> <br/>
+                                <div class="cost_btnwrapper col-md-1">
+                                    <button class="btn all-btn main-bg-color okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id"><i class="fas fa-sort-down"></i>&nbsp;View</button>
+                                </div>
 
 
                                 <div class="collapse col-md-12" :id="'costDetails' + cost.id">
                                     <table class="table table-condensed cost_table">
-                                        <h4>入居にかかる費用(Expense Moving)</h4>
+                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
                                         <tbody>
                                             <tr>
                                                 <th width="300">入居一時金または(deposit)</th>
@@ -97,7 +134,7 @@
                                         </tbody>
                                     </table>
                                     <table class="table table-condensed cost_table">
-                                            <h4>月額費用(Monthly Cost)</h4>
+                                            <label class="cost_heading_lbl">月額費用(Monthly Cost)</label>
                                         <tbody>
                                             <tr>
                                                 <th width="300">賃料 (rent)</th>
@@ -122,7 +159,7 @@
                                         </tbody>
                                     </table>
                                     <table class="table table-condensed cost_table">
-                                            <h4>返還金について(refund system)</h4>
+                                            <label class="cost_heading_lbl" style="width: 100%;">返還金について(refund system)</label>
                                         <tbody>
                                             <tr>
                                                 <th width="300">返還制度 (refund)</th>
@@ -521,6 +558,7 @@
                         thumb: 'images/thumbs/p4.jpeg'
                     }
                 ],
+                 activeImage: 0
             };
         },
         
@@ -600,6 +638,14 @@
 
 
           },
+          computed: {
+            // currentImage gets called whenever activeImage changes
+            // and is the reason why we don't have to worry about the 
+            // big image getting updated
+            currentImage() {
+                return this.images[this.activeImage].big;
+            }
+        },
           methods: {
               moveTo: function(index) {
 
@@ -651,17 +697,17 @@
   cursor: pointer;
   padding: 10px;
 }
-.ele{
+/* .ele{
   margin-top: 27px;
   padding-top: 60px;
-}
+} */
 .cost_tb{
     /* border: 1px solid #ccc; */
     border-left: 0px;
      border-bottom: 0px;
     padding-bottom: 1px;
      background: #fff;
-     padding: 10px;
+     /* padding: 10px; */
     /* padding-bottom: 20px; */
 }
 .cost_table{
@@ -669,16 +715,22 @@
     /* height: 81px; */
     float: left;
     border-bottom: 1px solid #ccc;
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
-.cost_table h4 {
+/* .cost_table label {
     border-left: 6px solid #b7dad2;
     padding-left: 10px;
     margin-bottom: 10px;
     font-size: 1.286em;
     line-height: 1.3;
-    margin-top: 30px;
+     margin-top: 30px; 
     padding-top: 2px;
+} */
+.cost_heading_lbl{
+    border-left: 5px solid rgb(249, 121, 60);
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 1.15em;
 }
 .cost_table th{
     border: 1px solid #ccc;
@@ -701,12 +753,124 @@
     float: right;
     width: 158px;
     text-align: center;
-    padding-top: 21px;
+    align-self: center;
+    /* padding-top: 21px; */
 }
 .cost_btnwrapper .okbtn{
-    width: 125px;
+    /* width: 125px;
     margin-bottom: 0;
     padding-left: 20px;
-    padding-right: 0;
+    padding-right: 0; */
+}
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #fff !important;
+    font-weight: bold;
+    background-color: #1aa985  !important;
+    border-top: 1px solid #1aa985  ;
+    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
+}
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
+    border: 1px solid #1aa985  !important;
+}
+div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
+    border-color: transparent   #ecede1   transparent   #ecede1   !important;
+}
+.thumbnail-img{
+    width: 100%;
+    padding: 20px;
+    line-height: 150px;
+    vertical-align: middle;
+    border: 1px solid #b7dad2;
+    border-bottom: 1px solid #b7dad2;
+    background-color: #f5f5f2;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+.thumbnail-img img {
+    width: 100%;
+}
+
+.card-carousel {
+    user-select: none;
+    position: relative;
+}
+
+.progressbar {
+    display: block;
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    background-color: rgba(221, 221, 221, 0.25);
+    z-index: 1;
+}
+
+.progressbar > div {
+    background-color: rgba(255, 255, 255, 0.52);
+    height: 100%;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.thumbnail-image {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.thumbnail-image > img {
+    width: 100%;
+    height: auto;
+    transition: all 250ms;
+}
+
+.thumbnail-image:hover > img,
+.thumbnail-image.active > img {
+    opacity: 0.6;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0, 0.5);
+}
+
+.card-img {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.card-img > img {
+    display: block;
+    margin: 0 auto;
+}
+
+.actions {
+    font-size: 1.5em;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #585858;
+}
+
+.actions > span {
+    cursor: pointer;
+    transition: all 250ms;
+}
+
+.actions > span.prev {
+    margin-left: 5px;
+}
+
+.actions > span.next {
+    margin-right: 5px;
+}
+
+.actions > span:hover {
+    color: #eee;
 }
 </style>

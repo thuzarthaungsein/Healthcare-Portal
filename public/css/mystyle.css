@@ -1772,6 +1772,9 @@ ul.sub-ul li {
 .white-bg-color {
     background-color: #fff !important;
 }
+.custom-bg-color{
+    background-color: #f0f0f0;
+}
 .toggle-btn .icon-arrow:before {
     content: '\25BC';
 }
