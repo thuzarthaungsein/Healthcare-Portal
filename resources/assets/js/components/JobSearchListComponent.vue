@@ -55,17 +55,9 @@ export default {
             }
         },
         created() {
-               if(this.profile == "profile")
-               {
-                        this.axios .get('/api/job/index') .then(response => {
+               this.axios .get('/api/job/getjob/1') .then(response => {
                         this.jobs = response.data.profilejob;
-                        });
-               }
-               else{
-                        this.axios .get('/api/job/index') .then(response => {
-                        this.jobs = response.data.jobs;
-                        });
-               }
+                });
            
         },
         props:{

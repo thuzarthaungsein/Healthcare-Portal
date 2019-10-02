@@ -76,7 +76,7 @@ class ProfilePublishController extends Controller
 
     public function getSpecialfeature($type){
         if($type == 'hospital'){
-            $hosfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
+            $sfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
         }
         else{
             $sfeature=NursingProfile::select('special_features')->where('customer_id',4)->value('special_features');

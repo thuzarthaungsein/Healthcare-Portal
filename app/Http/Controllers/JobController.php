@@ -9,19 +9,17 @@ class JobController extends Controller
 {
 
     public function index()
-    {
-   
+    {   
         // $jobs = Job::all()->toarray();
         $profilejob = Job::where('customer_id',auth()->user()->id)->get();
-        return response()->json(array('profilejob'=>$profilejob) );
-       
+        return response()->json(array('profilejob'=>$profilejob) );       
     }
 
-    // public function getJob()
-    // {
-    //     $profilejob = Job::where('customer_id',1)->get();
-    //     return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob) );
-    // }
+    public function getJob($customer_id)
+    {
+        $profilejob = Job::where('customer_id',$customer_id)->get();
+        return response()->json(array('profilejob'=>$profilejob) );
+    }
 
 
     public function create()
