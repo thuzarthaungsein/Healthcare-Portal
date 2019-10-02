@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
 use App\User;
 use DB;
+use Auth;
 class CustomerController extends Controller
 {
     /**
@@ -20,8 +21,13 @@ class CustomerController extends Controller
 
         // $customers = Customer::all()->toArray();
         // return array_reverse($customers);
+<<<<<<< HEAD
         $customer = Customer::all();
         return $customer;
+=======
+        $customer =Customer::all();
+        return response()->json($customer);
+>>>>>>> 691a3215366ca34b6d36e80b143110aac2f957a1
     }
 
     public function uploadvideo(Request $request)
@@ -131,31 +137,48 @@ class CustomerController extends Controller
 
     public function confirm($id)
     {
-
+        
         $getCustomer = Customer::findOrFail($id);
-
         $checkUser = User::where('email',$getCustomer->email)->select('email')->value('email');
-
+        $getUserId = User::where('email',$getCustomer->email)->value('id');
+        $comfirmUser =  auth('api')->user()->id;
         if(!empty($checkUser)){
+            
             return response()->json('user is already confirm!');
         }else{
-            $customer = Customer::find($id);
-            $customer->status = 1;
-            $customer->save();
+           
             $data = array(
                 'name'=>$getCustomer->name,
                 'email'=>$getCustomer->email,
                 'password'=>$getCustomer->password,
+                'type' => 'user',
+                'type_id' => $getCustomer->type_id,
+                'customer_id' =>$getCustomer->id
             );
             DB::table('users')->insert($data);
+            $insert = array(
+                'customer_id' => $getCustomer->id
+               );
+            if($getCustomer->type_id == 1){
+                
+                \DB::table('hospital_profiles')->insert($insert);
+            }else{
+                \DB::table('nursing_profiles')->insert($insert);
+            }  
             $id = $id = DB::getPdo()->lastInsertId();
             $model_has_roles = array(
                 'role_id'=>2,
                 'model_type'=> 'App\User',
                 'model_id'=> $id,
             );
-            DB::table('model_has_roles')->insert($model_has_roles);
+           DB::table('model_has_roles')->insert($model_has_roles);
             \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
+            $customer = Customer::find($id);
+            $customer->status = 1; 
+            $customer->confirm_user_id = $comfirmUser;
+            $customer->user_id = $getUserId;
+            $customer->save();
+
              return response()->json('success');
         }
     }

@@ -6,14 +6,14 @@
 
                         <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
                                 <i class="fa fa-plus-circle"></i>
-                                <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> Create
+                                <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> 作成
                         </label>
                         </li>
 
                          <li role="presentation" class="subtab2 nav-item">
                         <label for="nursing" class="typelabel dim-btn nav-link" id="nursing-lbl">
                                 <i class="fas fa-id-badge"></i>
-                                <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> View
+                                <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> myページ
                         </label>
                          </li>
                 </ul>
@@ -46,14 +46,14 @@
                         
                        <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
                                <i class="fa fa-plus-circle"></i>
-                                <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> Create
+                                <input type="radio" v-model="btntype"  value="create" v-on:change ="changeBtnType()" name="btntype" id="hospital"> 作成
                         </label>
                         </li>
 
                          <li role="presentation" class="subtab2 nav-item">
                         <label for="nursing" class="typelabel dim-btn nav-link" id="nursing-lbl">
                                  <i class="fas fa-id-badge"></i>
-                                <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> View
+                                <input type="radio" v-model="btntype" value="view" v-on:change ="changeBtnType()" name="btntype" id="nursing"> myページ
                         </label>
                          </li>
                 </ul>
@@ -107,7 +107,10 @@ export default {
                 }       
                 if(this.$route.params.cusid) {
                         this.cusid = this.$route.params.cusid;
-                }       
+                }
+                else{
+                        this.cusid = 1;
+                }    
                 
         },
         methods: {

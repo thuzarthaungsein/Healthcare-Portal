@@ -57,7 +57,30 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::delete('delete/{id}', 'TypeController@destroy');
         Route::post('search', 'TypeController@search');
     });
+
+       // occupation
+       Route::group(['prefix' => 'occupation'], function () {
+        Route::get('occupationList', 'OccupationsController@TypeList');
+        Route::get('type', 'OccupationsController@index');
+        Route::post('add', 'OccupationsController@store');
+        Route::get('edit/{id}', 'OccupationsController@edit');
+        Route::post('update/{id}', 'OccupationsController@update');
+        Route::delete('delete/{id}', 'OccupationsController@destroy');
+    });
+
+
     // End Type
+
+    //Subject
+    Route::group(['prefix' => 'subjects'], function () {
+        Route::get('subjectlist', 'SubjectController@SubjectList');
+        Route::get('subject', 'SubjectController@index');
+        Route::post('add', 'SubjectController@store');
+        Route::get('edit/{id}', 'SubjectController@edit');
+        Route::post('update/{id}', 'SubjectController@update');
+        Route::delete('delete/{id}', 'SubjectController@destroy');
+    });
+    //End Subject
 
     // Job
     Route::group(['prefix' => 'job'], function () {
@@ -98,6 +121,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}', 'PostController@delete');
         Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
+        
     });
     // End News
 
@@ -242,6 +266,8 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 // Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
 Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
+
+Route::post('news/search/{searchword}', 'PostController@searchPost');
 
 Route::group(['prefix' => 'hospital'], function () {
     Route::post('postList/{postal}', 'HospitalProfileController@getPostalList');

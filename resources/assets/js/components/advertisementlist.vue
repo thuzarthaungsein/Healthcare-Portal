@@ -124,9 +124,10 @@ export default {
             });
         });
       })
-      
+
       },
-    
+
+
     searchAdvertisment() {
       var search_word = $("#search-item").val();
       let fd = new FormData();
@@ -135,7 +136,8 @@ export default {
         this.advertisements = response.data;
       });
     }
+     }
   }
-}
+
 </script>
 

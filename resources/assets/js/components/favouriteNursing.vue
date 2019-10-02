@@ -33,11 +33,11 @@
                                         <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる
                                     </label>
                                 </div>
-                            </div>                       
+                            </div>
                         </div>
                         <div class="row m-0">
                             <form @submit.prevent="add" class="col-md-12 pad-free">
-                                <!-- <div class="d-flex justify-content-between">                                
+                                <!-- <div class="d-flex justify-content-between">
                                     <div class="select_all">
                                         <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
                                             <input type="checkbox" @change="checkAll()" class="check-all-btn" />
@@ -137,7 +137,8 @@
                                             </div>
                                             <div class="col-lg-3 col-md-12">
                                                 <ul class="fac_container">
-                                                    <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature }}</li>
+                                                     <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                                    <!-- <li v-for="special in specialfeature" :key="special.id">{{special.short_name}}</li> -->
                                                 </ul>
                                             </div>
                                         </div>
@@ -148,10 +149,9 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
             </div>
-            <!--end Tab panes-->         
+            <!--end Tab panes-->
     </div>
 </template>
 
@@ -184,15 +184,19 @@ import jobSearch from './jobSearch.vue'
                     fav_email: [],
                     arr_email: [],
                     reserv_status: [],
-                    document_status: []
+                    document_status: [],
+                    type : 'nursing',
+                    specialfeature:[]
                 };
             },
             created() {
                 $('.checkbox1').prop("checked", true);
-                
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
-                
+                    
+                // this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
+                //     this.specialfeature = response.data;
+                // });
             },
             methods: {
                 changeRoute(){
@@ -227,6 +231,7 @@ import jobSearch from './jobSearch.vue'
                                 var j = this.fav_nursing[i].id;
                                 this.reserv_status[j] = true;
                             }
+                            console.log('fav',this.fav_nursing)
                         });
                 },
                 addingMail() {

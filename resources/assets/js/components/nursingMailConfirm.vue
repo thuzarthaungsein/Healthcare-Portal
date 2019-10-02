@@ -592,7 +592,7 @@ export default {
         .post("/api/nurse/add", this.comments)
         .then(response => {
           alert("Mail Sent Successfully !");
-          location.href = "nursingFavouriteMail";
+          location.href = "favouriteNursing";
         })
         .catch(error => {
           if (error.response.status == 422) {

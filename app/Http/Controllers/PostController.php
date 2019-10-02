@@ -242,4 +242,8 @@ class PostController extends Controller
         return $posts;
     }
 
+    public function searchPost($search_word) {
+        print_r('hi');exit;
+    }
+
 }
