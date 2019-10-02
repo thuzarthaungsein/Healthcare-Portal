@@ -1169,7 +1169,7 @@ export default {
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
           const id = e.target.id;
-          this.axios.post('http://localhost:8000/api/getmap/'+id+'')
+          this.axios.post('/api/getmap/'+id+'')
           .then((response)=>{
             console.log(response.data.fac_types)
           $('.select').removeClass('select');
