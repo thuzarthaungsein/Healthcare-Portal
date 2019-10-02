@@ -1098,7 +1098,7 @@ textarea {
 }
 
 .ql-editor {
-    /* height: 170px !important; */
+    min-height: 170px !important; 
     scrollbar-width: thin;
 }
 .form-control {
