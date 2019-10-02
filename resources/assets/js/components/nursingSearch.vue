@@ -910,9 +910,9 @@
                   <th>地域</th>
                   <td>
                     <select  id="select" class="form-control col-3 custom-select mt-2" v-model="id">
-                      <option v-for = "city in cities" :value="city.id" >{{city.city_name}}</option>
+                      <option v-for = "city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
                     </select>
-                    <button @click="toggleContent2" class="btn btn-link" v-for="city in getCity" >
+                    <button @click="toggleContent2" class="btn btn-link"  >
                       <i class="fa" aria-hidden="true"></i>
                           <!-- <em>{{city.city_name}}</em> -->
                           <span id="close3"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
@@ -1169,7 +1169,7 @@ export default {
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
           const id = e.target.id;
-          this.axios.post('http://localhost:8000/api/getmap/'+id+'')
+          this.axios.post('/api/getmap/'+id+'')
           .then((response)=>{
             console.log(response.data.fac_types)
           $('.select').removeClass('select');

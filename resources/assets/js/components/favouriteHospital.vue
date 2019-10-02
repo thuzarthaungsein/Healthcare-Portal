@@ -33,7 +33,8 @@
                                 <div v-for="hos_profile in fav_hospital" :key="hos_profile.id" class="col-lg-12 pt-3 bd">
                                     <div class="row m-0">
                                         <h5 class="m-b-10 col-12 hos-tit">
-                                            <a href="#">{{hos_profile.name}}</a>
+                                            <!-- <a href="#">{{hos_profile.name}}</a> -->
+                                            <router-link :to="{name: 'profile', params: {cusid:2, type: 'hospital'}}" >{{hos_profile.name}}</router-link>
                                         </h5>
                                         <div class="col-lg-2 col-md-12 mb-5">
                                             <div class="hos-img list-logo">
