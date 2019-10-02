@@ -3,10 +3,10 @@
         <!-- news details-->
         <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
-                <li role="presentation" class="subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
-                <li role="presentation" class="active subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-                <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
-                <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
+            <li role="presentation" class="subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
+            <li role="presentation" class="active subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+            <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
+            <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
         <!--end menu tabs-->
 
@@ -58,6 +58,16 @@
                                             <div class="row list-wrap">
                                                 <div class="col-lg-3 col-md-4 col-sm-12">
                                                     <p>
+                                                        <strong>Medical Departement</strong>
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                                    <p>{{hos_profile.medical_department}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row list-wrap">
+                                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                                    <p>
                                                         <strong>Phone</strong>
                                                     </p>
                                                 </div>
@@ -85,7 +95,27 @@
                                                     <p>{{hos_profile.email}}</p>
                                                 </div>
                                             </div>
-                                            <div class="row list-wrap">
+                                              <div class="row list-wrap">
+                                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                                    <p>
+                                                        <strong>Details</strong>
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                                    <p>{{hos_profile.details_info}}</p>
+                                                </div>
+                                            </div>
+                                              <div class="row list-wrap">
+                                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                                    <p>
+                                                        <strong>Subjects</strong>
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                                    <p>{{hos_profile.subject}}</p>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="row list-wrap">
                                                 <div class="col-lg-3 col-md-4 col-sm-12">
                                                     <p>
                                                         <strong>Occupancy Condition</strong>
@@ -94,23 +124,24 @@
                                                 <div class="col-lg-9 col-md-8 col-sm-12">
                                                     <p>{{hos_profile.occupancy_condition}}</p>
                                                 </div>
+                                            </div>                                             -->
+                                                <div class="row list-wrap">
+                                                    <div class="col-lg-3 col-md-4 col-sm-12">
+                                                        <p>
+                                                            <strong>Location</strong>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-8 col-sm-12">
+                                                        <p>{{hos_profile.township_name}}, {{hos_profile.city_name}}</p>
+                                                    </div>                                                    
                                             </div>
-                                            <div class="row list-wrap">
-                                                <div class="col-lg-3 col-md-4 col-sm-12">
-                                                    <p>
-                                                        <strong>Location</strong>
-                                                    </p>
-                                                </div>
-                                                <div class="col-lg-9 col-md-8 col-sm-12">
-                                                    <p>{{hos_profile.township_name}}, {{hos_profile.city_name}}</p>
-                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-12">
-                                            <ul class="fac_container">
-                                                <li v-for="feature in hos_profile.special_features" :key="feature.id">{{ feature }}</li>
-                                            </ul>
-                                        </div>
+                                            <div class="col-lg-3 col-md-12">
+                                                <ul class="fac_container">
+                                                    <li v-for="feature in hos_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                                </ul>
+                                                </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +163,6 @@
 
 <script>
     import News from './News.vue'
-    // import hospitalSearch from './hospitalSearch.vue'
     import nursingSearch from './nursingSearch.vue'
     import jobSearch from './jobSearch.vue'
     export default {
@@ -156,56 +186,50 @@
                 selectedValue: 0,
                 fav_email: [],
                 arr_email: [],
+                type: 'nursing',
+                specialfeature: []
             };
         },
         created() {
-            this.axios.get('/api/hospital/postList')
-                .then(response => {
-                    this.post_list = response.data;
-                });
             this.local_sto = localStorage.getItem("hospital_fav");
             this.getAllFavourite(this.local_sto);
-            this.axios.get('/api/hospital/citiesList')
-                .then(response => {
-                    this.city_list = response.data;
-                });
         },
         methods: {
             changeRoute() {
-                this.$router.push({
-                    name: 'home',
-                    params: {
-                        page: 'subtab2'
-                    }
-                });
-            },
-            deleteLocalSto: function(id) {
-                if (confirm("Are you sure you want to delete?")) {
-                    alert('Delete Successfully!');
-                }
-                var l_sto = this.local_sto;
-                var l_sto_arr = l_sto.split(",");
-                var rm_id = id.toString();
-                var index = l_sto_arr.indexOf(rm_id);
-                if (index > -1) {
-                    l_sto_arr.splice(index, 1);
-                    var new_local = l_sto_arr.toString();
-                    localStorage.setItem('hospital_fav', new_local);
-                    this.local_sto = localStorage.getItem("hospital_fav");
-                    if (this.local_sto) {
-                        this.getAllFavourite(this.local_sto);
-                    } else {
-                        window.location.reload();
-                    }
-                }
-            },
-            getAllFavourite: function(local_storage) {
-                this.axios
-                    .post('/api/favHospital/' + local_storage)
-                    .then(response => {
-                        this.fav_hospital = response.data;
+                    this.$router.push({
+                        name: 'home',
+                        params: {
+                            page: 'subtab2'
+                        }
                     });
-            },
+                },
+                deleteLocalSto: function(id) {
+                    if (confirm("Are you sure you want to delete?")) {
+                        alert('Delete Successfully!');
+                    }
+                    var l_sto = this.local_sto;
+                    var l_sto_arr = l_sto.split(",");
+                    var rm_id = id.toString();
+                    var index = l_sto_arr.indexOf(rm_id);
+                    if (index > -1) {
+                        l_sto_arr.splice(index, 1);
+                        var new_local = l_sto_arr.toString();
+                        localStorage.setItem('hospital_fav', new_local);
+                        this.local_sto = localStorage.getItem("hospital_fav");
+                        if (this.local_sto) {
+                            this.getAllFavourite(this.local_sto);
+                        } else {
+                            window.location.reload();
+                        }
+                    }
+                },
+                getAllFavourite: function(local_storage) {
+                    this.axios
+                        .post('/api/favHospital/' + local_storage)
+                        .then(response => {
+                            this.fav_hospital = response.data;
+                        });
+                },
         }
     };
 </script>

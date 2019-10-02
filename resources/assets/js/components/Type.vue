@@ -3,8 +3,8 @@
 <div class="row">
       <div class="col-12">
           <div class="card ">
-                    <div class="card-header text-center">
-                        <h4 style="padding-top: 20px;"> Type Create </h4>
+                    <div class="card-header text-center jt1">
+                        <h4 style="padding-top: 20px;"> タイプを作成</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -13,7 +13,7 @@
                                 <form @submit.prevent ="add" class="m-t-16">
                                         <div class="form-group row">
                                             <div class="col-sm-3 text-right">
-                                                <label for ="name"  ><strong> Name : <span class="error">*</span></strong>  </label>
+                                                <label for ="name"  ><strong> 名前 : <span class="error">*</span></strong>  </label>
                                             </div>
                                              <div class="col-sm-9">
                                                 <input type="name" class="form-control box" id="name"  name="name" v-model="Type.name"  >
@@ -29,7 +29,7 @@
 
                                         <div class="form-group row">
                                                 <div class="col-sm-3 text-right">
-                                                        <label for ="description" ><strong> Parent :</strong>  </label>
+                                                        <label for ="description" ><strong> ペアレント :</strong>  </label>
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <select v-model="selectedValue" class="form-control" @change='getParent()'>
@@ -44,7 +44,7 @@
                                           <div class="form-group row">
                                                 <router-link class="btn btn-danger all-btn" to="/typelist" > キャンセル </router-link>
                                                 <div class="col-sm-2">
-                                                     <button class="btn news-post-btn">投稿する</button>
+                                                     <button class="btn news-post-btn">作成</button>
                                                 </div>
                                         </div>
                                 </form>
