@@ -21,7 +21,7 @@ class SearchMapController extends Controller
         $fac_types          = DB::table('fac_types')->get();
         $subjects           = DB::table('subjects')->get();
         $medical_acceptance = DB::table('medical_acceptance')->get();
-        $occupations        = DB::table('occupations')->get();
+        $occupations        = DB::table('occupation')->get();
         return response()->json(['getTownships'=>$getTownships,
                                  'getCity'=>$getCity,
                                  'city'=>$city,

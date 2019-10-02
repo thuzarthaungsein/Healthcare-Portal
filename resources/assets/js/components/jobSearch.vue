@@ -863,10 +863,10 @@
                     <select  id="select" class="form-control col-3 custom-select mt-2" v-model="id">
                       <option v-for = "city in cities" :value="city.id" >{{city.city_name}}</option>
                     </select>
-                    <button @click="toggleContent" class="btn btn-link" v-for="city in getCity" >
+                    <button @click="toggleContent4" class="btn btn-link">
                       <i class="fa" aria-hidden="true"></i>
                           <!-- <em>{{city.city_name}}</em> -->
-                          <span id="close"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                          <span id="close5"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
                     </button>
                    
                     <div  class="toBeToggled" id="toBeToggled">
@@ -908,31 +908,31 @@
                   <th>雇用形態</th>
                   <td>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label" :for="subject.id">
+                    <label class="form-check-label">
                     <input class="form-check-input" type="checkbox"> 
                       雇用形態 
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label" :for="subject.id">
+                    <label class="form-check-label" >
                     <input class="form-check-input" type="checkbox"> 
                     正社員(正職員)  
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label" :for="subject.id">
+                    <label class="form-check-label" >
                     <input class="form-check-input" type="checkbox"> 
                     契約社員(職員)
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label" :for="subject.id">
+                    <label class="form-check-label">
                     <input class="form-check-input" type="checkbox"> 
                     非常勤。パート 
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label" :for="subject.id">
+                    <label class="form-check-label">
                     <input class="form-check-input" type="checkbox"> 
                     その他
                     </label>
@@ -940,7 +940,14 @@
 
                   </td>
                 </tr>
-                
+                <tr class="text-center">
+                  <td colspan='2'>
+                    <button @click="ShowHide4" class="btn btn-link">
+                      <i class="fa" aria-hidden="true"></i>
+                          <span id="close4"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
+                    </button>
+                  </td>
+                </tr>
                 <tr class="text-center">
                   <td colspan="2">
                     <input type="button" id="save_value" name="save_value" value="Save" />
@@ -990,30 +997,30 @@ export default {
       }
     },
   methods:{
-    toggleContent() {
+    toggleContent4() {
         this.toggleCheck = !this.toggleCheck;
             if (this.toggleCheck == true) {
-                $('#close').empty();
-                $("#toBeToggled").slideDown();
-                $('#close').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
+                $('#close5').empty();
+                $("#toBeToggled").slideToggle();
+                $('#close5').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
 
             } else {
-                $('#close').empty();
-                $("#toBeToggled").slideUp();
-                $('#close').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+                $('#close5').empty();
+                $("#toBeToggled").slideToggle();
+                $('#close5').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
             }
         },
-        ShowHide() {
+        ShowHide4() {
         this.toggleCheck_1 = !this.toggleCheck_1;
             if (this.toggleCheck_1 == true) {
-                $('#close1').empty();
+                $('#close4').empty();
                 $(".ShowHide").slideDown();
-                $('#close1').append('<i class="fas fa-arrow-circle-up"></i> もっと見る');
+                $('#close4').append('<i class="fas fa-arrow-circle-up"></i> もっと見る');
 
             } else {
-                $('#close1').empty();
+                $('#close4').empty();
                 $(".ShowHide").slideUp();
-                $('#close1').append('<i class="fas fa-arrow-circle-down"></i> close');
+                $('#close4').append('<i class="fas fa-arrow-circle-down"></i> close');
             }
         },
       getStateClick(e){
@@ -1031,7 +1038,7 @@ export default {
           this.occupations = response.data.occupations
           this.id = id
          })
-        }else if(e.target.tagName ==='SELECT'){
+        }else if(e.target.tagName ==='SELECT'|| e.target.tagName ==='OPTION'){
           console.log(e.target.tagName)
           const id = this.id;
           this.axios.post('api/getmap/'+id+'')
