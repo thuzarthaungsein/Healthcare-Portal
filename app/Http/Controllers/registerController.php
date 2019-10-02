@@ -58,7 +58,7 @@ class registerController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $this->validate($request, [
             'img' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|min:3|max:50',
@@ -71,10 +71,11 @@ class registerController extends Controller
             'township'=> 'required',
             ]);
 
-            if($request->type == null){
+            if($request->types == '1'){
                 $type = 1;
             }else{
-                $type = $request->type;
+               
+                $type = $request->nursing;
             }
 
             $destinationPath = public_path('/images');
