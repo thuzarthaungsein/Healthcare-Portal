@@ -39,7 +39,7 @@
           </div>
 
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">ニュース検索</h4>
+            <h4 class="main-color m-b-10">求人検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group row">
@@ -48,7 +48,8 @@
                       type="text"
                       class="form-control"
                       placeholder="検索"
-                      id="search-item"
+                      id="search-item" 
+                      @keyup="searchJobOffer()"
                     />
                   </div>
                   <!-- <div class="col-6 row align-items-baseline">
@@ -70,7 +71,7 @@
               </div>
             </div>
             <hr />
-            <h5 class="header">ニュース一覧</h5>
+            <h5 class="header">ジョブリスト</h5>
             <div class="card card-default m-b-20" v-for="job in jobs" :key="job.id">
               <div class="card-body">
                 <div class="row">
@@ -122,8 +123,10 @@ export default {
     };
   },
   created() {
+ 
     this.axios.get("/api/job/index").then(response => {
-      this.jobs = response.data.jobs;
+      console.log(response);
+      this.jobs = response.data.profilejob;
     });
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)
@@ -138,6 +141,14 @@ export default {
           this.jobs.splice(i, 1);
         });
       }
+    },
+    searchJobOffer() {
+      var search_word = $("#search-item").val();
+       let fd = new FormData();
+      fd.append("search_word", search_word);
+      this.axios.post("/api/job/search", fd).then(response => {
+        this.jobs = response.data;
+      });
     }
   }
 };

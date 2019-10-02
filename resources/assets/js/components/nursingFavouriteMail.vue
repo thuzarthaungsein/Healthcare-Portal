@@ -5,9 +5,9 @@
         <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
                 <li role="presentation" class="subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
-                <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院</a></li>
-                <li role="presentation" class="active subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-user-md"></i> 介護</a></li>
-                <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人</a></li>
+                <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+                <li role="presentation" class="active subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-user-md"></i> 介護検索</a></li>
+                <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
@@ -51,6 +51,7 @@
                                                     <div class="col-md-3 col-sm-12 form-left"><label>お名前 <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
                                                         <input type="text" id="tbname" name="name" class="form-control" placeholder="お名前を入力してください。" v-model="comments.name" @change="aggreBtn" @focusout="focusName"/>
+                                                       <span class="eg-txt float-left">例）探し 太郎</span>
                                                        <span class="error m-l-30" v-if="comment_focus">※入力は必須です。</span>
                                                     </div>
                                                 </div>
@@ -58,6 +59,7 @@
                                                     <div class="col-md-3 col-sm-12 form-left"> <label>ふりがな <span class="error sp1">必須</span></label></div>
                                                     <div class="col-md-9 col-sm-12 form-right">
                                                         <input type="text" id="furigana" name="furigana" class="form-control" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="aggreBtn" @focusout="focusFuri"/>
+                                                        <span class="eg-txt float-left"> 例）さがし たろう</span>
                                                         <span class="error m-l-30" v-if="furigana_focus">※入力は必須です。</span>
                                                     </div>
                                                 </div>
@@ -383,7 +385,7 @@
                                                     <div class="form-group m-0 row bd-all">
                                                         <div class="col-md-3 col-sm-12 form-left"><label>ご要望や、お困りごと、その他お問い合わせ</label></div>
                                                         <div class="col-md-9 col-sm-12 form-right pl-4">                                           
-                                                            <textarea name="hope" id="hope" cols="40" rows="50"  v-model="comments.hope" ></textarea>
+                                                            <textarea name="hope" id="hope" class="mail-txt"   v-model="comments.hope" ></textarea>
                                                         </div>
                                                     </div>
                                                     <!-- <div class="col-md-6">

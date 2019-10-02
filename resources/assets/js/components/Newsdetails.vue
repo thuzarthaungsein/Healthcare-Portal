@@ -10,17 +10,17 @@
       </li>
       <li role="presentation" class="subtab2 nav-item">
         <a href="#tab2" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-briefcase-medical"></i> 病院
+          <i class="fas fa-briefcase-medical"></i> 病院検索
         </a>
       </li>
       <li role="presentation" class="subtab3 nav-item">
         <a href="#tab3" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-user-md"></i> 介護
+          <i class="fas fa-user-md"></i> 介護検索
         </a>
       </li>
       <li role="presentation" class="subtab5 nav-item">
         <a href="#tab4" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-users"></i> 求人
+          <i class="fas fa-users"></i> 求人検索
         </a>
       </li>
     </ul>
@@ -90,16 +90,15 @@
                   <div class="float-left mr-4" style="max-width:500px;">
                     <div
                       class="img-wrap mb-2"
-                      style="width:100%;background:#f5f5f5;text-align: center;padding: 30px;">
-                    <img
-                      :src="'/upload/news/'+ newdetails.photo"
-                      class="img-responsive img_2"
-                      style="max-width:100%;"
-                    />
+                      style="width:100%;background:#f5f5f5;text-align: center;padding: 30px;"
+                    >
+                      <img
+                        :src="'/upload/news/'+ newdetails.photo"
+                        class="img-responsive img_2"
+                        style="max-width:100%;"
+                      />
                     </div>
-                    <p class="img_2 mb-1">
-                      {{newdetails.main_point}}                     
-                    </p>
+                    <p class="img_2 mb-1">{{newdetails.main_point}}</p>
                   </div>
                   <div>
                     <p class="p5 mb-2">{{newdetails.body}}</p>
@@ -166,8 +165,7 @@
       </div>
       <div role="tabpanel" class="tab-pane fade" id="tab3">
         <nursingSearch></nursingSearch>
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
+      </div>     
       <div role="tabpanel" class="tab-pane fade" id="tab4">
         <jobSearch></jobSearch>
       </div>

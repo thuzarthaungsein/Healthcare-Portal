@@ -42,9 +42,7 @@
                                         </div>
 
                                           <div class="form-group row">
-                                                <div class="col-sm-10">
-
-                                                </div>
+                                                <router-link class="btn btn-danger all-btn" to="/typelist" > キャンセル </router-link>
                                                 <div class="col-sm-2">
                                                      <button class="btn news-post-btn">作成</button>
                                                 </div>

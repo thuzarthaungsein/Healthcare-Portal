@@ -4,9 +4,9 @@
         <!--menu tabs-->
         <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
                 <li role="presentation" class="subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
-                <li role="presentation" class="active subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-briefcase-medical"></i> 病院</a></li>
-                <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護</a></li>
-                <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人</a></li>
+                <li role="presentation" class="active subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+                <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
+                <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
         <!--end menu tabs-->
 

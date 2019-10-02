@@ -1144,9 +1144,21 @@ span:hover::before {
 <script>
 import asidebar from "./aside.vue";
 export default {
-  components: {
-    asidebar
-  }
-};
+  components: {    
+     asidebar
+    },
+    methods:{
+      getStateClick(e){
+        if(e.target.tagName==='path'){
+          alert(e)
+        }
+      },
+      getStateHover(e){
+        if(e.target.tagName==='path'){
+          console.log(e)
+        }
+      }
+    }
+}
 </script>
 

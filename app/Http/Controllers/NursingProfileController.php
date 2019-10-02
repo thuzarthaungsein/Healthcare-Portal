@@ -30,17 +30,19 @@ class NursingProfileController extends Controller
         return response()->json($nursing);
     }
 
-    public function galleryupdate($id,Request $request) {
+    public function movePhoto(Request $request) {
         $request = $request->all();
 
-        // $gallery = Gallery::where('customer_id', $id)
-        //                 ->delete();
+        $destination = 'upload/nursing_profile/'.$request['photo'];
+        $upload_img = move_uploaded_file($request['file'], $destination);
+    }
+
+    public function galleryupdate($id,Request $request) {
+        $request = $request->all();
+        $gallery = Gallery::where('customer_id', $id)
+                        ->delete();
+       
         for($i=0; $i<count($request); $i++) {
-            // if(is_object($request[0]['photo'])) {
-            //     echo 'Yes';
-            // }else {
-            //     echo 'No';
-            // }exit;
             $data = array(
                 'customer_id' => $id,
                 'type' => $request[$i]['type'],
@@ -88,7 +90,6 @@ class NursingProfileController extends Controller
                 'monthly_fees'=>$request[$i]['monthly_fees'],
                 'living_room_type'=>$request[$i]['living_room_type'],
                 'area'=>$request[$i]['area'],
-                'details'=>$request[$i]['details'],
                 'deposit'=>$request[$i]['deposit'],
                 'other_use'=>$request[$i]['other_use'],
                 'rent'=>$request[$i]['rent'],
@@ -113,6 +114,8 @@ class NursingProfileController extends Controller
         $uploadData = array(
             'access' => $request[0]['access'],
             'business_entity' => $request[0]['business_entity'],
+            'website' => $request[0]['website'],
+            'method' => $request[0]['method'],
             'date_of_establishment' =>  $request[0]['date_of_establishment'],
             'land_right_form'=>  $request[0]['land_right_form'],
             'building_right_form'=>  $request[0]['building_right_form'],
@@ -176,10 +179,10 @@ class NursingProfileController extends Controller
             if($request[$i] != '') {
                 $uploadData = array(
                     'customer_id' => $id,
-                    'acceptance_id' =>  $i,
-                    'status'=>  $request[$i]
+                    'medical_acceptance_id' =>  $i,
+                    'accept_type'=>  $request[$i]
                );
-               DB::table('transition')->insert($uploadData);
+               DB::table('acceptance_transactions')->insert($uploadData);
             } 
         }
 

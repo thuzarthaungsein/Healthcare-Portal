@@ -409,6 +409,17 @@ export default {
                            var file = img[i].getElementsByClassName('hospital-photo')[0].files[0];
                          if(file) {
                                 var file_name = file.name;
+                                let fd = new FormData();
+                                        fd.append('file' ,file )
+                                        fd.append('photo' ,file_name )
+                                        this.axios.post('/api/hospital/movephoto', fd)
+                                                .then(response => {
+                                                }).catch(error=>{
+                                                        console.log(error);
+                                                if(error.response.status == 422){
+                                                        this.errors = error.response.data.errors
+                                                }
+                                        })
                         } else {
                                 var file_name = img[i].getElementsByClassName('already-photo')[0].value;
                         }
