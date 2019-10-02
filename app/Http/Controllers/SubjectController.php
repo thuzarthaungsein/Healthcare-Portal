@@ -11,7 +11,20 @@ class SubjectController extends Controller
     public function index()
     {
         $Subjects = Subject::all()->toArray();
-        return $Subjects;
+    
+        for($i=0;$i<count($Subjects);$i++)
+        {
+            if($Subjects[$i]['parent'] != 0)   
+            {
+               $Subjects[$i]['parent']  = Subject::where('id',$Subjects[$i]['parent'])->select('name')->value('name');  
+            }
+            else{
+                $Subjects[$i]['parent'] = "None";
+            }           
+         
+        }
+      
+        return response()->json($Subjects);
       
     }
 

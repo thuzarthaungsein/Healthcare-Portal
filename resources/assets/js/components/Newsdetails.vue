@@ -4,23 +4,23 @@
     <!--menu tabs-->
     <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
       <li role="presentation" class="active subtab1 nav-item">
-        <a href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
-          <i class="fas fa-newspaper"></i> ニュース
+        <a @click="changeRoute" href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
+          <i @click="changeRoute" class="fas fa-newspaper"></i> ニュース
         </a>
       </li>
       <li role="presentation" class="subtab2 nav-item">
-        <a href="#tab2" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-briefcase-medical"></i> 病院
+        <a @click="changeRoute" href="#tab2" role="tab" data-toggle="tab" class="nav-link">
+          <i class="fas fa-briefcase-medical"></i> 病院検索
         </a>
       </li>
       <li role="presentation" class="subtab3 nav-item">
-        <a href="#tab3" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-user-md"></i> 介護
+        <a @click="changeRoute" href="#tab3" role="tab" data-toggle="tab" class="nav-link">
+          <i class="fas fa-user-md"></i> 介護検索
         </a>
       </li>
       <li role="presentation" class="subtab5 nav-item">
-        <a href="#tab4" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-users"></i> 求人
+        <a @click="changeRoute" href="#tab4" role="tab" data-toggle="tab" class="nav-link">
+          <i class="fas fa-users"></i> 求人検索
         </a>
       </li>
     </ul>
@@ -225,7 +225,11 @@ export default {
         this.latest_post_all_cats = response.data.related_news;
         this.latest_news = response.data.latest_news;
       });
-    }
+    },
+    changeRoute(e){
+        // console.log(e.target.hash);
+        this.$router.push({name:'home',params:{page:e.target.hash}});
+    },
   }
 };
 </script>

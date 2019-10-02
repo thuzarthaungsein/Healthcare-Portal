@@ -31,14 +31,14 @@ class SpecialFeatureController extends Controller
         if($profile_type == 'hospital') {
             $profile_feature = HospitalProfile::where('customer_id','=',$customer_id)->value('special_features');
         }
-        
-        $feature = explode(',',$profile_feature); 
-      
+
+        $feature = explode(',',$profile_feature);
+
         for($indx=0; $indx<count($feature); $indx++) {
             for($sec_indx = 0; $sec_indx<count($cooperate_list); $sec_indx++) {
                 if($feature[$indx] == $cooperate_list[$sec_indx]['id']) {
                     $cooperate_list[$sec_indx]['checked'] = "checked";
-                } 
+                }
             }
         }
 
@@ -49,10 +49,11 @@ class SpecialFeatureController extends Controller
     {
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:special_features',
             'short_name'=>'required',
             'type.required' => '選択してください。',
-
+        ],[
+            'name.required' => 'ニュースの題名が必須です。',
         ]);
 
         $feature = new special_feature;
@@ -64,6 +65,7 @@ class SpecialFeatureController extends Controller
         $feature ->save();
         return $feature;
     }
+
 
 
     public function show($id)
@@ -101,5 +103,19 @@ class SpecialFeatureController extends Controller
         $feature = special_feature::find($id);
         $feature->delete();
         return response()->json('The Feature successfully deleted');
+    }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+
+        $special_feature = special_feature::query()
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->orwhere('short_name', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
+                            ->get()
+                            ->toArray();
+        return $special_feature;
     }
 }

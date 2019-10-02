@@ -11,17 +11,25 @@ class JobController extends Controller
 
     public function index()
     {
-   
         $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
                      ->join('jobs','jobs.customer_id','=','customers.id')->get();
-       
+
         $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
                            ->join('jobs','jobs.customer_id','=','customers.id')
-                           ->where('jobs.customer_id','=',1)->get();
+                           ->where('jobs.customer_id','=',auth()->user()->customer_id)->get();
         return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
-       
-    }
 
+    }
+    public function getJob($id)
+    {
+        $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
+                     ->join('jobs','jobs.customer_id','=','customers.id')->get();
+
+        $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
+                           ->join('jobs','jobs.customer_id','=','customers.id')
+                           ->where('jobs.customer_id','=',$id)->get();
+        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
+    }
 
     public function create()
     {

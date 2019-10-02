@@ -3,7 +3,7 @@
       <div class="col-12">
             <nav aria-label="breadcrumb">
                      <ol class="breadcrumb" v-if="this.profile == profile">
-                            <h2> Job Offer </h2>
+                            <h2> 求人応募 </h2>
                      </ol>
                     <ol class="breadcrumb" v-else>
                             <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
@@ -55,17 +55,9 @@ export default {
             }
         },
         created() {
-               if(this.profile == "profile")
-               {
-                        this.axios .get('/api/job/index') .then(response => {
+               this.axios .get('/api/job/getjob/1') .then(response => {
                         this.jobs = response.data.profilejob;
-                        });
-               }
-               else{
-                        this.axios .get('/api/job/index') .then(response => {
-                        this.jobs = response.data.jobs;
-                        });
-               }
+                });
            
         },
         props:{

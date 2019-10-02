@@ -1,18 +1,16 @@
 <template>
-        <div class="col-md-12 pad-free m-t-15 m-b-20">
-          <h4>Search Your Place Here</h4>
+        <div class="col-md-12 pad-free m-b-10">
+          <label>場所検索はこちら</label>
               <div class="col-md-12 pad-free">
                 <gmap-autocomplete
-                  @place_changed="setPlace" class="form-control">
+                  @place_changed="setPlace" class="form-control m-b-10">
                 </gmap-autocomplete>
                 <!-- <span @click="addMarker">Add</span> -->
-              </div>
-              <br/>
+              </div>              
               <div class="col-md-12 pad-free" v-if="address_btn">
                 <label>住所:</label>
                 {{comment.gmap_city}}
-              </div>
-              <br/>
+              </div>           
           <GmapMap
             id="googlemap"
             ref="map"
@@ -29,17 +27,16 @@
               @dragend="updateCoordinates"
             />
           </GmapMap>
-          <div class="form-group">
+          <div class="form-group m-t-10">
             <label>郵便番号<span class="error">*</span></label>
-            <input type="text" v-model="comment.postal" name="postal" class="postal form-control" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7"/>
+            <input type="text" v-model="comment.postal" name="postal" class="postal form-control white-bg-color" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7"/>
             <div id="jsErrorMessage"></div>
           </div>
           <div class="form-group">
             <label>市区町村、番地（建物名）<span class="error">*</span></label>
             <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="comment.city">
-            <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>
-            <br/>
-            <button type="button" class="submit2 btn btn-primary m-t-0 m-l-10" @click="searchAddress()">同意して進む</button>
+            <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>           
+            <button type="button" class="btn news-post-btn all-btn m-t-15" @click="searchAddress()">同意して進む</button>
           </div>
           <input type="hidden" name="new_lat" v-model="new_lat" id="new_lat">
           <input type="hidden" name="new_long" v-model="new_long" id="new_long">
