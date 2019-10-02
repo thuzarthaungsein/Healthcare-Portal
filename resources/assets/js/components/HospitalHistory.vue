@@ -124,7 +124,7 @@
                 </div>
                 <div class="col-lg-3 col-md-12">
                   <ul class="fac_container">
-                    <li v-for="feature in hos_profile.special_features" :key="feature.id">{{ feature }}</li>
+                    <li v-for="feature in hos_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
                   </ul>
                 </div>
                 <!-- <div class="card-body news-post">
@@ -235,6 +235,7 @@ import jobSearch from './jobSearch.vue'
   data() {
     return {
       hos_profiles: [],
+      specialfeature:[],
       local_sto: ""
     };
   },

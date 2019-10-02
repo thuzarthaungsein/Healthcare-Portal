@@ -124,7 +124,7 @@
                       </div>
                       <div class="col-lg-3 col-md-12">
                         <ul class="fac_container">
-                          <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature }}</li>
+                          <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
                         </ul>
                       </div>
                     </div>
@@ -153,12 +153,18 @@ export default {
   data() {
     return {
       nur_profiles: [],
-      local_sto: ""
+      local_sto: "",
+      type : 'nursing',
+      specialfeature:[]
     };
   },
   created() {
     this.local_sto = localStorage.getItem("nursing_history");
     this.getAllCustomer(this.local_sto);
+
+    this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
+    this.specialfeature = response.data;
+                });
   },
   methods: {
     changeRoute(){

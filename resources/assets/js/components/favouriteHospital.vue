@@ -105,7 +105,7 @@
                                             </div>
                                             <div class="col-lg-3 col-md-12">
                                                  <ul class="fac_container">
-                                                    <li v-for="special in specialfeature" :key="special.id">{{special.short_name}}</li>
+                                                    <li v-for="feature in hos_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -164,9 +164,9 @@ import jobSearch from './jobSearch.vue'
                     .then(response => {
                         this.city_list = response.data;
                     });
-                this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
-                    this.specialfeature = response.data;
-                });
+                // this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
+                //     this.specialfeature = response.data;
+                // });
             },
             methods: {
                 changeRoute(){

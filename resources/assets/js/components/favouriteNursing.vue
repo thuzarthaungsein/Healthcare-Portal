@@ -137,7 +137,8 @@
                                             </div>
                                             <div class="col-lg-3 col-md-12">
                                                 <ul class="fac_container">
-                                                    <li v-for="special in specialfeature" :key="special.id">{{special.short_name}}</li>
+                                                     <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                                    <!-- <li v-for="special in specialfeature" :key="special.id">{{special.short_name}}</li> -->
                                                 </ul>
                                             </div>
                                         </div>
@@ -194,9 +195,9 @@ import jobSearch from './jobSearch.vue'
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
                     
-                this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
-                    this.specialfeature = response.data;
-                });
+                // this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
+                //     this.specialfeature = response.data;
+                // });
             },
             methods: {
                 changeRoute(){
@@ -231,6 +232,7 @@ import jobSearch from './jobSearch.vue'
                                 var j = this.fav_nursing[i].id;
                                 this.reserv_status[j] = true;
                             }
+                            console.log('fav',this.fav_nursing)
                         });
                 },
                 addingMail() {
