@@ -18,7 +18,7 @@ class SubjectController extends Controller
     public function Subjectlist()
     {
 
-        $Subjectlist = Subject::select('id','name')->get()->toArray();
+        $Subjectlist = Subject::select('id','name')->where('parent',0)->get()->toArray();
       
         return $Subjectlist;
     }
@@ -43,7 +43,7 @@ class SubjectController extends Controller
 
         
         $request->validate([
-            'name' => 'required|unique:subject',
+            'name' => 'required',
         ]);
 
         if( $request->parent != null)

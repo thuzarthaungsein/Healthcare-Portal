@@ -41,8 +41,7 @@
               <div
                 v-if="!this.features.length"
                 class="container-fuid"
-                style="padding-top:30px; height:700px; text-align:center "
-              >No Record Data</div>
+                style="padding-top:30px; height:700px; text-align:center ">No Record Data</div>
               <div v-else class="container-fuid">
                 <table class="table table-hover custom-table">
                   <thead style="background-color:rgb(183, 218, 210);">

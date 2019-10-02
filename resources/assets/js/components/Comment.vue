@@ -78,6 +78,13 @@
                                                     </select>
                                              </div>    
                                         </div> 
+                                          <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                     <span v-if="errors.year" class="error">{{errors.year[0]}}</span>
+                                                </div>
+                                         </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-3 text-right">
@@ -95,11 +102,11 @@
                                                 <label for ="zipcode"  ><strong> 郵便番号(半角数字) <span class="error sp1">必須</span></strong>   </label>
                                             </div>
                                              <div class="col-sm-2">
-                                                 <input type="text" class="form-control box fnumericzip" value="firstzip" v-model="field.fzipcode" maxlength="3" v-on:keyup="CheckFirstZipcode" required>
+                                                 <input type="text" class="form-control box fnumericzip" value="firstzip" v-model="field.fzipcode" maxlength="3" v-on:keyup="CheckFirstZipcode" >
                                               <span v-if="errors.fzipcode" class="error">{{errors.fzipcode[0]}}</span>
                                              </div>   
                                                <div class="col-sm-2">
-                                                 <input type="text" class="form-control box lnumericzip" value="secondzip" v-model="field.lzipcode" maxlength="4" v-on:keyup="CheckFirstZipcode" required>      
+                                                 <input type="text" class="form-control box lnumericzip" value="secondzip" v-model="field.lzipcode" maxlength="4" v-on:keyup="CheckFirstZipcode" >      
                                                   <span v-if="errors.lzipcode" class="error">{{errors.lzipcode[0]}}</span>
                                              </div>   
                                         </div> 
