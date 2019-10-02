@@ -63,12 +63,12 @@ export default {
               if(this.$route.params.id){
               //  alert('title');
                 //  this.title = this.title.toUpperCase();
-              
+
                   this.axios
                     .get(`/api/feature/edit/${this.$route.params.id}`)
                     .then((response) => {
 
-                    this.feature = response.data;                    
+                    this.feature = response.data;
                     if(this.feature.type == 'hospital')
                     {
                         this.selectedValue = 'hospital';

@@ -46,16 +46,16 @@
             </div>
             <div class="row ele m-lr-0" id="element3">
                 <h5 class="header col-md-12">Cost</h5>
-                    <table class="table table-striped table-bordered">
-                        <tr>
-                            <th>
-                                <font>method of payment</font>
-                            </th>
-                            <td>
-                                <font>method of payment test</font> <!-- method field in nursing_profile -->
-                            </td>
-                        </tr>
-                    </table>
+                    <table class="table table-striped table-bordered" v-for="nusmethod in nus_method" :key="nusmethod.id">
+                            <tr>
+                                <th width="30%">
+                                    <font>method of payment</font>
+                                </th>
+                                <td width="50%">
+                                    <font>{{nusmethod.method}}</font>
+                                </td>
+                            </tr>
+                        </table>
                     <div v-if="method_payment.length > 0" class="col-md-12 pad-free">
                         <div class="cost_tb" v-for="cost in method_payment" :key="cost.id">
                             <div class="row">
@@ -143,7 +143,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>                         
+                            </div>
 
                         </div>
                     </div>
@@ -332,20 +332,19 @@
             <div class="row ele m-lr-0" id="element6">
                <h5 class="header">Review</h5>
               <div class="row" v-for="comment in comments" :key="comment.id">
-                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
+                    <div class="col-md-12">タイトル:{{comment.title}}</div><br/>
                                      <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
-                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                    <div class="col-md-6">電子メールアドレス:{{comment.email}}</div>
+                    <div class="col-md-6">年月日投稿:{{comment.year}}</div>
                         <br/><br/>
                                       <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
                                          <div class="content hideContent">{{comment.comment}}</div>
                                      </div> -->
                                      <!-- <button onclick="function()">See more</button> -->
 
-                    <div class="row col-md-12 m-lr-0">
-                        <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
+                    <div class="row col-md-6 m-lr-0">
+                        <read-more more-str="read more"  :text="comment.comment" :max-chars="20"></read-more>
                     </div>
-
                 </div>
             </div>
 
@@ -384,15 +383,39 @@
                         <li>{{special.short_name}}</li>
                     </ul>
                 </div>
+                <h5 class="header">Information for clinic</h5>
+                    <div class="row m-lr-0">
+                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                            <li >{{hospital.details_info}}</li>
+                        </ul>
+                </div>
+                <h5 class="header">Clinic Subject</h5>
+                    <div class="row m-lr-0">
+                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                            <li >{{hospital.subject}}</li>
+                        </ul>
+                    </div>
+                <h5 class="header">Consultation hours</h5>
+                    <div class="row m-lr-0">
+                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                            <li >{{hospital.closed_day}}</li>
+                        </ul>
+                    </div>
+                <h5 class="header">Facility</h5>
+                    <div class="row m-lr-0">
+                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
+                            <li >{{hospital.facilities}}</li>
+                        </ul>
+                    </div>
             </div>
             <div class="row ele m-lr-0" id="element2">
 
                 <h5 class="header">Review</h5>
               <div class="row" v-for="comment in comments" :key="comment.id">
-                    <div class="col-md-12" style="font-size:20px;">タイトル:{{comment.title}}</div><br/>
+                    <div class="col-md-12">タイトル:{{comment.title}}</div><br/>
                                      <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                    <div class="col-md-5" style="font-size:20px;">電子メールアドレス:{{comment.email}}</div>
-                    <div class="col-md-3" style="font-size:20px;">年月日投稿:{{comment.year}}</div>
+                    <div class="col-md-5">電子メールアドレス:{{comment.email}}</div>
+                    <div class="col-md-3">年月日投稿:{{comment.year}}</div>
                         <br/><br/>
                         <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
                             <div class="content hideContent">{{comment.comment}}</div>
@@ -404,7 +427,7 @@
                                 <a class="mt-2 readMore" @click="review(comment.id)" href ="#">ReadMore</a>
 
                     </div> -->
-                     <div class="row col-md-12 m-lr-0">
+                     <div class="row col-md-6 m-lr-0">
                         <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
                     </div>
                 </div>
@@ -415,7 +438,7 @@
                             <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
                            </GmapMap>
 
-                        <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                        <div  class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
                             <div class="col-md-2 text-left ">
                                 Official Site  :
                             </div>
@@ -475,17 +498,19 @@
                 customer:[],
                 specialfeature:[],
                 nusfacilities:[],
+                nus_method:[],
                 cooperate_medical:[],
                 medical_acceptance:[],
                 medical:[],
                 staff:[],
+                hospitals:[],
                 nursing_profiles:[],
                 method_payment:[],
                 comments:[],
                 activeImage: 0,
                 index: 0,
                 pageNum: 0,
-                // type : 'nursing',
+                type : 'hospital',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -523,10 +548,10 @@
                 ],
             };
         },
-        
+
         props:{
                 cusid:Number,
-                type:String                
+                type:String
         },
 
         created(){
@@ -535,6 +560,7 @@
             {
                 this.axios.get('/api/profile/nursing') .then(response => {
                     this.nursing_profiles = response.data.feature;
+                    this.nus_method= response.data.method;
                     this.method_payment = response.data.cost;
                     this.nusfacilities = response.data.facility;
                     this.cooperate_medical = response.data.comedical;
@@ -581,6 +607,7 @@
                       this.customer = response.data;
                 });
                 this.axios.get('/api/profile/hospital').then(response => {
+                    this.hospitals = response.data.hospital;
                     this.google = response.data.hoslatlong;
                     this.markers[0]['position']['lat']  = response.data.hoslatlong[0]['latitude'];
                     this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
@@ -675,7 +702,7 @@
     border-left: 6px solid #b7dad2;
     padding-left: 10px;
     margin-bottom: 10px;
-    font-size: 1.286em;
+    font-size:14px;
     line-height: 1.3;
     margin-top: 30px;
     padding-top: 2px;
