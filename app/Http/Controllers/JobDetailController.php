@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use DB;
 use Illuminate\Http\Request;
 class JobDetailController extends Controller
 {
@@ -46,8 +47,27 @@ class JobDetailController extends Controller
      */
     public function show($id)
     {
-        
-        return Job::findOrFail($id);
+        $query = "SELECT jobs.* ,customers.type_id FROM `jobs`
+                    JOIN customers ON jobs.customer_id = customers.id
+                    WHERE jobs.id = $id";
+        $selectedJob = DB::select($query);
+        foreach($selectedJob as $job) {
+            $cId = $job->customer_id;
+            $job->customer_id = 100000 + $cId;
+            $jId = $job->id;
+            $numlength = strlen((string)$jId);
+            if($numlength == 4){
+                 $jId = (string)$jId;
+            }else if($numlength == 3){
+                $jId = '0'.(string)$jId;
+            }else if($numlength == 2){
+                $jId = '00'.(string)$jId;
+            }else{
+                $jId = '000'.(string)$jId;
+            }
+            $job->id = $job->customer_id .'-'. $jId;
+        }
+        return $selectedJob;
     }
 
     /**
