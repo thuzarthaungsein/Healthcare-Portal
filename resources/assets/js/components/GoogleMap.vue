@@ -39,7 +39,7 @@
             <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="comment.city">
             <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>
             <br/>
-            <button type="button" class="submit2 btn btn-primary m-t-0 m-l-10" @click="searchAddress()">同意して進む</button>
+            <button type="button" class="btn news-post-btn all-btn m-t-15" @click="searchAddress()">同意して進む</button>
           </div>
           <input type="hidden" name="new_lat" v-model="new_lat" id="new_lat">
           <input type="hidden" name="new_long" v-model="new_long" id="new_long">

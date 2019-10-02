@@ -549,6 +549,11 @@
             };
         },
 
+        props:{
+                cusid:Number,
+                type:String
+        },
+
         created(){
 
             if(this.type == "nursing")

@@ -34,14 +34,8 @@ Route::group(['middleware' => ['auth']], function() {
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::group(['prefix' => 'profile'], function () {
-    Route::get('approve/{id}','registerController@approve');
-    Route::get('nursing','ProfilePublishController@index');
-    Route::get('hospital','ProfilePublishController@index');
-    Route::get('specialfeature/{type}','ProfilePublishController@getSpecialfeature');
-    Route::get('comment','ProfilePublishController@getComment');
-    Route::get('customer','ProfilePublishController@getCustomer');
-
-});
+        Route::get('approve/{id}','registerController@approve');
+    });
 
     // Category
     Route::group(['prefix' => 'category'], function () {
@@ -61,6 +55,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'TypeController@edit');
         Route::post('update/{id}', 'TypeController@update');
         Route::delete('delete/{id}', 'TypeController@destroy');
+        Route::post('search', 'TypeController@search');
     });
     // End Type
 
@@ -71,6 +66,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'JobController@edit');
         Route::post('update/{id}', 'JobController@update');
         Route::delete('delete/{id}', 'JobController@destroy');
+        Route::post('search', 'JobController@search');
     });
     // End Job
 
@@ -134,11 +130,25 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('nursing-feature/{type}', 'SpecialFeatureController@getFeaturebyProfileType');
         Route::post('update/{id}', 'SpecialFeatureController@update');
         Route::delete('delete/{id}','SpecialFeatureController@destroy');
+        Route::post('search','SpecialFeatureController@search');
     });
     //End SpecialFeature
 
 });
 // login route api end
+
+Route::group(['prefix' => 'profile'], function () {
+    Route::get('nursing','ProfilePublishController@index');
+    Route::get('hospital','ProfilePublishController@index');
+    Route::get('specialfeature/{type}','ProfilePublishController@getSpecialfeature');
+    Route::get('comment','ProfilePublishController@getComment');
+    Route::get('customer','ProfilePublishController@getCustomer');
+});
+
+Route::group(['prefix' => 'job'], function () {
+    Route::get('getjob/{id}', 'JobController@getJob');
+    Route::post('search', 'JobController@search');
+});
 
 Route::group(['prefix' => 'category'], function () {
     Route::get('category_list','CategoryController@list');
@@ -176,6 +186,8 @@ Route::get('hospital-vgallery/{id}','GalleryController@getVideobyCustomerId');
 
 Route::get('nursing-pgallery/{id}','GalleryController@getPhotobyCustomerId');
 Route::get('nursing-vgallery/{id}','GalleryController@getVideobyCustomerId');
+Route::post('nursing/movephoto','NursingProfileController@movePhoto');
+Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
 
 Route::get('nursing-cooperate/{id}','CooperateMedicalController@getCooperateByCustomerId');
 Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerId');
@@ -236,11 +248,6 @@ Route::group(['prefix' => 'hospital'], function () {
     Route::get('favourite_list', 'HospitalProfileController@index');
     Route::delete('delete/{id}', 'HospitalProfileController@destroy');
 });
- Route::group(['prefix' => 'hospital'], function () {
-        Route::get('postList', 'HospitalProfileController@getPostalList');
-        Route::get('citiesList', 'HospitalProfileController@getCitiesName');
-        Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
-    });
 
 Route::group(['prefix' => 'comments'], function () {
     Route::post('add', 'CommentController@store');

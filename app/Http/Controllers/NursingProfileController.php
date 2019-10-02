@@ -30,17 +30,19 @@ class NursingProfileController extends Controller
         return response()->json($nursing);
     }
 
-    public function galleryupdate($id,Request $request) {
+    public function movePhoto(Request $request) {
         $request = $request->all();
 
-        // $gallery = Gallery::where('customer_id', $id)
-        //                 ->delete();
+        $destination = 'upload/nursing_profile/'.$request['photo'];
+        $upload_img = move_uploaded_file($request['file'], $destination);
+    }
+
+    public function galleryupdate($id,Request $request) {
+        $request = $request->all();
+        $gallery = Gallery::where('customer_id', $id)
+                        ->delete();
+       
         for($i=0; $i<count($request); $i++) {
-            // if(is_object($request[0]['photo'])) {
-            //     echo 'Yes';
-            // }else {
-            //     echo 'No';
-            // }exit;
             $data = array(
                 'customer_id' => $id,
                 'type' => $request[$i]['type'],
