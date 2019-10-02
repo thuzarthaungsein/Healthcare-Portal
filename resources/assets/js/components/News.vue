@@ -1,5 +1,6 @@
 <template>
         <div class="m-lr-0 justify-content-md-center">
+                <div v-if="status=='0'">
                 <div class="row">
                         <div class="col-12">
                                 <div class="col-12">
@@ -167,9 +168,14 @@
                                 </div>  
                         </div>-->
                 </div>
+                </div>
+                <div v-if="status=='1'">  
+                        <NewsSearchListComponent></NewsSearchListComponent>
+                </div>
                 
         </div>
 </template>
+
 <style scoped>
 div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #fff !important;
@@ -197,12 +203,14 @@ import hospitalSearch from './hospitalSearch.vue'
 import nursingSearch from './nursingSearch.vue'
 import jobSearch from './jobSearch.vue'
 import asidebar from './aside.vue'
+import NewsSearchListComponent from './NewsSearchListComponent.vue'
 
 export default {
     components: {
      News,
      hospitalSearch,
      nursingSearch,
+     NewsSearchListComponent,
      jobSearch,
      asidebar
     },
@@ -228,6 +236,7 @@ export default {
                 tmp_post_id:[],
                 id_arr:[],
                 post_groups : [],
+                status:'0',
                
                 
             }
@@ -335,28 +344,30 @@ export default {
                 },
 
                 searchCategory() {
-                        $('ul#myTab li a').removeClass('active');
-                        $('ul#myTab li:first-child a').addClass('active');
+                        this.status = 1;
+                        // $('ul#myTab li a').removeClass('active');
+                        // $('ul#myTab li:first-child a').addClass('active');
 
-                        var search_word = $('#search-word').val();
-                        var categoryId = '1';
+                        // var search_word = $('#search-word').val();
+                        // var categoryId = '1';
 
-                        let fd = new FormData();
-                                fd.append('search_word', search_word)
-                                fd.append('selected_category', categoryId)
+                        // let fd = new FormData();
+                        //         fd.append('search_word', search_word)
+                        //         fd.append('selected_category', categoryId)
 
-                        this.axios.post('/api/search', fd)
-                                .then(response => {
-                                        if(response.data.length == '0') {
-                                                this.posts = [];
-                                                this.latest_post = [];
+                        // this.axios.post('/api/search', fd)
+                        //         .then(response => {
+                        //                 if(response.data.length == '0') {
+                        //                         this.posts = [];
+                        //                         this.latest_post = [];
 
-                                        } else {
-                                                this.posts = response.data;
-                                                this.latest_post = this.posts[0];
-                                        }
-                        });
+                        //                 } else {
+                        //                         this.posts = response.data;
+                        //                         this.latest_post = this.posts[0];
+                        //                 }
+                        // });
                 },
+
                 imgUrlAlt(event) {
                         event.target.src = "images/noimage.jpg"
                 }
