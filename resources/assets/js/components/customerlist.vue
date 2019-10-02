@@ -80,8 +80,9 @@
                     <div class="col-4 col-offset-4 pl-3">
                       <button class="btn delete-borderbtn" @click="deleteCustomer(customer.id)">削除</button>
                       <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
-                      <button class="btn confirm-borderbtn" v-if="customer.status != 0">確認済</button>
-                      <button class="btn confirm-borderbtn" v-else @click="comfirm(customer.id)">確認</button>
+                      <button class="btn confirm-borderbtn"  @click="comfirm(customer.id)">確認済</button>
+                      <!-- <button class="btn confirm-borderbtn" v-else @click="comfirm(customer.id)">確認</button> -->
+                      <!-- v-if="customer.status != 0" -->
                     </div>
                   </div>
                 </div>
@@ -104,6 +105,9 @@ export default {
   created() {
     this.axios.get("/api/customers").then(response => {
       this.customers = response.data;
+    });
+    this.axios.get("/api/user").then(response => {
+    //console.log(response)
     });
   },
   methods: {
@@ -133,6 +137,7 @@ export default {
     },
     comfirm(id) {
       this.axios.get(`/api/confirm/${id}`).then(response => {
+        console.log(response)
         flash("Successfully Send Mail.", "success");
       });
     },
