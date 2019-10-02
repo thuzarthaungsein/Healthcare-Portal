@@ -96,7 +96,7 @@ export default {
         },
        data() {
                 return {
-                        type: '',
+                        type: 'nursing',
                         btntype: 'view',
                 }
         },

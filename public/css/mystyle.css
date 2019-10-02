@@ -104,7 +104,8 @@ body {
 
 .heading-lbl {
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.15em;
+    
 }
 
 .typelabel {
@@ -132,6 +133,19 @@ body {
 
 .form-class {
     padding: 15px;
+}
+.form-class .form-group > input.form-control{
+    display: inline-block !important;
+    background: #fff !important;
+}
+.form-class .form-group-wrapper{
+    background: #fbfbfb;
+    padding: 15px 10px;
+    border: 1px solid #dee2e6;
+}
+.toggle-div > input.form-control
+{
+    background: #fff !important;
 }
 
 .hor-line {
@@ -176,7 +190,7 @@ body {
 }
 
 .toggle-div {
-    display: none;
+    display: block;
     /* margin-top: 15px; */
 }
 
@@ -192,15 +206,21 @@ body {
     padding-top: 20px !important;
 } */
 
-#gallery,
+/* #gallery,
 #gallery-video,
+#gallery-photo,
 #special-features {
     border-radius: 5px;
     padding: 20px;
     border: 1px solid #eee;
     margin-top: 15px;
+} */
+.gallery-area-photo, .gallery-area-video{
+    margin-top: 15px;
+    background: #f5f5f5;
+    padding: 20px;
+    border: 1px dashed #b7dad2;
 }
-
 .method-box {
     /* border-bottom: 2px solid #eee; */
     padding: 20px 0px;
@@ -276,10 +296,11 @@ body {
 }
 
 .gallery-area-payment {
-    border-top: 2px dashed #eee;
+    border: 1px dashed #b7dad2;
     margin-left: 3px;
     margin-top: 15px;
     padding-top: 10px;
+    background: #f5f5f5;
 }
 
 .category_news_title {
@@ -789,6 +810,10 @@ scrollbar-width: thin;
     padding-top: 15px;
 }
 
+.scrolldiv4 {
+    background: white;
+}
+
 
 /* End Search News List */
 
@@ -1073,16 +1098,16 @@ textarea {
 }
 
 .ql-editor {
-    height: 170px !important;
+    /* height: 170px !important; */
     scrollbar-width: thin;
 }
-
 .form-control {
-    background-color: #f5f5f5 !important;
+    background-color: #f5f5f5;
 }
 
-
 /* End Job Apply Form*/
+
+
 
 
 /* News Tab */
@@ -1394,12 +1419,19 @@ div.b {
 
 .title h5 {
     padding-left: 5px;
-    border-left: 2px solid red;
+    margin-bottom: 15px;
+    border-left: 3px solid red;
     font-weight: 700;
+}
+
+.sitepolicy ol,
+.privacy ol {
+    margin-bottom: 35px;
 }
 
 .sitepolicy ol li,
 .privacy ol li {
+    margin-bottom: 5px;
     font-weight: 700;
     font-size: 15px;
 }
@@ -1415,10 +1447,10 @@ ul.sub-ul li {
     font-weight: 500;
     font-size: 15px;
 }
+
 .office_contact {
     text-align: center;
     font-size: 15px;
-
 }
 
 
@@ -1596,6 +1628,10 @@ ul.sub-ul li {
     margin-left: 17px;
 }
 
+.m-l-30 {
+    margin-left: 30px;
+}
+
 .m-t-10 {
     margin-top: 10px !important;
 }
@@ -1627,7 +1663,9 @@ ul.sub-ul li {
 .m-t-22 {
     margin-top: 22px;
 }
-
+.m-t-50{
+    margin-top: 50px;
+}
 .m-l-10p {
     margin-left: 10% !important;
 }
@@ -1702,7 +1740,12 @@ ul.sub-ul li {
 .max-width16 {
     max-width: 16%;
 }
-
+.width15{
+    width: 15%;
+}
+.width17{
+    width: 17%;
+}
 .main-color {
     color: #333;
 }
@@ -1726,7 +1769,9 @@ ul.sub-ul li {
 .secondary-bg-color {
     background-color: #f27a24 !important;
 }
-
+.white-bg-color {
+    background-color: #fff !important;
+}
 .toggle-btn .icon-arrow:before {
     content: '\25BC';
 }
@@ -1758,7 +1803,8 @@ ul.sub-ul li {
     box-shadow: none !important;
     min-width: 60px;
 }
-.btn:hover{
+
+.btn:hover {
     cursor: pointer;
 }
 
@@ -2715,24 +2761,6 @@ background-color: #f5f5f5;
 /* End Create News */
 
 
-/*Job Apply Form*/
-
-textarea.form-control,
-textarea {
-    height: 100px !important;
-}
-
-.ql-editor {
-    height: 170px !important;
-    scrollbar-width: thin;
-}
-
-.form-control {
-    background-color: #f5f5f5 !important;
-}
-
-
-/* End Job Apply Form*/
 
 
 /* News Tab */
@@ -2912,7 +2940,7 @@ div.b {
     z-index: 5;
     overflow: hidden;
     background: #f5f5f5;
-    width: 67.4%;
+    width: 67.1%;
 }
 
 .fixed-nav {
@@ -5314,7 +5342,12 @@ button.confirmed {
     padding-top: 60px;
 }
 
-
+.table-wrapper{
+    background-color: #fbfbfb;
+}
+.title-bg{
+    background-color: #f5f5f5;
+}
 /* end profile */
 
 
@@ -5334,7 +5367,7 @@ button.confirmed {
     position: absolute;
     bottom: -15px;
     display: inline-block;
-    width: 60px;
+    width: 40px;
     height: 5px;
     left: 0;
     background-color: #111;
@@ -5422,6 +5455,15 @@ button.confirmed {
     margin-left: 20px;
 }
 
+.btn-list ul {
+    text-align: center;
+}
+
+.btn-list ul li {
+    list-style: none;
+    display: inline-block;
+}
+
 @media (max-width:990px) {
     .form-wrap .form-left {
         padding: 10px 15px 5px 15px;
@@ -5438,33 +5480,56 @@ button.confirmed {
         margin-top: 10px;
     }
 }
-/*feature list*/
-.custom-table{
-  /* border: 1px solid #ced4da; */
-  border: solid 1px #91c796;
+
+
+/* job-detail */
+
+.job-detail .form-right {
+    padding: 15px 30px;
 }
-.custom-table thead th{
+
+
+/*feature list*/
+
+.custom-table {
+    /* border: 1px solid #ced4da; */
+    border: solid 1px #91c796;
+}
+
+.custom-table thead th {
     border-bottom: 1px solid #91c796;
     border-top: 1px solid #91c796;
     color: #095c5f;
     font-weight: bold;
     font-size: 18px;
 }
-.custom-table > .table th, .table td {
+
+.custom-table>.table th,
+.table td {
     padding: 0.50rem;
 }
-.custom-table > tbody tr:hover {
+
+.custom-table>tbody tr:hover {
     color: #212529;
     background-color: rgb(245, 255, 253) !important;
 }
-.custom-table th, .custom-table td{
+
+.custom-table th,
+.custom-table td {
     /* border-top: 1px dashed #91c796; */
 }
-.err{
+
+.err {
     color: red;
 }
 
+.txt-err {
+    text-align: center;
+}
+
+
 /*required*/
-    .mail-txt {
-        width: 85%;
-    }
+
+.mail-txt {
+    width: 85%;
+}
