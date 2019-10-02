@@ -211,7 +211,7 @@ Route::get('schedule/{id}', 'ScheduleController@getSchedulebyCustomerId');
 
 Route::post('customer/profile/{id}', 'NursingProfileController@Customerprofileupdate');
 Route::post('staff/profile/{id}', 'NursingProfileController@Staffprofileupdate');
-Route::post('acceptance/transition/{id}', 'NursingProfileController@AcceptanceTransition');
+Route::post('acceptance/transactions/{id}', 'NursingProfileController@AcceptanceTransactions');
 
 Route::get('medical/acceptancewithtransactions/{id}', 'MedicalController@getAcceptanceWithTransactions');
 

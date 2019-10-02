@@ -517,7 +517,7 @@ export default {
                                 this.axios
                                         .post(`/api/schedule/update/${this.id}`,this.schedule_list)
                                                 .then((response) => {
-                                        
+                                                        alert('Successfully Updated!');
                                                 }).catch(error=>{
 
                                                 if(error.response.status == 422){

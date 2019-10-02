@@ -9,7 +9,7 @@ use App\Cooperate_Medical;
 use App\method_payment;
 use App\Customer;
 use App\Staff;
-use App\Transition;
+use App\AcceptanceTransaction;
 use DB;
 
 class NursingProfileController extends Controller
@@ -141,7 +141,6 @@ class NursingProfileController extends Controller
 
     public function Customerprofileupdate($id,Request $request) {
         $request = $request->all();
-        
         $customer = Customer::find($id);
         $uploadData = array(
             'name' => $request[0]['name'],
@@ -169,18 +168,18 @@ class NursingProfileController extends Controller
        $customer->update($uploadData);
     }
 
-    public function AcceptanceTransition($id,Request $request) {
+    public function AcceptanceTransactions($id,Request $request) {
         $request = $request->all();
 
-        $transition = Transition::where('customer_id', $id)
+        $transition = AcceptanceTransaction::where('customer_id', $id)
                         ->delete();
 
         for($i=0; $i<count($request); $i++) { 
             if($request[$i] != '') {
                 $uploadData = array(
                     'customer_id' => $id,
-                    'medical_acceptance_id' =>  $i,
-                    'accept_type'=>  $request[$i]
+                    'medical_acceptance_id' => $request[$i]['id'],
+                    'accept_type'=>  $request[$i]['type']
                );
                DB::table('acceptance_transactions')->insert($uploadData);
             } 

@@ -385,9 +385,9 @@
                                                             <div class="col-md-12 accept-box">
                                                                     {{medical.name}} {{medical.id}}
                                                                     <div class="float-right">
-                                                                            <label><input type="radio" :name="'medical'+medical.id" :checked="medical.accept_checked" value="accept"> <i class="fas fa-check green"></i></label>
-                                                                            <label><input type="radio" :name="'medical'+medical.id" :checked="medical.unaccept_checked" value="unaccept"> <i class="fas fa-times red"></i></label>
-                                                                            <label><input type="radio" :name="'medical'+medical.id" :checked="medical.negotiate_checked" value="negotiate"> <i class="fas fa-adjust blue"></i></label>
+                                                                            <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.accept_checked" v-bind:value="'accept-'+medical.id"> <i class="fas fa-check green"></i></label>
+                                                                            <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.unaccept_checked" v-bind:value="'unaccept-'+medical.id"> <i class="fas fa-times red"></i></label>
+                                                                            <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.negotiate_checked" v-bind:value="'negotiate-'+medical.id"> <i class="fas fa-adjust blue"></i></label>
                                                                     </div>
                                                             </div>
                                                     </div>
@@ -753,6 +753,8 @@ export default {
                 this.cooperate_list = [];
                 this.payment_list = [];
                 this.customer_info = [];
+                this.staf_info = [];
+                this.acceptance = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
@@ -859,6 +861,18 @@ export default {
                         var i = i+ 0;
                         chek_feature.push($(this).val());
                 });
+               
+               var acceptance=[];
+                $.each($("input[class='medical-acceptance']:checked"), function(){ 
+                        var accept_val = $(this).val();
+                        var tmp_arr = accept_val.split('-');
+                        var type = tmp_arr[0];
+                        var id = tmp_arr[1];
+                        var type = tmp_arr[0];
+                        var acceptance_id = tmp_arr[1];
+                        acceptance.push({id:id,type:type});
+                });
+
                 special_features = chek_feature.join(',');
                
                 this.profile_arr.push({website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
@@ -926,7 +940,7 @@ export default {
                                 }
                         }) ;
                 }
-
+               
                 if(this.customer_info.length > 0) {
                         // check
                         this.axios
@@ -942,7 +956,7 @@ export default {
                                 }
                         }) ;
                 }
-
+              
                 if(this.staf_info.length > 0) {
                         this.axios
                                 .post(`/api/staff/profile/${this.id}`,this.staf_info)
@@ -958,11 +972,11 @@ export default {
                         }) ;
                 }
 
-                if(this.acceptance.length > 0) {
+                if(acceptance.length > 0) {
                         this.axios
-                                .post(`/api/acceptance/transition/${this.id}`,this.acceptance)
+                                .post(`/api/acceptance/transactions/${this.id}`,acceptance)
                                 .then((response) => {
-                                         alert('Successfully Updated!')
+                                         alert('Successfully Updated!');
                                 }).catch(error=>{
                                         if(error.response.status == 422) {
                                                 this.errors = error.response.data.errors
