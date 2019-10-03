@@ -1,15 +1,16 @@
 <template>
-    <div class="m-lr-0 justify-content-md-center">
+    <div class="row">
         <div class="col-sm-12 pad-free">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <router-link to="/">ホーム</router-link>
+                <a href="/">ホーム</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">新しい検索</li>
             </ol>
           </nav>
         </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="col-12">
@@ -38,20 +39,20 @@
         </div>
 </template>
 <script>
+import News from './News.vue'
 
 export default {
         data() {
             return {
                post_groups:[],
-               posts:[]
+               posts:[],
             }
         },
         created() {
-            var search_word = $('#search-word').val();
+            var  search_word = $('#search-word').val();
             this.axios
                 .post('/api/news/search/'+search_word)
                 .then(response=>{
-
                         this.post_groups = response.data;
 
                         for(var i=0; i< this.post_groups.length; i++) {
@@ -60,18 +61,18 @@ export default {
                                 var title_arr = this.post_groups[i]['title'].split(',');
                                 var photo_arr = this.post_groups[i]['photo'].split(',');
                                 for(var j=0; j< id_arr.length; j++) { 
-                                    this.posts.push({id:id_arr[j],title:title_arr[j],photo:photo_arr[j],cat_id:this.post_groups[i]['cat_id']});
+                                    this.posts.push({id:id_arr[j],title:title_arr[j],photo:photo_arr[j],cat_id:this.post_groups[i]['cat_id']}); 
                                 }
                             }
                         }
                 });
         },
-        methods: {
-            changeRoute(e){
-                // console.log(e.target.hash);
-                this.$router.push({name:'home',params:{page:e.target.hash}});
-            }
-        }
+
+  methods: {
+    changeRoute(e){
+        this.$router.push({name:'home',params:{page:e.target.hash}});
+    }
+  }
 
 }
 

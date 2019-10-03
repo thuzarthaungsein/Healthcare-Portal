@@ -6,7 +6,7 @@
                                 <div class="col-12">
                                         <form class="form-inline col-lg-12 form-inline mb-2 pad-free">
                                                 <input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
-                                                <span class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
+                                                <span v-if="status=='0'" class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
                                         </form>
                                         <div v-if="status=='0'">
                                                 <div class="card">
@@ -167,7 +167,7 @@ export default {
                 id_arr:[],
                 post_groups : [],
                 status:'0',
-                search_word:'',
+                search_word:''
                
                 
             }
@@ -204,18 +204,6 @@ export default {
                         .get('/api/get_latest_posts_by_catId')
                         .then(response => {
                                 this.post_groups = this.groupBy(response.data, 'name');
-
-                                // for(var i=0; i<response.data.length; i++) {
-                                //         this.tmp_title[i] = response.data[i].title;
-                                //         this.title_arr[i] = this.tmp_title[i].split(",");
-
-                                //         this.tmp_photo[i] = response.data[i].photo;
-                                //         this.photo_arr[i] = this.tmp_photo[i].split(",");
-
-                                //         this.tmp_post_id[i] = response.data[i].post_id;
-                                //         this.id_arr[i] = this.tmp_post_id[i].split(",");
-                                // }
-                                // this.tmp_arr = response.data;
                         });
                 },
 
@@ -277,28 +265,6 @@ export default {
                 searchCategory() {
                         this.status = 1;
                         this.search_word = $('#search-word').val();
-                        // var search_word = $('#search-word').val();
-                        // $('ul#myTab li a').removeClass('active');
-                        // $('ul#myTab li:first-child a').addClass('active');
-
-                        // var search_word = $('#search-word').val();
-                        // var categoryId = '1';
-
-                        // let fd = new FormData();
-                        //         fd.append('search_word', search_word)
-                        //         fd.append('selected_category', categoryId)
-
-                        // this.axios.post('/api/search', fd)
-                        //         .then(response => {
-                        //                 if(response.data.length == '0') {
-                        //                         this.posts = [];
-                        //                         this.latest_post = [];
-
-                        //                 } else {
-                        //                         this.posts = response.data;
-                        //                         this.latest_post = this.posts[0];
-                        //                 }
-                        // });
                 },
 
                 imgUrlAlt(event) {
