@@ -25,6 +25,7 @@ class ProfilePublishController extends Controller
     public function index()
     {
         $feature = NursingProfile::select('feature')->where('customer_id',4)->get();
+        $method = NursingProfile::select('method')->where('customer_id',1)->get();
         $facility = NursingProfile::where('customer_id',1)->get();
         $comedical = Cooperate_Medical::where('customer_id',1)->get();
 
@@ -55,7 +56,7 @@ class ProfilePublishController extends Controller
         $cost = DB::select($sql);
 
         return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff,
-           "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical));
+           "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical,"method"=>$method));
     }
 
     public function getComment()
@@ -70,7 +71,7 @@ class ProfilePublishController extends Controller
 
     public function getCustomer()
     {
-        $customer = Customer::where('id',2)->get();
+        $customer = Customer::where('id',1)->get();
         return $customer;
     }
 

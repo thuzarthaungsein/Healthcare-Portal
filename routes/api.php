@@ -59,6 +59,17 @@ Route::group(['middleware' => ['auth:api']], function() {
     });
     // End Type
 
+    //Subject
+    Route::group(['prefix' => 'subjects'], function () {
+        Route::get('subjectlist', 'SubjectController@SubjectList');
+        Route::get('subject', 'SubjectController@index');
+        Route::post('add', 'SubjectController@store');
+        Route::get('edit/{id}', 'SubjectController@edit');
+        Route::post('update/{id}', 'SubjectController@update');
+        Route::delete('delete/{id}', 'SubjectController@destroy');
+    });
+    //End Subject
+
     // Job
     Route::group(['prefix' => 'job'], function () {
         Route::post('add', 'JobController@store');

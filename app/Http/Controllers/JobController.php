@@ -4,21 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use Illuminate\Http\Request;
+use DB;
 
 class JobController extends Controller
 {
 
     public function index()
-    {   
-        // $jobs = Job::all()->toarray();
-        $profilejob = Job::where('customer_id',auth()->user()->id)->get();
-        return response()->json(array('profilejob'=>$profilejob) );       
-    }
-
-    public function getJob($customer_id)
     {
-        $profilejob = Job::where('customer_id',$customer_id)->get();
-        return response()->json(array('profilejob'=>$profilejob) );
+
+        $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
+                     ->join('jobs','jobs.customer_id','=','customers.id')->get();
+
+        $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
+                           ->join('jobs','jobs.customer_id','=','customers.id')
+                           ->where('jobs.customer_id','=',auth()->user()->customer_id)->get();
+        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
+
+    }
+    public function getJob($id)
+    {
+        $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
+                     ->join('jobs','jobs.customer_id','=','customers.id')->get();
+
+        $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
+                           ->join('jobs','jobs.customer_id','=','customers.id')
+                           ->where('jobs.customer_id','=',$id)->get();
+        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
     }
 
 
@@ -57,28 +68,74 @@ class JobController extends Controller
             }
         }
 
+        //    $cstring = '';
+        //    if($request->employment_status[0]['pchecked'] == true)
+        //    {
+        //       $cstring .=  "Part";
+        //    }
+        //    else if($request->employment_status[0]['fchecked'] == true)
+        //    {
+        //        if($cstring == '')
+        //        {
+        //           $cstring = "Full" ;
+        //        }
+        //        else{
+        //           $cstring .=  " ,Full";
+        //        }
+
+        //    }
+        //     if($request->employment_status[0]['echecked'] == true)
+        //    {
+        //         if($cstring == '')
+        //         {
+        //         $cstring = "EmploymentStatus" ;
+        //         }
+        //         else{
+        //         $cstring .=  " ,EmploymentStatus";
+        //         }
+        //    }
+        //     if($request->employment_status[0]['cchecked'] == true)
+        //    {
+        //         if($cstring == '')
+        //         {
+        //         $cstring = "ContractEmployee" ;
+        //         }
+        //         else{
+        //         $cstring .=  " ,ContractEmployee";
+        //         }
+        //    }
+        //     if($request->employment_status[0]['ochecked'] == true)
+        //    {
+        //         if($cstring == '')
+        //         {
+        //         $cstring = "Other" ;
+        //         }
+        //         else{
+        //         $cstring .=  " ,Other";
+        //         }
+        //    }
 
 
-        $cstring = '';
-        if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false)
-        {
-            $cstring = "Part";
-        }
-        else if($request->employment_status[0]['fchecked'] == true && $request->employment_status[0]['pchecked'] == false){
+        // $cstring = '';
+        // if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false && $request->employment_status[0]['echecked'] == false && $request->employment_status[0]['cchecked']  == false && $request->employment_status[0]['ochecked'] == false)
+        // {
+        //     $cstring = "Part";
+        // }
+        // else if($request->employment_status[0]['fchecked'] == true && $request->employment_status[0]['pchecked'] == false && $request->employment_status[0]['echecked'] == false && $request->employment_status[0]['cchecked']  == false && $request->employment_status[0]['ochecked'] == false){
 
-            $cstring = "Full";
-        }
-        else if($request->employment_status[0]['fchecked'] == false && $request->employment_status[0]['pchecked'] == false){
-            $request->validate([
-                'employment_status' => 'accepted',
+        //     $cstring = "Full";
+        // }
+        // else if($request->employment_status[0]['fchecked'] == false && $request->employment_status[0]['pchecked'] == false){
+        //     $request->validate([
+        //         'employment_status' => 'accepted',
 
-            ]);
-        }
+        //     ]);
+        // }
 
-        else{
+        // else{
 
-            $cstring = "Part,Full";
-        }
+        //     $cstring = "Part,Full";
+        // }
 
         $job = new Job();
 
@@ -88,7 +145,7 @@ class JobController extends Controller
         $job->skills = $string;
         $job->location = $request->input('location');
         $job->nearest_station = $request->input('nearest_station');
-        $job->employment_status = $cstring;
+        $job->employment_status = $request->employmentstatus;
         $job->salary = $request->input('salary');
         $job->allowances = $request->input('allowances');
         $job->insurance = $request->input('insurance');
@@ -149,24 +206,24 @@ class JobController extends Controller
             }
 
 
-            $cstring = '';
-            if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false)
-            {
+            // $cstring = '';
+            // if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false)
+            // {
 
-                $cstring = "Part";
-            }
-            else if($request->employment_status[0]['fchecked'] == true && $request->employment_status[0]['pchecked'] == false){
-                $cstring = "Full";
-            }
-            else if($request->employment_status[0]['fchecked'] == false && $request->employment_status[0]['pchecked'] == false){
-                $request->validate([
-                    'employment_status' => 'accepted',
+            //     $cstring = "Part";
+            // }
+            // else if($request->employment_status[0]['fchecked'] == true && $request->employment_status[0]['pchecked'] == false){
+            //     $cstring = "Full";
+            // }
+            // else if($request->employment_status[0]['fchecked'] == false && $request->employment_status[0]['pchecked'] == false){
+            //     $request->validate([
+            //         'employment_status' => 'accepted',
 
-                ]);
-            }
-            else {
-                $cstring = "Part,Full";
-            }
+            //     ]);
+            // }
+            // else {
+            //     $cstring = "Part,Full";
+            // }
 
             $job->skills = $string;
             $job->title =$request->input('title');
@@ -174,7 +231,7 @@ class JobController extends Controller
             $job->description = $request->input('description');
             $job->location = $request->input('location');
             $job->nearest_station = $request->input('nearest_station');
-            $job->employment_status = $cstring;
+            $job->employment_status = $request->employmentstatus;
             $job->salary = $request->input('salary');
             $job->allowances = $request->input('allowances');
             $job->insurance = $request->input('insurance');
