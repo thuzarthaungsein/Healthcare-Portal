@@ -198,19 +198,7 @@
                         <div class="map-toggle-div toggle-div">
                                 <div class="col-md-12">
                                     <GoogleMap></GoogleMap>
-                                </div>
-                                <div class="form-group">
-                                        <label>郵便番号<span class="error">*</span></label>
-                                        <input type="text" v-model="this.postal" name="postal" class="postal form-control" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7"/>
-                                        <div id="jsErrorMessage"></div>
-                                </div>
-                                <div class="form-group">
-                                        <label>市区町村、番地（建物名）:<span class="error sp1">必須</span></label>
-                                        <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="this.city">
-                                        <!-- <span v-if="errors.city" class="error">{{errors.city[0]}}</span> -->
-                                        <!-- <input type="text" class="form-control" id="city" placeholder="市区町村、番地を入力してください。" v-model="zipStreet"> -->
-                                        <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>
-                                </div>
+                                </div>                                
                                 <div class="form-group">
                                         <label>住所<span class="error">*</span></label>
                                         <textarea name="address" rows="10" class="form-control customer-address" v-model="customer_info.address"></textarea>

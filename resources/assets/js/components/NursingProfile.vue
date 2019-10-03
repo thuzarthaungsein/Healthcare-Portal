@@ -500,8 +500,7 @@
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                                         <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
                                                 </div>
-                                        </div>
-                                        
+                                        </div>                                     
                                         
                                 </div>
                             </td>

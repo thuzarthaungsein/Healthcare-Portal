@@ -398,10 +398,6 @@
         subjects: [],
         toggleCheck: true,
         toggleCheck_1: false,
-
-
-
-
       }
     },
     methods: {
@@ -432,13 +428,11 @@
         }
       },
       getStateClick(e) {
-        console.log(e.target.tagName)
         if (e.target.tagName === 'A' || e.target.tagName === 'path') {
 
           const id = e.target.id;
           this.axios.post('api/getmap/' + id + '')
             .then((response) => {
-              console.log(response.data.fac_types)
               $('.hospitalselect').removeClass('hospitalselect');
               this.cities = response.data.city
               this.getCity = response.data.getCity
@@ -448,7 +442,6 @@
               this.id = id
             })
         } else if (e.target.tagName === 'SELECT' || e.target.tagName === 'OPTION') {
-          console.log(e.target.tagName)
           const id = this.id;
           this.axios.post('api/getmap/' + id + '')
             .then((response) => {
@@ -465,7 +458,6 @@
       getCheck(e) {
         if (e.target.checked) {
           this.township_id.push(e.target.value);
-          console.log(this.township_id);
         }
       },
       features(e) {

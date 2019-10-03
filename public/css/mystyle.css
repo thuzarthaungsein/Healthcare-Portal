@@ -5365,6 +5365,13 @@ button.confirmed {
 .title-bg{
     background-color: #f5f5f5;
 }
+
+.postal-search {
+    padding: 15px 20px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    border-radius: 3px;
+}
 /* end profile */
 
 
