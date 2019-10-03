@@ -57,6 +57,18 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::delete('delete/{id}', 'TypeController@destroy');
         Route::post('search', 'TypeController@search');
     });
+
+       // occupation
+       Route::group(['prefix' => 'occupation'], function () {
+        Route::get('occupationList', 'OccupationsController@TypeList');
+        Route::get('type', 'OccupationsController@index');
+        Route::post('add', 'OccupationsController@store');
+        Route::get('edit/{id}', 'OccupationsController@edit');
+        Route::post('update/{id}', 'OccupationsController@update');
+        Route::delete('delete/{id}', 'OccupationsController@destroy');
+    });
+
+
     // End Type
 
     //Subject

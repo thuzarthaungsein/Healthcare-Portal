@@ -229,7 +229,7 @@
                 </div>
               </div>
             </div>
-          
+
             <div class="map">
               <svg class="map_svg" viewBox="88 220 400 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586" width="100%" height="730">
                 <path id="1" data-info="Hokkaido" title="Hokkaido" class="path Hokkaido" stroke="#333333" fill="#6699cc" d="M378.27,247.63h86.97v55.8h-62.62l0.09,8.05h-24.44V247.63z" />
