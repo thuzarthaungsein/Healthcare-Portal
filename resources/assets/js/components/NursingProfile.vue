@@ -486,7 +486,6 @@
                             <td>
                                 <label class="heading-lbl col-2 pad-free">地図</label>
                                 <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down"></i></span>
-
                                 <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
                                         <div class="col-md-12">
                                             <GoogleMap></GoogleMap>
@@ -977,11 +976,7 @@ export default {
 </script>
 
  <style>
- .quill-editor,.quill-code {
-    /* width: 100%;
-    float: right; */
-    /* margin-bottom: 20px; */
-  }
+ 
   .quill-editor{
           background-color: #fff;
   }

@@ -679,7 +679,6 @@
         },
           methods: {
               moveTo: function(index) {
-
                 this.$refs.fullpage.$fullpage.moveTo(index, true);
             },
               nextImage() {
@@ -804,12 +803,7 @@
     align-self: center;
     /* padding-top: 21px; */
 }
-.cost_btnwrapper .okbtn{
-    /* width: 125px;
-    margin-bottom: 0;
-    padding-left: 20px;
-    padding-right: 0; */
-}
+
 .comment-wrapper{
     background-color: #fff;
     padding: 5px;
