@@ -50,13 +50,23 @@
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
                                         @click="activateImage(index)" >
                                         <img  :src ="'/upload/nursing_profile/' + image.photo">
-                
+                                       
                                     </div>
-                                 
                                 </div>
                             </div>
                         </div>
+                        <div class="row col-sm-12 detail_profile_left">
+                            <strong class="img_2">  {{activeImageTitle}} </strong>
                         </div>
+                       <div class="row col-sm-12 detail_profile_left">
+                           {{activeImageDescription}}
+                       </div>
+                        
+                       
+                        <!-- <div  v-for="image in  images"  :key="image.id">
+                              
+                        </div> -->
+                    </div>
                     <!--end for slide image-->
                     <!--for address-->
                      <div class="col-sm-7 detail_profile_right">
@@ -537,6 +547,8 @@
                 method_payment:[],
                 comments:[],
                 activeImage: 0,
+                activeImageTitle:'',
+                activeImageDescription:'',
                 index: 0,
                 pageNum: 0,
                 // type : 'hospital',
@@ -644,9 +656,11 @@
             // and is the reason why we don't have to worry about the 
             // big image getting updated
             currentImage() {
-               
+
+                this.activeImageTitle = this.images[this.activeImage].title;
+                this.activeImageDescription = this.images[this.activeImage].description;
                 return this.images[this.activeImage].photo;
-               
+            
             }
         },
           methods: {
@@ -670,8 +684,11 @@
                 this.activateImage(active);
             },
             activateImage(imageIndex) {
-                console.log(imageIndex);
+             
                 this.activeImage = imageIndex;
+                this.activeImageTitle = this.images[imageIndex].title;
+                 this.activeImageDescription = this.images[imageIndex].description;
+
             },
              activate:function(el){
                 this.active_el = el;
