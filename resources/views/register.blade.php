@@ -124,23 +124,22 @@
                                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                     </div>
                                     <input type="number" class="form-control" name="phone" value="" required autofocus placeholder="電話番号">
-
+ 
                                 </div>
-                                <div class="input-group mb-3">
+                                <!-- <div class="input-group mb-3">
                                     <label class="col-4 col-lg-3 control-label">アドレス</label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-home"></i></span>
                                     </div>
                                     <input type="text" class="form-control" name="address" value="" required autofocus placeholder="アドレス">
-
-                                </div>
+                                </div> -->
                                 <div class="form-group ">
                                     <div class="form-group row float-right">
                                         <div class="col-12">
                                             <button class="btn btn-danger register_btn">キャンセル</button>
                                             <button type="submit" class="btn register_btn" style="background: #4db197;">作成</button>
                                             <!-- <a class="btn btn-danger register_btn">キャンセル</a>
-<a class="btn register_btn" >作成</a> -->
+                                                 <a class="btn register_btn" >作成</a> -->
                                         </div>
                                     </div>
                                 </div>
