@@ -71,7 +71,7 @@ class ProfilePublishController extends Controller
 
     public function getCustomer()
     {
-        $customer = Customer::where('id',2)->get();
+        $customer = Customer::where('id',1)->get();
         return $customer;
     }
 
@@ -80,7 +80,7 @@ class ProfilePublishController extends Controller
             $sfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
         }
         else{
-            $sfeature=NursingProfile::select('special_features')->where('customer_id',4)->value('special_features');
+            $sfeature=NursingProfile::select('special_features')->where('customer_id',1)->value('special_features');
         }
 
         $sql = "SELECT * FROM special_features WHERE id IN (".$sfeature.")";
