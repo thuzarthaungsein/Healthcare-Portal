@@ -20,7 +20,8 @@ class registerController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */     
+    
     public function index()
     {   $type = Type::all();
         $cities = DB::table('cities')->get();
@@ -71,17 +72,15 @@ class registerController extends Controller
             'township'=> 'required',
             ]);
 
-            if($request->types == '1'){
-                $type = 1;
-            }else{
-               
+            if($request->types == '2'){
                 $type = $request->nursing;
             }
 
-            $destinationPath = public_path('/images');
+            // $destinationPath = public_path('/images');
+
             $image = $request->file('img');
             $getName = time().'.'.$image->getClientOriginalExtension();
-            $image->move($destinationPath, $getName);
+            $image->move('upload/customers/', $getName);
             // $dbPath = $destinationPath. '/'.$input['img'];
 
             $customer = new Customer;
