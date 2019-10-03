@@ -26,7 +26,7 @@
             </div>
            
             <div class="row m-lr-0 ele" id="element1">
-                 <h5 class="header">Information</h5>
+                 <h5 class="header">情報</h5>
                  <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -77,7 +77,7 @@
             </div>
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="header">特長</h5>
-                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-8">{{nurseprofile.feature}}</div>
+                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">{{nurseprofile.feature}}</div>
             </div>
             <div class="row ele m-lr-0" id="element3">
                 <h5 class="header col-md-12">費用</h5>
@@ -361,30 +361,28 @@
                <h5 class="header col-12">口コミ</h5>
                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="row col-12">
-                        <div class="col-4 comment-wrapper" v-for="comment in comments" :key="comment.id">
+                       
+                        <div class="col-12 comment-wrapper" v-for="comment in comments" :key="comment.id">
                             <div class="card">
-                                <div class="card-header comment-title text-truncate">
+                                <!-- <div class="card-header comment-title text-truncate">
                                     <i class="fas fa-comment"></i>
                                     {{comment.title}}
-                                </div>
+                                </div> -->
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}</h5>
-                                    <small class="card-text">{{comment.year}}</small>                                    
-                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="20"></read-more>     
+                                    <div class="comment-title">
+                                        <i class="fas fa-comment"></i>
+                                        {{comment.title}}
+                                    </div>
+                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}
+                                        <small class="card-text">{{comment.year}}</small>     
+                                    </h5>
+                                                                   
+                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more>     
                                 </div>
                             </div>
                         </div>
                     </div>
-                <!-- <div class="row comment-wrapper">
-                    <div class="col-2" v-for="comment in comments" :key="comment.id">
-                        <p>タイトル:{{comment.title}}</p>
-                      
-                        <p class="">電子メールアドレス:{{comment.email}}</p>
-                        <p class="">年月日投稿:{{comment.year}}</p>
-                                           
-                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="20"></read-more>                    
-                        </div>                
-                    </div>  -->
+              
                </div>             
             </div>
 
@@ -586,9 +584,13 @@
                         thumb: 'images/thumbs/p4.jpeg'
                     }
                 ],
-                 activeImage: 0
-            };
-        },
+                activeImage: 0,
+                currentOffset: 0,
+                windowSize: 1,
+                paginationFactor: 220,
+                    
+                };
+            },
 
         props:{
                 cusid:Number,
@@ -674,7 +676,13 @@
             // big image getting updated
             currentImage() {
                 return this.images[this.activeImage].big;
-            }
+            },
+            atEndOfList() {
+             return this.currentOffset <= (this.paginationFactor * -1) * (this.comments.length - this.windowSize);
+            },
+    atHeadOfList() {
+      return this.currentOffset === 0;
+    },
         },
           methods: {
               moveTo: function(index) {
@@ -702,6 +710,14 @@
              activate:function(el){
                 this.active_el = el;
             },
+             moveCarousel(direction) {
+      // Find a more elegant way to express the :style. consider using props to make it truly generic
+      if (direction === 1 && !this.atEndOfList) {
+        this.currentOffset -= this.paginationFactor;
+      } else if (direction === -1 && !this.atHeadOfList) {
+        this.currentOffset += this.paginationFactor;
+      }
+    },
             
 
         }
@@ -799,16 +815,18 @@
 }
 .comment-wrapper{
     background-color: #fff;
-    padding: 10px;
+    padding: 5px;
 }
 .comment-title{    
     background-size: 29px;
-    border-bottom: 1px solid #f9793c;
     color: #f9793c;
     display: block;
     font-size: 16px;
     font-weight: 700;
-    padding: 0.75rem 1.25rem !important;
+    padding-bottom: 10px;
+}
+.card-text{
+    color: #777;
 }
 
 div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
@@ -922,4 +940,6 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tab
 .actions > span:hover {
     color: #eee;
 }
+
+
 </style>
