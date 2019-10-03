@@ -53,7 +53,11 @@ class JobDetailController extends Controller
         $selectedJob = DB::select($query);
         foreach($selectedJob as $job) {
             $cId = $job->customer_id;
-            $job->customer_id = 100000 + $cId;
+            if($job->type_id == 2){
+                $job->customer_id = 500000 + $cId;
+            }else{
+                $job->customer_id = 100000 + $cId;
+            }            
             $jId = $job->id;
             $numlength = strlen((string)$jId);
             if($numlength == 4){
