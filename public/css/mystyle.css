@@ -105,7 +105,7 @@ body {
 .heading-lbl {
     font-weight: bold;
     font-size: 1.15em;
-    
+
 }
 
 .typelabel {
@@ -2177,7 +2177,20 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     color: #eee;
 }
 
+.fac-name-box {
+    border: 1px solid #eee;
+    padding: 0px;
+}
 
+.fac-name-box h4 {
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+}
+
+.fac-check-box {
+    text-align: center;
+}
 /* profilepublish css end */
 
 .custom-sidebar ul li {

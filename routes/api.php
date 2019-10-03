@@ -154,9 +154,10 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('specialfeature/{type}','ProfilePublishController@getSpecialfeature');
     Route::get('comment','ProfilePublishController@getComment');
     Route::get('customer','ProfilePublishController@getCustomer');
-    Route::get('schedule','ProfilePublishController@getSchdule');
+    Route::get('schedule/{id}','ProfilePublishController@getSchedule');
+    Route::get('hosfacility','ProfilePublishController@getHosfacilities');
+    Route::get('subject','ProfilePublishController@getSubject');
 });
-
 Route::group(['prefix' => 'job'], function () {
     Route::get('getjob/{id}', 'JobController@getJob');
     Route::post('search', 'JobController@search');

@@ -143,7 +143,11 @@ export const routes = [
     {
         name: "createfacility",
         path: "/createfacility",
-        component: CreateFacilityComponent
+        component: CreateFacilityComponent,
+        meta: {
+            requiresAuth: true
+          }
+
     },
 
     {
@@ -315,3 +319,4 @@ export const routes = [
     component: termsAndConditions
   },
 ];
+

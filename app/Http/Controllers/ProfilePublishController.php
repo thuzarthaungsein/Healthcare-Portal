@@ -15,7 +15,8 @@ use App\special_feature;
 use App\Customer;
 use App\Comment;
 use App\Schedule;
-
+use App\Facility;
+use App\Subject;
 class ProfilePublishController extends Controller
 {
     /**
@@ -56,11 +57,12 @@ class ProfilePublishController extends Controller
         $sql = "SELECT method_payment.* from method_payment   JOIN customers ON method_payment.customer_id= customers.id";
         $cost = DB::select($sql);
 
-        // $query ="SELECT schedule.* from schedule JOIN hospital_profiles ON  schedule.customer_id=hospital_profiles.customer_id";
-        // $schedule =DB::select($query);
-
+        $facility_list = Facility::select('id','description')->get();
+        $profile_facility =  HospitalProfile::select('facilities')->where('customer_id',3)->value('facilities');
+        $hosfacility= explode(',',$profile_facility);
+        $facility = Facility::whereIn('id',$hosfacility)->select('description','id')->get();
         return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff,
-           "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical,"method"=>$method));
+           "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"facility_list"=>$facility_list,"facility"=>$facility));
     }
 
     public function getComment()
@@ -77,8 +79,24 @@ class ProfilePublishController extends Controller
     {
         $customer = Customer::where('id',2)->get();
         return $customer;
-    }
 
+    }
+    // public function getHosfacilities(){
+    //      $facilities = Facility::all()->toArray();
+    //      return array_reverse($facilities);
+    // }
+    // public function getHosfacilities(){
+    //     $facility_list = Facility::all();
+    //     // return  array_reverse($facility_list);
+    //     $profile_facility = HospitalProfile::where('customer_id',3)->value('facilities');
+    //     $facility = explode(',',$profile_facility);
+    //     //return $facility_list;
+    //     // // return $facility;
+    //     return $facility;
+    //     //return $facility_list;
+    //     return json
+
+    // }
     public function getSpecialfeature($type){
         if($type == 'hospital'){
             $sfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
@@ -91,20 +109,25 @@ class ProfilePublishController extends Controller
         $specialfeature = DB::select($sql);
         return response()->json($specialfeature);
     }
-    // public function getSchedule($customer_id){
-    //     $schedule_am = Schedule::where('customer_id', $customer_id)
-    //                         ->where('part', '=', 'am')
-    //                         ->get()
-    //                         ->toArray();
-    //     $schedule_pm = Schedule::where('customer_id', $customer_id)
-    //                         ->where('part', '=', 'pm')
-    //                         ->get()
-    //                         ->toArray();
-    //     $schedule = array_merge($schedule_am,$schedule_pm);
+    public function getSubject(){
+        $sub=HospitalProfile::select('subject')->where('customer_id',3)->value('subject');
+        $query="SELECT * FROM subject WHERE id IN (".$sub.")";
+        $subject = DB::select($query);
+        return response() ->json($subject);
+    }
+    public function getSchedule($customer_id){
+        $schedule_am = Schedule::where('customer_id', $customer_id)
+                            ->where('part', '=', 'am')
+                            ->get()
+                            ->toArray();
+        $schedule_pm = Schedule::where('customer_id', $customer_id)
+                            ->where('part', '=', 'pm')
+                            ->get()
+                            ->toArray();
 
-    //     return $schedule;
-    // }
-
+        $schedule = array_merge($schedule_am,$schedule_pm);
+        return $schedule;
+    }
     public function create()
     {
         //

@@ -3,37 +3,37 @@
     <div v-if="type == 'nursing'">
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
-                Information
+                情報
             </button>
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
-                Features
+                特長
             </button>
             <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
-                Cost
+                費用
             </button>
             <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn">
-                Equipment
+                施設概要
             </button>
             <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn">
-                Map
+                地図
             </button>
             <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn">
-                Review
+                ロコミ
             </button>
             <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn">
-                Job Offer
+                求人応募
             </button>
             </div>
 
             <div class="row m-lr-0 ele" id="element1">
                 <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
-                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
+                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
                     <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
-                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Phone :</strong></p></div>
+                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>電話 :</strong></p></div>
                     <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
                 </div>
 
-                <h5 class="header">special Features</h5>
+                <h5 class="header">こだわりの特長</h5>
                 <div class="row m-lr-0">
                     <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                         <li>{{special.short_name}}</li>
@@ -41,15 +41,15 @@
                 </div>
             </div>
             <div class="row ele m-lr-0" id="element2">
-                <h5 class="header">Features</h5>
+                <h5 class="header">特長</h5>
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-8">{{nurseprofile.feature}}</div>
             </div>
             <div class="row ele m-lr-0" id="element3">
-                <h5 class="header col-md-12">Cost</h5>
+                <h5 class="header col-md-12">費用</h5>
                     <table class="table table-striped table-bordered" v-for="nusmethod in nus_method" :key="nusmethod.id">
                             <tr>
                                 <th width="30%">
-                                    <font>method of payment</font>
+                                    <font>支払方法</font>
                                 </th>
                                 <td width="50%">
                                     <font>{{nusmethod.method}}</font>
@@ -78,7 +78,7 @@
                                     </table>
                                 </div>
                                 <div class="cost_btnwrapper col-md-2">
-                                    <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id">View</button>
+                                    <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id">内容を見る</button>
                                 </div> <br/>
 
 
@@ -151,69 +151,69 @@
             <div class="row ele m-lr-0" id="element4">
                 <!-- <div class="row"> -->
                     <div class="col-md-12">
-                        <h2 align="center"> Facility </h2>
+                        <h2 align="center"> 施設の概要 （グランダ雪ヶ谷）</h2>
                     </div>
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12 pad-free" >
                         <table border="1" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                <td> Business entity</td>
+                                <td> 事業主体</td>
                                 <td>{{nus.business_entity}}</td>
                             </tr>
                             <tr>
-                                <td>Date of establishment</td>
+                                <td>開設年月日</td>
                                 <td>{{nus.date_of_establishment}}</td>
                             </tr>
                             <tr>
-                                <td> Land rights form </td>
+                                <td> 土地の権利形態 </td>
                                 <td>{{nus.land_right_form}}</td>
                             </tr>
                             <tr>
-                                <td>Building rights form</td>
+                                <td>建物の権利形態</td>
                                 <td>{{nus.building_right_form}}</td>
                             </tr>
                             <tr>
-                                <td>Site area</td>
+                                <td>敷地面積</td>
                                 <td>{{nus.site_area}}</td>
                             </tr>
                             <tr>
-                                <td>Total floor area</td>
+                                <td>延床面積</td>
                                 <td>{{nus.floor_area}}</td>
                             </tr>
                             <tr>
-                                <td>Construction</td>
+                                <td>構造</td>
                                 <td>{{nus.construction}}</td>
                             </tr>
                             <tr>
-                                <td>Capacity</td>
+                                <td>定員</td>
                                 <td>{{nus.capacity}}</td>
                             </tr>
                             <tr>
-                                <td>Total number of rooms / units </td>
+                                <td>総居室・戸数 </td>
                                 <td>{{nus.num_rooms}}</td>
                             </tr>
                             <tr>
-                                <td>Right of residence form </td>
+                                <td>居住の権利形態 </td>
                                 <td>{{nus.residence_form}}</td>
                             </tr>
                             <tr>
-                                <td>Type </td>
+                                <td>類型 </td>
                                 <td>{{nus.fac_type}}</td>
                             </tr>
                             <tr>
-                                <td>Occupancy conditions</td>
+                                <td>入居条件</td>
                                 <td>{{nus.occupancy_condition}}</td>
                             </tr>
                             <tr>
-                                <td>Room division, floor plan, etc </td>
+                                <td>居室区分・間取り等 </td>
                                 <td>{{nus.room_floor}}</td>
                             </tr>
                             <tr>
-                                <td> Living room facilities</td>
+                                <td> 居室設備</td>
                                 <td>{{nus.living_room_facilities}}</td>
                             </tr>
                             <tr>
-                                <td>Common facilities / equipment </td>
+                                <td>共用施設・設備 </td>
                                 <td>{{nus.equipment}}</td>
                             </tr>
                             </tbody>
@@ -224,7 +224,7 @@
 
                         <div class="row" style="width: 100%;" >
                             <div class="col-md-12">
-                                <h2 align="center"> Cooperate Medical </h2>
+                                <h2 align="center"> 職員体制 （グランダ雪ヶ谷）</h2>
                             </div>
                             <div v-if="cooperate_medical.length>0" class="col-md-12 pad-free">
                                 <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
@@ -251,14 +251,14 @@
 
                         <div class="row" >
                             <div class="col-md-12">
-                                <h2 align="center"> Medical Acceptance </h2>
+                                <h2 align="center"> 医療面の受入れ </h2>
                             </div>
                             <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-4" >
                                 <div class="col-md-12 accept-box">
                                     <div class="float-left" v-for="(ma,index) in medical" :key="index" style="padding-right:20px;">
                                             <i v-if="ma.name === maccept.name && ma.accept_type === 'accept'" class="fas fa-check green"></i>
-                                            <i v-if="ma.name === maccept.name && ma.accept_type === 'noaccept'" class="fas fa-times red"></i>
-                                            <i v-if="ma.name === maccept.name && ma.accept_type === 'negotiable'" class="fas fa-adjust blue"></i>
+                                            <i v-if="ma.name === maccept.name && ma.accept_type === 'unaccept'" class="fas fa-times red"></i>
+                                            <i v-if="ma.name === maccept.name && ma.accept_type === 'negotiate'" class="fas fa-adjust blue"></i>
                                     </div>
                                     {{maccept.name}}
                                 </div>
@@ -306,21 +306,21 @@
 
                             <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
                                 <div class="col-md-2 text-left ">
-                                    Official Site  :
+                                    公式サイト  :
                                 </div>
                                 <div class="col-md-10 text-left">
                                 {{m.website}}
                                 </div>
 
                                 <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                    Access :
+                                    アクセス :
                                 </div>
                                 <div class="col-md-10 text-left" style="padding-top:20px;">
                                     {{m.access}}
                                 </div>
 
                                 <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                    City/Township :
+                                    住所 :
                                 </div>
                                 <div class="col-md-10 text-left" style="padding-top:20px;">
                                     {{m.address}}
@@ -330,7 +330,7 @@
                  </div>
 
             <div class="row ele m-lr-0" id="element6">
-               <h5 class="header">Review</h5>
+               <h5 class="header">口コミ</h5>
               <div class="row" v-for="comment in comments" :key="comment.id">
                     <div class="col-md-12">タイトル:{{comment.title}}</div><br/>
                                      <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
@@ -357,53 +357,46 @@
     <div v-if="type == 'hospital'">
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
-                Information
+                情報
             </button>
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
-                Review
+                口コミ
             </button>
             <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
-                Map
+                地図
             </button>
             <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn">
-                Job Offer
+                求人応募
             </button>
             </div>
-            <div class="row ele m-lr-0" id="element1">
+            <div class="ele m-lr-0" id="element1">
                 <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
-                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Address :</strong></p></div>
-                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
-                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>Phone :</strong></p></div>
-                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
-            </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
+                    <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
+                    <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>電話番号 :</strong></p></div>
+                    <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
+                </div>
 
-             <h5 class="header">special Features</h5>
+             <h5 class="header">こだわりの特長</h5>
                 <div class="row m-lr-0">
                     <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                         <li>{{special.short_name}}</li>
                     </ul>
                 </div>
-                <h5 class="header">医院からのお知らせ</h5>
+                <h5 class="header">情報</h5>
                     <div class="row m-lr-0">
                             <div class="col-md-10 m-2" v-for="hospital in hospitals" :key="hospital.id">
                                 <p>{{hospital.details_info}}</p>
                             </div>
                 </div>
-                <h5 class="header">Clinic Subject</h5>
-                    <div class="row m-lr-0">
-                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                            <li >{{hospital.subject}}</li>
-                        </ul>
+                <h5 class="header">診療科目</h5>
+                    <div class="row col-md-3" v-for="sub in subjects" :key="sub.id">
+                            <a href="#">{{sub.name}}</a>
                     </div>
-                <h5 class="header">Consultation hours</h5>
-                    <!-- <div class="row m-lr-0">
-                        <ul class="fac_container" v-for="hospital in schedule" :key="hospital.id">
-                            <li >{{hospital.closed_day}}</li>
-                        </ul>
-                    </div> -->
+                <h5 class="header">診療時間</h5>
                     <div class="row">
                         <div class="col-md-12">
-                                <table class="table table-bordered" v-for="(schedule,index) in schedules" :key="index">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th scope="col" >Date</th>
@@ -411,48 +404,65 @@
                                             <th scope="col">PM</th>
                                         </tr>
                                     </thead>
-                                    <tr>
+                                        <tr>
                                             <th scope="row">Mon</th>
-                                                <td >{{schedule.mon}}</td>
-                                    </tr>
-                                    <tr>
+                                            <td >{{am_arr.mon}}</td>
+                                            <td >{{pm_arr.mon}}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Tue</th>
-                                                <td >{{schedule.tue}}</td>
-                                    </tr>
-                                    <tr>
+                                            <td >{{am_arr.tue}}</td>
+                                            <td >{{pm_arr.tue}}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Wed</th>
-                                                <td >{{schedule.wed}}</td>
-                                    </tr>
-                                    <tr>
+                                            <td >{{am_arr.wed}}</td>
+                                            <td >{{pm_arr.wed}}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Thu</th>
-                                                <td >{{schedule.thu}}</td>
-                                    </tr>
-                                    <tr>
+                                            <td >{{am_arr.thu}}</td>
+                                            <td >{{pm_arr.thu}}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Fri</th>
-                                                <td >{{schedule.fri}}</td>
-                                    </tr>
-                                    <tr>
+                                            <td >{{am_arr.fri}}</td>
+                                            <td >{{pm_arr.fri}}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Sat</th>
-                                                <td >{{schedule.sat}}</td>
-                                    </tr>
-                                    <tr>
+                                            <td >{{am_arr.sat}}</td>
+                                            <td >{{pm_arr.sat}}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Sun</th>
-                                                <td >{{schedule.sun}}</td>
-                                    </tr>
+                                            <td >{{am_arr.sun}}</td>
+                                            <td >{{pm_arr.sun}}</td>
+                                        </tr>
+
                                 </table>
+                                <div class="col-md-6"  v-for="hospital in hospitals" :key="hospital.id">
+                                    <p>Closed day: <font>{{hospital.closed_day}}</font> </p>
+                                </div>
+                                <p>※診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください</p>
                         </div>
 
                     </div>
-                <h5 class="header">Facility</h5>
-                    <div class="row m-lr-0">
-                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                            <li >{{hospital.facilities}}</li>
-                        </ul>
+
+                <h5 class="header">施設情報</h5>
+                <div class="row col-md-12" >
+                    <div class="col-md-2 fac-name-box" v-for="hosfacility in hosfacilities " :key="hosfacility.id">
+                        <h4>{{hosfacility.description}}</h4>
+                        <div class="fac-check-box" v-for="fac in fac_list" :key="fac.id">
+                            <i v-if="fac.id === hosfacility.id">〇</i>
+                             <!-- <i class="fa fa-circle-o fa-stack-2x" v-if="fac.id === hosfacility.id"></i> -->
+                        </div>
                     </div>
+                </div>
             </div>
             <div class="row ele m-lr-0" id="element2">
 
-                <h5 class="header">Review</h5>
+                <h5 class="header">口コミ</h5>
               <div class="row" v-for="comment in comments" :key="comment.id">
                     <div class="col-md-12">タイトル:{{comment.title}}</div><br/>
                                      <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
@@ -482,27 +492,27 @@
 
                         <div  class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
                             <div class="col-md-2 text-left ">
-                                Official Site  :
+                                公式サイト  :
                             </div>
                             <div class="col-md-10 text-left">
                                {{m.website}}
                             </div>
 
                             <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                Access :
+                                アクセス :
                             </div>
                             <div class="col-md-10 text-left" style="padding-top:20px;">
                                 {{m.access}}
                             </div>
                              <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                Congestion :
+                                混雑状況 :
                             </div>
                              <div class="col-md-10 text-left" style="padding-top:20px;">
                                 {{m.congestion}}
                             </div>
 
                             <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                City/Township :
+                                住所 :
                             </div>
                             <div class="col-md-10 text-left" style="padding-top:20px;">
                                 {{m.address}}
@@ -533,11 +543,14 @@
                 markers: [
                     { position: { lat: 0, lng: 0 } },
                 ],
-
+                am_arr:[],
+                pm_arr:[],
                 center: { lat: 0, lng: 0 },
                 address: '',
+                customer_id :2,
                 google:[],
                 customer:[],
+                hosfacilities:[],
                 specialfeature:[],
                 nusfacilities:[],
                 nus_method:[],
@@ -546,6 +559,7 @@
                 medical:[],
                 staff:[],
                 schedules:[],
+                subjects:[],
                 hospitals:[],
                 nursing_profiles:[],
                 method_payment:[],
@@ -649,11 +663,23 @@
                  this.axios.get('/api/profile/customer').then(response => {
                       this.customer = response.data;
                 });
+                this.axios.get('/api/profile/subject').then(response => {
+                      this.subjects = response.data;
+                });
+                 this.axios.get('/api/profile/schedule/'+ this.customer_id) .then(response => {
+
+                        this.am_arr = response.data[0];
+                        this.pm_arr = response.data[1];
+                });
+                // this.axios.get('/api/profile/hosfacility').then(response => {
+                //     console.log(this.hosfacilities);return;
+                //       this.hosfacilities = response.data;
+                // });
                 this.axios.get('/api/profile/hospital').then(response => {
-                    this.hospitals = response.data.hospital;
-                    this.schedules = response.data.schedule;
-                    console.log(this.schedules);
                     this.google = response.data.hoslatlong;
+                    this.hospitals = response.data.hospital;
+                    this.hosfacilities=response.data.facility_list;
+                    this.fac_list = response.data.facility;
                     this.markers[0]['position']['lat']  = response.data.hoslatlong[0]['latitude'];
                     this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
                     this.center['lat'] = response.data.hoslatlong[0]['latitude'];
