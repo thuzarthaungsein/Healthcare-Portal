@@ -53,7 +53,7 @@ class ProfilePublishController extends Controller
                              ->where('hospital_profiles.customer_id','=',3)->get();
 
         //for image slide show
-        $images = Gallery::select('id','photo')->where('customer_id',1)->get();
+        $images = Gallery::select('id','photo','title','description')->where('customer_id',1)->where('type','photo')->get();
 
      
         
