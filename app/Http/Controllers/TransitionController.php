@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Transition;
+use App\Transactions;
 
 use Illuminate\Http\Request;
 
-class TransitionController extends Controller
+class TransactionsController extends Controller
 {
     //
 }
