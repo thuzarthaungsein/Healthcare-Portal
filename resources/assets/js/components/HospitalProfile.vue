@@ -51,7 +51,7 @@
         <div class="form-group form-group-wrapper">
           <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
           <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
-            <i class="fas fa-plus-circle"></i> Add
+            <i class="fas fa-plus-circle"></i> 追加
           </span>
           <div class="col-md-12">
             <div class="row" id="gallery-photo">
@@ -110,7 +110,7 @@
             style="min-width: 0px;"
             @click="galleryVideoAdd()"
           >
-            <i class="fas fa-plus-circle"></i> Add
+            <i class="fas fa-plus-circle"></i> 追加
           </span>
           <div class="col-md-12">
             <div class="row" id="gallery-video">
@@ -212,231 +212,307 @@
                         <th>&nbsp;</th>
                         <th>午前</th>
                         <th>午後</th>
-                        <th>その他</th>
                       </tr>
                       <tr>
                         <td>月曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from0 white-bg-color"
-                            v-model="schedule_arr.am_mon_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to0 white-bg-color"
-                            v-model="schedule_arr.am_mon_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from0 white-bg-color"
+                                v-model="schedule_arr.am_mon_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to0 white-bg-color"
+                                v-model="schedule_arr.am_mon_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from0 white-bg-color"
-                            v-model="schedule_arr.pm_mon_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to0 white-bg-color"
-                            v-model="schedule_arr.pm_mon_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from0 white-bg-color"
+                                v-model="schedule_arr.pm_mon_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to0 white-bg-color"
+                                v-model="schedule_arr.pm_mon_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>火曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from1 white-bg-color"
-                            v-model="schedule_arr.am_tue_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to1 white-bg-color"
-                            v-model="schedule_arr.am_tue_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from1 white-bg-color"
+                                v-model="schedule_arr.am_tue_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to1 white-bg-color"
+                                v-model="schedule_arr.am_tue_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from1 white-bg-color"
-                            v-model="schedule_arr.pm_tue_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to1 white-bg-color"
-                            v-model="schedule_arr.pm_tue_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from1 white-bg-color"
+                                v-model="schedule_arr.pm_tue_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to1 white-bg-color"
+                                v-model="schedule_arr.pm_tue_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>水曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from2 white-bg-color"
-                            v-model="schedule_arr.am_wed_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to2 white-bg-color"
-                            v-model="schedule_arr.am_wed_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from2 white-bg-color"
+                                v-model="schedule_arr.am_wed_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to2 white-bg-color"
+                                v-model="schedule_arr.am_wed_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from2 white-bg-color"
-                            v-model="schedule_arr.pm_wed_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to2 white-bg-color"
-                            v-model="schedule_arr.pm_wed_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from2 white-bg-color"
+                                v-model="schedule_arr.pm_wed_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to2 white-bg-color"
+                                v-model="schedule_arr.pm_wed_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>木曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from3 white-bg-color"
-                            v-model="schedule_arr.am_thu_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to3 white-bg-color"
-                            v-model="schedule_arr.am_thu_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from3 white-bg-color"
+                                v-model="schedule_arr.am_thu_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to3 white-bg-color"
+                                v-model="schedule_arr.am_thu_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from3 white-bg-color"
-                            v-model="schedule_arr.pm_thu_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to3 white-bg-color"
-                            v-model="schedule_arr.pm_thu_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from3 white-bg-color"
+                                v-model="schedule_arr.pm_thu_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to3 white-bg-color"
+                                v-model="schedule_arr.pm_thu_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>金曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from4 white-bg-color"
-                            v-model="schedule_arr.am_fri_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to4 white-bg-color"
-                            v-model="schedule_arr.am_fri_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from4 white-bg-color"
+                                v-model="schedule_arr.am_fri_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to4 white-bg-color"
+                                v-model="schedule_arr.am_fri_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from4 white-bg-color"
-                            v-model="schedule_arr.pm_fri_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to4 white-bg-color"
-                            v-model="schedule_arr.pm_fri_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from4 white-bg-color"
+                                v-model="schedule_arr.pm_fri_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to4 white-bg-color"
+                                v-model="schedule_arr.pm_fri_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>土曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from5 white-bg-color"
-                            v-model="schedule_arr.am_sat_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to5 white-bg-color"
-                            v-model="schedule_arr.am_sat_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from5 white-bg-color"
+                                v-model="schedule_arr.am_sat_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to5 white-bg-color"
+                                v-model="schedule_arr.am_sat_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from5 white-bg-color"
-                            v-model="schedule_arr.pm_sat_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to5 white-bg-color"
-                            v-model="schedule_arr.pm_sat_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from5 white-bg-color"
+                                v-model="schedule_arr.pm_sat_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to5 white-bg-color"
+                                v-model="schedule_arr.pm_sat_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>日曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from6 white-bg-color"
-                            v-model="schedule_arr.am_sun_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to6 white-bg-color"
-                            v-model="schedule_arr.am_sun_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from6 white-bg-color"
+                                v-model="schedule_arr.am_sun_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to6 white-bg-color"
+                                v-model="schedule_arr.am_sun_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from6 white-bg-color"
-                            v-model="schedule_arr.pm_sun_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to6 white-bg-color"
-                            v-model="schedule_arr.pm_sun_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from6 white-bg-color"
+                                v-model="schedule_arr.pm_sun_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to6 white-bg-color"
+                                v-model="schedule_arr.pm_sun_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                     </table>
                   </div>
@@ -461,7 +537,7 @@
               <div class="form-group">
                 <label class="heading-lbl col-2 pad-free">施設情報</label>
                 <span
-                  class="btn all-btn main-bg-color m-l-10"
+                  class="btn all-btn main-bg-color"
                   style="min-width: 0px;"
                   @click="factogglediv()"
                 >
@@ -499,7 +575,7 @@
                   <span class="error">*</span>
                 </label>
                 <span
-                  class="btn all-btn main-bg-color m-l-10"
+                  class="btn all-btn main-bg-color"
                   style="min-width: 0px;"
                   @click="specialFeAdd()"
                 >
@@ -528,21 +604,21 @@
           </tr>
         </table>
 
-        <div class="form-group form-group-wrapper">
+        <div class="form-group form-group-wrapper row ml-0 mr-0">
           <label class="heading-lbl col-2 pad-free">公式サイト</label>
           <input
             type="text"
             name="official-website"
-            class="form-control website white-bg-color"
+            class="form-control col-10 website white-bg-color"
             v-model="hospital_info.website"
           />
         </div>
 
-        <div class="form-group form-group-wrapper">
+        <div class="form-group form-group-wrapper row mr-0 ml-0">
           <label class="heading-lbl col-2 pad-free">混雑状況</label>
           <textarea
             name="congestion"
-            class="form-control congestion white-bg-color"
+            class="form-control col-10 congestion white-bg-color"
             v-model="hospital_info.congestion"
           ></textarea>
         </div>
@@ -715,9 +791,8 @@
 
         <!-- End Map -->
 
-        <div class="row">
-          <span class="btn news-post-btn all-btn m-t-15" @click="Create_Profile()">Create</span>
-          <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
+        <div class="row col-2 col-offset-6 mx-auto">
+          <span class="btn main-bg-color col-12 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
         </div>
       </div>
     </form>
