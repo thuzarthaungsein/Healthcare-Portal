@@ -125,5 +125,16 @@ class TypeController extends Controller
         return response()->json('The Type was successfully deleted');
     }
 
+    public function search(Request $request)
+    {
+    $request = $request->all();
+        $search_word = $request['search_word'];
 
+        $search_categories = Type::query()
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->get()
+                            ->toArray();
+        return $search_categories;
+
+    }
 }

@@ -344,7 +344,7 @@
                             <div class="form-group m-0 row bd-all">
                                 <div class="col-md-3 col-sm-12 form-left"><label>ご要望や、お困りごと、その他お問い合わせ</label></div>
                                 <div class="col-md-9 col-sm-12 form-right pl-4">                                           
-                                    <textarea name="hope" id="hope" class="mail-txt"   v-model="comments.hope" ></textarea>
+                                    <textarea name="hope" id="hope" class="form-control m-0"   v-model="comments.hope" ></textarea>
                                 </div>
                             </div>
                             <!-- <div class="col-md-6">

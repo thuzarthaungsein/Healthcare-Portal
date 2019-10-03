@@ -61,6 +61,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'TypeController@edit');
         Route::post('update/{id}', 'TypeController@update');
         Route::delete('delete/{id}', 'TypeController@destroy');
+        Route::post('search', 'TypeController@search');
     });
     // End Type
 
@@ -71,6 +72,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'JobController@edit');
         Route::post('update/{id}', 'JobController@update');
         Route::delete('delete/{id}', 'JobController@destroy');
+        Route::post('search', 'JobController@search');
     });
     // End Job
 
@@ -134,6 +136,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('nursing-feature/{type}', 'SpecialFeatureController@getFeaturebyProfileType');
         Route::post('update/{id}', 'SpecialFeatureController@update');
         Route::delete('delete/{id}','SpecialFeatureController@destroy');
+        Route::post('search','SpecialFeatureController@search');
     });
     //End SpecialFeature
 
@@ -176,6 +179,8 @@ Route::get('hospital-vgallery/{id}','GalleryController@getVideobyCustomerId');
 
 Route::get('nursing-pgallery/{id}','GalleryController@getPhotobyCustomerId');
 Route::get('nursing-vgallery/{id}','GalleryController@getVideobyCustomerId');
+Route::post('nursing/movephoto','NursingProfileController@movePhoto');
+Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
 
 Route::get('nursing-cooperate/{id}','CooperateMedicalController@getCooperateByCustomerId');
 Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerId');

@@ -2,25 +2,25 @@
   <div id="app">
     <div v-if="type == 'nursing'">
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
-            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                 Information
             </button>
-            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
                 Features
             </button>
-            <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
                 Cost
             </button>
-            <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
                 Equipment
             </button>
-            <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn" @click="activate(5)" :class="{ active : active_el == 5 }">
                 Map
             </button>
-            <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn" @click="activate(6)" :class="{ active : active_el == 6 }">
                 Review
             </button>
-            <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn" @click="activate(7)" :class="{ active : active_el == 7 }">
                 Job Offer
             </button>
             </div>
@@ -45,187 +45,190 @@
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-8">{{nurseprofile.feature}}</div>
             </div>
             <div class="row ele m-lr-0" id="element3">
-                <h5 class="header">Cost</h5>
-                        <table class="table table-striped table-bordered">
-                            <tr>
-                                <th width="30%">
-                                    <font>method of payment</font>
-                                </th>
-                                <td width="50%">
-                                    <font>method of payment test</font>
-                                </td>
-                            </tr>
-                        </table>
-                    <div v-if="method_payment.length > 0">
-                        <div class="cost_tb"  v-for="cost in method_payment" :key="cost.id">
-                            <table class="cost_table">
-                                <tbody>
-                                <tr>
-                                    <th width="150">入居にかかる費用(Expense)</th>
-                                        <td >{{cost.expense_moving}}</td>
-                                        <th>居室タイプ(type)</th>
-                                        <td>{{cost.living_room_type}}</td>
-                                </tr>
-                                <tr>
-                                    <th width="150">月額料金 (monthly)</th>
-                                        <td>{{cost.monthly_fees}}</td>
-                                    <th>広さ(area)</th>
-                                        <td>{{cost.area}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <div class="cost_btnwrapper">
-                                <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.customer_id">View</button>
-                            </div> <br/>
+                <h5 class="header col-md-12">Cost</h5>
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th>
+                                <font>method of payment</font>
+                            </th>
+                            <td>
+                                <font>method of payment test</font> <!-- method field in nursing_profile -->
+                            </td>
+                        </tr>
+                    </table>
+                    <div v-if="method_payment.length > 0" class="col-md-12 pad-free">
+                        <div class="cost_tb" v-for="cost in method_payment" :key="cost.id">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <table class="table table-bordered cost_table">
+                                        <tbody>
+                                        <tr>
+                                            <th width="150">入居にかかる費用(Expense)</th>
+                                                <td >{{cost.expense_moving}}</td>
+                                                <th>居室タイプ(type)</th>
+                                                <td>{{cost.living_room_type}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th width="150">月額料金 (monthly)</th>
+                                                <td>{{cost.monthly_fees}}</td>
+                                            <th>広さ(area)</th>
+                                                <td>{{cost.area}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="cost_btnwrapper col-md-2">
+                                    <button class="btn edit-borderbtn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id">View</button>
+                                </div> <br/>
 
 
-                            <div class="collapse" :id="'costDetails' + cost.customer_id">
-                                <table class="cost_table">
-                                    <h4>入居にかかる費用(Expense Moving)</h4>
-                                    <tbody>
-                                        <tr>
-                                            <th width="300">入居一時金または(deposit)</th>
-                                                <td>{{cost.deposit}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>その他（使途）(other)</th>
-                                                <td>{{cost.other_use}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="cost_table">
-                                        <h4>月額費用(Monthly Cost)</h4>
-                                    <tbody>
-                                        <tr>
-                                            <th width="300">賃料 (rent)</th>
-                                            <td>{{cost.rent}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>管理費(admin_expense)</th>
-                                            <td>{{cost.admin_expense}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>食費 (food_expense)</th>
-                                            <td>{{cost.food_expense}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>介護上乗せ金（生活サービス費(nursing care)</th>
-                                            <td>{{cost.nurse_care_surcharge}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>その他 (other monthly cost)</th>
-                                            <td>{{cost.other_monthly_cost}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="cost_table">
-                                        <h4>返還金について(refund system)</h4>
-                                    <tbody>
-                                        <tr>
-                                            <th width="300">返還制度 (refund)</th>
-                                            <td>{{cost.refund_system}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>償却期間(Depreciation)</th>
-                                            <td>{{cost.depreciation_period}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>初期償却(InitialDepreciation)</th>
-                                            <td>{{cost.initial_deprecration}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>その他メッセージ(other message)</th>
-                                            <td>{{cost.other_message_refund}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                <div class="collapse col-md-12" :id="'costDetails' + cost.id">
+                                    <table class="table table-condensed cost_table">
+                                        <h4>入居にかかる費用(Expense Moving)</h4>
+                                        <tbody>
+                                            <tr>
+                                                <th width="300">入居一時金または(deposit)</th>
+                                                    <td>{{cost.deposit}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>その他（使途）(other)</th>
+                                                    <td>{{cost.other_use}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-condensed cost_table">
+                                            <h4>月額費用(Monthly Cost)</h4>
+                                        <tbody>
+                                            <tr>
+                                                <th width="300">賃料 (rent)</th>
+                                                <td>{{cost.rent}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>管理費(admin_expense)</th>
+                                                <td>{{cost.admin_expense}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>食費 (food_expense)</th>
+                                                <td>{{cost.food_expense}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>介護上乗せ金（生活サービス費(nursing care)</th>
+                                                <td>{{cost.nurse_care_surcharge}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>その他 (other monthly cost)</th>
+                                                <td>{{cost.other_monthly_cost}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-condensed cost_table">
+                                            <h4>返還金について(refund system)</h4>
+                                        <tbody>
+                                            <tr>
+                                                <th width="300">返還制度 (refund)</th>
+                                                <td>{{cost.refund_system}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>償却期間(Depreciation)</th>
+                                                <td>{{cost.depreciation_period}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>初期償却(InitialDepreciation)</th>
+                                                <td>{{cost.initial_deprecration}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>その他メッセージ(other message)</th>
+                                                <td>{{cost.other_message_refund}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>                         
 
                         </div>
                     </div>
             </div>
             <div class="row ele m-lr-0" id="element4">
-                <div class="row" >
-                            <div class="col-md-12">
-                            <h2 align="center"> Facility </h2>
-
-                            </div>
-                            <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12" >
-                                <table border="1" class="table">
-                                    <tbody>
-                                        <tr>
-                                        <td> Business entity</td>
-                                        <td>{{nus.business_entity}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date of establishment</td>
-                                        <td>{{nus.date_of_establishment}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td> Land rights form </td>
-                                        <td>{{nus.land_right_form}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Building rights form</td>
-                                        <td>{{nus.building_right_form}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Site area</td>
-                                        <td>{{nus.site_area}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total floor area</td>
-                                        <td>{{nus.floor_area}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Construction</td>
-                                        <td>{{nus.construction}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Capacity</td>
-                                        <td>{{nus.capacity}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total number of rooms / units </td>
-                                        <td>{{nus.num_rooms}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Right of residence form </td>
-                                        <td>{{nus.residence_form}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Type </td>
-                                        <td>{{nus.fac_type}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Occupancy conditions</td>
-                                        <td>{{nus.occupancy_condition}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Room division, floor plan, etc </td>
-                                        <td>{{nus.room_floor}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td> Living room facilities</td>
-                                        <td>{{nus.living_room_facilities}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Common facilities / equipment </td>
-                                        <td>{{nus.equipment}}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                <!-- <div class="row"> -->
+                    <div class="col-md-12">
+                        <h2 align="center"> Facility </h2>
+                    </div>
+                    <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12 pad-free" >
+                        <table border="1" class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                <td> Business entity</td>
+                                <td>{{nus.business_entity}}</td>
+                            </tr>
+                            <tr>
+                                <td>Date of establishment</td>
+                                <td>{{nus.date_of_establishment}}</td>
+                            </tr>
+                            <tr>
+                                <td> Land rights form </td>
+                                <td>{{nus.land_right_form}}</td>
+                            </tr>
+                            <tr>
+                                <td>Building rights form</td>
+                                <td>{{nus.building_right_form}}</td>
+                            </tr>
+                            <tr>
+                                <td>Site area</td>
+                                <td>{{nus.site_area}}</td>
+                            </tr>
+                            <tr>
+                                <td>Total floor area</td>
+                                <td>{{nus.floor_area}}</td>
+                            </tr>
+                            <tr>
+                                <td>Construction</td>
+                                <td>{{nus.construction}}</td>
+                            </tr>
+                            <tr>
+                                <td>Capacity</td>
+                                <td>{{nus.capacity}}</td>
+                            </tr>
+                            <tr>
+                                <td>Total number of rooms / units </td>
+                                <td>{{nus.num_rooms}}</td>
+                            </tr>
+                            <tr>
+                                <td>Right of residence form </td>
+                                <td>{{nus.residence_form}}</td>
+                            </tr>
+                            <tr>
+                                <td>Type </td>
+                                <td>{{nus.fac_type}}</td>
+                            </tr>
+                            <tr>
+                                <td>Occupancy conditions</td>
+                                <td>{{nus.occupancy_condition}}</td>
+                            </tr>
+                            <tr>
+                                <td>Room division, floor plan, etc </td>
+                                <td>{{nus.room_floor}}</td>
+                            </tr>
+                            <tr>
+                                <td> Living room facilities</td>
+                                <td>{{nus.living_room_facilities}}</td>
+                            </tr>
+                            <tr>
+                                <td>Common facilities / equipment </td>
+                                <td>{{nus.equipment}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <!-- </div> -->
 
 
                         <div class="row" style="width: 100%;" >
                             <div class="col-md-12">
-                            <h2 align="center"> Cooperate Medical </h2>
+                                <h2 align="center"> Cooperate Medical </h2>
                             </div>
-                            <div v-if="cooperate_medical.length>0">
+                            <div v-if="cooperate_medical.length>0" class="col-md-12 pad-free">
                                 <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
-                                    <table border="1" class="table">
+                                    <table border="1" class="table table-bordered">
                                         <tbody>
                                             <tr>
                                                 <td > 診療科目</td>
@@ -243,7 +246,7 @@
                                     </table>
                                 </div>
                             </div>
-                            
+
                         </div>
 
                         <div class="row" >
@@ -338,11 +341,9 @@
                                          <div class="content hideContent">{{comment.comment}}</div>
                                      </div> -->
                                      <!-- <button onclick="function()">See more</button> -->
-                    <div class="row col-md-12 m-lr-0">
-                        <p class="showContent"> {{comment.comment}}</p>
-                            <span class="displaytext">{{comment.comment}}</span>
-                                <a class="mt-2 readMore" @click="review()" href ="#">ReadMore</a>
 
+                    <div class="row col-md-12 m-lr-0">
+                        <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
                     </div>
 
                 </div>
@@ -353,7 +354,7 @@
 
             </div>
     </div>
-     
+
     <div v-if="type == 'hospital'">
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
@@ -397,12 +398,15 @@
                             <div class="content hideContent">{{comment.comment}}</div>
                         </div> -->
                         <!-- <button onclick="function()">See more</button> -->
-                    <div class="row col-md-12 m-lr-0">
+                    <!-- <div class="row col-md-12 m-lr-0">
                         <p class="showContent"> {{comment.comment}}</p>
-                        <span class="displaytext">{{comment.comment}}</span>
-                        <a class="mt-2 readMore" @click="review()" href ="#">ReadMore</a>
-                    </div>
+                            <span class="displaytext" :id="'test'+comment.id">{{comment.comment}}</span>
+                                <a class="mt-2 readMore" @click="review(comment.id)" href ="#">ReadMore</a>
 
+                    </div> -->
+                     <div class="row col-md-12 m-lr-0">
+                        <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
+                    </div>
                 </div>
             </div>
             <div class="row ele m-lr-0" id="element3">
@@ -464,6 +468,7 @@
                 markers: [
                     { position: { lat: 0, lng: 0 } },
                 ],
+                active_el:0,
                 center: { lat: 0, lng: 0 },
                 address: '',
                 google:[],
@@ -493,6 +498,7 @@
                         that.index = current;
                     }
                 },
+
                 images: [
                     {
                         id: '1',
@@ -519,7 +525,7 @@
         },
 
         created(){
-          
+
             if(this.type == "nursing")
             {
                 this.axios.get('/api/profile/nursing') .then(response => {
@@ -535,7 +541,7 @@
                     this.markers[0]['position']['lng']  = response.data.nurselatlong[0]['longitude'];
                     this.center['lat'] = response.data.nurselatlong[0]['latitude'];
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
-               
+
                     if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
                     {
                          this.center['lat'] = 35.6803997;
@@ -584,7 +590,7 @@
                     }
                 })
 
-              
+
             }
 
 
@@ -612,20 +618,10 @@
             activateImage(imageIndex) {
                 this.activeImage = imageIndex;
             },
-            review(){
-             var elem = $(".readMore").text();
-            if (elem == "ReadMore") {
-            $(".readMore").text("ReadLess");
-            $('.showContent').css("display", "none");
-            $(".displaytext").slideDown();
-          } else {
-            $(".readMore").text("ReadMore");
-            $(".displaytext").slideUp();
-            $('.showContent').css("display", "block");
-          }
-
+            activate:function(el){
+                this.active_el = el;
             }
-        },
+        }
 
  }
 
@@ -658,20 +654,20 @@
   padding-top: 60px;
 }
 .cost_tb{
-    border: 1px solid #ccc;
-    /* border-left: 0px; */
-    /* border-bottom: 0px; */
+    /* border: 1px solid #ccc; */
+    border-left: 0px;
+     border-bottom: 0px;
     padding-bottom: 1px;
-    background: #fff;
-    /* padding: 10px;*/
-    padding-bottom: 20px;
+     background: #fff;
+     padding: 10px;
+    /* padding-bottom: 20px; */
 }
 .cost_table{
-    width: 820px;
-    height: 81px;
+    /* width: 820px; */
+    /* height: 81px; */
     float: left;
     border-bottom: 1px solid #ccc;
-    margin-bottom: -2px;
+    margin-top: 15px;
 }
 .cost_table h4 {
     border-left: 6px solid #b7dad2;

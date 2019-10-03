@@ -148,7 +148,7 @@ $('#save_value').click(function(){
             isDivThere ++;
 
         }
-    } 
+    }
 
 
 /*select check
@@ -317,8 +317,7 @@ $('#save_value').click(function(){
   // });
 
   function closebtn(){
-   
-    
+
     if(confirm("Are you sure you want to delete?"))
     {
         var image_x = document.getElementById('x-image');
@@ -326,6 +325,29 @@ $('#save_value').click(function(){
         document.getElementById('showimage').style.display = 'block';
     }
 }
+
+  
+  // function closebtn(){
+  //   swal({
+  //     title: "Are you sure?",
+  //     text: "You will not be able to recover this imaginary file!",
+  //     type: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#DD6B55',
+  //     confirmButtonText: 'Yes, delete it!',
+  //     closeOnConfirm: false,
+  //     //closeOnCancel: false
+  //   },
+  //   function (isConfirm){
+  //     if(isConfirm){
+  //         var image_x = document.getElementById('x-image');
+  //         image_x.parentNode.removeChild(image_x);
+  //         document.getElementById('showimage').style.display = 'block';
+  //     }
+
+  //   }
+  //   );
+  // };
 
 function showImg(c,event) {
   $("."+c).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'>");

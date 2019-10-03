@@ -40,7 +40,13 @@
               <div class="col-md-12">
                 <div class="form-group row">
                   <div class="col-12">
-                    <input type="text" class="form-control" placeholder="検索" id="search-item" />
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="検索"
+                      id="search-item" 
+                      @keyup="searchJobOffer()"
+                    />
                   </div>
                   <!-- <div class="col-6 row align-items-baseline">
                     <div class="col-md-3">
@@ -139,7 +145,8 @@ export default {
   created() {
  
     this.axios.get("/api/job/index").then(response => {
-      this.jobs = response.data.jobs;
+      console.log(response);
+      this.jobs = response.data.profilejob;
     });
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)
@@ -154,6 +161,14 @@ export default {
           this.jobs.splice(i, 1);
         });
       }
+    },
+    searchJobOffer() {
+      var search_word = $("#search-item").val();
+       let fd = new FormData();
+      fd.append("search_word", search_word);
+      this.axios.post("/api/job/search", fd).then(response => {
+        this.jobs = response.data;
+      });
     }
   }
 };

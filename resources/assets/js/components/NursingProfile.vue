@@ -234,7 +234,7 @@
                         <tr>
                             <td style="border:none;">
                                 <label class="heading-lbl col-2 pad-free">施設の概要</label>
-                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="nurseFacToggleDiv()"><i class="fas fa-sort-down"></i></span>
+                                <span class="btn all-btn main-bg-color"  style="min-width: 0px;" @click="nurseFacToggleDiv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate}"></i></span>
                                 <!-- testtest -->
                                 <div class="col-10 pad-free float-right nurse-fac-toggle-div toggle-div m-t-10">
                                         <table class="table table-striped table-bordered">
@@ -543,6 +543,7 @@ export default {
 
 
         return {
+                isRotate: false,
                 fac_list: [],
                 feature_list:[],
                 medical_acceptance:[],
@@ -558,16 +559,16 @@ export default {
                 profile_arr:[],staf_info:[],customer_info:[], test:'',
 
                 // to delete
-                count:-1, v_count: -1, c_count: -1, p_count: -1,
-                type:'',
-                title:[], v_title:[],
-                description:[], v_description:[],
+                count:-1, v_count: -1, c_count: -1, p_count: -1, 
+                type:'', 
+                title:[], v_title:[], 
+                description:[], v_description:[], 
                 img:[], 
-                sub:[], coop_details:[], expense:[],remark:[],
-                method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[],
-                security_deposit:[],other_use:[], rent:[], management_fee:[],
-                food_expense:[],life_service:[],cost_other:[],return_system:[],
-                depreciation_period:[],initial_depreciation:[],other_message:[],
+                sub:[], coop_details:[], expense:[],remark:[], 
+                method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[], 
+                security_deposit:[],other_use:[], rent:[], management_fee:[], 
+                food_expense:[],life_service:[],cost_other:[],return_system:[], 
+                depreciation_period:[],initial_depreciation:[],other_message:[], 
                 cooperate_list:[], payment_list:[],meth_details:[], 
                 // end
                 content: '',
@@ -652,6 +653,7 @@ export default {
 
             nurseFacToggleDiv() {
                     $(".nurse-fac-toggle-div").toggle('medium');
+                     this.isRotate = !this.isRotate;
             },
 
             staffToggleDiv() {
@@ -795,10 +797,20 @@ export default {
 
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
-
                         var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
                         if(file) {
                                 var file_name = file.name;
+                                        let fd = new FormData();
+                                        fd.append('file' ,file )
+                                        fd.append('photo' ,file_name )
+                                        this.axios.post('/api/nursing/movephoto', fd)
+                                                .then(response => {
+                                                }).catch(error=>{
+                                                        console.log(error);
+                                                if(error.response.status == 422){
+                                                        this.errors = error.response.data.errors
+                                                }
+                                        })
                         } else {
                                 var file_name = img[i].getElementsByClassName('already-photo')[0].value;
                         }
