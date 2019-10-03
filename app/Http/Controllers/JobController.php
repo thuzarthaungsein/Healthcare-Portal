@@ -20,6 +20,7 @@ class JobController extends Controller
         return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
 
     }
+        
     public function getJob($id)
     {
         $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')

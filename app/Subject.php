@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    public $table = 'subject';
+    public $table = 'subjects';
     protected $fillable = ['id','name','user_id','parent','recordstatus'];
-}
+}      
