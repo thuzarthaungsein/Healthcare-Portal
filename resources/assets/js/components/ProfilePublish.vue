@@ -26,7 +26,7 @@
             </div>
            
             <div class="row m-lr-0 ele" id="element1">
-                 <h5 class="header">Information</h5>
+                 <h5 class="header">情報</h5>
                  <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -88,7 +88,7 @@
             </div>
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="header">特長</h5>
-                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-8">{{nurseprofile.feature}}</div>
+                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">{{nurseprofile.feature}}</div>
             </div>
             <div class="row ele m-lr-0" id="element3">
                 <h5 class="header col-md-12">費用</h5>
@@ -370,21 +370,31 @@
 
             <div class="row ele m-lr-0" id="element6">
                <h5 class="header col-12">口コミ</h5>
-               <div class="col-12">
-                   <div class="col-6 comment-wrapper" v-for="comment in comments" :key="comment.id">
-                    <div class="col-md-12">タイトル:{{comment.title}}</div>
-                    <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                    <div class="col-md-12">電子メールアドレス:{{comment.email}}</div>
-                    <div class="col-md-12">年月日投稿:{{comment.year}}</div>
-                        <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
-                            <div class="content hideContent">{{comment.comment}}</div>
-                        </div> -->
-                        <!-- <button onclick="function()">See more</button> -->
-                    <div class="row col-md-12 m-lr-0">
-                        <read-more more-str="read more" :text="comment.comment" :max-chars="20"></read-more>
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row col-12">
+                       
+                        <div class="col-12 comment-wrapper" v-for="comment in comments" :key="comment.id">
+                            <div class="card">
+                                <!-- <div class="card-header comment-title text-truncate">
+                                    <i class="fas fa-comment"></i>
+                                    {{comment.title}}
+                                </div> -->
+                                <div class="card-body">
+                                    <div class="comment-title">
+                                        <i class="fas fa-comment"></i>
+                                        {{comment.title}}
+                                    </div>
+                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}
+                                        <small class="card-text">{{comment.year}}</small>     
+                                    </h5>
+                                                                   
+                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more>     
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>                
-                </div>              
+              
+               </div>             
             </div>
 
             <div class="ele m-lr-0" id="element7">
@@ -566,6 +576,10 @@
                 },
 
                 images: [],
+                activeImage: 0,
+                currentOffset: 0,
+                windowSize: 1,
+                paginationFactor: 220,
             };
         },
 
@@ -692,7 +706,16 @@
             },
              activate:function(el){
                 this.active_el = el;
-            }
+            },
+             moveCarousel(direction) {
+      // Find a more elegant way to express the :style. consider using props to make it truly generic
+      if (direction === 1 && !this.atEndOfList) {
+        this.currentOffset -= this.paginationFactor;
+      } else if (direction === -1 && !this.atHeadOfList) {
+        this.currentOffset += this.paginationFactor;
+      }
+    },
+            
 
         }
 
@@ -788,8 +811,21 @@
     padding-right: 0; */
 }
 .comment-wrapper{
-    background-color: #eee;
+    background-color: #fff;
+    padding: 5px;
 }
+.comment-title{    
+    background-size: 29px;
+    color: #f9793c;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+.card-text{
+    color: #777;
+}
+
 div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #fff !important;
     font-weight: bold;
@@ -901,4 +937,6 @@ div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tab
 .actions > span:hover {
     color: #eee;
 }
+
+
 </style>
