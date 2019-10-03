@@ -359,21 +359,33 @@
 
             <div class="row ele m-lr-0" id="element6">
                <h5 class="header col-12">口コミ</h5>
-               <div class="col-12">
-                   <div class="col-6 comment-wrapper" v-for="comment in comments" :key="comment.id">
-                    <div class="col-md-12">タイトル:{{comment.title}}</div>
-                    <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
-                    <div class="col-md-12">電子メールアドレス:{{comment.email}}</div>
-                    <div class="col-md-12">年月日投稿:{{comment.year}}</div>
-                        <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
-                            <div class="content hideContent">{{comment.comment}}</div>
-                        </div> -->
-                        <!-- <button onclick="function()">See more</button> -->
-                    <div class="row col-md-12 m-lr-0">
-                        <read-more more-str="read more" :text="comment.comment" :max-chars="20"></read-more>
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row col-12">
+                        <div class="col-4 comment-wrapper" v-for="comment in comments" :key="comment.id">
+                            <div class="card">
+                                <div class="card-header comment-title text-truncate">
+                                    <i class="fas fa-comment"></i>
+                                    {{comment.title}}
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}</h5>
+                                    <small class="card-text">{{comment.year}}</small>                                    
+                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="20"></read-more>     
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>                
-                </div>              
+                <!-- <div class="row comment-wrapper">
+                    <div class="col-2" v-for="comment in comments" :key="comment.id">
+                        <p>タイトル:{{comment.title}}</p>
+                      
+                        <p class="">電子メールアドレス:{{comment.email}}</p>
+                        <p class="">年月日投稿:{{comment.year}}</p>
+                                           
+                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="20"></read-more>                    
+                        </div>                
+                    </div>  -->
+               </div>             
             </div>
 
             <div class="ele m-lr-0" id="element7">
@@ -689,7 +701,8 @@
             },
              activate:function(el){
                 this.active_el = el;
-            }
+            },
+            
 
         }
 
@@ -785,8 +798,19 @@
     padding-right: 0; */
 }
 .comment-wrapper{
-    background-color: #eee;
+    background-color: #fff;
+    padding: 10px;
 }
+.comment-title{    
+    background-size: 29px;
+    border-bottom: 1px solid #f9793c;
+    color: #f9793c;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0.75rem 1.25rem !important;
+}
+
 div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #fff !important;
     font-weight: bold;

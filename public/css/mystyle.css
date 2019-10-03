@@ -2187,7 +2187,11 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     color: #eee;
 }
 
-
+.comment-wrapper > #readmore{
+    color: #136ac3;
+    font-weight: bold;
+    font-size: 16px;
+}
 /* profilepublish css end */
 
 .custom-sidebar ul li {
