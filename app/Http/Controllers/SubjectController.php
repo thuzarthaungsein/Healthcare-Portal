@@ -11,14 +11,27 @@ class SubjectController extends Controller
     public function index()
     {
         $Subjects = Subject::all()->toArray();
-        return $Subjects;
+    
+        for($i=0;$i<count($Subjects);$i++)
+        {
+            if($Subjects[$i]['parent'] != 0)   
+            {
+               $Subjects[$i]['parent']  = Subject::where('id',$Subjects[$i]['parent'])->select('name')->value('name');  
+            }
+            else{
+                $Subjects[$i]['parent'] = "None";
+            }           
+         
+        }
+      
+        return response()->json($Subjects);
       
     }
 
     public function Subjectlist()
     {
 
-        $Subjectlist = Subject::select('id','name')->get()->toArray();
+        $Subjectlist = Subject::select('id','name')->where('parent',0)->get()->toArray();
       
         return $Subjectlist;
     }
@@ -43,7 +56,7 @@ class SubjectController extends Controller
 
         
         $request->validate([
-            'name' => 'required|unique:subject',
+            'name' => 'required',
         ]);
 
         if( $request->parent != null)

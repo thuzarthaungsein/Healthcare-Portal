@@ -1098,7 +1098,7 @@ textarea {
 }
 
 .ql-editor {
-    /* height: 170px !important; */
+    min-height: 170px !important;
     scrollbar-width: thin;
 }
 .form-control {
@@ -1772,8 +1772,18 @@ ul.sub-ul li {
 .white-bg-color {
     background-color: #fff !important;
 }
+.custom-bg-color{
+    background-color: #f0f0f0 !important;
+}
 .toggle-btn .icon-arrow:before {
     content: '\25BC';
+}
+.inner-btn{
+    padding: 10px 7px;
+    background: #ecede1 !important;
+    color: green !important;
+    font-weight: bold;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
 .all-btn {
@@ -3966,7 +3976,14 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     background: #666;
     color: #eee;
 }
+.schedule-toggle-div table td {
+    background: #fff;
+}
 
+.schedule-toggle-div table tr,
+.schedule-toggle-div table td:first-child {
+    background: #f5f5f5;
+}
 
 /* profilepublish css end */
 
@@ -5348,6 +5365,13 @@ button.confirmed {
     width: 145px;
     cursor: pointer;
     padding: 10px;
+    transition: all .3s ease-in;
+}
+
+.top-fixed-btn.active {
+    color: #fff !important;
+    background: #0e775d !important;
+    border: 1px solid #0e775d !important;
 }
 
 .ele {
@@ -5360,6 +5384,13 @@ button.confirmed {
 }
 .title-bg{
     background-color: #f5f5f5;
+}
+
+.postal-search {
+    padding: 15px 20px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    border-radius: 3px;
 }
 /* end profile */
 
