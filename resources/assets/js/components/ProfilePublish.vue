@@ -33,7 +33,7 @@
                            <div class="thumbnail-img">
                              <div class="card-carousel">
                                 <div class="card-img">
-                                    <img :src="currentImage" alt="">
+                                    <img :src="'/upload/nursing_profile/' +currentImage" alt="">
                                     <div class="actions">
                                         <span @click="prevImage" class="prev">
                                             <i class="fas fa-chevron-left"></i>
@@ -45,13 +45,14 @@
                                 </div>
                                 <div class="thumbnails">
                                     <div
-                                        v-for="(image, index) in  images"
+                                        v-for="(image,index) in  images"
                                         :key="image.id"
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
-                                        @click="activateImage(index)"
-                                    >
-                                        <img :src="image.thumb">
+                                        @click="activateImage(index)" >
+                                        <img  :src ="'/upload/nursing_profile/' + image.photo">
+                
                                     </div>
+                                 
                                 </div>
                             </div>
                         </div>
@@ -552,29 +553,7 @@
                     }
                 },
 
-                images: [
-                    {
-                        id: '1',
-                        big: 'images/p1.jpeg',
-                        thumb: 'images/thumbs/p1.jpeg'
-                    },
-                    {
-                        id: '2',
-                        big: 'images/p2.jpeg',
-                        thumb: 'images/thumbs/p2.jpeg'
-                    },
-                    {
-                        id: '3',
-                        big: 'images/p3.jpeg',
-                        thumb: 'images/thumbs/p3.jpeg'
-                    },
-                    {
-                        id: '4',
-                        big: 'images/p4.jpeg',
-                        thumb: 'images/thumbs/p4.jpeg'
-                    }
-                ],
-                 activeImage: 0
+                images: [],
             };
         },
 
@@ -584,6 +563,7 @@
         },
 
         created(){
+
 
             if(this.type == "nursing")
             {
@@ -601,7 +581,8 @@
                     this.markers[0]['position']['lng']  = response.data.nurselatlong[0]['longitude'];
                     this.center['lat'] = response.data.nurselatlong[0]['latitude'];
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
-
+                    this.images = response.data.images;
+                   
                     if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
                     {
                          this.center['lat'] = 35.6803997;
@@ -613,7 +594,7 @@
                 });
 
                 this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
-                    console.log(response.data);
+                 
                     this.specialfeature = response.data;
                 });
 
@@ -643,6 +624,7 @@
                     this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
                     this.center['lat'] = response.data.hoslatlong[0]['latitude'];
                     this.center['lng'] = response.data.hoslatlong[0]['longitude'];
+                    this.images = response.data.images;
                     if(response.data.hoslatlong[0]['latitude'] == 0 && response.data.hoslatlong[0]['longitude'] == 0)
                     {
                          this.center['lat'] = 35.6803997;
@@ -662,7 +644,9 @@
             // and is the reason why we don't have to worry about the 
             // big image getting updated
             currentImage() {
-                return this.images[this.activeImage].big;
+               
+                return this.images[this.activeImage].photo;
+               
             }
         },
           methods: {
@@ -686,6 +670,7 @@
                 this.activateImage(active);
             },
             activateImage(imageIndex) {
+                console.log(imageIndex);
                 this.activeImage = imageIndex;
             },
              activate:function(el){

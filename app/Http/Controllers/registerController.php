@@ -20,7 +20,8 @@ class registerController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */     
+    
     public function index()
     {   $type = Type::all();
         $cities = DB::table('cities')->get();
