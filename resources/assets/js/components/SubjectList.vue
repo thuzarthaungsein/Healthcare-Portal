@@ -31,7 +31,33 @@
                     
                     No record data 
                     
-            </div>     
+            </div>  
+               <div v-else class="container-fuid">
+                <table class="table table-hover custom-table">
+                  <thead style="background-color:rgb(183, 218, 210);">
+                    <tr>
+                      <th>Subject Name</th>
+                      <th>Parent</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="subject in subjects" :key="subject.id">
+                      <th>{{subject.name}}</th>
+                      <th>{{subject.parent}}</th>
+                      <th class="text-right">
+                        <!-- <button class="btn btn-sm btn-primary all-btn" v-if="getUser.status == 1">Approved</button> -->
+                         <router-link :to="{name: 'subject', params: { id: subject.id }}" class="btn main-bg-color white all-btn">Edit </router-link>
+                         <button class="btn btn-danger all-btn" @click="deleteSubject(subject.id)" >Delete</button>
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div> 
+   
+        </div>
+        
+           <!-- 
             <div class="container-fuid" v-for="subject in subjects" :key="subject.id" >
                 <div class="card card-default m-b-20">                    
                     <div class="card-body">
@@ -42,15 +68,15 @@
                             <div class="col-md-3" style="margin-top: 8px;">
                                     <router-link :to="{name: 'subject', params: { id: subject.id }}" class="btn main-bg-color white all-btn">Edit </router-link>
                                 
-                                <button class="btn btn-danger all-btn"   @click="deleteSubject(subject.id)" >Delete</button>
+                                <button class="btn btn-danger all-btn" @click="deleteSubject(subject.id)" >Delete</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
       </div>
- </div>
+ 
 </template>
 <script>
 export default {

@@ -52,6 +52,8 @@ import nursingMailConfirm from "./components/nursingMailConfirm.vue";
 //import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import modal from './components/modal.vue';
 import termsAndConditions from './components/termsAndConditions.vue';
+import occupation from './components/occupation.vue';
+import occupationlist from './components/occupationlist.vue';
 export const routes = [
     {
         name: 'home',
@@ -317,6 +319,18 @@ export const routes = [
     name: 'termsAndConditions',
     path: '/termsAndConditions',
     component: termsAndConditions
+  },
+
+  {
+    name: 'occupation',
+    path: '/occupation',
+    component: occupation
+  },
+
+  {
+    name: 'occupationlist',
+    path: '/occupationlist',
+    component: occupationlist
   },
 ];
 

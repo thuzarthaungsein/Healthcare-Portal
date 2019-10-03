@@ -229,7 +229,7 @@
                 </div>
               </div>
             </div>
-          
+
             <div class="map">
               <svg class="map_svg" viewBox="88 220 400 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586" width="100%" height="730">
                 <path id="1" data-info="Hokkaido" title="Hokkaido" class="path Hokkaido" stroke="#333333" fill="#6699cc" d="M378.27,247.63h86.97v55.8h-62.62l0.09,8.05h-24.44V247.63z" />
@@ -398,10 +398,6 @@
         subjects: [],
         toggleCheck: true,
         toggleCheck_1: false,
-
-
-
-
       }
     },
     methods: {
@@ -432,13 +428,11 @@
         }
       },
       getStateClick(e) {
-        console.log(e.target.tagName)
         if (e.target.tagName === 'A' || e.target.tagName === 'path') {
 
           const id = e.target.id;
           this.axios.post('api/getmap/' + id + '')
             .then((response) => {
-              console.log(response.data.fac_types)
               $('.hospitalselect').removeClass('hospitalselect');
               this.cities = response.data.city
               this.getCity = response.data.getCity
@@ -448,7 +442,6 @@
               this.id = id
             })
         } else if (e.target.tagName === 'SELECT' || e.target.tagName === 'OPTION') {
-          console.log(e.target.tagName)
           const id = this.id;
           this.axios.post('api/getmap/' + id + '')
             .then((response) => {
@@ -465,7 +458,6 @@
       getCheck(e) {
         if (e.target.checked) {
           this.township_id.push(e.target.value);
-          console.log(this.township_id);
         }
       },
       features(e) {
