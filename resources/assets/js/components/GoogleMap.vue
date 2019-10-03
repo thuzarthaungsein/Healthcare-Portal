@@ -1,16 +1,41 @@
 <template>
         <div class="col-md-12 pad-free m-b-10">
-          <label>場所検索はこちら</label>
+          
               <div class="col-md-12 pad-free">
+                <div class="col-md-12 pad-free postal-search">
+                  <div class="form-group m-t-10">
+                    <label>郵便番号<span class="error">*</span></label>
+                    <input type="text" v-model="comment.postal" name="postal" class="postal form-control white-bg-color" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7"/>
+                    <div id="jsErrorMessage"></div>
+                  </div>
+                  <div class="form-group">
+                    <label>市区町村、番地（建物名）<span class="error">*</span></label>
+                    <div class="row">
+                      <div class="col-md-10">
+                        <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="comment.city">
+                        
+                      </div>
+                      <div class="col-md-2">
+                        <span class="btn news-post-btn all-btn" @click="searchAddress()">番地検索</span>
+                      </div>
+                    </div>
+                    <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>                                    
+                  </div>
+                </div>           
+
+                <label>場所検索はこちら</label>
                 <gmap-autocomplete
-                  @place_changed="setPlace" class="form-control m-b-10">
+                  @place_changed="setPlace" v-bind:value="comment.city" class="form-control m-b-10" id="gmap-search" style="display:none;">
+                </gmap-autocomplete>
+                <gmap-autocomplete
+                  @place_changed="setPlace" class="form-control m-b-10" id="gmap-search2">
                 </gmap-autocomplete>
                 <!-- <span @click="addMarker">Add</span> -->
               </div>              
-              <div class="col-md-12 pad-free" v-if="address_btn">
+              <!-- <div class="col-md-12 pad-free" v-if="address_btn">
                 <label>住所:</label>
                 {{comment.gmap_city}}
-              </div>           
+              </div>            -->
           <GmapMap
             id="googlemap"
             ref="map"
@@ -27,17 +52,7 @@
               @dragend="updateCoordinates"
             />
           </GmapMap>
-          <div class="form-group m-t-10">
-            <label>郵便番号<span class="error">*</span></label>
-            <input type="text" v-model="comment.postal" name="postal" class="postal form-control white-bg-color" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7"/>
-            <div id="jsErrorMessage"></div>
-          </div>
-          <div class="form-group">
-            <label>市区町村、番地（建物名）<span class="error">*</span></label>
-            <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="comment.city">
-            <p>例）東京都千代田区丸の内1-9-1　グラントウキョウノースタワー40階</p>           
-            <button type="button" class="btn news-post-btn all-btn m-t-15" @click="searchAddress()">同意して進む</button>
-          </div>
+          
           <input type="hidden" name="new_lat" v-model="new_lat" id="new_lat">
           <input type="hidden" name="new_long" v-model="new_long" id="new_long">
         </div>
@@ -67,6 +82,7 @@ export default {
   created() {   
     this.new_lat = 35.6803997;
     this.new_long = 139.76901739;
+    $('#gmap-search').css({'display':'none'});
   },
   methods: {    
     // receives a place object via the autocomplete component
@@ -125,6 +141,11 @@ export default {
         };
       });
     },
+    searchplace(){
+      this.comment.gmap_city = this.comment.city;
+      $('#gmap-search').focus();
+      
+    },
     getPostal: function(event) {
                 if (this.comment.postal.length > 4) {
                     var postal = this.comment.postal;
@@ -151,12 +172,18 @@ export default {
             searchAddress (){
               this.address_btn = true;
               if(this.address_btn){
-                this.comment.gmap_city = this.comment.city;
+                // $('#gmap-search').focus();
+                // this.comment.gmap_city = this.comment.city;
+                $('#gmap-search').css({'display':'block'});
+                $('#gmap-search2').css({'display':'none'});
+                $('#gmap-search').focus();
+                
               }else{
                 this.comment.gmap_city = '';
               }
               
-            }
+            },
+            
   }
 };
 

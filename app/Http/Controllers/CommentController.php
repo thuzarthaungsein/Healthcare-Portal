@@ -26,44 +26,26 @@ class CommentController extends Controller
     public function store(Request $request)
     {
 
-        // $request->validate([
-        //     'title' => 'required',
-        //     'comment' =>'required',
-        //     'email' => 'required|email',
-        //     'fzipcode' => 'required|numeric',
-        //     'lzipcode' => 'required|numeric',
-        // ],[
-        //     'fzipcode.required' => 'First zipcode is required',
-        //     'lzipcode.required' => 'Second zipcode is required'
-        // ]);
-
         $request->validate([
             'title' => 'required',
             'comment' =>'required',
             'email' => 'required|email',
-
+            'fzipcode' => 'required|numeric',
+            'lzipcode' => 'required|numeric',
+        ],[
+            'fzipcode.required' => 'First zipcode is required and must be three !',
+            'lzipcode.required' => 'Second zipcode is required and  must be four'
         ]);
 
+        // $request->validate([
+        //     'title' => 'required',
+        //     'comment' =>'required',
+        //     'email' => 'required|email',
 
-
-
+        // ]);
 
         $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
 
-        // $comment = new Comment ([
-
-        //     'title' => $request->input('title'),
-        //     'comment' => $request->input('comment'),
-        //     'email' => $request->input('email'),
-        //     'name' =>  $request->input('name'),
-        //     'year' => $request->input('year'),
-        //     'gender' => $request->input('gender'),
-        //     'zipcode' =>  $zipcode,
-        //     'customer_id' => 1,
-        //     'status' => 0,
-        //     'recordstatus' => 2
-
-        // ]);
 
         $comment = new Comment();
         $comment->title = $request->input('title');
@@ -87,6 +69,7 @@ class CommentController extends Controller
         else{
             $getComment->gender = "Female";
         }
+        
         \Mail::to($getComment)->send(new SendMailComment($getComment));
 
         // return response()->json(['success'=>'Done!']);

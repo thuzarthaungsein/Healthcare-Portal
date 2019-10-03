@@ -14,6 +14,8 @@ use DB;
 use App\special_feature;
 use App\Customer;
 use App\Comment;
+use App\Gallery;
+use App\Facility;
 
 class ProfilePublishController extends Controller
 {
@@ -24,6 +26,7 @@ class ProfilePublishController extends Controller
      */
     public function index()
     {
+
         $feature = NursingProfile::select('feature')->where('customer_id',4)->get();
         $method = NursingProfile::select('method')->where('customer_id',1)->get();
         $facility = NursingProfile::where('customer_id',1)->get();
@@ -49,6 +52,11 @@ class ProfilePublishController extends Controller
                              ->join('hospital_profiles','hospital_profiles.customer_id','=','customers.id')
                              ->where('hospital_profiles.customer_id','=',3)->get();
 
+        //for image slide show
+        $images = Gallery::where('customer_id',1)->where('type','photo')->select()->get();
+
+     
+        
 
         $hospital = HospitalProfile::where('customer_id',1)->get();
 
@@ -56,7 +64,7 @@ class ProfilePublishController extends Controller
         $cost = DB::select($sql);
 
         return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff,
-           "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical,"method"=>$method));
+           "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"images"=>$images));
     }
 
     public function getComment()
@@ -71,7 +79,7 @@ class ProfilePublishController extends Controller
 
     public function getCustomer()
     {
-        $customer = Customer::where('id',2)->get();
+        $customer = Customer::where('id',1)->get();
         return $customer;
     }
 
@@ -80,7 +88,7 @@ class ProfilePublishController extends Controller
             $sfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
         }
         else{
-            $sfeature=NursingProfile::select('special_features')->where('customer_id',4)->value('special_features');
+            $sfeature=NursingProfile::select('special_features')->where('customer_id',1)->value('special_features');
         }
 
         $sql = "SELECT * FROM special_features WHERE id IN (".$sfeature.")";

@@ -96,11 +96,19 @@ export default {
         },
        data() {
                 return {
-                        type: 'nursing',
+                        type: '',
                         btntype: 'view',
                 }
         },
         created(){
+                this.axios
+                .get(`/api/user`)
+                .then(response => {
+                        console.log(response.data.type_id);
+                        this.type = response.data.type_id == 2?'hospital':'nursing';
+                        console.log(this.type);
+                });
+
                 if(this.$route.params.type) {
                         this.type = this.$route.params.type;
                         console.log(this.type);

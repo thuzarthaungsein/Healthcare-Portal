@@ -90,7 +90,7 @@
                   <div class="float-left mr-4" style="max-width:500px;">
                     <div
                       class="img-wrap mb-2"
-                      style="width:100%;background:#f5f5f5;text-align: center;padding: 30px;"
+                      style="width:100%;text-align: center;padding: 30px;"
                     >
                       <img
                         :src="'/upload/news/'+ newdetails.photo"

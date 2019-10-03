@@ -866,10 +866,10 @@
                     <button @click="toggleContent4" class="btn btn-link">
                       <i class="fa" aria-hidden="true"></i>
                           <!-- <em>{{city.city_name}}</em> -->
-                          <span id="close5"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
                     </button>
                    
-                    <div  class="toBeToggled" id="toBeToggled">
+                    <div  class="toBeToggled4" id="toBeToggled4">
 
                       <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
                         <label class="form-check-label" :for="township.id">
@@ -1000,14 +1000,14 @@ export default {
     toggleContent4() {
         this.toggleCheck = !this.toggleCheck;
             if (this.toggleCheck == true) {
-                $('#close5').empty();
-                $("#toBeToggled").slideToggle();
-                $('#close5').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
+                $('#close6').empty();
+                $("#toBeToggled4").slideToggle();
+                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
 
             } else {
-                $('#close5').empty();
-                $("#toBeToggled").slideToggle();
-                $('#close5').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+                $('#close6').empty();
+                $("#toBeToggled4").slideToggle();
+                $('#close6').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
             }
         },
         ShowHide4() {
@@ -1172,7 +1172,7 @@ span:hover::before {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius:10px;
 }
-.toBeToggled {
+.toBeToggled4 {
     display: block;
 }
 

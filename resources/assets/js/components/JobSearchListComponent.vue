@@ -1,9 +1,10 @@
 <template>
  <div class="row">
-      <div class="col-12">
-            <nav aria-label="breadcrumb">
+      <div class="col-md-12 tabs">
+            <div class="scrolldiv col-12">
+                    <!-- <nav aria-label="breadcrumb">
                      <ol class="breadcrumb" v-if="this.profile == profile">
-                            <h2> 求人応募 </h2>
+                            <h2 class="header"> 求人応募 </h2>
                      </ol>
                     <ol class="breadcrumb" v-else>
                             <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
@@ -11,10 +12,9 @@
                             <li class="breadcrumb-item active" aria-current="page">
                                             就職活動リスト</li>   
                     </ol>
-            </nav>
-
-            <div class="scroll col-12">
-                   
+                         </nav>
+                    -->
+                    <h5 class="header"> 求人応募 </h5>
                      <div v-if="!this.jobs.length" class="card card-default m-b-20" style="padding-top:30px; height:700px; text-align:center ">
                            
                           No Record Data 

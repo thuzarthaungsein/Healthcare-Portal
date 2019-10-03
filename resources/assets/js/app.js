@@ -33,6 +33,10 @@ import VueCarousel from '@chenfengyuan/vue-carousel';
 Vue.component(VueCarousel.name, VueCarousel);
 
 
+//vue slick
+import Slick from 'vue-slick';
+Vue.use(Slick);
+
 
 
 //vue vuetify
