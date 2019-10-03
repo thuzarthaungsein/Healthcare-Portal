@@ -109,6 +109,9 @@ export default {
     this.axios.get("/api/customers").then(response => {
       this.customers = response.data;
     });
+    this.axios.get("/api/user").then(response => {
+      //console.log(response)
+    });
   },
   methods: {
     deleteCustomer(id) {
@@ -136,6 +139,7 @@ export default {
     },
     comfirm(id) {
       this.axios.get(`/api/confirm/${id}`).then(response => {
+        console.log(response);
         flash("Successfully Send Mail.", "success");
       });
     },

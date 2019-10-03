@@ -271,8 +271,8 @@ body {
 }
 
 .hos-fac-toggle-div {
-    padding-top: 15px;
-    border: 1px solid #eee;
+    /* padding-top: 15px;
+    border: 1px solid #eee; */
     border-radius: 5px;
     margin-top: 10px;
 }
@@ -1113,7 +1113,7 @@ textarea {
 }
 
 .ql-editor {
-    /* height: 170px !important; */
+    min-height: 170px !important;
     scrollbar-width: thin;
 }
 
@@ -1794,8 +1794,20 @@ ul.sub-ul li {
     background-color: #fff !important;
 }
 
+.custom-bg-color {
+    background-color: #f0f0f0 !important;
+}
+
 .toggle-btn .icon-arrow:before {
     content: '\25BC';
+}
+
+.inner-btn {
+    padding: 10px 7px;
+    background: #ecede1 !important;
+    color: green !important;
+    font-weight: bold;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
 .all-btn {
@@ -4897,6 +4909,19 @@ body::-webkit-scrollbar-thumb {
 
 .hos-btn.news-post-btn {
     left: 0;
+}
+
+.schedule-toggle-div table th,
+.schedule-toggle-div table td:first-child {
+    width: 20%;
+    padding: 10px 0 0 30px;
+    background: #f5f5f5;
+    font-size: 15px;
+}
+
+.schedule-toggle-div table td:nth-child(2),
+.schedule-toggle-div table td:nth-child(3) {
+    width: 40%;
 }
 
 

@@ -37,6 +37,8 @@ import VideoUpload from "./components/VideoUpload.vue";
 import GoogleMap from "./components/GoogleMap.vue";
 import type from "./components/Type.vue";
 import typelist from "./components/TypeList.vue";
+import subject from "./components/Subject.vue";
+import subjectlist from "./components/SubjectList.vue";
 import advertisementlist from "./components/advertisementlist.vue";
 import editadvertisement from "./components/editadvertisement.vue";
 import comment from "./components/Comment.vue";
@@ -97,11 +99,7 @@ export const routes = [
         path: "/jobsearchlist",
         component: JobSearchListComponent
     },
-    {
-        name: "joboffer",
-        path: "/joboffer",
-        component: JobOfferComponent
-    },
+
     {
         name: "job_details",
         path: "/job_details/:id",
@@ -145,7 +143,11 @@ export const routes = [
     {
         name: "createfacility",
         path: "/createfacility",
-        component: CreateFacilityComponent
+        component: CreateFacilityComponent,
+        meta: {
+            requiresAuth: true
+          }
+
     },
 
     {
@@ -231,7 +233,16 @@ export const routes = [
         path: "/typelist",
         component: typelist
     },
-
+    {
+        name: "subject",
+        path: "/subject",
+        component: subject
+    },
+    {
+        name: "subjectlist",
+        path: "/subjectlist",
+        component: subjectlist
+    },
     {
         name: "ads",
         path: "/ads",
@@ -308,3 +319,4 @@ export const routes = [
     component: termsAndConditions
   },
 ];
+

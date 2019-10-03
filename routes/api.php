@@ -34,14 +34,8 @@ Route::group(['middleware' => ['auth']], function() {
 Route::group(['middleware' => ['auth:api']], function() {
 
     Route::group(['prefix' => 'profile'], function () {
-    Route::get('approve/{id}','registerController@approve');
-    Route::get('nursing','ProfilePublishController@index');
-    Route::get('hospital','ProfilePublishController@index');
-    Route::get('specialfeature/{type}','ProfilePublishController@getSpecialfeature');
-    Route::get('comment','ProfilePublishController@getComment');
-    Route::get('customer','ProfilePublishController@getCustomer');
-
-});
+        Route::get('approve/{id}','registerController@approve');
+    });
 
     // Category
     Route::group(['prefix' => 'category'], function () {
@@ -64,6 +58,17 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('search', 'TypeController@search');
     });
     // End Type
+
+    //Subject
+    Route::group(['prefix' => 'subjects'], function () {
+        Route::get('subjectlist', 'SubjectController@SubjectList');
+        Route::get('subject', 'SubjectController@index');
+        Route::post('add', 'SubjectController@store');
+        Route::get('edit/{id}', 'SubjectController@edit');
+        Route::post('update/{id}', 'SubjectController@update');
+        Route::delete('delete/{id}', 'SubjectController@destroy');
+    });
+    //End Subject
 
     // Job
     Route::group(['prefix' => 'job'], function () {
@@ -142,6 +147,19 @@ Route::group(['middleware' => ['auth:api']], function() {
 
 });
 // login route api end
+
+Route::group(['prefix' => 'profile'], function () {
+    Route::get('nursing','ProfilePublishController@index');
+    Route::get('hospital','ProfilePublishController@index');
+    Route::get('specialfeature/{type}','ProfilePublishController@getSpecialfeature');
+    Route::get('comment','ProfilePublishController@getComment');
+    Route::get('customer','ProfilePublishController@getCustomer');
+});
+
+Route::group(['prefix' => 'job'], function () {
+    Route::get('getjob/{id}', 'JobController@getJob');
+    Route::post('search', 'JobController@search');
+});
 
 Route::group(['prefix' => 'category'], function () {
     Route::get('category_list','CategoryController@list');
@@ -241,11 +259,6 @@ Route::group(['prefix' => 'hospital'], function () {
     Route::get('favourite_list', 'HospitalProfileController@index');
     Route::delete('delete/{id}', 'HospitalProfileController@destroy');
 });
- Route::group(['prefix' => 'hospital'], function () {
-        Route::get('postList', 'HospitalProfileController@getPostalList');
-        Route::get('citiesList', 'HospitalProfileController@getCitiesName');
-        Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
-    });
 
 Route::group(['prefix' => 'comments'], function () {
     Route::post('add', 'CommentController@store');
