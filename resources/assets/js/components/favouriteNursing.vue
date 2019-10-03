@@ -1,43 +1,7 @@
 <template>
-    <div>
-        <!-- news details-->
-        <!--menu tabs-->
-        <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
-                <li role="presentation" class="subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
-                <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-                <li role="presentation" class="active subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-user-md"></i> 介護検索</a></li>
-                <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
-        </ul>
-        <!--end menu tabs-->
-        <!-- Tab panes -->
-            <div class="tab-content tab-content1 tabs">
-                <div role="tabpanel" class="tab-pane fade" id="tab1"><News></News></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
-                <div role="tabpanel" class="tab-pane active" id="tab3">
-                    <div class="col-12 scrolldiv2 pb-5">
-                        <div class="row col-12">
-                            <div class="col-md-8">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item">
-                                            <span @click="changeRoute()" class="link-span">介護検索</span>
-                                        </li>
-                                        <li class="breadcrumb-item active" aria-current="page">介護のお気に入り</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="select_all float-right">
-                                    <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
-                                        <input type="checkbox" @change="checkAll()" class="check-all-btn" />
-                                        <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-0">
-                            <form @submit.prevent="add" class="col-md-12 pad-free">
-                                <!-- <div class="d-flex justify-content-between">
+    <div class="row m-0">
+        <form @submit.prevent="add" class="col-md-12 pad-free">
+            <!-- <div class="d-flex justify-content-between">
                                     <div class="select_all">
                                         <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
                                             <input type="checkbox" @change="checkAll()" class="check-all-btn" />
@@ -45,162 +9,273 @@
                                         </label>
                                     </div>
                                 </div> -->
-                                <div class="row m-0">
-                                    <div v-for="nur_profile in fav_nursing" :key="nur_profile.id" class="col-lg-12 pt-3 bd">
-                                        <div class="row m-0">
-                                            <h5 class="m-b-10 col-12 hos-tit">
-                                                <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}" >{{nur_profile.name}}</router-link>
-                                            </h5>
-                                            <div class="col-lg-2 col-md-12 mb-5">
-                                                <div class="hos-img list-logo">
-                                                    <img v-bind:src="'/images/' + nur_profile.logo" alt style />
-                                                </div>
-                                                <button class="btn btn-danger all-btn hos-btn" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
-                                                <div class="row mt-2">
-                                                    <div class="col-6">
-                                                        <label class="btn news-post-btn all-btn hos-btn">
-                                                            <input type="checkbox" class="checkbox1" name="reservation" v-model="reserv_status[nur_profile.id]" @change="checkSingle()"/>
-                                                            <span class="checkmark"></span>見学予約
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label class="btn all-btn secondary-bg-color hos-btn">
-                                                            <input type="checkbox" class="checkbox2" value="documentation" name="documentation" v-model="document_status[nur_profile.id]" @change="checkSingle()"/>
-                                                            <span class="checkmark"></span>資料請求
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-7 col-md-12 mb-4">
-                                                <div class="row list-wrap">
-                                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                                        <p>
-                                                            <strong>Website</strong>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                                        <p>
-                                                            <a href="#" target="_blank">{{nur_profile.website}}</a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="row list-wrap">
-                                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                                        <p>
-                                                            <strong>Phone</strong>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                                        <p>{{nur_profile.phone}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row list-wrap">
-                                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                                        <p>
-                                                            <strong>Access</strong>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                                        <p>{{nur_profile.access}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row list-wrap">
-                                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                                        <p>
-                                                            <strong>Email</strong>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                                        <p>{{nur_profile.email}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row list-wrap">
-                                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                                        <p>
-                                                            <strong>Occupancy Condition</strong>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                                        <p>{{nur_profile.occupancy_condition}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row list-wrap">
-                                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                                        <p>
-                                                            <strong>Location</strong>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                                        <p>{{nur_profile.township_name}}, {{nur_profile.city_name}}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-12">
-                                                <ul class="fac_container">
-                                                     <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
-                                                    <!-- <li v-for="special in specialfeature" :key="special.id">{{special.short_name}}</li> -->
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+
+            <!--model-->
+            <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> -->
+            
+            <!-- Modal -->
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">比較する項目を選ぶ</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button class="btn btn-secondary">閉じる&times;</button>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>エリア</p>
                                 </div>
-                                <span class="btn btn-success mt-5 float-right" @click="addingMail()">この内容で送信</span>
-                            </form>
+                                <div class="col-md-3">
+                                    <label>
+                                        <input type="checkbox"> 住所
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>
+                                        <input type="checkbox"> 交通手段
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>費用・条件</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>
+                                        <input type="checkbox"> 月額費用
+                                    </label>
+                                    <br>
+                                    <label style="width:400px;">
+                                        <input type="checkbox"> 入居条件 （自立、要支援、要介護、認知症相談可）
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>
+                                        <input type="checkbox"> 入居一時金
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>サービス内容</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <label style="width:;">
+                                        <input type="checkbox"> 特長 （24時間看護、職員体制、食事メニューの選択など）
+                                    </label>
+                                    <label style="width:;">
+                                        <input type="checkbox"> 医療面の受け入れ （インシュリン投与、ストーマ・人工肛門、たん吸引など）
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>施設情報</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">
+                                        <input type="checkbox"> 空室状況
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">
+                                        <input type="checkbox"> 定員
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">
+                                        <input type="checkbox"> 開設日
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer text-center">
+                            <button type="button" class="btn btn-primary">比較する</button>
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
             </div>
-            <!--end Tab panes-->
+            <!--model-->
+            
+            <div class="row" >
+                <div class="col-md-11">
+                    <!-- <button style="width:100%;" type="btn" class="favnur" id="bd">住所、月額費用、入居一時金、入居条件</button> -->
+                    <dl class="itemBox favnur" @click="itemCompare()">
+                        <dt id="bd">比較する項目</dt>
+                        <dd>住所、月額費用、入居一時金、入居条件</dd>
+                    </dl>
+                </div>
+                <div class="col-md-1">
+                    <button class="btn news-post-btn all-btn hos-btn m-t-10">変更する</button>
+                </div>
+            </div>
+
+            
+           
+
+            <div class="row m-0">
+                <div v-for="nur_profile in fav_nursing" :key="nur_profile.id" class="col-lg-12 pt-3 bd">
+                    <div class="row m-0">
+                        <h5 class="m-b-10 col-12 hos-tit">
+                                                <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}" >{{nur_profile.name}}</router-link>
+                                            </h5>
+                        <div class="col-lg-2 col-md-12 mb-5">
+                            <div class="hos-img list-logo">
+                                <img v-bind:src="'/images/' + nur_profile.logo" alt style />
+                            </div>
+                            <button class="btn btn-danger all-btn hos-btn" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
+                            <div class="row mt-2">
+                                <div class="col-6">
+                                    <label class="btn news-post-btn all-btn hos-btn">
+                                        <input type="checkbox" class="checkbox1" name="reservation" v-model="reserv_status[nur_profile.id]" @change="checkSingle()" />
+                                        <span class="checkmark"></span>見学予約
+                                    </label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="btn all-btn secondary-bg-color hos-btn">
+                                        <input type="checkbox" class="checkbox2" value="documentation" name="documentation" v-model="document_status[nur_profile.id]" @change="checkSingle()" />
+                                        <span class="checkmark"></span>資料請求
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-12 mb-4">
+                            <div class="row list-wrap">
+                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                    <p>
+                                        <strong>Website</strong>
+                                    </p>
+                                </div>
+                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                    <p>
+                                        <a href="#" target="_blank">{{nur_profile.website}}</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row list-wrap">
+                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                    <p>
+                                        <strong>Phone</strong>
+                                    </p>
+                                </div>
+                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                    <p>{{nur_profile.phone}}</p>
+                                </div>
+                            </div>
+                            <div class="row list-wrap">
+                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                    <p>
+                                        <strong>Access</strong>
+                                    </p>
+                                </div>
+                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                    <p>{{nur_profile.access}}</p>
+                                </div>
+                            </div>
+                            <div class="row list-wrap">
+                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                    <p>
+                                        <strong>Email</strong>
+                                    </p>
+                                </div>
+                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                    <p>{{nur_profile.email}}</p>
+                                </div>
+                            </div>
+                            <div class="row list-wrap">
+                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                    <p>
+                                        <strong>Occupancy Condition</strong>
+                                    </p>
+                                </div>
+                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                    <p>{{nur_profile.occupancy_condition}}</p>
+                                </div>
+                            </div>
+                            <div class="row list-wrap">
+                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                    <p>
+                                        <strong>Location</strong>
+                                    </p>
+                                </div>
+                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                    <p>{{nur_profile.township_name}}, {{nur_profile.city_name}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12">
+                            <ul class="fac_container">
+                                <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                <!-- <li v-for="special in specialfeature" :key="special.id">{{special.short_name}}</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div v-if="local_sto">                      
+                                </div> -->
+            <span class="btn btn-success mt-5 float-right" @click="addingMail()">この内容で送信</span>
+
+        </form>
     </div>
 </template>
 
-
-
 <script>
-import News from './News.vue'
-import hospitalSearch from './hospitalSearch.vue'
-// import nursingSearch from './nursingSearch.vue'
-import jobSearch from './jobSearch.vue'
+    import News from './News.vue'
+    import hospitalSearch from './hospitalSearch.vue'
+        // import nursingSearch from './nursingSearch.vue'
+    import jobSearch from './jobSearch.vue'
     export default {
         components: {
-                News,
-                // nursingSearch,
-                jobSearch,
-                hospitalSearch,
+            News,
+            // nursingSearch,
+            jobSearch,
+            hospitalSearch,
         },
         data() {
-                return {
-                    errors: [],
-                    fav_nursing: [],
-                    local_sto: "",
-                    post_list: [],
-                    city_list: [],
-                    post: "",
-                    selectedCity: "",
-                    zipStreet: "",
-                    zipPref: "",
-                    selectedValue: 0,
-                    fav_email: [],
-                    arr_email: [],
-                    reserv_status: [],
-                    document_status: [],
-                    type : 'nursing',
-                    specialfeature:[]
-                };
-            },
-            created() {
-                $('.checkbox1').prop("checked", true);
-                this.local_sto = localStorage.getItem("nursing_fav");
-                this.getAllFavourite(this.local_sto);
-                    
-                // this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
-                //     this.specialfeature = response.data;
-                // });
-            },
-            methods: {
-                changeRoute(){
-                    this.$router.push({name:'home', params: {page:'subtab3'}});
+            return {
+                errors: [],
+                fav_nursing: [],
+                local_sto: "",
+                post_list: [],
+                city_list: [],
+                post: "",
+                selectedCity: "",
+                zipStreet: "",
+                zipPref: "",
+                selectedValue: 0,
+                fav_email: [],
+                arr_email: [],
+                reserv_status: [],
+                document_status: [],
+                type: 'nursing',
+                specialfeature: []
+            };
+        },
+        created() {
+            $('.checkbox1').prop("checked", true);
+            this.local_sto = localStorage.getItem("nursing_fav");
+            this.getAllFavourite(this.local_sto);
+
+            // this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
+            //     this.specialfeature = response.data;
+            // });
+        },
+        methods: {
+            changeRoute() {
+                    this.$router.push({
+                        name: 'home',
+                        params: {
+                            page: 'subtab3'
+                        }
+                    });
                 },
                 deleteLocalSto: function(id) {
                     if (confirm("Are you sure you want to delete?")) {
@@ -218,7 +293,13 @@ import jobSearch from './jobSearch.vue'
                         if (this.local_sto) {
                             this.getAllFavourite(this.local_sto);
                         } else {
-                            window.location.reload();
+                            // window.location.reload();
+                            this.$router.push({
+                                name: 'home',
+                                params: {
+                                    page: 'subtab3'
+                                }
+                            });
                         }
                     }
                 },
@@ -231,7 +312,7 @@ import jobSearch from './jobSearch.vue'
                                 var j = this.fav_nursing[i].id;
                                 this.reserv_status[j] = true;
                             }
-                            console.log('fav',this.fav_nursing)
+                            console.log('fav', this.fav_nursing)
                         });
                 },
                 addingMail() {
@@ -265,27 +346,37 @@ import jobSearch from './jobSearch.vue'
                         if ($('.check-all-btn').is(":checked")) {
                             this.document_status[j] = true;
                             this.reserv_status[j] = true;
-                        }
-                        else{
+                        } else {
                             this.document_status[j] = false;
                             this.reserv_status[j] = false;
                         }
                     }
-
                 },
                 checkSingle() {
                     for (var i = 0; i < this.fav_nursing.length; i++) {
                         var j = this.fav_nursing[i].id;
-                        if (this.document_status[j] == true && this.reserv_status[j] == true)  {
+                        if (this.document_status[j] == true && this.reserv_status[j] == true) {
                             $('.check-all-btn').prop("checked", true);
-                        }
-                        else if (this.document_status[j] == false && this.reserv_status[j] == false){
+                        } else if (this.document_status[j] == false && this.reserv_status[j] == false) {
                             $('.check-all-btn').prop("checked", false);
-                        }else{
+                        } else {
                             $('.check-all-btn').prop("checked", false);
                         }
                     }
+                },
+                itemCompare() {
+                    alert('f');
                 }
-            }
+        }
     };
 </script>
+<style>
+/* .widthleft {
+    width: 48%;
+}
+.widthright {
+    margin-top: -4em;
+    margin-left: 50%;
+} */
+
+</style>

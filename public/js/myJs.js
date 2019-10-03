@@ -455,6 +455,14 @@ function new_link()
 
         }
     }
+
+    $(document).ready(function () {
+      myTable= $('#myTable').dataTable({
+              "bInfo": false,
+              "bLengthChange": false,
+              "bPaginate": false
+      });
+  });
   
 //   $('input[name="number"]').keyup(function(e)
 //   {
