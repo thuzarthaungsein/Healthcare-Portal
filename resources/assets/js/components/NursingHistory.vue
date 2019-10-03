@@ -1,12 +1,11 @@
 <template>
-  <div>
             
     <div class="col-12 scrolldiv2 pb-3">
       <div class="col-12">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <span class="link-span">ホーム</span>
+              <router-link to="/">ホーム</router-link>
             </li>
             <li class="breadcrumb-item active" aria-current="page">介護の歴史</li>
           </ol>
@@ -117,9 +116,8 @@
           </div>
         </div>
       </div>
-    </div>
-            
-  </div>
+    </div>            
+  
 </template>
 <script>
 

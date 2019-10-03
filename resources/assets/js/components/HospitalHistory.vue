@@ -1,25 +1,12 @@
 <template>
   <div>
-    <!-- news details-->
-    <!--menu tabs-->
-    <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
-      <li role="presentation" class="subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-newspaper"></i> ニュース</a></li>
-      <li role="presentation" class="active subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-      <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
-      <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
-    </ul>
-    <!--end menu tabs-->
-
-    <!-- Tab panes -->
-    <div class="tab-content tab-content1 tabs">
-      <div role="tabpanel" class="tab-pane fade" id="tab1"><News></News></div>
-      <div role="tabpanel" class="tab-pane active" id="tab2">
+   
         <div class="col-12 scrolldiv2 pb-3">
           <div class="col-12">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <span @click="changeRoute()" class="link-span">病院検索</span>
+                  <router-link to="/">ホーム</router-link>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
               </ol>
@@ -210,28 +197,12 @@
             </div>
           </div>
         </div>
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
-      <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
-      <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
-    </div>
-    <!--end Tab panes-->
-
-    
+  
   </div>
 </template>
 <script>
-import News from './News.vue'
-// import hospitalSearch from './hospitalSearch.vue'
-import nursingSearch from './nursingSearch.vue'
-import jobSearch from './jobSearch.vue'
-    export default {
-        components: {
-                News,
-                nursingSearch,
-                jobSearch,
-                // hospitalSearch
-        },
+ export default {
+      
   data() {
     return {
       hos_profiles: [],
@@ -244,9 +215,9 @@ import jobSearch from './jobSearch.vue'
     this.getAllCustomer(this.local_sto);
   },
   methods: {
-    changeRoute(){
-        this.$router.push({name:'home', params: {page:'subtab2'}});
-    },
+    // changeRoute(){
+    //     this.$router.push({name:'home', params: {page:'subtab2'}});
+    // },
     getAllCustomer: function(local_storage) {
       this.axios
         .post("/api/hospital_history/" + local_storage)
