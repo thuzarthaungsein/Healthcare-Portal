@@ -21,7 +21,7 @@ a {
 body {
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     /* background: #dfdfde; */
-    background: #f5f5f5 !important;
+    background: #f8f8f8 !important;
 }
 
 .form1 {
@@ -829,6 +829,11 @@ scrollbar-width: thin;
 
 .scrolldiv4 {
     background: white;
+    border: 1px solid #eee;
+}
+
+#search-word {
+    border: 1px solid #a7a3a3;
 }
 
 
@@ -905,10 +910,11 @@ p.p_2>a {
 }
 .profile_header{
     font-weight: bold;
+    font-size: 20px;
     display: inline-block;
     position: relative;
-    background: #ab9494;
-    color: #fff;
+    background: #eeeeee;
+    color: #000;
     border-radius: 1px;
     border: 1px s#ffffff;
     width: 100%;
@@ -987,20 +993,36 @@ p {
 
 .main-header {
     position: fixed;
-    width: 83.4%;
-    height: 80px;
-    background-color: #b7dad2;
+    width: 100%;
+    left: 0px;
+    height: 82px;
+    /* background-color: #b7dad2; */
+    background-color: #eee;
+    border-top:5px solid #e66527;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
     z-index: 99;
     /* margin-left: 100px;
 margin-right: 100px; */
+}
+.nav-warp{
+    max-width: 86.3%;
+}
+#app .logo-text {
+    font-size: 40px;
+    font-weight: bold;
+    color: #d2571c;
+    text-shadow: 3px 4px #ccc;
+}
+#app .logo-text span {
+    font-size: 30px;
+    color: #f57e46;
 }
 
 .main-content {
     /* padding: 0px;*/
     width: 83.33333333%;
     margin: 0 auto;
-    box-shadow: 0px 1px 5px 0px #ccc !important;
+    box-shadow: 0px 1px 2px 0px #ccc !important;
     min-height: 100vh;
 }
 
@@ -1312,21 +1334,7 @@ div.b {
 
 /*For Ads */
 
-.fixed-ads {
-    position: fixed;
-    z-index: 5;
-    overflow: hidden;
-    background: #f5f5f5;
-    width: 67.4%;
-}
 
-.fixed-ads-fluid {
-    position: fixed;
-    z-index: 5;
-    overflow: hidden;
-    background: #f5f5f5;
-    width: 81.999%;
-}
 
 
 /* .ads-card,
@@ -1992,6 +2000,10 @@ li.userprofile-name>a {
     background-color: #b7dad2 !important;
 }
 
+#admin-side-menu .nav-link {
+    color: #d2571c;
+}
+
 .nav-link {
     color: #095c5f;
     font-size: 16px;
@@ -2005,17 +2017,19 @@ li.userprofile-name>a {
     color: #095c5f;
 }
 
-
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: #e9ecef #ffffff #ffffff;
+}
 /* .router-link-active{
 
     color: #fff !important;
 
 } */
 
-.nav-tabs .nav-link:focus,
+/* .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
     border-color: transparent !important;
-}
+} */
 
 a:hover {
     color: #000;
@@ -2030,15 +2044,18 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
     color: #f9793c !important;
     font-weight: bold;
-    background-color: #fff;
-    border-top: 1px solid #f9793c;
-    border-color: #f9793c #fff #fff #fff !important;
+    background-color: #fff;    
+    border-color: #f9793c #fff #fff #fff !important;    
+    border-top: 3px solid #f9793c !important;
+    border-right: 0px solid #f9793c !important;
+    border-bottom: 0px solid #f9793c !important;
+    border-left: 0px solid #f9793c !important;
 }
 div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
     border-color: transparent !important;
 }
 
-.nav-tabs .nav-link {
+.nav-tabs .nav-link {    
     border-top-left-radius: 0px !important;
     border-top-right-radius: 0px !important;
 }
@@ -2104,15 +2121,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
     padding-left: 22px;
     padding-right: 7px;
     margin-top: 4px;
-}
-
-.adminview-sidebar {
-    position: fixed;
-    top: 80px;
-    width: 13%;
-    height: 100%;
-    background: #b7dad2;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 .custom-sidebar {
@@ -2233,7 +2241,10 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
 /* profilepublish css end */
 
 .custom-sidebar ul li {
-    border-bottom: 1px dashed #eee;
+    /* border-bottom: 1px dashed #eee; */
+    border: 1px solid #eee;
+    margin: 12px;
+    background: #f5f5f5;
 }
 
 .router-link-exact-active {
@@ -2989,24 +3000,16 @@ div.b {
     position: fixed;
     z-index: 5;
     overflow: hidden;
-    background: #f5f5f5;
-    width: 67.1%;
+    background: #fff;
+    width: 81.1%;
 }
 
-.fixed-nav {
-    position: fixed;
-    z-index: 4;
-    overflow: hidden;
-    background: #f5f5f5;
-    width: 66.5%;
-    margin-top: 26px;
-}
 
 .fixed-ads-fluid {
     position: fixed;
     z-index: 5;
     overflow: hidden;
-    background: #f5f5f5;
+    background: #fff;
     width: 81.999%;
 }
 
@@ -3367,8 +3370,8 @@ margin-right: 2% !important;
     padding-top: 5px !important;
 }
 
-.p-t-130 {
-    padding-top: 130px;
+.p-t-30 {
+    padding-top: 30px;
 }
 
 .p-b-5 {
@@ -3416,7 +3419,7 @@ margin-right: 2% !important;
 }
 
 .secondary-bg-color {
-    background-color: #f9793c !important;
+    background-color: #2ebb60 !important;
 }
 
 .toggle-btn .icon-arrow:before {
@@ -3513,11 +3516,11 @@ margin-right: 2% !important;
 }
 
 .fav-color {
-    background-color: #f9793c;
+    background-color: #f3a523;
 }
 
 .history-color {
-    background-color: #0e775d;
+    background-color: #5f97d0;
 }
 
 .card-header {
@@ -3584,7 +3587,22 @@ li.userprofile-name>a {
 }
 
 .tab-card-header {
-    background-color: #b7dad2 !important;
+    background-color: #ccc !important;
+}
+
+#app .navbar-dark .navbar-nav .nav-link {
+    color: #444!important;
+    font-size: 12px !important;
+}
+
+#myTab .nav-link {
+    color: #666;
+    border: none;
+    border-right: 1px solid #fff !important;
+}
+#myTab .nav-link.active {
+    background-color: #666 !important;
+    border: 0px;
 }
 
 .nav-link {
@@ -3592,7 +3610,7 @@ li.userprofile-name>a {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: #095c5f !important;
+    color: #147938 !important;
 }
 
 .nav-link:hover {
@@ -3695,15 +3713,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     padding-left: 22px;
     padding-right: 7px;
     margin-top: 4px;
-}
-
-.adminview-sidebar {
-    position: fixed;
-    top: 80px;
-    width: 13%;
-    height: 100%;
-    background: #b7dad2;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 .custom-sidebar {
@@ -3839,6 +3848,10 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     border-left: 1px solid #eee;
 }
 
+#app .card-head-tabs a {
+    color: #fff;
+}
+
 .user-profile {
     width: 22px;
     margin-right: 10px;
@@ -3887,8 +3900,8 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     top: 80px;
     width: 13%;
     height: 100%;
-    background: #b7dad2;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    /* box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1); */
 }
 
 .custom-sidebar {
@@ -4678,6 +4691,8 @@ body::-webkit-scrollbar-thumb {
     height: 100px;
     margin: 0 auto;
     overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 .top-ad-slider .slide-img {
@@ -5392,32 +5407,33 @@ button.confirmed {
     z-index: 4;
     overflow: hidden;
     background: #fff;
-    width: 65.9%;
+    width: 79.9%;
     margin-top: -1px;
 }
 
 .top-fixed-btn {
     color: #000;
-    background: #d6d6d6;
+    background: #eff7ec;
     width: 145px;
     cursor: pointer;
     padding: 5px;
     /* transition: all .3s ease-in; */
-    border: 0px;
-    border-bottom: 2px solid #615454;
-    margin: 0px !important;
+    border: 1px solid #f9793c;
     border-radius: 5px;
+    text-decoration: none;
+    position: relative;
+    box-shadow: none !important;
 }
 
 .top-fixed-btn.active {
     color: #fff;
-    background: #ab9494;
+    background: #f9793c;
     width: 145px;
     cursor: pointer;
     padding: 5px;
-    /* transition: all .3s ease-in; */
+    box-shadow: none !important;
     border: 0px;
-    border-bottom: 3px solid #615454;
+    border: 1px solid #f9793c;
     margin: 0px !important;
     border-radius: 5px;
    
