@@ -3557,7 +3557,7 @@ li.userprofile-name>a {
     padding: 13px !important;
     /*for no scroll*/
     background: white;
-    border: 1px solid #eee;
+    border: 1px solid #ccc;
 }
 
 .tab-content1 {
@@ -3825,7 +3825,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     background-color: #f9793c !important;
     border-bottom: 0;
     border-left-style: solid;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #ccc;
 }
 
 #app .card-head-tabs a {
