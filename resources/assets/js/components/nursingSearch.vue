@@ -1070,7 +1070,7 @@
                       :draggable="true"
                       @click="center=m.position"
                       @mouseover="googleMarker"
-                     
+                      :icon="markerOptions"
                     />
                    
                   </GmapMap>
@@ -1092,11 +1092,14 @@
 
 import asidebar from "./aside.vue";
 export default {
+  
     name: "GoogleMap",
     components: {
       asidebar
     },
+   
     data(){
+      
       return{
         markers: [
             { position: { lat: 0, lng: 0 } },
@@ -1115,10 +1118,11 @@ export default {
         medical_acceptance:[],
         toggleCheck: true,
         toggleCheck_1: false,
-        
-        
-
-
+        markerOptions: {
+        url: 'images/g-marker/g-marker.png',
+        size: {width: 60, height: 90, f: 'px', b: 'px',},
+        scaledSize: {width: 40, height: 45, f: 'px', b: 'px',},
+      },
       }
     },
     
@@ -1150,6 +1154,7 @@ export default {
                 $('#close1').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
             }
         },
+
       getStateClick(e){
          console.log(e.target.tagName)
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
