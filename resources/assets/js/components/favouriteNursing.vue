@@ -147,6 +147,7 @@
                                             <input type="checkbox" class="checkbox1" name="reservation" v-model="reserv_status[nur_profile.id]" @change="checkSingle()"/>
                                             <span class="checkmark"></span>見学予約
                                         </label>
+
                                     </div>
                                     <div class="col-6">
                                         <label class="btn all-btn secondary-bg-color hos-btn">
@@ -218,6 +219,7 @@
                                     <div class="col-lg-9 col-md-8 col-sm-12">
                                         <p>{{nur_profile.township_name}}, {{nur_profile.city_name}}</p>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-12">
@@ -227,7 +229,9 @@
                                 </ul>
                             </div>
                         </div>
+
                     </div>
+
                 </div>
                 <span class="btn btn-success mt-5 float-right" @click="addingMail()">この内容で送信</span>
             </form>
@@ -239,53 +243,87 @@
 
     export default {       
         data() {
+
                 return {
+
                     errors: [],
+
                     fav_nursing: [],
+
                     local_sto: "",
+
                     post_list: [],
+
                     city_list: [],
+
                     post: "",
+
                     selectedCity: "",
+
                     zipStreet: "",
+
                     zipPref: "",
+
                     selectedValue: 0,
+
                     fav_email: [],
+
                     arr_email: [],
+
                     reserv_status: [],
                     document_status: [],
                     type : 'nursing',
                     specialfeature:[]
                 };
+
             },
+
             created() {
+
                 $('.checkbox1').prop("checked", true);
                 this.local_sto = localStorage.getItem("nursing_fav");
+
                 this.getAllFavourite(this.local_sto);
                     
                 // this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
                 //     this.specialfeature = response.data;
                 // });
             },
+
             methods: {
                 // changeRoute(){
                 //     this.$router.push({name:'home', params: {page:'subtab3'}});
                 // },
                 deleteLocalSto: function(id) {
+
                     if (confirm("Are you sure you want to delete?")) {
+
                         alert('Delete Successfully!');
+
                     }
+
                     var l_sto = this.local_sto;
+
                     var l_sto_arr = l_sto.split(",");
+
                     var rm_id = id.toString();
+
                     var index = l_sto_arr.indexOf(rm_id);
+
                     if (index > -1) {
+
                         l_sto_arr.splice(index, 1);
+
                         var new_local = l_sto_arr.toString();
+
                         localStorage.setItem('nursing_fav', new_local);
+
                         this.local_sto = localStorage.getItem("nursing_fav");
+
                         if (this.local_sto) {
+
                             this.getAllFavourite(this.local_sto);
+
                         } else {
                             // window.location.reload();
                             this.$router.push({
@@ -295,59 +333,108 @@
                                 }
                             });
                         }
+
                     }
+
                 },
+
                 getAllFavourite: function(local_storage) {
+
                     this.axios
+
                         .post('/api/nursing_fav/' + local_storage)
+
                         .then(response => {
+
                             this.fav_nursing = response.data;
+
                             for (var i = 0; i < this.fav_nursing.length; i++) {
+
                                 var j = this.fav_nursing[i].id;
+
                                 this.reserv_status[j] = true;
+
                             }
                             console.log('fav', this.fav_nursing)
                         });
+
                 },
+
                 addingMail() {
+
                     for (var i = 0; i < this.fav_nursing.length; i++) {
+
                         this.fav_email.push({
+
                             'id': this.fav_nursing[i]['id'],
+
                             'email': this.fav_nursing[i]['email'],
+
                             'name': this.fav_nursing[i]['name']
+
                         });
+
                     }
+
                     localStorage.setItem("reserve", JSON.stringify(this.reserv_status));
+
                     localStorage.setItem("document", JSON.stringify(this.document_status));
+
                     localStorage.setItem("item", JSON.stringify(this.fav_email));
+
                     this.$router.push({
+
                         name: 'nursingFavouriteMail',
+
                         // params: { favmail: this.fav_email},
+
                         // props: true
+
                     });
+
                 },
+
                 checkAll() {
 
+
+
                     if ($('.check-all-btn').is(":checked")) {
+
                         $('.checkbox1').prop("checked", true);
+
                         $('.checkbox2').prop("checked", true);
+
                     } else {
+
                         $('.checkbox1').prop("checked", false);
+
                         $('.checkbox2').prop("checked", false);
+
                     }
+
                     for (var i = 0; i < this.fav_nursing.length; i++) {
+
                         var j = this.fav_nursing[i].id;
+
                         if ($('.check-all-btn').is(":checked")) {
+
                             this.document_status[j] = true;
+
                             this.reserv_status[j] = true;
                         } else {
                             this.document_status[j] = false;
+
                             this.reserv_status[j] = false;
+
                         }
+
                     }
                 },
+
                 checkSingle() {
+
                     for (var i = 0; i < this.fav_nursing.length; i++) {
+
                         var j = this.fav_nursing[i].id;
                         if (this.document_status[j] == true && this.reserv_status[j] == true) {
                             $('.check-all-btn').prop("checked", true);
@@ -355,7 +442,9 @@
                             $('.check-all-btn').prop("checked", false);
                         } else {
                             $('.check-all-btn').prop("checked", false);
+
                         }
+
                     }
                 },
                 itemCompare() {
