@@ -20,10 +20,13 @@ class CustomerProfileContoller extends Controller
         $hos_histories = DB::select($query);
         foreach($hos_histories as $hos) {
             $sfeature = $hos->special_features;
-            $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
-            $specialfeature = DB::select($sql);
-            // $fea_arr = explode(",", $hos->special_features);
-            $hos->special_features = $specialfeature;
+            if($sfeature != null){
+                $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
+                $specialfeature = DB::select($sql);
+                // $fea_arr = explode(",", $hos->special_features);
+                $hos->special_features = $specialfeature;
+            }
+            
         }
         return $hos_histories;
     }
@@ -37,10 +40,12 @@ class CustomerProfileContoller extends Controller
         $nur_histories = DB::select($query);
         foreach($nur_histories as $nur) {
             $sfeature = $nur->special_features;
-            $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
-            $specialfeature = DB::select($sql);
-            // $fea_arr = explode(",", $nur->special_features);
-            $nur->special_features = $specialfeature;
+            if($sfeature != null){
+                $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
+                $specialfeature = DB::select($sql);
+                // $fea_arr = explode(",", $nur->special_features);
+                $nur->special_features = $specialfeature;
+            }
         }
         return $nur_histories;
     }

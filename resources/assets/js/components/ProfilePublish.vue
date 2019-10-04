@@ -49,8 +49,7 @@
                                         :key="image.id"
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
                                         @click="activateImage(index)" >
-                                        <img  :src ="'/upload/nursing_profile/' + image.photo">
-                                       
+                                        <img  :src ="'/upload/nursing_profile/' + image.photo">   
                                     </div>
                                 </div>
                             </div>
@@ -86,8 +85,6 @@
                     <!--end for address-->                
                 </div>                                     
             </div>
-
-            
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="profile_header">特長</h5>
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">{{nurseprofile.feature}}</div>
@@ -596,7 +593,7 @@
             return {
 
                 markers: [
-                    { position: { lat: 0, lng: 0 } },
+                    {  position: { lat: 0, lng: 0 }  },
                 ],
                 active_el:0,
                 center: { lat: 0, lng: 0 },
@@ -647,7 +644,6 @@
         },
 
         created(){
-
 
             if(this.type == "nursing")
             {

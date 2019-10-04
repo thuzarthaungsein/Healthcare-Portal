@@ -1024,6 +1024,7 @@ margin-right: 100px; */
     margin: 0 auto;
     box-shadow: 0px 1px 2px 0px #ccc !important;
     min-height: 100vh;
+    background: #fff;
 }
 
 .main-wrap {
@@ -3001,7 +3002,7 @@ div.b {
     z-index: 5;
     overflow: hidden;
     background: #fff;
-    width: 81.1%;
+    width: 81%;
 }
 
 
@@ -3574,7 +3575,7 @@ li.userprofile-name>a {
     padding: 13px !important;
     /*for no scroll*/
     background: white;
-    border: 1px solid #eee;
+    border: 1px solid #ccc;
 }
 
 .tab-content1 {
@@ -3845,7 +3846,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     color: #000;
     border-bottom: 0;
     border-left-style: solid;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #ccc;
 }
 
 #app .card-head-tabs a {
