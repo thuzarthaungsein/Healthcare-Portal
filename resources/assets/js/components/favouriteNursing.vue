@@ -26,7 +26,7 @@
                     <div class="col-md-11" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
                         <dl class="itemBox favnur" id="bd">
                             <dt>比較する項目</dt>
-                            <dd>住所、月額費用、入居一時金、入居条件</dd>
+                            <dd v-if="gsd"></dd>
                         </dl>
                     </div>
                     <div class="modal fade bd-example-modal-lg mycheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <label>
-                                                <input type="checkbox"> 住所
+                                                <input type="checkbox" value="address" v-model="address_check"> 住所
                                             </label>
                                         </div>
                                         <div class="col-md-3">
@@ -110,8 +110,13 @@
                                     </div>
 
                                 </div>
-                                <div class="modal-footer text-center">
+                                <!-- <div class="modal-footer text-center">
                                     <button type="button" class="btn btn-primary">比較する</button>
+                                </div> -->
+                                <div class="modal-footer text-center">
+                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button class="btn btn-secondary" @click="compareBtn()">比較する</button>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +249,19 @@
                     document_status: [],
                     type: 'nursing',
                     specialfeature: [],
-                    modal_btn: false
+                    modal_btn: false,
+                    
+                        address_check: false,
+                        tran_check: false,
+                        month_check: false,
+                        entry_check: false,
+                        condition_check: false,
+                        special_check: false,
+                        medical_check: false,
+                        aval_check: false,
+                        capacity_check: false,
+                        opening_check: false
+                    
                 };
             },
             created() {
@@ -347,8 +364,11 @@
                         }
                     }
                 },
-                itemCompare() {
+                itemCompare() {                    
                     $('.mycheck').css('display', 'block');
+                },
+                compareBtn() {
+                    console.log('add',this.address_check)
                 }
             }
     };
