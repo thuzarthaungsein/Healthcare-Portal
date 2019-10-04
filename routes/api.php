@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'OccupationsController@edit');
         Route::post('update/{id}', 'OccupationsController@update');
         Route::delete('delete/{id}', 'OccupationsController@destroy');
+        Route::post('search', 'OccupationsController@search');
     });
 
 
