@@ -47,6 +47,7 @@
                       id="search-item" 
                       @keyup="searchJobOffer()"
                     />
+                    <input type="hidden" class=form-contrl id="customer-id" v-model="customer_id">
                   </div>
                   <!-- <div class="col-6 row align-items-baseline">
                     <div class="col-md-3">
@@ -139,14 +140,16 @@
 export default {
   data() {
     return {
-      jobs: []
+      jobs: [],
+      customer_id:''
     };
   },
   created() {
  
     this.axios.get("/api/job/index").then(response => {
-      console.log(response);
       this.jobs = response.data.profilejob;
+      this.customer_id = response.data.user;
+
     });
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)
@@ -164,9 +167,11 @@ export default {
     },
     searchJobOffer() {
       var search_word = $("#search-item").val();
-       let fd = new FormData();
+      var customer_id = $('#customer-id ').val();
+      let fd = new FormData();
       fd.append("search_word", search_word);
-      this.axios.post("/api/job/search", fd).then(response => {
+      fd.append("customer_id", customer_id);
+        this.axios.post("/api/job/search", fd).then(response => {
         this.jobs = response.data;
       });
     }

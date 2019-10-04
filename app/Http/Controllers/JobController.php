@@ -11,13 +11,14 @@ class JobController extends Controller
 
     public function index()
     {
-        $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
-                     ->join('jobs','jobs.customer_id','=','customers.id')->get();
+        // $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
+        //              ->join('jobs','jobs.customer_id','=','customers.id')->get();
+       // print_r($jobs);exit;
 
         $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
                            ->join('jobs','jobs.customer_id','=','customers.id')
                            ->where('jobs.customer_id','=',auth()->user()->customer_id)->get();
-        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
+        return response()->json(array('profilejob'=>$profilejob, 'user'=>auth()->user()->customer_id));
 
     }
         
@@ -253,5 +254,22 @@ class JobController extends Controller
         $job = Job::find($id);
         $job->delete();
         return response()->json('The Job successfully deleted');
+    }
+
+    public function search(Request $request) {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+        $customer_id = $request['customer_id'];
+
+        $query = Job::query();
+        $query = $query->where('customer_id', $customer_id);
+        $query = $query->where(function($qu) use ($search_word){
+                            $qu->where('title', 'LIKE', "%{$search_word}%")
+                                ->orWhere('description', 'LIKE', "%{$search_word}%");
+                        });
+        $query = $query->orderBy('id','DESC')
+                        ->get();
+
+        return $query;
     }
 }
