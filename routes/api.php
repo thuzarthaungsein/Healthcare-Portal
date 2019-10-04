@@ -121,6 +121,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}', 'PostController@delete');
         Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
+        
     });
     // End News
 
@@ -236,7 +237,9 @@ Route::get('schedule/{id}', 'ScheduleController@getSchedulebyCustomerId');
 
 Route::post('customer/profile/{id}', 'NursingProfileController@Customerprofileupdate');
 Route::post('staff/profile/{id}', 'NursingProfileController@Staffprofileupdate');
-Route::post('acceptance/transition/{id}', 'NursingProfileController@AcceptanceTransition');
+Route::post('acceptance/transactions/{id}', 'NursingProfileController@AcceptanceTransactions');
+
+Route::get('medical/acceptancewithtransactions/{id}', 'MedicalController@getAcceptanceWithTransactions');
 
 // Home Page
 Route::get('home', 'HomeController@index');
@@ -265,6 +268,8 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 // Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getHospitalHistory');
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
 Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
+
+Route::post('news/search/{searchword}', 'PostController@searchPost');
 
 Route::group(['prefix' => 'hospital'], function () {
     Route::post('postList/{postal}', 'HospitalProfileController@getPostalList');
