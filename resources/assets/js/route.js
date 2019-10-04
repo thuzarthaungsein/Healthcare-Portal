@@ -14,6 +14,7 @@ import FacilitiesListComponent from "./components/FacilitiesListComponent.vue";
 import CreateFacilityComponent from "./components/CreateFacilityComponent.vue";
 import custedit from "./components/custedit.vue";
 import CustomerSearchListComponent from "./components/CustomerSearchListComponent.vue";
+import NewsSearchListComponent from "./components/NewsSearchListComponent.vue";
 import map from "./components/map.vue";
 import EditFacilityComponent from "./components/EditFacilityComponent.vue";
 import editcategory from "./components/editcategory.vue";
@@ -90,6 +91,11 @@ export const routes = [
         name: "customersearchlist",
         path: "/customersearchlist",
         component: CustomerSearchListComponent
+    },
+    {
+        name: "newssearchlist",
+        path: "/newssearchlist",
+        component: NewsSearchListComponent
     },
     {
         name: "custedit",

@@ -1,45 +1,21 @@
 <template>
-  <div class="card profile m-t-22" style="border:none;">
-    <form class="col-md-12 form-class">
-      <div class="col-md-12 pad-free">
-        <div class="form-group form-group-wrapper">
-          <label class="heading-lbl col-2 pad-free">
-            名前
-            <span class="error">*</span>
-          </label>
-          <input
-            type="text"
-            class="form-control customer-name col-10 float-right"
-            placeholder="名前"
-            v-model="customer_info.name"
-          />
-        </div>
-        <div class="form-group form-group-wrapper">
-          <label class="heading-lbl col-2 pad-free">
-            メールアドレス
-            <span class="error">*</span>
-          </label>
-          <input
-            type="text"
-            class="form-control customer-email col-10 float-right"
-            placeholder="メール"
-            v-model="customer_info.email"
-          />
-        </div>
-        <div class="form-group form-group-wrapper">
-          <label class="heading-lbl col-2 pad-free">
-            電話番号
-            <span class="error">*</span>
-          </label>
-          <input
-            type="text"
-            class="form-control customer-phone col-10 float-right"
-            placeholder="電話"
-            v-model="customer_info.phone"
-          />
-        </div>
-
-        <!-- <div class="form-group">
+<div class="card profile m-t-22 " style="border:none;">
+    <form class="col-md-12 form-class">                         
+            <div class="col-md-12 pad-free">
+                    <div class="form-group">
+                            <label class="heading-lbl">名前<span class="error">*</span></label>
+                            <input type="text" class="form-control customer-name" placeholder="Name" v-model="customer_info.name">
+                    </div>
+                    <div class="form-group">
+                            <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
+                            <input type="text" class="form-control customer-email"  placeholder="Email" v-model="customer_info.email">
+                    </div>                
+                    <div class="form-group">
+                            <label class="heading-lbl">電話番号<span class="error">*</span></label>
+                            <input type="text" class="form-control customer-phone"  placeholder="Phone" v-model="customer_info.phone">
+                    </div>
+                    
+                    <!-- <div class="form-group">
                             <label>フォトアルバム<span class="error">*</span></label>
                             <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
 
@@ -51,7 +27,7 @@
         <div class="form-group form-group-wrapper">
           <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
           <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
-            <i class="fas fa-plus-circle"></i> Add
+            <i class="fas fa-plus-circle"></i> 追加
           </span>
           <div class="col-md-12">
             <div class="row" id="gallery-photo">
@@ -63,38 +39,15 @@
                 :key="img.id"
               >
                 <div class="col-md-3">
-                  <input
-                    type="file"
-                    name
-                    class="hospital-photo m-b-15"
-                    v-bind:class="img.classname"
-                    id="upload_img"
-                    @change="preview_image(img.classname)"
-                  />
+                  <input type="file" name class="hospital-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)" />
                   <div class="col-md-12" v-bind:class="img.classname">
                     <input type="hidden" class="already-photo" v-model="img.photo" />
-                    <img
-                      :src="'/upload/hospital_profile/'+ img.photo"
-                      class="img-fluid hospital-image"
-                      alt="profile"
-                      v-if="img.photo"
-                    />
+                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" />
                   </div>
                 </div>
                 <div class="col-md-9">
-                  <input
-                    type="text"
-                    name="title"
-                    placeholder="タイトル"
-                    class="form-control m-b-15 title"
-                    v-model="img.title"
-                  />
-                  <textarea
-                    name="description"
-                    placeholder="コンテンツ"
-                    class="form-control m-b-15 description"
-                    v-model="img.description"
-                  ></textarea>
+                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="img.title" />
+                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="img.description" ></textarea>
                 </div>
                 <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">
                   <i class="fa fa-trash"></i> 削除
@@ -105,45 +58,19 @@
         </div>
         <div class="form-group form-group-wrapper">
           <label class="heading-lbl col-2 pad-free">動画</label>
-          <span
-            class="btn all-btn main-bg-color"
-            style="min-width: 0px;"
-            @click="galleryVideoAdd()"
-          >
-            <i class="fas fa-plus-circle"></i> Add
+          <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()" >
+            <i class="fas fa-plus-circle"></i> 追加
           </span>
           <div class="col-md-12">
             <div class="row" id="gallery-video">
               <!-- Add by + Button -->
-              <div
-                class="col-md-6 gallery-area-video"
-                v-bind:id="'video'+indx"
-                v-for="(video,indx) in video_arr"
-                :key="video.id"
-              >
+              <div class="col-md-6 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id" >
                 <div class="col-md-3">
-                  <input
-                    type="text"
-                    name="url"
-                    placeholder="url"
-                    class="form-control m-b-15 url"
-                    v-model="video.url"
-                  />
+                  <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-model="video.url" />
                 </div>
                 <div class="col-md-9">
-                  <input
-                    type="text"
-                    name="title"
-                    placeholder="タイトル"
-                    class="form-control m-b-15 title"
-                    v-model="video.title"
-                  />
-                  <textarea
-                    name="description"
-                    placeholder="コンテンツ"
-                    class="form-control m-b-15 description"
-                    v-model="video.description"
-                  ></textarea>
+                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="video.title" />
+                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="video.description" ></textarea>
                 </div>
                 <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">
                   <i class="fa fa-trash"></i> 削除
@@ -212,231 +139,307 @@
                         <th>&nbsp;</th>
                         <th>午前</th>
                         <th>午後</th>
-                        <th>その他</th>
                       </tr>
                       <tr>
                         <td>月曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from0 white-bg-color"
-                            v-model="schedule_arr.am_mon_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to0 white-bg-color"
-                            v-model="schedule_arr.am_mon_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from0 white-bg-color"
+                                v-model="schedule_arr.am_mon_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to0 white-bg-color"
+                                v-model="schedule_arr.am_mon_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from0 white-bg-color"
-                            v-model="schedule_arr.pm_mon_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to0 white-bg-color"
-                            v-model="schedule_arr.pm_mon_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from0 white-bg-color"
+                                v-model="schedule_arr.pm_mon_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to0 white-bg-color"
+                                v-model="schedule_arr.pm_mon_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>火曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from1 white-bg-color"
-                            v-model="schedule_arr.am_tue_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to1 white-bg-color"
-                            v-model="schedule_arr.am_tue_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from1 white-bg-color"
+                                v-model="schedule_arr.am_tue_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to1 white-bg-color"
+                                v-model="schedule_arr.am_tue_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from1 white-bg-color"
-                            v-model="schedule_arr.pm_tue_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to1 white-bg-color"
-                            v-model="schedule_arr.pm_tue_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from1 white-bg-color"
+                                v-model="schedule_arr.pm_tue_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to1 white-bg-color"
+                                v-model="schedule_arr.pm_tue_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>水曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from2 white-bg-color"
-                            v-model="schedule_arr.am_wed_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to2 white-bg-color"
-                            v-model="schedule_arr.am_wed_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from2 white-bg-color"
+                                v-model="schedule_arr.am_wed_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to2 white-bg-color"
+                                v-model="schedule_arr.am_wed_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from2 white-bg-color"
-                            v-model="schedule_arr.pm_wed_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to2 white-bg-color"
-                            v-model="schedule_arr.pm_wed_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from2 white-bg-color"
+                                v-model="schedule_arr.pm_wed_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to2 white-bg-color"
+                                v-model="schedule_arr.pm_wed_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>木曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from3 white-bg-color"
-                            v-model="schedule_arr.am_thu_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to3 white-bg-color"
-                            v-model="schedule_arr.am_thu_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from3 white-bg-color"
+                                v-model="schedule_arr.am_thu_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to3 white-bg-color"
+                                v-model="schedule_arr.am_thu_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from3 white-bg-color"
-                            v-model="schedule_arr.pm_thu_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to3 white-bg-color"
-                            v-model="schedule_arr.pm_thu_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from3 white-bg-color"
+                                v-model="schedule_arr.pm_thu_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to3 white-bg-color"
+                                v-model="schedule_arr.pm_thu_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>金曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from4 white-bg-color"
-                            v-model="schedule_arr.am_fri_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to4 white-bg-color"
-                            v-model="schedule_arr.am_fri_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from4 white-bg-color"
+                                v-model="schedule_arr.am_fri_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to4 white-bg-color"
+                                v-model="schedule_arr.am_fri_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from4 white-bg-color"
-                            v-model="schedule_arr.pm_fri_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to4 white-bg-color"
-                            v-model="schedule_arr.pm_fri_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from4 white-bg-color"
+                                v-model="schedule_arr.pm_fri_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to4 white-bg-color"
+                                v-model="schedule_arr.pm_fri_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>土曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from5 white-bg-color"
-                            v-model="schedule_arr.am_sat_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to5 white-bg-color"
-                            v-model="schedule_arr.am_sat_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from5 white-bg-color"
+                                v-model="schedule_arr.am_sat_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to5 white-bg-color"
+                                v-model="schedule_arr.am_sat_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from5 white-bg-color"
-                            v-model="schedule_arr.pm_sat_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to5 white-bg-color"
-                            v-model="schedule_arr.pm_sat_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from5 white-bg-color"
+                                v-model="schedule_arr.pm_sat_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to5 white-bg-color"
+                                v-model="schedule_arr.pm_sat_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>日曜日</td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control am-from6 white-bg-color"
-                            v-model="schedule_arr.am_sun_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control am-to6 white-bg-color"
-                            v-model="schedule_arr.am_sun_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from6 white-bg-color"
+                                v-model="schedule_arr.am_sun_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to6 white-bg-color"
+                                v-model="schedule_arr.am_sun_to"
+                              />
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <span>From:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-from6 white-bg-color"
-                            v-model="schedule_arr.pm_sun_from"
-                          />
-                          <span>To:</span>
-                          <input
-                            type="text"
-                            class="form-control pm-to6 white-bg-color"
-                            v-model="schedule_arr.pm_sun_to"
-                          />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from6 white-bg-color"
+                                v-model="schedule_arr.pm_sun_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to6 white-bg-color"
+                                v-model="schedule_arr.pm_sun_to"
+                              />
+                            </div>
+                          </div>
                         </td>
-                        <td></td>
                       </tr>
                     </table>
                   </div>
@@ -461,7 +464,7 @@
               <div class="form-group">
                 <label class="heading-lbl col-2 pad-free">施設情報</label>
                 <span
-                  class="btn all-btn main-bg-color m-l-10"
+                  class="btn all-btn main-bg-color"
                   style="min-width: 0px;"
                   @click="factogglediv()"
                 >
@@ -499,7 +502,7 @@
                   <span class="error">*</span>
                 </label>
                 <span
-                  class="btn all-btn main-bg-color m-l-10"
+                  class="btn all-btn main-bg-color"
                   style="min-width: 0px;"
                   @click="specialFeAdd()"
                 >
@@ -528,21 +531,21 @@
           </tr>
         </table>
 
-        <div class="form-group form-group-wrapper">
+        <div class="form-group form-group-wrapper row ml-0 mr-0">
           <label class="heading-lbl col-2 pad-free">公式サイト</label>
           <input
             type="text"
             name="official-website"
-            class="form-control website white-bg-color"
+            class="form-control col-10 website white-bg-color"
             v-model="hospital_info.website"
           />
         </div>
 
-        <div class="form-group form-group-wrapper">
+        <div class="form-group form-group-wrapper row mr-0 ml-0">
           <label class="heading-lbl col-2 pad-free">混雑状況</label>
           <textarea
             name="congestion"
-            class="form-control congestion white-bg-color"
+            class="form-control col-10 congestion white-bg-color"
             v-model="hospital_info.congestion"
           ></textarea>
         </div>
@@ -715,331 +718,316 @@
 
         <!-- End Map -->
 
-        <div class="row">
-          <span class="btn news-post-btn all-btn m-t-15" @click="Create_Profile()">Create</span>
-          <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
+        <div class="row col-2 col-offset-6 mx-auto">
+          <span class="btn main-bg-color col-12 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
         </div>
       </div>
     </form>
-  </div>
+</div>
 </template>
 
 <script>
-import GoogleMap from "./GoogleMap.vue";
+import GoogleMap from './GoogleMap.vue'
 export default {
-  components: {
-    GoogleMap
-  },
-  data() {
-    return {
-      fac_list: [],
-      img_arr: [],
-      img_list: [],
-      video_arr: [],
-      video_list: [],
-      gallery_list: [],
-      feature_list: [],
-      profile_type: "hospital",
-      id: 2, // test_id
-      schedule_arr: [],
-      sshedule_am: [],
-      shedule_pm: [],
-      schedule_list: [],
-      customer_info: [],
-      hospital_info: [],
-      city: "",
-      postal: ""
-    };
-  },
-  created() {
-    this.axios.get("/api/schedule/" + this.id).then(response => {
-      this.schedule_arr = response.data;
-    });
+        components: {
+        GoogleMap,
+        },
+       data() {
+                return {
+                        fac_list: [],
+                        img_arr:[],img_list:[], 
+                        video_arr:[], video_list:[],gallery_list:[],
+                        feature_list:[],
+                        profile_type:'hospital',
+                        id:2, // test_id
+                        schedule_arr:[],shedule_am:[],shedule_pm:[],
+                        schedule_list:[],
+                        customer_info:[],
+                        hospital_info:[],
+                        city: '',
+                        postal: ''
+                }
+        },
+        created(){
+                
+                 this.axios
+                .get('/api/schedule/'+this.id)
+                .then(response=>{
+                        this.schedule_arr = response.data;
+                });
+              
 
-    this.axios.get("/api/customerinfo/" + this.id).then(response => {
-      this.customer_info = response.data;
-    });
+                this.axios
+                .get('/api/customerinfo/'+this.id)
+                .then(response=>{
+                        this.customer_info = response.data;
+                });
 
-    this.axios.get("/api/hospitalinfo/" + this.id).then(response => {
-      this.hospital_info = response.data;
-    });
+                
+                this.axios
+                .get('/api/hospitalinfo/'+this.id)
+                .then(response=>{
+                        this.hospital_info = response.data;
+                });
 
-    this.axios.get("/api/hospital-pgallery/" + this.id).then(response => {
-      this.img_arr = response.data;
-    });
+                this.axios
+                .get('/api/hospital-pgallery/'+this.id)
+                .then(response=>{
+                        this.img_arr = response.data;
+                });
 
-    this.axios.get("/api/hospital-vgallery/" + this.id).then(response => {
-      this.video_arr = response.data;
-    });
+                this.axios
+                .get('/api/hospital-vgallery/'+this.id)
+                .then(response=>{
+                        this.video_arr = response.data;
+                });
 
-    this.axios
-      .get("/api/feature/" + this.profile_type + "/" + this.id)
-      .then(response => {
-        this.feature_list = response.data;
-      });
+                this.axios
+                .get('/api/feature/'+this.profile_type+'/'+this.id)
+                .then(response=>{
+                        this.feature_list = response.data;
+                });
 
-    this.axios
-      .get("/api/facility/" + this.profile_type + "/" + this.id)
-      .then(response => {
-        this.fac_list = response.data;
-      });
-  },
-  methods: {
-    scheduletogglediv() {
-      $(".schedule-toggle-div").toggle("medium");
-    },
+                this.axios
+                .get('/api/facility/'+this.profile_type+'/'+this.id)
+                .then(response=>{
+                        this.fac_list = response.data;
+                });
+        },
+        methods: {
 
-    maptogglediv() {
-      $(".map-toggle-div").toggle("medium");
-    },
+            scheduletogglediv() {
+                    $(".schedule-toggle-div").toggle('medium');
+            },
 
-    factogglediv() {
-      $(".hos-fac-toggle-div").toggle("medium");
-    },
+            maptogglediv() {
+                    $(".map-toggle-div").toggle('medium');
+            },
 
-    preview_image(img_class) {
-      $("." + img_class).html(
-        "<img src='" +
-          URL.createObjectURL(event.target.files[0]) +
-          "' class='img-fluid hospital-image'>"
-      );
-    },
-    facilityCheck(check_id) {
-      $(".facility-" + check_id).attr("checked", "true");
-    },
-    featureCheck(check_id) {
-      $(".feature-" + check_id).attr("checked", "true");
-    },
-    DeltArr(indx, type) {
-      var arr_list = [];
-      var arr_count = document.getElementsByClassName("gallery-area-" + type);
-      for (var i = 0; i < arr_count.length; i++) {
-        arr_list[i] = document.getElementsByClassName("gallery-area-" + type);
-      }
+            factogglediv() {
+                    $(".hos-fac-toggle-div").toggle('medium');
+            },
 
-      for (var i = 0; i <= arr_count.length; i++) {
-        if (i == indx) {
-          arr_list.splice(indx, 1);
-          var ele = document.getElementById(type + indx);
-          var parentEle = document.getElementById("gallery-" + type);
-          parentEle.removeChild(ele);
+            preview_image(img_class) {
+                   $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+            },
+            facilityCheck(check_id) {
+                    $('.facility-'+check_id).attr('checked','true');
+            },
+            featureCheck(check_id) {
+                    $('.feature-'+check_id).attr('checked','true');
+            },
+            DeltArr(indx,type) {
+                    var arr_list = [];
+                    var arr_count = document.getElementsByClassName('gallery-area-'+type);
+                    for(var i=0; i< arr_count.length; i++) {
+                            arr_list[i] = document.getElementsByClassName('gallery-area-'+type);
+                    }
+
+                    for(var i=0; i<= arr_count.length; i++) {
+                            if(i == indx) {
+                                    arr_list.splice(indx,1);
+                                    var ele = document.getElementById(type+indx);
+                                    var parentEle = document.getElementById('gallery-'+type);
+                                    parentEle.removeChild(ele);
+                            }
+                    }
+                    
+            },
+            galleryAdd() {
+                    var date = new Date;
+                    var s = date.getMilliseconds();
+                    var m = date.getMinutes();
+                    var h = date.getHours();
+                    var classname = "class"+h+m+s;
+                    var c = "'"+classname+"'";
+
+                    this.img_arr.push({classname:classname,photo:'',title:'',description:''});
+            },
+            galleryVideoAdd() {
+
+                   this.video_arr.push({title:'',description:'',url:''});
+
+            },
+            
+            specialFeAdd() {
+                     $(".special-feature-toggle-div").toggle('medium');
+            },
+            Create_Profile () {
+                    this.img_list = [];
+                    this.video_list = [];
+                    this.gallery_list = [];
+                    this.customer_info = [];
+                    this.hospital_info = [];
+
+                    var name = $('.customer-name').val();
+                    var email = $('.customer-email').val();
+                    var phone = $('.customer-phone').val();
+                    var address = $('.customer-address').val();
+                    this.customer_info.push({name:name,email:email,phone:phone,address:address});
+
+                    
+                    var access = $('.access').val();
+                    var subject = $('.subject').val();
+                    var specialist = $('.specialist').val();
+                    var details_info = $('.details-info').val();
+                    var close_day = $('.close-day').val();
+                    var website = $('.website').val();
+                    var congestion = $('.congestion').val();
+                   
+               
+                    var img = document.getElementsByClassName('gallery-area-photo');
+                        for(var i = 0; i< img.length; i++) {
+
+                           var file = img[i].getElementsByClassName('hospital-photo')[0].files[0];
+                         if(file) {
+                                var file_name = file.name;
+                                let fd = new FormData();
+                                        fd.append('file' ,file )
+                                        fd.append('photo' ,file_name )
+                                        this.axios.post('/api/hospital/movephoto', fd)
+                                                .then(response => {
+                                                }).catch(error=>{
+                                                        console.log(error);
+                                                if(error.response.status == 422){
+                                                        this.errors = error.response.data.errors
+                                                }
+                                        })
+                        } else {
+                                var file_name = img[i].getElementsByClassName('already-photo')[0].value;
+                        }
+
+
+                           this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+                        }
+                       
+
+                    var video = document.getElementsByClassName('gallery-area-video');
+                        for(var i = 0; i< video.length; i++) {
+                           this.video_list.push({type:"video",photo:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
+                        }
+                        
+                     this.gallery_list = this.img_list.concat(this.video_list);
+
+                     var chek_feature = [];
+                     var special_features ;
+                        $.each($("input[name='special-features']:checked"), function(){ 
+                                chek_feature.push($(this).val());
+                        });
+                
+                        special_features = chek_feature.join(',');
+        
+
+                     var chek_facility = [];
+                     var facilities ;
+                        $.each($("input[name='facility']:checked"), function(){ 
+                               chek_facility.push($(this).val());
+                        });
+
+                        facilities = chek_facility.join(',');
+
+                     // Consultation
+                     for(var j = 0; j< 2; j++) {
+                        for(var i = 0; i< 7; i++) {
+                                if(j == 0) { this.shedule_am[i] = $('.form-control.am-from'+i+'').val() + '-' + $('.form-control.am-to'+i+'').val(); } 
+                                if(j == 1) { this.shedule_pm[i] = $('.form-control.pm-from'+i+'').val() + '-' + $('.form-control.pm-to'+i+'').val(); }
+                        }
+
+                        if(j == 0) { this.schedule_list.push(this.shedule_am); }
+                        if(j == 1) { this.schedule_list.push(this.shedule_pm); }
+                      }
+                     
+
+                       this.hospital_info.push({access:access,subject:subject,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       congestion:congestion,special_features:special_features,facilities:facilities});
+                        
+                        if(this.gallery_list.length > 0) {
+                                this.axios
+                                        .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
+                                                .then((response) => {
+                                                
+                                                }).catch(error=>{
+
+                                                if(error.response.status == 422){
+
+                                                this.errors = error.response.data.errors
+
+                                        }
+                                }) ;
+                        }
+
+                        if(this.customer_info.length > 0) {
+                                this.axios
+                                        .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                                                .then((response) => {
+                                                alert('Successfully Updated!')
+                                                }).catch(error=>{
+
+                                                if(error.response.status == 422){
+
+                                                this.errors = error.response.data.errors
+
+                                        }
+                                }) ;
+                        }
+
+                        if(this.hospital_info.length > 0) {
+                                this.axios
+                                        .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
+                                                .then((response) => {
+                                        
+                                                }).catch(error=>{
+
+                                                if(error.response.status == 422){
+
+                                                this.errors = error.response.data.errors
+
+                                        }
+                                }) ;
+                        }
+
+                        if(this.schedule_list.length > 0) {
+                                this.axios
+                                        .post(`/api/schedule/update/${this.id}`,this.schedule_list)
+                                                .then((response) => {
+                                                        alert('Successfully Updated!');
+                                                }).catch(error=>{
+
+                                                if(error.response.status == 422){
+
+                                                this.errors = error.response.data.errors
+
+                                }
+                        }) ;
+                }
+            },
+            getPostal: function(event) {
+                if (this.postal.length > 4) {
+                    var postal = this.postal;
+                    this.axios
+                        .post('/api/hospital/postList/' + postal)
+                        .then(response => {
+                            var post_data = response.data;
+                            var length = response.data.length;
+                            if (length > 0) {
+                                var pref = post_data[0]['city_id'];
+                                if (post_data[0]['street'] == '') {
+                                    this.city = post_data[0]['city'];
+                                } else {
+                                    this.city = post_data[0]['city'] + ' - ' + post_data[0]['street'];
+                                }
+                                // this.comments.selectedValue = pref;
+                                // this.comments.division = pref;
+                            } else {
+                                this.city = '';
+                                // this.comments.selectedValue = 0;
+                                $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+                            }
+                        });
+                }
+            },
+
         }
-      }
-    },
-    galleryAdd() {
-      var date = new Date();
-      var s = date.getMilliseconds();
-      var m = date.getMinutes();
-      var h = date.getHours();
-      var classname = "class" + h + m + s;
-      var c = "'" + classname + "'";
+}
 
-      this.img_arr.push({
-        classname: classname,
-        photo: "",
-        title: "",
-        description: ""
-      });
-    },
-    galleryVideoAdd() {
-      this.video_arr.push({ title: "", description: "", url: "" });
-    },
-
-    specialFeAdd() {
-      $(".special-feature-toggle-div").toggle("medium");
-    },
-    Create_Profile() {
-      this.img_list = [];
-      this.video_list = [];
-      this.gallery_list = [];
-      this.customer_info = [];
-      this.hospital_info = [];
-
-      var name = $(".customer-name").val();
-      var email = $(".customer-email").val();
-      var phone = $(".customer-phone").val();
-      var address = $(".customer-address").val();
-      this.customer_info.push({
-        name: name,
-        email: email,
-        phone: phone,
-        address: address
-      });
-
-      var access = $(".access").val();
-      var subject = $(".subject").val();
-      var specialist = $(".specialist").val();
-      var details_info = $(".details-info").val();
-      var close_day = $(".close-day").val();
-      var website = $(".website").val();
-      var congestion = $(".congestion").val();
-
-      var img = document.getElementsByClassName("gallery-area-photo");
-      for (var i = 0; i < img.length; i++) {
-        var file = img[i].getElementsByClassName("hospital-photo")[0].files[0];
-        if (file) {
-          var file_name = file.name;
-          let fd = new FormData();
-          fd.append("file", file);
-          fd.append("photo", file_name);
-          this.axios
-            .post("/api/hospital/movephoto", fd)
-            .then(response => {})
-            .catch(error => {
-              console.log(error);
-              if (error.response.status == 422) {
-                this.errors = error.response.data.errors;
-              }
-            });
-        } else {
-          var file_name = img[i].getElementsByClassName("already-photo")[0]
-            .value;
-        }
-
-        this.img_list.push({
-          type: "photo",
-          photo: file_name,
-          title: img[i].getElementsByClassName("title")[0].value,
-          description: img[i].getElementsByClassName("description")[0].value
-        });
-      }
-
-      var video = document.getElementsByClassName("gallery-area-video");
-      for (var i = 0; i < video.length; i++) {
-        this.video_list.push({
-          type: "video",
-          photo: video[i].getElementsByClassName("url")[0].value,
-          title: video[i].getElementsByClassName("title")[0].value,
-          description: video[i].getElementsByClassName("description")[0].value
-        });
-      }
-
-      this.gallery_list = this.img_list.concat(this.video_list);
-
-      var chek_feature = [];
-      var special_features;
-      $.each($("input[name='special-features']:checked"), function() {
-        chek_feature.push($(this).val());
-      });
-
-      special_features = chek_feature.join(",");
-
-      var chek_facility = [];
-      var facilities;
-      $.each($("input[name='facility']:checked"), function() {
-        chek_facility.push($(this).val());
-      });
-
-      facilities = chek_facility.join(",");
-
-      // Consultation
-      for (var j = 0; j < 2; j++) {
-        for (var i = 0; i < 7; i++) {
-          if (j == 0) {
-            this.shedule_am[i] =
-              $(".form-control.am-from" + i + "").val() +
-              "-" +
-              $(".form-control.am-to" + i + "").val();
-          }
-          if (j == 1) {
-            this.shedule_pm[i] =
-              $(".form-control.pm-from" + i + "").val() +
-              "-" +
-              $(".form-control.pm-to" + i + "").val();
-          }
-        }
-
-        if (j == 0) {
-          this.schedule_list.push(this.shedule_am);
-        }
-        if (j == 1) {
-          this.schedule_list.push(this.shedule_pm);
-        }
-      }
-
-      this.hospital_info.push({
-        access: access,
-        subject: subject,
-        specialist: specialist,
-        details_info: details_info,
-        close_day: close_day,
-        website: website,
-        congestion: congestion,
-        special_features: special_features,
-        facilities: facilities
-      });
-
-      if (this.gallery_list.length > 0) {
-        this.axios
-          .post(`/api/hospital/galleryupdate/${this.id}`, this.gallery_list)
-          .then(response => {})
-          .catch(error => {
-            if (error.response.status == 422) {
-              this.errors = error.response.data.errors;
-            }
-          });
-      }
-
-      if (this.customer_info.length > 0) {
-        this.axios
-          .post(`/api/customer/profile/${this.id}`, this.customer_info)
-          .then(response => {
-            alert("Successfully Updated!");
-          })
-          .catch(error => {
-            if (error.response.status == 422) {
-              this.errors = error.response.data.errors;
-            }
-          });
-      }
-
-      if (this.hospital_info.length > 0) {
-        this.axios
-          .post(`/api/hospital/profile/${this.id}`, this.hospital_info)
-          .then(response => {})
-          .catch(error => {
-            if (error.response.status == 422) {
-              this.errors = error.response.data.errors;
-            }
-          });
-      }
-
-      if (this.schedule_list.length > 0) {
-        this.axios
-          .post(`/api/schedule/update/${this.id}`, this.schedule_list)
-          .then(response => {})
-          .catch(error => {
-            if (error.response.status == 422) {
-              this.errors = error.response.data.errors;
-            }
-          });
-      }
-    },
-    getPostal: function(event) {
-      if (this.postal.length > 4) {
-        var postal = this.postal;
-        this.axios.post("/api/hospital/postList/" + postal).then(response => {
-          var post_data = response.data;
-          var length = response.data.length;
-          if (length > 0) {
-            var pref = post_data[0]["city_id"];
-            if (post_data[0]["street"] == "") {
-              this.city = post_data[0]["city"];
-            } else {
-              this.city = post_data[0]["city"] + " - " + post_data[0]["street"];
-            }
-            // this.comments.selectedValue = pref;
-            // this.comments.division = pref;
-          } else {
-            this.city = "";
-            // this.comments.selectedValue = 0;
-            $("#jsErrorMessage").html(
-              '<div class="error">郵便番号の書式を確認してください。</div>'
-            );
-          }
-        });
-      }
-    }
-  }
-};
 </script>

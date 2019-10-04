@@ -85,6 +85,8 @@
                     <!--end for address-->                
                 </div>                                     
             </div>
+
+            
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="header">特長</h5>
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">{{nurseprofile.feature}}</div>
