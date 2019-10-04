@@ -1,27 +1,27 @@
 <template>
-<div class="card profile m-t-22 " style="border:none;">
+  <div class="card profile m-t-22 " style="border:none;">
     <form class="col-md-12 form-class">                         
-            <div class="col-md-12 pad-free">
-                    <div class="form-group">
-                            <label class="heading-lbl">名前<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-name" placeholder="Name" v-model="customer_info.name">
-                    </div>
-                    <div class="form-group">
-                            <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-email"  placeholder="Email" v-model="customer_info.email">
-                    </div>                
-                    <div class="form-group">
-                            <label class="heading-lbl">電話番号<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-phone"  placeholder="Phone" v-model="customer_info.phone">
-                    </div>
-                    
-                    <!-- <div class="form-group">
-                            <label>フォトアルバム<span class="error">*</span></label>
-                            <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
+     <div class="col-md-12 pad-free">
+        <div class="form-group">
+                <label class="heading-lbl">名前<span class="error">*</span></label>
+                <input type="text" class="form-control customer-name" placeholder="Name" v-model="customer_info.name">
+        </div>
+        <div class="form-group">
+                <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
+                <input type="text" class="form-control customer-email"  placeholder="Email" v-model="customer_info.email">
+        </div>                
+        <div class="form-group">
+                <label class="heading-lbl">電話番号<span class="error">*</span></label>
+                <input type="text" class="form-control customer-phone"  placeholder="Phone" v-model="customer_info.phone">
+        </div>
+        
+        <!-- <div class="form-group">
+                <label>フォトアルバム<span class="error">*</span></label>
+                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
 
-                            <div class="col-md-12">
-                                    <div class="row" id="image_preview"></div>
-                            </div>
+                <div class="col-md-12">
+                        <div class="row" id="image_preview"></div>
+                </div>
         </div>-->
 
         <div class="form-group form-group-wrapper">
@@ -723,7 +723,7 @@
         </div>
       </div>
     </form>
-</div>
+  </div>
 </template>
 
 <script>
