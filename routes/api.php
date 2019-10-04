@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'SubjectController@edit');
         Route::post('update/{id}', 'SubjectController@update');
         Route::delete('delete/{id}', 'SubjectController@destroy');
+        Route::post('search', 'SubjectController@search');
     });
     //End Subject
 

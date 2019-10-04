@@ -137,5 +137,17 @@ class SubjectController extends Controller
         return response()->json('The Subject was successfully deleted');
     }
 
+    public function search(Request $request) {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+
+        $search_subjects = Subject::query()
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
+                            ->get()
+                            ->toArray();
+        return $search_subjects;
+    }
+
 
 }
