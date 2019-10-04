@@ -589,7 +589,6 @@
 
         created(){
 
-
             if(this.type == "nursing")
             {
                 this.axios.get('/api/profile/nursing') .then(response => {
