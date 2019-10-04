@@ -490,9 +490,9 @@
                                         </tr>
 
                                 </table>
-                                <div class="col-md-6"  v-for="hospital in hospitals" :key="hospital.id">
+                                <!-- <div class="col-md-6"  v-for="hospital in hospitals" :key="hospital.id">
                                     <p>Closed day: <font>{{hospital.closed_day}}</font> </p>
-                                </div>
+                                </div> -->
                                 <p>※診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください</p>
                         </div>
 
@@ -607,6 +607,7 @@
                 cooperate_medical:[],
                 medical_acceptance:[],
                 medical:[],
+                fac_list:[],
                 staff:[],
                 schedules:[],
                 subjects:[],

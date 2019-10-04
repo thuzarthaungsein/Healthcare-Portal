@@ -89,22 +89,7 @@ class ProfilePublishController extends Controller
         return $customer;
 
     }
-    // public function getHosfacilities(){
-    //      $facilities = Facility::all()->toArray();
-    //      return array_reverse($facilities);
-    // }
-    // public function getHosfacilities(){
-    //     $facility_list = Facility::all();
-    //     // return  array_reverse($facility_list);
-    //     $profile_facility = HospitalProfile::where('customer_id',3)->value('facilities');
-    //     $facility = explode(',',$profile_facility);
-    //     //return $facility_list;
-    //     // // return $facility;
-    //     return $facility;
-    //     //return $facility_list;
-    //     return json
 
-    // }
     public function getSpecialfeature($type){
         if($type == 'hospital'){
             $sfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
