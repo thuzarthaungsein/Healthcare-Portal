@@ -94,6 +94,7 @@ export default {
           lat: this.addresses[e.target.options.selectedIndex].latitude
         }
       });
+     
       // Remove the previous marker
       this.markers.shift()   
       // Scroll the map to the new position
@@ -123,6 +124,7 @@ export default {
           lat: this.currentPlace.geometry.location.lat(),
           lng: this.currentPlace.geometry.location.lng()
         };
+        console.log(marker)
         this.markers.push({ position: marker });
         this.places.push(this.currentPlace);
         this.center = marker;
@@ -145,7 +147,7 @@ export default {
       this.comment.gmap_city = this.comment.city;
       $('#gmap-search').focus();
       
-    },
+    }, 
     getPostal: function(event) {
                 if (this.comment.postal.length > 4) {
                     var postal = this.comment.postal;
