@@ -49,8 +49,7 @@
                                         :key="image.id"
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
                                         @click="activateImage(index)" >
-                                        <img  :src ="'/upload/nursing_profile/' + image.photo">
-                                       
+                                        <img  :src ="'/upload/nursing_profile/' + image.photo">   
                                     </div>
                                 </div>
                             </div>
