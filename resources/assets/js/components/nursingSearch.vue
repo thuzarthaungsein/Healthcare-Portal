@@ -1120,7 +1120,6 @@ export default {
         toggleCheck_1: false,
         markerOptions: {
         url: 'images/g-marker/g-marker.png',
-        size: {width: 60, height: 90, f: 'px', b: 'px',},
         scaledSize: {width: 40, height: 45, f: 'px', b: 'px',},
       },
       }

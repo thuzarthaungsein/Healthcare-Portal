@@ -49,8 +49,7 @@
                                         :key="image.id"
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
                                         @click="activateImage(index)" >
-                                        <img  :src ="'/upload/nursing_profile/' + image.photo">
-                                       
+                                        <img  :src ="'/upload/nursing_profile/' + image.photo">   
                                     </div>
                                 </div>
                             </div>
@@ -538,7 +537,7 @@
             return {
 
                 markers: [
-                    { position: { lat: 0, lng: 0 } },
+                    {  position: { lat: 0, lng: 0 }  },
                 ],
                 active_el:0,
                 center: { lat: 0, lng: 0 },
@@ -589,7 +588,6 @@
         },
 
         created(){
-
 
             if(this.type == "nursing")
             {
