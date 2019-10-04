@@ -103,7 +103,7 @@ export default {
         cancelButtonClass: "all-btn"
       }).then(response => {
         this.axios
-          .delete(`/api/category/delete/${id}`)
+          .delete(`/api/category//${id}`)
           .then(response => {
             //alert('Delete Successfully!');
             let i = this.categories.map(item => item.id).indexOf(id); // find index of your object

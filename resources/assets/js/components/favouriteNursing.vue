@@ -230,6 +230,10 @@
                     </div>
                 </div>
                 <span class="btn btn-success mt-5 float-right" @click="addingMail()">この内容で送信</span>
+                <a
+                        class="btn text-danger delete-borderbtn"
+                        @click="forsearch()"
+                      >変更する</a>
             </form>
         </div>
     </div>               
@@ -268,6 +272,42 @@
                 // });
             },
             methods: {
+                forsearch(id) {
+      this.$swal({
+        title: "確認",
+        text: "削除よろしいでしょうか",
+        html:
+    '<input type="checkbox">ff<br><input type="checkbox">efef',
+        width: 350,
+        height: 200,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#b1abab",
+        cancelButtonTextColor: "#000",
+        confirmButtonText: "比較する",
+        cancelButtonText: "キャンセル",
+        confirmButtonClass: "all-btn",
+        cancelButtonClass: "all-btn"
+      }).then(response => {
+        this.axios
+       
+          .then(response => {
+            //alert('Delete Successfully!');
+            this.$swal({
+              title: "削除された",
+              text: "ファイルが削除されました。",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#dc3545"
+            });
+          })
+          .catch(() => {
+            this.$swal("Failed", "wrong");
+          });
+      });
+    },
                 // changeRoute(){
                 //     this.$router.push({name:'home', params: {page:'subtab3'}});
                 // },
