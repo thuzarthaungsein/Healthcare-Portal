@@ -2014,7 +2014,7 @@ li.userprofile-name>a {
 
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
-    /* border-color: transparent !important; */
+    border-color: transparent !important;
 }
 
 a:hover {
@@ -2033,6 +2033,9 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     background-color: #fff;
     border-top: 1px solid #f9793c;
     border-color: #f9793c #fff #fff #fff !important;
+}
+div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
+    border-color: transparent !important;
 }
 
 .nav-tabs .nav-link {
