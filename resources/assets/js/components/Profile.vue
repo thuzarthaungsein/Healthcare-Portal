@@ -120,7 +120,7 @@ export default {
         },
        data() {
                 return {
-                        type: 'hospital',
+                        type: 'nursing',
                         btntype: 'view',
                 }
         },

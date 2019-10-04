@@ -26,7 +26,7 @@
             </div>
            
             <div class="row m-lr-0 ele" id="element1">
-                 <h5 class="header">情報</h5>
+                 <h5 class="profile_header">情報</h5>
                  <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -89,11 +89,11 @@
 
             
             <div class="row ele m-lr-0" id="element2">
-                <h5 class="header">特長</h5>
+                <h5 class="profile_header">特長</h5>
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">{{nurseprofile.feature}}</div>
             </div>
             <div class="row ele m-lr-0" id="element3">
-                <h5 class="header col-md-12">費用</h5>
+                <h5 class="profile_header col-md-12">費用</h5>
                     <div class="col-12">
                         <table class="table table-striped table-bordered" v-for="nusmethod in nus_method" :key="nusmethod.id">
                             <tr>
@@ -200,7 +200,7 @@
             </div>
             <div class="row ele m-lr-0" id="element4">
                 <!-- <div class="row"> -->
-                    <h5 class="header header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>                    
+                    <h5 class="profile_header profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>                    
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12" >
                         <table border="1" class="table table-bordered cost_table">
                             <tbody>
@@ -272,7 +272,7 @@
 
                         <div class="row col-12 pad-free">   
                             <div class="col-md-12">                         
-                            <h5 class="header col-md-12"> 職員体制 （グランダ雪ヶ谷）</h5>   
+                            <h5 class="profile_header col-md-12"> 職員体制 （グランダ雪ヶ谷）</h5>   
                             </div>                        
                             <div v-if="cooperate_medical.length>0" class="col-md-12">
                                 <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
@@ -298,7 +298,7 @@
                         </div>
 
                        <div class="row col-12">
-                                <h5 class="header col-12"> 医療面の受入れ </h5>
+                                <h5 class="profile_header col-12"> 医療面の受入れ </h5>
                            
                             <div class="row col-12">
                                 <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-4" >
@@ -320,7 +320,7 @@
                         </div>
 
                         <div class="row col-12">                            
-                                <h5  class="header col-12"> Staff </h5>                            
+                                <h5  class="profile_header col-12"> Staff </h5>                            
                             <div v-if="staff.length>0">
                                 <div v-for="st in staff" :key="st.id" class="col-md-12" >
                                     <table border="1" class="table table-bordered">
@@ -344,7 +344,7 @@
                         </div>
             </div>
             <div class="row ele m-lr-0" id="element5">
-                <h5 class="header col-md-12"> 地図</h5>
+                <h5 class="profile_header col-md-12"> 地図</h5>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
                             <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
@@ -371,13 +371,13 @@
                  </div>
 
             <div class="row ele m-lr-0" id="element6">
-               <h5 class="header col-12">口コミ</h5>
+               <h5 class="profile_header col-12">口コミ</h5>
                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="row col-12">
                        
                         <div class="col-12 comment-wrapper" v-for="comment in comments" :key="comment.id">
                             <div class="card">
-                                <!-- <div class="card-header comment-title text-truncate">
+                                <!-- <div class="card-profile_header comment-title text-truncate">
                                     <i class="fas fa-comment"></i>
                                     {{comment.title}}
                                 </div> -->
@@ -422,7 +422,7 @@
             </div>
             <div class="row ele m-lr-0" id="element1">
             <!-- ee-->
-             <h5 class="header">情報</h5>
+             <h5 class="profile_header">情報</h5>
                  <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -472,7 +472,7 @@
                             <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>電話 :</strong></p></div>
                             <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
                         </div>
-                         <h5 class="header m-t-10">こだわりの特長</h5>
+                         <h5 class="profile_header m-t-10">こだわりの特長</h5>
                         <div class="row m-lr-0">
                             <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                                 <li>{{special.short_name}}</li>
@@ -484,31 +484,31 @@
             <!--end ee-->
                 
 
-             <h5 class="header">こだわりの特長</h5>
+             <h5 class="profile_header">こだわりの特長</h5>
                 <div class="row m-lr-0">
                     <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                         <li>{{special.short_name}}</li>
                     </ul>
                 </div>
-                <h5 class="header">情報</h5>
+                <h5 class="profile_header">情報</h5>
                     <div class="row m-lr-0">
                         <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
                             <li >{{hospital.details_info}}</li>
                         </ul>
                 </div>
-                <h5 class="header">診療科目</h5>
+                <h5 class="profile_header">診療科目</h5>
                     <div class="row m-lr-0">
                         <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
                             <li >{{hospital.subject}}</li>
                         </ul>
                     </div>
-                <h5 class="header">診療時間</h5>
+                <h5 class="profile_header">診療時間</h5>
                     <div class="row m-lr-0">
                         <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
                             <li >{{hospital.closed_day}}</li>
                         </ul>
                     </div>
-                <h5 class="header">施設情報</h5>
+                <h5 class="profile_header">施設情報</h5>
                     <div class="row m-lr-0">
                         <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
                             <li >{{hospital.facilities}}</li>
@@ -517,7 +517,7 @@
             </div>
             <div class="row ele m-lr-0" id="element2">
 
-                <h5 class="header">口コミ</h5>
+                <h5 class="profile_header">口コミ</h5>
               <div class="row" v-for="comment in comments" :key="comment.id">
                     <div class="col-md-12">タイトル:{{comment.title}}</div><br/>
                                      <!-- <i class="fas fa-envelope" style='font-size:20px;color:#F4A460'></i> -->
@@ -793,7 +793,7 @@
     margin-top:-1px;
 
 }
-.top-fixed-btn{
+/* .top-fixed-btn{
   border: 1px solid #b7dad2;
   box-shadow: 0px 2px 1px rgba(70, 70, 70, 0.3);
   color: #095c5f;
@@ -801,7 +801,7 @@
   width: 145px;
   cursor: pointer;
   padding: 10px;
-}
+} */
 /* .ele{
   margin-top: 27px;
   padding-top: 60px;
@@ -878,17 +878,17 @@
     color: #777;
 }
 
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #fff !important;
     font-weight: bold;
     background-color: #1aa985  !important;
     border-top: 1px solid #1aa985  ;
     border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
 }
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
+div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
     border: 1px solid #1aa985  !important;
 }
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
+div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
     border-color: transparent   #ecede1   transparent   #ecede1   !important;
 }
 .thumbnail-img{
