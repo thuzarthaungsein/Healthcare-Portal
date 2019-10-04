@@ -718,14 +718,14 @@
  }
  }
         
-    var gmap = new google.maps.Ploygon({
-        paths:sadfasf,
-        strokeColor:'#FF0000',
-        strokeOpacity: 0.8,
-        strokeweight: 3,
-        fillColor:'#FF0000',
-        fillOpacity:0.35
-    });
+    // var gmap = new google.maps.Ploygon({
+    //     paths:sadfasf,
+    //     strokeColor:'#FF0000',
+    //     strokeOpacity: 0.8,
+    //     strokeweight: 3,
+    //     fillColor:'#FF0000',
+    //     fillOpacity:0.35
+    // });
 
 </script>
 
