@@ -26,6 +26,7 @@
             </div>
            
             <div class="row m-lr-0 ele" id="element1">
+                
                  <h5 class="header">情報</h5>
                  <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
