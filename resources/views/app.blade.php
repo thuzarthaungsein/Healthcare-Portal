@@ -71,10 +71,11 @@
         <!--navigation bar-->
 
         <nav class="navbar navbar-expand-lg navbar-dark main-header">
+        <div class="container nav-warp">
+            <a class="navbar-brand col-2 pl-0 logo-text" href="/">
 
-            <a class="navbar-brand col-2 pl-0" href="/">
-
-                <img src="/images/sample_2.png" alt="Logo">
+                <!-- <img src="/images/sample_2.png" alt="Logo"> -->
+                LOGO <span>HERE</span>
 
             </a>
 
@@ -265,7 +266,7 @@
                 </ul>
 
             </div>
-
+        </div>
         </nav>
 
         <!--end navigation bar-->
@@ -282,7 +283,7 @@
 
         <div class="sidebar-scroll container-fluid">
 
-            <div class="row">
+            <div class="row" style="background:#fff;">
 
                 @if(Auth::check())
 
@@ -449,6 +450,8 @@
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;施設一覧</router-link></li>
                     <li><router-link to="/typelist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;事業者 タイプ</router-link></li>
                     <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;特殊機能</router-link></li>
+                    <li><router-link to="/occupationlist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Occupations</router-link></li>
+                    <li><router-link to="/subjectlist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;Medical Subjects</router-link></li>
                     
                     <li>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link text-pre"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
@@ -530,7 +533,7 @@
 
                                 <!--slider for ads-->
                                 @if(Auth::check())
-                                    <div class="col-md-10 pad-free fixed-ads">
+                                    <div class="col-md-10 pad-free fixed-ads" style="display:none;">
                                 @else
                                     <div class="col-md-12 pad-free fixed-ads-fluid">
                                 @endif
@@ -593,8 +596,11 @@
                                     <!--end slider for ads-->
 
 
-
+                                @if(Auth::check())
+                                <div class="row justify-content-md-center p-t-30">
+                                @else
                                 <div class="row justify-content-md-center p-t-130">
+                                @endif
 
                                     <div class="col-12 col-lg-12 col-md-10 tab">
 
