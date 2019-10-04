@@ -4,9 +4,9 @@
                 <div class="row">
                         <div class="col-12">
                                 <div class="col-12">
-                                        <form class="form-inline col-lg-12 form-inline mb-2 pad-free">
+                                        <form class="form-inline col-lg-12 form-inline mb-2 pad-free" v-if="status=='0'">
                                                 <input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
-                                                <span v-if="status=='0'" class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
+                                                <span class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
                                         </form>
                                         <div v-if="status=='0'">
                                                 <div class="card">
@@ -49,7 +49,7 @@
                                                 </div>
                                         </div>
                                         <div v-else>
-                                                <NewsSearchListComponent></NewsSearchListComponent>
+                                                <NewsSearchListComponent :first_search_word="first_search_word"></NewsSearchListComponent>
                                         </div>
                                 </div>
                                 <div class="col-md-12 m-lr-0" v-if="status =='0'">
@@ -167,7 +167,7 @@ export default {
                 id_arr:[],
                 post_groups : [],
                 status:'0',
-                search_word:''
+                first_search_word:''
                
                 
             }
@@ -264,7 +264,7 @@ export default {
 
                 searchCategory() {
                         this.status = 1;
-                        this.search_word = $('#search-word').val();
+                        this.first_search_word = $('#search-word').val();
                 },
 
                 imgUrlAlt(event) {
