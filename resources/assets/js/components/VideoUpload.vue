@@ -56,7 +56,7 @@ export default {
                          let fd = new FormData();
                                 fd.append('file' ,this.file )
                                 fd.append('name',Vname)
-
+                        console.log(fd);return;
                        this.axios.post('/api/customer/uploadvideo', fd)
                             .then(response => {
                             $('#video_preview').append("<div class='col-md-6' id='video-area'><span onClick='closevideo()'>X</span><video src='upload/videos/"+Vname+"' controls></video></div>");

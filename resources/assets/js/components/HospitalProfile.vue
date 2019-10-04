@@ -3,49 +3,49 @@
     <form class="col-md-12 form-class">
       <div class="col-md-12 pad-free">
         <div class="form-group form-group-wrapper">
-          <label class="heading-lbl col-2 pad-free">
+          <label class="heading-lbl">
             名前
             <span class="error">*</span>
           </label>
           <input
             type="text"
             class="form-control customer-name col-10 float-right"
-            placeholder="名前"
+            placeholder="Name"
             v-model="customer_info.name"
           />
         </div>
         <div class="form-group form-group-wrapper">
-          <label class="heading-lbl col-2 pad-free">
+          <label class="heading-lbl">
             メールアドレス
             <span class="error">*</span>
           </label>
           <input
             type="text"
             class="form-control customer-email col-10 float-right"
-            placeholder="メール"
+            placeholder="Email"
             v-model="customer_info.email"
           />
         </div>
         <div class="form-group form-group-wrapper">
-          <label class="heading-lbl col-2 pad-free">
+          <label class="heading-lbl">
             電話番号
             <span class="error">*</span>
           </label>
           <input
             type="text"
             class="form-control customer-phone col-10 float-right"
-            placeholder="電話"
+            placeholder="Phone"
             v-model="customer_info.phone"
           />
         </div>
 
         <!-- <div class="form-group">
-                            <label>フォトアルバム<span class="error">*</span></label>
-                            <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
+                <label>フォトアルバム<span class="error">*</span></label>
+                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
 
-                            <div class="col-md-12">
-                                    <div class="row" id="image_preview"></div>
-                            </div>
+                <div class="col-md-12">
+                        <div class="row" id="image_preview"></div>
+                </div>
         </div>-->
 
         <div class="form-group form-group-wrapper">
@@ -126,33 +126,38 @@
                 v-for="(video,indx) in video_arr"
                 :key="video.id"
               >
-                <div class="col-md-3">
+                <div class="col-md-12">
                   <input
                     type="text"
                     name="url"
-                    placeholder="url"
-                    class="form-control m-b-15 url"
+                    placeholder="サイトURL"
+                    class="form-control m-b-15 url title white-bg-color"
                     v-model="video.url"
                   />
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-12">
                   <input
                     type="text"
                     name="title"
                     placeholder="タイトル"
-                    class="form-control m-b-15 title"
+                    class="form-control m-b-15 title white-bg-color"
                     v-model="video.title"
                   />
                   <textarea
                     name="description"
                     placeholder="コンテンツ"
-                    class="form-control m-b-15 description"
+                    class="form-control m-b-15 description white-bg-color"
                     v-model="video.description"
                   ></textarea>
                 </div>
-                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">
-                  <i class="fa fa-trash"></i> 削除
-                </a>
+                <div class="col-md-12 text-right">
+                  <a
+                    class="mr-auto text-danger btn delete-borderbtn"
+                    @click="DeltArr(indx,'video')"
+                  >
+                    <i class="fa fa-trash"></i> 削除
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -822,7 +827,7 @@ export default {
       profile_type: "hospital",
       id: 2, // test_id
       schedule_arr: [],
-      sshedule_am: [],
+      shedule_am: [],
       shedule_pm: [],
       schedule_list: [],
       customer_info: [],
@@ -1087,7 +1092,9 @@ export default {
       if (this.schedule_list.length > 0) {
         this.axios
           .post(`/api/schedule/update/${this.id}`, this.schedule_list)
-          .then(response => {})
+          .then(response => {
+            alert("Successfully Updated!");
+          })
           .catch(error => {
             if (error.response.status == 422) {
               this.errors = error.response.data.errors;
