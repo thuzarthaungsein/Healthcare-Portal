@@ -1115,10 +1115,6 @@ export default {
         medical_acceptance:[],
         toggleCheck: true,
         toggleCheck_1: false,
-        
-        
-
-
       }
     },
     

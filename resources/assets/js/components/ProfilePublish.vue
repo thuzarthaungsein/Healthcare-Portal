@@ -85,8 +85,6 @@
                     <!--end for address-->                
                 </div>                                     
             </div>
-
-            
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="header">特長</h5>
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">{{nurseprofile.feature}}</div>
@@ -539,7 +537,7 @@
             return {
 
                 markers: [
-                    { position: { lat: 0, lng: 0 } },
+                    {  position: { lat: 0, lng: 0 }  },
                 ],
                 active_el:0,
                 center: { lat: 0, lng: 0 },
@@ -715,17 +713,11 @@
         this.currentOffset += this.paginationFactor;
       }
     },
+            
+
+        }
+
  }
- }
-        
-    // var gmap = new google.maps.Ploygon({
-    //     paths:sadfasf,
-    //     strokeColor:'#FF0000',
-    //     strokeOpacity: 0.8,
-    //     strokeweight: 3,
-    //     fillColor:'#FF0000',
-    //     fillOpacity:0.35
-    // });
 
 </script>
 
