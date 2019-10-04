@@ -421,12 +421,68 @@
             </button>
             </div>
             <div class="row ele m-lr-0" id="element1">
-                <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
-                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
-                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
-                <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>電話番号 :</strong></p></div>
-                <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
-            </div>
+            <!-- ee-->
+             <h5 class="header">情報</h5>
+                 <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
+                    <!--for slideimage-->
+                    <div class="col-sm-5 detail_profile_left">
+                           <div class="thumbnail-img">
+                             <div class="card-carousel">
+                                <div class="card-img">
+                                    <img :src="'/upload/hospital_profile/' +currentImage" alt="">
+                                    <div class="actions">
+                                        <span @click="prevImage" class="prev">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span @click="nextImage" class="next">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="thumbnails">
+                                    <div
+                                        v-for="(image,index) in  images"
+                                        :key="image.id"
+                                        :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
+                                        @click="activateImage(index)" >
+                                        <img  :src ="'/upload/hospital_profile/' + image.photo">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-sm-12 detail_profile_left">
+                            <strong class="img_2">  {{activeImageTitle}} </strong>
+                        </div>
+                       <div class="row col-sm-12 detail_profile_left">
+                           {{activeImageDescription}}
+                       </div>
+                        
+                       
+                        <!-- <div  v-for="image in  images"  :key="image.id">
+                              
+                        </div> -->
+                    </div>
+                    <!--end for slide image-->
+                    <!--for address-->
+                     <div class="col-sm-7 detail_profile_right">
+                        <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
+                            <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
+                            <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
+                            <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>電話 :</strong></p></div>
+                            <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
+                        </div>
+                         <h5 class="header m-t-10">こだわりの特長</h5>
+                        <div class="row m-lr-0">
+                            <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
+                                <li>{{special.short_name}}</li>
+                            </ul>
+                        </div>  
+                    </div>
+                    <!--end for address-->                
+                </div> 
+            <!--end ee-->
+                
 
              <h5 class="header">こだわりの特長</h5>
                 <div class="row m-lr-0">
