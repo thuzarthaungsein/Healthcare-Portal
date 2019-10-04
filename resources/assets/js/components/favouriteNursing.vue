@@ -22,114 +22,104 @@
         </div>
         <div class="row m-0">
             <form @submit.prevent="add" class="col-md-12 pad-free">
-                <!-- <div class="d-flex justify-content-between">
-                    <div class="select_all">
-                        <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
-                            <input type="checkbox" @change="checkAll()" class="check-all-btn" />
-                            <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる
-                        </label>
+                <div class="row">
+                    <div class="col-md-11" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
+                        <dl class="itemBox favnur" id="bd">
+                            <dt>比較する項目</dt>
+                            <dd>住所、月額費用、入居一時金、入居条件</dd>
+                        </dl>
                     </div>
-                </div> -->
-                <div class="row" >
-                <div class="col-md-11" @click="itemCompare()">
-                    <dl class="itemBox favnur" id="bd">
-                        <dt>比較する項目</dt>
-                        <dd>住所、月額費用、入居一時金、入居条件</dd>
-                    </dl>
-                </div>
-                <!-- Modal -->
-            <!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">比較する項目を選ぶ</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <button class="btn btn-secondary">閉じる&times;</button>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+                    <div class="modal fade bd-example-modal-lg mycheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">比較する項目を選ぶ</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button class="btn btn-secondary">閉じる&times;</button>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
 
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <p>エリア</p>
-                                </div>
-                                <div class="col-md-3">
-                                    <label>
-                                        <input type="checkbox"> 住所
-                                    </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <label>
-                                        <input type="checkbox"> 交通手段
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <p>費用・条件</p>
-                                </div>
-                                <div class="col-md-3">
-                                    <label>
-                                        <input type="checkbox"> 月額費用
-                                    </label>
-                                    <br>
-                                    <label style="width:400px;">
-                                        <input type="checkbox"> 入居条件 （自立、要支援、要介護、認知症相談可）
-                                    </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <label>
-                                        <input type="checkbox"> 入居一時金
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <p>サービス内容</p>
-                                </div>
-                                <div class="col-md-9">
-                                    <label style="width:;">
-                                        <input type="checkbox"> 特長 （24時間看護、職員体制、食事メニューの選択など）
-                                    </label>
-                                    <label style="width:;">
-                                        <input type="checkbox"> 医療面の受け入れ （インシュリン投与、ストーマ・人工肛門、たん吸引など）
-                                    </label>
-                                </div>
-                            </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p>エリア</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>
+                                                <input type="checkbox"> 住所
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>
+                                                <input type="checkbox"> 交通手段
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p>費用・条件</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>
+                                                <input type="checkbox"> 月額費用
+                                            </label>
+                                            <br>
+                                            <label style="width:400px;">
+                                                <input type="checkbox"> 入居条件 （自立、要支援、要介護、認知症相談可）
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>
+                                                <input type="checkbox"> 入居一時金
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p>サービス内容</p>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <label style="width:;">
+                                                <input type="checkbox"> 特長 （24時間看護、職員体制、食事メニューの選択など）
+                                            </label>
+                                            <label style="width:;">
+                                                <input type="checkbox"> 医療面の受け入れ （インシュリン投与、ストーマ・人工肛門、たん吸引など）
+                                            </label>
+                                        </div>
+                                    </div>
 
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <p>施設情報</p>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p>施設情報</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="">
+                                                <input type="checkbox"> 空室状況
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="">
+                                                <input type="checkbox"> 定員
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="">
+                                                <input type="checkbox"> 開設日
+                                            </label>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div class="col-md-3">
-                                    <label for="">
-                                        <input type="checkbox"> 空室状況
-                                    </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="">
-                                        <input type="checkbox"> 定員
-                                    </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="">
-                                        <input type="checkbox"> 開設日
-                                    </label>
+                                <div class="modal-footer text-center">
+                                    <button type="button" class="btn btn-primary">比較する</button>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="modal-footer text-center">
-                            <button type="button" class="btn btn-primary">比較する</button>
                         </div>
                     </div>
+                    <div class="col-md-1">
+                        <button class="btn news-post-btn all-btn hos-btn m-t-10">変更する</button>
+                    </div>
                 </div>
-            </div> -->
-            <!--model-->
-                <div class="col-md-1">
-                    <button class="btn news-post-btn all-btn hos-btn m-t-10">変更する</button>
-                </div>
-            </div>
                 <div class="row m-0">
                     <div v-for="nur_profile in fav_nursing" :key="nur_profile.id" class="col-lg-12 pt-3 bd">
                         <div class="row m-0">
@@ -144,13 +134,13 @@
                                 <div class="row mt-2">
                                     <div class="col-6">
                                         <label class="btn news-post-btn all-btn hos-btn">
-                                            <input type="checkbox" class="checkbox1" name="reservation" v-model="reserv_status[nur_profile.id]" @change="checkSingle()"/>
+                                            <input type="checkbox" class="checkbox1" name="reservation" v-model="reserv_status[nur_profile.id]" @change="checkSingle()" />
                                             <span class="checkmark"></span>見学予約
                                         </label>
                                     </div>
                                     <div class="col-6">
                                         <label class="btn all-btn secondary-bg-color hos-btn">
-                                            <input type="checkbox" class="checkbox2" value="documentation" name="documentation" v-model="document_status[nur_profile.id]" @change="checkSingle()"/>
+                                            <input type="checkbox" class="checkbox2" value="documentation" name="documentation" v-model="document_status[nur_profile.id]" @change="checkSingle()" />
                                             <span class="checkmark"></span>資料請求
                                         </label>
                                     </div>
@@ -222,26 +212,20 @@
                             </div>
                             <div class="col-lg-3 col-md-12">
                                 <ul class="fac_container">
-                                        <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
-                                    <!-- <li v-for="special in specialfeature" :key="special.id">{{special.short_name}}</li> -->
+                                    <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
                 <span class="btn btn-success mt-5 float-right" @click="addingMail()">この内容で送信</span>
-                <a
-                        class="btn text-danger delete-borderbtn"
-                        @click="forsearch()"
-                      >変更する</a>
             </form>
         </div>
-    </div>               
+    </div>
 </template>
 
 <script>
-
-    export default {       
+    export default {
         data() {
                 return {
                     errors: [],
@@ -258,56 +242,21 @@
                     arr_email: [],
                     reserv_status: [],
                     document_status: [],
-                    type : 'nursing',
-                    specialfeature:[]
+                    type: 'nursing',
+                    specialfeature: [],
+                    modal_btn: false
                 };
             },
             created() {
                 $('.checkbox1').prop("checked", true);
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
-                    
+
                 // this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
                 //     this.specialfeature = response.data;
                 // });
             },
             methods: {
-                forsearch(id) {
-      this.$swal({
-        title: "確認",
-        text: "削除よろしいでしょうか",
-        html:
-    '<input type="checkbox">ff<br><input type="checkbox">efef',
-        width: 350,
-        height: 200,
-        showCancelButton: true,
-        confirmButtonColor: "#dc3545",
-        cancelButtonColor: "#b1abab",
-        cancelButtonTextColor: "#000",
-        confirmButtonText: "比較する",
-        cancelButtonText: "キャンセル",
-        confirmButtonClass: "all-btn",
-        cancelButtonClass: "all-btn"
-      }).then(response => {
-        this.axios
-       
-          .then(response => {
-            //alert('Delete Successfully!');
-            this.$swal({
-              title: "削除された",
-              text: "ファイルが削除されました。",
-              type: "success",
-              width: 350,
-              height: 200,
-              confirmButtonText: "はい",
-              confirmButtonColor: "#dc3545"
-            });
-          })
-          .catch(() => {
-            this.$swal("Failed", "wrong");
-          });
-      });
-    },
                 // changeRoute(){
                 //     this.$router.push({name:'home', params: {page:'subtab3'}});
                 // },
@@ -399,8 +348,8 @@
                     }
                 },
                 itemCompare() {
-                    alert('f');
+                    $('.mycheck').css('display', 'block');
                 }
-        }
+            }
     };
 </script>
