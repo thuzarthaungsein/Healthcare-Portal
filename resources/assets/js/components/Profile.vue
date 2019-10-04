@@ -109,45 +109,41 @@ import hospitalProfile from "./HospitalProfile.vue";
 import nursingProfile from "./NursingProfile.vue";
 import profilePublish from "./ProfilePublish.vue";
 export default {
-        ready: function() {
-                Vue.nextTick(function () {
-                }.bind(this))
-        },
-        components: {
-              hospitalProfile,
-              nursingProfile,
-              profilePublish,
-        },
-       data() {
-                return {
-                        type: 'hospital',
-                        btntype: 'view',
-                }
-        },
-        created(){
-                if(this.$route.params.type) {
-                        this.type = this.$route.params.type;
-                        console.log(this.type);
-                }       
-                if(this.$route.params.cusid) {
-                        this.cusid = this.$route.params.cusid;
-                }
-                else{
-                        this.cusid = 1;
-                }    
-                
-        },
-        methods: {
-                changeBtnType() {
-                        if(this.btntype == 'create') {
-                                document.getElementById("hospital-lbl").classList.add("dim-btn");
-                                document.getElementById("nursing-lbl").classList.remove("dim-btn");
-                        }
-                        else{
-                               document.getElementById("nursing-lbl").classList.add("dim-btn");
-                               document.getElementById("hospital-lbl").classList.remove("dim-btn");
-                        }
-                }
-        }
-}
+  ready: function() {
+    Vue.nextTick(function() {}.bind(this));
+  },
+  components: {
+    hospitalProfile,
+    nursingProfile,
+    profilePublish
+  },
+  data() {
+    return {
+      type: "hospital",
+      btntype: "view"
+    };
+  },
+  created() {
+    if (this.$route.params.type) {
+      this.type = this.$route.params.type;
+      console.log(this.type);
+    }
+    if (this.$route.params.cusid) {
+      this.cusid = this.$route.params.cusid;
+    } else {
+      this.cusid = 1;
+    }
+  },
+  methods: {
+    changeBtnType() {
+      if (this.btntype == "create") {
+        document.getElementById("hospital-lbl").classList.add("dim-btn");
+        document.getElementById("nursing-lbl").classList.remove("dim-btn");
+      } else {
+        document.getElementById("nursing-lbl").classList.add("dim-btn");
+        document.getElementById("hospital-lbl").classList.remove("dim-btn");
+      }
+    }
+  }
+};
 </script>

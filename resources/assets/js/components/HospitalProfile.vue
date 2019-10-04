@@ -62,7 +62,7 @@
                 v-for="(img,indx) in img_arr"
                 :key="img.id"
               >
-                <div class="col-md-3">
+                <div class="col-md-12">
                   <input
                     type="file"
                     name
@@ -81,24 +81,29 @@
                     />
                   </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-12">
                   <input
                     type="text"
                     name="title"
                     placeholder="タイトル"
-                    class="form-control m-b-15 title"
+                    class="form-control m-b-15 title white-bg-color"
                     v-model="img.title"
                   />
                   <textarea
                     name="description"
                     placeholder="コンテンツ"
-                    class="form-control m-b-15 description"
+                    class="form-control m-b-15 description white-bg-color"
                     v-model="img.description"
                   ></textarea>
                 </div>
-                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">
-                  <i class="fa fa-trash"></i> 削除
-                </a>
+                <div class="col-md-12 text-right">
+                  <a
+                    class="mr-auto text-danger btn delete-borderbtn"
+                    @click="DeltArr(indx,'photo')"
+                  >
+                    <i class="fa fa-trash"></i> 削除
+                  </a>
+                </div>
               </div>
             </div>
           </div>
