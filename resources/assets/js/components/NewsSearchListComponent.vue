@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-12">           
                 <div class="col-12">
-                    <form class="form-inline col-lg-12 form-inline mb-2 pad-free">
+                    <form class="col-lg-12 mb-2 pad-free">
                         <div class="col-md-6 offset-6 pad-free">
                             <div class="row ">
                                 <div class="col-md-9">
