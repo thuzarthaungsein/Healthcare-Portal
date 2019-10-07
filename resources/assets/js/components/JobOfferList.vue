@@ -44,7 +44,7 @@
                       type="text"
                       class="form-control"
                       placeholder="検索"
-                      id="search-item" 
+                      id="search-item"
                       @keyup="searchJobOffer()"
                     />
                   </div>
@@ -143,10 +143,10 @@ export default {
     };
   },
   created() {
- 
+
     this.axios.get("/api/job/index").then(response => {
       console.log(response);
-      this.jobs = response.data.profilejob;
+      this.jobs = response.data.jobs;
     });
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)

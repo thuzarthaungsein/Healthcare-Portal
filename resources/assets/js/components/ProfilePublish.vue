@@ -50,7 +50,6 @@
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
                                         @click="activateImage(index)" >
                                         <img  :src ="'/upload/nursing_profile/' + image.photo">
-
                                     </div>
                                 </div>
                             </div>
@@ -86,6 +85,8 @@
                     <!--end for address-->
                 </div>
             </div>
+
+
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="header">特長</h5>
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">{{nurseprofile.feature}}</div>
@@ -111,16 +112,16 @@
                                     <table class="table table-bordered cost_table">
                                         <tbody>
                                         <tr>
-                                            <th width="250">入居にかかる費用(Expense)</th>
-                                                <td>{{cost.expense_moving}}</td>
-                                                <th>居室タイプ(type)</th>
-                                                <td>{{cost.living_room_type}}</td>
+                                                <th width="250">入居にかかる費用(Expense)</th>
+                                                <td width="250">{{cost.expense_moving}}</td>
+                                                <th width="250">居室タイプ(type)</th>
+                                                <td width="250">{{cost.living_room_type}}</td>
                                         </tr>
                                         <tr>
-                                            <th width="250">月額料金 (monthly)</th>
-                                                <td>{{cost.monthly_fees}}</td>
-                                            <th>広さ(area)</th>
-                                                <td>{{cost.area}}</td>
+                                                <th width="250">月額料金 (monthly)</th>
+                                                <td width="250">{{cost.monthly_fees}}</td>
+                                                <th width="250">広さ(area)</th>
+                                                <td width="250">{{cost.area}}</td>
                                         </tr>
                                         </tbody>
                                     </table>

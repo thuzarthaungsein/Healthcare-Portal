@@ -11,6 +11,8 @@ class JobController extends Controller
 
     public function index()
     {
+     
+       
         $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
                      ->join('jobs','jobs.customer_id','=','customers.id')->get();
 

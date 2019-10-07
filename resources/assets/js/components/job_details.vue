@@ -1,9 +1,9 @@
 <template>
-  <div class="container cont-pad job-detail">
-    <div class="row m-0">
-      <div v-for="jobDetail in job_details" :key="jobDetail.id" class="col-md-12 pt-4">
-        <h4 class="h_4 header">{{jobDetail.title}}</h4>
-        <label>求人番号: {{jobDetail.jobid}}</label>
+  <div class="cont-pad job-detail">
+    <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">
+      <h4 class="h_4 header m-4">{{job_details.title}}</h4>
+      <label>求人番号: {{jobDetail.jobid}}</label>
+      <div class="col-sm-10 offset-1">
         <!-- <img src="/images/img1.jpg" class="img-responsive" style="width:150px;"> -->
         <div class="form-wrap mt-3">
           <div class="form-group m-0 row bd">

@@ -1,245 +1,729 @@
 <template>
-<div class="card profile m-t-22 " style="border:none;">
+  <div class="card profile m-t-22 " style="border:none;">
     <form class="col-md-12 form-class">
-            <div class="col-md-12 pad-free">
-                    <div class="form-group">
-                            <label class="heading-lbl">名前<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-name" placeholder="Name" v-model="customer_info.name">
-                    </div>
-                    <div class="form-group">
-                            <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-email"  placeholder="Email" v-model="customer_info.email">
-                    </div>
-                    <div class="form-group">
-                            <label class="heading-lbl">電話番号<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-phone"  placeholder="Phone" v-model="customer_info.phone">
-                    </div>
+     <div class="col-md-12 pad-free">
+        <div class="form-group">
+                <label class="heading-lbl">名前<span class="error">*</span></label>
+                <input type="text" class="form-control customer-name" placeholder="Name" v-model="customer_info.name">
+        </div>
+        <div class="form-group">
+                <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
+                <input type="text" class="form-control customer-email"  placeholder="Email" v-model="customer_info.email">
+        </div>
+        <div class="form-group">
+                <label class="heading-lbl">電話番号<span class="error">*</span></label>
+                <input type="text" class="form-control customer-phone"  placeholder="Phone" v-model="customer_info.phone">
+        </div>
 
-                    <!-- <div class="form-group">
-                            <label>フォトアルバム<span class="error">*</span></label>
-                            <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
+        <!-- <div class="form-group">
+                <label>フォトアルバム<span class="error">*</span></label>
+                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" multiple>
 
-                            <div class="col-md-12">
-                                    <div class="row" id="image_preview"></div>
-                            </div>
-                    </div> -->
+                <div class="col-md-12">
+                        <div class="row" id="image_preview"></div>
+                </div>
+        </div>-->
 
-                    <div class="form-group">
-                            <label class="heading-lbl">フォトアルバム</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryAdd()">+</span>
-                            <div class="col-md-12">
-                                    <div class="row" id="gallery-photo">
-                                            <!-- Add by + Button -->
-                                                <div class="col-md-12 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
-                                                                <div class="col-md-3">
-                                                                        <input type="file" name="" class="hospital-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
-                                                                        <div class="col-md-12" v-bind:class="img.classname">
-                                                                                <input type="hidden" class="already-photo" v-model="img.photo">
-                                                                                <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo">
-                                                                        </div>
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="img.title">
-                                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="img.description"></textarea>
-                                                                </div>
-                                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">削除</a>
+        <div class="form-group form-group-wrapper">
+          <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
+          <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
+            <i class="fas fa-plus-circle"></i> 追加
+          </span>
+          <div class="col-md-12">
+            <div class="row" id="gallery-photo">
+              <!-- Add by + Button -->
+              <div
+                class="col-md-6 gallery-area-photo"
+                v-bind:id="'photo'+indx"
+                v-for="(img,indx) in img_arr"
+                :key="img.id"
+              >
+                <div class="col-md-3">
+                  <input type="file" name class="hospital-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)" />
+                  <div class="col-md-12" v-bind:class="img.classname">
+                    <input type="hidden" class="already-photo" v-model="img.photo" />
+                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" />
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="img.title" />
+                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="img.description" ></textarea>
+                </div>
+                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">
+                  <i class="fa fa-trash"></i> 削除
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-group-wrapper">
+          <label class="heading-lbl col-2 pad-free">動画</label>
+          <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()" >
+            <i class="fas fa-plus-circle"></i> 追加
+          </span>
+          <div class="col-md-12">
+            <div class="row" id="gallery-video">
+              <!-- Add by + Button -->
+              <div class="col-md-6 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id" >
+                <div class="col-md-3">
+                  <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-model="video.url" />
+                </div>
+                <div class="col-md-9">
+                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="video.title" />
+                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="video.description" ></textarea>
+                </div>
+                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">
+                  <i class="fa fa-trash"></i> 削除
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                                                </div>
-                                    </div>
-                            </div>
-                    </div>
-                    <div class="form-group">
-                            <label class="heading-lbl">動画</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="galleryVideoAdd()">+</span>
-                            <div class="col-md-12">
-                                    <div class="row" id="gallery-video">
-                                        <!-- Add by + Button -->
-                                        <div class="col-md-12 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
-                                                <div class="col-md-3">
-                                                        <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-model="video.url">
-                                                </div>
-                                                <div class="col-md-9">
-                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="video.title">
-                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="video.description"></textarea>
-                                                </div>
-                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">削除</a>
-                                        </div>
-                                    </div>
-                            </div>
-                    </div>
+        <div class="form-group form-group-wrapper row ml-0 mr-0">
+          <label class="heading-lbl col-2 pad-free">
+            診療科目
+            <span class="error">*</span>
+          </label>
+          <textarea
+            name="medicaldepartment"
+            class="form-control col-10 white-bg-color subject"
+            v-model="hospital_info.subject"
+          ></textarea>
+        </div>
 
-                    <div class="form-group">
-                            <label class="heading-lbl">診療科目<span class="error">*</span></label>
-                            <textarea name="medicaldepartment" class="form-control subject" v-model="hospital_info.subject"></textarea>
-                    </div>
+        <div class="form-group form-group-wrapper row ml-0 mr-0">
+          <label class="heading-lbl col-2 pad-free">
+            専門医
+            <span class="error">*</span>
+          </label>
+          <textarea
+            name="specialist"
+            class="form-control col-10 specialist white-bg-color"
+            v-model="hospital_info.specialist"
+          ></textarea>
+        </div>
 
-                    <div class="form-group">
-                            <label class="heading-lbl">専門医<span class="error">*</span></label>
-                            <textarea name="specialist" class="form-control specialist" v-model="hospital_info.specialist"></textarea>
-                    </div>
+        <div class="form-group form-group-wrapper row ml-0 mr-0">
+          <label class="heading-lbl col-2 pad-free">
+            医院からのお知らせ
+            <span class="error">*</span>
+          </label>
+          <textarea
+            name="detailsinfo"
+            class="form-control col-10 details-info white-bg-color"
+            v-model="hospital_info.details_info"
+          ></textarea>
+        </div>
 
-                    <div class="form-group">
-                            <label class="heading-lbl">医院からのお知らせ<span class="error">*</span></label>
-                            <textarea name="detailsinfo" class="form-control details-info" v-model="hospital_info.details_info"></textarea>
-                    </div>
-
-                    <!-- <div class="form-group">
+        <!-- <div class="form-group">
                             <label class="heading-lbl">診療科目<span class="error">*</span></label>
                             <textarea name="subject" class="form-control"></textarea>
-                    </div> -->
+        </div>-->
+        <table class="table table-bordered table-wrapper">
+          <tr>
+            <td>
+              <label class="heading-lbl col-2 pad-free">診療時間</label>
+              <span
+                class="btn all-btn main-bg-color"
+                style="min-width: 0px;"
+                @click="scheduletogglediv()"
+              >
+                <i class="fas fa-sort-down"></i>
+              </span>
+              <div class="col-md-10 float-right m-t-10 schedule-toggle-div toggle-div pad-free">
+                <div class="col-12">
+                  <div class="row">
+                    <table class="table table-striped table-bordered">
+                      <tr>
+                        <th>&nbsp;</th>
+                        <th>午前</th>
+                        <th>午後</th>
+                      </tr>
+                      <tr>
+                        <td>月曜日</td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from0 white-bg-color"
+                                v-model="schedule_arr.am_mon_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to0 white-bg-color"
+                                v-model="schedule_arr.am_mon_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from0 white-bg-color"
+                                v-model="schedule_arr.pm_mon_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to0 white-bg-color"
+                                v-model="schedule_arr.pm_mon_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>火曜日</td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from1 white-bg-color"
+                                v-model="schedule_arr.am_tue_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to1 white-bg-color"
+                                v-model="schedule_arr.am_tue_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from1 white-bg-color"
+                                v-model="schedule_arr.pm_tue_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to1 white-bg-color"
+                                v-model="schedule_arr.pm_tue_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>水曜日</td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from2 white-bg-color"
+                                v-model="schedule_arr.am_wed_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to2 white-bg-color"
+                                v-model="schedule_arr.am_wed_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from2 white-bg-color"
+                                v-model="schedule_arr.pm_wed_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to2 white-bg-color"
+                                v-model="schedule_arr.pm_wed_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>木曜日</td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from3 white-bg-color"
+                                v-model="schedule_arr.am_thu_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to3 white-bg-color"
+                                v-model="schedule_arr.am_thu_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from3 white-bg-color"
+                                v-model="schedule_arr.pm_thu_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to3 white-bg-color"
+                                v-model="schedule_arr.pm_thu_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>金曜日</td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from4 white-bg-color"
+                                v-model="schedule_arr.am_fri_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to4 white-bg-color"
+                                v-model="schedule_arr.am_fri_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from4 white-bg-color"
+                                v-model="schedule_arr.pm_fri_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to4 white-bg-color"
+                                v-model="schedule_arr.pm_fri_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>土曜日</td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from5 white-bg-color"
+                                v-model="schedule_arr.am_sat_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to5 white-bg-color"
+                                v-model="schedule_arr.am_sat_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from5 white-bg-color"
+                                v-model="schedule_arr.pm_sat_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to5 white-bg-color"
+                                v-model="schedule_arr.pm_sat_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>日曜日</td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control am-from6 white-bg-color"
+                                v-model="schedule_arr.am_sun_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control am-to6 white-bg-color"
+                                v-model="schedule_arr.am_sun_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <span>From:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-from6 white-bg-color"
+                                v-model="schedule_arr.pm_sun_from"
+                              />
+                            </div>
+                            <div class="col-lg-6">
+                              <span>To:</span>
+                              <input
+                                type="text"
+                                class="form-control pm-to6 white-bg-color"
+                                v-model="schedule_arr.pm_sun_to"
+                              />
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
 
+        <div class="form-group form-group-wrapper row ml-0 mr-0">
+          <label class="heading-lbl col-2 pad-free">休診日</label>
+          <textarea
+            name="close-day"
+            class="form-control white-bg-color close-day col-10"
+            v-model="hospital_info.closed_day"
+          ></textarea>
+        </div>
 
+        <table class="table table-bordered table-wrapper">
+          <tr>
+            <td>
+              <div class="form-group">
+                <label class="heading-lbl col-2 pad-free">施設情報</label>
+                <span
+                  class="btn all-btn main-bg-color"
+                  style="min-width: 0px;"
+                  @click="factogglediv()"
+                >
+                  <i class="fas fa-sort-down"></i>
+                </span>
 
-                    <div class="form-group">
-                        <label  class="heading-lbl">診療時間</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="scheduletogglediv()"><i class="fas fa-sort-down"></i></span>
-
-                        <div class="schedule-toggle-div toggle-div m-t-10">
-                                <table class="table table-striped table-bordered">
-                                        <tr>
-                                                <th>&nbsp;</th>
-                                                <th>A.M</th>
-                                                <th>P.M</th>
-                                                <th>Other</th>
-                                        </tr>
-                                        <tr>
-                                                <td>Monday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from0" v-model="schedule_arr.am_mon_from"> <span>To:</span><input type="text" class="form-control am-to0" v-model="schedule_arr.am_mon_to"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from0" v-model="schedule_arr.pm_mon_from"> <span>To:</span><input type="text" class="form-control pm-to0" v-model="schedule_arr.pm_mon_to"></td>
-                                                <td></td>
-                                        </tr>
-                                        <tr>
-                                                <td>Tuesday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from1" v-model="schedule_arr.am_tue_from"> <span>To:</span><input type="text" class="form-control am-to1" v-model="schedule_arr.am_tue_to"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from1" v-model="schedule_arr.pm_tue_from"> <span>To:</span><input type="text" class="form-control pm-to1" v-model="schedule_arr.pm_tue_to"></td>
-                                                <td></td>
-                                        </tr>
-                                        <tr>
-                                                <td>Wed</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from2" v-model="schedule_arr.am_wed_from"> <span>To:</span><input type="text" class="form-control am-to2" v-model="schedule_arr.am_wed_to"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from2" v-model="schedule_arr.pm_wed_from"> <span>To:</span><input type="text" class="form-control pm-to2" v-model="schedule_arr.pm_wed_to"></td>
-                                                <td></td>
-                                        </tr>
-                                        <tr>
-                                                <td>Thu</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from3" v-model="schedule_arr.am_thu_from"> <span>To:</span><input type="text" class="form-control am-to3" v-model="schedule_arr.am_thu_to"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from3" v-model="schedule_arr.pm_thu_from"> <span>To:</span><input type="text" class="form-control pm-to3" v-model="schedule_arr.pm_thu_to"></td>
-                                                <td></td>
-                                        </tr>
-                                        <tr>
-                                                <td>Friday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from4" v-model="schedule_arr.am_fri_from"> <span>To:</span><input type="text" class="form-control am-to4" v-model="schedule_arr.am_fri_to"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from4" v-model="schedule_arr.pm_fri_from"> <span>To:</span><input type="text" class="form-control pm-to4" v-model="schedule_arr.pm_fri_to"></td>
-                                                <td></td>
-                                        </tr>
-                                        <tr>
-                                                <td>Sat</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from5" v-model="schedule_arr.am_sat_from"> <span>To:</span><input type="text" class="form-control am-to5" v-model="schedule_arr.am_sat_to"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from5" v-model="schedule_arr.pm_sat_from"> <span>To:</span><input type="text" class="form-control pm-to5" v-model="schedule_arr.pm_sat_to"></td>
-                                                <td></td>
-                                        </tr>
-                                        <tr>
-                                                <td>Sunday</td>
-                                                <td><span>From:</span><input type="text" class="form-control am-from6" v-model="schedule_arr.am_sun_from"> <span>To:</span><input type="text" class="form-control am-to6" v-model="schedule_arr.am_sun_to"></td>
-                                                <td><span>From:</span><input type="text" class="form-control pm-from6" v-model="schedule_arr.pm_sun_from"> <span>To:</span><input type="text" class="form-control pm-to6" v-model="schedule_arr.pm_sun_to"></td>
-                                                <td></td>
-                                        </tr>
-                                </table>
-                        </div>
+                <div class="col-md-10 float-right hos-fac-toggle-div toggle-div m-t-10">
+                  <div class="row">
+                    <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="facility"
+                          :class="'facility-'+fac.id"
+                          v-bind:value="fac.id"
+                          @click="facilityCheck(fac.id)"
+                          v-model="fac.checked"
+                        />
+                        {{fac.description}}
+                      </label>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
 
-                    <div class="form-group">
-                        <label class="heading-lbl">休診日</label>
-                        <textarea name="close-day" class="form-control close-day" v-model="hospital_info.closed_day"></textarea>
+        <table class="table table-bordered table-wrapper">
+          <tr>
+            <td>
+              <div class="form-group">
+                <label class="heading-lbl col-2 pad-free">
+                  こだわりの特長
+                  <span class="error">*</span>
+                </label>
+                <span
+                  class="btn all-btn main-bg-color"
+                  style="min-width: 0px;"
+                  @click="specialFeAdd()"
+                >
+                  <i class="fas fa-sort-down"></i>
+                </span>
+
+                <div class="col-md-10 float-right special-feature-toggle-div toggle-div m-t-10">
+                  <div class="row">
+                    <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="special-features"
+                          :class="'feature-'+feat.id"
+                          v-bind:value="feat.id"
+                          @click="featureCheck(feat.id)"
+                          v-model="feat.checked"
+                        />
+                        {{feat.name}}
+                      </label>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
 
-                    <div class="form-group">
-                        <label  class="heading-lbl">施設情報</label> <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="factogglediv()"><i class="fas fa-sort-down"></i></span>
+        <div class="form-group form-group-wrapper row ml-0 mr-0">
+          <label class="heading-lbl col-2 pad-free">公式サイト</label>
+          <input
+            type="text"
+            name="official-website"
+            class="form-control col-10 website white-bg-color"
+            v-model="hospital_info.website"
+          />
+        </div>
 
-                        <div class="col-md-12 hos-fac-toggle-div toggle-div">
-                                <div class="row">
-                                        <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
-                                                <label>
-                                                <input type="checkbox" name="facility" :class="'facility-'+fac.id"  v-bind:value="fac.id" @click="facilityCheck(fac.id)" v-model="fac.checked">
-                                                {{fac.description}}
-                                                </label>
-                                        </div>
-                                </div>
-                        </div>
-                    </div>
+        <div class="form-group form-group-wrapper row mr-0 ml-0">
+          <label class="heading-lbl col-2 pad-free">混雑状況</label>
+          <textarea
+            name="congestion"
+            class="form-control col-10 congestion white-bg-color"
+            v-model="hospital_info.congestion"
+          ></textarea>
+        </div>
 
-                    <div class="form-group">
-                        <label class="heading-lbl">こだわりの特長<span class="error">*</span></label>
-                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down"></i></span>
+        <!-- <div class="form-group form-group-wrapper">
+          <label class="heading-lbl">地図</label>
+          <span
+            class="btn all-btn main-bg-color m-l-10"
+            style="min-width: 0px;"
+            @click="maptogglediv()"
+          >
+            <i class="fas fa-sort-down"></i>
+          </span>
 
-                        <div class="col-md-12 special-feature-toggle-div toggle-div">
-                                <div class="row">
-                                        <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
-                                                 <label>
-                                                        <input type="checkbox"  name="special-features" :class="'feature-'+feat.id"  v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
-                                                                {{feat.name}}
-                                                </label>
-                                        </div>
-                                </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label class="heading-lbl">公式サイト</label>
-                            <input type="text" name="official-website" class="form-control website" v-model="hospital_info.website">
-                    </div>
-
-                    <div class="form-group">
-                            <label class="heading-lbl">混雑状況</label>
-                            <textarea name="congestion" class="form-control congestion" v-model="hospital_info.congestion"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label  class="heading-lbl">地図</label>
-                        <span class="btn all-btn main-bg-color m-l-10" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down"></i></span>
-
-                        <div class="map-toggle-div toggle-div">
-                                <div class="col-md-12">
-                                    <GoogleMap></GoogleMap>
-                                </div>
-
-                                <div class="form-group">
-                                        <label>住所<span class="error">*</span></label>
-                                        <textarea name="address" rows="10" class="form-control customer-address" v-model="customer_info.address"></textarea>
-                                </div>
-                                <div class="form-group">
-                                        <label>交通 / アクセス<span class="error">*</span></label>
-                                        <textarea name="access" rows="10" class="form-control access" v-model="hospital_info.access"></textarea>
-                                </div>
-                        </div>
-                    </div>
-
-                    <!-- Consultation -->
-
-
-
-                    <!-- End Consultation -->
-
-
-
-                    <!-- Facilities -->
-
-                    <!-- End Facilities -->
-
-                    <!-- <hr class="hor-line m-t-30"> -->
-
-
-                    <!-- <hr class="hor-line m-t-30"> -->
-
-
-                    <!-- Map -->
-
-                    <!-- End Map -->
-
-                    <div class="row">
-                            <span class="btn news-post-btn all-btn m-t-15" @click="Create_Profile()">Create</span>
-                            <!-- <a href="" class="btn news-post-btn all-btn">ニュースを投稿する</a> -->
-                    </div>
+          <div class="map-toggle-div toggle-div">
+            <div class="col-md-12">
+              <GoogleMap></GoogleMap>
             </div>
+            <div class="form-group">
+              <label>
+                郵便番号
+                <span class="error">*</span>
+              </label>
+              <input
+                type="text"
+                v-model="this.postal"
+                name="postal"
+                class="postal form-control"
+                id="postal"
+                v-on:keyup="getPostal"
+                placeholder="郵便番号を入力してください。"
+                maxlength="7"
+              />
+              <div id="jsErrorMessage"></div>
+            </div>
+            <div class="form-group">
+              <label>
+                市区町村、番地（建物名）:
+                <span class="error sp1">必須</span>
+              </label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                class="city form-control"
+                placeholder="市区町村、番地を入力してください。"
+                v-model="this.city"
+        />-->
+        <!-- <span v-if="errors.city" class="error">{{errors.city[0]}}</span> -->
+        <!-- <input type="text" class="form-control" id="city" placeholder="市区町村、番地を入力してください。" v-model="zipStreet"> -->
+        <!-- <p>例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</p>
+            </div>
+            <div class="form-group">
+              <label>
+                住所
+                <span class="error">*</span>
+              </label>
+              <textarea
+                name="address"
+                rows="10"
+                class="form-control customer-address"
+                v-model="customer_info.address"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>
+                交通 / アクセス
+                <span class="error">*</span>
+              </label>
+              <textarea
+                name="access"
+                rows="10"
+                class="form-control access"
+                v-model="hospital_info.access"
+              ></textarea>
+            </div>
+          </div>
+        </div>-->
+
+        <table class="table table-bordered table-wrapper">
+          <tr>
+            <td>
+              <label class="heading-lbl col-2 pad-free">地図</label>
+              <span
+                class="btn all-btn main-bg-color"
+                style="min-width: 0px;"
+                @click="maptogglediv()"
+              >
+                <i class="fas fa-sort-down animate"></i>
+              </span>
+              <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
+                <div class="col-md-12">
+                  <GoogleMap></GoogleMap>
+
+                  <div class="form-group">
+                    <label>
+                      郵便番号
+                      <span class="error">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      v-model="this.postal"
+                      name="postal"
+                      class="postal form-control white-bg-color"
+                      id="postal"
+                      v-on:keyup="getPostal"
+                      placeholder="郵便番号を入力してください。"
+                      maxlength="7"
+                    />
+                    <div id="jsErrorMessage"></div>
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      市区町村、番地（建物名）:
+                      <span class="error sp1">必須</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      class="city form-control white-bg-color"
+                      placeholder="市区町村、番地を入力してください。"
+                      v-model="this.city"
+                    />
+                    <p>例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</p>
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      住所
+                      <span class="error">*</span>
+                    </label>
+                    <textarea
+                      name="address"
+                      rows="10"
+                      class="form-control customer-address white-bg-color"
+                      v-model="customer_info.address"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      交通 / アクセス
+                      <span class="error">*</span>
+                    </label>
+                    <textarea
+                      name="access"
+                      rows="10"
+                      class="form-control access white-bg-color"
+                      v-model="hospital_info.access"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Consultation -->
+
+        <!-- End Consultation -->
+
+        <!-- Facilities -->
+
+        <!-- End Facilities -->
+
+        <!-- <hr class="hor-line m-t-30"> -->
+
+        <!-- <hr class="hor-line m-t-30"> -->
+
+        <!-- Map -->
+
+        <!-- End Map -->
+
+        <div class="row col-2 col-offset-6 mx-auto">
+          <span class="btn main-bg-color col-12 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
+        </div>
+      </div>
     </form>
-</div>
+  </div>
 </template>
 
 <script>
