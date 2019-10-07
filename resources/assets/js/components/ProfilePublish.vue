@@ -43,6 +43,13 @@
                                         </span>
                                     </div>
                                 </div>
+                                <div class="row col-12">
+                                    <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
+                                    <div class="row col-12 m-b-10">
+                                         <p>{{activeImageDescription}}</p>
+                                    </div>
+                                </div>
+                                
                                 <div class="thumbnails">
                                     <div
                                         v-for="(image,index) in  images"
@@ -53,13 +60,9 @@
                                     </div>
                                 </div>
                             </div>
+                                                      
                         </div>
-                        <div class="row col-sm-12 detail_profile_left">
-                            <strong class="img_2">  {{activeImageTitle}} </strong>
-                        </div>
-                       <div class="row col-sm-12 detail_profile_left">
-                           {{activeImageDescription}}
-                       </div>
+                       
                         
                        
                         <!-- <div  v-for="image in  images"  :key="image.id">
@@ -106,30 +109,43 @@
                     <div v-if="method_payment.length > 0" class="col-md-12">
                         <div class="cost_tb" v-for="cost in method_payment" :key="cost.id">
                             <div class="row col-12 pad-free">
-                                <div class="col-md-11">
+                                <div class="col-md-12">
                                     <table class="table table-bordered cost_table">
+                                        <thead>
+                                            <tr>
+                                                <th>入居にかかる費用(Expense)</th>
+                                                <th>居室タイプ(type)</th>
+                                                <th>月額料金 (monthly)</th>
+                                                <th>広さ(area)</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
                                         <tbody>
                                         <tr>
-                                            <th width="250">入居にかかる費用(Expense)</th>
-                                                <td>{{cost.expense_moving}}</td>
-                                                <th>居室タイプ(type)</th>
-                                                <td>{{cost.living_room_type}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th width="250">月額料金 (monthly)</th>
-                                                <td>{{cost.monthly_fees}}</td>
-                                            <th>広さ(area)</th>
-                                                <td>{{cost.area}}</td>
-                                        </tr>
+                                           
+                                            <td>{{cost.expense_moving}}</td>
+                                            
+                                            <td>{{cost.living_room_type}}</td>
+                                    
+                                        
+                                            <td>{{cost.monthly_fees}}</td>
+                                        
+                                            <td>{{cost.area}}</td>
+                                            <td>
+                                            <button data-toggle="collapse" class="btn inner-btn okbtn" type="button"  :data-target="'#costDetails' + cost.id"><i class="fas fa-sort-down"></i>&nbsp;内容を見る</button>
+
+                                            
+                                            </td>
+                                        </tr>                                        
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="cost_btnwrapper col-md-1 pad-free">
+                                <!-- <div class="cost_btnwrapper col-md-1 pad-free">
                                     <button class="btn inner-btn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id"><i class="fas fa-sort-down"></i>&nbsp;内容を見る</button>
-                                </div>
+                                </div> -->
 
-
-                                <div class="collapse col-md-12" :id="'costDetails' + cost.id">
+                                <transition name="fade">
+                                    <div class="collapse col-md-12" :id="'costDetails' + cost.id">
                                     <table class="table table-condensed cost_table">
                                         <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
                                         <tbody>
@@ -190,6 +206,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                </transition>
+                                
                             </div>
 
                         </div>
@@ -631,6 +649,7 @@
                 },
 
                 images: [],
+                show: false,
                 activeImage: 0,
                 currentOffset: 0,
                 windowSize: 1,
@@ -779,7 +798,16 @@
 
 
 
-<style scoped>
+<style>
+.fade-enter-active, .fade-leave-active {
+   transition: opacity .5s ease-in-out, transform 0.5s ease;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.fade-enter-to, .fade-leave /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 1;
+}
 
 /* .top-fixed-btn{
   border: 1px solid #b7dad2;
@@ -838,7 +866,7 @@
 .cost_table td{
     border: 1px solid #ccc;
     padding: 8px 10px;
-    text-align: left;
+    text-align: center;
     line-height: 1.7;
     background: #fff;
 }
@@ -849,6 +877,11 @@
     align-self: center;
     /* padding-top: 21px; */
 }
+.aa th:last-child, .aa td:last-child {
+    width: 108px;
+    font-size: 88.2%;
+    white-space: nowrap;
+}
 
 .comment-wrapper{
     background-color: #fff;
@@ -856,7 +889,7 @@
 }
 .comment-title{    
     background-size: 29px;
-    color: #f9793c;
+    color: #3fc8d6;
     display: block;
     font-size: 16px;
     font-weight: 700;
