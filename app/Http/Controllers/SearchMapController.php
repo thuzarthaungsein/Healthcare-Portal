@@ -7,8 +7,14 @@ use DB;
 class SearchMapController extends Controller
 {
     public function getMap(Request $request, $id){
+       
+        $town_id = DB::table('townships')->where('city_id',$id)->select('id')->get();
 
-        // return response()->json($id);
+        $cus_township_id =  DB::table('customers') ->select('customers.townships_id')
+        ->join('nursing_profiles','nursing_profiles.customer_id','=','customers.id')->get();
+        
+        
+        //return response()->json($id);
         
         $title = $request->title;
         $mapid = $request->id;

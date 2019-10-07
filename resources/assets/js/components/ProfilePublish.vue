@@ -483,9 +483,9 @@
             <div class="row ele m-lr-0" id="element3">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                             <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
-                            <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
+                            <GmapMarker v-for="(marker, index) in markers" :key="index" :position="marker" :clickable="true" :draggable="false" @click="center=marker" />     
                            </GmapMap>
-
+                        
                         <div  class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
                             <div class="col-md-2 text-left ">
                                 公式サイト  :
@@ -535,12 +535,15 @@
   data() {
             var that = this;
             return {
-
                 markers: [
-                    {  position: { lat: 0, lng: 0 }  },
+                    {lat:35.6432027,lng:139.6729435},
+                    {lat:35.5279833,lng:139.6989209},
+                    {lat:35.6563623,lng:139.7215211},
+                    {lat:35.6167531,lng:139.5469376},
+                    {lat:35.6950961,lng:139.5037899} 
                 ],
                 active_el:0,
-                center: { lat: 0, lng: 0 },
+                center: { lat: 35.6432027, lng: 139.6729435 },
                 address: '',
                 google:[],
                 customer:[],
@@ -559,8 +562,8 @@
                 activeImageTitle:'',
                 activeImageDescription:'',
                 index: 0,
-                pageNum: 0,
-                // type : 'hospital',
+                pageNum: 0,   
+                //type : 'hospital',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -589,7 +592,7 @@
 
         created(){
 
-
+        
             if(this.type == "nursing")
             {
                 this.axios.get('/api/profile/nursing') .then(response => {
