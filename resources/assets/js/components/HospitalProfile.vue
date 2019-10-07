@@ -642,50 +642,6 @@
 
                   <div class="form-group">
                     <label>
-                      郵便番号
-                      <span class="error">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      v-model="this.postal"
-                      name="postal"
-                      class="postal form-control white-bg-color"
-                      id="postal"
-                      v-on:keyup="getPostal"
-                      placeholder="郵便番号を入力してください。"
-                      maxlength="7"
-                    />
-                    <div id="jsErrorMessage"></div>
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      市区町村、番地（建物名）:
-                      <span class="error sp1">必須</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      class="city form-control white-bg-color"
-                      placeholder="市区町村、番地を入力してください。"
-                      v-model="this.city"
-                    />
-                    <p>例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</p>
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      住所
-                      <span class="error">*</span>
-                    </label>
-                    <textarea
-                      name="address"
-                      rows="10"
-                      class="form-control customer-address white-bg-color"
-                      v-model="customer_info.address"
-                    ></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label>
                       交通 / アクセス
                       <span class="error">*</span>
                     </label>
@@ -863,7 +819,8 @@ export default {
                     var name = $('.customer-name').val();
                     var email = $('.customer-email').val();
                     var phone = $('.customer-phone').val();
-                    var address = $('.customer-address').val();
+                    var address = $('#city').val();
+      
                     this.customer_info.push({name:name,email:email,phone:phone,address:address});
 
 
@@ -941,20 +898,20 @@ export default {
                        this.hospital_info.push({access:access,subject:subject,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,special_features:special_features,facilities:facilities});
 
-                        if(this.gallery_list.length > 0) {
-                                this.axios
-                                        .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
-                                                .then((response) => {
+                        // if(this.gallery_list.length > 0) {
+                        //         this.axios
+                        //                 .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
+                        //                         .then((response) => {
 
-                                                }).catch(error=>{
+                        //                         }).catch(error=>{
 
-                                                if(error.response.status == 422){
+                        //                         if(error.response.status == 422){
 
-                                                this.errors = error.response.data.errors
+                        //                         this.errors = error.response.data.errors
 
-                                        }
-                                }) ;
-                        }
+                        //                 }
+                        //         }) ;
+                        // }
 
                         if(this.customer_info.length > 0) {
                                 this.axios
