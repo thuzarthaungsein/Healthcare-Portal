@@ -3010,7 +3010,7 @@ div.b {
     z-index: 5;
     overflow: hidden;
     background: #fff;
-    width: 81%;
+    width: 81.3%;
 }
 
 
@@ -3612,7 +3612,7 @@ li.userprofile-name>a {
 }
 #myTab .nav-link.active {
     background-color: #666 !important;
-    border: 0px;
+    border: none !important;
 }
 
 .nav-link {
