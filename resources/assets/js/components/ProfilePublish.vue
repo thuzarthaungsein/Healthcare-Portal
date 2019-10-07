@@ -24,7 +24,7 @@
                 求人応募
             </button>
             </div>
-           
+
             <div class="row m-lr-0 ele" id="element1">
                  <h5 class="profile_header">情報</h5>
                  <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
@@ -66,7 +66,7 @@
                         
                        
                         <!-- <div  v-for="image in  images"  :key="image.id">
-                              
+
                         </div> -->
                     </div>
                     <!--end for slide image-->
@@ -83,10 +83,10 @@
                             <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                                 <li>{{special.short_name}}</li>
                             </ul>
-                        </div>  
+                        </div>
                     </div>
-                    <!--end for address-->                
-                </div>                                     
+                    <!--end for address-->
+                </div>
             </div>
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="profile_header">特長</h5>
@@ -367,8 +367,8 @@
 
                             <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
                                 <div class="col-md-12">
-                                   <p><span class="font-weight-bold">公式サイト  : </span> {{m.website}}</p> 
-                                </div>            
+                                   <p><span class="font-weight-bold">公式サイト  : </span> {{m.website}}</p>
+                                </div>
                                 <div class="col-md-12">
                                     <p><span class="font-weight-bold">アクセス : </span> {{m.access}}</p>
                                 </div>
@@ -376,7 +376,7 @@
                                     {{m.access}}
                                 </div> -->
                                 <div class="col-md-12">
-                                   <p><span class="font-weight-bold"> 住所 : </span>{{m.address}}</p> 
+                                   <p><span class="font-weight-bold"> 住所 : </span>{{m.address}}</p>
                                 </div>
                                 <!-- <div class="col-md-10 text-left">
                                     {{m.address}}
@@ -389,7 +389,7 @@
                <h5 class="profile_header col-12">口コミ</h5>
                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="row col-12">
-                       
+
                         <div class="col-12 comment-wrapper" v-for="comment in comments" :key="comment.id">
                             <div class="card">
                                 <!-- <div class="card-profile_header comment-title text-truncate">
@@ -402,16 +402,16 @@
                                         {{comment.title}}
                                     </div>
                                     <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}
-                                        <small class="card-text">{{comment.year}}</small>     
+                                        <small class="card-text">{{comment.year}}</small>
                                     </h5>
-                                                                   
-                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more>     
+
+                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more>
                                 </div>
                             </div>
                         </div>
                     </div>
-              
-               </div>             
+
+               </div>
             </div>
 
             <div class="ele m-lr-0" id="element7">
@@ -421,6 +421,7 @@
     </div>
 
     <div v-if="type == 'hospital'">
+        
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
                 情報
@@ -438,7 +439,9 @@
             <div class="row ele m-lr-0" id="element1">
             <!-- ee-->
              <h5 class="profile_header">情報</h5>
+            
                  <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
+                     {{cust.id}}
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
                            <div class="thumbnail-img">
@@ -507,28 +510,80 @@
                 </div>
                 <h5 class="profile_header">情報</h5>
                     <div class="row m-lr-0">
-                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                            <li >{{hospital.details_info}}</li>
-                        </ul>
+                            <div class="col-md-10 m-2" v-for="hospital in hospitals" :key="hospital.id">
+                                <p>{{hospital.details_info}}</p>
+                            </div>
                 </div>
                 <h5 class="profile_header">診療科目</h5>
-                    <div class="row m-lr-0">
-                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                            <li >{{hospital.subject}}</li>
-                        </ul>
+                    <div class="row col-md-3" v-for="sub in subjects" :key="sub.id">
+                            <a href="#">{{sub.name}}</a>
                     </div>
                 <h5 class="profile_header">診療時間</h5>
-                    <div class="row m-lr-0">
-                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                            <li >{{hospital.closed_day}}</li>
-                        </ul>
+                    <div class="row">
+                        <div class="col-md-12">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" >Date</th>
+                                            <th scope="col">AM</th>
+                                            <th scope="col">PM</th>
+                                        </tr>
+                                    </thead>
+                                        <tr>
+                                            <th scope="row">Mon</th>
+                                            <td >{{am_arr.mon}}</td>
+                                            <td >{{pm_arr.mon}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Tue</th>
+                                            <td >{{am_arr.tue}}</td>
+                                            <td >{{pm_arr.tue}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Wed</th>
+                                            <td >{{am_arr.wed}}</td>
+                                            <td >{{pm_arr.wed}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Thu</th>
+                                            <td >{{am_arr.thu}}</td>
+                                            <td >{{pm_arr.thu}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Fri</th>
+                                            <td >{{am_arr.fri}}</td>
+                                            <td >{{pm_arr.fri}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Sat</th>
+                                            <td >{{am_arr.sat}}</td>
+                                            <td >{{pm_arr.sat}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Sun</th>
+                                            <td >{{am_arr.sun}}</td>
+                                            <td >{{pm_arr.sun}}</td>
+                                        </tr>
+
+                                </table>
+                                <div class="col-md-6"  v-for="hospital in hospitals" :key="hospital.id">
+                                    <p>Closed day: <font>{{hospital.closed_day}}</font> </p>
+                                </div>
+                                <p>※診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください</p>
+                        </div>
+
                     </div>
+
                 <h5 class="profile_header">施設情報</h5>
-                    <div class="row m-lr-0">
-                        <ul class="fac_container" v-for="hospital in hospitals" :key="hospital.id">
-                            <li >{{hospital.facilities}}</li>
-                        </ul>
+                <div class="row col-md-12" >
+                    <div class="col-md-2 fac-name-box" v-for="hosfacility in hosfacilities " :key="hosfacility.id">
+                        <h4>{{hosfacility.description}}</h4>
+                        <div class="fac-check-box" v-for="fac in fac_list" :key="fac.id">
+                            <i v-if="fac.id === hosfacility.id">〇</i>
+                             <!-- <i class="fa fa-circle-o fa-stack-2x" v-if="fac.id === hosfacility.id"></i> -->
+                        </div>
                     </div>
+                </div>
             </div>
             <div class="row ele m-lr-0" id="element2">
 
@@ -613,18 +668,25 @@
                 markers: [
                     {  position: { lat: 0, lng: 0 }  },
                 ],
+                am_arr:[],
+                pm_arr:[],
                 active_el:0,
                 center: { lat: 0, lng: 0 },
                 address: '',
+                customer_id :2,
                 google:[],
                 customer:[],
+                hosfacilities:[],
                 specialfeature:[],
                 nusfacilities:[],
                 nus_method:[],
                 cooperate_medical:[],
                 medical_acceptance:[],
                 medical:[],
+                fac_list:[],
                 staff:[],
+                schedules:[],
+                subjects:[],
                 hospitals:[],
                 nursing_profiles:[],
                 method_payment:[],
@@ -634,7 +696,7 @@
                 activeImageDescription:'',
                 index: 0,
                 pageNum: 0,
-                // type : 'hospital',
+                type : 'hospital',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -681,7 +743,7 @@
                     this.center['lat'] = response.data.nurselatlong[0]['latitude'];
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
                     this.images = response.data.images;
-                   
+
                     if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
                     {
                          this.center['lat'] = 35.6803997;
@@ -693,7 +755,7 @@
                 });
 
                 this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
-                 
+
                     this.specialfeature = response.data;
                 });
 
@@ -716,9 +778,23 @@
                  this.axios.get('/api/profile/customer').then(response => {
                       this.customer = response.data;
                 });
+                this.axios.get('/api/profile/subject').then(response => {
+                      this.subjects = response.data;
+                });
+                 this.axios.get('/api/profile/schedule/'+ this.customer_id) .then(response => {
+
+                        this.am_arr = response.data[0];
+                        this.pm_arr = response.data[1];
+                });
+                // this.axios.get('/api/profile/hosfacility').then(response => {
+                //     console.log(this.hosfacilities);return;
+                //       this.hosfacilities = response.data;
+                // });
                 this.axios.get('/api/profile/hospital').then(response => {
-                    this.hospitals = response.data.hospital;
                     this.google = response.data.hoslatlong;
+                    this.hospitals = response.data.hospital;
+                    this.hosfacilities=response.data.facility_list;
+                    this.fac_list = response.data.facility;
                     this.markers[0]['position']['lat']  = response.data.hoslatlong[0]['latitude'];
                     this.markers[0]['position']['lng']  = response.data.hoslatlong[0]['longitude'];
                     this.center['lat'] = response.data.hoslatlong[0]['latitude'];
@@ -740,14 +816,14 @@
           },
           computed: {
             // currentImage gets called whenever activeImage changes
-            // and is the reason why we don't have to worry about the 
+            // and is the reason why we don't have to worry about the
             // big image getting updated
             currentImage() {
 
                 this.activeImageTitle = this.images[this.activeImage].title;
                 this.activeImageDescription = this.images[this.activeImage].description;
                 return this.images[this.activeImage].photo;
-            
+
             }
         },
           methods: {
@@ -770,7 +846,7 @@
                 this.activateImage(active);
             },
             activateImage(imageIndex) {
-             
+
                 this.activeImage = imageIndex;
                 this.activeImageTitle = this.images[imageIndex].title;
                  this.activeImageDescription = this.images[imageIndex].description;
@@ -787,7 +863,7 @@
         this.currentOffset += this.paginationFactor;
       }
     },
-            
+
 
         }
 
@@ -844,7 +920,7 @@
     margin-bottom: 10px;
     font-size:14px;
     line-height: 1.3;
-     margin-top: 30px; 
+     margin-top: 30px;
     padding-top: 2px;
 } */
 .cost_heading_lbl{
@@ -887,7 +963,7 @@
     background-color: #fff;
     padding: 5px;
 }
-.comment-title{    
+.comment-title{
     background-size: 29px;
     color: #3fc8d6;
     display: block;
@@ -909,9 +985,9 @@ div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item.sho
 div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
     border: 1px solid #1aa985  !important;
 }
-div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
+/* div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
     border-color: transparent   #ecede1   transparent   #ecede1   !important;
-}
+} */
 .thumbnail-img{
     width: 100%;
     padding: 20px;

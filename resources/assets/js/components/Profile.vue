@@ -128,14 +128,11 @@ export default {
                 if(this.$route.params.type) {
                         this.type = this.$route.params.type;
                         console.log(this.type);
-                }       
+                }
                 if(this.$route.params.cusid) {
                         this.cusid = this.$route.params.cusid;
                 }
-                else{
-                        this.cusid = 1;
-                }    
-                
+
         },
         methods: {
                 changeBtnType() {
