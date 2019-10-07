@@ -34,10 +34,12 @@ class HospitalProfileController extends Controller
         $fav_hospital = DB::select($query);
         foreach($fav_hospital as $fav) {
             $sfeature = $fav->special_features;
-            $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
-            $specialfeature = DB::select($sql);
-            // $fea_arr = explode(",", $fav->special_features);
-            $fav->special_features = $specialfeature;
+            if($sfeature != null){
+                $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
+                $specialfeature = DB::select($sql);
+                // $fea_arr = explode(",", $fav->special_features);
+                $fav->special_features = $specialfeature;
+            }
         }
         return $fav_hospital;
     }
@@ -51,10 +53,13 @@ class HospitalProfileController extends Controller
         $fav_nursing = DB::select($query);
         foreach($fav_nursing as $nur) {
             $sfeature = $nur->special_features;
-            $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
-            $specialfeature = DB::select($sql);
-            // $fea_arr = explode(",", $nur->special_features);
-            $nur->special_features = $specialfeature;
+            if($sfeature != null){
+                $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
+                $specialfeature = DB::select($sql);
+                // $fea_arr = explode(",", $nur->special_features);
+                $nur->special_features = $specialfeature;
+            }
+            
         }
         return $fav_nursing;
     }
