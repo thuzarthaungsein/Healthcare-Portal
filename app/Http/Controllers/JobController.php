@@ -271,7 +271,7 @@ class JobController extends Controller
         $query = $query->orderBy('id','DESC')
                         ->get()
                         ->toArray();
-                        
+
         return $query;
     }
 }
