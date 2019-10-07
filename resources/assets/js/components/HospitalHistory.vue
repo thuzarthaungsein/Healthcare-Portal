@@ -222,6 +222,7 @@
       this.axios
         .post("/api/hospital_history/" + local_storage)
         .then(response => {
+          console.log(response);
           this.hos_profiles = response.data;
         });
     },
