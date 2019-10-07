@@ -1174,6 +1174,11 @@ export default {
           this.center['lat'] = response.data.getCity[0]['latitude'];
           this.center['lng'] = response.data.getCity[0]['longitude'];
           this.id = id
+
+          eventBus.$on('sendCityData', (payload) => {
+            this.renderCityMap(payload);
+          })
+          
          })
         }else if(e.target.tagName ==='OPTION'){
           const id = this.id;
