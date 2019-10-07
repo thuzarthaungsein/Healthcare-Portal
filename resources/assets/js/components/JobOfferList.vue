@@ -167,7 +167,8 @@ export default {
     },
     searchJobOffer() {
       var search_word = $("#search-item").val();
-      var customer_id = $('#customer-id ').val();
+      var customer_id = $('#customer-id').val();
+      
       let fd = new FormData();
       fd.append("search_word", search_word);
       fd.append("customer_id", customer_id);
