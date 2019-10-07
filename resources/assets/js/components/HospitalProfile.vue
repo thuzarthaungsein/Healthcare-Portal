@@ -735,7 +735,7 @@ export default {
        data() {
                 return {
                         fac_list: [],
-                        img_arr:[],img_list:[], 
+                        img_arr:[],img_list:[],
                         video_arr:[], video_list:[],gallery_list:[],
                         feature_list:[],
                         profile_type:'hospital',
@@ -749,13 +749,13 @@ export default {
                 }
         },
         created(){
-                
+
                  this.axios
                 .get('/api/schedule/'+this.id)
                 .then(response=>{
                         this.schedule_arr = response.data;
                 });
-              
+
 
                 this.axios
                 .get('/api/customerinfo/'+this.id)
@@ -763,7 +763,7 @@ export default {
                         this.customer_info = response.data;
                 });
 
-                
+
                 this.axios
                 .get('/api/hospitalinfo/'+this.id)
                 .then(response=>{
@@ -832,7 +832,7 @@ export default {
                                     parentEle.removeChild(ele);
                             }
                     }
-                    
+
             },
             galleryAdd() {
                     var date = new Date;
@@ -849,7 +849,7 @@ export default {
                    this.video_arr.push({title:'',description:'',url:''});
 
             },
-            
+
             specialFeAdd() {
                      $(".special-feature-toggle-div").toggle('medium');
             },
@@ -866,7 +866,7 @@ export default {
                     var address = $('.customer-address').val();
                     this.customer_info.push({name:name,email:email,phone:phone,address:address});
 
-                    
+
                     var access = $('.access').val();
                     var subject = $('.subject').val();
                     var specialist = $('.specialist').val();
@@ -874,8 +874,8 @@ export default {
                     var close_day = $('.close-day').val();
                     var website = $('.website').val();
                     var congestion = $('.congestion').val();
-                   
-               
+
+
                     var img = document.getElementsByClassName('gallery-area-photo');
                         for(var i = 0; i< img.length; i++) {
 
@@ -900,27 +900,27 @@ export default {
 
                            this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                         }
-                       
+
 
                     var video = document.getElementsByClassName('gallery-area-video');
                         for(var i = 0; i< video.length; i++) {
                            this.video_list.push({type:"video",photo:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                         }
-                        
+
                      this.gallery_list = this.img_list.concat(this.video_list);
 
                      var chek_feature = [];
                      var special_features ;
-                        $.each($("input[name='special-features']:checked"), function(){ 
+                        $.each($("input[name='special-features']:checked"), function(){
                                 chek_feature.push($(this).val());
                         });
-                
+
                         special_features = chek_feature.join(',');
-        
+
 
                      var chek_facility = [];
                      var facilities ;
-                        $.each($("input[name='facility']:checked"), function(){ 
+                        $.each($("input[name='facility']:checked"), function(){
                                chek_facility.push($(this).val());
                         });
 
@@ -929,23 +929,23 @@ export default {
                      // Consultation
                      for(var j = 0; j< 2; j++) {
                         for(var i = 0; i< 7; i++) {
-                                if(j == 0) { this.shedule_am[i] = $('.form-control.am-from'+i+'').val() + '-' + $('.form-control.am-to'+i+'').val(); } 
+                                if(j == 0) { this.shedule_am[i] = $('.form-control.am-from'+i+'').val() + '-' + $('.form-control.am-to'+i+'').val(); }
                                 if(j == 1) { this.shedule_pm[i] = $('.form-control.pm-from'+i+'').val() + '-' + $('.form-control.pm-to'+i+'').val(); }
                         }
 
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                     
+
 
                        this.hospital_info.push({access:access,subject:subject,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,special_features:special_features,facilities:facilities});
-                        
+
                         if(this.gallery_list.length > 0) {
                                 this.axios
                                         .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
                                                 .then((response) => {
-                                                
+
                                                 }).catch(error=>{
 
                                                 if(error.response.status == 422){
@@ -975,7 +975,7 @@ export default {
                                 this.axios
                                         .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
                                                 .then((response) => {
-                                        
+
                                                 }).catch(error=>{
 
                                                 if(error.response.status == 422){

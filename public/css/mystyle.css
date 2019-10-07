@@ -2247,6 +2247,20 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
     color: #eee;
 }
 
+.fac-name-box {
+    border: 1px solid #eee;
+    padding: 0px;
+}
+
+.fac-name-box h4 {
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+}
+
+.fac-check-box {
+    text-align: center;
+}
 /* profilepublish css end */
 
 .custom-sidebar ul li {
@@ -3721,12 +3735,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     padding-right: 7px;
     margin-top: 4px;
 }
-
-.custom-sidebar {
-    /* height: 100vh;*/
-    /* background: #b7dad2;  */
-}
-
 
 /* profilepublish css start */
 
@@ -5642,11 +5650,6 @@ button.confirmed {
 .custom-table>tbody tr:hover {
     color: #212529;
     background-color: rgb(245, 255, 253) !important;
-}
-
-.custom-table th,
-.custom-table td {
-    /* border-top: 1px dashed #91c796; */
 }
 
 .err {
