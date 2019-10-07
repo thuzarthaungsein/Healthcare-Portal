@@ -129,7 +129,6 @@ body {
     transform: rotate(-90deg);
 }
 
-
 .dim-btn {
     color: #f9793c !important;
     font-weight: bold;
@@ -138,10 +137,9 @@ body {
     border-color: #f9793c #fff #fff #fff !important;
     font-size: 18px;
     border-left: 1px solid #fff;
-    border-right: 1px solid #fff;   
-    border-top: 3px solid #f9793c !important;    
+    border-right: 1px solid #fff;
+    border-top: 3px solid #f9793c !important;
     border-bottom: 0px solid #f9793c !important;
- 
 }
 
 .typelabel input[type="radio"] {
@@ -914,7 +912,8 @@ p.p_2>a {
     font-weight: bold;
     letter-spacing: 3px;
 }
-.profile_header{
+
+.profile_header {
     font-weight: bold;
     font-size: 20px;
     display: inline-block;
@@ -928,6 +927,7 @@ p.p_2>a {
     margin-bottom: 20px;
     border-left: 5px solid #f9793c;
 }
+
 .header {
     font-weight: bold;
     display: inline-block;
@@ -1004,21 +1004,24 @@ p {
     height: 82px;
     /* background-color: #b7dad2; */
     background-color: #eee;
-    border-top:5px solid #e66527;
+    border-top: 5px solid #e66527;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
     z-index: 99;
     /* margin-left: 100px;
 margin-right: 100px; */
 }
-.nav-warp{
+
+.nav-warp {
     max-width: 86.3%;
 }
+
 #app .logo-text {
     font-size: 40px;
     font-weight: bold;
     color: #d2571c;
     text-shadow: 3px 4px #ccc;
 }
+
 #app .logo-text span {
     font-size: 30px;
     color: #f57e46;
@@ -1340,8 +1343,6 @@ div.b {
 
 
 /*For Ads */
-
-
 
 
 /* .ads-card,
@@ -2024,16 +2025,18 @@ li.userprofile-name>a {
     color: #095c5f;
 }
 
-.nav-tabs .nav-link:hover{
-     
-   background-color: #ffa77d;
-   color: #000 !important;
+.nav-tabs .nav-link:hover {
+    background-color: #ffa77d;
+    color: #000 !important;
 }
+
+
 /* .router-link-active{
 
     color: #fff !important;
 
 } */
+
 
 /* .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
@@ -2053,18 +2056,19 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
     color: #f9793c !important;
     font-weight: bold;
-    background-color: #fff;    
-    border-color: #f9793c #fff #fff #fff !important;    
+    background-color: #fff;
+    border-color: #f9793c #fff #fff #fff !important;
     border-top: 3px solid #f9793c !important;
     border-right: 0px solid #f9793c !important;
     border-bottom: 0px solid #f9793c !important;
     border-left: 0px solid #f9793c !important;
 }
-div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
+
+div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     border-color: transparent !important;
 }
 
-.nav-tabs .nav-link {    
+.nav-tabs .nav-link {
     border-top-left-radius: 0px !important;
     border-top-right-radius: 0px !important;
 }
@@ -2082,7 +2086,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
 
 .card-head-tabs {
     margin-bottom: 0rem !important;
-    background-color: #f9793c  !important;
+    background-color: #f9793c !important;
     color: #fff !important;
     border-bottom: 0;
     border-left-style: solid;
@@ -2246,6 +2250,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
     background: #666;
     color: #eee;
 }
+
 
 /* profilepublish css end */
 
@@ -3013,7 +3018,6 @@ div.b {
     width: 81%;
 }
 
-
 .fixed-ads-fluid {
     position: fixed;
     z-index: 5;
@@ -3610,6 +3614,7 @@ li.userprofile-name>a {
     border: none;
     border-right: 1px solid #fff !important;
 }
+
 #myTab .nav-link.active {
     background-color: #666 !important;
     border: 0px;
@@ -3633,8 +3638,6 @@ li.userprofile-name>a {
 color: #fff !important;
 
 } */
-
-
 
 a:hover {
     color: #000;
@@ -3672,7 +3675,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 
 .card-head-tabs {
     margin-bottom: 0rem !important;
-    background-color: #f9793c  !important;
+    background-color: #f9793c !important;
     color: #fff;
     border-bottom: 0;
     border-left-style: solid;
@@ -3820,13 +3823,16 @@ a:hover {
     margin-bottom: -3px !important;
     border-left: 1px solid #fff !important;
 }
-#profile-nav .subtab1{
+
+#profile-nav .subtab1 {
     margin-bottom: -3px !important;
     border-right: 1px solid #f3a523 !important;
 }
-#profile-nav .nav-tab .nav-link:hover{
+
+#profile-nav .nav-tab .nav-link:hover {
     border-color: #f9793c #ffffff #ffffff !important;
 }
+
 div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
     color: #f9793c !important;
@@ -3854,7 +3860,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 
 .card-head-tabs {
     margin-bottom: 0rem !important;
-    background-color: #f9793c  !important;
+    background-color: #f9793c !important;
     color: #000;
     border-bottom: 0;
     border-left-style: solid;
@@ -4031,6 +4037,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     background: #666;
     color: #eee;
 }
+
 .schedule-toggle-div table th,
 .schedule-toggle-div table td:first-child {
     width: 20%;
@@ -4043,6 +4050,8 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 .schedule-toggle-div table td:nth-child(3) {
     width: 40%;
 }
+
+
 /* profilepublish css end */
 
 .custom-sidebar ul li {
@@ -5449,7 +5458,6 @@ button.confirmed {
     border: 1px solid #f9793c;
     margin: 0px !important;
     border-radius: 5px;
-   
 }
 
 .ele {
@@ -5471,6 +5479,8 @@ button.confirmed {
     margin-bottom: 15px;
     border-radius: 3px;
 }
+
+
 /* end profile */
 
 
