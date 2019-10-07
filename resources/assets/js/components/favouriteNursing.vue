@@ -26,7 +26,15 @@
                     <div class="col-md-11" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
                         <dl class="itemBox favnur" id="bd">
                             <dt>比較する項目</dt>
-                            <dd v-if="gsd"></dd>
+                            <dd v-if="check_arr.address_check">住所</dd>
+                            <dd v-if="check_arr.tran_check">、交通手段</dd>
+                            <dd v-if="check_arr.month_check">、月額費用</dd>
+                            <dd v-if="check_arr.entry_check">、入居一時金</dd>
+                            <dd v-if="check_arr.condition_check"> 入居条件</dd>
+                            <dd v-if="check_arr.special_check">、特長</dd>
+                            <dd v-if="check_arr.medical_check">、医療面の受け入れ</dd>
+                            <dd v-if="check_arr.capacity_check">定員</dd>
+                            <dd v-if="check_arr.opening_check">、開設日</dd>
                         </dl>
                     </div>
                     <div class="modal fade bd-example-modal-lg mycheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
@@ -46,12 +54,12 @@
                                         </div>
                                         <div class="col-md-3">
                                             <label>
-                                                <input type="checkbox" value="address" v-model="address_check"> 住所
+                                                <input type="checkbox" value="address" v-model="check_arr.address_check" @change="compareBtn"> 住所
                                             </label>
                                         </div>
                                         <div class="col-md-3">
                                             <label>
-                                                <input type="checkbox"> 交通手段
+                                                <input type="checkbox" v-model="check_arr.tran_check" @change="compareBtn"> 交通手段
                                             </label>
                                         </div>
                                     </div>
@@ -61,16 +69,16 @@
                                         </div>
                                         <div class="col-md-3">
                                             <label>
-                                                <input type="checkbox"> 月額費用
+                                                <input type="checkbox" v-model="check_arr.month_check" > 月額費用
                                             </label>
                                             <br>
                                             <label style="width:400px;">
-                                                <input type="checkbox"> 入居条件 （自立、要支援、要介護、認知症相談可）
+                                                <input type="checkbox" v-model="check_arr.entry_check" > 入居条件 （自立、要支援、要介護、認知症相談可）
                                             </label>
                                         </div>
                                         <div class="col-md-3">
                                             <label>
-                                                <input type="checkbox"> 入居一時金
+                                                <input type="checkbox" v-model="check_arr.condition_check" > 入居一時金
                                             </label>
                                         </div>
                                     </div>
@@ -79,11 +87,11 @@
                                             <p>サービス内容</p>
                                         </div>
                                         <div class="col-md-9">
-                                            <label style="width:;">
-                                                <input type="checkbox"> 特長 （24時間看護、職員体制、食事メニューの選択など）
+                                            <label>
+                                                <input type="checkbox" v-model="check_arr.special_check" > 特長 （24時間看護、職員体制、食事メニューの選択など）
                                             </label>
-                                            <label style="width:;">
-                                                <input type="checkbox"> 医療面の受け入れ （インシュリン投与、ストーマ・人工肛門、たん吸引など）
+                                            <label>
+                                                <input type="checkbox" v-model="check_arr.medical_check" > 医療面の受け入れ （インシュリン投与、ストーマ・人工肛門、たん吸引など）
                                             </label>
                                         </div>
                                     </div>
@@ -92,19 +100,19 @@
                                         <div class="col-md-3">
                                             <p>施設情報</p>
                                         </div>
+                                        <!-- <div class="col-md-3">
+                                            <label>
+                                                <input type="checkbox" v-model="aval_check"> 空室状況
+                                            </label>
+                                        </div> -->
                                         <div class="col-md-3">
-                                            <label for="">
-                                                <input type="checkbox"> 空室状況
+                                            <label>
+                                                <input type="checkbox" v-model="check_arr.capacity_check" > 定員
                                             </label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="">
-                                                <input type="checkbox"> 定員
-                                            </label>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="">
-                                                <input type="checkbox"> 開設日
+                                            <label>
+                                                <input type="checkbox" v-model="check_arr.opening_check" > 開設日
                                             </label>
                                         </div>
                                     </div>
@@ -215,7 +223,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-12">
+                            <div class="col-lg-3 col-md-12" v-if="check_arr.special_check">
                                 <ul class="fac_container">
                                     <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
                                 </ul>
@@ -249,18 +257,20 @@
                     document_status: [],
                     type: 'nursing',
                     specialfeature: [],
-                    modal_btn: false,
-                    
+                    modal_btn: false, 
+                    check_arr: [{
                         address_check: false,
-                        tran_check: false,
-                        month_check: false,
-                        entry_check: false,
-                        condition_check: false,
-                        special_check: false,
-                        medical_check: false,
-                        aval_check: false,
-                        capacity_check: false,
-                        opening_check: false
+                    tran_check: false,
+                    month_check: false,
+                    entry_check: false,
+                    condition_check: false,
+                    special_check: false,
+                    medical_check: false,
+                    capacity_check: false,
+                    opening_check: false,
+                    }]                   
+                    
+                    // check_count: 0
                     
                 };
             },
@@ -368,7 +378,29 @@
                     $('.mycheck').css('display', 'block');
                 },
                 compareBtn() {
-                    console.log('add',this.address_check)
+                    console.log(this.check_arr);
+                    for(var i=0; i<this.check_arr.length; i++){
+                    if(this.check_arr[i] == false)
+                     {
+                        this.falseCheck();
+                        
+                    }else {
+                        
+                        this.trueCheck();
+                        
+                    } 
+                    }
+                   
+                  
+                   
+                },
+                trueCheck() {
+                    this.check_count++;
+                  
+                },
+                falseCheck(){
+                    this.check_count--;
+                  
                 }
             }
     };
