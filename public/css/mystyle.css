@@ -2258,17 +2258,21 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
 
 .fac-name-box {
     border: 1px solid #eee;
-    padding: 0px;
+    padding: 0px;    
 }
 
-.fac-name-box h4 {
-    border-bottom: 1px solid #eee;
+.fac-name-box h4 {  
     padding: 10px;
     text-align: center;
+    background-color: #dee2e6;
+    border-collapse: collapse;
+    font-size: 14px;
 }
 
 .fac-check-box {
     text-align: center;
+    padding: 8px;
+
 }
 /* profilepublish css end */
 
@@ -4914,7 +4918,17 @@ body::-webkit-scrollbar-thumb {
     border-radius: 20px;
     border: 1px solid #b7dad2;
 }
-
+/*for clinical subject*/
+.sub_container >li{
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 0 10px 3px;
+    font-size: 13px;
+    color: #0e2e77;
+    text-align: center;   
+    
+}
+/*end for clinical subject*/
 
 /* .fac_container>li:first-child {
         margin: 0;
