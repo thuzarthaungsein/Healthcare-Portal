@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="type == 'nursing'">
-      <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist" id="profilenav">
+      <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist" id="profilenav"  v-bind:style="{width:width}">
         <li role="presentation" class="subtab1 nav-item">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
             <i class="fa fa-plus-circle"></i>
@@ -52,7 +52,7 @@
     </div>
 
     <div v-if="type == 'hospital'">
-      <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist">
+      <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist" id="profilenav"  v-bind:style="{width:width}">
         <li role="presentation" class="subtab1 nav-item">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
             <i class="fa fa-plus-circle"></i>
@@ -123,6 +123,7 @@ export default {
                         type: null,
                         cusid: null,
                         btntype: 'view',
+                        width: ''
                 }
         },
         created(){
@@ -134,6 +135,9 @@ export default {
                         this.cusid = this.$route.params.cusid;
                         localStorage.setItem('cusId',this.cusid);
                 }
+                var new_width = $("#content-all").width();
+                var fixed_width = new_width - 49.5;
+                this.width = fixed_width + "px";
 
                 this.type = localStorage.getItem('cusType');
                 this.cusid = Number(localStorage.getItem('cusId'));           

@@ -893,7 +893,7 @@
                   </td>
                 </tr>
                 <tr class="toBeToggled1 ShowHide">
-                  <th>特長</th>
+                  <th>職種</th>
                   <td>
                       <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
                         <label class="form-check-label" :for="occupation.id">

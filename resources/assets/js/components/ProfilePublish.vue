@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <div v-if="type == 'nursing'">
-        
-            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
+            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
                 情報
             </button>
@@ -147,7 +146,7 @@
                               
                                     <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
                                     <table id="costDetails" class="table table-condensed cost_table">
-                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving) {{cost.id}}</label>
+                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
                                         <tbody>
                                             <tr>
                                                 <th width="300">入居一時金または(deposit)</th>
@@ -422,17 +421,17 @@
 
     <div v-if="type == 'hospital'">
         
-           <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
-            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
+           <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
+            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                 情報
             </button>
-            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
                 口コミ
             </button>
-            <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
                 地図
             </button>
-            <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn">
+            <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
                 求人応募
             </button>
             </div>
@@ -455,6 +454,12 @@
                                         </span>
                                     </div>
                                 </div>
+                                <div class="row col-12">
+                                    <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
+                                    <div class="row col-12 m-b-10">
+                                         <p>{{activeImageDescription}}</p>
+                                    </div>
+                                </div>
                                 <div class="thumbnails">
                                     <div
                                         v-for="(image,index) in  images"
@@ -466,13 +471,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row col-sm-12 detail_profile_left">
-                            <strong class="img_2">  {{activeImageTitle}} </strong>
-                        </div>
-                       <div class="row col-sm-12 detail_profile_left">
-                           {{activeImageDescription}}
-                       </div>
+                        </div>                       
                         
                        
                         <!-- <div  v-for="image in  images"  :key="image.id">
@@ -488,7 +487,7 @@
                             <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>電話 :</strong></p></div>
                             <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
                         </div>
-                         <h5 class="profile_header m-t-10">こだわりの特長</h5>
+                         <h5 class="header m-t-10">こだわりの特長</h5>
                         <div class="row m-lr-0">
                             <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                                 <li>{{special.short_name}}</li>
@@ -636,6 +635,7 @@
                 am_arr:[],
                 pm_arr:[],
                 active_el:0,
+                width: '',
                 center: { lat: 0, lng: 0 },
                 address: '',
                 
@@ -783,7 +783,9 @@
 
 
             }
-
+            var new_width = $("#content-all").width();
+            var fixed_width = new_width - 80;
+            this.width = fixed_width + "px";
 
           },
           computed: {
@@ -841,7 +843,9 @@
     },
     costConfirm(id){  
         $('.changeLink').text("View Details"); 
+        $('.changeLink').removeClass("CloseBtn"); 
         $('.changeLink'+id).text("Close");  
+        $('.changeLink'+id).addClass("CloseBtn");
         $('.closeChangeLink').hide('medium'); 
         $('#changeLink'+id).show('medium'); 
     }
@@ -1078,5 +1082,21 @@ div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
     color: #eee;
 }
 
+.changeLink {
+    color: #397df9;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #397df9;
+    padding: 7px 10px;
+    border-radius: 5px;
+}
+.changeLink:hover {
+    color: #f9793c;
+    border: 1px solid #f9793c;
+}
+.CloseBtn {
+    border: none !important;
+    color: #f9793c !important;
+}
 
 </style>
