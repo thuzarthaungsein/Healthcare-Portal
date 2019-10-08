@@ -66,7 +66,7 @@ export default {
             return {
                  errors:[
                 ],
-                //  Parents : [ { id: 0,name : 'None'},{ id: 1, name: 'Hospital' },{ id: 2, name: 'Nursing' }],
+              
                  Type: {
                         name: '',
                         parent:'',
@@ -113,7 +113,7 @@ export default {
                      this.updateType();
                 }
                 else{
-                
+                console.log(this.Type);
                       this.axios.post('/api/types/add', this.Type)
                         .then((response) => {
                             this.name = ''

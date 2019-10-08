@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use App\Occupations;
 use Illuminate\Http\Request;
 use DB;
 
@@ -18,7 +19,7 @@ class JobController extends Controller
 
         $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
                            ->join('jobs','jobs.customer_id','=','customers.id')
-                           ->where('jobs.customer_id','=',auth()->user()->customer_id)->get();
+                           ->where('jobs.customer_id','=',1)->get();
         return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
 
     }
@@ -39,6 +40,13 @@ class JobController extends Controller
 
     }
 
+    public function getOccupationList()
+    {
+        $occupationlist = Occupations::select('id','name')->get()->toArray();
+
+        return response()->json($occupationlist);    
+    }
+
     public function getSkill()
     {
         $job = Job::select('skills')->value('skills');
@@ -47,7 +55,7 @@ class JobController extends Controller
     }
     public function store(Request $request)
     {
-
+     
         $request->validate([
             'title' => 'required',
             'description' =>'required',
@@ -139,9 +147,15 @@ class JobController extends Controller
         // }
 
         $job = new Job();
-
+        if($request->occupation_id != null)
+        {
+            $job->occupation_id = $request->occupation_id;
+        }else{
+            $job->occupation_id = 0;
+        }
         $job->title =$request->input('title');
         $job->customer_id= 1;
+        
         $job->description = $request->input('description');
         $job->skills = $string;
         $job->location = $request->input('location');
@@ -226,6 +240,12 @@ class JobController extends Controller
             //     $cstring = "Part,Full";
             // }
 
+            if($request->occupation_id != null)
+            {
+                $job->occupation_id = $request->occupation_id;
+            }else{
+                $job->occupation_id = 0;
+            }
             $job->skills = $string;
             $job->title =$request->input('title');
             $job->customer_id= $request->customer_id;

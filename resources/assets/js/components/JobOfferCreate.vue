@@ -142,6 +142,19 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                                         <span v-if="errors.employment_status" class="error">{{errors.employment_status[0]}}</span>
                                     </div>
                                 </div>
+                                 <div class="form-group row">
+                                    <div class="col-sm-3 ">
+                                        <label for="salary"><strong> Occupation <span class="error sp1">必須</span></strong> </label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                       <select v-model="selectedValue" class="form-control" @change='getParent()'>
+                                            <option value="0">None</option>
+                                            <option v-for="occupation in OccupationList" :key="occupation.id" v-bind:value="occupation.id">
+                                                {{occupation.name}}
+                                            </option>
+                                       </select>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-sm-3 ">
                                         <label for="salary"><strong> 給与 <span class="error sp1">必須</span></strong> </label>
@@ -217,10 +230,16 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
     export default {
         data() {
                 return {
-                    errors: [],          
+                    errors: [],  
+                    OccupationList:{
+                        id: '',
+                        name: ''
+                   },        
                     joboffer: {
+
                         title: '',
                         customer_id: '',
+                        occupation_id:'',
                         description: '',
                         fields: [{
                             skills: '',
@@ -242,22 +261,29 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                         holidays: '',
                         user_id: '',
                         recordstatus: '',
-                       
-                      
+                              
                     },
-                    ischeck: ''
+                    ischeck: '',
+                    selectedValue:0
+                    
                 }
             },
             created() {
-                this.joboffer.employmentstatus = "ContractEmployee";
+
+                 this.axios.get('/api/job/occupationlist').then(function (response) {
+                    this.OccupationList = response.data;
+                  }.bind(this));
+
+                 this.joboffer.employmentstatus = "ContractEmployee";
               
-                if(this.$route.params.id){
+                 if(this.$route.params.id){
                  
                     this.axios
                         .get(`/api/job/edit/${this.$route.params.id}`)
                         .then((response) => {
                             this.joboffer.title = response.data.title;
                             this.joboffer.customer_id = response.data.customer_id;
+                            this.selectedValue = response.data.occupation_id;
                             this.joboffer.description = response.data.description;
                             this.joboffer.fields.skills = response.data.skills;
                             let arr = [];
@@ -266,7 +292,6 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                             this.joboffer.location = response.data.location;
                             this.joboffer.nearest_station = response.data.nearest_station;
                             this.joboffer.employmentstatus = response.data.employment_status;
-                           
                             // this.ischeck = response.data.employment_status;
                             // this.createCheck(this.ischeck);
                             this.joboffer.salary = response.data.salary;
@@ -284,6 +309,7 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                         if (this.$route.params.id) {
                             this.updateJob();
                         } else {
+                            console.log(this.joboffer);
                            
                              this.axios.post('/api/job/add', this.joboffer)
                                 .then((response) => {
@@ -306,6 +332,10 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                            
                         }
                     },
+                     getParent: function(){
+                        this.joboffer.occupation_id = this.selectedValue;
+                       
+                    },
                     addRow: function() {
                         this.joboffer.fields.push({
                             skills: '',
@@ -325,23 +355,23 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                             });
                         }
                     },
-                    createCheck: function(check) {
-                        this.joboffer.employment_status.shift()
-                        if (check == "Full") {
-                            this.joboffer.employment_status.push({
-                                fchecked: 1,
-                            });
-                        } else if (check == "Part") {
-                            this.joboffer.employment_status.push({
-                                pchecked: 1,
-                            });
-                        } else {
-                            this.joboffer.employment_status.push({
-                                fchecked: 1,
-                                pchecked: 1
-                            });
-                        }
-                    },
+                    // createCheck: function(check) {
+                    //     this.joboffer.employment_status.shift()
+                    //     if (check == "Full") {
+                    //         this.joboffer.employment_status.push({
+                    //             fchecked: 1,
+                    //         });
+                    //     } else if (check == "Part") {
+                    //         this.joboffer.employment_status.push({
+                    //             pchecked: 1,
+                    //         });
+                    //     } else {
+                    //         this.joboffer.employment_status.push({
+                    //             fchecked: 1,
+                    //             pchecked: 1
+                    //         });
+                    //     }
+                    // },
                     updateJob() {
                         this.axios
                             .post(`/api/job/update/${this.$route.params.id}`, this.joboffer)

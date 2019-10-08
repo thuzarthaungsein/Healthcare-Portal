@@ -1211,9 +1211,7 @@ export default {
          }
          else{
            this.markers = '';
-         }
-          
-        
+         } 
        
       },
       features(e){

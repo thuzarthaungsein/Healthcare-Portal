@@ -120,18 +120,26 @@ export default {
         },
        data() {
                 return {
-                        type: 'nursing',
+                        type: null,
+                        cusid: null,
                         btntype: 'view',
                 }
         },
         created(){
                 if(this.$route.params.type) {
                         this.type = this.$route.params.type;
-                        console.log(this.type);
+                        localStorage.setItem('cusType',this.type);
                 }
                 if(this.$route.params.cusid) {
                         this.cusid = this.$route.params.cusid;
+                        localStorage.setItem('cusId',this.cusid);
                 }
+
+                this.type = localStorage.getItem('cusType');
+                this.cusid = Number(localStorage.getItem('cusId'));           
+
+                console.log(localStorage.getItem('cusType'));
+                console.log(localStorage.getItem('cusId'));
 
         },
         methods: {
