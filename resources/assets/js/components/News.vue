@@ -4,9 +4,18 @@
                 <div class="row">
                         <div class="col-12">
                                 <div class="col-12">
-                                        <form class="form-inline col-lg-12 form-inline mb-2 pad-free">
-                                                <input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
-                                                <span v-if="status=='0'" class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
+                                        <form class="col-lg-12 mb-2 pad-free">
+                                                <div class="col-md-6 offset-6 pad-free">
+                                                        <div class="row ">
+                                                                <div class="col-md-9">
+                                                                        <input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                        <span v-if="status=='0'" class="btn btn my-2 col-md-12 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
+                                                                </div>
+                                                        </div>
+                                                </div>                                            
+                                                
                                         </form>
                                         <div v-if="status=='0'">
                                                 <div class="card">
@@ -22,9 +31,9 @@
                                                                 </ul>
                                                         </div>
                                                         <div class="tab-content tab-content2 scroll2" id="myTabContent">
-                                                                <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
+                                                                <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">                                                                        
                                                                         <div class="row">
-                                                                                <div class="active-users col-md-4">
+                                                                                <div class="active-users col-md-3">
                                                                                         <router-link :to="'/newsdetails/'+latest_post.id">
                                                                                                 <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" @error="imgUrlAlt"/>
                                                                                                 <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
@@ -33,7 +42,7 @@
                                                                                                 </p>
                                                                                         </router-link>
                                                                                 </div>
-                                                                                <div class="col-md-8 news-wrapper">
+                                                                                <div class="col-md-9 news-wrapper">
                                                                                         <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
                                                                                                 <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
                                                                                                         <router-link :to="{name:'newdetails', params: {id:post.id}}">

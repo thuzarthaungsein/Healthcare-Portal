@@ -29,10 +29,10 @@ class ProfilePublishController extends Controller
     public function index()
     {
 
-        $feature = NursingProfile::select('feature')->where('customer_id',4)->get();
-        $method = NursingProfile::select('method')->where('customer_id',1)->get();
-        $facility = NursingProfile::where('customer_id',1)->get();
-        $comedical = Cooperate_Medical::where('customer_id',1)->get();
+        $feature = NursingProfile::select('feature')->where('customer_id',auth()->user('customer_id'))->get();
+        $method = NursingProfile::select('method')->where('customer_id',auth()->user('customer_id'))->get();
+        $facility = NursingProfile::where('customer_id',auth()->user('customer_id'))->get();
+        $comedical = Cooperate_Medical::where('customer_id',auth()->user('customer_id'))->get();
 
         //forshow all medical acceptance
         $medicalacceptance = Medical::select('id','name')->get();

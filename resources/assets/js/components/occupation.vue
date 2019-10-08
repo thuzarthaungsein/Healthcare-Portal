@@ -41,14 +41,13 @@
                                                 </div>
                                         </div>
 
-                                          <div class="form-group row">
-                                                <div class="col-sm-10">
+                                          <div class="form-group">
+                                                <!-- <router-link to="/occupationlist" class="btn news-post-btn all-btn">作成</router-link>
+                                                <button  type="submit" class="btn btn-danger all-btn">検索</button> -->
+                                                <router-link class="btn btn-danger all-btn" to="/occupationlist" > キャンセル </router-link>
+                                                <button class="btn news-post-btn all-btn">作成</button>
 
-                                                </div>
-                                                <div class="col-sm-2">
-                                                     <button class="btn news-post-btn">作成</button>
-                                                </div>
-                                        </div>
+                                            </div>
                                 </form>
                            </div>
                             <div class="col-sm-2"></div>
@@ -67,7 +66,7 @@ export default {
             return {
                  errors:[
                 ],
-             
+
                  occupation: {
                         name: '',
                         parent:'',
@@ -111,7 +110,7 @@ export default {
                 });
 
         },
-       
+
 
          methods: {
             add() {
@@ -158,8 +157,8 @@ export default {
                     }
                 })   ;
             },
-           
-           
+
+
 
         }
 
