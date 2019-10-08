@@ -3737,6 +3737,14 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 }
 
 /* profilepublish css start */
+.schedule_header,.schedule_body {
+    font-weight: bold;
+    border: 1px solid #eee;
+    text-align: center;
+    padding: 15px;
+    color: Green;
+    margin-bottom: 5px;
+}
 
 #header {
     padding: 30px 0;

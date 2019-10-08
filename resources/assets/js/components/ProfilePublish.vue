@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div v-if="type == 'nursing'">
+        
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
                 情報
@@ -421,9 +422,7 @@
             <div class="row ele m-lr-0" id="element1">
             <!-- ee-->
              <h5 class="profile_header">情報</h5>
-            
-                 <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
-                     {{cust.id}}
+                 <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">                     
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
                            <div class="thumbnail-img">
@@ -482,79 +481,48 @@
                     <!--end for address-->                
                 </div> 
             <!--end ee-->
-                
-
-             <h5 class="profile_header">こだわりの特長</h5>
-                <div class="row m-lr-0">
-                    <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
-                        <li>{{special.short_name}}</li>
-                    </ul>
-                </div>
+             
                 <h5 class="profile_header">情報</h5>
-                    <div class="row m-lr-0">
-                            <div class="col-md-10 m-2" v-for="hospital in hospitals" :key="hospital.id">
-                                <p>{{hospital.details_info}}</p>
-                            </div>
+                <div class="row m-lr-0">
+                    <div class="col-md-10 m-2" v-for="hospital in hospitals" :key="hospital.id">
+                        <p>{{hospital.details_info}}</p>
+                    </div>
                 </div>
                 <h5 class="profile_header">診療科目</h5>
                     <div class="row col-md-3" v-for="sub in subjects" :key="sub.id">
                             <a href="#">{{sub.name}}</a>
                     </div>
                 <h5 class="profile_header">診療時間</h5>
-                    <div class="row">
+                
                         <div class="col-md-12">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" >Date</th>
-                                            <th scope="col">AM</th>
-                                            <th scope="col">PM</th>
-                                        </tr>
-                                    </thead>
-                                        <tr>
-                                            <th scope="row">Mon</th>
-                                            <td >{{am_arr.mon}}</td>
-                                            <td >{{pm_arr.mon}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Tue</th>
-                                            <td >{{am_arr.tue}}</td>
-                                            <td >{{pm_arr.tue}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Wed</th>
-                                            <td >{{am_arr.wed}}</td>
-                                            <td >{{pm_arr.wed}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Thu</th>
-                                            <td >{{am_arr.thu}}</td>
-                                            <td >{{pm_arr.thu}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Fri</th>
-                                            <td >{{am_arr.fri}}</td>
-                                            <td >{{pm_arr.fri}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Sat</th>
-                                            <td >{{am_arr.sat}}</td>
-                                            <td >{{pm_arr.sat}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Sun</th>
-                                            <td >{{am_arr.sun}}</td>
-                                            <td >{{pm_arr.sun}}</td>
-                                        </tr>
-
-                                </table>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="col-md-12 schedule_header">Date</div>
+                                    <div class="col-md-12 schedule_header">月</div>
+                                    <div class="col-md-12 schedule_header">火</div>
+                                    <div class="col-md-12 schedule_header">水</div>
+                                    <div class="col-md-12 schedule_header">木</div>
+                                    <div class="col-md-12 schedule_header">金</div>
+                                    <div class="col-md-12 schedule_header">土</div>
+                                    <div class="col-md-12 schedule_header">日</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col-md-12 schedule_header">AM</div>
+                                    <div v-for="(amval,index) in am_arr[0]" :key="index" class="col-md-12 schedule_body">{{amval}}</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col-md-12 schedule_header">PM</div>
+                                    <div v-for="(amval,index) in pm_arr[0]" :key="index" class="col-md-12 schedule_body">{{amval}}</div>
+                                </div>
+                            </div>
+                                
                                 <div class="col-md-6"  v-for="hospital in hospitals" :key="hospital.id">
                                     <p>Closed day: <font>{{hospital.closed_day}}</font> </p>
                                 </div>
                                 <p>※診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください</p>
                         </div>
 
-                    </div>
+                   
 
                 <h5 class="profile_header">施設情報</h5>
                 <div class="row col-md-12" >
@@ -632,7 +600,6 @@
             </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -640,13 +607,12 @@
  export default {
 
       components:{
-                    joboffer
-                },
+            joboffer
+        },
 
   data() {
             var that = this;
             return {
-
                 markers: [
                     {  position: { lat: 0, lng: 0 }  },
                 ],
@@ -655,7 +621,7 @@
                 active_el:0,
                 center: { lat: 0, lng: 0 },
                 address: '',
-                customer_id :2,
+                
                 google:[],
                 customer:[],
                 hosfacilities:[],
@@ -677,8 +643,9 @@
                 activeImageTitle:'',
                 activeImageDescription:'',
                 index: 0,
+                // cusid: 0,
+                // type: 0,
                 pageNum: 0,
-                type : 'hospital',
                 opts: {
                     start: 0,
                     dir: 'v',
@@ -693,10 +660,10 @@
                 },
 
                 images: [],
-                activeImage: 0,
-                currentOffset: 0,
-                windowSize: 1,
-                paginationFactor: 220,
+                // activeImage: 0,
+                // currentOffset: 0,
+                // windowSize: 1,
+                // paginationFactor: 220,
             };
         },
 
@@ -704,12 +671,20 @@
                 cusid:Number,
                 type:String
         },
-
         created(){
+            if(this.type != undefined && this.cusid!= undefined){
+                localStorage.setItem('cusType',this.type);
+                localStorage.setItem('cusId',this.cusid);
+            }
+            this.type = localStorage.getItem('cusType');
+            this.cusid = Number(localStorage.getItem('cusId'));           
+
+            console.log(localStorage.getItem('cusType'));
+            console.log(localStorage.getItem('cusId'));
 
             if(this.type == "nursing")
             {
-                this.axios.get('/api/profile/nursing') .then(response => {
+                this.axios.get('/api/profile/nursing/'+this.cusid) .then(response => {
                     this.nursing_profiles = response.data.feature;
                     this.nus_method= response.data.method;
                     this.method_payment = response.data.cost;
@@ -735,43 +710,41 @@
 
                 });
 
-                this.axios.get(`/api/profile/specialfeature/${this.type}`) .then(response => {
+                this.axios.get(`/api/profile/specialfeature/${this.type}/${this.cusid}`) .then(response => {
 
                     this.specialfeature = response.data;
                 });
 
-                  this.axios.get('/api/profile/comment') .then(response => {
+                  this.axios.get('/api/profile/comment/'+this.cusid) .then(response => {
                       this.comments = response.data;
                 });
 
-                  this.axios.get('/api/profile/customer') .then(response => {
+                  this.axios.get('/api/profile/customer/'+this.cusid) .then(response => {
                       this.customer = response.data;
                 });
 
             }
             else{
-                this.axios.get(`/api/profile/specialfeature/${this.type}`).then(response => {
+                this.axios.get(`/api/profile/specialfeature/${this.type}/${this.cusid}`).then(response => {
                     this.specialfeature = response.data;
                 });
-                 this.axios.get('/api/profile/comment').then(response => {
+                 this.axios.get('/api/profile/comment/'+this.cusid).then(response => {
                       this.comments = response.data;
                 });
-                 this.axios.get('/api/profile/customer').then(response => {
+                 this.axios.get('/api/profile/customer/'+this.cusid).then(response => {
                       this.customer = response.data;
                 });
-                this.axios.get('/api/profile/subject').then(response => {
+                this.axios.get('/api/profile/subject/'+this.cusid).then(response => {
                       this.subjects = response.data;
                 });
-                 this.axios.get('/api/profile/schedule/'+ this.customer_id) .then(response => {
-
-                        this.am_arr = response.data[0];
-                        this.pm_arr = response.data[1];
+                 this.axios.get('/api/profile/schedule/'+this.cusid) .then(response => {
+                     
+                        this.am_arr = response.data.am;
+                        this.pm_arr = response.data.pm;
+                        
                 });
-                // this.axios.get('/api/profile/hosfacility').then(response => {
-                //     console.log(this.hosfacilities);return;
-                //       this.hosfacilities = response.data;
-                // });
-                this.axios.get('/api/profile/hospital').then(response => {
+                
+                this.axios.get('/api/profile/hospital/'+this.cusid).then(response => {
                     this.google = response.data.hoslatlong;
                     this.hospitals = response.data.hospital;
                     this.hosfacilities=response.data.facility_list;
@@ -800,11 +773,15 @@
             // and is the reason why we don't have to worry about the
             // big image getting updated
             currentImage() {
-
-                this.activeImageTitle = this.images[this.activeImage].title;
-                this.activeImageDescription = this.images[this.activeImage].description;
-                return this.images[this.activeImage].photo;
-
+                if(this.images.length > 0) {
+                    this.activeImageTitle = this.images[this.activeImage].title;
+                    this.activeImageDescription = this.images[this.activeImage].description;
+                    return this.images[this.activeImage].photo;
+                }
+                else{
+                    return 'noimage.jpg';
+                }
+                
             }
         },
           methods: {
@@ -844,10 +821,7 @@
         this.currentOffset += this.paginationFactor;
       }
     },
-
-
-        }
-
+  }
  }
 
 </script>
