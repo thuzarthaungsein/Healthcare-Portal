@@ -52,7 +52,7 @@
     </div>
 
     <div v-if="type == 'hospital'">
-      <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist">
+      <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist" id="profilenav"  v-bind:style="{width:width}">
         <li role="presentation" class="subtab1 nav-item">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
             <i class="fa fa-plus-circle"></i>

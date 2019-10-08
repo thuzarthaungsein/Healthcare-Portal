@@ -454,6 +454,12 @@
                                         </span>
                                     </div>
                                 </div>
+                                <div class="row col-12">
+                                    <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
+                                    <div class="row col-12 m-b-10">
+                                         <p>{{activeImageDescription}}</p>
+                                    </div>
+                                </div>
                                 <div class="thumbnails">
                                     <div
                                         v-for="(image,index) in  images"
@@ -465,13 +471,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row col-sm-12 detail_profile_left">
-                            <strong class="img_2">  {{activeImageTitle}} </strong>
-                        </div>
-                       <div class="row col-sm-12 detail_profile_left">
-                           {{activeImageDescription}}
-                       </div>
+                        </div>                       
                         
                        
                         <!-- <div  v-for="image in  images"  :key="image.id">
@@ -487,7 +487,7 @@
                             <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>電話 :</strong></p></div>
                             <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
                         </div>
-                         <h5 class="profile_header m-t-10">こだわりの特長</h5>
+                         <h5 class="header m-t-10">こだわりの特長</h5>
                         <div class="row m-lr-0">
                             <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
                                 <li>{{special.short_name}}</li>
