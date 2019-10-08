@@ -44,6 +44,13 @@
                                         </span>
                                     </div>
                                 </div>
+                                <div class="row col-12">
+                                    <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
+                                    <div class="row col-12 m-b-10">
+                                         <p>{{activeImageDescription}}</p>
+                                    </div>
+                                </div>
+                                
                                 <div class="thumbnails">
                                     <div
                                         v-for="(image,index) in  images"
@@ -54,15 +61,11 @@
                                     </div>
                                 </div>
                             </div>
+                                                      
                         </div>
-                        <div class="row col-sm-12 detail_profile_left">
-                            <strong class="img_2">  {{activeImageTitle}} </strong>
-                        </div>
-                       <div class="row col-sm-12 detail_profile_left">
-                           {{activeImageDescription}}
-                       </div>
-
-
+                       
+                        
+                       
                         <!-- <div  v-for="image in  images"  :key="image.id">
 
                         </div> -->
@@ -104,34 +107,46 @@
                             </tr>
                         </table>
                     </div>
-                    <div v-if="method_payment.length > 0" class="col-md-12">
-                        <div class="cost_tb" v-for="cost in method_payment" :key="cost.id">
-                            <div class="row col-12 pad-free">
-                                <div class="col-md-11">
+                    <div v-if="method_payment.length > 0" class="col-md-12">      
+                        <div class="cost_tb">
+                            <div class="row col-12 pad-free" >
+                                <div class="col-md-12" >
                                     <table class="table table-bordered cost_table">
-                                        <tbody>
-                                        <tr>
-                                            <th width="250">入居にかかる費用(Expense)</th>
-                                                <td>{{cost.expense_moving}}</td>
+                                        <thead>
+                                            <tr>
+                                                <th>入居にかかる費用(Expense)</th>
                                                 <th>居室タイプ(type)</th>
-                                                <td>{{cost.living_room_type}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th width="250">月額料金 (monthly)</th>
-                                                <td>{{cost.monthly_fees}}</td>
-                                            <th>広さ(area)</th>
-                                                <td>{{cost.area}}</td>
-                                        </tr>
+                                                <th>月額料金 (monthly)</th>
+                                                <th>広さ(area)</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                       
+                                        <tbody>
+                                        <tr v-for="cost in method_payment" :key="cost.id">                                         
+                                           
+                                            <td>{{cost.expense_moving}}</td>
+                                            
+                                            <td>{{cost.living_room_type}}</td>
+                                    
+                                        
+                                            <td>{{cost.monthly_fees}}</td>
+                                        
+                                            <td>{{cost.area}}</td>
+                                            <td>
+                                                <a href="#" class="" @click="costConfirm(cost.id)" data-toggle="collapse"  :data-target="'#costDetails' + cost.id">&nbsp;{{changelinktitle}}</a>
+                                            </td>
+                                        </tr>                                        
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="cost_btnwrapper col-md-1 pad-free">
+                                <!-- <div class="cost_btnwrapper col-md-1 pad-free">
                                     <button class="btn inner-btn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id"><i class="fas fa-sort-down"></i>&nbsp;内容を見る</button>
-                                </div>
+                                </div> -->
 
-
-                                <div class="collapse col-md-12" :id="'costDetails' + cost.id">
-                                    <table class="table table-condensed cost_table">
+                              
+                                    <div class="collapse col-md-12" :id="'costDetails' + cost.id" v-for="cost in method_payment" :key="cost.id">
+                                    <table id="costDetails" class="table table-condensed cost_table">
                                         <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
                                         <tbody>
                                             <tr>
@@ -191,6 +206,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+                              
+                                
                             </div>
 
                         </div>
@@ -198,7 +215,7 @@
             </div>
             <div class="row ele m-lr-0" id="element4">
                 <!-- <div class="row"> -->
-                    <h5 class="profile_header profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>                    
+                    <h5 class="profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>                    
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12" >
                         <table border="1" class="table table-bordered cost_table">
                             <tbody>
@@ -660,6 +677,7 @@
                 },
 
                 images: [],
+                changelinktitle:'create',
                 // activeImage: 0,
                 // currentOffset: 0,
                 // windowSize: 1,
@@ -821,6 +839,11 @@
         this.currentOffset += this.paginationFactor;
       }
     },
+    costConfirm(id){            
+        console.log('title');                    
+            this.changelinktitle = 'back';                   
+        return this.changelinktitle;               
+    }
   }
  }
 
@@ -829,7 +852,28 @@
 
 
 
-<style scoped>
+<style>
+.selected{
+    background-color: blue;
+}
+#costDetails{
+-moz-transition: height .5s;
+-ms-transition: height .5s;
+-o-transition: height .5s;
+-webkit-transition: height .5s;
+transition: height .5s;
+height: 0;
+
+}
+.fade-enter-active, .fade-leave-active {
+   transition: opacity .5s ease-in-out, transform 0.5s ease;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.fade-enter-to, .fade-leave /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 1;
+}
 
 /* .top-fixed-btn{
   border: 1px solid #b7dad2;
@@ -888,7 +932,7 @@
 .cost_table td{
     border: 1px solid #ccc;
     padding: 8px 10px;
-    text-align: left;
+    text-align: center;
     line-height: 1.7;
     background: #fff;
 }
@@ -899,6 +943,11 @@
     align-self: center;
     /* padding-top: 21px; */
 }
+.aa th:last-child, .aa td:last-child {
+    width: 108px;
+    font-size: 88.2%;
+    white-space: nowrap;
+}
 
 .comment-wrapper{
     background-color: #fff;
@@ -906,7 +955,7 @@
 }
 .comment-title{
     background-size: 29px;
-    color: #f9793c;
+    color: #3fc8d6;
     display: block;
     font-size: 16px;
     font-weight: 700;
@@ -926,9 +975,9 @@ div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item.sho
 div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
     border: 1px solid #1aa985  !important;
 }
-div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
+/* div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
     border-color: transparent   #ecede1   transparent   #ecede1   !important;
-}
+} */
 .thumbnail-img{
     width: 100%;
     padding: 20px;
