@@ -90,7 +90,7 @@
             </div>
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="profile_header">特長</h5>
-                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">{{nurseprofile.feature}}</div>
+                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12"><p v-html="nurseprofile.feature"></p></div>
             </div>
             <div class="row ele m-lr-0" id="element3">
                 <h5 class="profile_header col-md-12">費用</h5>
@@ -146,7 +146,7 @@
                               
                                     <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
                                     <table id="costDetails" class="table table-condensed cost_table">
-                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving) {{cost.id}}</label>
+                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
                                         <tbody>
                                             <tr>
                                                 <th width="300">入居一時金または(deposit)</th>
@@ -506,7 +506,7 @@
              
                 <h5 class="profile_header">情報</h5>
                 <div class="row m-lr-0">
-                    <div class="col-md-10 m-2" v-for="hospital in hospitals" :key="hospital.id">
+                    <div class="col-md-12 m-2" v-for="hospital in hospitals" :key="hospital.id">
                         <p>{{hospital.details_info}}</p>
                     </div>
                 </div>                
@@ -881,19 +881,21 @@
                 this.active_el = el;
             },
              moveCarousel(direction) {
-            // Find a more elegant way to express the :style. consider using props to make it truly generic
-            if (direction === 1 && !this.atEndOfList) {
-                this.currentOffset -= this.paginationFactor;
-            } else if (direction === -1 && !this.atHeadOfList) {
-                this.currentOffset += this.paginationFactor;
-            }
-            },
-            costConfirm(id){  
-                $('.changeLink').text("View Details"); 
-                $('.changeLink'+id).text("Close");  
-                $('.closeChangeLink').hide('medium'); 
-                $('#changeLink'+id).show('medium'); 
-            }
+      // Find a more elegant way to express the :style. consider using props to make it truly generic
+      if (direction === 1 && !this.atEndOfList) {
+        this.currentOffset -= this.paginationFactor;
+      } else if (direction === -1 && !this.atHeadOfList) {
+        this.currentOffset += this.paginationFactor;
+      }
+    },
+    costConfirm(id){  
+        $('.changeLink').text("View Details"); 
+        $('.changeLink').removeClass("CloseBtn"); 
+        $('.changeLink'+id).text("Close");  
+        $('.changeLink'+id).addClass("CloseBtn");
+        $('.closeChangeLink').hide('medium'); 
+        $('#changeLink'+id).show('medium'); 
+    }
   }
  }
 
@@ -1104,5 +1106,21 @@ div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
     color: #eee;
 }
 
+.changeLink {
+    color: #397df9;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #397df9;
+    padding: 7px 10px;
+    border-radius: 5px;
+}
+.changeLink:hover {
+    color: #f9793c;
+    border: 1px solid #f9793c;
+}
+.CloseBtn {
+    border: none !important;
+    color: #f9793c !important;
+}
 
 </style>

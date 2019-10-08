@@ -80,7 +80,7 @@
           </div>
         </div>
 
-        <div class="form-group form-group-wrapper row ml-0 mr-0">
+        <!-- <div class="form-group form-group-wrapper row ml-0 mr-0">
           <label class="heading-lbl col-2 pad-free">
             診療科目
             <span class="error">*</span>
@@ -90,7 +90,30 @@
             class="form-control col-10 white-bg-color subject"
             v-model="hospital_info.subject"
           ></textarea>
-        </div>
+        </div> -->
+
+        <!-- test -->
+        <table class="table table-bordered table-wrapper">
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label  class="heading-lbl col-2 pad-free">診療科目</label>
+                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="clinicalSubject()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate}"></i></span>
+                        <div class="col-md-10 float-right clinical-subject-toggle-div toggle-div m-t-10">
+                            <div class="row">
+                                <div v-for="subj in clinical_subj" :key="subj.id" class="col-md-3 m-b-20">
+                                    <label>
+                                        <input type="checkbox"  name="subject" v-bind:value="subj.id" @click="subjectCheck(subj.id)" v-model="subj.checked">
+                                          {{subj.name}}
+                                    </label>
+                                </div>
+                            </div>                                        
+                        </div>
+                    </div>
+                </td>
+              </tr>
+          </table>
+        <!-- end -->
 
         <div class="form-group form-group-wrapper row ml-0 mr-0">
           <label class="heading-lbl col-2 pad-free">
@@ -638,50 +661,6 @@
 
                   <div class="form-group">
                     <label>
-                      郵便番号
-                      <span class="error">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      v-model="this.postal"
-                      name="postal"
-                      class="postal form-control white-bg-color"
-                      id="postal"
-                      v-on:keyup="getPostal"
-                      placeholder="郵便番号を入力してください。"
-                      maxlength="7"
-                    />
-                    <div id="jsErrorMessage"></div>
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      市区町村、番地（建物名）:
-                      <span class="error sp1">必須</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      class="city form-control white-bg-color"
-                      placeholder="市区町村、番地を入力してください。"
-                      v-model="this.city"
-                    />
-                    <p>例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</p>
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      住所
-                      <span class="error">*</span>
-                    </label>
-                    <textarea
-                      name="address"
-                      rows="10"
-                      class="form-control customer-address white-bg-color"
-                      v-model="customer_info.address"
-                    ></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label>
                       交通 / アクセス
                       <span class="error">*</span>
                     </label>
@@ -748,10 +727,16 @@ export default {
                         customer_info:[],
                         hospital_info:[],
                         city: '',
-                        postal: ''
+                        postal: '',clinical_subj:[]
                 }
         },
         created(){
+
+                this.axios
+                .get('/api/clinical-subject/'+this.id)
+                .then(response=>{
+                        this.clinical_subj = response.data;
+                });
 
                  this.axios
                 .get('/api/schedule/'+this.id)
@@ -820,6 +805,13 @@ export default {
             featureCheck(check_id) {
                     $('.feature-'+check_id).attr('checked','true');
             },
+            subjectCheck(check_id) {
+                    $('.subject-'+check_id).attr('checked','true');
+            },
+            clinicalSubject() {
+                     $(".clinical-subject-toggle-div").toggle('medium');
+                     
+            },
             DeltArr(indx,type) {
                     var arr_list = [];
                     var arr_count = document.getElementsByClassName('gallery-area-'+type);
@@ -866,7 +858,8 @@ export default {
                     var name = $('.customer-name').val();
                     var email = $('.customer-email').val();
                     var phone = $('.customer-phone').val();
-                    var address = $('.customer-address').val();
+                    var address = $('#city').val();
+      
                     this.customer_info.push({name:name,email:email,phone:phone,address:address});
 
 
@@ -929,6 +922,15 @@ export default {
 
                         facilities = chek_facility.join(',');
 
+                    
+                    var chek_subj = [];
+                    var subjects ;
+                        $.each($("input[name='subject']:checked"), function(){
+                               chek_subj.push($(this).val());
+                        });
+
+                        subjects = chek_subj.join(',');
+
                      // Consultation
                      for(var j = 0; j< 2; j++) {
                         for(var i = 0; i< 7; i++) {
@@ -941,23 +943,23 @@ export default {
                       }
 
 
-                       this.hospital_info.push({access:access,subject:subject,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
-                       congestion:congestion,special_features:special_features,facilities:facilities});
+                       this.hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       congestion:congestion,special_features:special_features,facilities:facilities,subjects:subjects});
 
-                        if(this.gallery_list.length > 0) {
-                                this.axios
-                                        .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
-                                                .then((response) => {
+                        // if(this.gallery_list.length > 0) {
+                        //         this.axios
+                        //                 .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
+                        //                         .then((response) => {
 
-                                                }).catch(error=>{
+                        //                         }).catch(error=>{
 
-                                                if(error.response.status == 422){
+                        //                         if(error.response.status == 422){
 
-                                                this.errors = error.response.data.errors
+                        //                         this.errors = error.response.data.errors
 
-                                        }
-                                }) ;
-                        }
+                        //                 }
+                        //         }) ;
+                        // }
 
                         if(this.customer_info.length > 0) {
                                 this.axios
