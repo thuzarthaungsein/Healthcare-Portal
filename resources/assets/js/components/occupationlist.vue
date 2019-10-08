@@ -6,7 +6,7 @@
                     <h4 class="main-color">ニュース記事を検索</h4>
                     <div class="row">
                         <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="検索">
+                            <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchOccupation()">
                         </div>
                         <div class="col-md-2">
                             <button class="btn secondary-bg-color all-btn white">検索</button>
@@ -53,7 +53,7 @@
 
 <script>
 export default {
-          data() {
+        data() {
             return {
                 occupation: []
             }
@@ -65,9 +65,9 @@ export default {
                     this.occupation = response.data;
                 });
         },
-         methods: {
+        methods: {
 
-               deleteType(id) {
+            deleteType(id) {
                 if(confirm("Are you sure you want to delete?"))
                 {
                      this.axios
@@ -79,8 +79,18 @@ export default {
                     });
                 }
                
-            }
+            },
+            searchOccupation() {
+                var search_word = $("#search-item").val();
+
+                let fd = new FormData();
+                    fd.append("search_word", search_word);
+                    this.axios.post("/api/occupation/search", fd).then(response => {
+                        this.occupation = response.data;
+                    });
+                }
            
+            }
         }
-}
+    
 </script>
