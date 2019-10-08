@@ -134,7 +134,7 @@
                                         
                                             <td>{{cost.area}}</td>
                                             <td>
-                                                <a href="#" class="" @click="costConfirm(cost.id)" data-toggle="collapse"  :data-target="'#costDetails' + cost.id">&nbsp;{{changelinktitle}}</a>
+                                                <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >&nbsp;View Details</span>
                                             </td>
                                         </tr>                                        
                                         </tbody>
@@ -145,9 +145,9 @@
                                 </div> -->
 
                               
-                                    <div class="collapse col-md-12" :id="'costDetails' + cost.id" v-for="cost in method_payment" :key="cost.id">
+                                    <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
                                     <table id="costDetails" class="table table-condensed cost_table">
-                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
+                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving) {{cost.id}}</label>
                                         <tbody>
                                             <tr>
                                                 <th width="300">入居一時金または(deposit)</th>
@@ -839,10 +839,11 @@
         this.currentOffset += this.paginationFactor;
       }
     },
-    costConfirm(id){            
-        console.log('title');                    
-            this.changelinktitle = 'back';                   
-        return this.changelinktitle;               
+    costConfirm(id){  
+        $('.changeLink').text("View Details"); 
+        $('.changeLink'+id).text("Close");  
+        $('.closeChangeLink').hide('medium'); 
+        $('#changeLink'+id).show('medium'); 
     }
   }
  }
