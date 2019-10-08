@@ -4,7 +4,7 @@
 
     <div v-if="type == 'nursing'">
 
-            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
+            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav"  v-bind:style="{width:width}">
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
 
@@ -213,15 +213,10 @@
                         </table>
 
                     </div>
-
                     <div v-if="method_payment.length > 0" class="col-md-12">      
-
                         <div class="cost_tb">
-
                             <div class="row col-12 pad-free" >
-
                                 <div class="col-md-12" >
-
                                     <table class="table table-bordered cost_table">
 
                                         <thead>
@@ -241,13 +236,9 @@
                                             </tr>
 
                                         </thead>
-
                                        
-
                                         <tbody>
-
                                         <tr v-for="cost in method_payment" :key="cost.id">                                         
-
                                            
 
                                             <td>{{cost.expense_moving}}</td>
@@ -267,9 +258,7 @@
                                             <td>{{cost.area}}</td>
 
                                             <td>
-
                                                 <a href="#" class="" @click="costConfirm(cost.id)" data-toggle="collapse"  :data-target="'#costDetails' + cost.id">&nbsp;{{changelinktitle}}</a>
-
                                             </td>
 
                                         </tr>                                        
@@ -286,14 +275,9 @@
 
                                 </div> -->
 
-
-
                               
-
                                     <div class="collapse col-md-12" :id="'costDetails' + cost.id" v-for="cost in method_payment" :key="cost.id">
-
                                     <table id="costDetails" class="table table-condensed cost_table">
-
                                         <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
 
                                         <tbody>
@@ -411,9 +395,7 @@
                                     </table>
 
                                 </div>
-
                               
-
                                 
 
                             </div>
@@ -429,9 +411,7 @@
             <div class="row ele m-lr-0" id="element4">
 
                 <!-- <div class="row"> -->
-
                     <h5 class="profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>                    
-
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12" >
 
                         <table border="1" class="table table-bordered cost_table">
@@ -1342,6 +1322,8 @@
 
                 active_el:0,
 
+                width: '',
+
                 center: { lat: 0, lng: 0 },
 
                 address: '',
@@ -1421,9 +1403,7 @@
 
 
                 images: [],
-
                 changelinktitle:'create',
-
                 activeImage: 0,
 
                 currentOffset: 0,
@@ -1431,8 +1411,6 @@
                 windowSize: 1,
 
                 paginationFactor: 220,
-
-
 
             };
 
@@ -1626,7 +1604,9 @@
 
 
 
-
+        var new_width = $("#content-all").width();
+        var fixed_width = new_width - 80;
+        this.width = fixed_width + "px";
 
           },
 
@@ -1713,37 +1693,20 @@
             },
 
              moveCarousel(direction) {
-
                 // Find a more elegant way to express the :style. consider using props to make it truly generic
-
                 if (direction === 1 && !this.atEndOfList) {
-
                     this.currentOffset -= this.paginationFactor;
-
                 } else if (direction === -1 && !this.atHeadOfList) {
-
                     this.currentOffset += this.paginationFactor;
-
                 }
-
             },
-
             costConfirm(id){            
-
                 console.log('title');                    
-
                     this.changelinktitle = 'back';                   
-
                 return this.changelinktitle;
-
                       
-
               
-
             }
-
-
-
 
 
         }
@@ -1765,31 +1728,18 @@
 
 
 <style>
-
 .selected{
-
     background-color: blue;
-
 }
-
 #costDetails{
-
 -moz-transition: height .5s;
-
 -ms-transition: height .5s;
-
 -o-transition: height .5s;
-
 -webkit-transition: height .5s;
-
 transition: height .5s;
-
 height: 0;
 
-
-
 }
-
 .fade-enter-active, .fade-leave-active {
 
    transition: opacity .5s ease-in-out, transform 0.5s ease;

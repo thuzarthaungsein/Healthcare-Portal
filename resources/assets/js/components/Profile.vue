@@ -1,7 +1,12 @@
 <template>
   <div>
     <div v-if="type == 'nursing'">
-      <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist" id="profilenav">
+      <ul
+        class="nav nav-tabs card-head-tabs fixed-ads"
+        role="tablist"
+        id="profilenav"
+        v-bind:style="{width:width}"
+      >
         <li role="presentation" class="subtab1 nav-item">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
             <i class="fa fa-plus-circle"></i>
@@ -14,7 +19,7 @@
               name="btntype"
               id="hospital"
             />
- 作成
+            作成
           </label>
         </li>
 
@@ -30,7 +35,7 @@
               name="btntype"
               id="nursing"
             />
- myページ
+            myページ
           </label>
         </li>
       </ul>
@@ -78,7 +83,7 @@
               name="btntype"
               id="hospital"
             />
- 作成
+            作成
           </label>
         </li>
 
@@ -94,7 +99,7 @@
               name="btntype"
               id="nursing"
             />
- myページ
+            myページ
           </label>
         </li>
       </ul>
@@ -156,7 +161,8 @@ export default {
     return {
       type: "nursing",
 
-      btntype: "view"
+      btntype: "view",
+      width: ""
     };
   },
 
@@ -170,6 +176,9 @@ export default {
     if (this.$route.params.cusid) {
       this.cusid = this.$route.params.cusid;
     }
+    var new_width = $("#content-all").width();
+    var fixed_width = new_width - 49.5;
+    this.width = fixed_width + "px";
   },
 
   methods: {
