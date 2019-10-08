@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Facility;
+use App\NursingProfile;
+use App\HospitalProfile;
+
 use Illuminate\Http\Request;
 
 class FacilityController extends Controller
@@ -21,10 +24,9 @@ class FacilityController extends Controller
             'description' => 'required|unique:facilities',
       
         ]);
-        
-        $facility = new Facility([
-            'description' => $request->input('description')
-        ]);
+    
+        $facility = new Facility();
+        $facility->description = $request->input('description');
         $facility->save();
         return response()->json('The Facility successfully added');
           
@@ -61,7 +63,9 @@ class FacilityController extends Controller
       
         ]);
         $facility = Facility::find($id);
-        $facility->update($request->all());
+        $facility->description =$request->input('description');
+        $facility->save();
+        
         
         return response()->json('The Facility successfully updated');
     }
@@ -84,5 +88,30 @@ class FacilityController extends Controller
                             ->get()
                             ->toArray();
         return $search_facilities;
+    }
+
+    public function getFacilitybyProfileType($profile_type,$customer_id) {
+        $facility_list = Facility::all()->toArray();
+
+        if($profile_type == 'nursing') {
+            $profile_facility = NursingProfile::where('customer_id','=',$customer_id)->value('facilities');
+        }
+        if($profile_type == 'hospital') {
+            $profile_facility = HospitalProfile::where('customer_id','=',$customer_id)->value('facilities');
+        }
+        
+        $facility = explode(',',$profile_facility); 
+      
+        for($indx=0; $indx<count($facility); $indx++) {
+            for($sec_indx = 0; $sec_indx<count($facility_list); $sec_indx++) {
+                if($facility[$indx] == $facility_list[$sec_indx]['id']) {
+                    $facility_list[$sec_indx]['checked'] = "checked";
+                } 
+            }
+        }
+
+        // print_r($facility_list);
+
+        return $facility_list;
     }
 }

@@ -19,6 +19,7 @@ class CreateAdvertisementsTable extends Migration
             $table->text('description')->nullable();
             $table->string('location');
             $table->string('photo');
+            $table->string('link')->nullable();
             $table->integer('user_id')->nullable();
             $table->integer('recordstatus')->default(1);
             $table->timestamps();

@@ -1,41 +1,32 @@
 <template>
-<div>                                
-        <!--menu tabs-->          
-        <ul class="nav nav-tabs card-head-tabs" role="tablist">
-        <li role="presentation" class="active subtab1 nav-item"><a href="#tab1" role="tab" data-toggle="tab" class="nav-link active"><i class="fas fa-newspaper"></i> ニュース</a></li>
-        <li role="presentation" class="subtab2 nav-item"><a href="#tab2" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-        <li role="presentation" class="subtab3 nav-item"><a href="#tab3" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-user-md"></i> 介護検索</a></li>
-        <li role="presentation" class="subtab5 nav-item"><a href="#tab4" role="tab" data-toggle="tab" class="nav-link"><i class="fas fa-users"></i> 求人検索</a></li>
+<div>
+        <!--menu tabs-->
+        <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
+        <li role="presentation"  class="subtab1 nav-item" :class="subtab1active"><a @click="changeRoute" href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
+        <li role="presentation"  class="subtab2 nav-item" :class="subtab2active"><a @click="changeRoute" href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
+        <li role="presentation"  class="subtab3 nav-item" :class="subtab3active"><a @click="changeRoute" href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護検索</a></li>
+        <li role="presentation"  class="subtab5 nav-item" :class="subtab4active"><a @click="changeRoute" href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
               <div class="tab-content tab-content1 tabs">
-               <div role="tabpanel" class="tab-pane in active" id="tab1"> 
-                   <!-- <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item active"><router-link to="/hospitalSearch" ><i class="fas fa-home"></i>   ホーム</router-link>
-                      </li>
-                    </ol>
-                  </nav> -->
-                  <News></News>
-        
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab2"><hospitalSearch></hospitalSearch></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab3"><nursingSearch></nursingSearch></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4"></div>
-                <div role="tabpanel" class="tab-pane fade" id="tab4"><jobSearch></jobSearch></div>
+               <div role="tabpanel"  class="tab-pane" id="tab1" :class="{active:subtab1active, fade:fade1}"> <News></News> </div>
+                <div role="tabpanel" class="tab-pane" id="tab2" :class="{active:subtab2active, fade:fade2}"><hospitalSearch></hospitalSearch></div>
+                <div role="tabpanel" class="tab-pane" id="tab3" :class="{active:subtab3active, fade:fade3}"><nursingSearch></nursingSearch></div>
+                <div role="tabpanel" class="tab-pane" id="tab4" :class="{active:subtab4active, fade:fade4}"><jobSearch></jobSearch></div>
               </div>
-            <!--end Tab panes-->                              
-        </div>   
+            <!--end Tab panes-->
+        </div>
         <!-- {{ l_storage_hos_history }} -->
 </template>
 
 <script>
-import News from './News.vue'
-import hospitalSearch from './hospitalSearch.vue'
-import nursingSearch from './nursingSearch.vue'
-import jobSearch from './jobSearch.vue'
-  
+import News from "./News.vue";
+import hospitalSearch from "./hospitalSearch.vue";
+import nursingSearch from "./nursingSearch.vue";
+import jobSearch from "./jobSearch.vue";
+// import ProfilePublish from './ProfilePublish.vue'
+
 export default {
     components: {
      News,
@@ -44,7 +35,6 @@ export default {
      jobSearch
     },
      mounted() {
-            console.log('Component mounted.');
                 // console.log[l_storage_hos_history];
         },
         data() {
@@ -53,37 +43,43 @@ export default {
                 posts: [],
                 latest_post: [],
                 latest_post_all_cats: [],
-                
+
                 l_storage_hos_history: [],
                 l_storage_nus_history: [],
                 l_storage_hos_fav: [],
                 l_storage_nus_fav: [],
+                subtab1active: '',
+                subtab2active: '',
+                subtab3active: '',
+                subtab4active: '',
+                fade1: true,
+                fade2: true,
+                fade3: true,
+                fade4: true,
             }
         },
         created() {
+                this.start();
+
                 // Push data
                 this.l_storage_hos_fav.push(1);
                 this.l_storage_nus_fav.push(1);
+                this.l_storage_hos_history.push(1);
                 this.l_storage_hos_history.push(2);
+                this.l_storage_hos_history.push(3);
                 this.l_storage_nus_history.push(1);
-
                 this.l_storage_hos_fav.push(2);
                 this.l_storage_nus_fav.push(2);
-                this.l_storage_hos_history.push(1);
                 this.l_storage_nus_history.push(2);
+                this.l_storage_hos_fav.push(3);
+                this.l_storage_nus_fav.push(3);
+                this.l_storage_hos_history.push(4);
+                this.l_storage_nus_history.push(3);
 
-                // Set LocalStorage data
-               localStorage.setItem("hospital_history",this.l_storage_hos_history);
-               localStorage.setItem("nursing_history",this.l_storage_nus_history);
-               localStorage.setItem("hospital_fav",this.l_storage_hos_fav);
-               localStorage.setItem("nursing_fav",this.l_storage_nus_fav);
-
-        //        localStorage.setItem('name', 'SNY');
-        //        const person = {
-        //                name: "SNY",
-        //                location: "Ygn",
-        //        }
-        //        localStorage.setItem('user', JSON.stringify(person));
+                localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
+                localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
+                localStorage.setItem("nursing_history", this.l_storage_nus_history);
+                localStorage.setItem("hospital_history", this.l_storage_hos_history);
                 
             this.getAllCat();
             this.getPostByFirstCat();
@@ -91,33 +87,83 @@ export default {
             this.getLatestPostFromAllCat();
         },
         methods: {
+                start() {
+                      
+                        if(this.$route.params.page) {
+                               //console.log(this.$route.params.page)
+                               if(this.$route.params.page == 'subtab2') {
+                                       this.fade2 = false;
+                                       this.subtab2active = 'active';
+                               }
+                               else if(this.$route.params.page == 'subtab3') {
+                                       this.fade3 = false;
+                                       this.subtab3active = 'active';
+                               }
+                               else if(this.$route.params.page == '#tab2'){
+                                        this.fade1 = false;
+                                        this.fade2 = false;
+                                        this.fade3 = false;
+                                        this.fade4 = false;
+                                        this.subtab2active = 'active';
+                               }
+                               else if(this.$route.params.page == '#tab3'){
+                                        this.fade1 = false;
+                                        this.fade2 = false;
+                                        this.fade3 = false;
+                                        this.fade4 = false;
+                                        this.subtab3active = 'active';
+                               }
+                               else if(this.$route.params.page == '#tab4'){
+                                        this.fade1 = false;
+                                        this.fade2 = false;
+                                        this.fade3 = false;
+                                        this.fade4 = false;
+                                        this.subtab4active = 'active';
+                               }
+                               else if(this.$route.params.page == '#tab1'){
+                                        this.fade1 = false;
+                                        this.fade2 = false;
+                                        this.fade3 = false;
+                                        this.fade4 = false;
+                                        this.subtab1active = 'active';
+                               }
+
+                        }
+                        else{
+                                this.fade1 = false;
+                                this.subtab1active = 'active';
+                        }
+
+
+                //     this.$route.params.page? (this.$route.params.page == 'subtab2'? (this.subtab2active = 'active') : (this.subtab3active = 'active')) : (this.subtab1active = 'active');
+                },
                 getAllCat: function() {
                      this.axios
                         .get('/api/home')
                         .then(response => {
                                 this.cats = response.data;
-                        });   
+                        });
                 },
                 getPostByFirstCat: function() {
-                         axios.get("/api/posts/1")
+                         this.axios.get("/api/posts/1")
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getPostByCatID: function(cat_id) {
-                        axios.get("/api/posts/" + cat_id)
+                        this.axios.get("/api/posts/" + cat_id)
                         .then(response => {
                                 this.posts = response.data;
                         });
                 },
                 getLatestPostByFirstCatID: function() {
-                        axios.get("/api/get_latest_post/1")
+                        this.axios.get("/api/get_latest_post/1")
                         .then(response => {
                                 this.latest_post = response.data;
                         });
                 },
                 getLatestPostByCatID: function(cat_id) {
-                        axios.get("/api/get_latest_post/" + cat_id)
+                        this.axios.get("/api/get_latest_post/" + cat_id)
                         .then(response => {
                                 this.latest_post = response.data;
                         });
@@ -129,10 +175,12 @@ export default {
                                 this.latest_post_all_cats = response.data;
                         });
                 },
+                changeRoute(e){
+                   // console.log(e.target.tagName);
+                    //this.$router.push({name:'home'});
+                },
         }
 
 }
 
- </script>
-
-
+</script>

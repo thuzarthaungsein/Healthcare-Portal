@@ -28,7 +28,7 @@
          
           <ads></ads>        
            
-          <div class="row justify-content-md-center">
+          <div class="row justify-content-md-center p-t-130">
             <div class="col-10 tab">
                <!--menu tabs-->
           
@@ -63,12 +63,13 @@
             <div class="col-2">
                        <relatedNews></relatedNews>
             </div>
+          
           </div>
 
         </div>
         
          <div class="container-fluid footer">
-                <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
+                <span>Copyright©Management Partners Corp.All Rights Reserved.</span>
         </div>
       </section>
     </div>
@@ -77,12 +78,12 @@
 </template>
 
 <script>
+
   import ads from './components/Ads.vue'
   import relatedNews from './components/Relatednews.vue'
   import hospitalSearch from './components/hospitalSearch.vue'
   import nursingSearch from './components/nursingSearch.vue'
   import jobSearch from './components/jobSearch.vue'
-  import profile from './components/Profile.vue'
    export default {
     components: {
       relatedNews,
@@ -90,10 +91,9 @@
       nursingSearch,
       jobSearch,
       ads,
-      profile
+      profile,
     },
      mounted() {
-            console.log('Component mounted.')
             $(document).ready(function() {
                    // jssor_1_slider_init();   
                   //   $('.nav-tabs').scrollingTabs({
@@ -104,6 +104,9 @@
         }
 }
 </script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
 <style scoped>
 /*for jssor*/
    /*jssor slider loading skin spin css*/

@@ -10,22 +10,43 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "axios": "^0.18",
+        "axios": "^0.18.1",
         "bootstrap": "^4.0.0",
-        "popper.js": "^1.12",
         "cross-env": "^5.1",
         "jquery": "^3.2",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
-        "vue": "^2.5.7"
+        "popper.js": "^1.12",
+        "vue": "^2.6.10"
     },
     "dependencies": {
+        "@chenfengyuan/vue-carousel": "^1.0.2",
+        "@ckeditor/ckeditor5-build-classic": "^12.4.0",
+        "@ckeditor/ckeditor5-vue": "^1.0.0-beta.2",
+        "animate.css": "^3.7.2",
         "bootstrap-vue": "^2.0.0-rc.28",
+        "carousel": "0.0.3",
+        "es6-promise": "^4.2.8",
+        "fullpage-vue": "^1.8.3",
+        "iview": "^3.5.0",
         "jquery-bootstrap-scrolling-tabs": "^2.6.1",
         "laravel-mix-svg-vue": "^0.2.2",
+        "passport": "^0.4.0",
+        "quill-better-table": "^1.1.15",
+        "quill-table": "^1.0.0",
         "vue-axios": "^2.1.4",
+        "vue-fixed-header": "^3.2.2",
+        "vue-fullpage.js": "^0.1.4",
         "vue-google-maps": "^0.1.21",
+        "vue-quill-editor": "^3.0.6",
+        "vue-read-more": "^1.1.1",
         "vue-router": "^3.1.2",
-        "vue2-google-maps": "^0.10.7"
+        "vue-slick": "^1.1.15",
+        "vue-sweetalert": "^0.1.18",
+        "vue-template-compiler": "^2.6.10",
+        "vue2-editor": "^2.10.2",
+        "vue2-google-maps": "^0.10.7",
+        "vuejs-auto-complete": "^0.9.0",
+        "vuetify": "^2.0.17"
     }
 }

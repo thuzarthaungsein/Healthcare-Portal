@@ -1,6 +1,6 @@
 <template>
     <!-- Page Content  -->
-    <div id="content" class="row">
+    <div class="row">
         <div class="col-md-12">
             <div class="card  text-dark">
                 <div class="card-body">
@@ -36,7 +36,7 @@
                                 <span v-if="errors.category_id" class="error">{{errors.category_id[0]}}</span>
                             </div>
                             <div class="form-group">
-                                <label>内容:<span class="error">*</span></label>                                
+                                <label>内容:<span class="error">*</span></label>
                                     <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                     <span v-if="errors.body" class="error">{{errors.body[0]}}</span>
                             </div>
@@ -50,6 +50,38 @@
                                 </div>
 
                             </div>
+
+                            <div class="form-group">
+                                <label> カテゴリー:<span class="error">*</span></label>
+                                <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
+                                    <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
+                                        {{category.name}}
+                                    </option>
+                                </select>
+                                <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
+                            </div>
+
+                            <div class="row col-md-12">
+                                <div class="col-md-4" v-for="news in related_news" :key="news.id">
+                                    <label>
+                                        <input type="checkbox" :value="news.id" v-model="checkedNews">
+                                        <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
+                                            <div class="card-body news-post">
+                                                <div class="row">
+                                                    <div class="col-md-3" >
+                                                        <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news">
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{news.title}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                 </div>
+                            </div>
+                            <input type="hidden" v-model="checkedNews">
+
                             <div class="form-group">
 
                                 <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
@@ -58,6 +90,7 @@
                         </form>
                     </div>
                 </div>
+                <!-- {{ categories }} -->
             </div>
         </div>
     </div>
@@ -81,14 +114,18 @@
                     categories: {
                         id: '',
                         name: ''
-                    }
+                    },
+                    category_id_1: '1',
+                    related_news: [],
+                    checkedNews: []
                 }
             },
             created() {
-                axios.get('/api/category/category_list')
+                this.axios.get('/api/category/category_list')
                     .then(function(response) {
                         this.categories = response.data;
                     }.bind(this));
+                this.getPostsByCatId();
             },
             methods: {
                 preview_image() {
@@ -102,27 +139,31 @@
                         fData.append('main_point', this.news.main_point)
                         fData.append('body', this.news.body)
                         fData.append('category_id', this.news.category_id)
-                        axios.post('/api/new/add', fData)
+                        fData.append('related_news', this.checkedNews)
+                        this.axios.post('/api/new/add', fData)
                             .then(response => {
                                 this.$router.push({
                                     name: 'news_list'
                                 })
-                                console.log(response);
                             }).catch(error=>{
-                        
+
                     if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
+
+                        this.errors = error.response.data.errors
                     }
                 })
                     },
                     getstates: function() {
-
                         this.news.category_id = this.category_id;
-
                     },
-
+                    getPostsByCatId: function() {
+                        var cat_id = this.category_id_1;
+                        this.axios
+                        .post('/api/new/getPostsByCatId/' + cat_id)
+                        .then(response => {
+                            this.related_news = response.data;
+                        });
+                    },
             }
     }
 </script>

@@ -21,49 +21,51 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
 
      */
-
     // function __construct()
-
     // {
-
-    //      $this->middleware('permission:categories-list');
-
-    //      $this->middleware('permission:categories-create', ['only' => ['create','store']]);
-
-    //      $this->middleware('permission:categories-edit', ['only' => ['edit','update']]);
-
-    //      $this->middleware('permission:categories-delete', ['only' => ['destroy']]);
-
+    //      $this->middleware('permission:role-list');
+    //      $this->middleware('permission:role-create', ['only' => ['create','store']]);
+    //      $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
+    //      $this->middleware('permission:role-delete', ['only' => ['destroy']]);
     // }
+
 
 
     //index category
     public function index()
     {
+        // $categories = Category::select('name')->get();
+        // return $categories;
         $categories = Category::all()->toArray();
         return array_reverse($categories);
     }
+
     public function list()
     {
-       
-        $category_list = Category::select('id','name')->get()->toArray(); 
-        return $category_list;
+
+        $category_list = Category::select('id','name')->get()->toArray();
+        return response()->json($category_list);
 
     }
 
     //add category
     public function add(Request $request)
     {
+
         $request->validate([
             'name' => 'required|unique:categories',
-      
-        ]);
 
-        $category = new Category([
-            'name' => $request->input('name'),
-            'user_id' => 1,
-            'recordstatus' => 2
-        ]);
+        ],
+        [
+            'name.unique' => 'Unique Name'
+        ]
+    );
+
+        $category = new Category();
+        $category->name = $request->input('name');
+        $category->user_id = 1;
+        $category->recordstatus = 1;
+
         $category ->save();
         return $category;
 
@@ -71,7 +73,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-      
+
         $category = Category::find($id);
         return response()->json($category);
     }
@@ -80,10 +82,14 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-      
+
         ]);
         $category = Category::find($id);
-        $category->update($request->all());
+        $category->name = $request->input('name');
+        $category->user_id = 1;
+        $category->recordstatus = 1;
+        $category -> save();
+        // $category->update($request->all());
 
         return response()->json('The Facility successfully updated');
     }
@@ -93,6 +99,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
         return response()->json('The Category successfully deleted');
+
+
     }
     public function create()
 
@@ -100,17 +108,18 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
-    public function search(Request $request) 
+    public function search(Request $request)
     {
         $request = $request->all();
         $search_word = $request['search_word'];
-        
+
         $search_categories = Category::query()
-                            ->where('name', 'LIKE', "%{$search_word}%") 
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
                             ->get()
                             ->toArray();
         return $search_categories;
-        
+
     }
 
     // public function store(Request $request)

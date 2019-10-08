@@ -20,7 +20,8 @@ class registerController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */     
+    
     public function index()
     {   $type = Type::all();
         $cities = DB::table('cities')->get();
@@ -58,7 +59,7 @@ class registerController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $this->validate($request, [
             'img' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|min:3|max:50',
@@ -66,21 +67,20 @@ class registerController extends Controller
             'phone' => 'max:13',
             'password' => 'min:6|required_with:comfirm_password|same:comfirm_password',
             'comfirm_password' => 'min:6',
-            'address' =>'required',
+            // 'address' =>'required',
             'cities'=> 'required',
             'township'=> 'required',
             ]);
 
-            if($request->type == null){
-                $type = 1;
-            }else{
-                $type = $request->type;
+            if($request->types == '2'){
+                $type = $request->nursing;
             }
 
-            $destinationPath = public_path('/images');
+            // $destinationPath = public_path('/images');
+
             $image = $request->file('img');
             $getName = time().'.'.$image->getClientOriginalExtension();
-            $image->move($destinationPath, $getName);
+            $image->move('upload/customers/', $getName);
             // $dbPath = $destinationPath. '/'.$input['img'];
 
             $customer = new Customer;
@@ -90,7 +90,7 @@ class registerController extends Controller
             $customer->phone = $request->phone;
             $customer->type_id = $type;
             $customer->password = bcrypt($request->password);
-            $customer->address = $request->address;
+            // $customer->address = $request->address;
             $customer->townships_id = $request->township;
             $customer->save();
 

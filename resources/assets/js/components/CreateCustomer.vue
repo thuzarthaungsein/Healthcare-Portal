@@ -97,11 +97,9 @@ export default {
                  fd.append('address',this.customer.address)
 
 
-                 axios.post('/api/customer/add', fd )
+                 this.axios.post('/api/customer/add', fd )
                     .then((response) => {
-                        console.log(response);
                     alert('Successfully Created')
-                    console.log(response);
                      this.$router.push({name: '/'});
                     })
             }

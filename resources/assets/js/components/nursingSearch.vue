@@ -869,12 +869,12 @@
                           <!-- <em>{{city.city_name}}</em> -->
                           <span id="close3"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
                     </button>
-                   
+                   <router-link to="/map">map</router-link>
                     <div  class="toBeToggled2" id="toBeToggled2">
 
                       <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
                         <label class="form-check-label" :for="township.id">
-                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID[township.id]" @click="getCheck($event)"> 
+                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)"> 
                         {{township.township_name}}
                         </label>
                       </div>
@@ -1056,11 +1056,13 @@
             <div class="col-sm-12 col-md-12">
             <div class="card">
               <div class="card-body">
+                <div id="map"></div>
                   <GmapMap  id="googlemap"
                             ref="map"
                             :center="center"
                             :zoom="10" 
-                            style="height:700px">
+                            style="height:700px"
+                           >
                             
                     <GmapMarker
                       v-for="(m, index) in markers"
@@ -1070,7 +1072,7 @@
                       :draggable="true"
                       @click="center=m.position"
                       @mouseover="googleMarker"
-                      :icon="markerOptions"
+                     
                     />
                    
                   </GmapMap>
@@ -1091,15 +1093,13 @@
 <script>
 
 import asidebar from "./aside.vue";
+import { eventBus } from '../event-bus.js';
 export default {
-  
     name: "GoogleMap",
     components: {
       asidebar
     },
-   
     data(){
-      
       return{
         markers: [
             { position: { lat: 0, lng: 0 } },
@@ -1118,13 +1118,9 @@ export default {
         medical_acceptance:[],
         toggleCheck: true,
         toggleCheck_1: false,
-        markerOptions: {
-        url: 'images/g-marker/g-marker.png',
-        scaledSize: {width: 40, height: 45, f: 'px', b: 'px',},
-      },
       }
     },
-    
+
   methods:{
     toggleContent2() {
       
@@ -1153,9 +1149,7 @@ export default {
                 $('#close1').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
             }
         },
-
       getStateClick(e){
-         console.log(e.target.tagName)
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
           const id = e.target.id;
@@ -1175,8 +1169,38 @@ export default {
           this.center['lng'] = response.data.getCity[0]['longitude'];
           this.id = id
 
-         
-          
+          let apiPath = "https://nominatim.openstreetmap.org/search.php";
+
+          let params = {
+            q: response.data.getCity[0]['city_eng'],
+            polygon_geojson: 1,
+            format: "json"
+          };
+          axios.get(apiPath, { params: params }  )
+            .then(response => {
+              let geoJSONDataChunk = response.data[0];
+              const geoConf = {
+                "type": "FeatureCollection",
+                "features": [
+                  { "type": "Feature",
+                    "geometry": geoJSONDataChunk.geojson,
+                    "id": "map"
+                  }
+                ]
+              };
+              var coordinates = geoJSONDataChunk.geojson['coordinates'];
+              this.myCityData = new google.maps.Data();
+              this.myCityData.addGeoJson(geoConf, "map");
+              this.myCityData.setStyle({
+                fillColor: 'green',
+                fillOpacity: 0.1,
+                strokeWeight: 1
+              });
+              console.log(this.myCityData)
+              // send data to our Map component
+              eventBus.$emit('sendCityData', this.myCityData);
+
+        });
          })
         }else if(e.target.tagName ==='OPTION'){
           const id = this.id;
@@ -1197,14 +1221,12 @@ export default {
          })
         }
       },
+
       googleMarker(e){
         console.log(e)
       },
-      getCheck(e){
-        if(e.target.checked){
-           this.township_id.push(e.target.value);
-           console.log(this.township_id);
-        }
+      getCheck(e){    
+        console.log(this.townshipID) 
       },
       features(e){
         if(e.target.checked){

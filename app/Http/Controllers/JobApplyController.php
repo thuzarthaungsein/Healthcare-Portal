@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\JobApply;
 use Illuminate\Http\Request;
 use App\Job;
+use App\Mail\jobApplyMailToUser;
+use App\Mail\jobApplyMailToCustomer;
+use App\Mail\jobApplyMailToAdmin;
+use DB;
 class JobApplyController extends Controller
 {
     /**
@@ -37,36 +41,51 @@ class JobApplyController extends Controller
      */
     public function store(Request $request)
     {
-
                 $string = '';
-                $count = count($request->fields);
+                $count = count($request->skills);
 
                 for($i = 0;$i< $count ;$i++)
                 {
 
                     if($i == $count-1)
                     {
-                        $string .= $request->fields[$i];
+                        $string .= $request->skills[$i];
                     }else{
-                        $string .= $request->fields[$i].',';
+                        $string .= $request->skills[$i].',';
                     }
 
                 }
-
-
-
-            $jobapply = new JobApply([
-                 'name' => $request->input('name'),
-                 'birthday' =>  $request->input('birthday'),
-                 'address' =>  $request->input('address'),
-                 'phone' =>  $request->input('phone'),
-                 'email'=> $request->input('email'),
-                 'work_time'=>$request->input('work_time'),
-                 'skill' =>$string
-
-
-             ]);
+            $jobapply = new JobApply;
+            $jobapply->job_id = 1;
+            $jobapply->first_name = $request->first_name;
+            $jobapply->last_name = $request->last_name;
+            $jobapply->birthday = $request->birthday;
+            $jobapply->gender = $request->gender;
+            $jobapply->postal = $request->postal;
+            $jobapply->street_address = $request->str_address;
+            $jobapply->home_address = $request->home_address;
+            $jobapply->phone = $request->phone;
+            $jobapply->email = $request->email;
+            $jobapply->skill = $string;
+            $jobapply->remark = $request->remark;
+            //  return $jobapply;
+            $infos = DB::table('jobs')
+                            ->join('customers', 'customers.id', '=', 'jobs.customer_id')
+                            ->select('jobs.title','customers.email')
+                            ->where('jobs.id', '=', 2)
+                            ->get();
+            foreach($infos as $info) {
+                $job_title = $info->title;
+                $customer_mail = $info->email;
+            }
+            
+            $admin_email = 'softguide.sawnwaiyannaing@gmail.com';
              $jobapply->save();
+             $jobapply->job_title = $job_title;
+             \Mail::to($customer_mail)->send(new jobApplyMailToCustomer($jobapply));
+             \Mail::to($jobapply->email)->send(new jobApplyMailToUser($jobapply));
+             \Mail::to($admin_email)->send(new jobApplyMailToAdmin($jobapply));
+
              return response()->json('Apply successfully ');
 
     }
