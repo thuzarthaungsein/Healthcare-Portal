@@ -190,7 +190,7 @@ export default {
 
 <style >
 .hospital-tabColor {
-        background: #3cb7f9 !important;
+        background: #63b7ff !important;
 }
 .job-tabColor {
         background: #75b777 !important;

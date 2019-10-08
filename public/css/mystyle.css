@@ -3865,11 +3865,11 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     border-color: #ff9563 #fff #fff #fff !important;
 }
 .hospital-tabColor .nav-link.active {
-    color: #3cb7f9 !important;
+    color: #63b7ff !important;
     font-weight: bold;
     background-color: #fff;
-    border-top: 1px solid #3cb7f9;
-    border-color: #3cb7f9 #fff #fff #fff !important;
+    border-top: 1px solid #63b7ff;
+    border-color: #63b7ff #fff #fff #fff !important;
 }
 .job-tabColor .nav-link.active {
     color: #75b777 !important;
