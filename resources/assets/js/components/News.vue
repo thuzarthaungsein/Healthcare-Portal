@@ -31,9 +31,9 @@
                                                                 </ul>
                                                         </div>
                                                         <div class="tab-content tab-content2 scroll2" id="myTabContent">
-                                                                <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
+                                                                <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">                                                                        
                                                                         <div class="row">
-                                                                                <div class="active-users col-md-4">
+                                                                                <div class="active-users col-md-3">
                                                                                         <router-link :to="'/newsdetails/'+latest_post.id">
                                                                                                 <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:200px" @error="imgUrlAlt"/>
                                                                                                 <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
@@ -42,7 +42,7 @@
                                                                                                 </p>
                                                                                         </router-link>
                                                                                 </div>
-                                                                                <div class="col-md-8 news-wrapper">
+                                                                                <div class="col-md-9 news-wrapper">
                                                                                         <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
                                                                                                 <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
                                                                                                         <router-link :to="{name:'newdetails', params: {id:post.id}}">

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div>
     <div v-if="type == 'nursing'">
       <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist" id="profilenav">
         <li role="presentation" class="subtab1 nav-item">
@@ -14,7 +14,7 @@
               name="btntype"
               id="hospital"
             />
-            作成
+ 作成
           </label>
         </li>
 
@@ -30,7 +30,7 @@
               name="btntype"
               id="nursing"
             />
-            myページ
+ myページ
           </label>
         </li>
       </ul>
@@ -78,7 +78,7 @@
               name="btntype"
               id="hospital"
             />
-            作成
+ 作成
           </label>
         </li>
 
@@ -94,7 +94,7 @@
               name="btntype"
               id="nursing"
             />
-            myページ
+ myページ
           </label>
         </li>
       </ul>
@@ -169,8 +169,6 @@ export default {
 
     if (this.$route.params.cusid) {
       this.cusid = this.$route.params.cusid;
-    } else {
-      this.cusid = 1;
     }
   },
 
@@ -188,11 +186,4 @@ export default {
     }
   }
 };
-$(function() {
-  var new_width = $("#content-all").width();
-  $("#profilenav").width(new_width - 46.5);
-  $(".fixed-nav").width(new_width - 93);
-  var fixNavHeight = $(".fixed-nav").height();
-  $(".fixed-nav").css("margin-bottom", fixNavHeight);
-});
 </script>

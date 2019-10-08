@@ -1833,10 +1833,26 @@ ul.sub-ul li {
 }
 
 .inner-btn {
-    padding: 10px 7px;
-    background: #ecede1 !important;
-    color: green !important;
+    background: #0cc72c !important;
+    color: #fff !important;
     font-weight: bold;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #c6c6c6;
+    background: #ebeaea;
+    background: linear-gradient(to bottom, #fafafa 0, #ebeaea 100%);
+    color: #48555a;
+    font-size: 94.4%;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: normal;
+    vertical-align: middle;
+}
+
+.inner-btn:hover,
+.inner-btn:focus {
+    text-decoration: none;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
@@ -1921,11 +1937,6 @@ ul.sub-ul li {
 
 .invalid-feedback {
     font-size: 75%;
-}
-
-.btn.focus,
-.btn:focus {
-    box-shadow: none !important;
 }
 
 .fav-item {
@@ -2249,6 +2260,21 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 .section#section4 {
     background: #666;
     color: #eee;
+}
+
+.fac-name-box {
+    border: 1px solid #eee;
+    padding: 0px;
+}
+
+.fac-name-box h4 {
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+}
+
+.fac-check-box {
+    text-align: center;
 }
 
 
@@ -3015,7 +3041,7 @@ div.b {
     z-index: 5;
     overflow: hidden;
     background: #fff;
-    width: 81%;
+    width: 81.3%;
 }
 
 .fixed-ads-fluid {
@@ -3424,7 +3450,7 @@ margin-right: 2% !important;
 }
 
 .main-bg-color {
-    background-color: #118063 !important;
+    background-color: #0cc72c !important;
 }
 
 .m-b-10 {
@@ -3516,11 +3542,6 @@ margin-right: 2% !important;
 
 .invalid-feedback {
     font-size: 75%;
-}
-
-.btn.focus,
-.btn:focus {
-    box-shadow: none !important;
 }
 
 .fav-item {
@@ -3617,7 +3638,7 @@ li.userprofile-name>a {
 
 #myTab .nav-link.active {
     background-color: #666 !important;
-    border: 0px;
+    border: none !important;
 }
 
 .nav-link {
@@ -3723,11 +3744,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     padding-left: 22px;
     padding-right: 7px;
     margin-top: 4px;
-}
-
-.custom-sidebar {
-    /* height: 100vh;*/
-    /* background: #b7dad2;  */
 }
 
 
@@ -5462,7 +5478,7 @@ button.confirmed {
 
 .ele {
     margin-top: 27px;
-    padding-top: 60px;
+    padding-top: 50px;
 }
 
 .table-wrapper {
@@ -5652,11 +5668,6 @@ button.confirmed {
 .custom-table>tbody tr:hover {
     color: #212529;
     background-color: rgb(245, 255, 253) !important;
-}
-
-.custom-table th,
-.custom-table td {
-    /* border-top: 1px dashed #91c796; */
 }
 
 .err {
