@@ -719,7 +719,7 @@
         <!-- End Map -->
 
         <div class="row col-2 col-offset-6 mx-auto">
-          <span class="btn main-bg-color col-12 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
+          <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
         </div>
       </div>
     </form>
