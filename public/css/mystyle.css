@@ -3880,11 +3880,11 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     border-color: #75b777 #fff #fff #fff !important;
 }
 .news-tabColor .nav-link.active {
-    color: #e4c31e  !important;
+    color: #666  !important;
     font-weight: bold;
     background-color: #fff;
-    border-top: 1px solid #e4c31e ;
-    border-color: #e4c31e  #fff #fff #fff !important;
+    border-top: 1px solid #666 ;
+    border-color: #666  #fff #fff #fff !important;
 }
 
 .nav-tabs .nav-link {
