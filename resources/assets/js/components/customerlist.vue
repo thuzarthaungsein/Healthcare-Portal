@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="col-md-12 pad-free">
     <!-- <div class="col-12"> -->
     <!-- <div class="card card-default m-b-20">
             <div class="card-body">
@@ -17,11 +17,11 @@
         </div>
     </div>-->
 
-    <div class="col-12 m-b-10" v-if="this.customers.length !== 0">
+    <!-- <div class="col-12 m-b-10" v-if="this.customers.length !== 0">
       <router-link to="/createcustomer" class="float-right main-bg-color create-btn all-btn">
         <i class="fas fa-plus-circle"></i> 新しい事業者を作成
       </router-link>
-    </div>
+    </div> -->
 
     <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
       <div class="col-md-12 scrolldiv p-0">

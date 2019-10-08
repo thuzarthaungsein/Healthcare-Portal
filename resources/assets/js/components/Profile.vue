@@ -148,48 +148,45 @@ export default {
   ready: function() {
     Vue.nextTick(function() {}.bind(this));
   },
-
   components: {
     hospitalProfile,
-
     nursingProfile,
-
     profilePublish
   },
-
   data() {
     return {
-      type: "nursing",
-
+      type: null,
+      cusid: null,
       btntype: "view",
       width: ""
     };
   },
-
   created() {
     if (this.$route.params.type) {
       this.type = this.$route.params.type;
-
-      console.log(this.type);
+      localStorage.setItem("cusType", this.type);
     }
-
     if (this.$route.params.cusid) {
       this.cusid = this.$route.params.cusid;
+      localStorage.setItem("cusId", this.cusid);
     }
     var new_width = $("#content-all").width();
     var fixed_width = new_width - 49.5;
     this.width = fixed_width + "px";
-  },
 
+    this.type = localStorage.getItem("cusType");
+    this.cusid = Number(localStorage.getItem("cusId"));
+
+    console.log(localStorage.getItem("cusType"));
+    console.log(localStorage.getItem("cusId"));
+  },
   methods: {
     changeBtnType() {
       if (this.btntype == "create") {
         document.getElementById("hospital-lbl").classList.add("dim-btn");
-
         document.getElementById("nursing-lbl").classList.remove("dim-btn");
       } else {
         document.getElementById("nursing-lbl").classList.add("dim-btn");
-
         document.getElementById("hospital-lbl").classList.remove("dim-btn");
       }
     }
