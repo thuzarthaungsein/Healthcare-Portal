@@ -225,18 +225,17 @@
             </div>
           </div>
           <div class="text-center mt-4 pb-5">
-            <button
-              type="submit"
+            <span
               :disabled="isDisabled"
               class="btn main-bg-color white all-btn"
               @click="checkValidate()"
-            >確認画面へ進む</button>
+            >確認画面へ進む</span>
           </div>
         </form>
       </div>
 
       <div class="col-md-7 offset-md-3 confirm_box" v-if="type == 'confirm'">
-        <form @submit.prevent="apply">
+        <form >
           <div class="form-group m-0 row bd">
             <div class="col-sm-3">
               <label for="first_name">
@@ -374,8 +373,8 @@
           </div>
 
           <div class="text-center">
-            <button type="submit" class="btn main-bg-color white all-btn" @click="editUserInfo()">戻る</button>
-            <button type="submit" class="btn main-bg-color white all-btn">登録</button>
+            <span class="btn main-bg-color white all-btn" @click="editUserInfo()">戻る</span>
+            <span class="btn main-bg-color white all-btn" @click="apply()">登録</span>
           </div>
           <br />
           <!-- <div v-if="success" class="alert alert-success mt-3">Apply sent!</div> -->
