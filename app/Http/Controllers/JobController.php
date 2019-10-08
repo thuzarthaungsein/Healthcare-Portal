@@ -192,7 +192,6 @@ class JobController extends Controller
         $job = Job::find($id);
         if($job != null)
         {
-
             $string = '';
             $count = count($request->fields);
             for($i = 0;$i< $count ;$i++)
@@ -203,7 +202,6 @@ class JobController extends Controller
                 }else{
                     $string .= $request->fields[$i]['skills'] .',';
                 }
-
             }
 
 

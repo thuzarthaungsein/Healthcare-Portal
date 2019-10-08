@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Subject;
+use App\HospitalProfile;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -147,6 +148,23 @@ class SubjectController extends Controller
                             ->get()
                             ->toArray();
         return $search_subjects;
+    }
+
+    public function getHospitalClinicalSubject($customer_id) {
+        $subject_list = Subject::all()->toArray();
+
+        $clinical_subject = HospitalProfile::where('customer_id','=',$customer_id)->value('subject');
+
+        $subject = explode(',',$clinical_subject); 
+      
+        for($indx=0; $indx<count($subject); $indx++) {
+            for($sec_indx = 0; $sec_indx<count($subject_list); $sec_indx++) {
+                if($subject[$indx] == $subject_list[$sec_indx]['id']) {
+                    $subject_list[$sec_indx]['checked'] = "checked";
+                } 
+            }
+        }
+        return $subject_list;
     }
 
 
