@@ -29,10 +29,12 @@ class ProfilePublishController extends Controller
     public function index()
     {
 
-        $feature = NursingProfile::select('feature')->where('customer_id',auth()->user('customer_id'))->get();
+        $feature = NursingProfile::select('feature')->where('customer_id',1)->get();
         $method = NursingProfile::select('method')->where('customer_id',auth()->user('customer_id'))->get();
-        $facility = NursingProfile::where('customer_id',auth()->user('customer_id'))->get();
-        $comedical = Cooperate_Medical::where('customer_id',auth()->user('customer_id'))->get();
+        $facility = NursingProfile::where('customer_id',1)->get();
+        
+       
+        $comedical = Cooperate_Medical::where('customer_id',1)->get();
 
         //forshow all medical acceptance
         $medicalacceptance = Medical::select('id','name')->get();
@@ -68,7 +70,7 @@ class ProfilePublishController extends Controller
         $facility_list = Facility::select('id','description')->get();
         $profile_facility =  HospitalProfile::select('facilities')->where('customer_id',3)->value('facilities');
         $hosfacility= explode(',',$profile_facility);
-        $facility = Facility::whereIn('id',$hosfacility)->select('description','id')->get();
+        // $facility = Facility::whereIn('id',$hosfacility)->select('description','id')->get();
         return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff,
            "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"images"=>$images,"facility_list"=>$facility_list,"facility"=>$facility));
     }

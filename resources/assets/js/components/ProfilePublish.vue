@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div v-if="type == 'nursing'">
-            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav">
+            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
                 情報
             </button>
@@ -133,7 +133,7 @@
                                         
                                             <td>{{cost.area}}</td>
                                             <td>
-                                                <a href="#" class="" @click="costConfirm(cost.id)" data-toggle="collapse"  :data-target="'#costDetails' + cost.id">&nbsp;{{changelinktitle}}</a>
+                                                <a href="#" class="" @click="commentConfirm(cost.id)" data-toggle="collapse"  :data-target="'#costDetails' + cost.id">&nbsp;{{changelinktitle}}</a>
                                             </td>
                                         </tr>                                        
                                         </tbody>
@@ -145,7 +145,7 @@
 
                               
                                     <div class="collapse col-md-12" :id="'costDetails' + cost.id" v-for="cost in method_payment" :key="cost.id">
-                                    <table id="costDetails" class="table table-condensed cost_table">
+                                    <table class="table table-condensed cost_table">
                                         <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
                                         <tbody>
                                             <tr>
@@ -670,6 +670,7 @@
                 am_arr:[],
                 pm_arr:[],
                 active_el:0,
+                width: '',
                 center: { lat: 0, lng: 0 },
                 address: '',
                 customer_id :2,
@@ -811,7 +812,9 @@
 
 
             }
-
+            var new_width = $("#content-all").width();
+            var fixed_width = new_width - 80;
+            this.width = fixed_width + "px";
 
           },
           computed: {
@@ -863,9 +866,10 @@
                     this.currentOffset += this.paginationFactor;
                 }
             },
-            costConfirm(id){            
+            commentConfirm(id){            
                 console.log('title');                    
-                    this.changelinktitle = 'back';                   
+                    this.changelinktitle = 'back';
+                    $(this.a).addClass("btn");
                 return this.changelinktitle;
                       
               
