@@ -47,6 +47,17 @@ Route::group(['middleware' => ['auth:api']], function() {
     });
     // End Category
 
+    // Station
+    Route::group(['prefix' => 'station'], function () {
+        Route::get('stations', 'StationController@index');
+        // Route::post('add', 'CategoryController@add');
+        // Route::get('edit/{id}', 'CategoryController@edit');
+        // Route::post('update/{id}', 'CategoryController@update');
+        Route::delete('delete/{id}', 'StationController@destroy');
+        Route::post('search','StationController@search');
+    });
+    // End Station
+
     // Type
     Route::group(['prefix' => 'types'], function () {
         Route::get('typelist', 'TypeController@TypeList');

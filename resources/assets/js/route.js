@@ -10,6 +10,7 @@ import news_list from "./components/news_list.vue";
 import create_news from "./components/create_news.vue";
 import categorylist from "./components/categorylist.vue";
 import createcategory from "./components/createcategory.vue";
+import stationlist from "./components/stationlist.vue";
 import FacilitiesListComponent from "./components/FacilitiesListComponent.vue";
 import CreateFacilityComponent from "./components/CreateFacilityComponent.vue";
 import custedit from "./components/custedit.vue";
@@ -142,6 +143,11 @@ export const routes = [
         name: "editcategory",
         path: "/editcategory",
         component: editcategory
+    },
+    {
+        name: "stationlist",
+        path: "/stationlist",
+        component: stationlist
     },
     {
         name: "facilitieslist",
