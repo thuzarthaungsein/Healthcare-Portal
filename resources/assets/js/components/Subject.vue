@@ -2,58 +2,39 @@
 
 <div class="row">
       <div class="col-12">
-          <div class="card ">
-                    <div class="card-header text-center">
-                        <h4 style="padding-top: 20px;"> Subject Create </h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-header header">{{ header }}</h4>
+                        </div>
+                             <div class="col-md-12">
+                                 <form @submit.prevent ="add">
+                                <div class="form-group">
+                                    <label>名前 :<span class="error">*</span></label>
+                                    <input type="text" class="form-control"  v-model="Subject.name"  placeholder="名前" >
+                                    <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                                </div>
+                                <div class="form-group">
+                                <label>ペアレント :<span class="error">*</span></label>
+                                    <select v-model="selectedValue" class="form-control" @change='getParent()'>
+                                        <option value="0">None</option>
+                                        <option v-for="Subjectlist in SubjectList" :key="Subjectlist.id" v-bind:value="Subjectlist.id">
+                                            {{Subjectlist.name}}
+                                        </option>
+                                    </select>
+                            </div><br/>
+                                 <div class="form-group">
+                                        <router-link class="btn btn-danger all-btn" to="/subjectlist" > キャンセル </router-link>
+                                        <button class="btn news-post-btn">作成</button>
+                                </div>
+                             </form>
+                             </div>
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                         <div class="col-sm-1"></div>
-                         <div class="col-sm-9">
-                                <form @submit.prevent ="add" class="m-t-16">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 text-right">
-                                                <label for ="name"  ><strong> Subject Name : <span class="error">*</span></strong>  </label>
-                                            </div>
-                                             <div class="col-sm-9">
-                                                <input type="name" class="form-control box" id="name"  name="name" v-model="Subject.name"  >
-                                             </div>
-                                        </div>
-                                          <div class="form-group row">
-                                                <div class="col-sm-3">
-                                                </div>
-                                                <div class="col-sm-9">
-                                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
-                                                </div>
-                                         </div>
-
-                                        <div class="form-group row">
-                                                <div class="col-sm-3 text-right">
-                                                        <label for ="description" ><strong> Parent :</strong>  </label>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <select v-model="selectedValue" class="form-control" @change='getParent()'>
-                                                        <option value="0">None</option>
-                                                        <option v-for="Subjectlist in SubjectList" :key="Subjectlist.id" v-bind:value="Subjectlist.id">
-                                                           {{Subjectlist.name}}
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                        </div>
-                                        <div class="form-group">
-                                                <router-link class="btn btn-danger all-btn" to="/subjectlist" > キャンセル </router-link>
-                                                <button class="btn news-post-btn">作成</button>
-                                        </div>
-                                </form>
-                           </div>
-                            <div class="col-sm-2"></div>
-
-                       </div>
-
-                     </div>
                 </div>
-             </div>
-         </div>
+            </div>
+      </div>
+</div>
 </template>
 
 
@@ -73,7 +54,9 @@ export default {
                         name: ''
                    },
 
-                selectedValue:0
+                selectedValue:0,
+                header: 'Create Subject',
+                subtitle: '作る'
 
             }
         },
@@ -106,15 +89,22 @@ export default {
 
          methods: {
             add() {
-                if(this.$route.params.id)
+                if( `${this.$route.params.id}` == "undefined")
                 {
-                       this.updateSubject();
-                }
-                else{
-                  this.axios.post('/api/subjects/add', this.Subject)
+                    this.axios.post('/api/subjects/add', this.Subject)
                         .then((response) => {
                             this.name = ''
-                        alert('Successfully Created')
+                            console.log(response);
+                            this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '作成されました',
+                            showConfirmButton: false,
+                            timer: 1800,
+                            width: 250,
+                            height: 200,
+                        })
+                        // alert('Successfully Created')
                         this.$router.push({name: 'subjectlist'});
                         }).catch(error=>{
 
@@ -125,6 +115,9 @@ export default {
                     }
                 })
                 }
+                else{
+                     this.updateSubject();
+                }
             },
              getParent: function(){
 
@@ -132,13 +125,20 @@ export default {
 
            },
            updateSubject() {
-
-
                 this.axios
                     .post(`api/subjects/update/${this.$route.params.id}`, this.Subject)
                     .then((response) => {
-                        this.name = ''
-                          alert('Successfully Updated!')
+                        this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '作成されました',
+                            showConfirmButton: false,
+                            timer: 1800,
+                            width: 250,
+                            height: 200,
+                        })
+                        // this.name = ''
+                        //   alert('Successfully Updated!')
                         this.$router.push({name: 'subjectlist'});
                     }).catch(error=>{
 
@@ -147,7 +147,7 @@ export default {
                         this.errors = error.response.data.errors
 
                     }
-                })   ;
+                });
             },
 
         }

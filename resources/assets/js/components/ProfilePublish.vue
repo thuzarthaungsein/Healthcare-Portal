@@ -136,7 +136,7 @@
 
                                             <td>{{cost.area}}</td>
                                             <td>
-                                                <a href="#" class="" @click="costConfirm(cost.id)" data-toggle="collapse"  :data-target="'#costDetails' + cost.id">&nbsp;{{changelinktitle}}</a>
+                                                <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >&nbsp;View Details</span>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -147,9 +147,9 @@
                                 </div> -->
 
 
-                                    <div class="collapse col-md-12" :id="'costDetails' + cost.id" v-for="cost in method_payment" :key="cost.id">
+                                    <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
                                     <table id="costDetails" class="table table-condensed cost_table">
-                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
+                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving) {{cost.id}}</label>
                                         <tbody>
                                             <tr>
                                                 <th width="300">入居一時金または(deposit)</th>
@@ -213,109 +213,8 @@
                             </div>
 
                         </div>
-                    </div> -->
-                    <div v-if="method_payment.length > 0" class="col-md-12">
-                        <div class="cost_tb">
-                            <div class="row col-12 pad-free">
-                                <div class="col-md-12">
-                                    <table class="table table-bordered cost_table">
-                                        <thead>
-                                            <tr>
-                                                <th>入居にかかる費用(Expense)</th>
-                                                <th>居室タイプ(type)</th>
-                                                <th>月額料金 (monthly)</th>
-                                                <th>広さ(area)</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr v-for="cost in method_payment" :key="cost.id">
-
-                                            <td>{{cost.expense_moving}}</td>
-
-                                            <td>{{cost.living_room_type}}</td>
-
-
-                                            <td>{{cost.monthly_fees}}</td>
-
-                                            <td>{{cost.area}}</td>
-                                            <td>
-                                                <!-- <button class="btn inner-btn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id" v-if="cost.id != 0" ><i class="fas fa-sort-down"></i>&nbsp;内容を見る</button> -->
-                                                <a href="#" @click="commentConfirm(cost.id)" data-toggle="collapse" :data-target="'#costDetails' + cost.id">Create</a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
-                                <!-- <div class="cost_btnwrapper col-md-1 pad-free">
-                                    <button class="btn inner-btn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id"><i class="fas fa-sort-down"></i>&nbsp;内容を見る</button>
-                                </div> -->
-                                    <div class="collapse col-md-12" :id="'costDetails' + cost.id" v-for="cost in method_payment" :key="cost.id">
-                                    <table class="table table-condensed cost_table">
-                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
-                                        <tbody>
-                                            <tr>
-                                                <th width="300">入居一時金または(deposit)</th>
-                                                    <td>{{cost.deposit}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>その他（使途）(other)</th>
-                                                    <td>{{cost.other_use}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table class="table table-condensed cost_table">
-                                            <label class="cost_heading_lbl">月額費用(Monthly Cost)</label>
-                                        <tbody>
-                                            <tr>
-                                                <th width="300">賃料 (rent)</th>
-                                                <td>{{cost.rent}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>管理費(admin_expense)</th>
-                                                <td>{{cost.admin_expense}}</td>
-                                            </tr>
-                                            <tr>
-                                         <th>食費 (food_expense)</th>
-                                                <td>{{cost.food_expense}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>介護上乗せ金（生活サービス費(nursing care)</th>
-                                                <td>{{cost.nurse_care_surcharge}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>その他 (other monthly cost)</th>
-                                                <td>{{cost.other_monthly_cost}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table class="table table-condensed cost_table">
-                                            <label class="cost_heading_lbl" style="width: 100%;">返還金について(refund system)</label>
-                                        <tbody>
-                                            <tr>
-                                                <th width="300">返還制度 (refund)</th>
-                                                <td>{{cost.refund_system}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>償却期間(Depreciation)</th>
-                                                <td>{{cost.depreciation_period}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>初期償却(InitialDepreciation)</th>
-                                                <td>{{cost.initial_deprecration}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>その他メッセージ(other message)</th>
-                                                <td>{{cost.other_message_refund}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
+
             </div>
             <div class="row ele m-lr-0" id="element4">
                 <!-- <div class="row"> -->
@@ -944,9 +843,10 @@
       }
     },
     costConfirm(id){
-        console.log('title');
-            this.changelinktitle = 'back';
-        return this.changelinktitle;
+        $('.changeLink').text("View Details");
+        $('.changeLink'+id).text("Close");
+        $('.closeChangeLink').hide('medium');
+        $('#changeLink'+id).show('medium');
     }
   }
  }

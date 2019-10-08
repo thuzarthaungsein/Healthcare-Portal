@@ -154,13 +154,47 @@ export default {
   },
   methods: {
     deleteJob(id) {
-      if (confirm("Are you sure you want to delete?")) {
-        this.axios.delete(`/api/job/delete/${id}`).then(response => {
-          alert("Delete Successfully!");
-          let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
-          this.jobs.splice(i, 1);
+                this.$swal({
+                title: "確認",
+                text: "削除よろしいでしょうか",
+                type: "warning",
+                width: 350,
+                height: 200,
+                showCancelButton: true,
+                confirmButtonColor: "#dc3545",
+                cancelButtonColor: "#b1abab",
+                cancelButtonTextColor: "#000",
+                confirmButtonText: "削除",
+                cancelButtonText: "キャンセル",
+                confirmButtonClass: "all-btn",
+                cancelButtonClass: "all-btn"
+            }).then(response => {
+            this.axios.delete(`/api/job/delete/${id}`)
+                   .then(response => {
+                       let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
+                        this.jobs.splice(i, 1);
+                         this.$swal({
+                title: "削除された",
+                text: "ファイルが削除されました。",
+                type: "success",
+                width: 350,
+                height: 200,
+                confirmButtonText: "はい",
+                confirmButtonColor: "#dc3545"
+                    });
+                }).catch(() => {
+                this.$swal("Failed", "wrong");
+            });
         });
-      }
+
+
+    //   if (confirm("Are you sure you want to delete?")) {
+    //     this.axios.delete(`/api/job/delete/${id}`).then(response => {
+    //       alert("Delete Successfully!");
+    //       let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
+    //       this.jobs.splice(i, 1);
+    //     });
+    //   }
     },
     searchJobOffer() {
       var search_word = $("#search-item").val();

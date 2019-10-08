@@ -37,11 +37,11 @@
                                                                 <div class="col-md-12 text-right">
                                                                         <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')"> <i class="fa fa-trash"></i> 削除</a>
                                                                 </div>
-                                                               
-                                                       
+
+
                                                 </div>
                                     </div>
-                                   
+
                             </div>
                     </div>
 
@@ -74,8 +74,8 @@
                         </tr>
 
                 </table>
-                   
-                <!--table 1 for 費用-->                
+
+                <!--table 1 for 費用-->
                 <table class="table table-bordered table-wrapper">
                         <tr>
                             <td style="border:none;">
@@ -96,10 +96,10 @@
                                                         <td colspan="2" class="text-right" style="border:none;!important">
                                                                 <span class="btn edit-borderbtn" style="min-width:0px;">
                                                                 <i class="fa fa-edit"></i> 編集
-                                                                      
+
                                                                 </span>
                                                                 <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
-                                                                         <i class="fa fa-trash"></i> 削除</a>                                                                
+                                                                         <i class="fa fa-trash"></i> 削除</a>
                                                         </td>
                                                         </tr>
                                                         <tr>
@@ -183,9 +183,9 @@
                                                                 <input type="text" name="breakdown[]" class="form-control food-expense white-bg-color" v-model="payment.food_expense">
                                                         </th>
                                                         </tr>
-                                                        <tr>   
+                                                        <tr>
                                                         <th>介護上乗せ金（生活サービス費）</th>
-                                                        <th>   
+                                                        <th>
                                                                 <input type="text" name="breakdown[]" class="form-control nurse-care-surcharge white-bg-color" v-model="payment.nurse_care_surcharge">
                                                         </th>
                                                         </tr>
@@ -207,7 +207,7 @@
                                                         </tr>
                                                         <tr>
                                                         <th>償却期間</th>
-                                                        <th>   
+                                                        <th>
                                                                 <input type="text" name="breakdown[]" class="form-control depreciation-period white-bg-color" v-model="payment.depreciation_period">
                                                         </th>
                                                         </tr>
@@ -245,13 +245,13 @@
                                         <table class="table table-striped table-bordered">
                                                 <tr>
                                                         <td class="width15 title-bg">事業主体</td>
-                                                        <td ><textarea class="form-control white-bg-color business-entity" :options="editorOption" v-model="nursing_info.business_entity"></textarea></td>  
+                                                        <td ><textarea class="form-control white-bg-color business-entity" :options="editorOption" v-model="nursing_info.business_entity"></textarea></td>
                                                          <!-- <td> <quill-editor class="business-entity" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.business_entity"/></td> -->
 
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">開設年月日</td>
-                                                        <td ><textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea></td> 
+                                                        <td ><textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea></td>
                                                          <!-- <td> <quill-editor  class="date-of-establishment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.date_of_establishment"/></td> -->
                                                 </tr>
                                                 <tr>
@@ -337,9 +337,9 @@
                                                 <div class="col-md-12 pad-free" id="gallery-cooperate">
                                                         <!-- cooperation -->
                                                         <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
-                                                                <div class="form-group"> 
-                                                                        <label class="col-2 pad-free">名前 :</label> 
-                                                                        <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name"> 
+                                                                <div class="form-group">
+                                                                        <label class="col-2 pad-free">名前 :</label>
+                                                                        <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
                                                                 </div>
                                                                 <table class="table table-bordered">
                                                                 <tr>
@@ -362,11 +362,11 @@
                                                                 <div class="clearfix">
                                                                         <a class="mr-auto text-danger btn delete-borderbtn float-right" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
                                                                 </div>
-                                                                
+
                                                         </div>
                                                 </div>
                                         </div>
-                                        
+
                                 </div>
                             </td>
                         </tr>
@@ -422,12 +422,12 @@
                                         <table class="table table-striped table-bordered">
                                                 <tr>
                                                         <td class="width15 title-bg">介護に関わる職員体制（入居者：職員）</td>
-                                                        <td><textarea class="form-control staff white-bg-color" :options="editorOption" v-model="staff_info.staff"></textarea></td> 
+                                                        <td><textarea class="form-control staff white-bg-color" :options="editorOption" v-model="staff_info.staff"></textarea></td>
                                                         <!-- <td><quill-editor  ref="myQuilEditor" class="staff" :options="editorOption" v-model="staff_info.staff"/></td>                                                       -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">介護職員</td>
-                                                        <td><textarea class="form-control nursing-staff white-bg-color" :options="editorOption" v-model="staff_info.nursing_staff"></textarea></td>  
+                                                        <td><textarea class="form-control nursing-staff white-bg-color" :options="editorOption" v-model="staff_info.nursing_staff"></textarea></td>
                                                          <!-- <td><quill-editor  ref="myQuilEditor" class="nursing-staff" :options="editorOption" v-model="staff_info.nursing_staff"/></td> -->
                                                 </tr>
                                                 <tr>
@@ -437,7 +437,7 @@
                                                 </tr>
                                                 <tr>
                                                          <td class="width15 title-bg">看護職員数</td>
-                                                        <td><textarea class="form-control num-staff white-bg-color" :options="editorOption" v-model="staff_info.num_staff"></textarea></td>   
+                                                        <td><textarea class="form-control num-staff white-bg-color" :options="editorOption" v-model="staff_info.num_staff"></textarea></td>
                                                         <!-- <td><quill-editor  ref="myQuilEditor" class="num-staff" :options="editorOption" v-model="staff_info.num_staff"/></td> -->
                                                 </tr>
                                                 <tr>
@@ -445,12 +445,12 @@
                                                                  <label for="">備考</label>
                                                         </td>
                                                         <td>
-                                                               <quill-editor  ref="myQuilEditor" name="" :options="editorOption" class="nursing-remarks" v-model="staff_info.remarks"/>  
+                                                               <quill-editor  ref="myQuilEditor" name="" :options="editorOption" class="nursing-remarks" v-model="staff_info.remarks"/>
                                                         </td>
                                                 </tr>
                                         </table>
 
-                                       
+
                                 </div>
                             </td>
                         </tr>
@@ -474,7 +474,7 @@
                                                                         {{feat.name}}
                                                                 </label>
                                                          </div>
-                                                </div>                                        
+                                                </div>
                                         </div>
                                 </div>
                             </td>
@@ -484,7 +484,7 @@
                 <!-- end table 6 for こだわりの特長  -->
 
                 <!-- table 7 for 公式サイト -->
-                   <table class="table table-bordered table-wrapper">                        
+                   <table class="table table-bordered table-wrapper">
                         <tr>
                             <td>
                                 <label class="heading-lbl col-2 pad-free">地図</label>
@@ -502,8 +502,8 @@
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                                         <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
                                                 </div>
-                                        </div>                                     
-                                        
+                                        </div>
+
                                 </div>
                             </td>
                         </tr>
@@ -562,17 +562,17 @@ export default {
                 profile_arr:[],staf_info:[],customer_info:[], test:'',
 
                 // to delete
-                count:-1, v_count: -1, c_count: -1, p_count: -1, 
-                type:'', 
-                title:[], v_title:[], 
-                description:[], v_description:[], 
-                img:[], 
-                sub:[], coop_details:[], expense:[],remark:[], 
-                method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[], 
-                security_deposit:[],other_use:[], rent:[], management_fee:[], 
-                food_expense:[],life_service:[],cost_other:[],return_system:[], 
-                depreciation_period:[],initial_depreciation:[],other_message:[], 
-                cooperate_list:[], payment_list:[],meth_details:[], 
+                count:-1, v_count: -1, c_count: -1, p_count: -1,
+                type:'',
+                title:[], v_title:[],
+                description:[], v_description:[],
+                img:[],
+                sub:[], coop_details:[], expense:[],remark:[],
+                method:[],move_in:[],room_type:[],monthly_usage:[],breadth:[],
+                security_deposit:[],other_use:[], rent:[], management_fee:[],
+                food_expense:[],life_service:[],cost_other:[],return_system:[],
+                depreciation_period:[],initial_depreciation:[],other_message:[],
+                cooperate_list:[], payment_list:[],meth_details:[],
                 // end
                 content: '',
                 editorOption:{
@@ -600,7 +600,7 @@ export default {
                 .get('/api/staffinfo/'+this.id)
                 .then(response=>{
                         this.staff_info = response.data;
-                      
+
                 });
 
                 this.axios
@@ -618,7 +618,7 @@ export default {
                 this.axios
                 .get('/api/feature/'+this.profile_type+'/'+this.id)
                 .then(response=>{
-                       
+
                         this.feature_list = response.data;
                 });
 
@@ -646,7 +646,7 @@ export default {
                         this.payment_arr = response.data;
                 });
 
-             
+
         },
         methods: {
 
@@ -686,10 +686,10 @@ export default {
                                     arr_list.splice(indx,1);
                                     var ele = document.getElementById(type+indx);
                                     var parentEle = document.getElementById('gallery-'+type);
-                                    parentEle.removeChild(ele);          
+                                    parentEle.removeChild(ele);
                             }
                     }
-                    
+
             },
 
             galleryAdd() {
@@ -803,7 +803,7 @@ console.log($('.feature').text());
                 this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
                 this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:nursing_remarks});
-            
+
 
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
@@ -834,7 +834,7 @@ console.log($('.feature').text());
                 }
 
                 var cooperate = document.getElementsByClassName('gallery-area-cooperate');
-               
+
                 for(var i = 0; i< cooperate.length; i++) {
                         this.cooperate_list.push({subject:cooperate[i].getElementsByClassName('clinical-sub')[0].value,
                                                 name:cooperate[i].getElementsByClassName('cooperate-name')[0].value,
@@ -862,18 +862,18 @@ console.log($('.feature').text());
                                                 initial_deprecration:payment[i].getElementsByClassName('initial-deprecration')[0].value,
                                                 other_message_refund:payment[i].getElementsByClassName('other-message-refund')[0].value});
                 }
-              
+
 
                var chek_feature=[];
                var special_features;
-        
-                $.each($("input[name='special-features']:checked"), function(){ 
+
+                $.each($("input[name='special-features']:checked"), function(){
                         var i = i+ 0;
                         chek_feature.push($(this).val());
                 });
-               
+
                var acceptance=[];
-                $.each($("input[class='medical-acceptance']:checked"), function(){ 
+                $.each($("input[class='medical-acceptance']:checked"), function(){
                         var accept_val = $(this).val();
                         var tmp_arr = accept_val.split('-');
                         var type = tmp_arr[0];
@@ -884,7 +884,7 @@ console.log($('.feature').text());
                 });
 
                 special_features = chek_feature.join(',');
-               
+
                 this.profile_arr.push({feature:feature,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:acceptance_remark,latitude:latitude,longitude:longitude});
@@ -895,7 +895,7 @@ console.log($('.feature').text());
                         this.axios
                                 .post(`/api/nursing/galleryupdate/${this.id}`,this.gallery_list)
                                 .then((response) => {
-                                
+
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
@@ -910,7 +910,7 @@ console.log($('.feature').text());
                         this.axios
                                 .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
                                 .then((response) => {
-                               
+
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
@@ -925,7 +925,7 @@ console.log($('.feature').text());
                         this.axios
                                 .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
                                 .then((response) => {
-                                
+
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
@@ -940,7 +940,7 @@ console.log($('.feature').text());
                         this.axios
                                 .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
                                 .then((response) => {
-                        
+
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
@@ -950,13 +950,13 @@ console.log($('.feature').text());
                                 }
                         }) ;
                 }
-               
+
                 if(this.customer_info.length > 0) {
                         // check
                         this.axios
                                 .post(`/api/customer/profile/${this.id}`,this.customer_info)
                                 .then((response) => {
-                               
+
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
@@ -966,12 +966,12 @@ console.log($('.feature').text());
                                 }
                         }) ;
                 }
-              
+
                 if(this.staf_info.length > 0) {
                         this.axios
                                 .post(`/api/staff/profile/${this.id}`,this.staf_info)
                                 .then((response) => {
-                               
+
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
@@ -1000,7 +1000,7 @@ console.log($('.feature').text());
 </script>
 
  <style>
- 
+
   .quill-editor{
           background-color: #fff;
   }

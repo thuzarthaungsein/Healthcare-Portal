@@ -70,7 +70,7 @@ export default {
 
                     this.feature= response.data;
                     if(this.feature.type == '病院')
-                    { 
+                    {
                         this.selectedValue = '病院';
                     }
                     else if (this.feature.type == '介護') {
