@@ -2,24 +2,24 @@
   <div>
     <!-- news details-->
     <!--menu tabs-->
-    <ul class="nav nav-tabs card-head-tabs" role="tablist" id="navtab">
+    <ul class="nav nav-tabs card-head-tabs news-tabColor" role="tablist" id="navtab">
       <li role="presentation" class="active subtab1 nav-item">
-        <a @click="changeRoute" href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
+        <a @click="changeRoute('news')" href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
           <i @click="changeRoute" class="fas fa-newspaper"></i> ニュース
         </a>
       </li>
       <li role="presentation" class="subtab2 nav-item">
-        <a @click="changeRoute" href="#tab2" role="tab" data-toggle="tab" class="nav-link">
+        <a @click="changeRoute('hospital')" href="#tab2" role="tab" data-toggle="tab" class="nav-link">
           <i class="fas fa-briefcase-medical"></i> 病院検索
         </a>
       </li>
       <li role="presentation" class="subtab3 nav-item">
-        <a @click="changeRoute" href="#tab3" role="tab" data-toggle="tab" class="nav-link">
+        <a @click="changeRoute('nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link">
           <i class="fas fa-user-md"></i> 介護検索
         </a>
       </li>
       <li role="presentation" class="subtab5 nav-item">
-        <a @click="changeRoute" href="#tab4" role="tab" data-toggle="tab" class="nav-link">
+        <a @click="changeRoute('job')" href="#tab4" role="tab" data-toggle="tab" class="nav-link">
           <i class="fas fa-users"></i> 求人検索
         </a>
       </li>
@@ -228,8 +228,25 @@ export default {
     },
     changeRoute(e){
         // console.log(e.target.hash);
+        $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');                        
+        $('#navtab').addClass(tab+'-tabColor');
         this.$router.push({name:'home',params:{page:e.target.hash}});
     },
   }
 };
 </script>
+
+<style >
+.hospital-tabColor {
+        background: #63b7ff !important;
+}
+.job-tabColor {
+        background: #75b777 !important;
+}
+.nursing-tabColor {
+        background: #ff9563 !important;
+}
+.news-tabColor {
+        background: #e4c31e !important;
+}
+</style>

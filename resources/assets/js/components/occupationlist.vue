@@ -24,8 +24,17 @@
                     <div v-else class="container-fuid">
                         <h4 class="main-color m-b-10">Occupation Search</h4>
                     <div class="row">
+<<<<<<< HEAD
                         <div class="col-md-12">
                         <input type="text" class="form-control" placeholder="検索" id="search-item"/>
+=======
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchOccupation()">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn secondary-bg-color all-btn white">検索</button>
+                        </div>
+>>>>>>> 94ed3c4bdfe414270cf54e95ade15933b876e17b
                     </div>
                     </div>
                 <hr/>
@@ -60,7 +69,7 @@
 
 <script>
 export default {
-          data() {
+        data() {
             return {
                 occupation: []
             }
@@ -72,8 +81,9 @@ export default {
                     this.occupation = response.data;
                 });
         },
-         methods: {
+        methods: {
 
+<<<<<<< HEAD
                deleteType(id) {
                 this.$swal({
                 title: "確認",
@@ -115,3 +125,32 @@ export default {
     }
 }
 </script>
+=======
+            deleteType(id) {
+                if(confirm("Are you sure you want to delete?"))
+                {
+                     this.axios
+                    .delete(`/api/occupation/delete/${id}`)
+                    .then(response => {
+                        alert('Delete Successfully!');
+                        let i = this.occupation.map(item => item.id).indexOf(id); // find index of your object
+                        this.occupation.splice(i, 1)
+                    });
+                }
+               
+            },
+            searchOccupation() {
+                var search_word = $("#search-item").val();
+
+                let fd = new FormData();
+                    fd.append("search_word", search_word);
+                    this.axios.post("/api/occupation/search", fd).then(response => {
+                        this.occupation = response.data;
+                    });
+                }
+           
+            }
+        }
+    
+</script>
+>>>>>>> 94ed3c4bdfe414270cf54e95ade15933b876e17b

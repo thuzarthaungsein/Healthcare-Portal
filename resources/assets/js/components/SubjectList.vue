@@ -24,8 +24,11 @@
                      <div v-else class="container-fuid">
                           <h4 class="main-color m-b-10">Medical Subject Search</h4>
                     <div class="row">
-                        <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="検索" id="search-item" />
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchSubject()">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn secondary-bg-color all-btn white">検索</button>
                         </div>
                     </div>
                     <hr/>
@@ -122,3 +125,17 @@ export default {
         }
 }
 </script>
+//                 }
+//             },
+//             searchSubject() {
+//                 var search_word = $("#search-item").val();
+
+//                 let fd = new FormData();
+//                     fd.append("search_word", search_word)
+//                     this.axios.post("/api/subjects/search", fd).then(response => {
+//                         this.subjects = response.data;
+//                     });
+//                 }
+//             }
+//         }
+// </script>

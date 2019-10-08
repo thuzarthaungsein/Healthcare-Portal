@@ -92,7 +92,7 @@
 
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="profile_header">特長</h5>
-                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">{{nurseprofile.feature}}</div>
+                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12"><p v-html="nurseprofile.feature"></p></div>
             </div>
             <div class="row ele m-lr-0" id="element3">
                 <h5 class="profile_header col-md-12">費用</h5>

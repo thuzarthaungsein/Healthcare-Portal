@@ -69,7 +69,8 @@
                                 <td class="width17" style="border:none;"> <label class="heading-lbl pad-free">特長<span class="error">*</span></label></td>
                                 <td style="border:none;">
                                         <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
-                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" :options="editorOption"/>
+                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"/>
+                                        
                                 </td>
                         </tr>
 
@@ -311,12 +312,13 @@
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">居室設備</td>
-                                                        <td ><textarea class="form-control white-bg-color equipment" :options="editorOption" v-model="nursing_info.equipment"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color living-room-facilities" :options="editorOption" v-model="nursing_info.living_room_facilities"></textarea></td>
+                                                        
                                                          <!-- <td > <quill-editor  class="equipment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.equipment"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">共用施設・設備</td>
-                                                        <td ><textarea class="form-control white-bg-color living-room-facilities" :options="editorOption" v-model="nursing_info.living_room_facilities"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color equipment" :options="editorOption" v-model="nursing_info.equipment"></textarea></td>
                                                          <!-- <td > <quill-editor  class="living-room-facilities" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.living_room_facilities"/></td> -->
                                                 </tr>
                                         </table>
@@ -400,7 +402,7 @@
                                             <div class="form-group">
                                                     <label for="">備考</label>
                                                     <!-- <textarea name="" class="form-control"></textarea> -->
-                                                    <quill-editor  ref="myQuilEditor" :options="editorOption" name="" class="acceptance-remark" v-model="nursing_info.acceptance_remark"/>
+                                                    <quill-editor  ref="myQuilEditor" :options="editorOption" @change="onAcceptanceEditorChange($event)" name="" class="acceptance-remark" v-model="nursing_info.acceptance_remark"/>
 
                                             </div>
                                     </div>
@@ -445,7 +447,11 @@
                                                                  <label for="">備考</label>
                                                         </td>
                                                         <td>
+<<<<<<< HEAD
                                                                <quill-editor  ref="myQuilEditor" name="" :options="editorOption" class="nursing-remarks" v-model="staff_info.remarks"/>
+=======
+                                                               <quill-editor  ref="myQuilEditor" name="" @change="onNursingEditorChange($event)" :options="editorOption" class="nursing-remarks" v-model="staff_info.remarks"/>  
+>>>>>>> 94ed3c4bdfe414270cf54e95ade15933b876e17b
                                                         </td>
                                                 </tr>
                                         </table>
@@ -502,8 +508,12 @@
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                                         <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
                                                 </div>
+<<<<<<< HEAD
                                         </div>
 
+=======
+                                        </div>                                     
+>>>>>>> 94ed3c4bdfe414270cf54e95ade15933b876e17b
                                 </div>
                             </td>
                         </tr>
@@ -513,19 +523,11 @@
                         <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
                 </div>
             </div>
-
     </form>
 </div>
 </template>
 
 <script>
-$(document).ready(function(){
-        $('#feature').summernote({
-        placeholder: 'Write Feature',
-        height: 200,
-        });
-});
-
 
 import 'quill/dist/quill.snow.css'
 import {quillEditor} from 'vue-quill-editor'
@@ -580,7 +582,13 @@ export default {
                         placeholder:'Type your post...',
                         readonly:true,
                         theme:'snow',
-                }
+                },
+
+                feature_val: '',
+                acceptance_remark_val: '',
+                nursing_remarks_val: '',
+                // customer_address_val: '',
+                // transporation_access_val: '',
         }
         },
         created(){
@@ -754,6 +762,18 @@ export default {
                 removeFile() {
                         this.image = '';
                 },
+                onFeatureEditorChange({ editor, html, text }) {
+                        // console.log('editor change!', editor, html, text)
+                        this.feature_val = html
+                },
+                onNursingEditorChange({ editor, html, text }) {
+                        // console.log('editor change!', editor, html, text)
+                        this.nursing_remarks_val = html
+                },
+                onAcceptanceEditorChange({ editor, html, text }) {
+                        // console.log('editor change!', editor, html, text)
+                        this.acceptance_remark_val = html
+                },
 
             createProfile() {
 
@@ -786,24 +806,28 @@ export default {
                 var occupancy_condition = $('.occupancy-condition').val();
                 var room_floor = $('.room-floor').val();
                 var living_room_facilities = $('.living-room-facilities').val();
-                var equipment = $('.equipment').text();
-                var acceptance_remark = $('.acceptance-remark').text();
+                var equipment = $('.equipment').val();
+                // var acceptance_remark = $('.acceptance-remark').text();
                 var latitude = $('#new_lat').val();
                 var longitude = $('#new_long').val();
                 var website = $('.website').val();
-                var feature = $('.feature').text();
+                // var feature = this.feature;
 
-console.log($('.feature').text());
                 var staff = $('.staff').text();
                 var nursing_staff = $('.nursing-staff').text();
                 var min_num_staff = $('.min-num-staff').text();
                 var num_staff = $('.num-staff').text();
-                var nursing_remarks = $('.nursing-remarks').text();
+                // var nursing_remarks = $('.nursing-remarks').text();
 
                 this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
+<<<<<<< HEAD
                 this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:nursing_remarks});
 
+=======
+                this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
+            
+>>>>>>> 94ed3c4bdfe414270cf54e95ade15933b876e17b
 
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
@@ -884,10 +908,15 @@ console.log($('.feature').text());
                 });
 
                 special_features = chek_feature.join(',');
+<<<<<<< HEAD
 
                 this.profile_arr.push({feature:feature,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+=======
+               
+                this.profile_arr.push({feature:this.feature_val,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+>>>>>>> 94ed3c4bdfe414270cf54e95ade15933b876e17b
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
-                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:acceptance_remark,latitude:latitude,longitude:longitude});
+                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
                 this.gallery_list = this.img_list.concat(this.video_list);
 
