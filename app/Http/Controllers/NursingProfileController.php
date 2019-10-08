@@ -115,6 +115,7 @@ class NursingProfileController extends Controller
             'access' => $request[0]['access'],
             'business_entity' => $request[0]['business_entity'],
             'website' => $request[0]['website'],
+            'feature' => $request[0]['feature'],
             'method' => $request[0]['method'],
             'date_of_establishment' =>  $request[0]['date_of_establishment'],
             'land_right_form'=>  $request[0]['land_right_form'],

@@ -67,7 +67,10 @@
                 <table class="table table-bordered table-wrapper">
                         <tr>
                                 <td class="width17" style="border:none;"> <label class="heading-lbl pad-free">特長<span class="error">*</span></label></td>
-                                <td style="border:none;"><quill-editor  ref="myQuilEditor" name="feature" :options="editorOption"/></td>
+                                <td style="border:none;">
+                                        <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
+                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" :options="editorOption"/>
+                                </td>
                         </tr>
 
                 </table>
@@ -242,78 +245,78 @@
                                         <table class="table table-striped table-bordered">
                                                 <tr>
                                                         <td class="width15 title-bg">事業主体</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.business_entity"></textarea></td>  
+                                                        <td ><textarea class="form-control white-bg-color business-entity" :options="editorOption" v-model="nursing_info.business_entity"></textarea></td>  
                                                          <!-- <td> <quill-editor class="business-entity" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.business_entity"/></td> -->
 
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">開設年月日</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea></td> 
+                                                        <td ><textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea></td> 
                                                          <!-- <td> <quill-editor  class="date-of-establishment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.date_of_establishment"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">土地の権利形態</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.land_right_form"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color land-right-form" :options="editorOption" v-model="nursing_info.land_right_form"></textarea></td>
                                                          <!-- <td> <quill-editor  class="land-right-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.land_right_form"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">建物の権利形態</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.building_right_form"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color building-right-form" :options="editorOption" v-model="nursing_info.building_right_form"></textarea></td>
                                                          <!-- <td> <quill-editor  class="building-right-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.building_right_form"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">敷地面積</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.site_area"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color site-area" :options="editorOption" v-model="nursing_info.site_area"></textarea></td>
                                                          <!-- <td> <quill-editor  class="site-area" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.site_area"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">延床面積</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.floor_area"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color floor-area" :options="editorOption" v-model="nursing_info.floor_area"></textarea></td>
                                                          <!-- <td> <quill-editor  class="floor-area" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.floor_area"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">構造</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.construction"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color construction" :options="editorOption" v-model="nursing_info.construction"></textarea></td>
                                                          <!-- <td > <quill-editor  class="construction" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.construction"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">定員</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.capacity"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color capacity" :options="editorOption" v-model="nursing_info.capacity"></textarea></td>
                                                          <!-- <td > <quill-editor  class="capacity" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.capacity"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">総居室・戸数</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.num_rooms"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color num-rooms" :options="editorOption" v-model="nursing_info.num_rooms"></textarea></td>
                                                          <!-- <td > <quill-editor  class="num-rooms" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.num_rooms"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">居住の権利形態</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.residence_form"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color residence-form" :options="editorOption" v-model="nursing_info.residence_form"></textarea></td>
                                                          <!-- <td > <quill-editor  class="residence-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.residence_form"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">類型</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.fac_type"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color fac-type" :options="editorOption" v-model="nursing_info.fac_type"></textarea></td>
                                                          <!-- <td > <quill-editor  class="fac-type" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.fac_type"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">入居条件</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.occupancy_condition"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color occupancy-condition" :options="editorOption" v-model="nursing_info.occupancy_condition"></textarea></td>
                                                          <!-- <td > <quill-editor  class="occupancy-condition" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.occupancy_condition"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">居室区分・間取り等</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption"  v-model="nursing_info.room_floor"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color room-floor" :options="editorOption"  v-model="nursing_info.room_floor"></textarea></td>
                                                          <!-- <td > <quill-editor  class="room-floor" ref="myQuilEditor" :options="editorOption"  v-model="nursing_info.room_floor"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">居室設備</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.equipment"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color equipment" :options="editorOption" v-model="nursing_info.equipment"></textarea></td>
                                                          <!-- <td > <quill-editor  class="equipment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.equipment"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">共用施設・設備</td>
-                                                        <td ><textarea class="form-control white-bg-color" :options="editorOption" v-model="nursing_info.living_room_facilities"></textarea></td>
+                                                        <td ><textarea class="form-control white-bg-color living-room-facilities" :options="editorOption" v-model="nursing_info.living_room_facilities"></textarea></td>
                                                          <!-- <td > <quill-editor  class="living-room-facilities" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.living_room_facilities"/></td> -->
                                                 </tr>
                                         </table>
@@ -769,27 +772,28 @@ export default {
 
                 var access = $('.transporation-access').text();
                 var method = $('.nursing-payment-method').val();
-                var business_entity = $('.business-entity').text();
-                var date_of_establishment = $('.date-of-establishment').text();
-                var land_right_form = $('.land-right-form').text();
-                var building_right_form = $('.building-right-form').text();
-                var site_area = $('.site-area').text();
-                var floor_area = $('.floor-area').text();
-                var construction = $('.construction').text();
-                var capacity = $('.capacity').text();
-                var num_rooms = $('.num-rooms').text();
-                var residence_form = $('.residence-form').text();
-                var fac_type = $('.fac-type').text();
-                var occupancy_condition = $('.occupancy-condition').text();
-                var room_floor = $('.room-floor').text();
-                var living_room_facilities = $('.living-room-facilities').text();
+                var business_entity = $('.business-entity').val();
+                var date_of_establishment = $('.date-of-establishment').val();
+                var land_right_form = $('.land-right-form').val();
+                var building_right_form = $('.building-right-form').val();
+                var site_area = $('.site-area').val();
+                var floor_area = $('.floor-area').val();
+                var construction = $('.construction').val();
+                var capacity = $('.capacity').val();
+                var num_rooms = $('.num-rooms').val();
+                var residence_form = $('.residence-form').val();
+                var fac_type = $('.fac-type').val();
+                var occupancy_condition = $('.occupancy-condition').val();
+                var room_floor = $('.room-floor').val();
+                var living_room_facilities = $('.living-room-facilities').val();
                 var equipment = $('.equipment').text();
                 var acceptance_remark = $('.acceptance-remark').text();
                 var latitude = $('#new_lat').val();
                 var longitude = $('#new_long').val();
                 var website = $('.website').val();
+                var feature = $('.feature').text();
 
-
+console.log($('.feature').text());
                 var staff = $('.staff').text();
                 var nursing_staff = $('.nursing-staff').text();
                 var min_num_staff = $('.min-num-staff').text();
@@ -881,7 +885,7 @@ export default {
 
                 special_features = chek_feature.join(',');
                
-                this.profile_arr.push({website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({feature:feature,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:acceptance_remark,latitude:latitude,longitude:longitude});
 

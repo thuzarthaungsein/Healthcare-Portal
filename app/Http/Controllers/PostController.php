@@ -243,8 +243,10 @@ class PostController extends Controller
     }
 
     public function searchPost($search_word) {
-        $sql = "SELECT GROUP_CONCAT(post.id) as id , GROUP_CONCAT(post.title) as title, GROUP_CONCAT(post.photo) as photo, cate.name as name, post.category_id as cat_id from posts post join categories cate on cate.id = post.category_id where post.title LIKe '%{$search_word}%' group by post.category_id";
-        
+        // $sql = "SELECT GROUP_CONCAT(post.id) as id , GROUP_CONCAT(post.title) as title, GROUP_CONCAT(post.photo) as photo, cate.name as name, post.category_id as cat_id from posts post join categories cate on cate.id = post.category_id where post.title LIKe '%{$search_word}%' group by post.category_id";
+        $sql = "SELECT categories.name, posts.title, posts.id as pid, posts.photo 
+        FROM posts INNER JOIN categories ON categories.id = posts.category_id 
+        WHERE posts.title LIKe '%{$search_word}%'";
         $posts = DB::select($sql);
         return $posts;
     }
