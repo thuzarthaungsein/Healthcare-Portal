@@ -199,6 +199,6 @@ export default {
         background: #ff9563 !important;
 }
 .news-tabColor {
-        background: #f3a523 !important;
+        background: #e4c31e !important;
 }
 </style>
