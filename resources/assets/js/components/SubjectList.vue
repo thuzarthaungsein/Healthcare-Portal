@@ -11,27 +11,27 @@
                 <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
                     <div class="col-md-12 scrolldiv">
                         <div v-if="subjects == 0" class="card card-default card-wrap">
-                        <p class="record-ico">
-                            <i class="fa fa-exclamation"></i>
-                        </p>
-                        <p>OOPS!!</p>
-                        <p class="record-txt01">表示するデータありません</p>
-                        <p>表示するデータありません‼新しいデータを作成してください。</p>
-                            <a href="/subject" class="main-bg-color create-btn all-btn">
-                            <i class="fas fa-plus-circle"></i> 新しく作る
-                        </a>
+                            <p class="record-ico">
+                                <i class="fa fa-exclamation"></i>
+                            </p>
+                            <p>OOPS!!</p>
+                            <p class="record-txt01">表示するデータありません</p>
+                            <p>表示するデータありません‼新しいデータを作成してください。</p>
+                                <a href="/subject" class="main-bg-color create-btn all-btn">
+                                <i class="fas fa-plus-circle"></i> 新しく作る
+                            </a>
                     </div>
                      <div v-else class="container-fuid">
                           <h4 class="main-color m-b-10">Medical Subject Search</h4>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="検索" id="search-item"/>
+                            <input type="text" class="form-control" placeholder="検索" id="search-item" />
                         </div>
                     </div>
                     <hr/>
-                        <h5>Subject List</h5>
-                        <div class="card card-default m-b-20"  v-for="subject in subjects" :key="subject.id">
-                    <div class="card-body">
+                        <h5 class="header">Subject List</h5>
+                    <div class="card card-default m-b-20"  v-for="subject in subjects" :key="subject.id">
+                        <div class="card-body">
                         <div class="row">
                             <div class="col-md-9 m-t-8">{{subject.name}}</div>
                         <div class="col-md-3 text-right">

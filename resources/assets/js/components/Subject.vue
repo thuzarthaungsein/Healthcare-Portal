@@ -26,7 +26,7 @@
                             </div><br/>
                                  <div class="form-group">
                                         <router-link class="btn btn-danger all-btn" to="/subjectlist" > キャンセル </router-link>
-                                        <button class="btn news-post-btn">作成</button>
+                                         <button class="btn news-post-btn all-btn">{{subtitle}}</button>
                                 </div>
                              </form>
                              </div>
@@ -81,6 +81,10 @@ export default {
                         this.Subject.parent = response.data.parent;
                         this.selectedValue = response.data.parent;
                         this.SubjectList.name = response.data.name;
+                        this.header = ' 特徴更新';
+                        this.subtitle = '更新';
+                        return this.header;
+                        return this.subtitle;
                 });
             }
 

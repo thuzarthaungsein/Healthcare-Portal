@@ -56,7 +56,7 @@ export default {
                    },
 
                 selectedValue:0,
-                 header: 'Create Occupation',
+                header: 'Create Occupation',
                 subtitle: '作る'
 
             }
@@ -86,6 +86,10 @@ export default {
                         this.occupation.parent = response.data.parent;
                         this.selectedValue = response.data.parent;
                         this.occupationList.name = response.data.name;
+                        this.header = ' 特徴更新';
+                        this.subtitle = '更新';
+                        return this.header;
+                        return this.subtitle;
                     }
 
                 });
