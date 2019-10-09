@@ -20,14 +20,26 @@ class StationController extends Controller
         return array_reverse($stations);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function add(Request $request)
     {
-        //
+
+        $request->validate([
+            'name' => 'required|unique:categories',
+
+        ],
+        [
+            'name.unique' => 'Unique Name'
+        ]
+    );
+
+        $station = new Station();
+        $station->name = $request->input('name');
+        $station->user_id = 1;
+        $station->recordstatus = 1;
+
+        $station->save();
+        return $station;
+
     }
 
     /**
@@ -60,7 +72,8 @@ class StationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $station = Station::find($id);
+        return response()->json($station);
     }
 
     /**
@@ -72,7 +85,17 @@ class StationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+
+        ]);
+        $station = Station::find($id);
+        $station->name = $request->input('name');
+        $station->user_id = 1;
+        $station->recordstatus = 1;
+        $station -> save();
+
+        return response()->json('The Station successfully updated');
     }
 
     /**

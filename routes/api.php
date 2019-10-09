@@ -50,9 +50,9 @@ Route::group(['middleware' => ['auth:api']], function() {
     // Station
     Route::group(['prefix' => 'station'], function () {
         Route::get('stations', 'StationController@index');
-        // Route::post('add', 'CategoryController@add');
-        // Route::get('edit/{id}', 'CategoryController@edit');
-        // Route::post('update/{id}', 'CategoryController@update');
+        Route::post('add', 'StationController@add');
+        Route::get('edit/{id}', 'StationController@edit');
+        Route::post('update/{id}', 'StationController@update');
         Route::delete('delete/{id}', 'StationController@destroy');
         Route::post('search','StationController@search');
     });

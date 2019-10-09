@@ -3,7 +3,7 @@
     <div class="col-12">
       <div class="row m-b-10" v-if="this.stations.length !== 0">
         <div class="col-md-12">
-          <router-link to="/createcategory" class="float-right main-bg-color create-btn all-btn">
+          <router-link to="/createstation" class="float-right main-bg-color create-btn all-btn">
             <i class="fas fa-plus-circle"></i> 新しいステーションを作成する
           </router-link>
         </div>
@@ -18,7 +18,7 @@
             <p>OOPS!!</p>
             <p class="record-txt01">表示するデータありません</p>
             <p>表示するデータありません‼新しいデータを作成してください。</p>
-            <a href="/createcategory" class="main-bg-color create-btn all-btn">
+            <a href="/createstation" class="main-bg-color create-btn all-btn">
               <i class="fas fa-plus-circle"></i> 新しいデータ作成
             </a>
           </div>
