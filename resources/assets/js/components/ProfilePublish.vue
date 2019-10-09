@@ -5,6 +5,9 @@
     <div v-if="type == 'nursing'">
 
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
+            <div class="row col-12 m-t-10">
+                <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
+            </div>
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
 
@@ -244,7 +247,7 @@
 
                                             <td>
 
-                                                <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >&nbsp;View Details</span>
+                                                <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >詳しくはこちら</span>
 
                                             </td>
                                         </tr>
@@ -623,8 +626,10 @@
 
                         </div>
 
-                        <div class="row col-12">
-                                <h5  class="profile_header col-12"> Staff </h5>
+
+
+                        <div class="row col-12">  
+                                <h5  class="profile_header col-12"> 職員体制</h5>  
                             <div v-if="staff.length>0">
 
                                 <div v-for="st in staff" :key="st.id" class="col-md-12" >
@@ -779,29 +784,24 @@
     <div v-if="type == 'hospital'">
 
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
+                <div class="row col-12 m-t-10">
+                     <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
+                </div>
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
-
                 情報
-
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
-
                 口コミ
-
             </button>
 
             <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
-
                 地図
-
             </button>
 
             <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
-
                 求人応募
-
             </button>
 
             </div>
@@ -949,11 +949,61 @@
 
                     <tbody>
 
-                        <tr class="first-row"> <th> Date </th> <th> 月 </th> <th> 火 </th> <th> 水 </th> <th> 木 </th> <th> 金 </th> <th> 土 </th> <th> 日 </th> </tr>
+                        <tr class="first-row">
+
+                            <th>
+
+                               日付
+
+                            </th>
+
+                            <th>
+
+                                月
+
+                            </th>
+
+                            <th>
+
+                                火
+
+                            </th>
+
+                            <th>
+
+                                水
+
+                            </th>
+
+                            <th>
+
+                                木
+
+                            </th>
+
+                            <th>
+
+                                金
+
+                            </th>
+
+                            <th>
+
+                                土
+
+                            </th>
+
+                            <th>
+
+                                日
+
+                            </th>
+
+                        </tr>
 
                         <tr class="last">
 
-                            <th class="second-row text-center">AM</th>
+                            <th class="second-row text-center">午前</th>
 
                             <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">{{amval}}</td>    
 
@@ -961,7 +1011,7 @@
 
                         <tr class="last">
 
-                            <th class="second-row text-center">PM</th>
+                            <th class="second-row text-center">午後</th>
 
                             <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">{{amval}}</td>    
 
@@ -1323,6 +1373,7 @@
 
             {
 
+
                 this.axios.get('/api/profile/nursing/'+this.cusid) .then(response => {
 
                     this.nursing_profiles = response.data.feature;
@@ -1332,6 +1383,8 @@
                     this.method_payment = response.data.cost;
 
                     this.nusfacilities = response.data.facility;
+                    console.log('a');
+                    console.log(this.nusfacilities);
 
                     this.cooperate_medical = response.data.comedical;
 
@@ -1592,10 +1645,12 @@
       }
 
     },
-    costConfirm(id){
-        $('.changeLink').text("View Details");
+
+    costConfirm(id){  
+
+        $('.changeLink').text("詳しくはこちら");
         $('.changeLink').removeClass("CloseBtn");
-        $('.changeLink'+id).text("Close");
+        $('.changeLink'+id).text("選択中");  
         $('.changeLink'+id).addClass("CloseBtn");
         $('.closeChangeLink').hide('medium');
         $('#changeLink'+id).show('medium');
@@ -1795,27 +1850,6 @@
 
 }
 
-
-
-div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-
-    color: #fff !important;
-
-    font-weight: bold;
-
-    background-color: #1aa985  !important;
-
-    border-top: 1px solid #1aa985  ;
-
-    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
-
-}
-
-div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
-
-    border: 1px solid #1aa985  !important;
-
-}
 
 /* div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
 
@@ -2023,33 +2057,28 @@ div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
 
 .changeLink {
 
-    color: #397df9;
-
+    color: #000;
     font-weight: bold;
-
     cursor: pointer;
-
-    border: 1px solid #397df9;
-
-    padding: 7px 10px;
-
+    border: 1px solid #ffc041;
+    padding: 5px;
     border-radius: 5px;
-
+    background-color: #ffc;
 }
 
+
+
 .changeLink:hover {
-
     color: #f9793c;
-
-    border: 1px solid #f9793c;
-
+    border: 1px solid #68ec37;
 }
 
 .CloseBtn {
-
     border: none !important;
-
     color: #f9793c !important;
+    cursor: not-allowed!important;
+    pointer-events: none;
+    background: none !important;
 
 }
 

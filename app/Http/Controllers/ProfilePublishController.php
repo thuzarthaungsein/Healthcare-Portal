@@ -52,7 +52,9 @@ class ProfilePublishController extends Controller
 
     public function nursingProfile($cusid)
     {
+        
         $feature = NursingProfile::select('feature')->where('customer_id',$cusid)->get();
+       
         $method = NursingProfile::select('method')->where('customer_id',$cusid)->get();
         $facility = NursingProfile::where('customer_id',$cusid)->get();
         $comedical = Cooperate_Medical::where('customer_id',$cusid)->get();

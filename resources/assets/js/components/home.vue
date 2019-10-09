@@ -9,7 +9,7 @@
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
-              <div class="tab-content tab-content1 tabs" id="upper-tab">
+              <div class="tab-content tab-content1 tabs upper-tab" id="upper-tab">
                <div role="tabpanel"  class="tab-pane" id="tab1" :class="{active:subtab1active, fade:fade1}"> <News></News> </div>
                 <div role="tabpanel" class="tab-pane" id="tab2" :class="{active:subtab2active, fade:fade2}"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane" id="tab3" :class="{active:subtab3active, fade:fade3}"><nursingSearch></nursingSearch></div>
