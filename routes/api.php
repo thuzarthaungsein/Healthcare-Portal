@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'OccupationsController@edit');
         Route::post('update/{id}', 'OccupationsController@update');
         Route::delete('delete/{id}', 'OccupationsController@destroy');
+        Route::post('search', 'OccupationsController@search');
     });
 
 
@@ -81,6 +82,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::get('edit/{id}', 'SubjectController@edit');
         Route::post('update/{id}', 'SubjectController@update');
         Route::delete('delete/{id}', 'SubjectController@destroy');
+        Route::post('search', 'SubjectController@search');
     });
     //End Subject
 
@@ -164,14 +166,14 @@ Route::group(['middleware' => ['auth:api']], function() {
 // login route api end
 
 Route::group(['prefix' => 'profile'], function () {
-    Route::get('nursing','ProfilePublishController@index');
-    Route::get('hospital','ProfilePublishController@index');
-    Route::get('specialfeature/{type}','ProfilePublishController@getSpecialfeature');
-    Route::get('comment','ProfilePublishController@getComment');
-    Route::get('customer','ProfilePublishController@getCustomer');
-    Route::get('schedule/{id}','ProfilePublishController@getSchedule');
-    Route::get('hosfacility','ProfilePublishController@getHosfacilities');
-    Route::get('subject','ProfilePublishController@getSubject');
+    Route::get('nursing/{cusid}','ProfilePublishController@nursingProfile');
+    Route::get('hospital/{cusid}','ProfilePublishController@hospitalProfile');
+    Route::get('specialfeature/{type}/{cusid}','ProfilePublishController@getSpecialfeature');
+    Route::get('comment/{cusid}','ProfilePublishController@getComment');
+    Route::get('customer/{cusid}','ProfilePublishController@getCustomer');
+    Route::get('schedule/{cusid}','ProfilePublishController@getSchedule');
+    // Route::get('hosfacility','ProfilePublishController@getHosfacilities');
+    Route::get('subject/{cusid}','ProfilePublishController@getSubject');
 });
 Route::group(['prefix' => 'job'], function () {
     Route::get('getjob/{id}', 'JobController@getJob');
@@ -208,6 +210,7 @@ Route::get('featurelist', 'SpecialFeatureController@index');
 
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
 Route::get('facility/{type}/{id}','FacilityController@getFacilitybyProfileType');
+Route::get('clinical-subject/{id}','SubjectController@getHospitalClinicalSubject');
 
 Route::get('hospital-pgallery/{id}','GalleryController@getPhotobyCustomerId');
 Route::get('hospital-vgallery/{id}','GalleryController@getVideobyCustomerId');
