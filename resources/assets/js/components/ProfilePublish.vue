@@ -5,6 +5,9 @@
     <div v-if="type == 'nursing'">
 
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
+            <div class="row col-12 m-t-10">
+                <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
+            </div>
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
 
@@ -100,8 +103,6 @@
 
                                 </div>
 
-                                
-
                                 <div class="thumbnails">
 
                                     <div
@@ -113,24 +114,16 @@
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
 
                                         @click="activateImage(index)" >
-
-                                        <img  :src ="'/upload/nursing_profile/' + image.photo">   
-
+                                        <img  :src ="'/upload/nursing_profile/' + image.photo">
                                     </div>
 
                                 </div>
 
                             </div>
 
-                                                      
-
                         </div>
 
-                       
 
-                        
-
-                       
 
                         <!-- <div  v-for="image in  images"  :key="image.id">
 
@@ -213,9 +206,7 @@
                         </table>
 
                     </div>
-
-                    <div v-if="method_payment.length > 0" class="col-md-12">      
-
+                    <div v-if="method_payment.length > 0" class="col-md-12">
                         <div class="cost_tb">
 
                             <div class="row col-12 pad-free" >
@@ -242,38 +233,24 @@
 
                                         </thead>
 
-                                       
-
                                         <tbody>
-
-                                        <tr v-for="cost in method_payment" :key="cost.id">                                         
-
-                                           
+                                        <tr v-for="cost in method_payment" :key="cost.id">
 
                                             <td>{{cost.expense_moving}}</td>
 
-                                            
-
                                             <td>{{cost.living_room_type}}</td>
 
-                                    
-
-                                        
 
                                             <td>{{cost.monthly_fees}}</td>
-
-                                        
 
                                             <td>{{cost.area}}</td>
 
                                             <td>
 
-                                                <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >&nbsp;View Details</span>
+                                                <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >詳しくはこちら</span>
 
                                             </td>
-
-                                        </tr>                                        
-
+                                        </tr>
                                         </tbody>
 
                                     </table>
@@ -286,9 +263,6 @@
 
                                 </div> -->
 
-
-
-                              
 
                                     <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
 
@@ -412,9 +386,6 @@
 
                                 </div>
 
-                              
-
-                                
 
                             </div>
 
@@ -429,9 +400,7 @@
             <div class="row ele m-lr-0" id="element4">
 
                 <!-- <div class="row"> -->
-
-                    <h5 class="profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>                    
-
+                    <h5 class="profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12" >
 
                         <table border="1" class="table table-bordered cost_table">
@@ -567,17 +536,10 @@
                 <!-- </div> -->
 
 
-
-
-
-                        <div class="row col-12 pad-free">   
-
-                            <div class="col-md-12">                         
-
-                            <h5 class="profile_header col-md-12"> 職員体制 （グランダ雪ヶ谷）</h5>   
-
-                            </div>                        
-
+                        <div class="row col-12 pad-free">
+                            <div class="col-md-12">
+                            <h5 class="profile_header col-md-12"> 職員体制 （グランダ雪ヶ谷）</h5>
+                            </div>
                             <div v-if="cooperate_medical.length>0" class="col-md-12">
 
                                 <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
@@ -628,8 +590,6 @@
 
                                 <h5 class="profile_header col-12"> 医療面の受入れ </h5>
 
-                           
-
                             <div class="row col-12">
 
                                 <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-4" >
@@ -668,10 +628,8 @@
 
 
 
-                        <div class="row col-12">                            
-
-                                <h5  class="profile_header col-12"> Staff </h5>                            
-
+                        <div class="row col-12">  
+                                <h5  class="profile_header col-12"> 職員体制</h5>  
                             <div v-if="staff.length>0">
 
                                 <div v-for="st in staff" :key="st.id" class="col-md-12" >
@@ -825,32 +783,25 @@
 
     <div v-if="type == 'hospital'">
 
-        
-
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
+                <div class="row col-12 m-t-10">
+                     <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
+                </div>
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
-
                 情報
-
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
-
                 口コミ
-
             </button>
 
             <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
-
                 地図
-
             </button>
 
             <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
-
                 求人応募
-
             </button>
 
             </div>
@@ -860,9 +811,7 @@
             <!-- ee-->
 
              <h5 class="profile_header">情報</h5>
-
-                 <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">                     
-
+                 <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
 
                     <div class="col-sm-5 detail_profile_left">
@@ -919,23 +868,15 @@
 
                                         <img  :src ="'/upload/hospital_profile/' + image.photo">
 
-                                       
-
                                     </div>
 
                                 </div>
 
                             </div>
+                        </div>
 
-                        </div>                       
-
-                        
-
-                       
 
                         <!-- <div  v-for="image in  images"  :key="image.id">
-
-                              
 
                         </div> -->
 
@@ -982,14 +923,9 @@
                         </div>
 
                     </div>
-
-                    <!--end for address-->                
-
-                </div> 
-
+                    <!--end for address-->
+                </div>
             <!--end ee-->
-
-             
 
                 <h5 class="profile_header">情報</h5>
 
@@ -1017,7 +953,7 @@
 
                             <th>
 
-                                Date
+                               日付
 
                             </th>
 
@@ -1067,7 +1003,7 @@
 
                         <tr class="last">
 
-                            <th class="second-row text-center">AM</th>
+                            <th class="second-row text-center">午前</th>
 
                             <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">{{amval}}</td>    
 
@@ -1075,7 +1011,7 @@
 
                         <tr class="last">
 
-                            <th class="second-row text-center">PM</th>
+                            <th class="second-row text-center">午後</th>
 
                             <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">{{amval}}</td>    
 
@@ -1318,8 +1254,6 @@
 
                 address: '',
 
-                
-
                 google:[],
 
                 customer:[],
@@ -1395,17 +1329,11 @@
 
 
                 images: [],
-
-                changelinktitle:'create',
-
-                // activeImage: 0,
-
-                // currentOffset: 0,
-
-                // windowSize: 1,
-
-                // paginationFactor: 220,
-
+                changelinktitle:'内容を見る',
+                activeImage: 0,
+                currentOffset: 0,
+                windowSize: 1,
+                paginationFactor: 220,
             };
 
         },
@@ -1431,8 +1359,7 @@
             }
 
             this.type = localStorage.getItem('cusType');
-
-            this.cusid = Number(localStorage.getItem('cusId'));           
+            this.cusid = Number(localStorage.getItem('cusId'));
 
 
 
@@ -1557,17 +1484,11 @@
 
                  this.axios.get('/api/profile/schedule/'+this.cusid) .then(response => {
 
-                     
-
                         this.am_arr = response.data.am;
 
                         this.pm_arr = response.data.pm;
 
-                        
-
                 });
-
-                
 
                 this.axios.get('/api/profile/hospital/'+this.cusid).then(response => {
 
@@ -1646,8 +1567,6 @@
                     return 'no-image-big.jpg';
 
                 }
-
-                
 
             }
 
@@ -1729,18 +1648,12 @@
 
     costConfirm(id){  
 
-        $('.changeLink').text("View Details"); 
-
-        $('.changeLink').removeClass("CloseBtn"); 
-
-        $('.changeLink'+id).text("Close");  
-
+        $('.changeLink').text("詳しくはこちら");
+        $('.changeLink').removeClass("CloseBtn");
+        $('.changeLink'+id).text("選択中");  
         $('.changeLink'+id).addClass("CloseBtn");
-
-        $('.closeChangeLink').hide('medium'); 
-
-        $('#changeLink'+id).show('medium'); 
-
+        $('.closeChangeLink').hide('medium');
+        $('#changeLink'+id).show('medium');
     }
 
   }
@@ -2165,33 +2078,28 @@ div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
 
 .changeLink {
 
-    color: #397df9;
-
+    color: #000;
     font-weight: bold;
-
     cursor: pointer;
-
-    border: 1px solid #397df9;
-
-    padding: 7px 10px;
-
+    border: 1px solid #ffc041;
+    padding: 5px;
     border-radius: 5px;
-
+    background-color: #ffc;
 }
 
+
+
 .changeLink:hover {
-
     color: #f9793c;
-
-    border: 1px solid #f9793c;
-
+    border: 1px solid #68ec37;
 }
 
 .CloseBtn {
-
     border: none !important;
-
     color: #f9793c !important;
+    cursor: not-allowed!important;
+    pointer-events: none;
+    background: none !important;
 
 }
 

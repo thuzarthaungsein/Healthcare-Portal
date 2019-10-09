@@ -115,27 +115,6 @@
         
 </template>
 
-<style scoped>
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    color: #fff !important;
-    font-weight: bold;
-    background-color: #1aa985  !important;
-    border-top: 1px solid #1aa985  ;
-    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
-
-}
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
-    border: 1px solid #1aa985  !important;
-
-}
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
-
-    border-color: transparent   #ecede1   transparent   #ecede1   !important;
-
-
-}
-
-</style>
 <script>
 import News from './News.vue'
 import hospitalSearch from './hospitalSearch.vue'
