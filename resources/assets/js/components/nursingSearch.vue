@@ -1199,6 +1199,7 @@ export default {
         getCheck(e){
       
         // if(e.target.checked){
+          console.log(this.townshipID);
           
            if(this.townshipID.length>0)
            {

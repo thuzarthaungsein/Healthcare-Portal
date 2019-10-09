@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function() {
 // public route api start
 
     Route::post('getmap/{id}','SearchMapController@getMap');
+    Route::get('getsearch','SearchMapController@getSearch');   
     Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
     
     Route::get('getCity','SearchMapController@getCity');

@@ -562,7 +562,7 @@
             <div class="row ele m-lr-0" id="element3">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                             <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
-                            <GmapMarker v-for="(marker, index) in markers" :key="index" :position="marker" :clickable="true" :draggable="false" @click="center=marker" />     
+                            <GmapMarker v-for="(marker, index) in markers" :key="index" :position="marker.position" :clickable="true" :draggable="false" @click="center=marker" />     
                            </GmapMap>
                         
                         <div  class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
@@ -613,17 +613,13 @@
   data() {
             var that = this;
             return {
-                markers: [
-                    {lat:35.6432027,lng:139.6729435},
-                    {lat:35.5279833,lng:139.6989209},
-                    {lat:35.6563623,lng:139.7215211},
-                    {lat:35.6167531,lng:139.5469376},
-                    {lat:35.6950961,lng:139.5037899} 
+              markers: [
+                    {  position: { lat: 0, lng: 0 }  },
                 ],
                 am_arr:[],
                 pm_arr:[],
                 active_el:0,
-                center: { lat: 35.6432027, lng: 139.6729435 },
+                center: { lat: 0, lng: 0 },
                 address: '',
                 
                 google:[],

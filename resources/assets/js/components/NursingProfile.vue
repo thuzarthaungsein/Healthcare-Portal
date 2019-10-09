@@ -19,7 +19,7 @@
                             <input type="text" name="official-website" class="form-control website col-10 float-right" v-model="nursing_info.website">
                     </div>
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()"><i class="fas fa-plus-circle"></i> Add</span>
+                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
                             <div class="col-md-12">
                                     <div class="row" id ="gallery-photo">
                                             <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()"><i class="fas fa-plus-circle"></i> Add</span>
+                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
                             <div class="col-md-12">
                                     <div class="row" id="gallery-video">
                                             <div class="col-md-6 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
@@ -85,7 +85,7 @@
                                 <div class="col-10 float-right pad-free">
                                         <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
                                         <div class="col-2 float-right">
-                                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> Add</span>
+                                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
                                         </div>
                                         <div class="col-md-12 pad-free m-t-50" id="gallery-payment">
                                                 <!-- test -->
@@ -333,7 +333,7 @@
                                 <div class="form-group">
                                         <label class="heading-lbl col-2 pad-free">協力医療機関<span class="error">*</span></label>
                                         <div class="col-10 pad-free float-right">
-                                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()"><i class="fas fa-plus-circle"></i> Add</span>
+                                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
                                                 <div class="col-md-12 pad-free" id="gallery-cooperate">
                                                         <!-- cooperation -->
                                                         <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
@@ -510,7 +510,7 @@
                    </table>
                 <!-- end table 7 for 公式サイト -->
                 <div class="row col-2 col-offset-6 mx-auto">
-                        <span class="btn main-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
+                        <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
                 </div>
             </div>
 

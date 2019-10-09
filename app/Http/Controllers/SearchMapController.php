@@ -42,7 +42,6 @@ class SearchMapController extends Controller
     public  function getMapTownship($id)
     {
       
-      
             $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng from customers As c  Join nursing_profiles As n on n.customer_id = c.id 
             where c.townships_id IN (" . $id . ")  order BY n.id ASC LIMIT 26";
            
@@ -53,6 +52,19 @@ class SearchMapController extends Controller
       
        
     } 
+
+
+    public function getSearch()
+    {
+        
+        $id = $_GET['id'];
+        $townshipID = $_GET['townshipID'];
+        $occupationID = $_GET['occupationID'];
+        $empstatus = $_GET['empstatus'];
+        
+    
+    }
+ 
 
     
     public function getCity(Request $request)
