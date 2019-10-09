@@ -1,7 +1,7 @@
 <template>
   <div class="row">
       <div class="col-md-12">
-          <div class="row m-b-10" v-if="this.types.length !== 0">
+          <div class="row m-b-10" v-if="norecord!== 0">
                 <div class="col-md-12">
                     <router-link to="/type" class="float-right main-bg-color create-btn all-btn">
                         <i class="fas fa-plus-circle"></i> Create New Type
@@ -10,7 +10,7 @@
          </div>
          <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
                 <div class="col-md-12 scrolldiv">
-                    <div v-if="types == 0" class="card card-default card-wrap">
+                    <div v-if="norecord == 0" class="card card-default card-wrap">
                             <p class="record-ico">
                                 <i class="fa fa-exclamation"></i>
                             </p>
@@ -67,6 +67,7 @@ export default {
   created() {
     this.axios.get("/api/types/type").then(response => {
       this.types = response.data;
+      this.norecord =this.types.length;
     });
   },
   methods: {
@@ -88,8 +89,10 @@ export default {
             }).then(response => {
             this.axios.delete(`/api/types/delete/${id}`)
                    .then(response => {
-                       let i = this.types.map(item => item.id).indexOf(id); // find index of your object
-                        this.types.splice(i, 1);
+                       this.types = response.data;
+                        this.norecord =this.types.length;
+                    //    let i = this.types.map(item => item.id).indexOf(id); // find index of your object
+                    //     this.types.splice(i, 1);
                          this.$swal({
                 title: "削除された",
                 text: "ファイルが削除されました。",
@@ -103,14 +106,6 @@ export default {
                 this.$swal("Failed", "wrong");
             });
         });
-
-    //   if (confirm("Are you sure you want to delete?")) {
-    //     this.axios.delete(`/api/types/delete/${id}`).then(response => {
-    //       alert("Delete Successfully!");
-    //       let i = this.types.map(item => item.id).indexOf(id); // find index of your object
-    //       this.types.splice(i, 1);
-    //     });
-    //   }
     },
     searchType() {
       var search_word = $("#search-item").val();
