@@ -108,8 +108,7 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
-    public function search(Request $request)
-    {
+    public function search(Request $request) {
         $request = $request->all();
         $search_word = $request['search_word'];
 

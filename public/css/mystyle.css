@@ -2068,12 +2068,7 @@ a:hover {
     /* border-left: 1px solid #fff !important; */
 }
 
-div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-    color: #ff9563 !important;
-    font-weight: bold;
-    background-color: #fff;
-    border-color: #ff9563 #fff #fff #fff !important;
     border-top: 3px solid #ff9563 !important;
     border-right: 0px solid #ff9563 !important;
     border-bottom: 0px solid #ff9563 !important;
@@ -2084,7 +2079,11 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     border-color: transparent !important;
 }
 
-.nav-tabs .nav-link {
+#myTabContent {
+    border: 1px solid #ccc;
+}
+
+.nav-tabs .nav-link {    
     border-top-left-radius: 0px !important;
     border-top-right-radius: 0px !important;
 }
@@ -3619,8 +3618,12 @@ li.userprofile-name>a {
     padding: 13px !important;
     /*for no scroll*/
     background: white;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc ;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.upper-tab {
+    border: 1px solid #75b777;
 }
 
 .tab-content1 {
@@ -3648,6 +3651,7 @@ li.userprofile-name>a {
 }
 
 #myTab .nav-link.active {
+    color: #fff;
     background-color: #828282 !important;
     border: none !important;
 }
@@ -3838,15 +3842,18 @@ a:hover {
     padding: 5px 0;
 }
 
-.nav-tabs .nav-link:focus,
-.nav-tabs .nav-link:hover {
+#navtab .nav-link:focus,
+#navtab .nav-link:hover {
     /* border-color: transparent !important; */
+    border-color: inherit #fff transparent transparent !important;
 }
 
 a:hover {
     color: #000;
 }
-
+#navtab {
+    border-bottom: none;
+}
 #navtab .nav-item {
     margin-bottom: -3px !important;
     /* border-left: 1px solid #fff !important; */
@@ -3864,7 +3871,7 @@ a:hover {
     color: #ff9563 !important;
     font-weight: bold;
     background: #fff !important;
-    border-top: 1px solid #ff9563;
+    border-top: 3px solid #ff9563;
     border-color: #ff9563 #fff #fff #fff !important;
 }
 
@@ -3872,26 +3879,26 @@ a:hover {
     color: #63b7ff !important;
     font-weight: bold;
     background: #fff !important;
-    border-top: 1px solid #63b7ff;
+    border-top: 3px solid #63b7ff;
     border-color: #63b7ff #fff #fff #fff !important;
 }
 
 .job-tabColor .nav-link.active {
-    color: #75b777 !important;
+    color: #828282 !important;
     font-weight: bold;
     background: #fff !important;
-    border-top: 1px solid #75b777;
-    border-color: #75b777 #75b777 #fff #fff !important;
-    border-right: 1px solid #75b777 !important;
+    border-top: 3px solid #828282;
+    border-color: #828282 #828282 #fff #fff !important;
+    border-right: 1px solid #828282 !important;
 }
 
 .news-tabColor .nav-link.active {
     background: #fff !important;
-    color: #828282 !important;
+    color: #75b777 !important;
     font-weight: bold;
-    border-left: 1px solid #828282 !important;
-    border-top: 1px solid #828282;
-    border-color: #828282 #fff #fff #ccc!important;
+    border-left: 1px solid #75b777 !important;
+    border-top: 3px solid #75b777;
+    border-color: #75b777 #fff #fff #75b777 !important;
 }
 
 .nav-tabs .nav-link {

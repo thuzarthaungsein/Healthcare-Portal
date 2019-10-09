@@ -50,10 +50,14 @@ class SpecialFeatureController extends Controller
 
         $request->validate([
             'name' => 'required|unique:special_features',
-            'short_name'=>'required',
-            'type.required' => '選択してください。',
+            'short_name'=>'required|unique:special_features',
+            'type'=>'required',
         ],[
-            'name.required' => 'ニュースの題名が必須です。',
+            'name.required' => '名前の入力が必要です。',
+            'name.unique'=>'名前はすでに使用されています。',
+            'short_name.unique'=>"短い名はすでに使用されています。",
+            'short_name.required'=>'短い名の入力が必要です。',
+            'type.required'=>'タイプの入力が必要です。'
         ]);
 
         $feature = new special_feature;
@@ -85,6 +89,12 @@ class SpecialFeatureController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'short_name'=>'required',
+            'type'=>'required',
+        ],[
+            'name.required' => '名前の入力が必要です。',
+            'short_name.required'=>'短い名の入力が必要です。',
+            'type.required'=>'タイプの入力が必要です。',
         ]);
         $feature = special_feature::find($id);
 

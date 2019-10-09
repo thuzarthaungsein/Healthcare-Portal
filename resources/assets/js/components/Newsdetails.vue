@@ -2,24 +2,24 @@
   <div>
     <!-- news details-->
     <!--menu tabs-->
-    <ul class="nav nav-tabs card-head-tabs news-tabColor" role="tablist" id="navtab">
+    <ul class="nav nav-tabs news-tabColor" role="tablist" id="navtab">
       <li role="presentation" class="active subtab1 nav-item">
-        <a @click="changeRoute('news')" href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
+        <a @click="changeRoute($event,'news')" href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
           <i @click="changeRoute" class="fas fa-newspaper"></i> ニュース
         </a>
       </li>
       <li role="presentation" class="subtab2 nav-item">
-        <a @click="changeRoute('hospital')" href="#tab2" role="tab" data-toggle="tab" class="nav-link">
+        <a @click="changeRoute($event,'hospital')" href="#tab2" role="tab" data-toggle="tab" class="nav-link">
           <i class="fas fa-briefcase-medical"></i> 病院検索
         </a>
       </li>
       <li role="presentation" class="subtab3 nav-item">
-        <a @click="changeRoute('nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link">
+        <a @click="changeRoute($event,'nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link">
           <i class="fas fa-user-md"></i> 介護検索
         </a>
       </li>
       <li role="presentation" class="subtab5 nav-item">
-        <a @click="changeRoute('job')" href="#tab4" role="tab" data-toggle="tab" class="nav-link">
+        <a @click="changeRoute($event,'job')" href="#tab4" role="tab" data-toggle="tab" class="nav-link">
           <i class="fas fa-users"></i> 求人検索
         </a>
       </li>
@@ -226,27 +226,52 @@ export default {
         this.latest_news = response.data.latest_news;
       });
     },
-    changeRoute(e){
-        // console.log(e.target.hash);
+    changeRoute(e,tab){
+        console.log(tab);
         $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');                        
         $('#navtab').addClass(tab+'-tabColor');
-        this.$router.push({name:'home',params:{page:e.target.hash}});
+        $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');                        
+        $('.tab-content').addClass(tab+'-borderColor'); 
+        if(tab == 'news'){
+          this.$router.push({name:'home',params:{page:e.target.hash}});
+        }        
     },
   }
 };
 </script>
 
 <style >
-.hospital-tabColor {
+.hospital-tabColor .nav-link {
         background: #63b7ff !important;
+        color: #fff;
+        border-right: 1px solid #fff;
 }
-.job-tabColor {
+.news-tabColor .nav-link {
         background: #75b777 !important;
+        color: #fff;
+        border-right: 1px solid #fff;
 }
-.nursing-tabColor {
+.nursing-tabColor .nav-link {
         background: #ff9563 !important;
+        color: #fff;
+        border-right: 1px solid #fff;
 }
-.news-tabColor {
-        background: #e4c31e !important;
+.job-tabColor .nav-link{
+        background: #828282 !important;
+        color: #fff;
+        border-right: 1px solid #fff;
+}
+
+.job-borderColor {
+        border: 1px solid #ccc !important;
+}
+.news-borderColor {
+        border: 1px solid #75b777 !important;
+}
+.hospital-borderColor {
+        border: 1px solid #63b7ff !important;
+}
+.nursing-borderColor {
+        border: 1px solid #ff9563 !important;
 }
 </style>

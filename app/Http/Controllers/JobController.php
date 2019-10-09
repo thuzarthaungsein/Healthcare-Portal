@@ -11,8 +11,8 @@ class JobController extends Controller
 
     public function index()
     {
-     
-       
+
+
         $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
                      ->join('jobs','jobs.customer_id','=','customers.id')->get();
 
@@ -22,7 +22,7 @@ class JobController extends Controller
         return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob,'user'=>auth()->user()->customer_id));
 
     }
-        
+
     public function getJob($id)
     {
         $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
@@ -68,7 +68,7 @@ class JobController extends Controller
                 $string .= $request->fields[$i]['skills'] .',';
             }
         }
-        
+
         //    $cstring = '';
         //    if($request->employment_status[0]['pchecked'] == true)
         //    {
@@ -83,7 +83,7 @@ class JobController extends Controller
         //        else{
         //           $cstring .=  " ,Full";
         //        }
-             
+
         //    }
         //     if($request->employment_status[0]['echecked'] == true)
         //    {
@@ -115,7 +115,7 @@ class JobController extends Controller
         //         $cstring .=  " ,Other";
         //         }
         //    }
-        
+
 
         // $cstring = '';
         // if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false && $request->employment_status[0]['echecked'] == false && $request->employment_status[0]['cchecked']  == false && $request->employment_status[0]['ochecked'] == false)
@@ -254,7 +254,6 @@ class JobController extends Controller
         $job->delete();
         return response()->json('The Job successfully deleted');
     }
-
     public function search(Request $request) {
         $request = $request->all();
         $search_word = $request['search_word'];
