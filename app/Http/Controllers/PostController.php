@@ -142,14 +142,32 @@ class PostController extends Controller
             'related_news.required' => 'ニュースのカテゴリーが必須です。',
             'body.required' => 'ニュースの内容が必須です。',
         ]);
-        if(is_object($request->photo)){
-            $imageName = $request->photo->getClientOriginalName();
-            // $request->photo->move(public_path('/upload/news'), $imageName);
-            $imageName = str_replace(' ', '', $imageName);
-            $request->photo->move('upload/news/', $imageName);
-        }else {
-            $imageName =$request->photo;
+        
+        $post = Post::find($id);
+        if($request->old_photo && $request->photo){
+            $file= $post->photo;
+            $filename = public_path().'/upload/news/'.$file;
+            \File::delete($filename);
+            if(is_object($request->photo)){
+                $imageName = $request->photo->getClientOriginalName();
+                // $request->photo->move(public_path('/upload/news'), $imageName);
+                $imageName = str_replace(' ', '', $imageName);
+                $request->photo->move('upload/news/', $imageName);
+            }else {
+                $imageName = '';
+            }
         }
+        elseif(!$request->old_photo && $request->photo) {
+            if(is_object($request->photo)){
+                $imageName = $request->photo->getClientOriginalName();
+                // $request->photo->move(public_path('/upload/news'), $imageName);
+                $imageName = str_replace(' ', '', $imageName);
+                $request->photo->move('upload/news/', $imageName);
+            }else {
+                $imageName = '';
+            }
+        }
+        
 
         $formData = array(
             'title' => $request->input('title'),
@@ -161,12 +179,8 @@ class PostController extends Controller
             'user_id' => 1,
             'recordstatus' => 1
         );
-        $post = Post::find($id);
-        if(is_object($request->photo)){
-            $file= $post->photo;
-            $filename = public_path().'/upload/news/aaa.jpg';
-            \File::delete($filename);
-        }
+        
+        
         $post->update($formData);
         return response()->json('The news successfully updated');
     }

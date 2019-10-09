@@ -34,7 +34,7 @@
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                 <span v-if="errors.body" class="error">{{errors.body[0]}}</span>
                             </div>
-                            <div class="form-group" style="display:none" id="showimage">
+                            <div class="form-group" id="showimage">
                                 <label class="">メディア:</label>
                                 <div class="custom-file">
                                     <input type="file" ref="file" accept="image/*" @change="fileSelected">
@@ -42,11 +42,15 @@
                             </div>
 
                             <div class="image_show"></div>
-                            <div class="form-group image_update" id="x-image">
-                                <div class="col-md-12">
-
+                            <div class="form-group image_update" id="x-image" v-if="news.photo">
+                                <div class="col-md-12" >
+                                    <div id='x-image' class='col-md-2'>
+                                        <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
+                                        <img :src="'/upload/news/'+ news.photo" class='show-img' alt="news">
+                                    </div>
                                 </div>
                             </div>
+                            <input type="hidden" v-model="old_photo" >
                             <div class="form-group">
                                 <label> カテゴリー:<span class="error">*</span></label>
                                 <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
@@ -111,7 +115,8 @@
                     },
                     category_id_1: '1',
                     related_news: [],
-                    checkedNews: ""
+                    checkedNews: "",
+                    old_photo: "",
                 }
             },
             created() {
@@ -140,14 +145,14 @@
                     }.bind(this));
             },
             methods: {
-                fileSelected() {
+                    fileSelected() {
 
                         $('.image_show').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
                         this.news.photo = event.target.files[0]
                     },
-                    updateselected() {
-                        $('.image_update').html("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/news/" + this.news.photo + " class='show-img''></div>");
-                    },
+                    // updateselected() {
+                    //     $('.image_update').html("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/news/" + this.news.photo + " class='show-img''></div>");
+                    // },
                     updatepost() {                       
                       
                         let fData = new FormData();
@@ -157,6 +162,7 @@
                         fData.append('body', this.news.body)
                         fData.append('category_id', this.news.category_id)
                         fData.append('related_news', this.checkedNews)
+                        fData.append('old_photo',this.old_photo)
 
                         this.axios.post(`/api/new/update/${this.$route.params.id}`, fData)
                          this.$swal({
@@ -193,6 +199,17 @@
                             this.related_news = response.data;
                         });
                     },
+                    closeBtnMethod: function(old_photo) {
+                        // console.log(old_photo);
+                        if(confirm("Are you sure you want to delete?"))
+                        {
+                            var image_x = document.getElementById('x-image');
+                            image_x.parentNode.removeChild(image_x);
+                            document.getElementById('showimage').style.display = 'block';
+                        }
+                        this.old_photo = old_photo;
+                        this.getPostsByCatId;
+                    }
             }
     }
 </script>
