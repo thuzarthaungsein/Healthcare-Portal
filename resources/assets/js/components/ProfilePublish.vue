@@ -1373,6 +1373,7 @@
 
             {
 
+
                 this.axios.get('/api/profile/nursing/'+this.cusid) .then(response => {
 
                     this.nursing_profiles = response.data.feature;
@@ -1382,6 +1383,8 @@
                     this.method_payment = response.data.cost;
 
                     this.nusfacilities = response.data.facility;
+                    console.log('a');
+                    console.log(this.nusfacilities);
 
                     this.cooperate_medical = response.data.comedical;
 

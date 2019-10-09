@@ -1,7 +1,9 @@
 <template>
 
   <div class="card profile m-t-22 " style="border:none;">
-    <form class="col-md-12 form-class">
+
+    <form class="col-md-12 form-class">                         
+
      <div class="col-md-12 pad-free">
 
         <div class="form-group form-group-wrapper">
@@ -17,7 +19,9 @@
                 <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
 
                 <input type="text" class="form-control customer-email col-10 float-right"  placeholder="Email" v-model="customer_info.email">
-        </div>
+
+        </div>                
+
         <div class="form-group form-group-wrapper">
 
                 <label class="heading-lbl">電話番号<span class="error">*</span></label>
@@ -25,6 +29,8 @@
                 <input type="text" class="form-control customer-phone col-10 float-right"  placeholder="Phone" v-model="customer_info.phone">
 
         </div>
+
+        
 
         <!-- <div class="form-group">
 
@@ -86,18 +92,19 @@
 
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-9">
 
-                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title white-bg-color" v-model="img.title" />
+                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="img.title" />
 
-                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description white-bg-color" v-model="img.description" ></textarea>
+                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="img.description" ></textarea>
 
                 </div>
-                <div class="col-md-12 text-right">
-                  <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">
-                    <i class="fa fa-trash"></i> 削除
-                  </a>
-                 </div>
+
+                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">
+
+                  <i class="fa fa-trash"></i> 削除
+
+                </a>
 
               </div>
 
@@ -139,12 +146,11 @@
 
                 </div>
                 <div class="col-md-12 text-right">
-                  <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">
+                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">
 
                   <i class="fa fa-trash"></i> 削除
 
-                  </a>
-                </div>
+                </a>
 
               </div>
 
