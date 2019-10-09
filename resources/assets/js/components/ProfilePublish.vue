@@ -268,7 +268,7 @@
 
                                             <td>
 
-                                                <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >&nbsp;View Details</span>
+                                                <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >詳しくはこちら</span>
 
                                             </td>
 
@@ -670,7 +670,7 @@
 
                         <div class="row col-12">                            
 
-                                <h5  class="profile_header col-12"> Staff </h5>                            
+                                <h5  class="profile_header col-12"> 職員体制</h5>                            
 
                             <div v-if="staff.length>0">
 
@@ -1017,7 +1017,7 @@
 
                             <th>
 
-                                Date
+                               日付
 
                             </th>
 
@@ -1067,7 +1067,7 @@
 
                         <tr class="last">
 
-                            <th class="second-row text-center">AM</th>
+                            <th class="second-row text-center">午前</th>
 
                             <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">{{amval}}</td>    
 
@@ -1075,7 +1075,7 @@
 
                         <tr class="last">
 
-                            <th class="second-row text-center">PM</th>
+                            <th class="second-row text-center">午後</th>
 
                             <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">{{amval}}</td>    
 
@@ -1726,11 +1726,11 @@
 
     costConfirm(id){  
 
-        $('.changeLink').text("View Details"); 
+        $('.changeLink').text("詳しくはこちら"); 
 
         $('.changeLink').removeClass("CloseBtn"); 
 
-        $('.changeLink'+id).text("Close");  
+        $('.changeLink'+id).text("選択中");  
 
         $('.changeLink'+id).addClass("CloseBtn");
 
@@ -2162,33 +2162,28 @@ div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
 
 .changeLink {
 
-    color: #397df9;
-
+    color: #000;
     font-weight: bold;
-
     cursor: pointer;
-
-    border: 1px solid #397df9;
-
-    padding: 7px 10px;
-
+    border: 1px solid #ffc041;
+    padding: 5px;
     border-radius: 5px;
-
+    background-color: #ffc;
 }
 
+
+
 .changeLink:hover {
-
     color: #f9793c;
-
-    border: 1px solid #f9793c;
-
+    border: 1px solid #68ec37;
 }
 
 .CloseBtn {
-
     border: none !important;
-
     color: #f9793c !important;
+    cursor: not-allowed!important;
+    pointer-events: none;
+    background: none !important;
 
 }
 

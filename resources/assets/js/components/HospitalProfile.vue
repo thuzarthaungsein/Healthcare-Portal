@@ -92,19 +92,18 @@
 
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-12">
 
-                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="img.title" />
+                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title white-bg-color" v-model="img.title" />
 
-                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="img.description" ></textarea>
+                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description white-bg-color" v-model="img.description" ></textarea>
 
                 </div>
-
-                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">
-
-                  <i class="fa fa-trash"></i> 削除
-
-                </a>
+                <div class="col-md-12 text-right">
+                  <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')">
+                    <i class="fa fa-trash"></i> 削除
+                  </a>
+                 </div>
 
               </div>
 
@@ -132,25 +131,26 @@
 
               <div class="col-md-6 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id" >
 
-                <div class="col-md-3">
+                <div class="col-md-12">
 
-                  <input type="text" name="url" placeholder="url" class="form-control m-b-15 url" v-model="video.url" />
-
-                </div>
-
-                <div class="col-md-9">
-
-                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title" v-model="video.title" />
-
-                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description" v-model="video.description" ></textarea>
+                  <input type="text" name="url" placeholder="url" class="form-control m-b-15 video-url white-bg-color" v-model="video.url" />
 
                 </div>
 
-                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">
+                <div class="col-md-12">
+
+                  <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title white-bg-color" v-model="video.title" />
+
+                  <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description white-bg-color" v-model="video.description" ></textarea>
+
+                </div>
+                <div class="col-md-12 text-right">
+                  <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'video')">
 
                   <i class="fa fa-trash"></i> 削除
 
-                </a>
+                  </a>
+                </div>
 
               </div>
 
@@ -277,15 +277,15 @@
 
                         <th>&nbsp;</th>
 
-                        <th>午前</th>
+                        <th class="text-center">午前</th>
 
-                        <th>午後</th>
+                        <th class="text-center">午後</th>
 
                       </tr>
 
                       <tr>
 
-                        <td>月曜日</td>
+                        <td>月</td>
 
                         <td>
 
@@ -293,7 +293,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -309,7 +309,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -333,7 +333,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -349,7 +349,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -371,7 +371,7 @@
 
                       <tr>
 
-                        <td>火曜日</td>
+                        <td>火</td>
 
                         <td>
 
@@ -379,7 +379,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -395,7 +395,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -419,7 +419,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -435,7 +435,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -457,7 +457,7 @@
 
                       <tr>
 
-                        <td>水曜日</td>
+                        <td>水</td>
 
                         <td>
 
@@ -465,7 +465,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -481,7 +481,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -505,7 +505,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -521,7 +521,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -543,7 +543,7 @@
 
                       <tr>
 
-                        <td>木曜日</td>
+                        <td>木</td>
 
                         <td>
 
@@ -551,7 +551,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -567,7 +567,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -591,7 +591,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -607,7 +607,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -629,7 +629,7 @@
 
                       <tr>
 
-                        <td>金曜日</td>
+                        <td>金</td>
 
                         <td>
 
@@ -637,7 +637,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -653,7 +653,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -677,7 +677,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -693,7 +693,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -715,7 +715,7 @@
 
                       <tr>
 
-                        <td>土曜日</td>
+                        <td>土</td>
 
                         <td>
 
@@ -723,7 +723,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -739,7 +739,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -763,7 +763,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -779,7 +779,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -801,7 +801,7 @@
 
                       <tr>
 
-                        <td>日曜日</td>
+                        <td>日</td>
 
                         <td>
 
@@ -809,7 +809,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -825,7 +825,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -849,7 +849,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>From:</span>
+                              <span>から:</span>
 
                               <input
 
@@ -865,7 +865,7 @@
 
                             <div class="col-lg-6">
 
-                              <span>To:</span>
+                              <span>まで:</span>
 
                               <input
 
@@ -1609,7 +1609,7 @@ export default {
 
 
 
-                    this.img_arr.push({classname:classname,photo:'',title:'',description:''});
+                    this.img_arr.push({classname:classname,phoまで:'',title:'',description:''});
 
             },
 
@@ -1720,7 +1720,7 @@ export default {
 
 
 
-                           this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+                           this.img_list.push({type:"photo",phoまで:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
 
                         }
 
@@ -1732,7 +1732,7 @@ export default {
 
                         for(var i = 0; i< video.length; i++) {
 
-                           this.video_list.push({type:"video",photo:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
+                           this.video_list.push({type:"video",phoまで:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
 
                         }
 
