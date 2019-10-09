@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Customer;
 use DB;
 class SearchMapController extends Controller
 {
     public function getMap(Request $request, $id){
+     
+      
+   
+        $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng , n.feature, n.business_entity
+                  from customers As c  Join townships As t on t.id =  c.townships_id 
+                  Join nursing_profiles As n on n.customer_id = c.id 
+                  where t.city_id =".$id." order BY n.id ASC LIMIT 26";
+        $nus_latlng = DB::select($query);
 
-        // return response()->json($id);
-        
+    
         $title = $request->title;
         $mapid = $request->id;
 
@@ -29,8 +37,26 @@ class SearchMapController extends Controller
                                  'fac_types'=>$fac_types,
                                  'medical_acceptance'=>$medical_acceptance,
                                  'subjects'=>$subjects,
+                                 'nus_latlng' => $nus_latlng,
                                  'occupations'=>$occupations]);
     }
+
+    public  function getMapTownship($id)
+    {
+      
+      
+            $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng, n.feature, n.business_entity from customers As c  Join nursing_profiles As n on n.customer_id = c.id 
+            where c.townships_id IN (" . $id . ")  order BY n.id ASC LIMIT 26";
+           
+            $nus_latlng = DB::select($query);
+           
+       
+          return response()->json($nus_latlng);
+      
+       
+    } 
+
+    
     public function getCity(Request $request)
     {
         $id = $request->id;

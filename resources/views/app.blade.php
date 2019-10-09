@@ -535,7 +535,7 @@
                                 @if(Auth::check())
                                     <div class="col-md-10 pad-free fixed-ads" style="display:none;">
                                 @else
-                                    <div class="col-md-12 pad-free fixed-ads-fluid">
+                                    <div class="row col-md-12 pad-free fixed-ads-fluid">
                                 @endif
                                     <!--jssor carousel-->
 

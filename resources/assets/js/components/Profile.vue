@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="type == 'nursing'">
-      <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist">
+      <ul class="nav nav-tabs card-head-tabs fixed-ads" role="tablist" id="profilenav">
         <li role="presentation" class="subtab1 nav-item">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
             <i class="fa fa-plus-circle"></i>
@@ -128,14 +128,11 @@ export default {
                 if(this.$route.params.type) {
                         this.type = this.$route.params.type;
                         console.log(this.type);
-                }       
+                }
                 if(this.$route.params.cusid) {
                         this.cusid = this.$route.params.cusid;
                 }
-                else{
-                        this.cusid = 1;
-                }    
-                
+
         },
         methods: {
                 changeBtnType() {
