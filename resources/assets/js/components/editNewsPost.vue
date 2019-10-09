@@ -120,7 +120,7 @@
                     },
                     category_id_1: '1',
                     related_news: [],
-                    checkedNews: "",
+                    checkedNews: [],
                     old_photo: "",
                     new_photo: ""
                 }
@@ -131,11 +131,11 @@
                     .then((response) => {
                         this.news = response.data;
                         this.checkedNews = [];
-                        if(this.news.related_news != undefined || this.news.related_news != '' ){
+                        if(this.news.related_news != undefined){
                             this.checkedNews = this.news.related_news.split(',');
                         }
                         else{
-                            this.checkedNews = "";
+                            this.checkedNews = [];
                         }
 
                         if(this.news.photo == null || this.news.photo == '') {
