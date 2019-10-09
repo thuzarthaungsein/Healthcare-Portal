@@ -141,7 +141,7 @@
 
                         <div class="row col-12 pro-heading">
                              <div class="col-12">
-                                 <h5 class="h_4 font15rem font-weight-bold">ひだまりこころクリニック</h5>
+                                 <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
                              </div>
                             <table class="table table-bordered">
                                     <tr>
@@ -912,7 +912,7 @@
                         <div class="row m-lr-0">
                             <div class="col-12 pro-heading">
                                 <div class="col-12">
-                                    <h5 class="h_4 font15rem font-weight-bold">ひだまりこころクリニック</h5>
+                                    <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
                                 </div>
                                 <table class="table table-bordered">
                                     <tr>
@@ -1491,7 +1491,7 @@
 
 
                   this.axios.get('/api/profile/customer/'+this.cusid) .then(response => {
-
+                      console.log(response.data);
                       this.customer = response.data;
 
                 });
@@ -1894,27 +1894,6 @@
 
 }
 
-
-
-div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-
-    color: #fff !important;
-
-    font-weight: bold;
-
-    background-color: #1aa985  !important;
-
-    border-top: 1px solid #1aa985  ;
-
-    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
-
-}
-
-div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-link {
-
-    border: 1px solid #1aa985  !important;
-
-}
 
 /* div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
 
