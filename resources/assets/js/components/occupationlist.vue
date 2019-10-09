@@ -31,7 +31,6 @@
                             <button class="btn secondary-bg-color all-btn white">検索</button>
                         </div>
                     </div>
-                    </div>
                 <hr/>
                     <h5 class="header">Occupation List</h5>
                 <div class="card card-default m-b-20"  v-for="occupations in occupation" :key="occupations.id">
@@ -54,7 +53,8 @@
                         </div>
                         </div>
                     </div>
-            </div>
+                </div>
+                    </div>
                     </div>
                 </div>
             </div>
