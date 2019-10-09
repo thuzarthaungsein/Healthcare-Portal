@@ -11,8 +11,8 @@
                         <div class="col-md-12">
                              <form @submit.prevent="add">
                             <div class="form-group">
-                                <label>機能名 :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="機能名" >
+                                <label>特徴 :<span class="error">*</span></label>
+                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="特徴" >
                                 <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                             </div>
                             <div class="form-group">
@@ -23,11 +23,11 @@
                             <div class="form_group">
                                 <label> カテゴリー:<span class="error">*</span></label>
                                 <select v-model="selectedValue" name="type" class="form-control" @change="onChange()">
-                                        <option value="選択してください">選択してください。</option>
-                                        <option value="hospital">病院</option>
-                                        <option value="nursing">介護</option>
-
+                                        <option value="0">選択してください。</option>
+                                        <option value="病院">病院</option>
+                                        <option value="介護">介護</option>
                                 </select>
+                                 <span v-if="errors.type" class="error">{{errors.type[0]}}</span>
                             </div> <br/>
 
                             <div class="form-group ">
@@ -54,7 +54,7 @@ export default {
                         short_name:'',
                         type:'',
                     },
-                    selectedValue:'選択してください',
+                    selectedValue:0,
                     header: '特殊機能作成',
                     subtitle: '作る'
             }
@@ -68,17 +68,15 @@ export default {
                     .get(`/api/feature/edit/${this.$route.params.id}`)
                     .then((response) => {
 
-                    this.feature = response.data;
-                    if(this.feature.type == 'hospital')
+                    this.feature= response.data;
+                    if(this.feature.type == '病院')
                     {
-                        this.selectedValue = 'hospital';
+                        this.selectedValue = '病院';
                     }
-                    else if (this.feature.type == 'nursing') {
-                        this.selectedValue = 'nursing';
-                    }else {
-                        this.selectedValue='選択してください'
+                    else if (this.feature.type == '介護') {
+                        this.selectedValue = '介護';
                     }
-                      this.header = '特別な機能更新';
+                      this.header = ' 特徴更新';
                         this.subtitle = '更新';
                         return this.header;
                         return this.subtitle;
@@ -86,7 +84,6 @@ export default {
                 });
               }
         },
-
 
          methods: {
             add() {
@@ -126,7 +123,6 @@ export default {
 
             },
             onChange: function(){
-
                this.feature.type = this.selectedValue;
 
            },
@@ -134,7 +130,7 @@ export default {
             this.axios
                 .post(`/api/feature/update/${this.$route.params.id}`, this.feature)
                 .then((response) => {
-                    //this.name = ''
+
                     //alert('Successfully Updated!')
                     this.$swal({
                             position: 'top-end',

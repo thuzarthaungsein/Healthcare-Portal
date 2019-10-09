@@ -168,8 +168,15 @@ export default {
 
                         })
                         this.$router.push({name: 'ads'});
-                    });
-            }
+                    }).catch(error=>{
+
+                    if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                    }
+                })
+            },
 
         }
 }

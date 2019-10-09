@@ -34,7 +34,7 @@
                     <div v-for="nur_profile in fav_nursing" :key="nur_profile.id" class="col-lg-12 pt-3 bd">
                         <div class="row m-0">
                             <h5 class="m-b-10 col-12 hos-tit">
-                                <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}" >{{nur_profile.name}}</router-link>
+                                <router-link :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" >{{nur_profile.name}}</router-link>
                             </h5>
                             <div class="col-lg-2 col-md-12 mb-5">
                                 <div class="hos-img list-logo">
