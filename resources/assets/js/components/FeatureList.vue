@@ -86,7 +86,8 @@
 export default {
   data() {
     return {
-      features: []
+      features: [],
+      norecord:0,
     };
   },
 

@@ -61,7 +61,8 @@
 export default {
   data() {
     return {
-      types: []
+      types: [],
+      norecord:0,
     };
   },
   created() {

@@ -65,7 +65,8 @@
 export default {
         data() {
             return {
-                occupation: []
+                occupation: [],
+                norecord:0,
             }
         },
         created() {

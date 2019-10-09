@@ -71,6 +71,7 @@ export default {
   data() {
     return {
       facilities: [],
+      norecord:0,
     };
   },
   created() {

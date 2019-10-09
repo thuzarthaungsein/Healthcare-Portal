@@ -11,7 +11,7 @@
       <!--card-->
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="col-md-12 scrolldiv">
-          <div v-if="norecord == 0" class="card card-default card-wrap">
+          <div v-if="norecord === 0" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -73,8 +73,8 @@
 export default {
   data() {
     return {
-      categories: [],
-    //   norecord: 0,
+        categories: [],
+        norecord: 0,
     };
   },
 
@@ -106,7 +106,7 @@ export default {
         this.axios
           .delete(`/api/category/delete/${id}`)
           .then(response => {
-            this.categories = response.data.categories;
+            this.categories = response.data;
             this.norecord = this.categories.length;
 
             // let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
