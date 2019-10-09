@@ -195,7 +195,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $file= $post->photo;
-        $filename = '/upload/news/'.$file;
+        $filename = public_path().'/upload/news/'.$file;
         \File::delete($filename);
         $post->delete();
         return response()->json('The news post successfully deleted');
