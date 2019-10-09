@@ -84,8 +84,8 @@ body {
     display: none;
 }
 
-.font2rem{
-    font-size: 2rem;
+.font15rem{
+    font-size: 1.5rem;
 }
 /* News List */
 
@@ -961,8 +961,7 @@ p.p_2>a {
 }
 
 .header {
-    font-weight: bold;
-    font-size: 1.5rem;
+    font-weight: bold;    
     display: inline-block;
     position: relative;
     background: #fff;
