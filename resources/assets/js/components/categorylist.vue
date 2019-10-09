@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       categories: [],
-      norecord: 0,
+    //   norecord: 0,
     };
   },
 
@@ -108,8 +108,9 @@ export default {
           .then(response => {
             this.categories = response.data.categories;
             this.norecord = this.categories.length;
-            let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
-            this.categories.splice(i, 1);
+
+            // let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
+            // this.categories.splice(i, 1);
             this.$swal({
               title: "削除された",
               text: "ファイルが削除されました。",
