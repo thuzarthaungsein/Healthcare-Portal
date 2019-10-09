@@ -159,7 +159,7 @@ export const routes = [
     },
     {
         name: "editstation",
-        path: "/editstation`",
+        path: "/editstation",
         component: editstation
     },
     {
