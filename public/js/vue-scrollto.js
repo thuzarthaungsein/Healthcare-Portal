@@ -251,7 +251,7 @@
         container: "body",
         duration: 500,
         easing: "ease",
-        offset: -550,
+        offset: -250,
         cancelable: true,
         onDone: false,
         onCancel: false,
