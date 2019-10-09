@@ -240,7 +240,7 @@
                         <tr>
                             <td style="border:none;">
                                 <label class="heading-lbl col-2 pad-free">施設の概要</label>
-                                <span class="btn all-btn main-bg-color"  style="min-width: 0px;" @click="nurseFacToggleDiv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate}"></i></span>
+                                <span class="btn all-btn main-bg-color"  style="min-width: 0px;" @click="nurseFacToggleDiv()"><i class="fas fa-sort-down animate"  :class="{'rotate': isRotate1}"></i></span>
                                 <!-- testtest -->
                                 <div class="col-10 pad-free float-right nurse-fac-toggle-div toggle-div m-t-10">
                                         <table class="table table-striped table-bordered">
@@ -382,7 +382,7 @@
                             <td>
                                 <div class="form-group">
                                         <label class="heading-lbl col-2 pad-free">医療面の受入れ</label>
-                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="acceptanceList()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate}"></i></span>
+                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="acceptanceList()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate2}"></i></span>
                                     <div class="col-md-10 float-right m-t-10 accept-toggle-div toggle-div pad-free">
                                             <label for="" class="m-r-15"><i class="fas fa-check green"></i> 受入れ可</label>
                                             <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
@@ -418,7 +418,7 @@
                         <tr>
                             <td>
                                 <label class="heading-lbl col-2 pad-free">職員体制</label>
-                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="staffToggleDiv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate}"></i></span>
+                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="staffToggleDiv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate3}"></i></span>
 
                                 <div class="col-10 pad-free float-right staff-toggle-div toggle-div m-t-10">
                                         <table class="table table-striped table-bordered">
@@ -466,7 +466,7 @@
                             <td>
                                 <div class="form-group">
                                         <label  class="heading-lbl col-2 pad-free">こだわりの特長</label>
-                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate}"></i></span>
+                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
 
                                         <div class="col-md-10 float-right special-feature-toggle-div toggle-div m-t-10">
                                                 <div class="row">
@@ -490,7 +490,7 @@
                         <tr>
                             <td>
                                 <label class="heading-lbl col-2 pad-free">地図</label>
-                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down"></i></span>
+                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
                                 <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
                                         <div class="col-md-12">
                                             <GoogleMap></GoogleMap>
@@ -540,7 +540,11 @@ export default {
 
 
         return {
-                isRotate: false,
+                isRotate1: false,
+                isRotate2: false,
+                isRotate3: false,
+                isRotate4: false,
+                isRotate5: false,
                 fac_list: [],
                 feature_list:[],
                 medical_acceptance:[],
@@ -652,17 +656,18 @@ export default {
 
             maptogglediv() {
                     $(".map-toggle-div").toggle('medium');
-                    this.isRotate = !this.isRotate;
+                   this.isRotate5 = !this.isRotate5;
             },
 
             nurseFacToggleDiv() {
                     $(".nurse-fac-toggle-div").toggle('medium');
-                     this.isRotate = !this.isRotate;
+                    this.isRotate1 = !this.isRotate1;
+                    
             },
 
             staffToggleDiv() {
                     $(".staff-toggle-div").toggle('medium');
-                    this.isRotate = !this.isRotate;
+                    this.isRotate3 = !this.isRotate3;
             },
 
             featureCheck(check_id) {
@@ -720,12 +725,12 @@ export default {
 
             acceptanceList() {
                      $(".accept-toggle-div").toggle('medium');
-                     this.isRotate = !this.isRotate;
+                     this.isRotate2 = !this.isRotate2;
             },
 
             specialFeAdd() {
                      $(".special-feature-toggle-div").toggle('medium');
-                     this.isRotate = !this.isRotate;
+                     this.isRotate4 = !this.isRotate4;
             },
             onDrop: function(e) {
                         e.stopPropagation();
