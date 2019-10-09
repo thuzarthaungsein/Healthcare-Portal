@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" v-model="old_photo" >
+                            <input type="text" v-model="old_photo" >
                             <div class="form-group">
                                 <label> カテゴリー:<span class="error">*</span></label>
                                 <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
