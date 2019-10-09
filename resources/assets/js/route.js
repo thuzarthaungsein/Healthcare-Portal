@@ -11,6 +11,7 @@ import create_news from "./components/create_news.vue";
 import categorylist from "./components/categorylist.vue";
 import createcategory from "./components/createcategory.vue";
 import stationlist from "./components/stationlist.vue";
+import createstation from "./components/createstation.vue";
 import FacilitiesListComponent from "./components/FacilitiesListComponent.vue";
 import CreateFacilityComponent from "./components/CreateFacilityComponent.vue";
 import custedit from "./components/custedit.vue";
@@ -148,6 +149,11 @@ export const routes = [
         name: "stationlist",
         path: "/stationlist",
         component: stationlist
+    },
+    {
+        name: "createstation",
+        path: "/createstation`",
+        component: createstation
     },
     {
         name: "facilitieslist",

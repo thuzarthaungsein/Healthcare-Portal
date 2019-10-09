@@ -126,19 +126,15 @@
             v-model="hospital_info.specialist"
           ></textarea>
         </div>
-
-        <div class="form-group form-group-wrapper row ml-0 mr-0">
-          <label class="heading-lbl col-2 pad-free">
-            医院からのお知らせ
-            <span class="error">*</span>
-          </label>
-          <textarea
-            name="detailsinfo"
-            class="form-control col-10 details-info white-bg-color"
-            v-model="hospital_info.details_info"
-          ></textarea>
-        </div>
-
+        <table class="table table-bordered table-wrapper">
+          <tr>
+                  <td class="width17" style="border:none;"> <label class="heading-lbl pad-free"> 医院からのお知らせ<span class="error">*</span></label></td>
+                  <td style="border:none;">
+                          <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
+                          <quill-editor  ref="myQuilEditor" name="detailsinfo" class="details-info" v-model="hospital_info.details_info" :options="editorOption"/>
+                  </td>
+          </tr>
+        </table>   
         <!-- <div class="form-group">
                             <label class="heading-lbl">診療科目<span class="error">*</span></label>
                             <textarea name="subject" class="form-control"></textarea>
@@ -706,10 +702,17 @@
 </template>
 
 <script>
+import 'quill/dist/quill.snow.css'
+import {quillEditor} from 'vue-quill-editor'
+import {Button, Input,Select} from 'iview'
 import GoogleMap from './GoogleMap.vue'
 export default {
-        components: {
-        GoogleMap,
+         components: {
+                GoogleMap,
+                Button,
+                Input,
+                Select,
+                quillEditor
         },
        data() {
                 return {
@@ -1033,3 +1036,9 @@ export default {
 }
 
 </script>
+<style>
+ .quill-editor{
+          background-color: #fff;
+  }
+
+</style>
