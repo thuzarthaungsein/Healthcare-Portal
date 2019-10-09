@@ -4902,6 +4902,7 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
     border-radius: 20px;
     border: 1px solid #b7dad2;
+    list-style: none;
 }
 
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\HospitalProfile;
 use App\Gallery;
 use DB;
+use App\Medical;
 use App\Category;
 
 class HospitalProfileController extends Controller
@@ -45,7 +46,7 @@ class HospitalProfileController extends Controller
     }
 
     function getFavouriteNursing($local_sto) {
-        $query = "SELECT nursing_profiles.* ,staffs.nursing_staff,customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
+        $query = "SELECT nursing_profiles.* ,staffs.nursing_staff,customers.name, customers.email, customers.address, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
                     JOIN customers ON nursing_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
                     JOIN staffs ON staffs.customer_id = nursing_profiles.customer_id
@@ -85,6 +86,11 @@ class HospitalProfileController extends Controller
                     WHERE zipcode.id = $selectedId";
         $selectedCity = DB::select($query);
         return $selectedCity;
+    }
+
+    public function getMedicalAcceptance(){
+        $medical_acceptance = Medical::select('name')->get();
+        return $medical_acceptance;
     }
     /**
      * Show the form for creating a new resource.
