@@ -413,11 +413,11 @@ body {
 .bordertop-color4 {
     border-top: 1px dashed #d1291d;
 }
-/* .pro-heading h5{
+.pro-heading h5{
     position: relative;
     margin: 0 15px 15px 0;
     padding: 7px;
-    background-color: #f39d27;
+    background-color: #ff6117;
     text-align: center;
     line-height: 1.1;
     color: #FFFFFF;
@@ -435,11 +435,11 @@ body {
     position: absolute;
     pointer-events: none;
     border-color: rgba(204, 102, 51, 0);
-    border-top-color: #f39d27;
+    border-top-color: #ff6117;
     border-width: 10px;
     left: 50%;
     margin-left: -10px;
-} */
+}
 
 /* End Profile */
 
@@ -5553,7 +5553,7 @@ button.confirmed {
 
 .ele {
     margin-top: 27px;
-    padding-top: 135px;
+    padding-top: 50px;
 }
 
 .table-wrapper {
