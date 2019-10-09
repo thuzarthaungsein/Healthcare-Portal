@@ -34,8 +34,8 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
     <div class="row">
         <div class="col-12">
             <div class="card ">
-                <div class="card-header text-center jt1">
-                    <h4 style="padding-top: 20px;"> 求人作成 </h4>
+                <div class="col-md-12">
+                    <h4 class="page-header header">{{ header }}</h4>
                 </div>
                 <div class="card-body ">
                     <div class="row">
@@ -128,10 +128,10 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                                             <input type="radio"  value="Part"  v-model="joboffer.employmentstatus"> <strong>非常勤 </strong>
                                         </label>
                                         <label>
-                                            <input type="radio"  value="Full"  v-model="joboffer.employmentstatus"><strong> 正職員 </strong> 
+                                            <input type="radio"  value="Full"  v-model="joboffer.employmentstatus"><strong> 正職員 </strong>
                                         </label>
                                           <label>
-                                            <input type="radio"  value="Other"  v-model="joboffer.employmentstatus"><strong> その他 </strong> 
+                                            <input type="radio"  value="Other"  v-model="joboffer.employmentstatus"><strong> その他 </strong>
                                         </label>
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
     export default {
         data() {
                 return {
-                    errors: [],          
+                    errors: [],
                     joboffer: {
                         title: '',
                         customer_id: '',
@@ -242,17 +242,19 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                         holidays: '',
                         user_id: '',
                         recordstatus: '',
-                       
-                      
+
+
                     },
-                    ischeck: ''
+                    ischeck: '',
+                    header: '求人作成',
+                    subtitle: '作る'
                 }
             },
             created() {
                 this.joboffer.employmentstatus = "ContractEmployee";
-              
+
                 if(this.$route.params.id){
-                 
+
                     this.axios
                         .get(`/api/job/edit/${this.$route.params.id}`)
                         .then((response) => {
@@ -266,7 +268,7 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                             this.joboffer.location = response.data.location;
                             this.joboffer.nearest_station = response.data.nearest_station;
                             this.joboffer.employmentstatus = response.data.employment_status;
-                           
+
                             // this.ischeck = response.data.employment_status;
                             // this.createCheck(this.ischeck);
                             this.joboffer.salary = response.data.salary;
@@ -284,7 +286,7 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                         if (this.$route.params.id) {
                             this.updateJob();
                         } else {
-                           
+
                              this.axios.post('/api/job/add', this.joboffer)
                                 .then((response) => {
                                     this.title = '',
@@ -293,7 +295,17 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                                         this.salary = '',
                                         this.working_hours = '',
                                         this.employment_status = ''
-                                    alert('Successfully Created')
+                                        console.log(response);
+                                        this.$swal({
+                                        position: 'top-end',
+                                        type: 'success',
+                                        title: '作成されました',
+                                        showConfirmButton: false,
+                                        timer: 1800,
+                                        width: 250,
+                                        height: 200,
+                                    })
+                                    // alert('Successfully Created')
                                     this.$router.push({
                                         name: 'jobofferlist'
                                     });
@@ -303,7 +315,7 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                                         this.errors = error.response.data.errors
                                     }
                                 })
-                           
+
                         }
                     },
                     addRow: function() {
@@ -346,13 +358,15 @@ Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
                         this.axios
                             .post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
                             .then((response) => {
-                                this.title = '',
-                                    this.description = '',
-                                    this.location = '',
-                                    this.salary = '',
-                                    this.working_hours = '',
-                                    this.employment_status = ''
-                                alert('Successfully Updated!')
+                                    this.$swal({
+                                position: 'top-end',
+                                type: 'success',
+                                title: '作成されました',
+                                showConfirmButton: false,
+                                timer: 1800,
+                                width: 250,
+                                height: 200,
+                            })
                                 this.$router.push({
                                     name: 'jobofferlist'
                                 });
