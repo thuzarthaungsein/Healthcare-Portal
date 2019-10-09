@@ -5,9 +5,9 @@
     <div v-if="type == 'nursing'">
 
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
-            <div class="row col-12 m-t-10">
+            <!-- <div class="row col-12 m-t-10">
                 <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
-            </div>
+            </div> -->
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
 
@@ -59,7 +59,7 @@
 
                  <h5 class="profile_header">情報</h5>
 
-                 <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
+                 <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
 
                     <!--for slideimage-->
 
@@ -139,15 +139,36 @@
 
                      <div class="col-sm-7 detail_profile_right">
 
-                        <div class="row list-wrap m-lr-0">
+                        <div class="row col-12 pro-heading">
+                             <div class="col-12">
+                                 <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
+                             </div>
+                            <table class="table table-bordered">
+                                    <tr>
+                                        <th width="30%" class="custom-bg-color">
+                                            <font>住所</font>
+                                        </th>
+                                        <td width="50%">
+                                            <font>{{cust.address}}</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%" class="custom-bg-color">
+                                            <font>電話</font>
+                                        </th>
+                                        <td width="50%">
+                                            <font>{{cust.phone}}</font>
+                                        </td>
+                                    </tr>
+                            </table>
 
-                            <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
+                            <!-- <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
 
                             <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
 
                             <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>電話 :</strong></p></div>
 
-                            <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
+                            <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div> -->
 
                         </div>
 
@@ -784,9 +805,9 @@
     <div v-if="type == 'hospital'">
 
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
-                <div class="row col-12 m-t-10">
+                <!-- <div class="row col-12 m-t-10">
                      <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
-                </div>
+                </div> -->
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                 情報
@@ -811,7 +832,7 @@
             <!-- ee-->
 
              <h5 class="profile_header">情報</h5>
-                 <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
+                 <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
 
                     <div class="col-sm-5 detail_profile_left">
@@ -888,15 +909,38 @@
 
                      <div class="col-sm-7 detail_profile_right">
 
-                        <div class="row list-wrap m-lr-0" v-for="cust in customer" :key="cust.id">
-
+                        <div class="row m-lr-0">
+                            <div class="col-12 pro-heading">
+                                <div class="col-12">
+                                    <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
+                                </div>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="30%" class="custom-bg-color">
+                                            <font>住所</font>
+                                        </th>
+                                        <td width="50%">
+                                            <font>{{cust.address}}</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%" class="custom-bg-color">
+                                            <font>電話</font>
+                                        </th>
+                                        <td width="50%">
+                                            <font>{{cust.phone}}</font>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+<!-- 
                             <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
 
                             <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
 
                             <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>電話 :</strong></p></div>
 
-                            <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
+                            <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div> -->
 
                         </div>
 
@@ -1447,7 +1491,7 @@
 
 
                   this.axios.get('/api/profile/customer/'+this.cusid) .then(response => {
-
+                      console.log(response.data);
                       this.customer = response.data;
 
                 });
