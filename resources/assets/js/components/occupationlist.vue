@@ -1,9 +1,28 @@
 <template>
     <div class="row">
-      <div class="col-12">  
-           <div class="card m-b-20">  
-                <div class="card-body">
-                    <h4 class="main-color">ニュース記事を検索</h4>
+        <div class="col-12">
+            <div class="row m-b-10" v-if="this.occupation.length !== 0">
+                <div class="col-md-12">
+                    <router-link to="/occupation" class="float-right main-bg-color create-btn all-btn">
+                        <i class="fas fa-plus-circle"></i> Create New Occupation
+                    </router-link>
+                </div>
+            </div>
+            <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
+                <div class="col-md-12 scrolldiv">
+                     <div v-if="occupation == 0" class="card card-default card-wrap">
+                        <p class="record-ico">
+                            <i class="fa fa-exclamation"></i>
+                        </p>
+                        <p>OOPS!!</p>
+                        <p class="record-txt01">表示するデータありません</p>
+                        <p>表示するデータありません‼新しいデータを作成してください。</p>
+                            <a href="/occupation" class="main-bg-color create-btn all-btn">
+                            <i class="fas fa-plus-circle"></i> 新しく作る
+                        </a>
+                    </div>
+                    <div v-else class="container-fuid">
+                        <h4 class="main-color m-b-10">Occupation Search</h4>
                     <div class="row">
                         <div class="col-md-10">
                             <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchOccupation()">
@@ -12,42 +31,34 @@
                             <button class="btn secondary-bg-color all-btn white">検索</button>
                         </div>
                     </div>
-                </div>  
-            </div>
-                <div class="row m-b-15">
-                    <div class="col-md-12">
-                         <router-link class="float-leftbtn btn main-bg-color white all-btn" style="color: blue;" to="/occupation" >戻る</router-link>
-                        <router-link class="float-right" style="color: blue;" to="/createfacility" >  Create New Type</router-link>
                     </div>
-                  
-                </div>
-           
-    
-        <div class="col-md-12 scrolldiv">
-            <div v-if="!this.occupation.length" class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
-                    
-                    No record data 
-                    
-            </div>     
-            <div class="container-fuid" v-for="occupations in occupation" :key="occupations.id">
-                <div class="card card-default m-b-20">                    
+                <hr/>
+                    <h5 class="header">Occupation List</h5>
+                <div class="card card-default m-b-20"  v-for="occupations in occupation" :key="occupations.id">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-9 m-t-8">
-                                 <p> {{occupations.name}} </p>
-                            </div>
-                            <div class="col-md-3" style="margin-top: 8px;">
-
-                                  <router-link :to="{name: 'occupation', params: { id: occupations.id }}" class="btn main-bg-color white all-btn">編集 </router-link>  
-                                
-                                <button class="btn btn-danger all-btn" @click="deleteType(occupations.id)">削除</button>
-                            </div>
+                            <div class="col-md-9 m-t-8">{{occupations.name}}</div>
+                        <div class="col-md-3 text-right">
+                            <small>
+                            <router-link
+                                :to="{name:'occupation', params:{id : occupations.id}}"
+                                class="btn edit-borderbtn"
+                            >編集</router-link>
+                            </small> &nbsp;
+                            <small>
+                            <a
+                                class="btn text-danger delete-borderbtn"
+                                @click="deleteType(occupations.id)"
+                            >削除</a>
+                            </small>
                         </div>
+                        </div>
+                    </div>
+            </div>
                     </div>
                 </div>
             </div>
         </div>
-      </div>
  </div>
 </template>
 
@@ -67,30 +78,53 @@ export default {
         },
         methods: {
 
-            deleteType(id) {
-                if(confirm("Are you sure you want to delete?"))
-                {
-                     this.axios
-                    .delete(`/api/occupation/delete/${id}`)
-                    .then(response => {
-                        alert('Delete Successfully!');
-                        let i = this.occupation.map(item => item.id).indexOf(id); // find index of your object
-                        this.occupation.splice(i, 1)
-                    });
-                }
-               
-            },
-            searchOccupation() {
-                var search_word = $("#search-item").val();
+               deleteType(id) {
+                this.$swal({
+                title: "確認",
+                text: "削除よろしいでしょうか",
+                type: "warning",
+                width: 350,
+                height: 200,
+                showCancelButton: true,
+                confirmButtonColor: "#dc3545",
+                cancelButtonColor: "#b1abab",
+                cancelButtonTextColor: "#000",
+                confirmButtonText: "削除",
+                cancelButtonText: "キャンセル",
+                confirmButtonClass: "all-btn",
+                cancelButtonClass: "all-btn"
+            }).then(response => {
+            this.axios
+            .delete(`/api/occupation/delete/${id}`)
+            .then(response => {
+                // alert('Delete Successfully!');
+                let i = this.occupation.map(item => item.id).indexOf(id); // find index of your object
+                this.occupation.splice(i, 1)
+                this.$swal({
+            title: "削除された",
+            text: "ファイルが削除されました。",
+            type: "success",
+            width: 350,
+            height: 200,
+            confirmButtonText: "はい",
+            confirmButtonColor: "#dc3545"
+                });
+            }).catch(() => {
+            this.$swal("Failed", "wrong");
+            });
+        });
 
-                let fd = new FormData();
-                    fd.append("search_word", search_word);
-                    this.axios.post("/api/occupation/search", fd).then(response => {
-                        this.occupation = response.data;
-                    });
-                }
-           
-            }
+      },
+      searchOccupation() {
+        var search_word = $("#search-item").val();
+
+        let fd = new FormData();
+            fd.append("search_word", search_word);
+            this.axios.post("/api/occupation/search", fd).then(response => {
+                this.occupation = response.data;
+            });
         }
-    
+
+    }
+}
 </script>

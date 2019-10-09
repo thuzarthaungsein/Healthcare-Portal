@@ -2022,7 +2022,7 @@ li.userprofile-name>a {
 
 .nav-link {
     color: #095c5f;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -2037,7 +2037,8 @@ li.userprofile-name>a {
      
    /* background-color: #ffa77d; */
    color: #000 !important;
-   border: none;
+   border-bottom: 1px solid transparent;
+   border-top: 1px solid transparent;
 }
 /* .router-link-active{
 
@@ -2059,12 +2060,7 @@ a:hover {
     /* border-left: 1px solid #fff !important; */
 }
 
-div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-    color: #ff9563 !important;
-    font-weight: bold;
-    background-color: #fff;    
-    border-color: #ff9563 #fff #fff #fff !important;    
     border-top: 3px solid #ff9563 !important;
     border-right: 0px solid #ff9563 !important;
     border-bottom: 0px solid #ff9563 !important;
@@ -2072,6 +2068,10 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 }
 div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
     border-color: transparent !important;
+}
+
+#myTabContent {
+    border: 1px solid #ccc;
 }
 
 .nav-tabs .nav-link {    
@@ -2260,17 +2260,21 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover{
 
 .fac-name-box {
     border: 1px solid #eee;
-    padding: 0px;
+    padding: 0px;    
 }
 
-.fac-name-box h4 {
-    border-bottom: 1px solid #eee;
+.fac-name-box h4 {  
     padding: 10px;
     text-align: center;
+    background-color: #dee2e6;
+    border-collapse: collapse;
+    font-size: 14px;
 }
 
 .fac-check-box {
     text-align: center;
+    padding: 8px;
+
 }
 /* profilepublish css end */
 
@@ -2897,10 +2901,10 @@ width: 30rem;
 
 .source-title {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.538;
     text-transform: uppercase;
-    color: #000;
+    color: #444;
     margin: 12px 0;
 }
 
@@ -2922,7 +2926,8 @@ width: 30rem;
 
 .source-img-small {
     font-size: 16px;
-    color: #000000;
+    font-weight: normal;
+    color: #444;
 }
 
 
@@ -3604,7 +3609,7 @@ li.userprofile-name>a {
     padding: 13px !important;
     /*for no scroll*/
     background: white;
-    border: 1px solid #ccc;
+    border: 1px solid #75b777 ;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -3618,7 +3623,7 @@ li.userprofile-name>a {
 }
 
 .tab-card-header {
-    background-color: #ccc !important;
+    background-color: #e0e0e0  !important;
 }
 
 #app .navbar-dark .navbar-nav .nav-link {
@@ -3632,7 +3637,8 @@ li.userprofile-name>a {
     border-right: 1px solid #fff !important;
 }
 #myTab .nav-link.active {
-    background-color: #666 !important;
+    color: #fff;
+    background-color: #828282 !important;
     border: none !important;
 }
 
@@ -3664,15 +3670,6 @@ a:hover {
 .nav-tabs .nav-item {
     /* margin-bottom: -3px !important; */
     /* border-left: 1px solid #fff !important; */
-}
-
-div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-    color: #ff9563 !important;
-    font-weight: bold;
-    background-color: #fff;
-    border-top: 1px solid #ff9563;
-    border-color: #ff9563 #fff #fff #fff !important;
 }
 
 .nav-tabs .nav-link {
@@ -3830,18 +3827,21 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
     padding: 5px 0;
 }
 
-.nav-tabs .nav-link:focus,
-.nav-tabs .nav-link:hover {
+#navtab .nav-link:focus,
+#navtab .nav-link:hover {
     /* border-color: transparent !important; */
+    border-color: inherit #fff transparent transparent !important;
 }
 
 a:hover {
     color: #000;
 }
-
+#navtab {
+    border-bottom: none;
+}
 #navtab .nav-item {
     margin-bottom: -3px !important;
-    border-left: 1px solid #fff !important;
+    /* border-left: 1px solid #fff !important; */
 }
 #profile-nav .subtab1{
     margin-bottom: -3px !important;
@@ -3850,41 +3850,35 @@ a:hover {
 #profile-nav .nav-tab .nav-link:hover{
     border-color: #ff9563 #ffffff #ffffff !important;
 }
-div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-    color: #ff9563 !important;
-    font-weight: bold;
-    background-color: #fff;
-    border-top: 1px solid #ff9563;
-    border-color: #ff9563 #fff #fff #fff !important;
-}
 .nursing-tabColor .nav-link.active {
     color: #ff9563 !important;
     font-weight: bold;
-    background-color: #fff;
-    border-top: 1px solid #ff9563;
+    background: #fff !important;
+    border-top: 3px solid #ff9563;
     border-color: #ff9563 #fff #fff #fff !important;
 }
 .hospital-tabColor .nav-link.active {
     color: #63b7ff !important;
     font-weight: bold;
-    background-color: #fff;
-    border-top: 1px solid #63b7ff;
+    background: #fff !important;
+    border-top: 3px solid #63b7ff;
     border-color: #63b7ff #fff #fff #fff !important;
 }
 .job-tabColor .nav-link.active {
-    color: #75b777 !important;
+    color: #828282 !important;
     font-weight: bold;
-    background-color: #fff;
-    border-top: 1px solid #75b777;
-    border-color: #75b777 #fff #fff #fff !important;
+    background: #fff !important;
+    border-top: 3px solid #828282;
+    border-color: #828282 #828282 #fff #fff !important;
+    border-right: 1px solid #828282 !important;
 }
 .news-tabColor .nav-link.active {
-    color: #666  !important;
+    background: #fff !important;
+    color: #75b777 !important;
     font-weight: bold;
-    background-color: #fff;
-    border-top: 1px solid #666 ;
-    border-color: #666  #fff #fff #fff !important;
+    border-left: 1px solid #75b777 !important;
+    border-top: 3px solid #75b777;
+    border-color: #75b777 #fff #fff #75b777 !important;
 }
 
 .nav-tabs .nav-link {
@@ -4945,7 +4939,17 @@ body::-webkit-scrollbar-thumb {
     border-radius: 20px;
     border: 1px solid #b7dad2;
 }
-
+/*for clinical subject*/
+.sub_container >li{
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 0 10px 3px;
+    font-size: 13px;
+    color: #0e2e77;
+    text-align: center;   
+    
+}
+/*end for clinical subject*/
 
 /* .fac_container>li:first-child {
         margin: 0;
@@ -5594,10 +5598,10 @@ button.confirmed {
     padding: 0.375rem 1.75rem;
 }
 
-.active {
+/* .active {
     color: red;
     font-weight: bold;
-}
+} */
 
 
 /* end one page */

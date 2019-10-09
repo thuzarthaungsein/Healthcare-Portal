@@ -41,7 +41,7 @@
               </div>
             </div>
             <hr />
-            <h5 class="header">広告</h5>
+            <h5 class="header">広告一覧</h5>
             <div v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
               <div class="card-body news-post">
                 <div class="row">
