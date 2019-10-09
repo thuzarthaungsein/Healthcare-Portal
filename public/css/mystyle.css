@@ -962,6 +962,7 @@ p.p_2>a {
 
 .header {
     font-weight: bold;
+    font-size: 1.5rem;
     display: inline-block;
     position: relative;
     background: #fff;

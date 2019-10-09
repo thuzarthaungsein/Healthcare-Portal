@@ -785,7 +785,7 @@
 
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
                 <div class="row col-12 m-t-10">
-                    <h5 style="color:#000" class="font2rem  h_4 header font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
+                     <h5 style="color:#000" class="h_4 header font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
                 </div>
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
