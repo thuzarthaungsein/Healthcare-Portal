@@ -364,22 +364,23 @@
                             <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
                            </GmapMap>
 
-                            <div class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
-                                <div class="col-md-12">
-                                   <p><span class="font-weight-bold">公式サイト  : </span> {{m.website}}</p>
-                                </div>
-                                <div class="col-md-12">
-                                    <p><span class="font-weight-bold">アクセス : </span> {{m.access}}</p>
-                                </div>
-                                <!-- <div class="col-md-10 text-left">
-                                    {{m.access}}
-                                </div> -->
-                                <div class="col-md-12">
-                                   <p><span class="font-weight-bold"> 住所 : </span>{{m.address}}</p>
-                                </div>
-                                <!-- <div class="col-md-10 text-left">
-                                    {{m.address}}
-                                </div> -->
+                            <div class="col-12" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                                <table border="1" class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <td width="250" class="custom-bg-color"> 公式サイト</td>
+                                        <td>{{m.website}}</td>
+                                    </tr>   
+                                    <tr>
+                                        <td width="250" class="custom-bg-color"> アクセス</td>
+                                        <td>{{m.access}}</td>
+                                    </tr>  
+                                    <tr>
+                                        <td width="250" class="custom-bg-color">住所 </td>
+                                        <td>{{m.address}}</td>
+                                    </tr>                          
+                                    </tbody>
+                                </table>                                
                             </div>
                       </div>
                  </div>
@@ -495,7 +496,7 @@
                         </div>  
                         <h5 class="header m-t-10">診療科目</h5>
                         <div class="row col-md-12">
-                            <ul class="fac_container" v-for="sub in subjects" :key="sub.id">
+                            <ul class="sub_container" v-for="sub in subjects" :key="sub.id">
                                 <li>{{sub.name}}</li>
                             </ul>                             
                         </div>
@@ -628,33 +629,27 @@
                             <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
                            </GmapMap>
 
-                        <div  class="row" style="padding-top:20px;" v-for="m in google" :key="m.id" >
-                            <div class="col-md-2 text-left ">
-                                公式サイト  :
-                            </div>
-                            <div class="col-md-10 text-left">
-                               {{m.website}}
-                            </div>
-
-                            <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                アクセス :
-                            </div>
-                            <div class="col-md-10 text-left" style="padding-top:20px;">
-                                {{m.access}}
-                            </div>
-                             <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                混雑状況 :
-                            </div>
-                             <div class="col-md-10 text-left" style="padding-top:20px;">
-                                {{m.congestion}}
-                            </div>
-
-                            <div class="col-md-2 text-left" style="padding-top:20px;" >
-                                住所 :
-                            </div>
-                            <div class="col-md-10 text-left" style="padding-top:20px;">
-                                {{m.address}}
-                            </div>
+                        <div  class="row col-12" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                             <table border="1" class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <td width="250" class="custom-bg-color"> 公式サイト</td>
+                                        <td>{{m.website}}</td>
+                                    </tr>   
+                                    <tr>
+                                        <td width="250" class="custom-bg-color"> アクセス</td>
+                                        <td>{{m.access}}</td>
+                                    </tr>  
+                                    <tr>
+                                        <td width="250" class="custom-bg-color"> 混雑状況</td>
+                                        <td>{{m.congestion}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="250" class="custom-bg-color">住所 </td>
+                                        <td>{{m.address}}</td>
+                                    </tr>                          
+                                    </tbody>
+                                </table>                            
                         </div>
                     </div>
             </div>
