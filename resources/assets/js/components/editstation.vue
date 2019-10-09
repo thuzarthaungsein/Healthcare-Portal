@@ -5,7 +5,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h4 class="page-header header">test</h4>
+              <h4 class="page-header header">編集ステーション</h4>
             </div>
 
             <form @submit.prevent="updateStation" class="col-md-12">
