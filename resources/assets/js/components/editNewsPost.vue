@@ -12,12 +12,12 @@
                             <div class="form-group">
                                 <label>題名:<span class="error">*</span></label>
                                 <input type="text" class="form-control" placeholder="題名を入力してください。" v-model="news.title">
-                                <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
+                                <span v-if="errors.title" class="error">{{errors.title}}</span>
                             </div>
                             <div class="form-group">
                                 <label>主な情報:<span class="error">*</span></label>
                                 <input type="text" class="form-control" placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point">
-                                <span v-if="errors.main_point" class="error">{{errors.main_point[0]}}</span>
+                                <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
                             </div>
                             <div class="form-group">
                                 <label>カテゴリー:<span class="error">*</span></label>
@@ -27,12 +27,12 @@
                                         {{category.name}}
                                     </option>
                                 </select>
-                                <span v-if="errors.category_id" class="error">{{errors.category_id[0]}}</span>
+                                <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                             </div>
                             <div class="form-group">
                                 <label>内容:<span class="error">*</span></label>
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
-                                <span v-if="errors.body" class="error">{{errors.body[0]}}</span>
+                                <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
                             <div class="form-group" id="showimage">
                                 <label class="">メディア:</label>
@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" v-model="old_photo" >
+                            <input type="text" v-model="old_photo" >
                             <div class="form-group">
                                 <label> カテゴリー:<span class="error">*</span></label>
                                 <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
@@ -58,7 +58,6 @@
                                         {{category.name}}
                                     </option>
                                 </select>
-                                <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
                             </div>
 
                             <div class="row col-md-12">
@@ -84,7 +83,8 @@
 
                             <div class="form-group">
                                 <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
-                                <button class="btn news-post-btn all-btn">更新</button>
+                                <!-- <button class="btn news-post-btn all-btn">更新</button> -->
+                                <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
                             </div>
                         </form>
                     </div>
@@ -99,7 +99,12 @@
                 return {
                     selectedValue: 0,
                     arr: [],
-                    errors: [],
+                    errors: {
+                        title: "",
+                        main_point: "",
+                        body: "",
+                        category_id: "",
+                    },
                     news: {
                         title: '',
                         mainPoint: '',
@@ -126,7 +131,7 @@
                     .then((response) => {
                         this.news = response.data;
                         this.checkedNews = [];
-                        if(this.news.related_news != undefined){
+                        if(this.news.related_news != undefined || this.news.related_news != '' ){
                             this.checkedNews = this.news.related_news.split(',');
                         }
                         else{
@@ -215,7 +220,37 @@
                         }
                         this.old_photo = old_photo;
                         this.getPostsByCatId;
-                    }
+                    },
+                    checkValidate() {
+                        if (this.news.title) {
+                            this.errors.title = "";
+                        } else {
+                            this.errors.title = "ニュースの題名が必須です。";
+                        }
+                        if (this.news.main_point) {
+                            this.errors.main_point = "";
+                        } else {
+                            this.errors.main_point = "ニュースの題名が必須です。";
+                        }
+                        if (this.news.body) {
+                            this.errors.body = "";
+                        } else {
+                            this.errors.body = "ニュースの題名が必須です。";
+                        }
+                        if (this.news.category_id) {
+                            this.errors.category_id = "";
+                        } else {
+                            this.errors.category_id = "ニュースの題名が必須です。";
+                        }
+                        if (
+                            !this.errors.title &&
+                            !this.errors.main_point &&
+                            !this.errors.body &&
+                            !this.errors.category_id
+                        ) {
+                            this.updatepost();
+                        }
+                    },
             }
     }
 </script>
