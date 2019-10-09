@@ -49,22 +49,22 @@
                                          <p>{{activeImageDescription}}</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="thumbnails">
                                     <div
                                         v-for="(image,index) in  images"
                                         :key="image.id"
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
                                         @click="activateImage(index)" >
-                                        <img  :src ="'/upload/nursing_profile/' + image.photo">   
+                                        <img  :src ="'/upload/nursing_profile/' + image.photo">
                                     </div>
                                 </div>
                             </div>
-                                                      
+
                         </div>
-                       
-                        
-                       
+
+
+
                         <!-- <div  v-for="image in  images"  :key="image.id">
 
                         </div> -->
@@ -88,6 +88,8 @@
                     <!--end for address-->
                 </div>
             </div>
+
+
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="profile_header">特長</h5>
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12"><p v-html="nurseprofile.feature"></p></div>
@@ -106,7 +108,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div v-if="method_payment.length > 0" class="col-md-12">      
+                    <div v-if="method_payment.length > 0" class="col-md-12">
                         <div class="cost_tb">
                             <div class="row col-12 pad-free" >
                                 <div class="col-md-12" >
@@ -120,22 +122,22 @@
                                                 <th></th>
                                             </tr>
                                         </thead>
-                                       
+
                                         <tbody>
-                                        <tr v-for="cost in method_payment" :key="cost.id">                                         
-                                           
+                                        <tr v-for="cost in method_payment" :key="cost.id">
+
                                             <td>{{cost.expense_moving}}</td>
-                                            
+
                                             <td>{{cost.living_room_type}}</td>
-                                    
-                                        
+
+
                                             <td>{{cost.monthly_fees}}</td>
-                                        
+
                                             <td>{{cost.area}}</td>
                                             <td>
                                                 <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >&nbsp;View Details</span>
                                             </td>
-                                        </tr>                                        
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -143,7 +145,7 @@
                                     <button class="btn inner-btn okbtn" type="button" data-toggle="collapse" :data-target="'#costDetails' + cost.id"><i class="fas fa-sort-down"></i>&nbsp;内容を見る</button>
                                 </div> -->
 
-                              
+
                                     <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
                                     <table id="costDetails" class="table table-condensed cost_table">
                                         <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
@@ -205,16 +207,17 @@
                                         </tbody>
                                     </table>
                                 </div>
-                              
-                                
+
+
                             </div>
 
                         </div>
                     </div>
+
             </div>
             <div class="row ele m-lr-0" id="element4">
                 <!-- <div class="row"> -->
-                    <h5 class="profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>                    
+                    <h5 class="profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12" >
                         <table border="1" class="table table-bordered cost_table">
                             <tbody>
@@ -284,10 +287,10 @@
                 <!-- </div> -->
 
 
-                        <div class="row col-12 pad-free">   
-                            <div class="col-md-12">                         
-                            <h5 class="profile_header col-md-12"> 職員体制 （グランダ雪ヶ谷）</h5>   
-                            </div>                        
+                        <div class="row col-12 pad-free">
+                            <div class="col-md-12">
+                            <h5 class="profile_header col-md-12"> 職員体制 （グランダ雪ヶ谷）</h5>
+                            </div>
                             <div v-if="cooperate_medical.length>0" class="col-md-12">
                                 <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
                                     <table border="1" class="table table-bordered">
@@ -313,7 +316,7 @@
 
                        <div class="row col-12">
                                 <h5 class="profile_header col-12"> 医療面の受入れ </h5>
-                           
+
                             <div class="row col-12">
                                 <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-4" >
                                 <div class="col-md-12 accept-box">
@@ -333,8 +336,8 @@
                             <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
                         </div>
 
-                        <div class="row col-12">                            
-                                <h5  class="profile_header col-12"> Staff </h5>                            
+                        <div class="row col-12">
+                                <h5  class="profile_header col-12"> Staff </h5>
                             <div v-if="staff.length>0">
                                 <div v-for="st in staff" :key="st.id" class="col-md-12" >
                                     <table border="1" class="table table-bordered">
@@ -420,7 +423,7 @@
     </div>
 
     <div v-if="type == 'hospital'">
-        
+
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                 情報
@@ -438,7 +441,7 @@
             <div class="row ele m-lr-0" id="element1">
             <!-- ee-->
              <h5 class="profile_header">情報</h5>
-                 <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">                     
+                 <div class="row list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
                            <div class="thumbnail-img">
@@ -467,15 +470,15 @@
                                         :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
                                         @click="activateImage(index)" >
                                         <img  :src ="'/upload/hospital_profile/' + image.photo">
-                                       
+
                                     </div>
                                 </div>
                             </div>
-                        </div>                       
-                        
-                       
+                        </div>
+
+
                         <!-- <div  v-for="image in  images"  :key="image.id">
-                              
+
                         </div> -->
                     </div>
                     <!--end for slide image-->
@@ -500,10 +503,10 @@
                             </ul>                             
                         </div>
                     </div>
-                    <!--end for address-->                
-                </div> 
+                    <!--end for address-->
+                </div>
             <!--end ee-->
-             
+
                 <h5 class="profile_header">情報</h5>
                 <div class="row m-lr-0">
                     <div class="col-md-12 m-2" v-for="hospital in hospitals" :key="hospital.id">
@@ -685,7 +688,7 @@
                 width: '',
                 center: { lat: 0, lng: 0 },
                 address: '',
-                
+
                 google:[],
                 customer:[],
                 hosfacilities:[],
@@ -724,11 +727,11 @@
                 },
 
                 images: [],
-                changelinktitle:'create',
-                // activeImage: 0,
-                // currentOffset: 0,
-                // windowSize: 1,
-                // paginationFactor: 220,
+                changelinktitle:'内容を見る',
+                activeImage: 0,
+                currentOffset: 0,
+                windowSize: 1,
+                paginationFactor: 220,
             };
         },
 
@@ -742,7 +745,7 @@
                 localStorage.setItem('cusId',this.cusid);
             }
             this.type = localStorage.getItem('cusType');
-            this.cusid = Number(localStorage.getItem('cusId'));           
+            this.cusid = Number(localStorage.getItem('cusId'));
 
             console.log(localStorage.getItem('cusType'));
             console.log(localStorage.getItem('cusId'));
@@ -803,12 +806,12 @@
                       this.subjects = response.data;
                 });
                  this.axios.get('/api/profile/schedule/'+this.cusid) .then(response => {
-                     
+
                         this.am_arr = response.data.am;
                         this.pm_arr = response.data.pm;
-                        
+
                 });
-                
+
                 this.axios.get('/api/profile/hospital/'+this.cusid).then(response => {
                     this.google = response.data.hoslatlong;
                     this.hospitals = response.data.hospital;
@@ -848,7 +851,7 @@
                 else{
                     return 'no-image-big.jpg';
                 }
-                
+
             }
         },
           methods: {
@@ -888,13 +891,13 @@
         this.currentOffset += this.paginationFactor;
       }
     },
-    costConfirm(id){  
-        $('.changeLink').text("View Details"); 
-        $('.changeLink').removeClass("CloseBtn"); 
-        $('.changeLink'+id).text("Close");  
+    costConfirm(id){
+        $('.changeLink').text("View Details");
+        $('.changeLink').removeClass("CloseBtn");
+        $('.changeLink'+id).text("Close");
         $('.changeLink'+id).addClass("CloseBtn");
-        $('.closeChangeLink').hide('medium'); 
-        $('#changeLink'+id).show('medium'); 
+        $('.closeChangeLink').hide('medium');
+        $('#changeLink'+id).show('medium');
     }
   }
  }

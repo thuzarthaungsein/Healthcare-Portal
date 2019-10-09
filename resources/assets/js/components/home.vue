@@ -9,7 +9,7 @@
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
-              <div class="tab-content tab-content1 tabs">
+              <div class="tab-content tab-content1 tabs" id="upper-tab">
                <div role="tabpanel"  class="tab-pane" id="tab1" :class="{active:subtab1active, fade:fade1}"> <News></News> </div>
                 <div role="tabpanel" class="tab-pane" id="tab2" :class="{active:subtab2active, fade:fade2}"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane" id="tab3" :class="{active:subtab3active, fade:fade3}"><nursingSearch></nursingSearch></div>
@@ -180,7 +180,7 @@ export default {
                         $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');                        
                         $('#navtab').addClass(tab+'-tabColor');
                         $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');                        
-                        $('.tab-content').addClass(tab+'-borderColor');                        
+                        $('#upper-tab').addClass(tab+'-borderColor');                        
                    // console.log(e.target.tagName);
                     //this.$router.push({name:'home'});
                 },
@@ -196,7 +196,7 @@ export default {
         color: #fff;
         border-right: 1px solid #fff;
 }
-.job-tabColor .nav-link {
+.news-tabColor .nav-link {
         background: #75b777 !important;
         color: #fff;
         border-right: 1px solid #fff;
@@ -206,16 +206,16 @@ export default {
         color: #fff;
         border-right: 1px solid #fff;
 }
-.news-tabColor .nav-link{
+.job-tabColor .nav-link{
         background: #828282 !important;
         color: #fff;
         border-right: 1px solid #fff;
 }
 
-.news-borderColor {
-        border: 1px solid #ccc !important;
-}
 .job-borderColor {
+        border: 1px solid #828282 !important;
+}
+.news-borderColor {
         border: 1px solid #75b777 !important;
 }
 .hospital-borderColor {
