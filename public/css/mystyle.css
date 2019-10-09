@@ -84,7 +84,9 @@ body {
     display: none;
 }
 
-
+.font2rem{
+    font-size: 2rem;
+}
 /* News List */
 
 #content {
@@ -409,7 +411,33 @@ body {
 .bordertop-color4 {
     border-top: 1px dashed #d1291d;
 }
-
+/* .pro-heading h5{
+    position: relative;
+    margin: 0 15px 15px 0;
+    padding: 7px;
+    background-color: #f39d27;
+    text-align: center;
+    line-height: 1.1;
+    color: #FFFFFF;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    font-size: 20px;
+}
+.pro-heading h5::after{
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(204, 102, 51, 0);
+    border-top-color: #f39d27;
+    border-width: 10px;
+    left: 50%;
+    margin-left: -10px;
+} */
 
 /* End Profile */
 
@@ -5523,7 +5551,7 @@ button.confirmed {
 
 .ele {
     margin-top: 27px;
-    padding-top: 50px;
+    padding-top: 135px;
 }
 
 .table-wrapper {

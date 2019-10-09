@@ -5,6 +5,9 @@
     <div v-if="type == 'nursing'">
 
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
+            <div class="row col-12 m-t-10">
+                <h5 style="color:#000" class="h_4 header font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
+            </div>
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
 
@@ -781,29 +784,24 @@
     <div v-if="type == 'hospital'">
 
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
+                <div class="row col-12 m-t-10">
+                    <h5 style="color:#000" class="font2rem  h_4 header font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
+                </div>
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
-
                 情報
-
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
-
                 口コミ
-
             </button>
 
             <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
-
                 地図
-
             </button>
 
             <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
-
                 求人応募
-
             </button>
 
             </div>
