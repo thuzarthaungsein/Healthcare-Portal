@@ -120,7 +120,9 @@ body {
 }
 
 .animate {
-    transition: all .3s ease-in-out;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
 }
 
 .rotate {
@@ -3748,7 +3750,9 @@ div.tabs>.card-head-tab>.nav-tabs .nav-item.show .nav-link,
 
 
 /* profilepublish css start */
-.schedule_header,.schedule_body {
+
+.schedule_header,
+.schedule_body {
     font-weight: bold;
     border: 1px solid #eee;
     text-align: center;

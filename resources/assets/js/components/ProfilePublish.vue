@@ -876,7 +876,12 @@
                                     </div>
 
                                 </div>
-
+                                <div class="row col-12">
+                                    <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
+                                    <div class="row col-12 m-b-10">
+                                         <p>{{activeImageDescription}}</p>
+                                    </div>
+                                </div>
                                 <div class="thumbnails">
 
                                     <div
@@ -898,21 +903,7 @@
                                 </div>
 
                             </div>
-
-                        </div>
-
-                        <div class="row col-sm-12 detail_profile_left">
-
-                            <strong class="img_2">  {{activeImageTitle}} </strong>
-
-                        </div>
-
-                       <div class="row col-sm-12 detail_profile_left">
-
-                           {{activeImageDescription}}
-
-                       </div>
-
+                        </div>                       
                         
 
                        
@@ -942,9 +933,7 @@
                             <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.phone}}</p></div>
 
                         </div>
-
-                         <h5 class="profile_header m-t-10">こだわりの特長</h5>
-
+                         <h5 class="header m-t-10">こだわりの特長</h5>
                         <div class="row m-lr-0">
 
                             <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
@@ -1201,9 +1190,9 @@
                 pm_arr:[],
 
                 active_el:0,
+                
                 width: '',
-                activeColor: 'red',
-  fontSize: 30,
+
                 center: { lat: 0, lng: 0 },
 
                 address: '',
