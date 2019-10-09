@@ -141,7 +141,7 @@
 
                         <div class="row col-12 pro-heading">
                              <div class="col-12">
-                                 <h5 class="h_4 font15rem font-weight-bold">ひだまりこころクリニック</h5>
+                                 <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
                              </div>
                             <table class="table table-bordered">
                                     <tr>
@@ -912,7 +912,7 @@
                         <div class="row m-lr-0">
                             <div class="col-12 pro-heading">
                                 <div class="col-12">
-                                    <h5 class="h_4 font15rem font-weight-bold">ひだまりこころクリニック</h5>
+                                    <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
                                 </div>
                                 <table class="table table-bordered">
                                     <tr>
@@ -1491,7 +1491,7 @@
 
 
                   this.axios.get('/api/profile/customer/'+this.cusid) .then(response => {
-
+                      console.log(response.data);
                       this.customer = response.data;
 
                 });
