@@ -220,6 +220,7 @@ Route::get('featurelist', 'SpecialFeatureController@index');
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
 Route::get('facility/{type}/{id}','FacilityController@getFacilitybyProfileType');
 Route::get('clinical-subject/{id}','SubjectController@getHospitalClinicalSubject');
+Route::get('station/{id}','StationController@getStationbyCustomerId');
 
 Route::get('hospital-pgallery/{id}','GalleryController@getPhotobyCustomerId');
 Route::get('hospital-vgallery/{id}','GalleryController@getVideobyCustomerId');

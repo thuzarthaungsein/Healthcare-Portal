@@ -472,7 +472,7 @@
                                                 <div class="row">
                                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
                                                                 <label>
-                                                                 <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
+                                                                 <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
                                                                         {{feat.name}}
                                                                 </label>
                                                          </div>
@@ -499,6 +499,30 @@
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                                         <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" class="customer-address" v-model="customer_info.address"/>
                                                 </div>
+
+                                                <!-- Test Station Area -->
+                                                <table class="table table-bordered table-wrapper">
+                                                        <tr>
+                                                                <td>
+                                                                        <div class="form-group">
+                                                                                <label  class="heading-lbl col-2 pad-free">駅</label>
+                                                                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="StationAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
+                                                                                <div class="col-md-10 float-right station-toggle-div toggle-div m-t-10">
+                                                                                        <div class="row">
+                                                                                                <div v-for="stat in station_list" :key="stat.id" class="col-md-3 m-b-20">
+                                                                                                        <label>
+                                                                                                                <input type="checkbox"  name="station" v-bind:value="stat.id" @click="featureCheck(stat.id)" v-model="stat.checked">
+                                                                                                                {{stat.name}}
+                                                                                                        </label>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </td>
+                                                        </tr>
+                                                </table>
+                                                <!-- End Test Station Area -->
+
                                                 <div class="form-group">
                                                         <label>交通 / アクセス<span class="error">*</span></label>
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
@@ -558,6 +582,7 @@ export default {
                 payment_arr:[],payment_list:[],
                 id:1, profile_type:'nursing',
                 profile_arr:[],staf_info:[],customer_info:[], test:'',
+                station_list:[],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -588,6 +613,12 @@ export default {
         }
         },
         created(){
+                this.axios
+                .get('/api/station/'+this.id)
+                .then(response=>{
+                        this.station_list = response.data;
+                });
+
                 this.axios
                 .get('/api/customerinfo/'+this.id)
                 .then(response=>{
@@ -673,6 +704,9 @@ export default {
             featureCheck(check_id) {
                     $('.feature-'+check_id).attr('checked','true');
             },
+            stationCheck(check_id) {
+                    $('.station-'+check_id).attr('checked','true');
+            },
             preview_image(img_class) {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
                 this.test = event.target.files[0]
@@ -730,6 +764,10 @@ export default {
 
             specialFeAdd() {
                      $(".special-feature-toggle-div").toggle('medium');
+                     this.isRotate4 = !this.isRotate4;
+            },
+            StationAdd() {
+                     $(".station-toggle-div").toggle('medium');
                      this.isRotate4 = !this.isRotate4;
             },
             onDrop: function(e) {
@@ -809,12 +847,13 @@ export default {
                 var longitude = $('#new_long').val();
                 var website = $('.website').val();
                 // var feature = this.feature;
+                var feature = $('.feature').val();
 
                 var staff = $('.staff').text();
                 var nursing_staff = $('.nursing-staff').text();
                 var min_num_staff = $('.min-num-staff').text();
                 var num_staff = $('.num-staff').text();
-                // var nursing_remarks = $('.nursing-remarks').text();
+                var nursing_remarks = $('.nursing-remarks').text();
 
                 this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
@@ -880,15 +919,20 @@ export default {
                 }
 
 
-               var chek_feature=[];
-               var special_features;
-
+                var chek_feature=[];
+                var special_features;
                 $.each($("input[name='special-features']:checked"), function(){
-                        var i = i+ 0;
                         chek_feature.push($(this).val());
                 });
 
-               var acceptance=[];
+                var chek_station=[];
+                var stations;
+                $.each($("input[name='station']:checked"), function(){
+                        chek_station.push($(this).val());
+                });
+                stations = chek_station.join(',');
+
+                var acceptance=[];
                 $.each($("input[class='medical-acceptance']:checked"), function(){
                         var accept_val = $(this).val();
                         var tmp_arr = accept_val.split('-');
@@ -901,7 +945,7 @@ export default {
 
                 special_features = chek_feature.join(',');
 
-                this.profile_arr.push({feature:feature,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({feature:feature,stations:stations,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
