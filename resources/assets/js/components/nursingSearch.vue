@@ -1115,7 +1115,7 @@ export default {
       return{
 
         map:null,
-        latlngmarkers: [],
+        markers: [],
         selectedLocation: null,
         infoBoxOpen: false,
         places: [],
@@ -1162,10 +1162,18 @@ export default {
           this.special_features= response.data.special_features
           this.fac_types= response.data.fac_types
           this.medical_acceptance= response.data.medical_acceptance 
-          this.latlngmarkers = response.data.nus_latlng;
+          this.markers = response.data.nus_latlng;
           this.id = id
+          this.markers = response.data.nus_latlng;
           
-            
+          var mmarker = new Array();
+          var multibusiness = new Array();
+            for(var i=0;i<this.markers.length;i++){
+              
+              mmarker.push([this.markers[i]['business_entity'],this.markers[i]['lat'],this.markers[i]['lng']])
+              multibusiness.push(this.markers[i]['business_entity'])
+              
+            }
           const theCity = response.data.getCity[0]['city_eng']
           const lat = response.data.getCity[0]['latitude']
           const lng = response.data.getCity[0]['longitude']
@@ -1196,39 +1204,22 @@ export default {
               }
             };
             var mapProp = {
-              //center: new google.maps.LatLng(lat, lng),
-              zoom: 8,
+              center: new google.maps.LatLng(lat, lng),
+              zoom: 5,
               mapTypeId: google.maps.MapTypeId.ROADMAP,
-
-
             };
             var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
             map.data.addGeoJson(data);
-            var multiMarker = this.latlngmarkers;
-            console.log(multiMarker)
             var bounds = new google.maps.LatLngBounds();
-            var markers = multiMarker;
 
-            var infoWindowContent = [
-            ['<div class="info_content">' +
-            '<h3>Bondi Beach</h3>' +
-            '</div>'],
-            ['<div class="info_content">' +
-            '<h3>Coogee Beach</h3>' +
-            '</div>'],
-            ['<div class="info_content">' +
-            '<h3>Cronulla Beach</h3>' +
-            '</div>'],
-            ['<div class="info_content">' +
-            '<h3>Manly Beach</h3>' +
-            '</div>'],
-            ['<div class="info_content">' +
-            '<h3>Maroubra Beach</h3>' +
-            '</div>']
-
-            ];
+            var markers = mmarker; 
+            var infoWindowContent = new Array();
+            for(var i = 0;i<multibusiness.length;i++)
+            {
+               infoWindowContent.push(['<div class="info_content">' + multibusiness[i] +'</div>'])
+            } 
             var infoWindow = new google.maps.InfoWindow(), marker, i;
-            for( i = 0; i < markers.length; i++ ) {
+            for( i = 0; i < this.markers.length; i++ ) {
               var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
               bounds.extend(position);
               marker = new google.maps.Marker({
@@ -1238,6 +1229,7 @@ export default {
               });
               google.maps.event.addListener(marker, 'click', (function(marker, i) {
               return function() {
+                console.log(infoWindowContent[i][0]);
                   infoWindow.setContent(infoWindowContent[i][0]);
                   infoWindow.open(map, marker);
               }

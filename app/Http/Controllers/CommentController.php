@@ -30,12 +30,14 @@ class CommentController extends Controller
             'title' => 'required',
             'comment' =>'required',
             'email' => 'required|email',
-            'fzipcode' => 'required|numeric',
-            'lzipcode' => 'required|numeric',
-        ],[
-            'fzipcode.required' => 'First zipcode is required and must be three !',
-            'lzipcode.required' => 'Second zipcode is required and  must be four'
-        ]);
+            //  'fzipcode' => 'required',
+            //  'lzipcode' => 'required',
+        ]
+        // ,[
+        //     'fzipcode.required' => 'First zipcode is required and must be three !',
+        //     'lzipcode.required' => 'Second zipcode is required and  must be four'
+        // ]
+    );
 
         // $request->validate([
         //     'title' => 'required',
@@ -69,7 +71,7 @@ class CommentController extends Controller
         else{
             $getComment->gender = "Female";
         }
-        
+        // \Mail::to('mayphue17@management-part')->send(new SendMailComment($getComment));
         \Mail::to($getComment)->send(new SendMailComment($getComment));
 
         // return response()->json(['success'=>'Done!']);
