@@ -111,11 +111,6 @@ export default {
     this.type = localStorage.getItem("cusType");
     this.cusid = Number(localStorage.getItem("cusId"));
 
-    console.log("Scroll top " + document.body.scrollTop);
-    console.log("window.pageYOffset " + window.pageYOffset);
-    console.log("document.documentElement.scrollTop " + document.documentElement.scrollTop);
-    
-    
   },
   methods: {
     changeBtnType(a,b) {
