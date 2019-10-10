@@ -898,12 +898,11 @@
                   <td>
                       <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
                         <label class="form-check-label" :for="occupation.id">
-                        <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" @click="occupation($event)"> 
+                        <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" > 
                         
                         {{occupation.name}}
                         </label>
                       </div>
-
                   </td>
                 </tr>
                 <tr class="toBeToggled1 ShowHide">
@@ -912,31 +911,32 @@
                  
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label" >
-                    <input class="form-check-input" value="full" v-model="empstatus" type="checkbox"> 
+                    <input class="form-check-input" value="Full" v-model="empstatus" type="checkbox"> 
                     正社員(正職員)  
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label" >
-                    <input class="form-check-input" value="contract" v-model="empstatus" type="checkbox"> 
+                    <input class="form-check-input" value="ContractEmployee" v-model="empstatus" type="checkbox"> 
                     契約社員(職員)
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" value="part" type="checkbox"> 
+                    <input class="form-check-input" value="Part" v-model="empstatus" type="checkbox"> 
                     非常勤。パート 
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" value="other" type="checkbox"> 
+                    <input class="form-check-input" value="Other" v-model="empstatus" type="checkbox"> 
                     その他
                     </label>
                   </div>
 
                   </td>
                 </tr>
+                 
                 <tr class="text-center">
                   <td colspan='2'>
                     <button @click="ShowHide4" class="btn btn-link">
@@ -945,15 +945,99 @@
                     </button>
                   </td>
                 </tr>
+               
                 <tr class="text-center">
                   <td colspan="2">
-                    <input type="button" id="save_value" name="save_value" value="Save" @click="search"/>
+                    <input type="button" id="save_value" name="save_value" value="Search" @click="search"/>
                   </td>
                 </tr>
                 
               </tbody>
             </table>
+            
+            <div class="card col-md-10" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
+              <div class="card-header bg-success text-center pad"  >{{job.name}}</div>
+                <div class="card-body bg-danger">
+                    <table  class="table table-bordered table-sm">
+                      <tr>
+                        <td class="col-md-6">Access</td>
+                        <td>{{job.title}}</td>
+                      </tr>
+                      <tr>
+                        <td> Salary </td>
+                        <td> {{job.salary}}</td>
+                      </tr>
+                      <tr>
+                        <td>Working hours / days / holiday details</td>
+                        <td> {{job.working_hours}} / {{job.holidays}} </td>
+                      </tr>
+                      <tr>
+                        <td>Special conditions</td>
+                        <td> {{job.allowances}} </td>
+                      </tr>
+
+                    </table>
+                 
+                    <!-- <div class="row">
+                      
+                      <div class="col-md-6">
+                        Access
+                      </div>
+                      <div class="col-md-6">
+                          {{job.title}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Salary
+                      </div>
+                      <div class="col-md-6">
+                        {{job.salary}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Working hours / days / holiday details
+                      </div>
+                      <div class="col-md-6">
+                        {{job.working_hours}} / {{job.holidays}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Special conditions
+                      </div>
+                      <div class="col-md-6">
+                        {{job.allowances}}
+                      </div>
+
+                    </div> -->
+                </div>
+           
+            </div>
+          
+       <!-- <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Employment Status</th>
+          </tr>
+        </thead>
+        <tbody v-for="job in job_data" :key="job.id">
+          <tr>
+            <th scope="row">  <img :src="'images/'+ (job.logo)" class="col-md-12" alt="" /></th>
+            <td>{{job.title}}</td>
+            <td>{{job.description}}</td>
+            <td>{{job.employment_status}}</td>
+          </tr>
          
+        </tbody>
+      </table> -->
+
+  
+             
         </div>
       </div>
       <!-- <div class="col-md-2 p-l-0">
@@ -988,13 +1072,26 @@ export default {
         occupations:[],
         toggleCheck: true,
         toggleCheck_1: false,
-        empstatus:[]
+        empstatus:[],
+        job_data:[]
       }
     },
   methods:{
     search(){
-      
-        this.axios.get('api/getsearch',{
+        if(this.townshipID == null || this.townshipID == '')
+        {
+          this.townshipID[0] = 0;
+        }
+        if(this.occupationID == null || this.occupationID == '')
+        {
+          this.occupationID[0] = 0;
+        }
+        if(this.empstatus == null || this.empstatus == '')
+        {
+          this.empstatus[0] = 0;
+        }
+    
+        this.axios.get('api/getjobsearch',{
           params:{
               id: this.id,
               townshipID:this.townshipID,
@@ -1002,7 +1099,10 @@ export default {
               empstatus:this.empstatus
           },
         }).then((response)=>{
-          this.townships = response.data
+     
+          this.job_data = response.data;
+  
+
         })
       },
  
@@ -1128,6 +1228,21 @@ export default {
 .path:focus .path {
   color: #000;
 }
+
+.bg-success{
+ background-color: #ddd2fd  !important;
+}
+.pad{
+  padding-top: 10px !important;
+}
+
+.bg-danger{
+  background-color: #fcf4f4 !important;
+}
+
+.card-header{
+  height: 40px;
+  }
 
 .path:hover,
 a:hover {

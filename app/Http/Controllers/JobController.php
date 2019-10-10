@@ -206,7 +206,6 @@ class JobController extends Controller
         $job = Job::find($id);
         if($job != null)
         {
-
             $string = '';
             $count = count($request->fields);
             for($i = 0;$i< $count ;$i++)
@@ -217,7 +216,6 @@ class JobController extends Controller
                 }else{
                     $string .= $request->fields[$i]['skills'] .',';
                 }
-
             }
 
 
@@ -275,5 +273,22 @@ class JobController extends Controller
         $job = Job::find($id);
         $job->delete();
         return response()->json('The Job successfully deleted');
+    }
+
+    public function search(Request $request) {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+        $customer_id = $request['customer_id'];
+
+        $query = Job::query();
+        $query = $query->where('customer_id', $customer_id);
+        $query = $query->where(function($qu) use ($search_word){
+                            $qu->where('title', 'LIKE', "%{$search_word}%")
+                                ->orWhere('description', 'LIKE', "%{$search_word}%");
+                        });
+        $query = $query->orderBy('id','DESC')
+                        ->get()
+                        ->toArray();
+        return $query;
     }
 }
