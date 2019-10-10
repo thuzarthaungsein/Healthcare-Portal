@@ -101,6 +101,7 @@
                 id="postal"
                 placeholder="165879"
                 v-model="jobApply.postal"
+                maxlength="7"
                 v-on:keyup="getPostal"
               />
               <div v-if="errors.postal" class="text-danger">{{ errors.postal }}</div>

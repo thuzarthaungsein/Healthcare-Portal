@@ -84,9 +84,11 @@ body {
     display: none;
 }
 
-.font15rem{
+.font15rem {
     font-size: 1.5rem;
 }
+
+
 /* News List */
 
 #content {
@@ -413,7 +415,8 @@ body {
 .bordertop-color4 {
     border-top: 1px dashed #d1291d;
 }
-.pro-heading h5{
+
+.pro-heading h5 {
     position: relative;
     margin: 0 15px 15px 0;
     padding: 7px;
@@ -426,7 +429,8 @@ body {
     -moz-border-radius: 3px;
     font-size: 20px;
 }
-.pro-heading h5::after{
+
+.pro-heading h5::after {
     top: 100%;
     border: solid transparent;
     content: " ";
@@ -440,6 +444,7 @@ body {
     left: 50%;
     margin-left: -10px;
 }
+
 
 /* End Profile */
 
@@ -961,7 +966,7 @@ p.p_2>a {
 }
 
 .header {
-    font-weight: bold;    
+    font-weight: bold;
     display: inline-block;
     position: relative;
     background: #fff;
@@ -2112,7 +2117,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     border: 1px solid #ccc;
 }
 
-.nav-tabs .nav-link {    
+.nav-tabs .nav-link {
     border-top-left-radius: 0px !important;
     border-top-right-radius: 0px !important;
 }
@@ -2130,7 +2135,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 .card-head-tabs {
     margin-bottom: 0rem !important;
-    background-color: #ff9563 !important;
+    /* background-color: #ff9563 !important; */
     /* background-color: #f9793c  !important; */
     color: #fff !important;
     border-bottom: 0;
@@ -2312,6 +2317,21 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 .fac-check-box {
     text-align: center;
     padding: 8px;
+}
+
+#profilenav {
+    /* position: fixed;  */
+    z-index: 5;
+    overflow: hidden;
+    /* top: 166px; */
+    border-bottom: none;
+    background: transparent;
+    margin-bottom: -1px;
+}
+
+#profilenav .nav-link.active {
+    border-left: 1px solid #ff9563 !important;
+    border-right: 1px solid #ff9563 !important;
 }
 
 
@@ -3647,7 +3667,7 @@ li.userprofile-name>a {
     padding: 13px !important;
     /*for no scroll*/
     background: white;
-    border: 1px solid #ccc ;
+    border: 1px solid #ccc;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -3727,15 +3747,6 @@ a:hover {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     white-space: pre-wrap;
-}
-
-.card-head-tabs {
-    margin-bottom: 0rem !important;
-    background-color: #ff9563 !important;
-    color: #fff;
-    border-bottom: 0;
-    border-left-style: solid;
-    border-left: 1px solid #eee;
 }
 
 .user-profile {
@@ -3880,9 +3891,11 @@ a:hover {
 a:hover {
     color: #000;
 }
+
 #navtab {
     border-bottom: none;
 }
+
 #navtab .nav-item {
     margin-bottom: -3px !important;
     /* border-left: 1px solid #fff !important; */
@@ -3945,15 +3958,6 @@ a:hover {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     white-space: pre-wrap;
-}
-
-.card-head-tabs {
-    margin-bottom: 0rem !important;
-    background-color: #ff9563 !important;
-    color: #000;
-    border-bottom: 0;
-    border-left-style: solid;
-    border-left: 1px solid #ccc;
 }
 
 #app .card-head-tabs a {
@@ -5519,14 +5523,18 @@ button.confirmed {
     position: fixed;
     z-index: 4;
     overflow: hidden;
-    background: #fff;
+    background: transparent;
     width: 79.9%;
     margin-top: -1px;
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 .top-fixed-btn {
     color: #000;
-    background: #eff7ec;
+    background: #fbaa84;
+    /* background: #eff7ec; */
     width: 145px;
     cursor: pointer;
     padding: 5px;
@@ -5535,16 +5543,17 @@ button.confirmed {
     border-radius: 5px;
     text-decoration: none;
     position: relative;
-    box-shadow: none !important;
+    box-shadow: 3px 5px 3px #ccc!important;
 }
 
 .top-fixed-btn.active {
     color: #fff;
-    background: #ff9563;
+    /* background: #ff9563; */
+    background: #d2571c;
     width: 145px;
     cursor: pointer;
     padding: 5px;
-    box-shadow: none !important;
+    box-shadow: 3px 5px 3px 0px #ccc !important;
     border: 0px;
     border: 1px solid #ff9563;
     margin: 0px !important;
@@ -5552,8 +5561,8 @@ button.confirmed {
 }
 
 .ele {
-    margin-top: 27px;
-    padding-top: 50px;
+    margin-top: 5px;
+    padding-top: 65px;
 }
 
 .table-wrapper {
