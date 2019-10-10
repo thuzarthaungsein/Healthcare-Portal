@@ -68,11 +68,11 @@
             cursor: pointer;
             padding: 15px;
             border-radius: 50%;
-            background: url(../images/arrow-1.png) no-repeat left center;
+            background: url(../images/top-arrow.png) no-repeat left center;          
         }
 
         #myBtn:hover {
-            background: url(../images/arrow-1.png) no-repeat left center;
+            background: url(../images/top-arrow.png) no-repeat left center;
         }
     </style>
 <!-- link for editor -->
@@ -773,10 +773,8 @@
             // document.body.scrollTop = 0;
             // document.documentElement.scrollTop = 0;
             $("html, body").animate({ scrollTop: 0 }, "slow");
-	            return false;
-          
-        }
-        
+	            return false;          
+        }        
 
     $("#hos-his-local").html(localStorage.getItem("hospital_history").split(",").length);
     $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
