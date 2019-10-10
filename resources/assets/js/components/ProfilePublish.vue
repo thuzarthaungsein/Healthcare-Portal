@@ -2,7 +2,7 @@
 
   <div id="app">
 
-    <div v-if="type == 'nursing'">
+    <div v-if="type == 'nursing'" id="nursingView">
 
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
             <!-- <div class="row col-12 m-t-10">
@@ -140,9 +140,12 @@
                      <div class="col-sm-7 detail_profile_right">
 
                         <div class="row col-12 pro-heading">
-                             <div class="col-12">
-                                 <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
+                             <div class="col-12 pad-free">
+                                 <h5 class="font15rem font-weight-bold"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
                              </div>
+                             <!-- <div class="col-12">
+                                 <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
+                             </div> -->
                             <table class="table table-bordered">
                                     <tr>
                                         <th width="30%" class="custom-bg-color">
@@ -194,8 +197,7 @@
 
             <div class="row ele m-lr-0" id="element2">
 
-                <h5 class="profile_header">特長</h5>
-
+                <h5 class="profile_header">特長 </h5>
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12"><p v-html="nurseprofile.feature"></p></div>
 
             </div>
@@ -802,7 +804,7 @@
 
 
 
-    <div v-if="type == 'hospital'">
+    <div v-if="type == 'hospital'" id="hospitalView">
 
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
                 <!-- <div class="row col-12 m-t-10">
@@ -911,8 +913,8 @@
 
                         <div class="row m-lr-0">
                             <div class="col-12 pro-heading">
-                                <div class="col-12">
-                                    <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
+                                <div class="col-12 pad-free">
+                                    <h5 class="font15rem font-weight-bold"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
                                 </div>
                                 <table class="table table-bordered">
                                     <tr>
@@ -1259,6 +1261,17 @@
 
 
 <script>
+$(document).scroll(function() {
+  var cur_pos = $(this).scrollTop();
+
+  if (cur_pos >= 100) {
+      $('.fixed-nav').css("top" , "200px");
+  } else {
+      $('.fixed-nav').css("top" , "unset");
+  }
+                
+});
+  
 
  import joboffer from './JobSearchListComponent.vue'
 
@@ -1290,7 +1303,7 @@
 
                 pm_arr:[],
 
-                active_el:0,
+                active_el:1,
 
                 width: '',
 
@@ -1393,7 +1406,7 @@
         },
 
         created(){
-
+            
             if(this.type != undefined && this.cusid!= undefined){
 
                 localStorage.setItem('cusType',this.type);
@@ -1404,14 +1417,6 @@
 
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
-
-
-
-            console.log(localStorage.getItem('cusType'));
-
-            console.log(localStorage.getItem('cusId'));
-
-
 
             if(this.type == "nursing")
 

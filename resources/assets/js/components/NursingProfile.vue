@@ -69,7 +69,7 @@
                                 <td class="width17" style="border:none;"> <label class="heading-lbl pad-free">特長<span class="error">*</span></label></td>
                                 <td style="border:none;">
                                         <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
-                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"/>
+                                        <quill-editor  ref="myQuilEditor"  name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"/>
                                         
                                 </td>
                         </tr>
@@ -525,8 +525,8 @@
 
                                                 <div class="form-group">
                                                         <label>交通 / アクセス<span class="error">*</span></label>
-                                                        <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                        <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
+                                                        <textarea name="address" rows="10"  class="form-control transporation-access" v-model="nursing_info.access"></textarea>
+                                                        <!-- <quill-editor id="quill-focus" ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/> -->
                                                 </div>
                                         </div>
 
@@ -613,6 +613,7 @@ export default {
         }
         },
         created(){
+                // $('#quill-focus').focusout();
                 this.axios
                 .get('/api/station/'+this.id)
                 .then(response=>{
@@ -857,7 +858,7 @@ export default {
 
                 this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
-                this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:nursing_remarks});
+                this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
 
 
                 var img = document.getElementsByClassName('gallery-area-photo');
@@ -945,7 +946,11 @@ export default {
 
                 special_features = chek_feature.join(',');
 
+<<<<<<< HEAD
                 this.profile_arr.push({feature:feature,stations:stations,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+=======
+                this.profile_arr.push({feature:this.feature_val,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+>>>>>>> 905ea517ac95eb3d2149259ed1a2a2add88d377c
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
