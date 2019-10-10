@@ -20,16 +20,16 @@ class TypeController extends Controller
 
         $typelist = Type::select('id','name')->get()->toArray();
 
-        return $typelist;
+        return response()->json($typelist);
     }
 
-    public function getParent()
-    {
+    // public function getParent()
+    // {
 
-        $typelist = Type::select('id','name')->get()->toArray();
+    //     $typelist = Type::select('id','name')->get()->toArray();
 
-        return $typelist;
-    }
+    //     return $typelist;
+    // }
 
 
 
@@ -40,28 +40,25 @@ class TypeController extends Controller
 
     public function store(Request $request)
     {
-
-        
+    
+       
         $request->validate([
             'name' => 'required|unique:types',
 
 
         ]);
+      
 
-        if( $request->parent != null)
-        {
-           
+        if( $request->parent != null) 
+        { 
             $type = new Type();
             $type->name = $request->input('name');
             $type->user_id = 1;
             $type ->parent = $request->parent;
             $type ->recordstatus = 1;
-
         }
         else if( $request->parent == null)
-        {
-            
-            
+        {       
             $type = new Type();
             $type->name = $request->input('name');
             $type->user_id = 1;

@@ -854,7 +854,7 @@
               </svg>
             </div>
           </div>
-            
+              
           
             <table class="table card-2 col-10 select">
               <tbody>
@@ -874,7 +874,7 @@
 
                       <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
                         <label class="form-check-label" :for="township.id">
-                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID[township.id]" @click="getCheck($event)"> 
+                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)"> 
                         {{township.township_name}}
                         </label>
                       </div>
@@ -1047,15 +1047,16 @@
                     <input type="button" id="save_value" name="save_value" value="Save" />
                   </td>
                 </tr>
-                
               </tbody>
             </table>
          
         </div>
+         
           <div class="row">
             <div class="col-sm-12 col-md-12">
             <div class="card">
               <div class="card-body">
+               
                   <GmapMap  id="googlemap"
                             ref="map"
                             :center="center"
@@ -1063,17 +1064,18 @@
                             style="height:700px">
                             
                     <GmapMarker
-                      v-for="(m, index) in markers"
+                      v-for="(marker, index) in markers"
                       :key="index"
-                      :position="m.position"
+                      :position="marker"
                       :clickable="true"
-                      :draggable="true"
-                      @click="center=m.position"
+                      :draggable="false"
+                      @click="center=marker"
                       @mouseover="googleMarker"
-                     
                     />
-                   
+
                   </GmapMap>
+
+                  
               </div>
             </div>
             </div>
@@ -1098,12 +1100,20 @@ export default {
     },
     data(){
       return{
-        markers: [
-            { position: { lat: 0, lng: 0 } },
-        ],
+        // markers: [
+        //     { position: { lat: 0, lng: 0 } },
+        // ],
+        markers: [],
+              
+              // {lat:35.6432027,lng:139.6729435},
+              // {lat:35.5279833,lng:139.6989209},
+              // {lat:35.6563623,lng:139.7215211},
+              // {lat:35.6167531,lng:139.5469376},
+              // {lat:35.6950961,lng:139.5037899}
+      
         places: [],
-        center: { lat: 0, lng: 0 },
-        id:'',
+        center: { lat: 35.6432027, lng: 139.6729435 },
+        id:'',    
         townshipID:[],
         township_id:[],
         cities:[],
@@ -1115,6 +1125,8 @@ export default {
         medical_acceptance:[],
         toggleCheck: true,
         toggleCheck_1: false,
+        checkarr:[]
+     
       }
     },
     
@@ -1147,8 +1159,9 @@ export default {
             }
         },
       getStateClick(e){
-         console.log(e.target.tagName)
-        if(e.target.tagName === 'A' || e.target.tagName ==='path'){
+ 
+      
+          if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
           const id = e.target.id;
           this.axios.post('/api/getmap/'+id+'')
@@ -1160,11 +1173,8 @@ export default {
           this.getTownships = response.data.getTownships
           this.special_features= response.data.special_features
           this.fac_types= response.data.fac_types
-          this.medical_acceptance= response.data.medical_acceptance
-          this.markers[0]['position']['lat']  = response.data.getCity[0]['latitude'];
-          this.markers[0]['position']['lng']  = response.data.getCity[0]['longitude'];
-          this.center['lat'] = response.data.getCity[0]['latitude'];
-          this.center['lng'] = response.data.getCity[0]['longitude'];
+          this.medical_acceptance= response.data.medical_acceptance 
+          this.markers = response.data.nus_latlng;
           this.id = id
          })
         }else if(e.target.tagName ==='OPTION'){
@@ -1178,10 +1188,7 @@ export default {
           this.special_features= response.data.special_features
           this.fac_types= response.data.fac_types
           this.medical_acceptance= response.data.medical_acceptance
-          this.markers[0]['position']['lat']  = response.data.getCity[0]['latitude'];
-          this.markers[0]['position']['lng']  = response.data.getCity[0]['longitude'];
-          this.center['lat'] = response.data.getCity[0]['latitude'];
-          this.center['lng'] = response.data.getCity[0]['longitude'];
+          this.markers = response.data.nus_latlng;
           this.id = id
          })
         }
@@ -1189,11 +1196,24 @@ export default {
       googleMarker(e){
         console.log(e)
       },
-      getCheck(e){
-        if(e.target.checked){
-           this.township_id.push(e.target.value);
-           console.log(this.township_id);
-        }
+        getCheck(e){
+      
+        // if(e.target.checked){
+          console.log(this.townshipID);
+          
+           if(this.townshipID.length>0)
+           {
+            
+              this.axios.post('/api/getmaptownship/'+this.townshipID+'')
+              .then((response)=>{
+                this.markers = response.data;
+                
+           });
+         }
+         else{
+           this.markers = '';
+         } 
+       
       },
       features(e){
         if(e.target.checked){
@@ -1204,7 +1224,7 @@ export default {
         // if(e.target.tagName ==='AREA'){
         //  console.log(e)
         // }
-      }
+      },
     }
 };
 </script>
