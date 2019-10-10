@@ -1529,7 +1529,7 @@ export default {
                         }) ;
 
                         if(this.gallery_list != 'error' && this.customer_info != 'error' && this.hospital_info != 'error' && this.schedule_list != 'error') {
-                          alert('Successfully Updated!');
+                          alert('Hospital Profile is Successfully Updated!');
                         }
                 }
             },

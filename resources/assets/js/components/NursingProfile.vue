@@ -1056,7 +1056,7 @@ export default {
                 }
 
                 if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info  != 'error' && this.staf_info  != 'error' &&  acceptance!= 'error') {
-                        alert('Succcessfully Updated');
+                        alert('Nursing Profile is Succcessfully Updated');
                 }
             }
         }
