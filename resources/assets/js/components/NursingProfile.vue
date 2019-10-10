@@ -959,7 +959,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.gallery_list = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -974,7 +974,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.cooperate_list = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -989,7 +989,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.payment_list = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -1004,7 +1004,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.profile_arr = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -1020,7 +1020,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.customer_info = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -1035,7 +1035,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.staf_info = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -1046,12 +1046,17 @@ export default {
                         this.axios
                                 .post(`/api/acceptance/transactions/${this.id}`,acceptance)
                                 .then((response) => {
-                                         alert('Successfully Updated!');
+                        
                                 }).catch(error=>{
                                         if(error.response.status == 422) {
+                                                acceptance = 'error';
                                                 this.errors = error.response.data.errors
                                         }
                         }) ;
+                }
+
+                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info  != 'error' && this.staf_info  != 'error' &&  acceptance!= 'error') {
+                        alert('Succcessfully Updated');
                 }
             }
         }
