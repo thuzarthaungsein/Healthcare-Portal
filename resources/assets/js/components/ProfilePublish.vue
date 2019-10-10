@@ -1401,7 +1401,7 @@ $(document).scroll(function() {
 
                 cusid:Number,
 
-                type:String
+                type:String,
 
         },
 
