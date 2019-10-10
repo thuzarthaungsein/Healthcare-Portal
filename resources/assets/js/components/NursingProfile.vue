@@ -2,6 +2,10 @@
 <div class="card profile m-t-22 " style="border:none;">
     <form class="col-md-12 form-class">
             <div class="col-md-12 pad-free">
+            <div class="form-group">
+
+                        <input type="text" >
+                        </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">名前<span class="error">*</span></label>
                             <input type="text" class="form-control customer-name col-10 float-right" placeholder="名前" v-model="customer_info.name">
@@ -504,6 +508,14 @@
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                                         <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
                                                 </div>
+                                                <div class="form-group" hidden>
+                                                        <label>交通 / アクセス<span class="error">*</span></label>
+                                                        <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                                        <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
+                                                </div>
+                                               
+                                       
+                                               
                                         </div>
 
                                 </div>
@@ -588,6 +600,7 @@ export default {
         }
         },
         created(){
+
                 this.axios
                 .get('/api/customerinfo/'+this.id)
                 .then(response=>{
@@ -649,6 +662,8 @@ export default {
                 .then(response=>{
                         this.payment_arr = response.data;
                 });
+
+
 
 
         },

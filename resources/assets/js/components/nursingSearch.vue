@@ -1136,7 +1136,13 @@ export default {
       }
     },
   mounted() {
+    this.axios.get('/api/user/').then((response)=>{
+      console.log(response)
+    }).catch(error =>{
+      console.log(error)
+    })
       
+    
    
   },
   methods:{
@@ -1201,8 +1207,15 @@ export default {
               geometry: {
                 "type": "Polygon",
                 "coordinates": coordinates
-              }
+              },
+              "style": {
+                  "__comment": "all SVG styles allowed",
+                  "fill":"red",
+                  "stroke-width":"1",
+                  "fill-opacity":0.6
+              },
             };
+
             var mapProp = {
               center: new google.maps.LatLng(lat, lng),
               zoom: 5,
@@ -1210,8 +1223,8 @@ export default {
             };
             var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
             map.data.addGeoJson(data);
-            var bounds = new google.maps.LatLngBounds();
 
+            var bounds = new google.maps.LatLngBounds();
             var markers = mmarker; 
             var infoWindowContent = new Array();
             for(var i = 0;i<multibusiness.length;i++)
@@ -1265,28 +1278,21 @@ export default {
          })
         }
       },
-      renderCityMap(myCityData) {
-      myCityData.setMap(this.googlemap);
 
-      // and pass clicks on to the underlying map
-      myCityData.addListener('click', (event) => {
-        google.maps.event.trigger(this.map, 'click', event);
-      });
-    },
       googleMarker(marker){
       
         console.log(google.maps.Animation.BOUNCE)
       },
         getCheck(e){
-      
-        // if(e.target.checked){
-          
+
            if(this.townshipID.length>0)
            {
             
               this.axios.post('/api/getmaptownship/'+this.townshipID+'')
               .then((response)=>{
                 this.markers = response.data;
+                console.log(this.markers)
+
                 
            });
          }
