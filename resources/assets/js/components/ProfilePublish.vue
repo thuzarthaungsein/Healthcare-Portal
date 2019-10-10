@@ -20,7 +20,7 @@
 
 
 
-            <button v-scroll-to="{ el: '#element1'}" href="#element1" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
+            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn link-1 active"  @click="activate(1)" :class="{ active : active_el == 1 }">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-            <button v-scroll-to="{ el: '#element2' }" href="#element2" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
+            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn link-2"   @click="activate(2)" :class="{ active : active_el == 2 }">
 
 
 
@@ -44,7 +44,7 @@
 
 
 
-            <a v-scroll-to="{ el: '#element3' }" href="#element3" class="top-fixed-btn"  @click="activate(3)" :class="{ active : active_el == 3 }">
+            <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn link-3"  @click="activate(3)" :class="{ active : active_el == 3 }">
 
 
 
@@ -52,11 +52,11 @@
 
 
 
-            </a>
+            </button>
 
 
 
-            <a v-scroll-to="{ el: '#element4' }" href="#element4" class="top-fixed-btn"  @click="activate(4)" :class="{ active : active_el == 4 }">
+            <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn link-4"  @click="activate(4)" :class="{ active : active_el == 4 }">
 
 
 
@@ -64,11 +64,11 @@
 
 
 
-            </a>
+            </button>
 
 
 
-            <a v-scroll-to="{ el: '#element5' }" href="#element5" class="top-fixed-btn"  @click="activate(5)" :class="{ active : active_el == 5 }">
+            <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn link-5"  @click="activate(5)" :class="{ active : active_el == 5 }">
 
 
 
@@ -76,11 +76,11 @@
 
 
 
-            </a>
+            </button>
 
 
 
-            <a v-scroll-to="{ el: '#element6' }" href="#element6" class="top-fixed-btn"  @click="activate(6)" :class="{ active : active_el == 6 }">
+            <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn link-6"  @click="activate(6)" :class="{ active : active_el == 6 }">
 
 
 
@@ -88,11 +88,11 @@
 
 
 
-            </a>
+            </button>
 
 
 
-            <a v-scroll-to="{ el: '#element7' }" href="#element7" class="top-fixed-btn"  @click="activate(7)" :class="{ active : active_el == 7 }">
+            <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn link-7"  @click="activate(7)" :class="{ active : active_el == 7 }">
 
 
 
@@ -100,7 +100,7 @@
 
 
 
-            </a>
+            </button>
 
 
 
@@ -2786,17 +2786,16 @@
 
 
             $(document).scroll(function() {
-            var cur_pos = $(this).scrollTop();
-
-            if (cur_pos >= 100) {
-                $('.fixed-nav').css("top" , "200px");
-            } else {
-                $('.fixed-nav').css("top" , "unset");
-            }
-            var position = Math.floor($(this).scrollTop() / 800) + 1;
-            
-            $('fixed-nav a.active').removeClass('active');
-            $('header nav a.link-' + position).addClass('active');
+                var cur_pos = $(this).scrollTop();       
+                if (cur_pos >= 100) {
+                    $('.fixed-nav').css("top" , "200px");
+                } else {
+                    $('.fixed-nav').css("top" , "unset");
+                }
+                var position = Math.floor($(this).scrollTop() / 800) + 1;         
+                
+                $('.fixed-nav button.active').removeClass('active');
+                $('.fixed-nav button.link-' + position).addClass('active');
                 
             });
 

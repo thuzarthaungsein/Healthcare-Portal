@@ -2329,9 +2329,14 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     margin-bottom: -1px;
 }
 
-#profilenav .nav-link.active {
+#Profile-page .nursing-tabColor .nav-link.active {
     border-left: 1px solid #ff9563 !important;
     border-right: 1px solid #ff9563 !important;
+}
+
+#Profile-page .hospital-tabColor .nav-link.active {
+    border-left: 1px solid #63b7ff !important;
+    border-right: 1px solid #63b7ff !important;
 }
 
 
