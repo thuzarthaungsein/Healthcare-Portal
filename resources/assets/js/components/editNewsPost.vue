@@ -41,8 +41,13 @@
                                 </div>
                             </div>
 
-                            <div class="image_show"></div>
-                            <div class="form-group image_update" id="x-image" v-if="news.photo && !new_photo">
+                            <div class="image_show" v-if="upload_img">
+                                <div class='col-md-2'>
+                                    <span class='img-close-btn' v-on:click="removeUpload()">X</span>
+                                    <img :src="upload_img" class='show-img'>
+                                </div>
+                            </div>
+                            <div class="form-group image_update" id="x-image" v-if="news.photo && !upload_img">
                                 <div class="col-md-12" >
                                     <div id='x-image' class='col-md-2'>
                                         <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
@@ -122,7 +127,8 @@
                     related_news: [],
                     checkedNews: [],
                     old_photo: "",
-                    new_photo: ""
+                    new_photo: "",
+                    upload_img: null,
                 }
             },
             created() {
@@ -156,14 +162,26 @@
                     }.bind(this));
             },
             methods: {
-                    fileSelected() {
-                        $('.image_show').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
+                    fileSelected(e) {
+                        // $('.image_show').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
+                        
+                        // this.upload_img = this.news.photo;
                         this.news.photo = event.target.files[0];
-                        this.new_photo = this.news.photo;
+                        this.upload_img = URL.createObjectURL(event.target.files[0]);
                     },
                     // updateselected() {
                     //     $('.image_update').html("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/news/" + this.news.photo + " class='show-img''></div>");
                     // },
+                    removeUpload(e) {
+                        this.news.photo = '';
+                        this.upload_img = '';
+                        this.reset();
+                    },
+                    reset() {
+                        const input = this.$refs.file;
+                        input.type = 'text';
+                        input.type = 'file';
+                    },
                     updatepost() {                       
                       
                         let fData = new FormData();
