@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="Profile-page">
     <div v-if="type == 'nursing'">
       
       <ul class="nav nav-tabs nursing-tabColor" role="tablist" id="profilenav" v-bind:style="{width:width}" >
@@ -34,19 +34,12 @@
     </div>
 
     <div v-if="type == 'hospital'">
-      <ul class="nav nav-tabs hospital-tabColor fixed-ads" role="tablist" id="profilenav"  v-bind:style="{width:width}">
+      <ul class="nav nav-tabs hospital-tabColor" role="tablist" id="profilenav"  v-bind:style="{width:width}">
         <li role="presentation" class="subtab1 nav-item">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
             <i class="fa fa-plus-circle"></i>
 
-            <input
-              type="radio"
-              v-model="btntype"
-              value="create"
-              v-on:change="changeBtnType()"
-              name="btntype"
-              id="hospital"
-            />
+            <input type="radio" v-model="btntype" value="create" v-on:change="changeBtnType('hospital-lbl','nursing-lbl')" name="btntype" id="hospital" />
             作成
           </label>
         </li>
@@ -54,13 +47,13 @@
         <li role="presentation" class="subtab2 nav-item">
           <label for="nursing" class="typelabel nav-link active" id="nursing-lbl">
             <i class="fas fa-id-badge"></i>
-            <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType()" name="btntype" id="nursing" />
+            <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType('nursing-lbl','hospital-lbl')" name="btntype" id="nursing" />
             myページ
           </label>
         </li>
       </ul>
 
-      <div class="tab-content tab-content1 tabs">
+      <div class="tab-content hospital-borderColor tab-content1 tabs">
         <form class="col-md-12 pad-free">
           <div class="col-md-12 pad-free tab-pane" v-if="btntype == 'create'">
             <hospitalProfile></hospitalProfile>
@@ -102,6 +95,7 @@ export default {
     };
   },
   created() {
+    this.scrollTop();
     if (this.$route.params.type) {
       this.type = this.$route.params.type;
       localStorage.setItem("cusType", this.type);
@@ -120,11 +114,16 @@ export default {
     console.log("Scroll top " + document.body.scrollTop);
     console.log("window.pageYOffset " + window.pageYOffset);
     console.log("document.documentElement.scrollTop " + document.documentElement.scrollTop);
+    
+    
   },
   methods: {
     changeBtnType(a,b) {
+      this.scrollTop();
         document.getElementById(a).classList.add("active");
         document.getElementById(b).classList.remove("active");
+
+        
       // if (this.btntype == "create") {
       //   document.getElementById("hospital-lbl").classList.add("dim-btn");
       //   document.getElementById("nursing-lbl").classList.remove("dim-btn");
@@ -132,6 +131,9 @@ export default {
       //   document.getElementById("nursing-lbl").classList.add("dim-btn");
       //   document.getElementById("hospital-lbl").classList.remove("dim-btn");
       // }
+    },
+    scrollTop(){
+      $("html, body").animate({ scrollTop: 0 }, "slow");
     }
   }
 };
