@@ -1218,7 +1218,7 @@ export default {
 
             var mapProp = {
               center: new google.maps.LatLng(lat, lng),
-              zoom: 5,
+              zoom: 10,
               mapTypeId: google.maps.MapTypeId.ROADMAP,
             };
             var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
@@ -1247,14 +1247,13 @@ export default {
                   infoWindow.open(map, marker);
               }
               })(marker, i));
-              map.fitBounds(bounds);
+              // map.fitBounds(bounds);
               var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
               google.maps.event.removeListener(boundsListener);
               });
-
-
-
           }
+
+
         })
           
         
@@ -1291,8 +1290,46 @@ export default {
               this.axios.post('/api/getmaptownship/'+this.townshipID+'')
               .then((response)=>{
                 this.markers = response.data;
-                console.log(this.markers)
-
+                var mmarker = new Array();
+                var multibusiness = new Array();
+                  for(var i=0;i<this.markers.length;i++){
+                    mmarker.push([this.markers[i]['business_entity'],this.markers[i]['lat'],this.markers[i]['lng']])
+                    multibusiness.push(this.markers[i]['business_entity'])
+                  }
+                  var mapProp = {
+                  // center: new google.maps.LatLng(lat, lng),
+                  zoom: 10,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };
+                var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                var bounds = new google.maps.LatLngBounds();
+                var markers = mmarker; 
+                var infoWindowContent = new Array();
+                for(var i = 0;i<multibusiness.length;i++)
+                {
+                  infoWindowContent.push(['<div class="info_content">' + multibusiness[i] +'</div>'])
+                } 
+                var infoWindow = new google.maps.InfoWindow(), marker, i;
+                for( i = 0; i < this.markers.length; i++ ) {
+                  var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                  bounds.extend(position);
+                  marker = new google.maps.Marker({
+                      position: position,
+                      map: map,
+                      title: markers[i][0]
+                  });
+                  google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+                    console.log(infoWindowContent[i][0]);
+                      infoWindow.setContent(infoWindowContent[i][0]);
+                      infoWindow.open(map, marker);
+                  }
+                  })(marker, i));
+                  map.fitBounds(bounds);
+                  var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+                  google.maps.event.removeListener(boundsListener);
+                  });
+              }
                 
            });
          }
