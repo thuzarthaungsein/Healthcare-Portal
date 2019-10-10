@@ -1036,9 +1036,8 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-                                this.staf_info = 'error';
-                                this.errors = error.response.data.errors
-
+                                        this.staf_info = 'error';
+                                        this.errors = error.response.data.errors
                                 }
                         }) ;
                 }
