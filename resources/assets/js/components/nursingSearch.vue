@@ -1086,41 +1086,7 @@
 
           <div class="row mt-5">
             <div class="col-sm-12 col-md-12">
-            <gmap-map  id="googlemap"
-                      ref="map"
-                      :center="center"
-                      :options='{disableDefaultUI: true, zoomControl: true, autobindAllEvents: true}' 
-                      :zoom="12"
-                      style="height:700px">
-                      
-              <GmapMarker
-                v-for="(marker, index) in markers"
-                :key="index"
-                :position="marker"
-                :clickable="true"
-                :draggable="false"
-                :ref="marker"
-                :animation="3"
-                @click="openInfoWindow(marker);"
-                @mouseover="googleMarker"
-                
-                
-              >
-              </GmapMarker>
-              <gmap-info-window
-                v-if="selectedLocation !== null"
-                :position="{ lat: selectedLocation.lat, lng: selectedLocation.lng }"
-                :opened="infoBoxOpen"
-                @closeclick="infoBoxOpen = false;"
-              >
-      
-                <div class="infoWindow">
-                  <span id="infoWindow-location">{{ selectedLocation.feature }}</span>
-                  <button @click="closeInfoWindow();" class="btn btn-link">Close</button>
-                </div>
-        
-              </gmap-info-window>
-            </gmap-map>
+                <div id="mymap"></div>
             </div>
           </div>
       </div>
@@ -1136,6 +1102,7 @@
 <script>
 
 import asidebar from "./aside.vue";
+import { eventBus } from '../event-bus.js';
 export default {
   
     name: "GoogleMap",
@@ -1146,14 +1113,12 @@ export default {
     data(){
       
       return{
-        // markers: [
-        //     { position: { lat: 0, lng: 0 } },
-        // ],
-        markers: [],
+
+        map:null,
+        latlngmarkers: [],
         selectedLocation: null,
         infoBoxOpen: false,
         places: [],
-        center: { lat: 35.6432027, lng: 139.6729435 },
         id:'',    
         townshipID:[],
         township_id:[],
@@ -1166,11 +1131,13 @@ export default {
         medical_acceptance:[],
         show : false,
         showOne: true,
-        checkarr:[]
+        checkarr:[],
+
       }
     },
   mounted() {
-    
+      
+   
   },
   methods:{
    
@@ -1195,12 +1162,101 @@ export default {
           this.special_features= response.data.special_features
           this.fac_types= response.data.fac_types
           this.medical_acceptance= response.data.medical_acceptance 
-          this.markers = response.data.nus_latlng;
-         
+          this.latlngmarkers = response.data.nus_latlng;
           this.id = id
+          
+            
+          const theCity = response.data.getCity[0]['city_eng']
+          const lat = response.data.getCity[0]['latitude']
+          const lng = response.data.getCity[0]['longitude']
+          const apiPath = "https://nominatim.openstreetmap.org/search.php";
+          let params = {
+              q: theCity,
+              polygon_geojson: 1,
+              format: "json"
+            };
+            axios.get(apiPath, { params: params }  )
+            .then(response => {
+              let geoJSONDataChunk = response.data[0];
+              const geoConf = {
+                "type": "FeatureCollection",
+                "features": [
+                  { "type": "Feature",
+                    "geometry": geoJSONDataChunk.geojson,
+                  }
+                ]
+              };
+            const coordinates = geoJSONDataChunk.geojson['coordinates']
+            
+            var data = {
+              type: "Feature",
+              geometry: {
+                "type": "Polygon",
+                "coordinates": coordinates
+              }
+            };
+            var mapProp = {
+              //center: new google.maps.LatLng(lat, lng),
+              zoom: 8,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
 
 
-         })
+            };
+            var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+            map.data.addGeoJson(data);
+            var multiMarker = this.latlngmarkers;
+            console.log(multiMarker)
+            var bounds = new google.maps.LatLngBounds();
+            var markers = multiMarker;
+
+            var infoWindowContent = [
+            ['<div class="info_content">' +
+            '<h3>Bondi Beach</h3>' +
+            '</div>'],
+            ['<div class="info_content">' +
+            '<h3>Coogee Beach</h3>' +
+            '</div>'],
+            ['<div class="info_content">' +
+            '<h3>Cronulla Beach</h3>' +
+            '</div>'],
+            ['<div class="info_content">' +
+            '<h3>Manly Beach</h3>' +
+            '</div>'],
+            ['<div class="info_content">' +
+            '<h3>Maroubra Beach</h3>' +
+            '</div>']
+
+            ];
+            var infoWindow = new google.maps.InfoWindow(), marker, i;
+            for( i = 0; i < markers.length; i++ ) {
+              var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+              bounds.extend(position);
+              marker = new google.maps.Marker({
+                  position: position,
+                  map: map,
+                  title: markers[i][0]
+              });
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+              return function() {
+                  infoWindow.setContent(infoWindowContent[i][0]);
+                  infoWindow.open(map, marker);
+              }
+              })(marker, i));
+              map.fitBounds(bounds);
+              var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+              google.maps.event.removeListener(boundsListener);
+              });
+
+
+
+          }
+        })
+          
+        
+      })
+    
+        
+    
         }else if(e.target.tagName ==='OPTION'){
           const id = this.id;
           this.axios.post('/api/getmap/'+id+'')
@@ -1217,6 +1273,14 @@ export default {
          })
         }
       },
+      renderCityMap(myCityData) {
+      myCityData.setMap(this.googlemap);
+
+      // and pass clicks on to the underlying map
+      myCityData.addListener('click', (event) => {
+        google.maps.event.trigger(this.map, 'click', event);
+      });
+    },
       googleMarker(marker){
       
         console.log(google.maps.Animation.BOUNCE)
@@ -1349,7 +1413,7 @@ span:hover::before {
 [data-toggle="collapse"].collapsed .fa:before {
   content: "\f13a";
 }
-
+ 
 
 .left-div {
   text-align: end;
@@ -1370,7 +1434,7 @@ span:hover::before {
   
 }
 .row-div{
-  background: #d2571c05;
+  background: radial-gradient(ellipse at center, rgb(255, 240, 223) 0%, rgba(242,234,225,0.58) 100%);
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 10px;
@@ -1412,5 +1476,10 @@ label{
   &:hover {
     cursor:pointer;
   }
+}
+
+#mymap{
+  width: 100%;
+  height:700px;
 }
 </style>
