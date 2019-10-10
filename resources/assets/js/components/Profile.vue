@@ -3,7 +3,7 @@
     <div v-if="type == 'nursing'">
       
       <ul class="nav nav-tabs nursing-tabColor" role="tablist" id="profilenav" v-bind:style="{width:width}" >
-        <li role="presentation" class="subtab1 nav-item">
+        <li role="presentation" class="subtab1 nav-item" v-if="loginuser">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
             <i class="fa fa-plus-circle"></i>
             <input type="radio" v-model="btntype" value="create" v-on:change="changeBtnType('hospital-lbl','nursing-lbl')" name="btntype" id="hospital" />
@@ -35,7 +35,7 @@
 
     <div v-if="type == 'hospital'">
       <ul class="nav nav-tabs hospital-tabColor" role="tablist" id="profilenav"  v-bind:style="{width:width}">
-        <li role="presentation" class="subtab1 nav-item">
+        <li role="presentation" class="subtab1 nav-item" v-if="loginuser">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
             <i class="fa fa-plus-circle"></i>
 
@@ -91,10 +91,15 @@ export default {
       type: null,
       cusid: null,
       btntype: "view",
-      width: ""
+      width: "",
+      loginuser: true,
     };
   },
   created() {
+    this.axios.get('/api/user').catch((error) => {
+      this.loginuser = false;
+    })
+    
     this.scrollTop();
     if (this.$route.params.type) {
       this.type = this.$route.params.type;
@@ -111,11 +116,6 @@ export default {
     this.type = localStorage.getItem("cusType");
     this.cusid = Number(localStorage.getItem("cusId"));
 
-    console.log("Scroll top " + document.body.scrollTop);
-    console.log("window.pageYOffset " + window.pageYOffset);
-    console.log("document.documentElement.scrollTop " + document.documentElement.scrollTop);
-    
-    
   },
   methods: {
     changeBtnType(a,b) {

@@ -413,18 +413,35 @@ body {
 .bordertop-color4 {
     border-top: 1px dashed #d1291d;
 }
+
+#hospitalView .pro-heading h5 {
+    /* background-color: #2981cc; */
+    color: #2981cc;
+}
+#nursingView .pro-heading h5 {
+    /* background-color: #d2571c; */
+    color: #d2571c;
+}
 .pro-heading h5{
     position: relative;
     margin: 0 15px 15px 0;
     padding: 7px;
-    background-color: #ff6117;
-    text-align: center;
+    
+    text-align: left;
     line-height: 1.1;
-    color: #FFFFFF;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    font-size: 20px;
+    letter-spacing: 1px;
+    /* border-radius: 3px; */
+    /* -webkit-border-radius: 3px; */
+    /* -moz-border-radius: 3px; */
+    font-size: 25px;
+}
+
+
+/* #hospitalView .pro-heading h5::after {
+    border-top-color: #2981cc;
+}
+#nursingView .pro-heading h5::after {
+    border-top-color: #d2571c;
 }
 .pro-heading h5::after{
     top: 100%;
@@ -435,11 +452,11 @@ body {
     position: absolute;
     pointer-events: none;
     border-color: rgba(204, 102, 51, 0);
-    border-top-color: #ff6117;
+    
     border-width: 10px;
     left: 50%;
     margin-left: -10px;
-}
+} */
 
 /* End Profile */
 
@@ -945,6 +962,13 @@ p.p_2>a {
     letter-spacing: 3px;
 }
 
+#hospitalView .profile_header {
+    border-left: 5px solid #63b7ff;
+}
+#nursingView .profile_header {
+    border-left: 5px solid #ff9563;
+}
+
 .profile_header {
     font-weight: bold;
     font-size: 20px;
@@ -955,9 +979,16 @@ p.p_2>a {
     border-radius: 1px;
     border: 1px s#ffffff;
     width: 100%;
-    padding: 5px;
+    padding: 7px 10px;
     margin-bottom: 20px;
-    border-left: 5px solid #ff9563;
+    
+}
+
+#hospitalView .header {
+    color: #2981cc;
+}
+#nursingView .header {
+    color: #ec7338;
 }
 
 .header {
@@ -965,7 +996,7 @@ p.p_2>a {
     display: inline-block;
     position: relative;
     background: #fff;
-    color: #ff9563;
+    
     border-radius: 1px;
     border-bottom: 1px dashed #25ac8a;
     width: 100%;
@@ -5523,31 +5554,49 @@ button.confirmed {
     margin-top: -1px;
 }
 
+#hospitalView .top-fixed-btn {
+    background: #85c7ff;
+    border: 1px solid #5c95c5;
+}
+#nursingView .top-fixed-btn {
+    background: #fbaa84;
+    border: 1px solid #ff9563;
+}
+
 .top-fixed-btn {
     color: #000;
-    background: #fbaa84;
+    /* background: #fbaa84; */
     /* background: #eff7ec; */
     width: 145px;
     cursor: pointer;
     padding: 5px;
     /* transition: all .3s ease-in; */
-    border: 1px solid #ff9563;
+    
     border-radius: 5px;
     text-decoration: none;
     position: relative;
     box-shadow: 3px 5px 3px #ccc!important;    
 }
 
+#hospitalView .top-fixed-btn.active {
+    background: #2981cc;
+    border: 1px solid #5f97d0;
+}
+#nursingView .top-fixed-btn.active {
+    background: #d2571c;
+    border: 1px solid #ff9563;
+}
+
 .top-fixed-btn.active {
     color: #fff;
     /* background: #ff9563; */
-    background: #d2571c;
+    /* background: #d2571c; 5f97d0  */
     width: 145px;
     cursor: pointer;
     padding: 5px;
     box-shadow: 3px 5px 3px 0px #ccc !important;
     border: 0px;
-    border: 1px solid #ff9563;
+    
     margin: 0px !important;
     border-radius: 5px;
 }
