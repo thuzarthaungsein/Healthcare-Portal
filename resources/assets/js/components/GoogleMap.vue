@@ -28,7 +28,7 @@
                   @place_changed="setPlace" v-bind:value="comment.city" class="form-control m-b-10" id="gmap-search" style="display:none;">
                 </gmap-autocomplete>
                 <gmap-autocomplete
-                  @place_changed="setPlace" class="form-control m-b-10" id="gmap-search2" placeholder="場所を入力してください">
+                  @place_changed="setPlace" class="form-control m-b-10 white-bg-color" id="gmap-search2" placeholder="場所を入力してください">
                 </gmap-autocomplete>
                 <!-- <span @click="addMarker">Add</span> -->
               </div>              

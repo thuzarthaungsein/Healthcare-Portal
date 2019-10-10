@@ -69,7 +69,7 @@
                                 <td class="width17" style="border:none;"> <label class="heading-lbl pad-free">特長<span class="error">*</span></label></td>
                                 <td style="border:none;">
                                         <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
-                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"  @blur="onEditorBlur($event)"/>
+                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"/>
                                         
                                 </td>
                         </tr>
@@ -588,7 +588,6 @@ export default {
         }
         },
         created(){
-               
                 this.axios
                 .get('/api/customerinfo/'+this.id)
                 .then(response=>{
@@ -650,14 +649,10 @@ export default {
                 .then(response=>{
                         this.payment_arr = response.data;
                 });
-                
 
 
         },
         methods: {
-                onEditorBlur(quill) {
-                        console.log('editor blur!', quill)
-                },
 
             maptogglediv() {
                     $(".map-toggle-div").toggle('medium');
