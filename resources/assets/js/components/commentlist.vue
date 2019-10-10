@@ -17,10 +17,10 @@
         <h5 class="header">Comment List</h5>
         <div class="col-md-12 scrolldiv">
               <div v-if="!this.comments.length"  class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">
-                           
-                          No Record Data 
-                          
-                 </div> 
+
+                          No Record Data
+
+                 </div>
             <div v-else class="container-fuid" v-for="comment in comments" :key="comment.id">
                 <div class="card card-default m-b-20">
                     <div class="card-body">
@@ -105,7 +105,7 @@ export default {
             }
          },
          commentConfirm(id){
-             if(confirm("Are you sure you want to delete?"))
+             if(confirm("Are you sure you want to confirm?"))
              {
                  this.axios.get(`/api/comments/comfirm/${id}`)
                 .then(response=>{

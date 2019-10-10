@@ -23,7 +23,7 @@
             </a>
           </div>
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">検索特徴リスト</h4>
+            <h4 class="main-color m-b-10">特徴一覧検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <input
@@ -36,7 +36,7 @@
               </div>
             </div>
             <hr />
-            <h5 class="header">特徴リスト</h5>
+            <h5 class="header">特徴一覧</h5>
             <div class="col-md-12 pad-free scrolldiv">
               <div
                 v-if="!this.features.length"
@@ -47,7 +47,7 @@
                   <thead style="background-color:rgb(183, 218, 210);">
                     <tr>
                       <th>機能名</th>
-                      <th>略称</th>
+                      <th>縮小</th>
                       <th>種類</th>
                       <th></th>
                     </tr>

@@ -948,20 +948,21 @@
                
                 <tr class="text-center">
                   <td colspan="2">
-                    <input type="button" id="save_value" name="save_value" value="Search" @click="search"/>
+                     <!-- <input type="button" v-scroll-to="{ el: '#job_details', offset: -240}"  name="save_value" value="Search" @click="search"/>   -->
+                     <button class="btn-success" v-scroll-to="{ el: '#job_details', offset: -240}" id="btn" name="save_value" value="search" @click="search">Search </button>
                   </td>
                 </tr>
                 
               </tbody>
             </table>
             
-            <div class="card col-md-10" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
+            <div id="job_details" class="card col-md-10" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
               <div class="card-header bg-success text-center pad"  >{{job.name}}</div>
                 <div class="card-body bg-danger">
                     <table  class="table table-bordered table-sm">
                       <tr>
                         <td class="col-md-6">Access</td>
-                        <td>{{job.title}}</td>
+                        <td>{{job.access}}</td>
                       </tr>
                       <tr>
                         <td> Salary </td>
@@ -977,72 +978,13 @@
                       </tr>
 
                     </table>
-                 
-                    <!-- <div class="row">
-                      
-                      <div class="col-md-6">
-                        Access
-                      </div>
-                      <div class="col-md-6">
-                          {{job.title}}
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        Salary
-                      </div>
-                      <div class="col-md-6">
-                        {{job.salary}}
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        Working hours / days / holiday details
-                      </div>
-                      <div class="col-md-6">
-                        {{job.working_hours}} / {{job.holidays}}
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        Special conditions
-                      </div>
-                      <div class="col-md-6">
-                        {{job.allowances}}
-                      </div>
-
-                    </div> -->
+        
                 </div>
            
             </div>
-          
-       <!-- <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Photo</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Employment Status</th>
-          </tr>
-        </thead>
-        <tbody v-for="job in job_data" :key="job.id">
-          <tr>
-            <th scope="row">  <img :src="'images/'+ (job.logo)" class="col-md-12" alt="" /></th>
-            <td>{{job.title}}</td>
-            <td>{{job.description}}</td>
-            <td>{{job.employment_status}}</td>
-          </tr>
-         
-        </tbody>
-      </table> -->
-
-  
-             
         </div>
       </div>
-      <!-- <div class="col-md-2 p-l-0">
-        <asidebar></asidebar>
-      </div>-->
+
     </div>
     
   </div>
@@ -1078,6 +1020,7 @@ export default {
     },
   methods:{
     search(){
+       
         if(this.townshipID == null || this.townshipID == '')
         {
           this.townshipID[0] = 0;
@@ -1101,10 +1044,12 @@ export default {
         }).then((response)=>{
      
           this.job_data = response.data;
-  
-
+        
         })
+       
       },
+
+  
  
     toggleContent4() {
         this.toggleCheck = !this.toggleCheck;

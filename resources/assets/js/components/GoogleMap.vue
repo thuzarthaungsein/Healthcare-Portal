@@ -12,7 +12,7 @@
                     <label>市区町村、番地（建物名）<span class="error">*</span></label>
                     <div class="row">
                       <div class="col-md-10">
-                        <input type="text" id="city" name="city" class="city form-control" placeholder="市区町村、番地を入力してください。" v-model="comment.city">
+                        <input type="text" id="city" name="city" class="city form-control white-bg-color" placeholder="市区町村、番地を入力してください。" v-model="comment.city">
                         
                       </div>
                       <div class="col-md-2">
@@ -28,7 +28,7 @@
                   @place_changed="setPlace" v-bind:value="comment.city" class="form-control m-b-10" id="gmap-search" style="display:none;">
                 </gmap-autocomplete>
                 <gmap-autocomplete
-                  @place_changed="setPlace" class="form-control m-b-10" id="gmap-search2">
+                  @place_changed="setPlace" class="form-control m-b-10 white-bg-color" id="gmap-search2" placeholder="場所を入力してください">
                 </gmap-autocomplete>
                 <!-- <span @click="addMarker">Add</span> -->
               </div>              

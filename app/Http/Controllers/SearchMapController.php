@@ -106,7 +106,7 @@ class SearchMapController extends Controller
         //return response()->json(['town'=>$townshipID,'occ'=>$occupationID,'emp'=>$empstatus]);
         if($townshipID == '0' && $occupationID == '0' &&  $empstatus == '0')
         { 
-            $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+            $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
             Join townships as t on t.id = c.townships_id 
             where t.city_id =".$id;
 
@@ -114,7 +114,7 @@ class SearchMapController extends Controller
         }
         else if($townshipID != '0'  && $occupationID == '0' && $empstatus == '0'  )
         {  
-            $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+            $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
             Join townships as t on t.id = c.townships_id  
             where t.city_id =" .$id. " and t.id in (".$townshipID.")";
 
@@ -122,7 +122,7 @@ class SearchMapController extends Controller
         }
         else if($townshipID != '0' && $occupationID != '0' && $empstatus == '0')
         { 
-            $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+            $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
             Join townships as t on t.id = c.townships_id 
             where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.")";
 
@@ -134,24 +134,24 @@ class SearchMapController extends Controller
             
             if(count($empstatus) == 4)
             {
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
             }
             else if(count($empstatus) == 3)
             {
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'" ;
             }
             else if(count($empstatus) == 2){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'" ;
             }
             else  {
  
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '".$empstatus[0] ."'";
             }
@@ -163,22 +163,22 @@ class SearchMapController extends Controller
             $empstatus = explode(',',$empstatus);
 
             if(count($empstatus) == 4){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
             }
             else if(count($empstatus) == 3){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'";
             }
             else if(count($empstatus) == 2){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'";
             }
             else{
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."'";
             }
@@ -191,22 +191,22 @@ class SearchMapController extends Controller
             $empstatus = explode(',',$empstatus);  
 
             if(count($empstatus) == 4){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
             }
             else if(count($empstatus) == 3){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'";
             }
             else if(count($empstatus) == 2){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'";
             }
             else{
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."'";
             }
@@ -215,7 +215,7 @@ class SearchMapController extends Controller
         }
         else if($townshipID == '0' && $occupationID != '0' && $empstatus == '0')
         {  
-            $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+            $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
             Join townships as t on t.id = c.townships_id 
             where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")";
 
@@ -226,22 +226,22 @@ class SearchMapController extends Controller
             $empstatus = explode(',',$empstatus);
             
             if(count($empstatus) == 4){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
             }
             else if(count($empstatus) == 3){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'";
             }
             else if(count($empstatus) == 2){
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'";
             }
             else{
-                $query = "SELECT j.*,c.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
                 Join townships as t on t.id = c.townships_id 
                 where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."'";
             }
