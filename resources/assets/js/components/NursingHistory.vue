@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 scrolldiv2 pb-3">
+  <div class="col-12 scrolldiv2 pb-3 tab-content">
     <div class="col-12">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -36,7 +36,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Website</strong>
+                  <strong>公式サイト</strong>
                 </p>
               </div>
 
@@ -50,7 +50,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Access</strong>
+                  <strong>交通アクセス</strong>
                 </p>
               </div>
 
@@ -62,7 +62,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Email</strong>
+                  <strong>メールアドレス</strong>
                 </p>
               </div>
 
@@ -74,7 +74,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Occupancy Condition</strong>
+                  <strong>入居条件</strong>
                 </p>
               </div>
 
@@ -86,7 +86,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Location</strong>
+                  <strong>住所</strong>
                 </p>
               </div>
 

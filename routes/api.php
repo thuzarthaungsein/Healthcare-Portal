@@ -179,7 +179,7 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('hospital/{cusid}','ProfilePublishController@hospitalProfile');
     Route::get('specialfeature/{type}/{cusid}','ProfilePublishController@getSpecialfeature');
     Route::get('comment/{cusid}','ProfilePublishController@getComment');
-    Route::get('customer/{cusid}','ProfilePublishController@getCustomer');
+    Route::get('customer/{cusid}/{type}','ProfilePublishController@getCustomer');
     Route::get('schedule/{cusid}','ProfilePublishController@getSchedule');
     // Route::get('hosfacility','ProfilePublishController@getHosfacilities');
     Route::get('subject/{cusid}','ProfilePublishController@getSubject');

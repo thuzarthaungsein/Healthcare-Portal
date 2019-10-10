@@ -64,7 +64,7 @@
 
               >
 
-                <div class="col-md-3">
+                <div class="col-md-12">
 
                   <input type="file" name class="hospital-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)" />
 
