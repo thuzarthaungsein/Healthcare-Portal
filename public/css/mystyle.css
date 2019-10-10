@@ -436,9 +436,6 @@ body {
     font-size: 25px;
 }
 
-.fa-building {
-    /* color: #85c7ff; */
-}
 
 /* #hospitalView .pro-heading h5::after {
     border-top-color: #2981cc;
@@ -982,7 +979,7 @@ p.p_2>a {
     border-radius: 1px;
     border: 1px s#ffffff;
     width: 100%;
-    padding: 5px;
+    padding: 7px 10px;
     margin-bottom: 20px;
     
 }

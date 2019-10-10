@@ -147,22 +147,56 @@
                                  <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
                              </div> -->
                             <table class="table table-bordered">
-                                    <tr>
-                                        <th width="30%" class="custom-bg-color">
+                                    <tbody>
+                                        <tr>
+                                        <th width="250" class="custom-bg-color">
                                             <font>住所</font>
                                         </th>
-                                        <td width="50%">
+                                        <td>
                                             <font>{{cust.address}}</font>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th width="30%" class="custom-bg-color">
+                                        <th width="250" class="custom-bg-color">
                                             <font>電話</font>
                                         </th>
-                                        <td width="50%">
+                                        <td>
                                             <font>{{cust.phone}}</font>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <th width="250" class="custom-bg-color">
+                                            <font>アクセス　</font>
+                                        </th>
+                                        <td>
+                                            <font>access</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th width="250" class="custom-bg-color">
+                                            <font>駅</font>
+                                        </th>
+                                        <td>
+                                            <font>station</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th width="250" class="custom-bg-color">
+                                            <font>費用 </font>
+                                        </th>
+                                        <td>
+                                            <font>expense</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th width="250" class="custom-bg-color">
+                                            <font>件名 </font>
+                                        </th>
+                                        <td>
+                                            <font>subject</font>
+                                        </td>
+                                    </tr>
+                                    </tbody>
                             </table>
 
                             <!-- <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
@@ -204,7 +238,7 @@
 
             <div class="row ele m-lr-0" id="element3">
 
-                <h5 class="profile_header col-md-12">費用</h5>
+                <h5 class="profile_header col-md-12">費用 {{customer.name}}</h5>
 
                     <div class="col-12">
 
@@ -242,13 +276,13 @@
 
                                             <tr>
 
-                                                <th>入居にかかる費用(Expense)</th>
+                                                <th>入居にかかる費用(費用)</th>
 
-                                                <th>居室タイプ(type)</th>
+                                                <th>居室タイプ(タイプ)</th>
 
-                                                <th>月額料金 (monthly)</th>
+                                                <th>月額料金 (毎月 )</th>
 
-                                                <th>広さ(area)</th>
+                                                <th>広さ(エリア )</th>
 
                                                 <th></th>
 
@@ -423,7 +457,7 @@
             <div class="row ele m-lr-0" id="element4">
 
                 <!-- <div class="row"> -->
-                    <h5 class="profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>
+                    <h5 class="profile_header col-md-12"> 施設の概要 {{customer.name}}</h5>
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12" >
 
                         <table border="1" class="table table-bordered cost_table">
@@ -561,7 +595,7 @@
 
                         <div class="row col-12 pad-free">
                             <div class="col-md-12">
-                            <h5 class="profile_header col-md-12"> 職員体制 （グランダ雪ヶ谷）</h5>
+                            <h5 class="profile_header col-md-12"> 職員体制 {{customer.name}}</h5>
                             </div>
                             <div v-if="cooperate_medical.length>0" class="col-md-12">
 
@@ -611,7 +645,7 @@
 
                        <div class="row col-12">
 
-                                <h5 class="profile_header col-12"> 医療面の受入れ </h5>
+                                <h5 class="profile_header col-12"> 医療面の受入れ {{customer.name}}</h5>
 
                             <div class="row col-12">
 
@@ -652,7 +686,7 @@
 
 
                         <div class="row col-12">  
-                                <h5  class="profile_header col-12"> 職員体制</h5>  
+                                <h5  class="profile_header col-12"> 職員体制 {{customer.name}}</h5>  
                             <div v-if="staff.length>0">
 
                                 <div v-for="st in staff" :key="st.id" class="col-md-12" >
@@ -699,7 +733,7 @@
 
             <div class="row ele m-lr-0" id="element5">
 
-                <h5 class="profile_header col-md-12"> 地図</h5>
+                <h5 class="profile_header col-md-12"> 地図 {{customer.name}}</h5>
 
                         <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -736,7 +770,7 @@
 
             <div class="row ele m-lr-0" id="element6">
 
-               <h5 class="profile_header col-12">口コミ</h5>
+               <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>
 
                <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -833,7 +867,7 @@
 
             <!-- ee-->
 
-             <h5 class="profile_header">情報</h5>
+             <h5 class="profile_header">情報 </h5>
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
 
@@ -908,6 +942,7 @@
                     <!--end for slide image-->
 
                     <!--for address-->
+                    
 
                      <div class="col-sm-7 detail_profile_right">
 
@@ -918,18 +953,50 @@
                                 </div>
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th width="30%" class="custom-bg-color">
+                                        <th width="250" class="custom-bg-color">
                                             <font>住所</font>
                                         </th>
-                                        <td width="50%">
+                                        <td>
                                             <font>{{cust.address}}</font>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th width="30%" class="custom-bg-color">
+                                        <th width="250" class="custom-bg-color">
                                             <font>電話</font>
                                         </th>
-                                        <td width="50%">
+                                        <td>
+                                            <font>{{cust.phone}}</font>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <th width="250" class="custom-bg-color">
+                                            <font>アクセス</font>
+                                        </th>
+                                        <td>
+                                            <font>{{cust.phone}}</font>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <th width="250" class="custom-bg-color">
+                                            <font>駅 </font>
+                                        </th>
+                                        <td>
+                                            <font>{{cust.phone}}</font>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <th width="250" class="custom-bg-color">
+                                            <font>費用 </font>
+                                        </th>
+                                        <td>
+                                            <font>{{cust.phone}}</font>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <th width="250" class="custom-bg-color">
+                                            <font>件名 </font>
+                                        </th>
+                                        <td>
                                             <font>{{cust.phone}}</font>
                                         </td>
                                     </tr>
@@ -972,8 +1039,8 @@
                     <!--end for address-->
                 </div>
             <!--end ee-->
-
-                <h5 class="profile_header">情報</h5>
+                  
+                <h5 class="profile_header">情報 </h5>
 
                 <div class="row m-lr-0">
 
@@ -985,7 +1052,7 @@
 
                 </div>                
 
-                <h5 class="profile_header">診療時間</h5>
+                <h5 class="profile_header">診療時間 </h5>
 
                 <div class="row col-12 m-b-10">
 
@@ -1089,7 +1156,7 @@
 
 
 
-                <h5 class="profile_header">施設情報</h5>
+                <h5 class="profile_header">施設情報 </h5>
 
                 <div class="col-12">    
 
@@ -1125,7 +1192,7 @@
 
             <div class="row ele m-lr-0" id="element2">
 
-                <h5 class="profile_header col-12">口コミ</h5>
+                <h5 class="profile_header col-12">口コミ </h5>
 
                  <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -1209,7 +1276,7 @@
 
             <div class="row ele m-lr-0" id="element3">
 
-                 <h5 class="profile_header col-md-12"> 地図</h5>
+                 <h5 class="profile_header col-md-12"> 地図 </h5>
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
