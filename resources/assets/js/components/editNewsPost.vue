@@ -127,7 +127,6 @@
                     related_news: [],
                     checkedNews: [],
                     old_photo: "",
-                    new_photo: "",
                     upload_img: null,
                 }
             },
