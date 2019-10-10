@@ -12,12 +12,12 @@
                             <div class="form-group">
                                 <label>題名:<span class="error">*</span></label>
                                 <input type="text" class="form-control" placeholder="題名を入力してください。" v-model="news.title">
-                                <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
+                                <span v-if="errors.title" class="error">{{errors.title}}</span>
                             </div>
                             <div class="form-group">
                                 <label>主な情報:<span class="error">*</span></label>
                                 <input type="text" class="form-control" placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point">
-                                <span v-if="errors.main_point" class="error">{{errors.main_point[0]}}</span>
+                                <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
                             </div>
                             <div class="form-group">
                                 <label>カテゴリー:<span class="error">*</span></label>
@@ -27,12 +27,12 @@
                                         {{category.name}}
                                     </option>
                                 </select>
-                                <span v-if="errors.category_id" class="error">{{errors.category_id[0]}}</span>
+                                <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                             </div>
                             <div class="form-group">
                                 <label>内容:<span class="error">*</span></label>
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
-                                <span v-if="errors.body" class="error">{{errors.body[0]}}</span>
+                                <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
                             <div class="form-group" id="showimage">
                                 <label class="">メディア:</label>
@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="image_show"></div>
-                            <div class="form-group image_update" id="x-image" v-if="news.photo">
+                            <div class="form-group image_update" id="x-image" v-if="news.photo && !new_photo">
                                 <div class="col-md-12" >
                                     <div id='x-image' class='col-md-2'>
                                         <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
@@ -58,7 +58,6 @@
                                         {{category.name}}
                                     </option>
                                 </select>
-                                <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
                             </div>
 
                             <div class="row col-md-12">
@@ -84,7 +83,8 @@
 
                             <div class="form-group">
                                 <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
-                                <button class="btn news-post-btn all-btn">更新</button>
+                                <!-- <button class="btn news-post-btn all-btn">更新</button> -->
+                                <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
                             </div>
                         </form>
                     </div>
@@ -99,7 +99,12 @@
                 return {
                     selectedValue: 0,
                     arr: [],
-                    errors: [],
+                    errors: {
+                        title: "",
+                        main_point: "",
+                        body: "",
+                        category_id: "",
+                    },
                     news: {
                         title: '',
                         mainPoint: '',
@@ -115,8 +120,9 @@
                     },
                     category_id_1: '1',
                     related_news: [],
-                    checkedNews: "",
+                    checkedNews: [],
                     old_photo: "",
+                    new_photo: ""
                 }
             },
             created() {
@@ -125,14 +131,19 @@
                     .then((response) => {
                         this.news = response.data;
                         this.checkedNews = [];
-                        if(this.news.related_news != ''){
+                        if(this.news.related_news != undefined){
                             this.checkedNews = this.news.related_news.split(',');
                         }
                         else{
-                            this.checkedNews = "";
+                            this.checkedNews = [];
                         }
+
+                        if(this.news.photo == null || this.news.photo == '') {
+                            this.old_photo = '';
+                        }
+                        // console.log(this.news.photo);
                         
-                        this.updateselected();
+                        // this.updateselected();
                         this.selectedValue = this.news.category_id;
                     });
                     this.getPostsByCatId();
@@ -146,9 +157,9 @@
             },
             methods: {
                     fileSelected() {
-
                         $('.image_show').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
-                        this.news.photo = event.target.files[0]
+                        this.news.photo = event.target.files[0];
+                        this.new_photo = this.news.photo;
                     },
                     // updateselected() {
                     //     $('.image_update').html("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/news/" + this.news.photo + " class='show-img''></div>");
@@ -209,7 +220,37 @@
                         }
                         this.old_photo = old_photo;
                         this.getPostsByCatId;
-                    }
+                    },
+                    checkValidate() {
+                        if (this.news.title) {
+                            this.errors.title = "";
+                        } else {
+                            this.errors.title = "ニュースの題名が必須です。";
+                        }
+                        if (this.news.main_point) {
+                            this.errors.main_point = "";
+                        } else {
+                            this.errors.main_point = "ニュースの題名が必須です。";
+                        }
+                        if (this.news.body) {
+                            this.errors.body = "";
+                        } else {
+                            this.errors.body = "ニュースの題名が必須です。";
+                        }
+                        if (this.news.category_id) {
+                            this.errors.category_id = "";
+                        } else {
+                            this.errors.category_id = "ニュースの題名が必須です。";
+                        }
+                        if (
+                            !this.errors.title &&
+                            !this.errors.main_point &&
+                            !this.errors.body &&
+                            !this.errors.category_id
+                        ) {
+                            this.updatepost();
+                        }
+                    },
             }
     }
 </script>
