@@ -1488,6 +1488,7 @@ export default {
                         //                         .then((response) => {
                         //                         }).catch(error=>{
                         //                         if(error.response.status == 422){
+                        //                           this.gallery_list = 'error';
                         //                         this.errors = error.response.data.errors
                         //                 }
                         //         }) ;
@@ -1496,10 +1497,11 @@ export default {
                                 this.axios
                                         .post(`/api/customer/profile/${this.id}`,this.customer_info)
                                                 .then((response) => {
-                                                alert('Successfully Updated!')
+    
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                this.errors = error.response.data.errors
+                                                  this.customer_info = 'error';
+                                                  this.errors = error.response.data.errors
                                         }
                                 }) ;
                         }
@@ -1509,7 +1511,8 @@ export default {
                                                 .then((response) => {
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                this.errors = error.response.data.errors
+                                                  this.hospital_info = 'error';
+                                                  this.errors = error.response.data.errors
                                         }
                                 }) ;
                         }
@@ -1517,12 +1520,17 @@ export default {
                                 this.axios
                                         .post(`/api/schedule/update/${this.id}`,this.schedule_list)
                                                 .then((response) => {
-                                                        alert('Successfully Updated!');
+                                                        
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                this.errors = error.response.data.errors
+                                                  this.schedule_list = 'error';
+                                                  this.errors = error.response.data.errors
                                 }
                         }) ;
+
+                        if(this.gallery_list != 'error' && this.customer_info != 'error' && this.hospital_info != 'error' && this.schedule_list != 'error') {
+                          alert('Successfully Updated!');
+                        }
                 }
             },
             getPostal: function(event) {
