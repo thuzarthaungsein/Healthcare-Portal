@@ -1,5 +1,5 @@
 <template>
-  <div class="cont-pad job-detail">
+  <div class="tab-content job-detail">
     <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">
       <h4 class="h_4 header m-4">{{job_details.title}}</h4>
       <label>求人番号: {{jobDetail.jobid}}</label>

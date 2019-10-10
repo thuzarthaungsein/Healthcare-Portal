@@ -14,8 +14,10 @@ use DB;
 use App\special_feature;
 use App\Customer;
 use App\Comment;
-use App\Gallery;
+use App\Schedule;
 use App\Facility;
+use App\Subject;
+use App\Gallery;
 
 class ProfilePublishController extends Controller
 {
@@ -26,11 +28,37 @@ class ProfilePublishController extends Controller
      */
     public function index()
     {
+        //
+    }
 
-        $feature = NursingProfile::select('feature')->where('customer_id',auth()->user('customer_id'))->get();
-        $method = NursingProfile::select('method')->where('customer_id',auth()->user('customer_id'))->get();
-        $facility = NursingProfile::where('customer_id',auth()->user('customer_id'))->get();
-        $comedical = Cooperate_Medical::where('customer_id',auth()->user('customer_id'))->get();
+    public function hospitalProfile($cusid)
+    {
+        $hospital = HospitalProfile::where('customer_id',$cusid)->get();        
+
+        //for hospital map
+        $hoslatlong =  DB::table('customers') ->select('customers.address','hospital_profiles.*')
+                        ->join('hospital_profiles','hospital_profiles.customer_id','=','customers.id')
+                        ->where('hospital_profiles.customer_id','=',$cusid)->get();
+
+        $facility_list = Facility::select('id','description')->get();
+        $profile_facility =  HospitalProfile::select('facilities')->where('customer_id',$cusid)->value('facilities');
+        $hosfacility= explode(',',$profile_facility);
+        $facility = Facility::whereIn('id',$hosfacility)->select('description','id')->get();
+        //for image slide show
+        $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
+        
+        return response()->json(array("hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"images"=>$images,"facility_list"=>$facility_list,"facility"=>$facility));
+    }
+
+    public function nursingProfile($cusid)
+    {
+        $feature = NursingProfile::select('feature')->where('customer_id',$cusid)->get();
+        $method = NursingProfile::select('method')->where('customer_id',$cusid)->get();
+        $facility = NursingProfile::where('customer_id',$cusid)->get();
+        $comedical = Cooperate_Medical::where('customer_id',$cusid)->get();
+
+        $sql = "SELECT method_payment.* from method_payment INNER JOIN customers ON method_payment.customer_id= customers.id";
+        $cost = DB::select($sql);
 
         //forshow all medical acceptance
         $medicalacceptance = Medical::select('id','name')->get();
@@ -38,62 +66,70 @@ class ProfilePublishController extends Controller
         //forshow custom icon
         $medical =  DB::table('acceptance_transactions') ->select('acceptance_transactions.accept_type','medical_acceptance.name')
                         ->join('medical_acceptance','medical_acceptance.id','=','acceptance_transactions.medical_acceptance_id')
-                        ->where('acceptance_transactions.customer_id','=',1)->get();
+                        ->where('acceptance_transactions.customer_id','=',$cusid)->get();
 
-        $staff = Staff::where('customer_id',1)->get();
+        $staff = Staff::where('customer_id',$cusid)->get();
 
          //for nursing map
         $nurselatlong =  DB::table('customers') ->select('customers.address','nursing_profiles.*')
                              ->join('nursing_profiles','nursing_profiles.customer_id','=','customers.id')
-                             ->where('nursing_profiles.customer_id','=',1)->get();
-
-        //for hospital map
-        $hoslatlong =  DB::table('customers') ->select('customers.address','hospital_profiles.*')
-                             ->join('hospital_profiles','hospital_profiles.customer_id','=','customers.id')
-                             ->where('hospital_profiles.customer_id','=',3)->get();
+                             ->where('nursing_profiles.customer_id','=',$cusid)->get();       
 
         //for image slide show
-        $images = Gallery::where('customer_id',1)->where('type','photo')->select()->get();
+        $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
 
-     
-        
-
-        $hospital = HospitalProfile::where('customer_id',1)->get();
-
-        $sql = "SELECT method_payment.* from method_payment   JOIN customers ON method_payment.customer_id= customers.id";
-        $cost = DB::select($sql);
-
-        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff,
-           "nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"images"=>$images));
+        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff, "nurselatlong"=>$nurselatlong,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"images"=>$images));
     }
 
-    public function getComment()
+    public function getComment($cusid)
     {
-        //$comment=Comment::all();
-        // $comment = Comment::where('customer_id',1)->get();
-        // return $comment;
-        $sql = "SELECT comments.id,comments.title,comments.email,comments.year,comments.comment from comments  JOIN nursing_profiles ON comments.customer_id= nursing_profiles.customer_id";
+        $sql = "SELECT comments.id,comments.title,comments.email,comments.year,comments.comment from comments INNER JOIN nursing_profiles ON comments.customer_id= nursing_profiles.customer_id WHERE comments.customer_id = $cusid";
         $comment = DB::select($sql);
         return $comment;
     }
 
-    public function getCustomer()
+    public function getCustomer($cusid)
     {
-        $customer = Customer::where('id',1)->get();
+        $customer = Customer::where('id',$cusid)->get();
         return $customer;
     }
 
-    public function getSpecialfeature($type){
+    public function getSpecialfeature($type,$cusid){
         if($type == 'hospital'){
-            $sfeature=HospitalProfile::select('special_features')->where('customer_id',3)->value('special_features');
+            $sfeature=HospitalProfile::select('special_features')->where('customer_id',$cusid)->value('special_features');
         }
         else{
-            $sfeature=NursingProfile::select('special_features')->where('customer_id',1)->value('special_features');
+            $sfeature=NursingProfile::select('special_features')->where('customer_id',$cusid)->value('special_features');
         }
 
         $sql = "SELECT * FROM special_features WHERE id IN (".$sfeature.")";
         $specialfeature = DB::select($sql);
         return response()->json($specialfeature);
+    }
+
+    public function getSubject($cusid){
+        $sub = HospitalProfile::select('subject')->where('customer_id',$cusid)->value('subject');
+        
+        if($sub != null){
+            $query="SELECT * FROM subjects WHERE id IN (".$sub.")";
+            $subject = DB::select($query);
+        }
+        else{
+            $subject = '';
+        }
+        
+        return response()->json($subject);
+    }
+
+    public function getSchedule($cusid){
+        $schedule_am = Schedule::select('mon','tue','wed','thu','fri','sat','sun')->where('customer_id', $cusid)
+                            ->where('part', '=', 'am')
+                            ->get();
+        $schedule_pm = Schedule::select('mon','tue','wed','thu','fri','sat','sun')->where('customer_id', $cusid)
+                            ->where('part', '=', 'pm')
+                            ->get();
+
+        return response()->json(array("am"=> $schedule_am, "pm"=> $schedule_pm));
     }
 
     public function create()
@@ -133,8 +169,8 @@ class ProfilePublishController extends Controller
         //
     }
 
-    public function getStaffbyCustomerId($customer_id) {
-        $staff = Staff::where("customer_id",$customer_id)->get();
+    public function getStaffbyCustomerId($cusid) {
+        $staff = Staff::where("customer_id",$cusid)->get();
 
         return $staff;
     }
