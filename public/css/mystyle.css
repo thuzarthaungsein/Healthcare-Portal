@@ -23,7 +23,17 @@ body {
     /* background: #dfdfde; */
     background: #f8f8f8 !important;
 }
-
+#pageTop{
+    text-indent: -9999px;
+    bottom: 70px;
+    position: fixed;
+    right: 50px;
+    z-index: 900;
+    background: url(../images/common/pagetop.png) no-repeat left center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
 .form1 {
     /* border:1px solid#118063; */
     padding: 30px;
@@ -955,7 +965,7 @@ p.p_2>a {
     border-radius: 1px;
     border: 1px s#ffffff;
     width: 100%;
-    padding: 5px;
+    padding: 7px 10px;
     margin-bottom: 20px;
     border-left: 5px solid #ff9563;
 }
