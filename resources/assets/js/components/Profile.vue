@@ -23,7 +23,7 @@
       <div class="tab-content nursing-borderColor tab-content1 tabs">
         <form class="col-md-12 pad-free">
           <div class="col-md-12 pad-free tab-pane" v-if="btntype == 'create'">
-            <nursingProfile></nursingProfile>
+            <nursingProfile :cusid="cusid" :type="type"></nursingProfile>
           </div>
 
           <div class="col-md-12 pad-free" v-if="btntype == 'view'">
