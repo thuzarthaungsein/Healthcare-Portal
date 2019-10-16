@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-12">
-            <div class="row m-b-10" v-if="this.occupation.length !== 0">
+            <div class="row m-b-10" v-if="norecord !== 0">
                 <div class="col-md-12">
                     <router-link to="/occupation" class="float-right main-bg-color create-btn all-btn">
                         <i class="fas fa-plus-circle"></i> Create New Occupation
@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
                 <div class="col-md-12 scrolldiv">
-                     <div v-if="occupation == 0" class="card card-default card-wrap">
+                     <div v-if="norecord == 0" class="card card-default card-wrap">
                         <p class="record-ico">
                             <i class="fa fa-exclamation"></i>
                         </p>
@@ -30,7 +30,6 @@
                         <div class="col-md-2">
                             <button class="btn secondary-bg-color all-btn white">検索</button>
                         </div>
-                    </div>
                     </div>
                 <hr/>
                     <h5 class="header">Occupation List</h5>
@@ -54,19 +53,20 @@
                         </div>
                         </div>
                     </div>
-            </div>
+                </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
- </div>
 </template>
 
 <script>
 export default {
         data() {
             return {
-                occupation: []
+                occupation: [],
+                norecord:0,
             }
         },
         created() {
@@ -74,6 +74,7 @@ export default {
                 .get('/api/occupation/type')
                 .then(response => {
                     this.occupation = response.data;
+                    this.norecord = this.occupation.length;
                 });
         },
         methods: {
@@ -97,9 +98,11 @@ export default {
             this.axios
             .delete(`/api/occupation/delete/${id}`)
             .then(response => {
+                this.occupation = response.data;
+                this.norecord = this.occupation.length;
                 // alert('Delete Successfully!');
-                let i = this.occupation.map(item => item.id).indexOf(id); // find index of your object
-                this.occupation.splice(i, 1)
+                // let i = this.occupation.map(item => item.id).indexOf(id); // find index of your object
+                // this.occupation.splice(i, 1)
                 this.$swal({
             title: "削除された",
             text: "ファイルが削除されました。",

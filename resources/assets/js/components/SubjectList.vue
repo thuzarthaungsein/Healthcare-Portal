@@ -1,7 +1,7 @@
 <template>
  <div class="row">
      <div class="col-md-12">
-         <div class="row m-b-10" v-if="this.subjects.length !== 0">
+         <div class="row m-b-10" v-if="norecord !== 0">
                 <div class="col-md-12">
                     <router-link to="/subject" class="float-right main-bg-color create-btn all-btn">
                         <i class="fas fa-plus-circle"></i> Create New Subject
@@ -10,7 +10,7 @@
          </div>
                 <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
                     <div class="col-md-12 scrolldiv">
-                        <div v-if="subjects == 0" class="card card-default card-wrap">
+                        <div v-if="norecord === 0" class="card card-default card-wrap">
                             <p class="record-ico">
                                 <i class="fa fa-exclamation"></i>
                             </p>
@@ -64,7 +64,8 @@
 export default {
           data() {
             return {
-                subjects: []
+                subjects: [],
+                norecord :0,
             }
         },
         created() {
@@ -72,6 +73,7 @@ export default {
                 .get('/api/subjects/subject')
                 .then(response => {
                     this.subjects = response.data;
+                    this.norecord = this.subjects.length;
                 });
         },
          methods: {
@@ -93,8 +95,10 @@ export default {
             }).then(response => {
             this.axios.delete(`/api/subjects/delete/${id}`)
                    .then(response => {
-                       let i = this.subjects.map(item => item.id).indexOf(id); // find index of your object
-                        this.subjects.splice(i, 1)
+                       this.subjects= response.data;
+                       this.norecord=this.subjects.length;
+                    //    let i = this.subjects.map(item => item.id).indexOf(id); // find index of your object
+                    //     this.subjects.splice(i, 1)
                          this.$swal({
                 title: "削除された",
                 text: "ファイルが削除されました。",
@@ -108,34 +112,16 @@ export default {
                 this.$swal("Failed", "wrong");
             });
         });
+         },
+    searchSubject() {
+                 var search_word = $("#search-item").val();
 
-
-                // if(confirm("Are you sure you want to delete?"))
-                // {
-                //      this.axios
-                //     .delete(`/api/subjects/delete/${id}`)
-                //     .then(response => {
-                //         // alert('Delete Successfully!');
-                //         let i = this.subjects.map(item => item.id).indexOf(id); // find index of your object
-                //         this.subjects.splice(i, 1)
-                //     });
-                // }
-
-            }
+                let fd = new FormData();
+                    fd.append("search_word", search_word)
+                    this.axios.post("/api/subjects/search", fd).then(response => {
+                        this.subjects = response.data;
+                    });
+                 }
         }
 }
 </script>
-//                 }
-//             },
-//             searchSubject() {
-//                 var search_word = $("#search-item").val();
-
-//                 let fd = new FormData();
-//                     fd.append("search_word", search_word)
-//                     this.axios.post("/api/subjects/search", fd).then(response => {
-//                         this.subjects = response.data;
-//                     });
-//                 }
-//             }
-//         }
-// </script>
