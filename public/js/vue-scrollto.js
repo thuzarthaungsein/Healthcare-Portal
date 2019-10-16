@@ -302,7 +302,7 @@
 
         easing: "ease",
 
-        offset: -265,
+        offset: -267,
 
         cancelable: true,
 

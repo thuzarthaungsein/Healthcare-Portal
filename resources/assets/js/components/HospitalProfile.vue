@@ -924,7 +924,7 @@
 
                   <div class="row">
 
-                    <div v-for="fac in fac_list" :key="fac.id" class="col-md-6 m-b-20">
+                    <div v-for="fac in fac_list" :key="fac.id" class="col-md-3 m-b-20">
 
                       <label>
 
@@ -1000,7 +1000,7 @@
 
                   <div class="row">
 
-                    <div v-for="feat in feature_list" :key="feat.id" class="col-md-6 m-b-20">
+                    <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
 
                       <label>
 
@@ -1345,6 +1345,7 @@ export default {
                 .then(response=>{
                         this.fac_list = response.data;
                 });
+                quill.editor.disable()
         },
         methods: {
             scheduletogglediv() {

@@ -6,7 +6,7 @@
 
 
 
-    <div v-if="type == 'nursing'">
+    <div v-if="type == 'nursing'" id="nursingView">
 
 
 
@@ -20,7 +20,7 @@
 
 
 
-            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn link-1 active"  @click="activate(1)" :class="{ active : active_el == 1 }">
+            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn link-2"   @click="activate(2)" :class="{ active : active_el == 2 }">
+            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
 
 
 
@@ -44,7 +44,7 @@
 
 
 
-            <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn link-3"  @click="activate(3)" :class="{ active : active_el == 3 }">
+            <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn"  @click="activate(3)" :class="{ active : active_el == 3 }">
 
 
 
@@ -56,7 +56,7 @@
 
 
 
-            <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn link-4"  @click="activate(4)" :class="{ active : active_el == 4 }">
+            <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn"  @click="activate(4)" :class="{ active : active_el == 4 }">
 
 
 
@@ -68,7 +68,7 @@
 
 
 
-            <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn link-5"  @click="activate(5)" :class="{ active : active_el == 5 }">
+            <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn"  @click="activate(5)" :class="{ active : active_el == 5 }">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-            <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn link-6"  @click="activate(6)" :class="{ active : active_el == 6 }">
+            <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn"  @click="activate(6)" :class="{ active : active_el == 6 }">
 
 
 
@@ -92,7 +92,7 @@
 
 
 
-            <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn link-7"  @click="activate(7)" :class="{ active : active_el == 7 }">
+            <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn"  @click="activate(7)" :class="{ active : active_el == 7 }">
 
 
 
@@ -282,21 +282,31 @@
 
                         <div class="row col-12 pro-heading">
 
-                             <div class="col-12">
-                                 <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
+                             <div class="col-12 pad-free">
+
+                                 <h5 class="font15rem font-weight-bold"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
+
                              </div>
+
+                             <!-- <div class="col-12">
+
+                                 <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
+
+                             </div> -->
 
                             <table class="table table-bordered">
 
-                                    <tr>
+                                    <tbody>
 
-                                        <th width="30%" class="custom-bg-color">
+                                        <tr>
+
+                                        <th width="250" class="custom-bg-color">
 
                                             <font>住所</font>
 
                                         </th>
 
-                                        <td width="50%">
+                                        <td>
 
                                             <font>{{cust.address}}</font>
 
@@ -306,19 +316,85 @@
 
                                     <tr>
 
-                                        <th width="30%" class="custom-bg-color">
+                                        <th width="250" class="custom-bg-color">
 
                                             <font>電話</font>
 
                                         </th>
 
-                                        <td width="50%">
+                                        <td>
 
                                             <font>{{cust.phone}}</font>
 
                                         </td>
 
                                     </tr>
+
+                                    <tr>
+
+                                        <th width="250" class="custom-bg-color">
+
+                                            <font>アクセス　</font>
+
+                                        </th>
+
+                                        <td>
+
+                                            <font>access</font>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <th width="250" class="custom-bg-color">
+
+                                            <font>駅</font>
+
+                                        </th>
+
+                                        <td>
+
+                                            <font>station</font>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <th width="250" class="custom-bg-color">
+
+                                            <font>費用 </font>
+
+                                        </th>
+
+                                        <td>
+
+                                            <font>expense</font>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <th width="250" class="custom-bg-color">
+
+                                            <font>件名 </font>
+
+                                        </th>
+
+                                        <td>
+
+                                            <font>subject</font>
+
+                                        </td>
+
+                                    </tr>
+
+                                    </tbody>
 
                             </table>
 
@@ -388,9 +464,7 @@
 
 
 
-                <h5 class="profile_header">特長</h5>
-
-
+                <h5 class="profile_header">特長 </h5>
 
                 <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12"><p v-html="nurseprofile.feature"></p></div>
 
@@ -404,7 +478,7 @@
 
 
 
-                <h5 class="profile_header col-md-12">費用</h5>
+                <h5 class="profile_header col-md-12">費用 {{customer.name}}</h5>
 
 
 
@@ -480,19 +554,19 @@
 
 
 
-                                                <th>入居にかかる費用(Expense)</th>
+                                                <th>入居にかかる費用(費用)</th>
 
 
 
-                                                <th>居室タイプ(type)</th>
+                                                <th>居室タイプ(タイプ)</th>
 
 
 
-                                                <th>月額料金 (monthly)</th>
+                                                <th>月額料金 (毎月 )</th>
 
 
 
-                                                <th>広さ(area)</th>
+                                                <th>広さ(エリア )</th>
 
 
 
@@ -842,7 +916,7 @@
 
                 <!-- <div class="row"> -->
 
-                    <h5 class="profile_header col-md-12"> 施設の概要 （グランダ雪ヶ谷）</h5>
+                    <h5 class="profile_header col-md-12"> 施設の概要 {{customer.name}}</h5>
 
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12" >
 
@@ -1118,7 +1192,7 @@
 
                             <div class="col-md-12">
 
-                            <h5 class="profile_header col-md-12"> 職員体制 （グランダ雪ヶ谷）</h5>
+                            <h5 class="profile_header col-md-12"> 職員体制 {{customer.name}}</h5>
 
                             </div>
 
@@ -1218,7 +1292,7 @@
 
 
 
-                                <h5 class="profile_header col-12"> 医療面の受入れ </h5>
+                                <h5 class="profile_header col-12"> 医療面の受入れ {{customer.name}}</h5>
 
 
 
@@ -1300,7 +1374,7 @@
 
                         <div class="row col-12">  
 
-                                <h5  class="profile_header col-12"> 職員体制</h5>  
+                                <h5  class="profile_header col-12"> 職員体制 {{customer.name}}</h5>  
 
                             <div v-if="staff.length>0">
 
@@ -1394,7 +1468,7 @@
 
 
 
-                <h5 class="profile_header col-md-12"> 地図</h5>
+                <h5 class="profile_header col-md-12"> 地図 {{customer.name}}</h5>
 
 
 
@@ -1468,7 +1542,7 @@
 
 
 
-               <h5 class="profile_header col-12">口コミ</h5>
+               <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>
 
 
 
@@ -1604,7 +1678,7 @@
 
 
 
-    <div v-if="type == 'hospital'">
+    <div v-if="type == 'hospital'" id="hospitalView">
 
 
 
@@ -1662,7 +1736,7 @@
 
 
 
-             <h5 class="profile_header">情報</h5>
+             <h5 class="profile_header">情報 </h5>
 
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
 
@@ -1812,6 +1886,8 @@
 
                     <!--for address-->
 
+                    
+
 
 
                      <div class="col-sm-7 detail_profile_right">
@@ -1822,21 +1898,23 @@
 
                             <div class="col-12 pro-heading">
 
-                                <div class="col-12">
-                                    <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
+                                <div class="col-12 pad-free">
+
+                                    <h5 class="font15rem font-weight-bold"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
+
                                 </div>
 
                                 <table class="table table-bordered">
 
                                     <tr>
 
-                                        <th width="30%" class="custom-bg-color">
+                                        <th width="250" class="custom-bg-color">
 
                                             <font>住所</font>
 
                                         </th>
 
-                                        <td width="50%">
+                                        <td>
 
                                             <font>{{cust.address}}</font>
 
@@ -1846,13 +1924,77 @@
 
                                     <tr>
 
-                                        <th width="30%" class="custom-bg-color">
+                                        <th width="250" class="custom-bg-color">
 
                                             <font>電話</font>
 
                                         </th>
 
-                                        <td width="50%">
+                                        <td>
+
+                                            <font>{{cust.phone}}</font>
+
+                                        </td>
+
+                                    </tr>
+
+                                     <tr>
+
+                                        <th width="250" class="custom-bg-color">
+
+                                            <font>アクセス</font>
+
+                                        </th>
+
+                                        <td>
+
+                                            <font>{{cust.phone}}</font>
+
+                                        </td>
+
+                                    </tr>
+
+                                     <tr>
+
+                                        <th width="250" class="custom-bg-color">
+
+                                            <font>駅 </font>
+
+                                        </th>
+
+                                        <td>
+
+                                            <font>{{cust.phone}}</font>
+
+                                        </td>
+
+                                    </tr>
+
+                                     <tr>
+
+                                        <th width="250" class="custom-bg-color">
+
+                                            <font>費用 </font>
+
+                                        </th>
+
+                                        <td>
+
+                                            <font>{{cust.phone}}</font>
+
+                                        </td>
+
+                                    </tr>
+
+                                     <tr>
+
+                                        <th width="250" class="custom-bg-color">
+
+                                            <font>件名 </font>
+
+                                        </th>
+
+                                        <td>
 
                                             <font>{{cust.phone}}</font>
 
@@ -1938,9 +2080,9 @@
 
             <!--end ee-->
 
+                  
 
-
-                <h5 class="profile_header">情報</h5>
+                <h5 class="profile_header">情報 </h5>
 
 
 
@@ -1964,7 +2106,7 @@
 
 
 
-                <h5 class="profile_header">診療時間</h5>
+                <h5 class="profile_header">診療時間 </h5>
 
 
 
@@ -2172,7 +2314,7 @@
 
 
 
-                <h5 class="profile_header">施設情報</h5>
+                <h5 class="profile_header">施設情報 </h5>
 
 
 
@@ -2244,7 +2386,7 @@
 
 
 
-                <h5 class="profile_header col-12">口コミ</h5>
+                <h5 class="profile_header col-12">口コミ </h5>
 
 
 
@@ -2412,7 +2554,7 @@
 
 
 
-                 <h5 class="profile_header col-md-12"> 地図</h5>
+                 <h5 class="profile_header col-md-12"> 地図 </h5>
 
 
 
@@ -2516,6 +2658,28 @@
 
 <script>
 
+$(document).scroll(function() {
+
+  var cur_pos = $(this).scrollTop();
+
+
+
+  if (cur_pos >= 100) {
+
+      $('.fixed-nav').css("top" , "200px");
+
+  } else {
+
+      $('.fixed-nav').css("top" , "unset");
+
+  }
+
+                
+
+});
+
+  
+
 
 
  import joboffer from './JobSearchListComponent.vue'
@@ -2578,7 +2742,7 @@
 
 
 
-                active_el:0,
+                active_el:1,
 
 
 
@@ -2774,7 +2938,7 @@
 
 
 
-                type:String
+                type:String,
 
 
 
@@ -2784,22 +2948,7 @@
 
         created(){
 
-
-            $(document).scroll(function() {
-                var cur_pos = $(this).scrollTop();       
-                if (cur_pos >= 100) {
-                    $('.fixed-nav').css("top" , "200px");
-                } else {
-                    $('.fixed-nav').css("top" , "unset");
-                }
-                var position = Math.floor($(this).scrollTop() / 800) + 1;         
-                
-                $('.fixed-nav button.active').removeClass('active');
-                $('.fixed-nav button.link-' + position).addClass('active');
-                
-            });
-
-
+            
 
             if(this.type != undefined && this.cusid!= undefined){
 
@@ -2820,22 +2969,6 @@
             this.type = localStorage.getItem('cusType');
 
             this.cusid = Number(localStorage.getItem('cusId'));
-
-
-
-
-
-
-
-            console.log(localStorage.getItem('cusType'));
-
-
-
-            console.log(localStorage.getItem('cusId'));
-
-
-
-
 
 
 
@@ -2994,7 +3127,9 @@
 
 
                   this.axios.get('/api/profile/customer/'+this.cusid) .then(response => {
+
                       console.log(response.data);
+
                       this.customer = response.data;
 
 
@@ -3796,7 +3931,6 @@
 
 
 }
-
 
 
 
