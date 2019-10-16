@@ -8,9 +8,9 @@ use DB;
 class SearchMapController extends Controller
 {
     public function getMap(Request $request, $id){
-     
       
-   
+      
+        // return $id;
         $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng , n.feature, n.business_entity
                   from customers As c  Join townships As t on t.id =  c.townships_id 
                   Join nursing_profiles As n on n.customer_id = c.id 

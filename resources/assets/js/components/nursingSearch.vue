@@ -923,11 +923,13 @@
                       <span v-show="!show"><i class="fas fa-arrow-circle-down"></i> Open Township</span>
                 </button>
                   <hr>
-                  <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id" v-if="show">
-                    <label class="form-check-label" :for="township.id">
-                    <input class="form-check-input"  type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)"> 
-                    {{township.township_name}}
-                    </label>
+                  <div v-if="show">
+                    <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
+                      <label class="form-check-label" :for="township.id">
+                      <input class="form-check-input"  type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)"> 
+                      {{township.township_name}}
+                      </label>
+                    </div>
                   </div>
             </div>
         
@@ -1160,7 +1162,7 @@ export default {
           const id = e.target.id;
           this.axios.post('/api/getmap/'+id+'')
           .then((response)=>{
-            //console.log(response.data.getCity[0]['latitude'])
+            // console.log(response.data.getCity[0]['latitude'])
           $('.select').removeClass('select');
           this.cities = response.data.city
           this.getCity = response.data.getCity
@@ -1509,9 +1511,9 @@ label{
   background-color: #bada55;
   color: darkgreen;
   font-family:sans-serif;
-  &:hover {
+  /* &:hover {
     cursor:pointer;
-  }
+  } */
 }
 
 #mymap{
