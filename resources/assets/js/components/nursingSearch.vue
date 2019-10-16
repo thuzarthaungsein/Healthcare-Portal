@@ -360,7 +360,7 @@
                   stroke="#333333"
                   fill="#6699cc"
                   d="M378.27,247.63h86.97v55.8h-62.62l0.09,8.05h-24.44V247.63z"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-6121795b
@@ -371,7 +371,7 @@
                   fill="#6699cc"
                   d="M377.33,317.77h65.18v21.09h-65.18V317.77z"
                   class="path Aomori"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-6121795b
@@ -382,7 +382,7 @@
                   fill="#6699cc"
                   d="M377.33,338.86h32.59v23.24h-32.59V338.86z"
                   class="path Iwate"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-6121795b
@@ -393,7 +393,7 @@
                   fill="#6699cc"
                   d="M409.92,338.86h32.59v23.24h-32.59V338.86z"
                   class="path Miyagi"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-6121795b
@@ -404,7 +404,7 @@
                   fill="#6699cc"
                   d="M377.33,362.11h32.59v24.01h-19.39l-0.13-8.34l-13.07-0.13V362.11z"
                   class="path Akita"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -415,7 +415,7 @@
                   fill="#6699cc"
                   d="M442.51,362.11v24.01h-32.59v-24.01H442.51z"
                   class="path Yamagata"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -426,7 +426,7 @@
                   fill="#6699cc"
                   d="M390.53,386.12h51.98v23.62h-52.48L390.53,386.12z"
                   class="path Fukushima"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -437,7 +437,7 @@
                   fill="#71d5cb"
                   d="M426.21,440.8l-0.51-31.06h16.8v31.06H426.21z"
                   class="path Ibaraki"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -448,7 +448,7 @@
                   fill="#71d5cb"
                   d="M401.96,409.74h23.75v23.36h-23.75V409.74z"
                   class="path Tochigi"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -459,7 +459,7 @@
                   fill="#71d5cb"
                   d="M378.46,409.74h23.49v23.36h-23.49V409.74z"
                   class="path Gunma"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -470,7 +470,7 @@
                   fill="#71d5cb"
                   d="M425.71,433.09v19.45h-47.24v-19.45H425.71z"
                   class="path Saitama"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -481,7 +481,7 @@
                   fill="#71d5cb"
                   d="M426.21,440.8h16.29v56.21c0,0-16.04,1.26-16.29,0C425.96,495.75,426.21,440.8,426.21,440.8z"
                   class="path Chiba"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -492,7 +492,7 @@
                   fill="#71d5cb"
                   d="M390.02,453.18l35.68-0.63v13.77h-10.86l0.13,6.57h-24.76L390.02,453.18z"
                   class="path Tokyo"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -503,7 +503,7 @@
                   fill="#71d5cb"
                   d="M378.46,472.88h36.51v24.69l-24.95-0.44v-12.63l-11.56,0.13V472.88z"
                   class="path Kanagawa"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -514,7 +514,7 @@
                   fill="#75b777"
                   d="M377.33,377.65l13.07,0.13l-0.38,31.96h-31.26v-24.83h18.32L377.33,377.65z"
                   class="path Niigata"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -525,7 +525,7 @@
                   fill="#75b777"
                   d="M335.07,384.91h23.68v24.83h-23.68V384.91z"
                   class="path Toyama"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -536,7 +536,7 @@
                   fill="#75b777"
                   d="M318.59,377.65h16.48v32.08h-16.48V377.65z"
                   class="path Ishikawa"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -547,7 +547,7 @@
                   fill="#75b777"
                   d="M303.05,416.93h15.54v-7.19h16.48v23.36c0,0-32.02,0.44-32.02,0S303.05,416.93,303.05,416.93z"
                   class="path Fukui"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -558,7 +558,7 @@
                   fill="#c0c743"
                   d="M366.72,472.06v-19.52l23.31,0.63v18.88H366.72z"
                   class="path Yamanashi"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -569,7 +569,7 @@
                   fill="#c0c743"
                   d="M350.8,409.74h27.66v42.81h-11.75v19.52H350.8V409.74z"
                   class="path Nagano"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -580,7 +580,7 @@
                   fill="#c0c743"
                   d="M335.07,409.74h15.73v62.33h-15.73V409.74z"
                   class="path Gifu"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -591,7 +591,7 @@
                   fill="#c0c743"
                   d="M358.76,472.88h19.71v11.75l11.56-0.13v12.63l-31.26-0.82V472.88z"
                   class="path Shizuoka"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -602,7 +602,7 @@
                   fill="#c0c743"
                   d="M335.07,472.06l23.68,0.82v23.43h-23.68V472.06z"
                   class="path Aichi"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -613,7 +613,7 @@
                   fill="#efb838"
                   d="M319.06,456.97h16.01l1.07,55.07h-17.08V456.97z"
                   class="path Mie"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -624,7 +624,7 @@
                   fill="#efb838"
                   d="M319.06,433.29l16.01-0.2v23.87h-16.01V433.29z"
                   class="path Shiga"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -635,7 +635,7 @@
                   fill="#efb838"
                   d="M287.89,417.05l15.16-0.13v16.17l16.01,0.2v23.68h-31.17V417.05z"
                   class="path Kyoto"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -646,7 +646,7 @@
                   fill="#efb838"
                   d="M287.89,484.19v-27.22h15.58v27.22H287.89z"
                   class="path Osaka"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -657,7 +657,7 @@
                   fill="#efb838"
                   d="M271.73,416.93l16.17,0.13v48h-16.17V416.93z"
                   class="path Hyogo"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -668,7 +668,7 @@
                   fill="#efb838"
                   d="M303.48,456.97h15.58v39.35h-16.01L303.48,456.97z"
                   class="path Nara"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -679,7 +679,7 @@
                   fill="#efb838"
                   d="M303.48,484.19l-0.43,12.13h16.01v15.73h-31.17v-27.85H303.48zz"
                   class="path Wakayama"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -690,7 +690,7 @@
                   fill="#f58c3f"
                   d="M256.32,416.93h15.41v24.06l-15.41-0.19V416.93z"
                   class="path Tottori"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -701,7 +701,7 @@
                   fill="#f58c3f"
                   d="M240.65,416.93h15.66v23.87l-15.66,0.19V416.93zz"
                   class="path Shimane"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -712,7 +712,7 @@
                   fill="#f58c3f"
                   d="M256.32,465.05V440.8l15.41,0.19v24.06H256.32z"
                   class="path Okayama"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -723,7 +723,7 @@
                   fill="#f58c3f"
                   d="M240.65,440.99l15.66-0.19v24.25h-15.66V440.99z"
                   class="path Hiroshima"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -734,7 +734,7 @@
                   fill="#f58c3f"
                   d="M224.23,416.93h16.42v48.13h-16.42V416.93z"
                   class="path Yamaguchi"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -745,7 +745,7 @@
                   fill="#f1a296"
                   d="M279.81,492.59h-27.54v-20.53h27.54V492.59z"
                   class="path Tokushima"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -756,7 +756,7 @@
                   fill="#f1a296"
                   d="M224.23,472.06h28.04v20.53h-28.04V472.06z"
                   class="path Kagawa"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -767,7 +767,7 @@
                   fill="#f1a296"
                   d="M224.23,512.04v-19.45h28.04v19.45H224.23z"
                   class="path Ehime"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -778,7 +778,7 @@
                   fill="#f1a296"
                   d="M279.81,512.04h-27.54v-19.45h27.54V512.04z"
                   class="path Kochi"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -789,7 +789,7 @@
                   fill="#e77a72"
                   d="M162.08,416.93h16.17l-1.26,36l-14.91-0.38V416.93z"
                   class="path Fukuoka"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -800,7 +800,7 @@
                   fill="#e77a72"
                   d="M145,416.93h17.08v35.62L145,452.93V416.93z"
                   class="path Saga"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -811,7 +811,7 @@
                   fill="#e77a72"
                   d="M177.75,452.55v-35.62h39.66v16.17h-16.17v19.45H177.75z"
                   class="path Nagasaki"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -822,7 +822,7 @@
                   fill="#e77a72"
                   d="M217.41,460.76h-16.17v-27.66h16.17V460.76z"
                   class="path Kumamoto"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -833,7 +833,7 @@
                   fill="#e77a72"
                   d="M217.41,488.04h-16.17v-27.28h16.17V488.04z"
                   class="path Oita"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -844,7 +844,7 @@
                   fill="#e77a72"
                   d="M177.75,452.55h23.49v35.49h-23.49V452.55z"
                   class="path Miyazaki"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -855,7 +855,7 @@
                   fill="#e77a72"
                   d="M177.75,488.04h39.66v24h-39.66V488.04z"
                   class="path Kagoshima"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -866,42 +866,42 @@
                   fill="#e77a72"
                   d="M176.99,519.62h16.8V544h-16.8V519.62z"
                   class="path Okinawa"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M224.23,416.93h94.36v-39.27h16.48v7.25h42l0.25-67.14h65.18v179.24h-16.29l-0.51-30.69h-10.86l-0.05,30.82l-78.94-0.34l-0.07,15.25h-48.27l-0.19-46.42l-63.09-0.57V416.93z"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M224.23,472.06h55.58v39.98h-55.58V472.06z"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M145,416.93h72.41v95.12h-39.66v-58.61L145,452.93V416.93z"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M176.99,519.62h16.8V544h-16.8V519.62z"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M378.27,248.11l86.97-0.47v55.8h-62.62l-0.19,8.05h-24.16V248.11z"
-                  v-scroll-to="{ el: '#googlemap'}"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
               </svg>
             </div>
@@ -1105,7 +1105,7 @@ import asidebar from "./aside.vue";
 import { eventBus } from '../event-bus.js';
 export default {
   
-    name: "GoogleMap",
+    name: "mymap",
     components: {
       asidebar
     },
@@ -1183,7 +1183,7 @@ export default {
           const theCity = response.data.getCity[0]['city_eng']
           const lat = response.data.getCity[0]['latitude']
           const lng = response.data.getCity[0]['longitude']
-          const apiPath = "https://nominatim.openstreetmap.org/search.php";
+          const apiPath = "https://www.openstreetmap.org";
           let params = {
               q: theCity,
               polygon_geojson: 1,
