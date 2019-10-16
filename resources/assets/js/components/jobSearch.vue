@@ -956,12 +956,12 @@
               </tbody>
             </table>
             
-            <div id="job_details" class="card col-md-10" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
+            <div id="job_details" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
               <div class="card-header bg-success text-center pad"  >{{job.name}}</div>
                 <div class="card-body bg-danger">
                     <table  class="table table-bordered table-sm">
                       <tr>
-                        <td class="col-md-6">Access</td>
+                        <td>Access</td>
                         <td>{{job.access}}</td>
                       </tr>
                       <tr>
