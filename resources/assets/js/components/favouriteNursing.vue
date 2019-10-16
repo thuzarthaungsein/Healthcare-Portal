@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 scrolldiv2 pb-5">
+    <div class="col-12 scrolldiv2 pb-5 tab-content">
         <div class="row col-12">
             <div class="col-md-8">
                 <nav aria-label="breadcrumb">
@@ -61,7 +61,7 @@
                                 <div class="row list-wrap">
                                     <div class="col-lg-3 col-md-4 col-sm-12">
                                         <p>
-                                            <strong>Website</strong>
+                                            <strong>公式サイト</strong>
                                         </p>
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-sm-12">
@@ -73,7 +73,7 @@
                                 <div class="row list-wrap">
                                     <div class="col-lg-3 col-md-4 col-sm-12">
                                         <p>
-                                            <strong>Phone</strong>
+                                            <strong>電話番号</strong>
                                         </p>
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-sm-12">
@@ -83,7 +83,7 @@
                                 <div class="row list-wrap">
                                     <div class="col-lg-3 col-md-4 col-sm-12">
                                         <p>
-                                            <strong>Access</strong>
+                                            <strong>交通アクセス</strong>
                                         </p>
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-sm-12">
@@ -93,7 +93,7 @@
                                 <div class="row list-wrap">
                                     <div class="col-lg-3 col-md-4 col-sm-12">
                                         <p>
-                                            <strong>Email</strong>
+                                            <strong>メールアドレス</strong>
                                         </p>
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-sm-12">
@@ -103,7 +103,7 @@
                                 <div class="row list-wrap">
                                     <div class="col-lg-3 col-md-4 col-sm-12">
                                         <p>
-                                            <strong>Occupancy Condition</strong>
+                                            <strong>入居条件</strong>
                                         </p>
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-sm-12">
@@ -113,7 +113,7 @@
                                 <div class="row list-wrap">
                                     <div class="col-lg-3 col-md-4 col-sm-12">
                                         <p>
-                                            <strong>Location</strong>
+                                            <strong>住所</strong>
                                         </p>
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-sm-12">

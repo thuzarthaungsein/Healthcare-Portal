@@ -67,7 +67,7 @@ class registerController extends Controller
             'phone' => 'max:13',
             'password' => 'min:6|required_with:comfirm_password|same:comfirm_password',
             'comfirm_password' => 'min:6',
-            // 'address' =>'required',
+            //'address' =>'required',
             'cities'=> 'required',
             'township'=> 'required',
             ]);
