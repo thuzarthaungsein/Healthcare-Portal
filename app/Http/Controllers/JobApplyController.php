@@ -68,24 +68,24 @@ class JobApplyController extends Controller
             $jobapply->email = $request->email;
             $jobapply->skill = $string;
             $jobapply->remark = $request->remark;
+
             //  return $jobapply;
             $infos = DB::table('jobs')
                             ->join('customers', 'customers.id', '=', 'jobs.customer_id')
                             ->select('jobs.title','customers.email')
-                            ->where('jobs.id', '=', 2)
+                            ->where('jobs.id', '=', 1)
                             ->get();
             foreach($infos as $info) {
                 $job_title = $info->title;
                 $customer_mail = $info->email;
             }
-            
+
             $admin_email = 'softguide.sawnwaiyannaing@gmail.com';
              $jobapply->save();
              $jobapply->job_title = $job_title;
              \Mail::to($customer_mail)->send(new jobApplyMailToCustomer($jobapply));
              \Mail::to($jobapply->email)->send(new jobApplyMailToUser($jobapply));
              \Mail::to($admin_email)->send(new jobApplyMailToAdmin($jobapply));
-
              return response()->json('Apply successfully ');
 
     }

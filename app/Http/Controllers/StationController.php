@@ -24,7 +24,7 @@ class StationController extends Controller
     {
 
         $request->validate([
-            'name' => 'required|unique:categories',
+            'name' => 'required|unique:stations',
 
         ],
         [
@@ -108,7 +108,9 @@ class StationController extends Controller
     {
         $station = Station::find($id);
         $station->delete();
-        return response()->json('The Station successfully deleted');
+        $stations =Station::all()->toArray();
+        return $stations;
+        // return response()->json('The Station successfully deleted');
     }
 
     public function search(Request $request) {
