@@ -39,7 +39,6 @@
                                                                         <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')"> <i class="fa fa-trash"></i> 削除</a>
                                                                 </div>
 
-
                                                 </div>
                                     </div>
 
@@ -635,7 +634,9 @@ export default {
                 }
 
                 this.type = localStorage.getItem('cusType');
-                this.cusid = Number(localStorage.getItem('cusId'));
+                // this.cusid = Number(localStorage.getItem('cusId'));
+                this.cusid = 1;
+                // alert(this.cusid);return;
                 
                 // $('#quill-focus').focusout();
                 this.axios
