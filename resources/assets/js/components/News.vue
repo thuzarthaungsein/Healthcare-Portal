@@ -5,12 +5,12 @@
                         <div class="col-12">
                                 <div class="col-12">
                                         <form class="col-lg-12 mb-2 pad-free"  v-if="status == '0'">
-                                                <div class="col-md-6 offset-6 pad-free">
-                                                        <div class="row ">
-                                                                <div class="col-md-9">
+                                                <div class="col-md-7 offset-5">
+                                                        <div class="row">
+                                                                <div class="col-md-10">
                                                                         <input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
                                                                 </div>
-                                                                <div class="col-md-3">
+                                                                <div class="col-md-2">
                                                                         <span v-if="status=='0'" class="btn btn my-2 col-md-12 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
                                                                 </div>
                                                         </div>

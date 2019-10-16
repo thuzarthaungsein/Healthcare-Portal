@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 scrolldiv2 pb-5">
+    <div class="col-12 scrolldiv2 pb-5 tab-content">
         <div class="row col-12">
             <div class="col-md-8">
                 <nav aria-label="breadcrumb">

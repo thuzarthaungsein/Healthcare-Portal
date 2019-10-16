@@ -1,7 +1,7 @@
 <template>
   <div>
    
-        <div class="col-12 scrolldiv2 pb-3">
+        <div class="col-12 scrolldiv2 pb-3 tab-content">
           <div class="col-12">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">

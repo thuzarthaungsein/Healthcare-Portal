@@ -69,7 +69,7 @@
                                 <td class="width17" style="border:none;"> <label class="heading-lbl pad-free">特長<span class="error">*</span></label></td>
                                 <td style="border:none;">
                                         <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
-                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"/>
+                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                                         
                                 </td>
                         </tr>
@@ -653,7 +653,12 @@ export default {
 
         },
         methods: {
-
+                onEditorBlur(quill) {
+        console.log('editor blur!', quill)
+      },
+      onEditorFocus(quill) {
+        console.log('editor focus!', quill)
+      },
             maptogglediv() {
                     $(".map-toggle-div").toggle('medium');
                    this.isRotate5 = !this.isRotate5;
