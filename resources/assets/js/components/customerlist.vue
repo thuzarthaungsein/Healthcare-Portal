@@ -59,20 +59,20 @@
                   </div>
                   <div class="row col-md-10">
                     <div class="col-md-2 max-width13">
-                      <strong>Name:</strong>
+                      <strong>名前:</strong>
                     </div>
                     <div class="col-md-10">{{customer.name}}</div>
                     <div class="col-md-2 max-width13">
-                      <strong>Email:</strong>
+                      <strong>メールアドレス:</strong>
                     </div>
                     <div class="col-md-10">{{customer.email}}</div>
                     <!-- <div class="col-md-2 max-width13"><strong>Logo:</strong></div><div class="col-md-10">{{customer.logo}}</div> -->
                     <div class="col-md-2 max-width13">
-                      <strong>Phone:</strong>
+                      <strong>電話番号:</strong>
                     </div>
                     <div class="col-md-10">{{customer.phone}}</div>
                     <div class="col-md-2 max-width13">
-                      <strong>Address:</strong>
+                      <strong>住所:</strong>
                     </div>
                     <div class="col-md-10">{{customer.address}}</div>
                     <div class="row col-12 mt-2">

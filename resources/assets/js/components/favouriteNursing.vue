@@ -83,9 +83,9 @@
                                     <label>
                                         <input type="checkbox" v-model="special_check"> 特長 （24時間看護、職員体制、食事メニューの選択など）
                                     </label>
-                                    <label>
+                                    <!-- medical_accept <label>
                                         <input type="checkbox" v-model="medical_check"> 医療面の受け入れ （インシュリン投与、ストーマ・人工肛門、たん吸引など）
-                                    </label>
+                                    </label> -->
                                 </div>
                             </div>
 
@@ -213,12 +213,15 @@
                     <div class="list-group-item list-group-item-action bd1" v-if="month_check || entry_check" style="height:50px;"></div>
                 </div>
                 <!-- <div class="list-group-item list-group-item-action" style="height:50px;">Email</div> -->
-                <div v-if="condition_check" class="list-group-item list-group-item-action" style="height:166px;">Occupancy_condition</div>
+                <div v-if="condition_check" class="list-group-item list-group-item-action" style="height:166px;">入居条件</div>
 
-                <div v-if="special_check" class="list-group-item list-group-item-action" style="height:587px;">special_features</div>
+                <div v-if="special_check" class="list-group-item list-group-item-action" style="height:380px;">特長</div>
+                
+                <!--medical_accept
                 <div v-if="medical_check">
                     <div class="list-group-item list-group-item-action" v-for="medical in medical_accept" :key="medical.id" style="height:50px;">{{medical.name}}</div>
-                </div>
+                </div>-->
+                
                 <div v-if="capacity_check" class="list-group-item list-group-item-action" style="height:50px;">Nursing_staff</div>
                 <div v-if="opening_check" class="list-group-item list-group-item-action" style="height:70px;">開設日</div>
 
@@ -247,17 +250,26 @@
                     <div class="list-group-item list-group-item-action bd1" v-if="tran_check" style="height:100px;">{{nur_profile.access }}</div>
                     <div class="list-group-item list-group-item-action bd1" v-if="tran_check || address_check" style="height:50px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
                 </div>
-                <div class="bd">
-                    <div class="list-group-item list-group-item-action" v-if="month_check" style="height:50px;border:none;">{{minmonth_cost}}~{{maxmonth_cost}}</div>
+                <div class="bd" v-for="min_max in nur_profile.minmax" :key="min_max.id">
+                    <div class="list-group-item list-group-item-action" v-if="month_check" style="height:50px;border:none;">{{min_max.smallestCost}}~{{min_max.largeCost}}</div>
                     <div class="list-group-item list-group-item-action bd1" v-if="entry_check" style="height:100px;"></div>
                     <div class="list-group-item list-group-item-action bd1" v-if="entry_check || month_check" style="height:50px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
                 </div>
                 <div v-if="condition_check" class="list-group-item list-group-item-action" style="height:166px;">{{nur_profile.occupancy_condition }}</div>
-                <div v-if="special_check" class="bd" style="height:587px;border:1px solid rgba(0,0,0,0.125);">
+                
+                
+                <!-- <div v-if="special_check" class="bd" style="height:587px;border:1px solid rgba(0,0,0,0.125);">
                     <div style="height:40px;border:none;" class="list-group-item list-group-item-action" v-for="feature in nur_profile.special_features" :key="feature.id">
                         {{ feature.short_name }}
                     </div>
-                </div>
+                </div> -->
+                
+                <div class="bd" v-if="special_check" style="height:380px;border:1px solid rgba(0, 0, 0, 0.125);">
+              <ul class="fac_container m-t-8 m-b-15 m-l-8">
+                <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+              </ul>
+            </div>
+                
                 <!-- <div v-if="medical_check">
 
                     <div class="col-md-12" v-for="(med,index) in all_medical_accept[0]" :key="index"> -->
@@ -555,21 +567,21 @@
                     for(var i = 0; i < this.fav_nursing.length; i++){
                         if(this.fav_nursing[i].id == id) {
                             this.payment_name = this.fav_nursing[i].payment_method;
-                            for(var j = 0; j < this.fav_nursing[i].payment_method.length; j++){                                
+                            // for(var j = 0; j < this.fav_nursing[i].payment_method.length; j++){                                
                                 // var  split_str = this.fav_nursing[i].payment_method[j].monthly_fees.split('円');
                                 // this.maxmonth_cost = split_str[0];
                                 // this.minmonth_cost = split_str[0];
-                                var split_str = this.fav_nursing[i].payment_method[j].monthly_fees.split('円');
-                                var fee = split_str[0];
-                                if(fee >= this.maxmonth_cost){
-                                    this.maxmonth_cost = this.fav_nursing[i].payment_method[j].monthly_fees;
-                                    console.log('max',this.maxmonth_cost)
-                                }
-                                if(this.minmonth_cost <= fee){
-                                    this.minmonth_cost = this.fav_nursing[i].payment_method[j].monthly_fees;
-                                    console.log('min',this.minmonth_cost)
-                                }                            
-                        }
+                        //         var split_str = this.fav_nursing[i].payment_method[j].monthly_fees.split('円');
+                        //         var fee = split_str[0];
+                        //         if(fee >= this.maxmonth_cost){
+                        //             this.maxmonth_cost = this.fav_nursing[i].payment_method[j].monthly_fees;
+                        //             console.log('max',this.maxmonth_cost)
+                        //         }
+                        //         if(this.minmonth_cost <= fee){
+                        //             this.minmonth_cost = this.fav_nursing[i].payment_method[j].monthly_fees;
+                        //             console.log('min',this.minmonth_cost)
+                        //         }                            
+                        // }
                         }
                         
                         
