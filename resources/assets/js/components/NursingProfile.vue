@@ -639,17 +639,7 @@ export default {
                 
                 // $('#quill-focus').focusout();
                 this.axios
-<<<<<<< HEAD
-                .get('/api/station/'+this.id)
-                .then(response=>{
-                        this.station_list = response.data;
-                });
-
-                this.axios
-                .get('/api/customerinfo/'+this.id)
-=======
                 .get('/api/customerinfo/'+this.cusid)
->>>>>>> 299a2e0f8a326255e8cf50422eb7fad6b03aeb10
                 .then(response=>{
                         this.customer_info = response.data;
                 });
