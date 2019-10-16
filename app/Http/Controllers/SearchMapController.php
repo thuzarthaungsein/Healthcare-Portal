@@ -11,8 +11,10 @@ class SearchMapController extends Controller
      
       
    
-        $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng from customers As c  Join townships As t on t.id =  c.townships_id Join nursing_profiles As n on n.customer_id = c.id 
-            where t.city_id =".$id." order BY n.id ASC LIMIT 26";
+        $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng , n.feature, n.business_entity
+                  from customers As c  Join townships As t on t.id =  c.townships_id 
+                  Join nursing_profiles As n on n.customer_id = c.id 
+                  where t.city_id =".$id." order BY n.id ASC LIMIT 26";
         $nus_latlng = DB::select($query);
 
     
@@ -42,7 +44,8 @@ class SearchMapController extends Controller
     public  function getMapTownship($id)
     {
       
-            $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng from customers As c  Join nursing_profiles As n on n.customer_id = c.id 
+      
+            $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng, n.feature, n.business_entity from customers As c  Join nursing_profiles As n on n.customer_id = c.id 
             where c.townships_id IN (" . $id . ")  order BY n.id ASC LIMIT 26";
            
             $nus_latlng = DB::select($query);
