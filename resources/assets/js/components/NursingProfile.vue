@@ -709,6 +709,7 @@ export default {
                     $('.station-'+check_id).attr('checked','true');
             },
             preview_image(img_class) {
+                $("."+img_class).html("");
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
                 //$('#'+img_class).css('display','none');
                 this.test = event.target.files[0]
