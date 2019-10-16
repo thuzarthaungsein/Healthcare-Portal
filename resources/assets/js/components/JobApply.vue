@@ -384,7 +384,8 @@
         </form>
       </div>
       <div class="col-md-7 offset-md-3 confirm_box" v-if="type == 'completed'">
-        <h5>Your job has been applied successfully.</h5>
+        <h5>Your job has been applied successfully.</h5><br>
+        <router-link class="btn btn-info all-btn center" to="/"  > Back To Home </router-link><br>
         <br />
       </div>
     </div>
