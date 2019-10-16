@@ -2,7 +2,7 @@
 <template>
   <div class="row">
     <div class="col-12">
-      <div class="row m-b-15" v-if="this.advertisements.length !== 0">
+      <div class="row m-b-15" v-if="norecord!== 0">
         <div class="col-md-12">
           <router-link
             to="/advertisement"
@@ -16,7 +16,7 @@
 
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="scrolldiv col-12">
-          <div v-if="!this.advertisements.length" class="card card-default card-wrap">
+          <div v-if="!norecord" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -80,12 +80,14 @@ export default {
   data() {
     return {
       advertisements: [],
-      isOpen: false
+      isOpen: false,
+      norecord:0,
     };
   },
   created() {
     this.axios.get("/api/advertisement/ads").then(response => {
       this.advertisements = response.data;
+      this.norecord = this.advertisements.length;
     });
   },
 
@@ -110,9 +112,11 @@ export default {
         cancelButtonClass: "all-btn"
       }).then(response=>{
         this.axios.delete(`/api/advertisement/delete/${id}`).then(response => {
+            this.advertisements = response.data;
+            this.norecord = this.advertisements.length;
           //alert("Delete Successfully!");
-          let a = this.advertisements.map(item => item.id).indexOf(id);
-          this.advertisements.splice(a, 1);
+        //   let a = this.advertisements.map(item => item.id).indexOf(id);
+        //   this.advertisements.splice(a, 1);
           this.$swal({
               title: "削除された",
               text: "ファイルが削除されました。",
