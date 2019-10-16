@@ -1183,46 +1183,46 @@ export default {
           const theCity = response.data.getCity[0]['city_eng']
           const lat = response.data.getCity[0]['latitude']
           const lng = response.data.getCity[0]['longitude']
-          const apiPath = "https://www.openstreetmap.org";
-          let params = {
-              q: theCity,
-              polygon_geojson: 1,
-              format: "json"
-            };
-            axios.get(apiPath, { params: params }  )
-            .then(response => {
-              let geoJSONDataChunk = response.data[0];
-              const geoConf = {
-                "type": "FeatureCollection",
-                "features": [
-                  { "type": "Feature",
-                    "geometry": geoJSONDataChunk.geojson,
-                  }
-                ]
-              };
-            const coordinates = geoJSONDataChunk.geojson['coordinates']
+          // const apiPath = "https://nominatim.openstreetmap.org/search.php";
+          // let params = {
+          //     q: theCity,
+          //     polygon_geojson: 1,
+          //     format: "json"
+          //   };
+          //   axios.get(apiPath, { params: params }  )
+          //   .then(response => {
+          //     let geoJSONDataChunk = response.data[0];
+          //     const geoConf = {
+          //       "type": "FeatureCollection",
+          //       "features": [
+          //         { "type": "Feature",
+          //           "geometry": geoJSONDataChunk.geojson,
+          //         }
+          //       ]
+          //     };
+           // const coordinates = geoJSONDataChunk.geojson['coordinates']
             
-            var data = {
-              type: "Feature",
-              geometry: {
-                "type": "Polygon",
-                "coordinates": coordinates
-              },
-              "style": {
-                  "__comment": "all SVG styles allowed",
-                  "fill":"red",
-                  "stroke-width":"1",
-                  "fill-opacity":0.6
-              },
-            };
+            // var data = {
+            //   type: "Feature",
+            //   geometry: {
+            //     "type": "Polygon",
+            //     "coordinates": coordinates
+            //   },
+            //   "style": {
+            //       "__comment": "all SVG styles allowed",
+            //       "fill":"red",
+            //       "stroke-width":"1",
+            //       "fill-opacity":0.6
+            //   },
+            // };
 
             var mapProp = {
               center: new google.maps.LatLng(lat, lng),
-              zoom: 10,
+              zoom: 6,
               mapTypeId: google.maps.MapTypeId.ROADMAP,
             };
             var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
-            map.data.addGeoJson(data);
+            //map.data.addGeoJson(data);
 
             var bounds = new google.maps.LatLngBounds();
             var markers = mmarker; 
@@ -1238,6 +1238,7 @@ export default {
               marker = new google.maps.Marker({
                   position: position,
                   map: map,
+                  zoom: 6,
                   title: markers[i][0]
               });
               google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -1257,7 +1258,7 @@ export default {
         })
           
         
-      })
+      //})
     
         
     

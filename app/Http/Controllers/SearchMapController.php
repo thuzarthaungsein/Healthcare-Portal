@@ -51,10 +51,213 @@ class SearchMapController extends Controller
             $nus_latlng = DB::select($query);
            
        
-          return response()->json($nus_latlng);
+            return response()->json($nus_latlng);
       
        
     } 
+
+ 
+    public function getJobSearch()
+    {
+        //for city
+        $id = $_GET['id'];
+
+        
+        //to check if township is check or not 
+        $townshipID = $_GET['townshipID'];    
+        if($townshipID[0] == '0' && count($townshipID) == 1) //get param value of jobsearch.vue and if value is 0 and count =1 , this condition is "No Check"
+        {
+            $townshipID = '0';
+        }else if($townshipID[0] == '0' && count($townshipID > 1)){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+            unset($townshipID[0]);
+            $townshipID = implode(',',$townshipID);
+        } else{
+            $townshipID = implode(',',$townshipID); // this condition is when array[0] has no '0'
+        }
+
+    
+        //to check if occupation is check or not
+        $occupationID = $_GET['occupationID'];
+
+        if($occupationID[0] == '0' && count($occupationID) == 1)
+        {
+             $occupationID = '0';
+        }else if($occupationID[0] == '0' && count($occupationID > 1)){
+             unset($occupationID[0]);
+             $occupationID = implode(',',$occupationID);
+        } else{
+             $occupationID = implode(',',$occupationID);  
+        }
+       
+     
+    
+        //to check if employment status is check or not
+        $empstatus = $_GET['empstatus'];
+
+        if($empstatus[0] === '0' && count($empstatus) === 1)
+        {       
+            $empstatus = '0';
+        } else if($empstatus[0] === '0' && count($empstatus > 1)){
+           
+            unset($empstatus[0]);
+            $empstatus = implode(',',$empstatus);   
+        } else{ 
+            $empstatus = implode(',',$empstatus);  
+        }
+      
+
+        //return response()->json(['town'=>$townshipID,'occ'=>$occupationID,'emp'=>$empstatus]);
+        if($townshipID == '0' && $occupationID == '0' &&  $empstatus == '0')
+        { 
+            $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+            Join townships as t on t.id = c.townships_id 
+            where t.city_id =".$id;
+
+            $job_data = DB::select($query);
+        }
+        else if($townshipID != '0'  && $occupationID == '0' && $empstatus == '0'  )
+        {  
+            $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+            Join townships as t on t.id = c.townships_id  
+            where t.city_id =" .$id. " and t.id in (".$townshipID.")";
+
+            $job_data = DB::select($query);
+        }
+        else if($townshipID != '0' && $occupationID != '0' && $empstatus == '0')
+        { 
+            $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+            Join townships as t on t.id = c.townships_id 
+            where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.")";
+
+            $job_data = DB::select($query);
+        }
+        else if($townshipID != '0' && $occupationID == '0' && $empstatus != '0')
+        {    
+            $empstatus = explode(',',$empstatus); 
+            
+            if(count($empstatus) == 4)
+            {
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
+            }
+            else if(count($empstatus) == 3)
+            {
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'" ;
+            }
+            else if(count($empstatus) == 2){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'" ;
+            }
+            else  {
+ 
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '".$empstatus[0] ."'";
+            }
+        
+            $job_data = DB::select($query);
+        }
+        else if($townshipID == '0' && $occupationID != '0' && $empstatus != '0')
+        {
+            $empstatus = explode(',',$empstatus);
+
+            if(count($empstatus) == 4){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
+            }
+            else if(count($empstatus) == 3){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'";
+            }
+            else if(count($empstatus) == 2){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'";
+            }
+            else{
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."'";
+            }
+           
+
+            $job_data = DB::select($query);
+        }
+        else if($townshipID == '0' && $occupationID == '0' && $empstatus != '0')
+        {  
+            $empstatus = explode(',',$empstatus);  
+
+            if(count($empstatus) == 4){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
+            }
+            else if(count($empstatus) == 3){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'";
+            }
+            else if(count($empstatus) == 2){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'";
+            }
+            else{
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."'";
+            }
+       
+            $job_data = DB::select($query);
+        }
+        else if($townshipID == '0' && $occupationID != '0' && $empstatus == '0')
+        {  
+            $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+            Join townships as t on t.id = c.townships_id 
+            where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")";
+
+            $job_data = DB::select($query);
+        }
+        else if($townshipID != '0' && $occupationID != '0' && $empstatus != '0')
+        {
+            $empstatus = explode(',',$empstatus);
+            
+            if(count($empstatus) == 4){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
+            }
+            else if(count($empstatus) == 3){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'";
+            }
+            else if(count($empstatus) == 2){
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'";
+            }
+            else{
+                $query = "SELECT j.*,c.*,n.*,h.* from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
+                Join townships as t on t.id = c.townships_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."'";
+            }
+
+            $job_data = DB::select($query);
+        }
+       
+
+        return response()->json($job_data);
+      
+
+    }
+ 
 
     
     public function getCity(Request $request)
