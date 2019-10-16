@@ -72,17 +72,29 @@ class JobApplyController extends Controller
             //  return $jobapply;
             $infos = DB::table('jobs')
                             ->join('customers', 'customers.id', '=', 'jobs.customer_id')
-                            ->select('jobs.title','customers.email')
+                            ->select('jobs.*','customers.email')
                             ->where('jobs.id', '=', 1)
                             ->get();
             foreach($infos as $info) {
                 $job_title = $info->title;
+                $job_description = $info->description;
+                $job_location = $info->location;
+                $job_nearest_station = $info->nearest_station;
+                $job_employment_status = $info->employment_status;
+                $job_salary = $info->salary;
+                $job_working_hours = $info->working_hours;
                 $customer_mail = $info->email;
             }
 
             $admin_email = 'softguide.sawnwaiyannaing@gmail.com';
              $jobapply->save();
              $jobapply->job_title = $job_title;
+             $jobapply->job_description = $job_description;
+             $jobapply->job_location = $job_location;
+             $jobapply->job_nearest_station = $job_nearest_station;
+             $jobapply->job_employment_status = $job_employment_status;
+             $jobapply->job_salary = $job_salary;
+             $jobapply->job_working_hours = $job_working_hours;
              \Mail::to($customer_mail)->send(new jobApplyMailToCustomer($jobapply));
              \Mail::to($jobapply->email)->send(new jobApplyMailToUser($jobapply));
              \Mail::to($admin_email)->send(new jobApplyMailToAdmin($jobapply));
