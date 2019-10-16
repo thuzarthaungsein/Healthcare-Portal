@@ -18,7 +18,7 @@
           <h5 class="m-b-10 col-12 hos-tit">
             <!-- <a href="#">{{nur_profile.name}}</a> -->
             <router-link
-              :to="{name: 'profile', params: {cusid:1, type: 'hospital'}}"
+              :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}"
             >{{nur_profile.name}}</router-link>
           </h5>
 
@@ -36,7 +36,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Website</strong>
+                  <strong>公式サイト</strong>
                 </p>
               </div>
 
@@ -50,7 +50,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Access</strong>
+                  <strong>交通アクセス</strong>
                 </p>
               </div>
 
@@ -62,7 +62,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Email</strong>
+                  <strong>メールアドレス</strong>
                 </p>
               </div>
 
@@ -74,7 +74,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Occupancy Condition</strong>
+                  <strong>入居条件</strong>
                 </p>
               </div>
 
@@ -86,7 +86,7 @@
             <div class="row list-wrap">
               <div class="col-lg-3 col-md-4 col-sm-12">
                 <p>
-                  <strong>Location</strong>
+                  <strong>住所</strong>
                 </p>
               </div>
 

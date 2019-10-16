@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12">
-      <div class="row m-b-15" v-if="this.facilities.length !== 0">
+      <div class="row m-b-15" v-if="norecord !== 0">
         <div class="col-md-12">
           <router-link
             class="float-right main-bg-color create-btn all-btn"
@@ -17,7 +17,7 @@
       <!--card-->
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="col-md-12 scrolldiv">
-          <div v-if="this.facilities.length === 0" class="card card-default card-wrap">
+          <div v-if="norecord === 0" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -70,26 +70,18 @@
 export default {
   data() {
     return {
-      facilities: []
+      facilities: [],
+      norecord:0,
     };
   },
   created() {
     this.axios.get("/api/facility/facilities").then(response => {
       this.facilities = response.data;
+      this.norecord = this.facilities.length;
     });
   },
   methods: {
     deleteFacility(id) {
-      // if(confirm("Are you sure you want to delete?"))
-      // {
-      //      this.axios
-      //     .delete(`/api/facility/delete/${id}`)
-      //     .then(response => {
-      //         alert('Delete Successfully!');
-      //         let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
-      //         this.facilities.splice(i, 1)
-      //     });
-      // }
       this.$swal({
         title: "確認",
         text: "削除よろしいでしょうか",
@@ -108,9 +100,11 @@ export default {
         this.axios
           .delete(`/api/facility/delete/${id}`)
           .then(response => {
+              this.facilities= response.data;
+            this.norecord= this.facilities.length;
             //alert('Delete Successfully!');
-            let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
-            this.facilities.splice(i, 1);
+            // let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
+            // this.facilities.splice(i, 1);
             this.$swal({
               title: "削除された",
               text: "ファイルが削除されました。",

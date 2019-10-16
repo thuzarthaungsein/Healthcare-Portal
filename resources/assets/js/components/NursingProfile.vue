@@ -2,9 +2,10 @@
 <div class="card profile m-t-22 " style="border:none;">
     <form class="col-md-12 form-class">
             <div class="col-md-12 pad-free">
+                <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">名前<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-name col-10 float-right" placeholder="名前" v-model="customer_info.name">
+                            <input type="text" class="form-control customer-name col-10 float-right" id="btn" placeholder="名前" v-model="customer_info.name">
                     </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">メールアドレス<span class="error">*</span></label>
@@ -504,6 +505,10 @@
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                                         <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
                                                 </div>
+                                                <div class="form-group" hidden>
+                                                         <quill-editor  ref="myQuilEditor"  name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"/>
+                                                </div>
+                                                
                                         </div>
 
                                 </div>
@@ -585,8 +590,13 @@ export default {
                 nursing_remarks_val: '',
                 // customer_address_val: '',
                 // transporation_access_val: '',
-        }
+          }
         },
+     
+        mounted() {
+        document.getElementById('btn_click').click();
+        },
+        
         created(){
                 this.axios
                 .get('/api/customerinfo/'+this.id)
@@ -1021,7 +1031,6 @@ export default {
 </script>
 
  <style>
-
   .quill-editor{
           background-color: #fff;
   }

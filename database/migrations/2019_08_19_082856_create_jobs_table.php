@@ -17,6 +17,7 @@ class CreateJobsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->integer('customer_id');
+            $table->integer('occupation_id');
             $table->text('description');
             $table->text('skills');
             $table->text('location');

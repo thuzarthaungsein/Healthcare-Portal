@@ -112,7 +112,9 @@ class SpecialFeatureController extends Controller
     {
         $feature = special_feature::find($id);
         $feature->delete();
-        return response()->json('The Feature successfully deleted');
+        $features = special_feature::all()->toArray();
+         return $features;
+        // return response()->json('The Feature successfully deleted');
     }
 
     public function search(Request $request)

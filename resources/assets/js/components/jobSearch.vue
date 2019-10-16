@@ -861,7 +861,7 @@
                   <th>地域</th>
                   <td>
                     <select  id="select" class="form-control col-3 custom-select mt-2" v-model="id">
-                      <option v-for = "city in cities" :value="city.id" >{{city.city_name}}</option>
+                      <option v-for = "city in cities" :value="city.id" :key="city.id" >{{city.city_name}}</option>
                     </select>
                     <button @click="toggleContent4" class="btn btn-link">
                       <i class="fa" aria-hidden="true"></i>
@@ -873,7 +873,8 @@
 
                       <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
                         <label class="form-check-label" :for="township.id">
-                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID[township.id]" @click="getCheck($event)"> 
+                         <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)"> 
+                       
                         {{township.township_name}}
                         </label>
                       </div>
@@ -897,49 +898,45 @@
                   <td>
                       <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
                         <label class="form-check-label" :for="occupation.id">
-                        <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" @click="occupation($event)"> 
+                        <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" > 
+                        
                         {{occupation.name}}
                         </label>
                       </div>
-
                   </td>
                 </tr>
                 <tr class="toBeToggled1 ShowHide">
                   <th>雇用形態</th>
                   <td>
-                  <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"> 
-                      雇用形態 
-                    </label>
-                  </div>
+                 
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label" >
-                    <input class="form-check-input" type="checkbox"> 
+                    <input class="form-check-input" value="Full" v-model="empstatus" type="checkbox"> 
                     正社員(正職員)  
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label" >
-                    <input class="form-check-input" type="checkbox"> 
+                    <input class="form-check-input" value="ContractEmployee" v-model="empstatus" type="checkbox"> 
                     契約社員(職員)
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"> 
+                    <input class="form-check-input" value="Part" v-model="empstatus" type="checkbox"> 
                     非常勤。パート 
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"> 
+                    <input class="form-check-input" value="Other" v-model="empstatus" type="checkbox"> 
                     その他
                     </label>
                   </div>
 
                   </td>
                 </tr>
+                 
                 <tr class="text-center">
                   <td colspan='2'>
                     <button @click="ShowHide4" class="btn btn-link">
@@ -948,20 +945,46 @@
                     </button>
                   </td>
                 </tr>
+               
                 <tr class="text-center">
                   <td colspan="2">
-                    <input type="button" id="save_value" name="save_value" value="Save" />
+                     <!-- <input type="button" v-scroll-to="{ el: '#job_details', offset: -240}"  name="save_value" value="Search" @click="search"/>   -->
+                     <button class="btn-success" v-scroll-to="{ el: '#job_details', offset: -240}" id="btn" name="save_value" value="search" @click="search">Search </button>
                   </td>
                 </tr>
                 
               </tbody>
             </table>
-         
+            
+            <div id="job_details" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
+              <div class="card-header bg-success text-center pad"  >{{job.name}}</div>
+                <div class="card-body bg-danger">
+                    <table  class="table table-bordered table-sm">
+                      <tr>
+                        <td>Access</td>
+                        <td>{{job.access}}</td>
+                      </tr>
+                      <tr>
+                        <td> Salary </td>
+                        <td> {{job.salary}}</td>
+                      </tr>
+                      <tr>
+                        <td>Working hours / days / holiday details</td>
+                        <td> {{job.working_hours}} / {{job.holidays}} </td>
+                      </tr>
+                      <tr>
+                        <td>Special conditions</td>
+                        <td> {{job.allowances}} </td>
+                      </tr>
+
+                    </table>
+        
+                </div>
+           
+            </div>
         </div>
       </div>
-      <!-- <div class="col-md-2 p-l-0">
-        <asidebar></asidebar>
-      </div>-->
+
     </div>
     
   </div>
@@ -987,16 +1010,47 @@ export default {
         fac_id:[],      
         medical_acceptance:[],
         subjects:[],
+        occupationID:[],
         occupations:[],
         toggleCheck: true,
         toggleCheck_1: false,
-        
-        
-
-
+        empstatus:[],
+        job_data:[]
       }
     },
   methods:{
+    search(){
+       
+        if(this.townshipID == null || this.townshipID == '')
+        {
+          this.townshipID[0] = 0;
+        }
+        if(this.occupationID == null || this.occupationID == '')
+        {
+          this.occupationID[0] = 0;
+        }
+        if(this.empstatus == null || this.empstatus == '')
+        {
+          this.empstatus[0] = 0;
+        }
+    
+        this.axios.get('api/getjobsearch',{
+          params:{
+              id: this.id,
+              townshipID:this.townshipID,
+              occupationID:this.occupationID,
+              empstatus:this.empstatus
+          },
+        }).then((response)=>{
+     
+          this.job_data = response.data;
+        
+        })
+       
+      },
+
+  
+ 
     toggleContent4() {
         this.toggleCheck = !this.toggleCheck;
             if (this.toggleCheck == true) {
@@ -1024,6 +1078,7 @@ export default {
             }
         },
       getStateClick(e){
+      
          console.log(e.target.tagName)
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
@@ -1053,10 +1108,14 @@ export default {
         }
       }, 
       getCheck(e){
-        if(e.target.checked){
-           this.township_id.push(e.target.value);
-           console.log(this.township_id);
-        }
+
+         console.log(this.townshipID);
+        // console.log(this.townshipID);
+        // if(e.target.checked){
+        //   this.township_id = e.target.value;
+        //    this.township_id.push(e.target.value);
+        //    console.log(this.township_id);
+        // }
       },
       features(e){
         if(e.target.checked){
@@ -1114,6 +1173,21 @@ export default {
 .path:focus .path {
   color: #000;
 }
+
+.bg-success{
+ background-color: #ddd2fd  !important;
+}
+.pad{
+  padding-top: 10px !important;
+}
+
+.bg-danger{
+  background-color: #fcf4f4 !important;
+}
+
+.card-header{
+  height: 40px;
+  }
 
 .path:hover,
 a:hover {

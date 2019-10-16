@@ -6,7 +6,7 @@
                                 <div class="col-12">
                                         <form class="col-lg-12 mb-2 pad-free"  v-if="status == '0'">
                                                 <div class="col-md-7 offset-5">
-                                                        <div class="row">
+                                                        <div class="row ">
                                                                 <div class="col-md-10">
                                                                         <input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
                                                                 </div>

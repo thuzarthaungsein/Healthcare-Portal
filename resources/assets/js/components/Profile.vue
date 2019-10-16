@@ -96,25 +96,41 @@ export default {
     };
   },
   created() {
-    this.axios.get('/api/user').catch((error) => {
+    this.axios.get('/api/user').then(response => {
+      this.loginuser = true;
+      
+      localStorage.setItem("cusId", response.data.customer_id);
+      if(response.data.type_id == 2){
+        localStorage.setItem("cusType", 'hospital');
+        this.type = 'hospital';
+      }
+      else{
+        localStorage.setItem("cusType", 'nursing');
+        this.type = 'nursing';
+      }
+            
+      this.cusid = response.data.customer_id;
+    }).catch((error) => {
       this.loginuser = false;
+
+      if (this.$route.params.type) {
+        this.type = this.$route.params.type;
+        localStorage.setItem("cusType", this.type);
+      }
+      if (this.$route.params.cusid) {
+        this.cusid = this.$route.params.cusid;
+        localStorage.setItem("cusId", this.cusid);
+      }
+
+      this.type = localStorage.getItem("cusType");
+      this.cusid = Number(localStorage.getItem("cusId"));
     })
     
-    this.scrollTop();
-    if (this.$route.params.type) {
-      this.type = this.$route.params.type;
-      localStorage.setItem("cusType", this.type);
-    }
-    if (this.$route.params.cusid) {
-      this.cusid = this.$route.params.cusid;
-      localStorage.setItem("cusId", this.cusid);
-    }
+    this.scrollTop();   
+
     var new_width = $("#content-all").width();
     var fixed_width = new_width - 49.5;
-    this.width = fixed_width + "px";
-
-    this.type = localStorage.getItem("cusType");
-    this.cusid = Number(localStorage.getItem("cusId"));
+    this.width = fixed_width + "px";   
 
   },
   methods: {
