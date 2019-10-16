@@ -447,7 +447,7 @@
                                                                  <label for="">備考</label>
                                                         </td>
                                                         <td>
-                                                               <quill-editor  ref="myQuilEditor" name="" :options="editorOption" class="nursing-remarks" v-model="staff_info.remarks"/>
+                                                               <quill-editor  ref="myQuilEditor" name="" :options="editorOption" @change="onNursingEditorChange($event)" class="nursing-remarks" v-model="staff_info.remarks"/>
                                                         </td>
                                                 </tr>
                                         </table>
@@ -528,9 +528,6 @@
                                                         <textarea name="address" rows="10"  class="form-control transporation-access" v-model="nursing_info.access"></textarea>
                                                         <!-- <quill-editor id="quill-focus" ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/> -->
                                                 </div>
-                                                <div class="form-group" hidden>
-                                                         <quill-editor  ref="myQuilEditor"  name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"/>
-                                                </div>
                                                 
                                         </div>
 
@@ -585,7 +582,7 @@ export default {
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
                 profile_type:'nursing',
-                profile_arr:[],staf_info:[],customer_info:[], test:'',
+                profile_arr:[],staff_info:[],customer_info:[], test:'',
                 station_list:[],
 
                 // to delete
@@ -612,6 +609,7 @@ export default {
                 feature_val: '',
                 acceptance_remark_val: '',
                 nursing_remarks_val: '',
+                residence_form_val: '',
                 // customer_address_val: '',
                 // transporation_access_val: '',
           }
@@ -626,11 +624,8 @@ export default {
         },
         created(){
                 if(this.type != undefined && this.cusid!= undefined){
-
                         localStorage.setItem('cusType',this.type);
-
                         localStorage.setItem('cusId',this.cusid);
-
                 }
 
                 this.type = localStorage.getItem('cusType');
@@ -638,8 +633,16 @@ export default {
                 this.cusid = 1;
                 // alert(this.cusid);return;
                 
-                // $('#quill-focus').focusout();
                 this.axios
+<<<<<<< HEAD
+=======
+                .get('/api/station/'+this.cusid)
+                .then(response=>{
+                        this.station_list = response.data;
+                });
+
+                this.axios
+>>>>>>> bfb877ae909d5ac665639f034623fd498785d53f
                 .get('/api/customerinfo/'+this.cusid)
                 .then(response=>{
                         this.customer_info = response.data;
@@ -829,6 +832,10 @@ export default {
                         // console.log('editor change!', editor, html, text)
                         this.acceptance_remark_val = html
                 },
+                onResidenceEditorChange({ editor, html, text }) {
+                        // console.log('editor change!', editor, html, text)
+                        this.residence_form_val = html
+                },
 
             createProfile() {
 
@@ -837,7 +844,7 @@ export default {
                 this.cooperate_list = [];
                 this.payment_list = [];
                 this.customer_info = [];
-                this.staf_info = [];
+                this.staff_info = [];
                 this.acceptance = [];
 
                 var customer_name = $('.customer-name').val();
@@ -856,7 +863,7 @@ export default {
                 var construction = $('.construction').val();
                 var capacity = $('.capacity').val();
                 var num_rooms = $('.num-rooms').val();
-                var residence_form = $('.residence-form').val();
+                // var residence_form = $('.residence-form').val();
                 var fac_type = $('.fac-type').val();
                 var occupancy_condition = $('.occupancy-condition').val();
                 var room_floor = $('.room-floor').val();
@@ -867,19 +874,19 @@ export default {
                 var longitude = $('#new_long').val();
                 var website = $('.website').val();
                 // var feature = this.feature;
-                var feature = $('.feature').val();
+                // var feature = $('.feature').val();
 
-                var staff = $('.staff').text();
-                var nursing_staff = $('.nursing-staff').text();
-                var min_num_staff = $('.min-num-staff').text();
-                var num_staff = $('.num-staff').text();
-                var nursing_remarks = $('.nursing-remarks').text();
+                var staff = $('.staff').val();
+                var nursing_staff = $('.nursing-staff').val();
+                var min_num_staff = $('.min-num-staff').val();
+                var num_staff = $('.num-staff').val();
+                // var nursing_remarks = $('.nursing-remarks').val();
 
                 this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
-                this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
+                this.staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
 
-
+                console.log(this.staff_info);
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
                         var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
@@ -965,8 +972,8 @@ export default {
 
                 special_features = chek_feature.join(',');
 
-                this.profile_arr.push({feature:feature,stations:stations,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
-                                        site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
+                this.profile_arr.push({feature:this.feature_val,stations:stations,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                                        site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
                 this.gallery_list = this.img_list.concat(this.video_list);
@@ -1046,16 +1053,16 @@ export default {
                                 }
                         }) ;
                 }
-
-                if(this.staf_info.length > 0) {
+                if(this.staff_info.length > 0) {
                         this.axios
-                                .post(`/api/staff/profile/${this.cusid}`,this.staf_info)
+                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info)
                                 .then((response) => {
+                                        console.log(response.data);
 
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-                                        this.staf_info = 'error';
+                                        this.staff_info = 'error';
                                         this.errors = error.response.data.errors
                                 }
                         }) ;
@@ -1074,7 +1081,7 @@ export default {
                         }) ;
                 }
 
-                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info  != 'error' && this.staf_info  != 'error' &&  acceptance!= 'error') {
+                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info  != 'error' && this.staff_info  != 'error' &&  acceptance!= 'error') {
                         alert('Nursing Profile is Succcessfully Updated');
                 }
             }

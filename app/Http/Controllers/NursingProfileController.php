@@ -156,8 +156,9 @@ class NursingProfileController extends Controller
     }
 
     public function Staffprofileupdate($id,Request $request) {
+        
         $request = $request->all();
-     
+    
         $customer = Staff::where('customer_id', $id);
         $uploadData = array(
             'staff' => $request[0]['staff'],
