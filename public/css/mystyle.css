@@ -2007,13 +2007,7 @@ ul.sub-ul li {
     padding: 5px 10px;
 }
 
-.fav-color {
-    background-color: #ff9563;
-}
 
-.history-color {
-    background-color: #0e775d;
-}
 
 .card-header {
     padding: 0.75rem 1.25rem;
@@ -2380,22 +2374,37 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     border-left: 3px solid #ff9563;
     color: #fff !important;
 }
-
+#headerbar{
+    position: fixed;
+    top: 248px;
+    right: 0;
+    z-index: 99999;
+}
 #headerbar .router-link-exact-active {
     font-weight: bold;
-    color: #fff !important;
+    color: #000 !important;
     border-left: none !important;
     background-color: transparent;
 }
 
 #headerbar .navbar-dark .navbar-nav .nav-link {
-    color: #fff !important;
+    color: #000 !important;
 }
 
 #headerbar a {
-    color: #fff !important;
+    color: #000 !important;
+    text-decoration: none;
 }
-
+#headbar a:hover{
+    text-decoration: none !important;
+}
+.div1{
+    background-color: transparent;
+    border-bottom: 1px solid #544e4e;  
+}
+.div2{
+    background-color: transparent;   
+}
 .router-link-exact-active>i.fa,
 .router-link-exact-active>i.fas {
     color: #ff9563 !important;
@@ -3631,19 +3640,32 @@ margin-right: 2% !important;
 }
 
 .fav-item {
-    font-size: 12px;
+    font-size: 14px;
     padding: 5px 10px;
+    
 }
 
 .fav-color {
     /* background-color: #f3a523; */
-    background-color: #d2571c;
+    background-color: #fff;
+    border:1px solid #544e4e  !important;
 }
 
 .history-color {
-    background-color: #5f97d0;
+    background-color: #fff;
+    border:1px solid #544e4e  !important;
 }
-
+.is-hos{
+    color: #2981cc;
+}
+.is-nur{
+    color: #d2571c;
+}
+#hos-fav-local, #nus-fav-local, #hos-his-local, #nus-his-local {
+    color: #C40000;
+    font-weight: bold;
+    font-size: 25px;
+}
 .card-header {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
