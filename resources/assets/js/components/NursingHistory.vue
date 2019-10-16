@@ -18,7 +18,7 @@
           <h5 class="m-b-10 col-12 hos-tit">
             <!-- <a href="#">{{nur_profile.name}}</a> -->
             <router-link
-              :to="{name: 'profile', params: {cusid:1, type: 'hospital'}}"
+              :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}"
             >{{nur_profile.name}}</router-link>
           </h5>
 
