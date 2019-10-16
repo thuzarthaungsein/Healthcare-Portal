@@ -72,7 +72,7 @@
 
                     <input type="hidden" class="already-photo" v-model="img.photo" />
 
-                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" />
+                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" id="already-photo"/>
 
                   </div>
 
@@ -1360,7 +1360,8 @@ export default {
                     this.isRotate3 = !this.isRotate3;
             },
             preview_image(img_class) {
-                   $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+                  document.getElementById('already-photo').src= URL.createObjectURL(event.target.files[0]);
+                  $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
             },
             facilityCheck(check_id) {
                     $('.facility-'+check_id).attr('checked','true');

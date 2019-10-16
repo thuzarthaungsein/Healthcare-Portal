@@ -28,7 +28,7 @@
                                                                         <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
                                                                         <div class="col-md-12 m-b-10" v-bind:class="img.classname">
                                                                                 <input type="hidden" class="already-photo" v-model="img.photo">
-                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo">
+                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" id="already-photo">
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-md-12">
@@ -719,11 +719,9 @@ export default {
                     $('.station-'+check_id).attr('checked','true');
             },
             preview_image(img_class) {
-                $("."+img_class).html("");
+                document.getElementById('already-photo').src= URL.createObjectURL(event.target.files[0]);
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
-                //$('#'+img_class).css('display','none');
                 this.test = event.target.files[0]
-                //console.log(this.test);return;
             },
 
             DeltArr(indx,type) {
