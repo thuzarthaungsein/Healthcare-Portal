@@ -1,9 +1,9 @@
 <template>
-  <div class="search-map card-body" @click="getStateClick" @mouseover="getStateHover">
+  <div class="search-map" @click="getStateClick" @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
         <div class="row">
-          <div class="info-box"></div>
+        
           <div class="col-sm-11 map-wrap">
             <div class="divisions">
               <div class="row">
@@ -360,6 +360,7 @@
                   stroke="#333333"
                   fill="#6699cc"
                   d="M378.27,247.63h86.97v55.8h-62.62l0.09,8.05h-24.44V247.63z"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-6121795b
@@ -370,6 +371,7 @@
                   fill="#6699cc"
                   d="M377.33,317.77h65.18v21.09h-65.18V317.77z"
                   class="path Aomori"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-6121795b
@@ -380,6 +382,7 @@
                   fill="#6699cc"
                   d="M377.33,338.86h32.59v23.24h-32.59V338.86z"
                   class="path Iwate"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-6121795b
@@ -390,6 +393,7 @@
                   fill="#6699cc"
                   d="M409.92,338.86h32.59v23.24h-32.59V338.86z"
                   class="path Miyagi"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-6121795b
@@ -400,6 +404,7 @@
                   fill="#6699cc"
                   d="M377.33,362.11h32.59v24.01h-19.39l-0.13-8.34l-13.07-0.13V362.11z"
                   class="path Akita"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -410,6 +415,7 @@
                   fill="#6699cc"
                   d="M442.51,362.11v24.01h-32.59v-24.01H442.51z"
                   class="path Yamagata"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -420,6 +426,7 @@
                   fill="#6699cc"
                   d="M390.53,386.12h51.98v23.62h-52.48L390.53,386.12z"
                   class="path Fukushima"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -430,6 +437,7 @@
                   fill="#71d5cb"
                   d="M426.21,440.8l-0.51-31.06h16.8v31.06H426.21z"
                   class="path Ibaraki"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -440,6 +448,7 @@
                   fill="#71d5cb"
                   d="M401.96,409.74h23.75v23.36h-23.75V409.74z"
                   class="path Tochigi"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -450,6 +459,7 @@
                   fill="#71d5cb"
                   d="M378.46,409.74h23.49v23.36h-23.49V409.74z"
                   class="path Gunma"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -460,6 +470,7 @@
                   fill="#71d5cb"
                   d="M425.71,433.09v19.45h-47.24v-19.45H425.71z"
                   class="path Saitama"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -470,6 +481,7 @@
                   fill="#71d5cb"
                   d="M426.21,440.8h16.29v56.21c0,0-16.04,1.26-16.29,0C425.96,495.75,426.21,440.8,426.21,440.8z"
                   class="path Chiba"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -480,6 +492,7 @@
                   fill="#71d5cb"
                   d="M390.02,453.18l35.68-0.63v13.77h-10.86l0.13,6.57h-24.76L390.02,453.18z"
                   class="path Tokyo"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -490,6 +503,7 @@
                   fill="#71d5cb"
                   d="M378.46,472.88h36.51v24.69l-24.95-0.44v-12.63l-11.56,0.13V472.88z"
                   class="path Kanagawa"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -500,6 +514,7 @@
                   fill="#75b777"
                   d="M377.33,377.65l13.07,0.13l-0.38,31.96h-31.26v-24.83h18.32L377.33,377.65z"
                   class="path Niigata"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -510,6 +525,7 @@
                   fill="#75b777"
                   d="M335.07,384.91h23.68v24.83h-23.68V384.91z"
                   class="path Toyama"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -520,6 +536,7 @@
                   fill="#75b777"
                   d="M318.59,377.65h16.48v32.08h-16.48V377.65z"
                   class="path Ishikawa"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -530,6 +547,7 @@
                   fill="#75b777"
                   d="M303.05,416.93h15.54v-7.19h16.48v23.36c0,0-32.02,0.44-32.02,0S303.05,416.93,303.05,416.93z"
                   class="path Fukui"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -540,6 +558,7 @@
                   fill="#c0c743"
                   d="M366.72,472.06v-19.52l23.31,0.63v18.88H366.72z"
                   class="path Yamanashi"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -550,6 +569,7 @@
                   fill="#c0c743"
                   d="M350.8,409.74h27.66v42.81h-11.75v19.52H350.8V409.74z"
                   class="path Nagano"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -560,6 +580,7 @@
                   fill="#c0c743"
                   d="M335.07,409.74h15.73v62.33h-15.73V409.74z"
                   class="path Gifu"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -570,6 +591,7 @@
                   fill="#c0c743"
                   d="M358.76,472.88h19.71v11.75l11.56-0.13v12.63l-31.26-0.82V472.88z"
                   class="path Shizuoka"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -580,6 +602,7 @@
                   fill="#c0c743"
                   d="M335.07,472.06l23.68,0.82v23.43h-23.68V472.06z"
                   class="path Aichi"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -590,6 +613,7 @@
                   fill="#efb838"
                   d="M319.06,456.97h16.01l1.07,55.07h-17.08V456.97z"
                   class="path Mie"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -600,6 +624,7 @@
                   fill="#efb838"
                   d="M319.06,433.29l16.01-0.2v23.87h-16.01V433.29z"
                   class="path Shiga"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -610,6 +635,7 @@
                   fill="#efb838"
                   d="M287.89,417.05l15.16-0.13v16.17l16.01,0.2v23.68h-31.17V417.05z"
                   class="path Kyoto"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -620,6 +646,7 @@
                   fill="#efb838"
                   d="M287.89,484.19v-27.22h15.58v27.22H287.89z"
                   class="path Osaka"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -630,6 +657,7 @@
                   fill="#efb838"
                   d="M271.73,416.93l16.17,0.13v48h-16.17V416.93z"
                   class="path Hyogo"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -640,6 +668,7 @@
                   fill="#efb838"
                   d="M303.48,456.97h15.58v39.35h-16.01L303.48,456.97z"
                   class="path Nara"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -650,6 +679,7 @@
                   fill="#efb838"
                   d="M303.48,484.19l-0.43,12.13h16.01v15.73h-31.17v-27.85H303.48zz"
                   class="path Wakayama"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -660,6 +690,7 @@
                   fill="#f58c3f"
                   d="M256.32,416.93h15.41v24.06l-15.41-0.19V416.93z"
                   class="path Tottori"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -670,6 +701,7 @@
                   fill="#f58c3f"
                   d="M240.65,416.93h15.66v23.87l-15.66,0.19V416.93zz"
                   class="path Shimane"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -680,6 +712,7 @@
                   fill="#f58c3f"
                   d="M256.32,465.05V440.8l15.41,0.19v24.06H256.32z"
                   class="path Okayama"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -690,6 +723,7 @@
                   fill="#f58c3f"
                   d="M240.65,440.99l15.66-0.19v24.25h-15.66V440.99z"
                   class="path Hiroshima"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -700,6 +734,7 @@
                   fill="#f58c3f"
                   d="M224.23,416.93h16.42v48.13h-16.42V416.93z"
                   class="path Yamaguchi"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -710,6 +745,7 @@
                   fill="#f1a296"
                   d="M279.81,492.59h-27.54v-20.53h27.54V492.59z"
                   class="path Tokushima"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -720,6 +756,7 @@
                   fill="#f1a296"
                   d="M224.23,472.06h28.04v20.53h-28.04V472.06z"
                   class="path Kagawa"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -730,6 +767,7 @@
                   fill="#f1a296"
                   d="M224.23,512.04v-19.45h28.04v19.45H224.23z"
                   class="path Ehime"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -740,6 +778,7 @@
                   fill="#f1a296"
                   d="M279.81,512.04h-27.54v-19.45h27.54V512.04z"
                   class="path Kochi"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -750,6 +789,7 @@
                   fill="#e77a72"
                   d="M162.08,416.93h16.17l-1.26,36l-14.91-0.38V416.93z"
                   class="path Fukuoka"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -760,6 +800,7 @@
                   fill="#e77a72"
                   d="M145,416.93h17.08v35.62L145,452.93V416.93z"
                   class="path Saga"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -770,6 +811,7 @@
                   fill="#e77a72"
                   d="M177.75,452.55v-35.62h39.66v16.17h-16.17v19.45H177.75z"
                   class="path Nagasaki"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -780,6 +822,7 @@
                   fill="#e77a72"
                   d="M217.41,460.76h-16.17v-27.66h16.17V460.76z"
                   class="path Kumamoto"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -790,6 +833,7 @@
                   fill="#e77a72"
                   d="M217.41,488.04h-16.17v-27.28h16.17V488.04z"
                   class="path Oita"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -800,6 +844,7 @@
                   fill="#e77a72"
                   d="M177.75,452.55h23.49v35.49h-23.49V452.55z"
                   class="path Miyazaki"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -810,6 +855,7 @@
                   fill="#e77a72"
                   d="M177.75,488.04h39.66v24h-39.66V488.04z"
                   class="path Kagoshima"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   data-v-5cde3559
@@ -820,262 +866,229 @@
                   fill="#e77a72"
                   d="M176.99,519.62h16.8V544h-16.8V519.62z"
                   class="path Okinawa"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M224.23,416.93h94.36v-39.27h16.48v7.25h42l0.25-67.14h65.18v179.24h-16.29l-0.51-30.69h-10.86l-0.05,30.82l-78.94-0.34l-0.07,15.25h-48.27l-0.19-46.42l-63.09-0.57V416.93z"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M224.23,472.06h55.58v39.98h-55.58V472.06z"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M145,416.93h72.41v95.12h-39.66v-58.61L145,452.93V416.93z"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M176.99,519.62h16.8V544h-16.8V519.62z"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
                 <path
                   stroke="#333333"
                   fill="none"
                   stroke-width="1.8px"
                   d="M378.27,248.11l86.97-0.47v55.8h-62.62l-0.19,8.05h-24.16V248.11z"
+                  v-scroll-to="{ el: '#mymap'}"
                 />
               </svg>
             </div>
           </div>
-            
-          
-            <table class="table card-2 col-10 select">
-              <tbody>
-                <tr>
-                  <th>地域</th>
-                  <td>
-                    <select  id="select" class="form-control col-3 custom-select mt-2" v-model="id">
-                      <option v-for = "city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
-                    </select>
-                    <button @click="toggleContent2" class="btn btn-link"  >
-                      <i class="fa" aria-hidden="true"></i>
-                          <!-- <em>{{city.city_name}}</em> -->
-                          <span id="close3"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
-                    </button>
-                   
-                    <div  class="toBeToggled2" id="toBeToggled2">
-
-                      <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
-                        <label class="form-check-label" :for="township.id">
-                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID[township.id]" @click="getCheck($event)"> 
-                        {{township.township_name}}
-                        </label>
-                      </div>
-
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    費用
-                  </th>
-                  <td>
-                    <table class="text-center" width="50%">
-                      <tbody>
-                        <tr>
-                          <td>入居時</td>
-                          <td>
-                            <select class="form-control custom-select" name="" id="">
-                              <option value="" selected="selected">下限なし</option>
-                              <option value="0">0円</option>
-                              <option value="500000">50万円</option>
-                              <option value="1000000">100万円</option>
-                              <option value="2000000">200万円</option>
-                              <option value="3000000">300万円</option>
-                              <option value="4000000">400万円</option>
-                              <option value="5000000">500万円</option>
-                              <option value="6000000">600万円</option>
-                              <option value="7000000">700万円</option>
-                              <option value="8000000">800万円</option>
-                              <option value="9000000">900万円</option>
-                              <option value="10000000">1,000万円</option>
-                              <option value="20000000">2,000万円</option>
-                              <option value="30000000">3,000万円</option>
-                            </select>
-                          </td>
-                          <td>～</td>
-                          <td>
-                            <select class="form-control custom-select" name="" id="">
-                              <option value="" selected="selected">上限なし</option>
-                              <option value="0">0円</option>
-                              <option value="500000">50万円</option>
-                              <option value="1000000">100万円</option>
-                              <option value="2000000">200万円</option>
-                              <option value="3000000">300万円</option>
-                              <option value="4000000">400万円</option>
-                              <option value="5000000">500万円</option>
-                              <option value="6000000">600万円</option>
-                              <option value="7000000">700万円</option>
-                              <option value="8000000">800万円</option>
-                              <option value="9000000">900万円</option>
-                              <option value="10000000">1,000万円</option>
-                              <option value="20000000">2,000万円</option>
-                              <option value="30000000">3,000万円</option>
-                            </select>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>月額</td>
-                          <td>
-                          <select class="form-control custom-select" name="" id="">
-                            <option value="" selected="selected">下限なし</option>
-                            <option value="0">0円</option>
-                            <option value="100000">10万円</option>
-                            <option value="150000">15万円</option>
-                            <option value="200000">20万円</option>
-                            <option value="250000">25万円</option>
-                            <option value="300000">30万円</option>
-                            <option value="350000">35万円</option>
-                            <option value="400000">40万円</option>
-                            <option value="450000">45万円</option>
-                            <option value="500000">50万円</option>
-                          </select>
-                          </td>
-                          <td>～</td>
-                          <td>
-                            <select class="form-control custom-select" name="" id="">
-                              <option value="" selected="selected">上限なし</option>
-                              <option value="0">0円</option>
-                              <option value="100000">10万円</option>
-                              <option value="150000">15万円</option>
-                              <option value="200000">20万円</option>
-                              <option value="250000">25万円</option>
-                              <option value="300000">30万円</option>
-                              <option value="350000">35万円</option>
-                              <option value="400000">40万円</option>
-                              <option value="450000">45万円</option>
-                              <option value="500000">50万円</option>
-                            </select>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-
-                <tr class="toBeToggled1 ShowHide">
-                  <th>
-                  入居時の条件
-                  </th>
-                  <td>
-                    <div  class="row pl-3 pt-3">
-
-                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
-                        <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> 
-                          自立
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
-                        <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> 
-                          要支援
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline col-sm-3" id="customCheck1">
-                        <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> 
-                          要介護
-                        </label>
-                      </div>
-                     
-                    </div>
-                  </td>
-                </tr>
-                <tr class="toBeToggled1 ShowHide">
-                  <th>特長</th>
-                  <td>
-                      <div class="form-check form-check-inline col-sm-2"  v-for="features in special_features" :key="features.id">
-                        <label class="form-check-label" :for="features.id">
-                        <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)"> 
-                        {{features.name}}
-                        </label>
-                      </div>
-
-                  </td>
-                </tr>
-                <tr class="toBeToggled1 ShowHide">
-                  <th>施設の種類</th>
-                  <td>
-                  <div class="form-check form-check-inline col-sm-2"  v-for="fac_type in fac_types" :key="fac_type.id">
-                    <label class="form-check-label" :for="fac_type.id">
-                    <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id"> 
-                     {{fac_type.description}}
-                    </label>
-                  </div>
-
-                  </td>
-                </tr>
-                <tr class="toBeToggled1 ShowHide">
-                  <th>医療面・診療科目</th>
-                  <td>
-                      <div class="form-check form-check-inline col-sm-2"  v-for="medical in medical_acceptance" :key="medical.id">
-                        <label class="form-check-label" :for="medical.id">
-                        <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id" > 
-                          {{medical.name}}
-                        </label>
-                      </div>
-                  </td>
-                </tr>
-                <tr class="text-center">
-                  <td colspan='2'>
-                    <button @click="ShowHide" class="btn btn-link">
-                      <i class="fa" aria-hidden="true"></i>
-                          <span id="close1"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
-                    </button>
-                  </td>
-                </tr>
-                <tr class="text-center">
-                  <td colspan="2">
-                    <input type="button" id="save_value" name="save_value" value="Save" />
-                  </td>
-                </tr>
-                
-              </tbody>
-            </table>
-         
+              
         </div>
-          <div class="row">
-            <div class="col-sm-12 col-md-12">
-            <div class="card">
-              <div class="card-body">
-                  <GmapMap  id="googlemap"
-                            ref="map"
-                            :center="center"
-                            :zoom="10" 
-                            style="height:700px">
-                            
-                    <GmapMarker
-                      v-for="(m, index) in markers"
-                      :key="index"
-                      :position="m.position"
-                      :clickable="true"
-                      :draggable="true"
-                      @click="center=m.position"
-                      @mouseover="googleMarker"
-                     
-                    />
-                   
-                  </GmapMap>
+
+
+
+        <div class="row row-div select">
+
+            <div class="col-2 left-div">地域</div>
+            <div class="col-10">
+                <select  id="select" class="form-control col-3 custom-select mt-2" v-model="id">
+                  <option v-for = "city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
+                </select>
+                <button @click="show = !show" class="btn btn-outline-primary mt-2">
+                      <span v-show="show"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                      <span v-show="!show"><i class="fas fa-arrow-circle-down"></i> Open Township</span>
+                </button>
+                  <hr>
+                  <div v-if="show">
+                    <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
+                      <label class="form-check-label" :for="township.id">
+                      <input class="form-check-input"  type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)"> 
+                      {{township.township_name}}
+                      </label>
+                    </div>
+                  </div>
+            </div>
+        
+            <div class="col-sm-2 left-div-1">費用</div>
+            <div class="col-sm-10">
+              <hr>
+                <table class="text-center" width="50%">
+                  <tbody>
+                    <tr>
+                      <td>入居時</td>
+                      <td>
+                        <select class="form-control custom-select" name="" id="">
+                          <option value="" selected="selected">下限なし</option>
+                          <option value="0">0円</option>
+                          <option value="500000">50万円</option>
+                          <option value="1000000">100万円</option>
+                          <option value="2000000">200万円</option>
+                          <option value="3000000">300万円</option>
+                          <option value="4000000">400万円</option>
+                          <option value="5000000">500万円</option>
+                          <option value="6000000">600万円</option>
+                          <option value="7000000">700万円</option>
+                          <option value="8000000">800万円</option>
+                          <option value="9000000">900万円</option>
+                          <option value="10000000">1,000万円</option>
+                          <option value="20000000">2,000万円</option>
+                          <option value="30000000">3,000万円</option>
+                        </select>
+                      </td>
+                      <td>～</td>
+                      <td>
+                        <select class="form-control custom-select" name="" id="">
+                          <option value="" selected="selected">上限なし</option>
+                          <option value="0">0円</option>
+                          <option value="500000">50万円</option>
+                          <option value="1000000">100万円</option>
+                          <option value="2000000">200万円</option>
+                          <option value="3000000">300万円</option>
+                          <option value="4000000">400万円</option>
+                          <option value="5000000">500万円</option>
+                          <option value="6000000">600万円</option>
+                          <option value="7000000">700万円</option>
+                          <option value="8000000">800万円</option>
+                          <option value="9000000">900万円</option>
+                          <option value="10000000">1,000万円</option>
+                          <option value="20000000">2,000万円</option>
+                          <option value="30000000">3,000万円</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>月額</td>
+                      <td>
+                      <select class="form-control custom-select" name="" id="">
+                        <option value="" selected="selected">下限なし</option>
+                        <option value="0">0円</option>
+                        <option value="100000">10万円</option>
+                        <option value="150000">15万円</option>
+                        <option value="200000">20万円</option>
+                        <option value="250000">25万円</option>
+                        <option value="300000">30万円</option>
+                        <option value="350000">35万円</option>
+                        <option value="400000">40万円</option>
+                        <option value="450000">45万円</option>
+                        <option value="500000">50万円</option>
+                      </select>
+                      </td>
+                      <td>～</td>
+                      <td>
+                        <select class="form-control custom-select" name="" id="">
+                          <option value="" selected="selected">上限なし</option>
+                          <option value="0">0円</option>
+                          <option value="100000">10万円</option>
+                          <option value="150000">15万円</option>
+                          <option value="200000">20万円</option>
+                          <option value="250000">25万円</option>
+                          <option value="300000">30万円</option>
+                          <option value="350000">35万円</option>
+                          <option value="400000">40万円</option>
+                          <option value="450000">45万円</option>
+                          <option value="500000">50万円</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+
+            <div class="col-sm-2 left-div-1" v-if="showOne"> 入居時の条件</div>
+            <div class="col-sm-10" v-if="showOne">
+              <hr>
+              <div  class="row pl-3 pt-3" v-if="showOne">
+                <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                  <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox"> 
+                    自立
+                  </label>
+                </div>
+                <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                  <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox"> 
+                    要支援
+                  </label>
+                </div>
+                <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                  <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox"> 
+                    要介護
+                  </label>
+                </div>
               </div>
             </div>
+
+            <div class="col-sm-2 left-div-1" v-if="showOne">特長</div>
+            <div class="col-sm-10" v-if="showOne">
+              <hr>
+              <div class="form-check form-check-inline col-sm-2"  v-for="features in special_features" :key="features.id">
+                <label class="form-check-label" :for="features.id">
+                <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)"> 
+                {{features.name}}
+                </label>
+              </div>
+            </div>
+
+            <div class="col-sm-2 left-div-1" v-if="showOne">施設の種類</div>
+            <div class="col-sm-10" v-if="showOne">
+              <hr>
+              <div class="form-check form-check-inline col-sm-2"  v-for="fac_type in fac_types" :key="fac_type.id">
+                <label class="form-check-label" :for="fac_type.id">
+                <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id"> 
+                {{fac_type.description}}
+                </label>
+              </div>
+            </div>
+
+            <div class="col-sm-2 left-div-1" v-if="showOne">医療面・診療科目</div>
+            <div class="col-sm-10 mb-4" v-if="showOne">
+              <hr>
+                <div class="form-check form-check-inline col-sm-2"  v-for="medical in medical_acceptance" :key="medical.id">
+                  <label class="form-check-label" :for="medical.id">
+                  <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id" > 
+                    {{medical.name}}
+                  </label>
+                </div>
+            </div>
+           
+            <div class="col-sm-2 left-div-2"></div>
+            <div class="col-sm-10">
+            <button @click="showOne = !showOne" class="btn btn-link mt-2">
+                  <span v-show="showOne"><i class="fas fa-arrow-circle-up"></i> Close</span>
+                  <span v-show="!showOne"><i class="fas fa-arrow-circle-down"></i> Open</span>
+            </button>
+            </div>
+        </div>
+
+
+          <div class="row mt-5">
+            <div class="col-sm-12 col-md-12">
+                <div id="mymap"></div>
             </div>
           </div>
       </div>
@@ -1091,19 +1104,24 @@
 <script>
 
 import asidebar from "./aside.vue";
+import { eventBus } from '../event-bus.js';
 export default {
-    name: "GoogleMap",
+  
+    name: "mymap",
     components: {
       asidebar
     },
+   
     data(){
+      
       return{
-        markers: [
-            { position: { lat: 0, lng: 0 } },
-        ],
+
+        map:null,
+        markers: [],
+        selectedLocation: null,
+        infoBoxOpen: false,
         places: [],
-        center: { lat: 0, lng: 0 },
-        id:'',
+        id:'',    
         townshipID:[],
         township_id:[],
         cities:[],
@@ -1113,60 +1131,139 @@ export default {
         fac_types:[],
         fac_id:[],      
         medical_acceptance:[],
-        toggleCheck: true,
-        toggleCheck_1: false,
+        show : false,
+        showOne: true,
+        checkarr:[],
+
       }
     },
-    
-  methods:{
-    toggleContent2() {
+  mounted() {
+    this.axios.get('/api/user/').then((response)=>{
+      console.log(response)
+    }).catch(error =>{
+      console.log(error)
+    })
       
-        this.toggleCheck = !this.toggleCheck;
-            if (this.toggleCheck == true) {
-                $('#close3').empty();
-                $("#toBeToggled2").slideDown();
-                $('#close3').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
-
-            } else {
-                $('#close3').empty();
-                $("#toBeToggled2").slideUp();
-                $('#close3').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
-            }
-        },
-        ShowHide() {
-        this.toggleCheck_1 = !this.toggleCheck_1;
-            if (this.toggleCheck_1 == true) {
-                $('#close1').empty();
-                $(".ShowHide").slideDown();
-                $('#close1').append('<i class="fas fa-arrow-circle-up"></i> close');
-              
-            } else {
-                $('#close1').empty();
-                $(".ShowHide").slideUp();
-                $('#close1').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
-            }
-        },
+    
+   
+  },
+  methods:{
+   
+    openInfoWindow(marker) {
+      this.selectedLocation = marker;
+      this.infoBoxOpen = true;
+    },
+    closeInfoWindow() {
+      this.infoBoxOpen = false;
+    },
       getStateClick(e){
-         console.log(e.target.tagName)
-        if(e.target.tagName === 'A' || e.target.tagName ==='path'){
+          if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
           const id = e.target.id;
           this.axios.post('/api/getmap/'+id+'')
           .then((response)=>{
-            //console.log(response.data.getCity[0]['latitude'])
+            // console.log(response.data.getCity[0]['latitude'])
           $('.select').removeClass('select');
           this.cities = response.data.city
           this.getCity = response.data.getCity
           this.getTownships = response.data.getTownships
           this.special_features= response.data.special_features
           this.fac_types= response.data.fac_types
-          this.medical_acceptance= response.data.medical_acceptance
-          this.markers[0]['position']['lat']  = response.data.getCity[0]['latitude'];
-          this.markers[0]['position']['lng']  = response.data.getCity[0]['longitude'];
-          this.center['lat'] = response.data.getCity[0]['latitude'];
-          this.center['lng'] = response.data.getCity[0]['longitude'];
+          this.medical_acceptance= response.data.medical_acceptance 
+          this.markers = response.data.nus_latlng;
           this.id = id
-         })
+          this.markers = response.data.nus_latlng;
+          
+          var mmarker = new Array();
+          var multibusiness = new Array();
+            for(var i=0;i<this.markers.length;i++){
+              
+              mmarker.push([this.markers[i]['business_entity'],this.markers[i]['lat'],this.markers[i]['lng']])
+              multibusiness.push(this.markers[i]['business_entity'])
+              
+            }
+          const theCity = response.data.getCity[0]['city_eng']
+          const lat = response.data.getCity[0]['latitude']
+          const lng = response.data.getCity[0]['longitude']
+          // const apiPath = "https://nominatim.openstreetmap.org/search.php";
+          // let params = {
+          //     q: theCity,
+          //     polygon_geojson: 1,
+          //     format: "json"
+          //   };
+          //   axios.get(apiPath, { params: params }  )
+          //   .then(response => {
+          //     let geoJSONDataChunk = response.data[0];
+          //     const geoConf = {
+          //       "type": "FeatureCollection",
+          //       "features": [
+          //         { "type": "Feature",
+          //           "geometry": geoJSONDataChunk.geojson,
+          //         }
+          //       ]
+          //     };
+           // const coordinates = geoJSONDataChunk.geojson['coordinates']
+            
+            // var data = {
+            //   type: "Feature",
+            //   geometry: {
+            //     "type": "Polygon",
+            //     "coordinates": coordinates
+            //   },
+            //   "style": {
+            //       "__comment": "all SVG styles allowed",
+            //       "fill":"red",
+            //       "stroke-width":"1",
+            //       "fill-opacity":0.6
+            //   },
+            // };
+
+            var mapProp = {
+              center: new google.maps.LatLng(lat, lng),
+              zoom: 6,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+            };
+            var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+            //map.data.addGeoJson(data);
+
+            var bounds = new google.maps.LatLngBounds();
+            var markers = mmarker; 
+            var infoWindowContent = new Array();
+            for(var i = 0;i<multibusiness.length;i++)
+            {
+               infoWindowContent.push(['<div class="info_content">' + multibusiness[i] +'</div>'])
+            } 
+            var infoWindow = new google.maps.InfoWindow(), marker, i;
+            for( i = 0; i < this.markers.length; i++ ) {
+              var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+              bounds.extend(position);
+              marker = new google.maps.Marker({
+                  position: position,
+                  map: map,
+                  zoom: 6,
+                  title: markers[i][0]
+              });
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+              return function() {
+                console.log(infoWindowContent[i][0]);
+                  infoWindow.setContent(infoWindowContent[i][0]);
+                  infoWindow.open(map, marker);
+              }
+              })(marker, i));
+              // map.fitBounds(bounds);
+              var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+              google.maps.event.removeListener(boundsListener);
+              });
+          }
+
+
+        })
+          
+        
+      //})
+    
+        
+    
         }else if(e.target.tagName ==='OPTION'){
           const id = this.id;
           this.axios.post('/api/getmap/'+id+'')
@@ -1178,22 +1275,73 @@ export default {
           this.special_features= response.data.special_features
           this.fac_types= response.data.fac_types
           this.medical_acceptance= response.data.medical_acceptance
-          this.markers[0]['position']['lat']  = response.data.getCity[0]['latitude'];
-          this.markers[0]['position']['lng']  = response.data.getCity[0]['longitude'];
-          this.center['lat'] = response.data.getCity[0]['latitude'];
-          this.center['lng'] = response.data.getCity[0]['longitude'];
+          this.markers = response.data.nus_latlng;
           this.id = id
          })
         }
       },
-      googleMarker(e){
-        console.log(e)
+
+      googleMarker(marker){
+      
+        console.log(google.maps.Animation.BOUNCE)
       },
-      getCheck(e){
-        if(e.target.checked){
-           this.township_id.push(e.target.value);
-           console.log(this.township_id);
-        }
+        getCheck(e){
+
+           if(this.townshipID.length>0)
+           {
+            
+              this.axios.post('/api/getmaptownship/'+this.townshipID+'')
+              .then((response)=>{
+                this.markers = response.data;
+                var mmarker = new Array();
+                var multibusiness = new Array();
+                  for(var i=0;i<this.markers.length;i++){
+                    mmarker.push([this.markers[i]['business_entity'],this.markers[i]['lat'],this.markers[i]['lng']])
+                    multibusiness.push(this.markers[i]['business_entity'])
+                  }
+                  var mapProp = {
+                  // center: new google.maps.LatLng(lat, lng),
+                  zoom: 10,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };
+                var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                var bounds = new google.maps.LatLngBounds();
+                var markers = mmarker; 
+                var infoWindowContent = new Array();
+                for(var i = 0;i<multibusiness.length;i++)
+                {
+                  infoWindowContent.push(['<div class="info_content">' + multibusiness[i] +'</div>'])
+                } 
+                var infoWindow = new google.maps.InfoWindow(), marker, i;
+                for( i = 0; i < this.markers.length; i++ ) {
+                  var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                  bounds.extend(position);
+                  marker = new google.maps.Marker({
+                      position: position,
+                      map: map,
+                      title: markers[i][0]
+                  });
+                  google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+                    console.log(infoWindowContent[i][0]);
+                      infoWindow.setContent(infoWindowContent[i][0]);
+                      infoWindow.open(map, marker);
+                  }
+                  })(marker, i));
+                  map.fitBounds(bounds);
+                  var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+                  google.maps.event.removeListener(boundsListener);
+                  });
+              }
+                
+           });
+         }
+         else{
+           this.markers = '';
+         }
+          
+        
+       
       },
       features(e){
         if(e.target.checked){
@@ -1204,7 +1352,7 @@ export default {
         // if(e.target.tagName ==='AREA'){
         //  console.log(e)
         // }
-      }
+      },
     }
 };
 </script>
@@ -1303,11 +1451,31 @@ span:hover::before {
 [data-toggle="collapse"].collapsed .fa:before {
   content: "\f13a";
 }
+ 
 
-
-.card-2 {
+.left-div {
+  text-align: end;
+  padding: 10px 20px 10px 40px;
+  border-radius: 5px 0px 0px;
+  border-left: 10px solid brown;
+}
+.left-div-1 {
+  text-align: end;
+  padding: 10px 20px 10px 40px;
+  border-left: 10px solid brown;
+}
+.left-div-2 {
+  text-align: end;
+  padding: 10px 20px 10px 40px;
+  border-left: 10px solid brown;
+  border-radius: 0px 0px 0px 5px;
+  
+}
+.row-div{
+  background: radial-gradient(ellipse at center, rgb(255, 240, 223) 0%, rgba(242,234,225,0.58) 100%);
+  border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  border-radius:10px;
+  border-radius: 10px;
 }
 .toBeToggled2 {
     display: block;
@@ -1316,7 +1484,7 @@ span:hover::before {
 .toBeToggled1 {
     display: none;
 }
-table{
+.table th, .table td{
   border-top:none !important;
 }
 table > tbody > tr th{
@@ -1325,5 +1493,31 @@ table > tbody > tr th{
   width:140px;
   padding:25px;
 }
+label{
+  color: black !important;
+}
+.vue-map-container {
+  height: 640px;
+}
+.infoWindow{
 
+}
+
+.justBlock {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align:center;
+  background-color: #bada55;
+  color: darkgreen;
+  font-family:sans-serif;
+  /* &:hover {
+    cursor:pointer;
+  } */
+}
+
+#mymap{
+  width: 100%;
+  height:700px;
+}
 </style>

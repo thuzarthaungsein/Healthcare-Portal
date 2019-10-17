@@ -52,7 +52,9 @@ class ProfilePublishController extends Controller
 
     public function nursingProfile($cusid)
     {
+        
         $feature = NursingProfile::select('feature')->where('customer_id',$cusid)->get();
+       
         $method = NursingProfile::select('method')->where('customer_id',$cusid)->get();
         $facility = NursingProfile::where('customer_id',$cusid)->get();
         $comedical = Cooperate_Medical::where('customer_id',$cusid)->get();
@@ -88,9 +90,17 @@ class ProfilePublishController extends Controller
         return $comment;
     }
 
-    public function getCustomer($cusid)
+    public function getCustomer($cusid,$type)
     {
-        $customer = Customer::where('id',$cusid)->get();
+        // $customer = Customer::where('id',$cusid)->get();
+        if($type == 'hospital'){
+            $type = 'hospital_profiles';
+        }
+        else{
+            $type = 'nursing_profiles';
+        }
+        $sql = "SELECT customers.*,$type.* from customers inner join $type on customers.id = $type.customer_id where customers.id = $cusid";
+        $customer = DB::select($sql);
         return $customer;
     }
 

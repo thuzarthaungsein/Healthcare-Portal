@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use App\Occupations;
 use Illuminate\Http\Request;
 use DB;
 
@@ -11,18 +12,18 @@ class JobController extends Controller
 
     public function index()
     {
-     
-       
+
+
         $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
                      ->join('jobs','jobs.customer_id','=','customers.id')->get();
 
         $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
                            ->join('jobs','jobs.customer_id','=','customers.id')
-                           ->where('jobs.customer_id','=',auth()->user()->customer_id)->get();
-        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob,'user'=>auth()->user()->customer_id));
+                           ->where('jobs.customer_id','=',1)->get();
+        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
 
     }
-        
+
     public function getJob($id)
     {
         $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
@@ -39,6 +40,13 @@ class JobController extends Controller
 
     }
 
+    public function getOccupationList()
+    {
+        $occupationlist = Occupations::select('id','name')->get()->toArray();
+
+        return response()->json($occupationlist);    
+    }
+
     public function getSkill()
     {
         $job = Job::select('skills')->value('skills');
@@ -47,7 +55,7 @@ class JobController extends Controller
     }
     public function store(Request $request)
     {
-
+     
         $request->validate([
             'title' => 'required',
             'description' =>'required',
@@ -68,7 +76,7 @@ class JobController extends Controller
                 $string .= $request->fields[$i]['skills'] .',';
             }
         }
-        
+
         //    $cstring = '';
         //    if($request->employment_status[0]['pchecked'] == true)
         //    {
@@ -83,7 +91,7 @@ class JobController extends Controller
         //        else{
         //           $cstring .=  " ,Full";
         //        }
-             
+
         //    }
         //     if($request->employment_status[0]['echecked'] == true)
         //    {
@@ -115,7 +123,7 @@ class JobController extends Controller
         //         $cstring .=  " ,Other";
         //         }
         //    }
-        
+
 
         // $cstring = '';
         // if($request->employment_status[0]['pchecked'] == true && $request->employment_status[0]['fchecked'] == false && $request->employment_status[0]['echecked'] == false && $request->employment_status[0]['cchecked']  == false && $request->employment_status[0]['ochecked'] == false)
@@ -139,9 +147,15 @@ class JobController extends Controller
         // }
 
         $job = new Job();
-
+        if($request->occupation_id != null)
+        {
+            $job->occupation_id = $request->occupation_id;
+        }else{
+            $job->occupation_id = 0;
+        }
         $job->title =$request->input('title');
         $job->customer_id= 1;
+        
         $job->description = $request->input('description');
         $job->skills = $string;
         $job->location = $request->input('location');
@@ -224,6 +238,12 @@ class JobController extends Controller
             //     $cstring = "Part,Full";
             // }
 
+            if($request->occupation_id != null)
+            {
+                $job->occupation_id = $request->occupation_id;
+            }else{
+                $job->occupation_id = 0;
+            }
             $job->skills = $string;
             $job->title =$request->input('title');
             $job->customer_id= $request->customer_id;
@@ -254,7 +274,6 @@ class JobController extends Controller
         $job->delete();
         return response()->json('The Job successfully deleted');
     }
-
     public function search(Request $request) {
         $request = $request->all();
         $search_word = $request['search_word'];

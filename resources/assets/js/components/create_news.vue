@@ -14,12 +14,12 @@
                             <div class="form-group">
                                 <label>題名:<span class="error">*</span></label>
                                 <input type="text" class="form-control" placeholder="題名を入力してください。" v-model="news.title">
-                                <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
+                                <span v-if="errors.title" class="error">{{errors.title}}</span>
                             </div>
                             <div class="form-group">
                                 <label>主な情報:<span class="error">*</span></label>
                                 <input type="text" class="form-control" placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point">
-                                <span v-if="errors.main_point" class="error">{{errors.main_point[0]}}</span>
+                                <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
                             </div>
                             <div class="form-group">
                                 <!-- <button class="btn main-bg-color white all-btn" type="button">
@@ -33,20 +33,25 @@
                                         {{category.name}}
                                     </option>
                                 </select>
-                                <span v-if="errors.category_id" class="error">{{errors.category_id[0]}}</span>
+                                <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                             </div>
                             <div class="form-group">
                                 <label>内容:<span class="error">*</span></label>
                                     <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
-                                    <span v-if="errors.body" class="error">{{errors.body[0]}}</span>
+                                    <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
                             <div class="form-group">
                                 <label class="">メディア:</label>
                                 <div>
-                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();">
+                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" ref="fileInput">
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="row" id="image_preview"></div>
+                                    <div class="row" id="image_preview">
+                                        <div class='col-md-2' v-if="upload_img">
+                                            <span class='img-close-btn' v-on:click="removeUpload()">X</span>
+                                            <img :src="upload_img" class="show-news-img">
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -83,14 +88,13 @@
                             <input type="hidden" v-model="checkedNews">
 
                             <div class="form-group">
-
                                 <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
-                                <button class="btn news-post-btn all-btn" type="submit"> ニュースを投稿する</button>
+                                <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
                             </div>
                         </form>
                     </div>
                 </div>
-                <!-- {{ categories }} -->
+                <!-- {{ related_news }} -->
             </div>
         </div>
     </div>
@@ -100,7 +104,12 @@
         data() {
                 return {
                     category_id: '-1',
-                    errors: [],
+                    errors: {
+                        title: "",
+                        main_point: "",
+                        body: "",
+                        category_id: "",
+                    },
                     news: {
                         title: '',
                         main_point: '',
@@ -117,7 +126,8 @@
                     },
                     category_id_1: '1',
                     related_news: [],
-                    checkedNews: []
+                    checkedNews: [],
+                    upload_img: null,
                 }
             },
             created() {
@@ -128,13 +138,24 @@
                 this.getPostsByCatId();
             },
             methods: {
-                preview_image() {
-                        $('#image_preview').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-news-img'></div>");
-                        this.news.image = event.target.files[0]
+                    preview_image(e) {
+                        // $('#image_preview').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-news-img'></div>");
+                        this.news.image = event.target.files[0];
+                        this.upload_img = URL.createObjectURL(event.target.files[0]);
                     },
-                    add() {
+                    removeUpload(e) {
+                        this.news.image = '';
+                        this.upload_img = '';
+                        this.reset();
+                    },
+                    reset() {
+                        const input = this.$refs.fileInput;
+                        input.type = 'text';
+                        input.type = 'file';
+                    },
+                        add() {
                         let fData = new FormData();
-                        fData.append('image', this.news.image)
+                        fData.append('photo', this.news.image)
                         fData.append('title', this.news.title)
                         fData.append('main_point', this.news.main_point)
                         fData.append('body', this.news.body)
@@ -147,11 +168,11 @@
                                 })
                             }).catch(error=>{
 
-                    if(error.response.status == 422){
+                            if(error.response.status == 422){
 
-                        this.errors = error.response.data.errors
-                    }
-                })
+                                this.errors = error.response.data.errors
+                            }
+                        })
                     },
                     getstates: function() {
                         this.news.category_id = this.category_id;
@@ -164,6 +185,36 @@
                             this.related_news = response.data;
                         });
                     },
+                checkValidate() {
+                    if (this.news.title) {
+                        this.errors.title = "";
+                    } else {
+                        this.errors.title = "ニュースの題名が必須です。";
+                    }
+                    if (this.news.main_point) {
+                        this.errors.main_point = "";
+                    } else {
+                        this.errors.main_point = "ニュースの題名が必須です。";
+                    }
+                    if (this.news.body) {
+                        this.errors.body = "";
+                    } else {
+                        this.errors.body = "ニュースの題名が必須です。";
+                    }
+                    if (this.news.category_id) {
+                        this.errors.category_id = "";
+                    } else {
+                        this.errors.category_id = "ニュースの題名が必須です。";
+                    }
+                    if (
+                        !this.errors.title &&
+                        !this.errors.main_point &&
+                        !this.errors.body &&
+                        !this.errors.category_id
+                    ) {
+                        this.add();
+                    }
+                },
             }
     }
 </script>

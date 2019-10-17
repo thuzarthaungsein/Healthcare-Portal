@@ -23,13 +23,13 @@
 
 
 <!-- <script src="{{ asset('js/vue.js') }}"></script> -->
-
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
 
 
 
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script> -->
-<!-- <script src="https://maps.google.com/maps/api/js?key=AIzaSyCNpeRgwCQoHIlLn-X8TIB9SnO8iLPt808&callback=initMap" async defer></script> -->
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw&callback=initMap" async defer></script>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
@@ -54,6 +54,26 @@
         .bg-light {
             background-color: #eae9e9 !important;
         }
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #ff6117;
+            color: transparent;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            background: url(../images/top-arrow.png) no-repeat left center;          
+        }
+
+        #myBtn:hover {
+            background: url(../images/top-arrow.png) no-repeat left center;
+        }
     </style>
 <!-- link for editor -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
@@ -61,7 +81,7 @@
 </head>
 
 <body>
-
+    <button onclick="topFunction()" id="myBtn">Top</button>
 <div id="app">
 
     <div class="main-content pad-free">
@@ -172,6 +192,8 @@
                 <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;事業者</router-link></li>
 
                 <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;カテゴ一覧</router-link></li>
+
+                <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li>
 
                 <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;&nbsp;施設一覧</router-link></li>
                 <li><router-link to="/typelist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;&nbsp;事業者 タイプ</router-link></li>
@@ -446,6 +468,8 @@
                     <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
+
+                    <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li>
 
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;施設一覧</router-link></li>
                     <li><router-link to="/typelist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;事業者 タイプ</router-link></li>
@@ -733,6 +757,24 @@
 <script type="text/javascript">
 
  $(document).ready(function() {
+     /*added for back to top*/
+     var mybutton = document.getElementById("myBtn");
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+            function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        topFunction = function () {           
+            // document.body.scrollTop = 0;
+            // document.documentElement.scrollTop = 0;
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+	            return false;          
+        }        
 
     $("#hos-his-local").html(localStorage.getItem("hospital_history").split(",").length);
     $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
@@ -767,7 +809,7 @@
             $(".side-ad-slider").html(side_ad);
             // jssor_slider2_init();
         }
-    });
+    });    
 });
 </script>
 </body>
