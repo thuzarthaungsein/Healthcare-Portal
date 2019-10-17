@@ -39,19 +39,21 @@ class TypeController extends Controller
     }
 
     public function store(Request $request)
-    {    
-       
+    {
+
+
         $request->validate([
             'name' => 'required|unique:types',
 
 
         ],[
             'name.required'=>'名前が必須です。',
+            'name.unique'=>'名前はすでに使用されています。',
         ]);
-      
 
-        if( $request->parent != null) 
-        { 
+
+        if( $request->parent != null)
+        {
             $type = new Type();
             $type->name = $request->input('name');
             $type->user_id = 1;
@@ -59,7 +61,7 @@ class TypeController extends Controller
             $type ->recordstatus = 1;
         }
         else if( $request->parent == null)
-        {       
+        {
             $type = new Type();
             $type->name = $request->input('name');
             $type->user_id = 1;

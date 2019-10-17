@@ -1,17 +1,17 @@
 <template>
   <div class="row">
     <div class="col-12">
-      <div class="row m-b-10" v-if="this.stations.length !== 0">
+      <div class="row m-b-10" v-if="norecord !== 0">
         <div class="col-md-12">
           <router-link to="/createstation" class="float-right main-bg-color create-btn all-btn">
             <i class="fas fa-plus-circle"></i> 新しいステーションを作成する
           </router-link>
         </div>
       </div>
-     
+
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="col-md-12 scrolldiv">
-          <div v-if="stations == 0" class="card card-default card-wrap">
+          <div v-if="norecord == 0" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -70,13 +70,15 @@
 export default {
   data() {
     return {
-      stations: []
+      stations: [],
+      norecord:0,
     };
   },
 
   created() {
     this.axios.get("/api/station/stations").then(response => {
       this.stations = response.data;
+      this.norecord = this.stations.length;
     });
     this.axios.get("/api/user").then(response => {
       // console.log(response);
@@ -102,9 +104,11 @@ export default {
         this.axios
           .delete(`/api/station/delete/${id}`)
           .then(response => {
+              this.stations = response.data;
+              this.norecord = this.stations.length;
             //alert('Delete Successfully!');
-            let i = this.stations.map(item => item.id).indexOf(id); // find index of your object
-            this.stations.splice(i, 1);
+            // let i = this.stations.map(item => item.id).indexOf(id); // find index of your object
+            // this.stations.splice(i, 1);
             this.$swal({
               title: "削除された",
               text: "ファイルが削除されました。",

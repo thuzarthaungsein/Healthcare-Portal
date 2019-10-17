@@ -70,7 +70,7 @@
                                 <td class="width17" style="border:none;"> <label class="heading-lbl pad-free">特長<span class="error">*</span></label></td>
                                 <td style="border:none;">
                                         <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
-                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"/>
+                                        <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
                                         
                                 </td>
                         </tr>
@@ -588,7 +588,7 @@ export default {
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
-                
+                type:'',
                 title:[], v_title:[],
                 description:[], v_description:[],
                 img:[],
@@ -619,10 +619,7 @@ export default {
         mounted() {
         document.getElementById('btn_click').click();
         },
-        props:{
-                cusid:Number,
-                type:String,
-        },
+        
         created(){
                 if(this.type != undefined && this.cusid!= undefined){
                         localStorage.setItem('cusType',this.type);
@@ -639,19 +636,19 @@ export default {
                 });
 
                 this.axios
-                .get('/api/customerinfo/'+this.cusid)
+                .get('/api/customerinfo/'+this.id)
                 .then(response=>{
                         this.customer_info = response.data;
                 });
 
                 this.axios
-                .get('/api/nursinginfo/'+this.cusid)
+                .get('/api/nursinginfo/'+this.id)
                 .then(response=>{
                         this.nursing_info = response.data;
                 });
 
                 this.axios
-                .get('/api/staffinfo/'+this.cusid)
+                .get('/api/staffinfo/'+this.id)
                 .then(response=>{
                         this.staff_info = response.data;
 
@@ -664,38 +661,38 @@ export default {
                 });
 
                 this.axios
-                .get('/api/medical/acceptancewithtransactions/'+this.cusid)
+                .get('/api/medical/acceptancewithtransactions/'+this.id)
                 .then(response => {
                         this.medical_acceptance = response.data;
                 });
 
                 this.axios
-                .get('/api/feature/'+this.profile_type+'/'+this.cusid)
+                .get('/api/feature/'+this.profile_type+'/'+this.id)
                 .then(response=>{
 
                         this.feature_list = response.data;
                 });
 
                 this.axios
-                .get('/api/nursing-pgallery/'+this.cusid)
+                .get('/api/nursing-pgallery/'+this.id)
                 .then(response=>{
                         this.img_arr = response.data;
                 });
 
                 this.axios
-                .get('/api/nursing-vgallery/'+this.cusid)
+                .get('/api/nursing-vgallery/'+this.id)
                 .then(response=>{
                         this.video_arr = response.data;
                 });
 
                 this.axios
-                .get('/api/nursing-cooperate/'+this.cusid)
+                .get('/api/nursing-cooperate/'+this.id)
                 .then(response=>{
                         this.cooperate_arr = response.data;
                 });
 
                 this.axios
-                .get('/api/nursing-payment/'+this.cusid)
+                .get('/api/nursing-payment/'+this.id)
                 .then(response=>{
                         this.payment_arr = response.data;
                 });
@@ -705,7 +702,12 @@ export default {
 
         },
         methods: {
-
+                onEditorBlur(quill) {
+        console.log('editor blur!', quill)
+      },
+      onEditorFocus(quill) {
+        console.log('editor focus!', quill)
+      },
             maptogglediv() {
                     $(".map-toggle-div").toggle('medium');
                    this.isRotate5 = !this.isRotate5;
@@ -978,7 +980,7 @@ export default {
 
                 if(this.gallery_list.length > 0) {
                         this.axios
-                                .post(`/api/nursing/galleryupdate/${this.cusid}`,this.gallery_list)
+                                .post(`/api/nursing/galleryupdate/${this.id}`,this.gallery_list)
                                 .then((response) => {
 
                                 }).catch(error=>{
@@ -993,7 +995,7 @@ export default {
 
                 if(this.cooperate_list.length > 0) {
                         this.axios
-                                .post(`/api/nursing/cooperate/${this.cusid}`,this.cooperate_list)
+                                .post(`/api/nursing/cooperate/${this.id}`,this.cooperate_list)
                                 .then((response) => {
 
                                 }).catch(error=>{
@@ -1008,7 +1010,7 @@ export default {
 
                 if(this.payment_list.length > 0) {
                         this.axios
-                                .post(`/api/nursing/paymentmethod/${this.cusid}`,this.payment_list)
+                                .post(`/api/nursing/paymentmethod/${this.id}`,this.payment_list)
                                 .then((response) => {
 
                                 }).catch(error=>{
@@ -1023,7 +1025,7 @@ export default {
 
                 if(this.profile_arr.length > 0) {
                         this.axios
-                                .post(`/api/nursing/profile/${this.cusid}`,this.profile_arr)
+                                .post(`/api/nursing/profile/${this.id}`,this.profile_arr)
                                 .then((response) => {
 
                                 }).catch(error=>{
@@ -1039,7 +1041,7 @@ export default {
                 if(this.customer_info.length > 0) {
                         // check
                         this.axios
-                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
+                                .post(`/api/customer/profile/${this.id}`,this.customer_info)
                                 .then((response) => {
 
                                 }).catch(error=>{
@@ -1068,7 +1070,7 @@ export default {
 
                 if(acceptance.length > 0) {
                         this.axios
-                                .post(`/api/acceptance/transactions/${this.cusid}`,acceptance)
+                                .post(`/api/acceptance/transactions/${this.id}`,acceptance)
                                 .then((response) => {
                         
                                 }).catch(error=>{

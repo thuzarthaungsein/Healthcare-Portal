@@ -13,6 +13,7 @@
           <li>送信完了</li>
         </ul>
         <form class="col-md-12 form-wrap">
+          <input type="hidden" v-model="jobApply.job_id" >
           <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
               <label for="first_name">
@@ -442,6 +443,7 @@ export default {
       },
 
       jobApply: {
+        job_id: "",
         first_name: "",
         last_name: "",
         birthday: "",
@@ -467,6 +469,7 @@ export default {
     };
   },
   created() {
+    this.jobApply.job_id = this.$route.params.job_id;
     this.axios.get("/api/getskill").then(response => {
       this.Job.fields = response.data;
     });

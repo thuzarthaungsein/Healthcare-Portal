@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 43af515d1c3f1f954478b3099c9db3bf47856651
 <template>
   <!-- Page Content  -->
   <div class="row">
@@ -298,7 +302,7 @@
                 <label for="salary">職業:</label>
 
                 <select v-model="selectedValue" class="form-control" @change="getParent()">
-                  <option value="0">職業を選択してください。</option>
+                  <option value="0">なし</option>
 
                   <option
                     v-for="occupation in OccupationList"

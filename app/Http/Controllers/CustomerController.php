@@ -135,12 +135,12 @@ class CustomerController extends Controller
         
         $getCustomer = Customer::findOrFail($id);
         $checkUser = User::where('email',$getCustomer->email)->select('email')->value('email');
-        $getUserId = User::where('email',$getCustomer->email)->value('id');
+        // $getUserId = User::where('email',$getCustomer->email)->value('id');
         $comfirmUser =  auth('api')->user()->id;
-        if(!empty($checkUser)){
-            
+        if(!empty($checkUser)){            
             return response()->json('user is already confirm!');
         }else{
+            \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
            
             $data = array(
                 'name'=>$getCustomer->name,
@@ -153,28 +153,27 @@ class CustomerController extends Controller
             DB::table('users')->insert($data);
             $insert = array(
                 'customer_id' => $getCustomer->id
-               );
-            if($getCustomer->type_id == 1){
-                
+               );            
+            $lastid = User::where('email',$getCustomer->email)->select('id')->value('id'); //user table last id
+            $model_has_roles = array(
+                'role_id'=>2,
+                'model_type'=> 'App\User',
+                'model_id'=> $lastid,
+            );
+            if($getCustomer->type_id == 1){                
                 \DB::table('hospital_profiles')->insert($insert);
             }else{
                 \DB::table('nursing_profiles')->insert($insert);
             }  
-            $id = $id = DB::getPdo()->lastInsertId();
-            $model_has_roles = array(
-                'role_id'=>2,
-                'model_type'=> 'App\User',
-                'model_id'=> $id,
-            );
            DB::table('model_has_roles')->insert($model_has_roles);
-            \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
-            $customer = Customer::find($id);
-            $customer->status = 1; 
-            $customer->confirm_user_id = $comfirmUser;
-            $customer->user_id = $getUserId;
-            $customer->save();
+            
+            $cus = Customer::find($id);
+            $cus->status = 1; 
+            $cus->confirm_user_id = $comfirmUser;
+            $cus->user_id = $lastid;
+            $cus->save();
 
-             return response()->json('success');
+            return response()->json('success');
         }
     }
 

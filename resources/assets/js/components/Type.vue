@@ -23,7 +23,7 @@
                     <span class="error">*</span>
                   </label>
                   <select v-model="selectedValue" class="form-control" @change="getParent()">
-                    <option value="0">ペアレントを選択してください。</option>
+                    <option value="0">なし</option>
                     <option
                       v-for="typelist in TypeList"
                       :key="typelist.id"
@@ -96,55 +96,87 @@ export default {
       if (this.$route.params.id) {
         this.updateType();
       } else {
-        this.axios
-          .post("/api/types/add", this.Type)
-          .then(response => {
-            this.name = "";
-            console.log(response);
-            this.$swal({
-              position: "top-end",
-              type: "success",
-              title: "作成されました",
-              showConfirmButton: false,
-              timer: 1800,
-              width: 250,
-              height: 200
+        this.$swal({
+          title: "確認",
+          text: "作成よろしいでしょうか",
+          type: "warning",
+          width: 350,
+          height: 200,
+          showCancelButton: true,
+          confirmButtonColor: "#dc3545",
+          cancelButtonColor: "#b1abab",
+          cancelButtonTextColor: "#000",
+          cancelButtonText: "キャンセル",
+          confirmButtonText: "作成",
+          confirmButtonClass: "all-btn",
+          cancelButtonClass: "all-btn"
+        }).then(response => {
+          this.axios
+            .post("/api/types/add", this.Type)
+            .then(response => {
+              this.name = "";
+              console.log(response);
+              this.$swal({
+                position: "top-end",
+                type: "success",
+                title: "作成されました",
+                text: "ファイルが作成されました。",
+                type: "success",
+                width: 350,
+                height: 200,
+                confirmButtonText: "はい",
+                confirmButtonColor: "#dc3545"
+              });
+              // alert('Successfully Created')
+              this.$router.push({ name: "typelist" });
+            })
+            .catch(error => {
+              if (error.response.status == 422) {
+                this.errors = error.response.data.errors;
+              }
             });
-            // alert('Successfully Created')
-            this.$router.push({ name: "typelist" });
-          })
-          .catch(error => {
-            if (error.response.status == 422) {
-              this.errors = error.response.data.errors;
-            }
-          });
+        });
       }
     },
     getParent: function() {
       this.Type.parent = this.selectedValue;
     },
     updateType() {
-      this.axios
-        .post(`/api/types/update/${this.$route.params.id}`, this.Type)
-        .then(response => {
-          // this.name = ''
-          //   alert('Successfully Updated!')
-          this.$swal({
-            position: "top-end",
-            type: "success",
-            title: "作成されました",
-            showConfirmButton: false,
-            timer: 1800,
-            width: 250,
-            height: 200
+      this.$swal({
+        title: "確認",
+        text: "更新よろしいでしょうか",
+        type: "warning",
+        width: 350,
+        height: 200,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#b1abab",
+        cancelButtonTextColor: "#000",
+        cancelButtonText: "キャンセル",
+        confirmButtonText: "更新",
+        confirmButtonClass: "all-btn",
+        cancelButtonClass: "all-btn"
+      }).then(response => {
+        this.axios
+          .post(`/api/types/update/${this.$route.params.id}`, this.Type)
+          .then(response => {
+            this.types = response.data;
+            this.norecord = this.types.length;
+            this.$swal({
+              title: "更新された",
+              text: "ファイルが更新されました。",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#dc3545"
+            });
+            this.$router.push({ name: "typelist" });
+          })
+          .catch(() => {
+            this.$swal("Failed", "wrong");
           });
-          this.$router.push({ name: "typelist" });
-        })
-        .catch(error => {
-          if (error.response.status == 422) {
-            this.errors = error.response.data.errors;
-          }
-        });
+      });
     }
   }
 };
