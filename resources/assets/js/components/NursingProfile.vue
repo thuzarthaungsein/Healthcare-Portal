@@ -28,7 +28,7 @@
                                                                         <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
                                                                         <div class="col-md-12 m-b-10" v-bind:class="img.classname">
                                                                                 <input type="hidden" class="already-photo" v-model="img.photo">
-                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo">
+                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" id="already-photo">
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-md-12">
@@ -448,7 +448,7 @@
                                                                  <label for="">備考</label>
                                                         </td>
                                                         <td>
-                                                               <quill-editor  ref="myQuilEditor" name="" :options="editorOption" class="nursing-remarks" v-model="staff_info.remarks"/>
+                                                               <quill-editor  ref="myQuilEditor" name="" :options="editorOption" @change="onNursingEditorChange($event)" class="nursing-remarks" v-model="staff_info.remarks"/>
                                                         </td>
                                                 </tr>
                                         </table>
@@ -473,7 +473,7 @@
                                                 <div class="row">
                                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
                                                                 <label>
-                                                                 <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked">
+                                                                 <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
                                                                         {{feat.name}}
                                                                 </label>
                                                          </div>
@@ -500,13 +500,34 @@
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                                         <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" class="customer-address" v-model="customer_info.address"/>
                                                 </div>
+
+                                                <!-- Test Station Area -->
+                                                <table class="table table-bordered table-wrapper">
+                                                        <tr>
+                                                                <td>
+                                                                        <div class="form-group">
+                                                                                <label  class="heading-lbl col-2 pad-free">駅</label>
+                                                                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="StationAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
+                                                                                <div class="col-md-10 float-right station-toggle-div toggle-div m-t-10">
+                                                                                        <div class="row">
+                                                                                                <div v-for="stat in station_list" :key="stat.id" class="col-md-3 m-b-20">
+                                                                                                        <label>
+                                                                                                                <input type="checkbox"  name="station" v-bind:value="stat.id" @click="featureCheck(stat.id)" v-model="stat.checked">
+                                                                                                                {{stat.name}}
+                                                                                                        </label>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </td>
+                                                        </tr>
+                                                </table>
+                                                <!-- End Test Station Area -->
+
                                                 <div class="form-group">
                                                         <label>交通 / アクセス<span class="error">*</span></label>
                                                         <textarea name="address" rows="10"  class="form-control transporation-access" v-model="nursing_info.access"></textarea>
                                                         <!-- <quill-editor id="quill-focus" ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/> -->
-                                                </div>
-                                                <div class="form-group" hidden>
-                                                         <quill-editor  ref="myQuilEditor"  name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption"/>
                                                 </div>
                                                 
                                         </div>
@@ -562,7 +583,8 @@ export default {
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
                 profile_type:'nursing',
-                profile_arr:[],staf_info:[],customer_info:[], test:'',
+                profile_arr:[],staff_info:[],customer_info:[], test:'',
+                station_list:[],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -588,6 +610,7 @@ export default {
                 feature_val: '',
                 acceptance_remark_val: '',
                 nursing_remarks_val: '',
+                residence_form_val: '',
                 // customer_address_val: '',
                 // transporation_access_val: '',
           }
@@ -602,17 +625,19 @@ export default {
         },
         created(){
                 if(this.type != undefined && this.cusid!= undefined){
-
                         localStorage.setItem('cusType',this.type);
-
                         localStorage.setItem('cusId',this.cusid);
-
                 }
 
                 this.type = localStorage.getItem('cusType');
                 this.cusid = Number(localStorage.getItem('cusId'));
                 
-                // $('#quill-focus').focusout();
+                this.axios
+                .get('/api/station/'+this.cusid)
+                .then(response=>{
+                        this.station_list = response.data;
+                });
+
                 this.axios
                 .get('/api/customerinfo/'+this.cusid)
                 .then(response=>{
@@ -676,6 +701,8 @@ export default {
                 });
 
 
+
+
         },
         methods: {
 
@@ -698,10 +725,13 @@ export default {
             featureCheck(check_id) {
                     $('.feature-'+check_id).attr('checked','true');
             },
+            stationCheck(check_id) {
+                    $('.station-'+check_id).attr('checked','true');
+            },
             preview_image(img_class) {
+                document.getElementById('already-photo').src= URL.createObjectURL(event.target.files[0]);
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
                 this.test = event.target.files[0]
-                //console.log(this.test);return;
             },
 
             DeltArr(indx,type) {
@@ -757,6 +787,10 @@ export default {
                      $(".special-feature-toggle-div").toggle('medium');
                      this.isRotate4 = !this.isRotate4;
             },
+            StationAdd() {
+                     $(".station-toggle-div").toggle('medium');
+                     this.isRotate4 = !this.isRotate4;
+            },
             onDrop: function(e) {
                         e.stopPropagation();
                         e.preventDefault();
@@ -796,6 +830,10 @@ export default {
                         // console.log('editor change!', editor, html, text)
                         this.acceptance_remark_val = html
                 },
+                onResidenceEditorChange({ editor, html, text }) {
+                        // console.log('editor change!', editor, html, text)
+                        this.residence_form_val = html
+                },
 
             createProfile() {
 
@@ -804,7 +842,7 @@ export default {
                 this.cooperate_list = [];
                 this.payment_list = [];
                 this.customer_info = [];
-                this.staf_info = [];
+                this.staff_info = [];
                 this.acceptance = [];
 
                 var customer_name = $('.customer-name').val();
@@ -823,7 +861,7 @@ export default {
                 var construction = $('.construction').val();
                 var capacity = $('.capacity').val();
                 var num_rooms = $('.num-rooms').val();
-                var residence_form = $('.residence-form').val();
+                // var residence_form = $('.residence-form').val();
                 var fac_type = $('.fac-type').val();
                 var occupancy_condition = $('.occupancy-condition').val();
                 var room_floor = $('.room-floor').val();
@@ -834,18 +872,19 @@ export default {
                 var longitude = $('#new_long').val();
                 var website = $('.website').val();
                 // var feature = this.feature;
+                // var feature = $('.feature').val();
 
-                var staff = $('.staff').text();
-                var nursing_staff = $('.nursing-staff').text();
-                var min_num_staff = $('.min-num-staff').text();
-                var num_staff = $('.num-staff').text();
-                // var nursing_remarks = $('.nursing-remarks').text();
+                var staff = $('.staff').val();
+                var nursing_staff = $('.nursing-staff').val();
+                var min_num_staff = $('.min-num-staff').val();
+                var num_staff = $('.num-staff').val();
+                // var nursing_remarks = $('.nursing-remarks').val();
 
                 this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
-                this.staf_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
+                this.staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
 
-
+                console.log(this.staff_info);
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
                         var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
@@ -905,15 +944,20 @@ export default {
                 }
 
 
-               var chek_feature=[];
-               var special_features;
-
+                var chek_feature=[];
+                var special_features;
                 $.each($("input[name='special-features']:checked"), function(){
-                        var i = i+ 0;
                         chek_feature.push($(this).val());
                 });
 
-               var acceptance=[];
+                var chek_station=[];
+                var stations;
+                $.each($("input[name='station']:checked"), function(){
+                        chek_station.push($(this).val());
+                });
+                stations = chek_station.join(',');
+
+                var acceptance=[];
                 $.each($("input[class='medical-acceptance']:checked"), function(){
                         var accept_val = $(this).val();
                         var tmp_arr = accept_val.split('-');
@@ -926,8 +970,8 @@ export default {
 
                 special_features = chek_feature.join(',');
 
-                this.profile_arr.push({feature:this.feature_val,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
-                                        site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:residence_form,fac_type:fac_type,
+                this.profile_arr.push({feature:this.feature_val,stations:stations,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                                        site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
                 this.gallery_list = this.img_list.concat(this.video_list);
@@ -940,7 +984,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.gallery_list = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -955,7 +999,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.cooperate_list = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -970,7 +1014,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.payment_list = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -985,7 +1029,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.profile_arr = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -1001,24 +1045,23 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
+                                this.customer_info = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
                         }) ;
                 }
-
-                if(this.staf_info.length > 0) {
+                if(this.staff_info.length > 0) {
                         this.axios
-                                .post(`/api/staff/profile/${this.cusid}`,this.staf_info)
+                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info)
                                 .then((response) => {
+                                        console.log(response.data);
 
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-
-                                this.errors = error.response.data.errors
-
+                                        this.staff_info = 'error';
+                                        this.errors = error.response.data.errors
                                 }
                         }) ;
                 }
@@ -1027,12 +1070,17 @@ export default {
                         this.axios
                                 .post(`/api/acceptance/transactions/${this.cusid}`,acceptance)
                                 .then((response) => {
-                                         alert('Successfully Updated!');
+                        
                                 }).catch(error=>{
                                         if(error.response.status == 422) {
+                                                acceptance = 'error';
                                                 this.errors = error.response.data.errors
                                         }
                         }) ;
+                }
+
+                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info  != 'error' && this.staff_info  != 'error' &&  acceptance!= 'error') {
+                        alert('Nursing Profile is Succcessfully Updated');
                 }
             }
         }
