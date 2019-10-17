@@ -249,8 +249,8 @@
                                             <div class="list-group-item list-group-item-action bd1" v-if="tran_show || address_show" style="height:50px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
                                         </div>
                                         <div class="bd" v-for="min_max in nur_profile.minmax" :key="min_max.id">
-                                            <div class="list-group-item list-group-item-action" v-if="month_show" style="height:50px;border:none;color:#ff6117;font-size:large;"><strong>{{min_max.smallestCost}}~{{min_max.largeCost}}</strong></div>
-                                            <div class="list-group-item list-group-item-action bd1" v-if="entry_show" style="height:100px;color:#ff6117;font-size:large;"><strong>2,929.7万円～3,094.7万円</strong></div>
+                                            <div class="list-group-item list-group-item-action" v-if="month_show" style="height:50px;border:none;color:#ff6117;font-size:large;"><strong>{{nur_profile.per_month}}</strong></div>
+                                            <div class="list-group-item list-group-item-action bd1" v-if="entry_show" style="height:100px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in}}</strong></div>
                                             <div class="list-group-item list-group-item-action bd1" v-if="entry_show || month_show" style="height:50px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
                                         </div>
                                         <div v-if="condition_show" class="list-group-item list-group-item-action" style="height:166px;">{{nur_profile.occupancy_condition }}</div>

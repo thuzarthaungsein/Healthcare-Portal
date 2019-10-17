@@ -46,7 +46,7 @@ class HospitalProfileController extends Controller
     }
 
     function getFavouriteNursing($local_sto) {
-        $query = "SELECT nursing_profiles.* ,'' AS payment_method,'' AS minmax, staffs.nursing_staff,customers.name, customers.email, customers.address, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
+        $query = "SELECT nursing_profiles.* ,'' AS payment_method, staffs.nursing_staff,customers.name, customers.email, customers.address, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
                     JOIN customers ON nursing_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
                     JOIN staffs ON staffs.customer_id = nursing_profiles.customer_id
