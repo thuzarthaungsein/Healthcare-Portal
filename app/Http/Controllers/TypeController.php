@@ -20,16 +20,16 @@ class TypeController extends Controller
 
         $typelist = Type::select('id','name')->get()->toArray();
 
-        return $typelist;
+        return response()->json($typelist);
     }
 
-    public function getParent()
-    {
+    // public function getParent()
+    // {
 
-        $typelist = Type::select('id','name')->get()->toArray();
+    //     $typelist = Type::select('id','name')->get()->toArray();
 
-        return $typelist;
-    }
+    //     return $typelist;
+    // }
 
 
 
@@ -39,29 +39,25 @@ class TypeController extends Controller
     }
 
     public function store(Request $request)
-    {
-
-        
+    {    
+       
         $request->validate([
             'name' => 'required|unique:types',
 
 
         ]);
+      
 
-        if( $request->parent != null)
-        {
-           
+        if( $request->parent != null) 
+        { 
             $type = new Type();
             $type->name = $request->input('name');
             $type->user_id = 1;
             $type ->parent = $request->parent;
             $type ->recordstatus = 1;
-
         }
         else if( $request->parent == null)
-        {
-            
-            
+        {       
             $type = new Type();
             $type->name = $request->input('name');
             $type->user_id = 1;
@@ -69,7 +65,7 @@ class TypeController extends Controller
             $type ->recordstatus = 2;
 
         }
-      
+
         $type->save();
 
         return $type;
@@ -89,7 +85,7 @@ class TypeController extends Controller
     }
 
 
-    public function update($id, Request $request)   
+    public function update($id, Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -111,8 +107,8 @@ class TypeController extends Controller
             $type ->recordstatus = 2;
             $type->save();
         }
-      
-       
+
+
         // $type->update($request->all());
 
         return response()->json('The Type successfully updated');
@@ -122,7 +118,9 @@ class TypeController extends Controller
     {
         $type = Type::find($id);
         $type->delete();
-        return response()->json('The Type was successfully deleted');
+        // return response()->json('The Type was successfully deleted');
+        $types = Type::all()->toArray();
+        return $types;
     }
 
     public function search(Request $request)

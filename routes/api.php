@@ -26,6 +26,9 @@ Route::group(['middleware' => ['auth']], function() {
 // public route api start
 
     Route::post('getmap/{id}','SearchMapController@getMap');
+    Route::get('getjobsearch','SearchMapController@getJobSearch');   
+    Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
+    
     Route::get('getCity','SearchMapController@getCity');
 
 // public route api end
@@ -100,6 +103,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('add', 'JobController@store');
         Route::get('index', 'JobController@index');
         Route::get('edit/{id}', 'JobController@edit');
+        Route::get('occupationlist', 'JobController@getOccupationList');
         Route::post('update/{id}', 'JobController@update');
         Route::delete('delete/{id}', 'JobController@destroy');
         Route::post('search', 'JobController@search');
@@ -179,7 +183,7 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('hospital/{cusid}','ProfilePublishController@hospitalProfile');
     Route::get('specialfeature/{type}/{cusid}','ProfilePublishController@getSpecialfeature');
     Route::get('comment/{cusid}','ProfilePublishController@getComment');
-    Route::get('customer/{cusid}','ProfilePublishController@getCustomer');
+    Route::get('customer/{cusid}/{type}','ProfilePublishController@getCustomer');
     Route::get('schedule/{cusid}','ProfilePublishController@getSchedule');
     // Route::get('hosfacility','ProfilePublishController@getHosfacilities');
     Route::get('subject/{cusid}','ProfilePublishController@getSubject');
