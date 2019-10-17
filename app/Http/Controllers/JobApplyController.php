@@ -68,6 +68,7 @@ class JobApplyController extends Controller
             $jobapply->email = $request->email;
             $jobapply->skill = $string;
             $jobapply->remark = $request->remark;
+
             //  return $jobapply;
             $infos = DB::table('jobs')
                             ->join('customers', 'customers.id', '=', 'jobs.customer_id')
@@ -84,7 +85,7 @@ class JobApplyController extends Controller
                 $job_working_hours = $info->working_hours;
                 $customer_mail = $info->email;
             }
-            
+
             $admin_email = 'softguide.sawnwaiyannaing@gmail.com';
              $jobapply->save();
              $jobapply->job_title = $job_title;
@@ -97,7 +98,6 @@ class JobApplyController extends Controller
              \Mail::to($customer_mail)->send(new jobApplyMailToCustomer($jobapply));
              \Mail::to($jobapply->email)->send(new jobApplyMailToUser($jobapply));
              \Mail::to($admin_email)->send(new jobApplyMailToAdmin($jobapply));
-
              return response()->json('Apply successfully ');
 
     }

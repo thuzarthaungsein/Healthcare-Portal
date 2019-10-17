@@ -50,7 +50,7 @@ class PostController extends Controller
                     'user_id' => 1,
                     'recordstatus' => 1
                 ]);
-        
+
         $post->save();
 
         // return response()->json('The New successfully added');
@@ -133,7 +133,7 @@ class PostController extends Controller
         if($request->old_photo == ' ' || $request->old_photo == null ){
             if(is_object($request->photo)) {
                 $file= $post->photo;
-                $filename = public_path().'/upload/news/'.$file;
+                $filename = './upload/news/'.$file;
                 \File::delete($filename);
                 $imageName = $request->photo->getClientOriginalName();
                 $imageName = str_replace(' ', '', $imageName);
@@ -147,7 +147,7 @@ class PostController extends Controller
         else {
             if(is_object($request->photo)) {
                 $file= $post->photo;
-                $filename = public_path().'/upload/news/'.$file;
+                $filename ='./upload/news/'.$file;
                 \File::delete($filename);
                 $imageName = $request->photo->getClientOriginalName();
                 $imageName = str_replace(' ', '', $imageName);
@@ -155,7 +155,7 @@ class PostController extends Controller
             }
             else {
                 $file= $post->photo;
-                $filename = public_path().'/upload/news/'.$file;
+                $filename ='./upload/news/'.$file;
                 \File::delete($filename);
                 $imageName = '';
             }
@@ -170,8 +170,8 @@ class PostController extends Controller
             'user_id' => 1,
             'recordstatus' => 1
         );
-        
-        
+
+
         $post->update($formData);
         return response()->json('The news successfully updated');
     }
@@ -186,10 +186,12 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $file= $post->photo;
-        $filename = public_path().'/upload/news/'.$file;
+        $filename = './upload/news/'.$file;
         \File::delete($filename);
         $post->delete();
-        return response()->json('The news post successfully deleted');
+        $posts = Post::all()->toArray();
+        return $posts;
+        // return response()->json('The news post successfully deleted');
     }
 
     public function search(Request $request)
@@ -223,8 +225,8 @@ class PostController extends Controller
 
     public function searchPost($search_word) {
         // $sql = "SELECT GROUP_CONCAT(post.id) as id , GROUP_CONCAT(post.title) as title, GROUP_CONCAT(post.photo) as photo, cate.name as name, post.category_id as cat_id from posts post join categories cate on cate.id = post.category_id where post.title LIKe '%{$search_word}%' group by post.category_id";
-        $sql = "SELECT categories.name, posts.title, posts.id as pid, posts.photo 
-        FROM posts INNER JOIN categories ON categories.id = posts.category_id 
+        $sql = "SELECT categories.name, posts.title, posts.id as pid, posts.photo
+        FROM posts INNER JOIN categories ON categories.id = posts.category_id
         WHERE posts.title LIKe '%{$search_word}%'";
         $posts = DB::select($sql);
         return $posts;
