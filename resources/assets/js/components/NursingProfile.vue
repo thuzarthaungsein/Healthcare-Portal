@@ -1003,20 +1003,20 @@ export default {
                         }) ;
                 }
 
-                // if(this.cooperate_list.length > 0) {
-                //         this.axios
-                //                 .post(`/api/nursing/cooperate/${this.cusid}`,this.cooperate_list)
-                //                 .then((response) => {
+                if(this.cooperate_list.length > 0) {
+                        this.axios
+                                .post(`/api/nursing/cooperate/${this.cusid}`,this.cooperate_list)
+                                .then((response) => {
 
-                //                 }).catch(error=>{
+                                }).catch(error=>{
 
-                //                 if(error.response.status == 422){
-                //                 this.cooperate_list = 'error';
-                //                 this.errors = error.response.data.errors
+                                if(error.response.status == 422){
+                                this.cooperate_list = 'error';
+                                this.errors = error.response.data.errors
 
-                //                 }
-                //         }) ;
-                // }
+                                }
+                        }) ;
+                }
 
                 if(this.payment_list.length > 0) {
                         this.axios
