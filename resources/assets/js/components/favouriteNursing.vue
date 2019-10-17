@@ -161,14 +161,14 @@
                                     </tr>
                                 </thead>
                                 <tbody v-for="payment in payment_name" :key="payment.id">
-                                    <tr> 
+                                    <tr>
                                         <td>【増税対応済】{{payment.payment_name}}
-                                             <br>
+                                            <br>
                                             <small>[{{payment.living_room_type}}] {{payment.area}}</small>
                                         </td>
                                         <td style="font-size:large;color:#ff6117;">{{payment.expense_moving}}</td>
                                         <td style="font-size:large;color:#ff6117;">{{payment.monthly_fees}}</td>
-                                    </tr>                                                                        
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -177,8 +177,8 @@
             </div>
             <!-- end monthly cost -->
         </div>
-        <div class="row">
-            <div class="list-group col-md-3">
+
+        <!-- <div class="list-group col-md-3">
                 <div class="list-group-item list-group-item-action" style="height:68px;background:#fff9cb;margin-bottom:39px;">
                     <input type="checkbox" class="che1 check-all-btn" @change="checkAll()">
                     <div class="tx1">すべてチェック</div>
@@ -201,119 +201,62 @@
                 <div v-if="capacity_show" class="list-group-item list-group-item-action" style="height:50px;">Nursing_staff</div>
                 <div v-if="opening_show" class="list-group-item list-group-item-action" style="height:70px;">開設日</div>
 
-                <div class="list-group-item list-group-item-action" style="height:68px;background:#fff9cb;">
-                    <input type="checkbox" class="che1 check-all-btn" @change="checkAll()">
-                    <div class="tx1">すべてチェック</div>
+            </div> -->
+
+        <div class="col-12">
+            <div class="row">
+                <div class="card-carousel-wrapper">
+
+                    <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+                    <div class="card-carousel">
+                        <div class="card-carousel--overflow-container">
+                            <div class="card-carousel-cards col-3" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
+                                <div class="card-carousel--card" v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                    <div class="card-carousel--card--footer">
+                                       
+
+                                        <div class="list-group-item list-group-item-action" style="height:349px;width:300px;"><img class="img-fluid" v-bind:src="'/images/' + nur_profile.logo" alt style />
+                                            <br>
+                                            <br>
+                                            <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}">{{nur_profile.name}}</router-link>
+                                            <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
+                                            <label class="btn all-btn secondary-bg-color hos-btn">
+                                                <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>資料請求</label>
+                                        </div>
+                                        <div class="bd">
+                                            <div class="list-group-item list-group-item-action" v-if="address_show" style="height:50px;border:none;">{{nur_profile.township_name}} {{nur_profile.city_name}}</div>
+                                            <div class="list-group-item list-group-item-action bd1" v-if="tran_show" style="height:100px;">{{nur_profile.access }}</div>
+                                            <div class="list-group-item list-group-item-action bd1" v-if="tran_show || address_show" style="height:50px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
+                                        </div>
+                                        <div class="bd" v-for="min_max in nur_profile.minmax" :key="min_max.id">
+                                            <div class="list-group-item list-group-item-action" v-if="month_show" style="height:50px;border:none;color:#ff6117;font-size:large;"><strong>{{min_max.smallestCost}}~{{min_max.largeCost}}</strong></div>
+                                            <div class="list-group-item list-group-item-action bd1" v-if="entry_show" style="height:100px;color:#ff6117;font-size:large;"><strong>2,929.7万円～3,094.7万円</strong></div>
+                                            <div class="list-group-item list-group-item-action bd1" v-if="entry_show || month_show" style="height:50px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
+                                        </div>
+                                        <div v-if="condition_show" class="list-group-item list-group-item-action" style="height:166px;">{{nur_profile.occupancy_condition }}</div>
+                                        <div class="bd" v-if="special_show" style="height:380px;border:1px solid rgba(0, 0, 0, 0.125);">
+                                            <ul class="fac_container m-t-8 m-b-15 m-l-8">
+                                                <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div v-if="capacity_show" class="list-group-item list-group-item-action" style="height:50px;">{{nur_profile.nursing_staff }} 人</div>
+                                        <div v-if="opening_show" class="list-group-item list-group-item-action" style="height:70px;">{{nur_profile.date_of_establishment }}</div>
+                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
                 </div>
             </div>
-            <div class="list-group col-md-3" v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                <div class="list-group-item list-group-item-action checkbox2" style="background:#fff9cb;">
-                    <input type="checkbox" class="che checkbox2" value="documentation" name="documentation" v-model="document_status[nur_profile.id]" @change="checkSingle()">
-                </div>
-                <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
-                <div class="list-group-item list-group-item-action"><img class="im" v-bind:src="'/images/' + nur_profile.logo" alt style />
-                    <br>
-                    <br>
-                    <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}">{{nur_profile.name}}</router-link>
-                </div>
-                <div class="bd">
-                    <div class="list-group-item list-group-item-action" v-if="address_show" style="height:50px;border:none;">{{nur_profile.township_name}} {{nur_profile.city_name}}</div>
-                    <div class="list-group-item list-group-item-action bd1" v-if="tran_show" style="height:100px;">{{nur_profile.access }}</div>
-                    <div class="list-group-item list-group-item-action bd1" v-if="tran_show || address_show" style="height:50px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
-                </div>
-                <div class="bd" v-for="min_max in nur_profile.minmax" :key="min_max.id">
-                    <div class="list-group-item list-group-item-action" v-if="month_show" style="height:50px;border:none;color:#ff6117;font-size:large;"><strong>{{min_max.smallestCost}}~{{min_max.largeCost}}</strong></div>
-                    <div class="list-group-item list-group-item-action bd1" v-if="entry_show" style="height:100px;color:#ff6117;font-size:large;"><strong>2,929.7万円～3,094.7万円</strong></div>
-                    <div class="list-group-item list-group-item-action bd1" v-if="entry_show || month_show" style="height:50px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
-                </div>
-                <div v-if="condition_show" class="list-group-item list-group-item-action" style="height:166px;">{{nur_profile.occupancy_condition }}</div>
-                <div class="bd" v-if="special_show" style="height:380px;border:1px solid rgba(0, 0, 0, 0.125);">
-              <ul class="fac_container m-t-8 m-b-15 m-l-8">
-                <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
-              </ul>
-            </div>
-                <div v-if="capacity_show" class="list-group-item list-group-item-action" style="height:50px;">{{nur_profile.nursing_staff }} 人</div>
-                <div v-if="opening_show" class="list-group-item list-group-item-action" style="height:70px;">{{nur_profile.date_of_establishment }}</div>
-            <div style="margin-top:auto;">    
-                <div class="list-group-item list-group-item-action checkbox2" style="background:#fff9cb;">
-                    <input type="checkbox" class="che checkbox2" value="documentation" name="documentation" v-model="document_status[nur_profile.id]" @change="checkSingle()">
-                </div>
-            </div>
-            </div>         
         </div>
-   <span class="btn btn-success mt-5 float-right" @click="addingMail()">この内容で送信</span>
+
+
+        <span class="btn btn-success mt-5 float-right" @click="addingMail()">この内容で送信</span>
     </div>
 </template>
-<style scoped>
-    .da {
-        width: 104px;
-    }
-    
-    .da1 {
-        width: 37px;
-    }
-    
-    .bd1 {
-        border-top: 1px solid rgba(0, 0, 0, 0.125);
-        border-style: dashed;
-        border-left: none;
-        border-right: none;
-        border-bottom: none;
-    }
-    
-    .bd2 {
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        min-height: 100px;
-    }
-    
-    .bd {
-        border: 1px solid rgba(0, 0, 0, 0.125);
-    }
-    
-    .che {
-        size: 45%;
-        width: 25px;
-        height: 25px;
-        margin-left: 149px;
-        margin-top: 9px;
-    }
-    
-    .che1 {
-        margin-left: 30px;
-        width: 25px;
-        height: 25px;
-        margin-top: 9px;
-    }
-    
-    .im {
-        width: 200px;
-        height: 150px;
-    }
-    
-    .tx1 {
-        margin-left: 56px;
-        margin-bottom: -4px;
-        margin-top: -31px;
-    }
-    
-    .m-b-3 {
-        margin-bottom: 3px;
-    }
-    
-    .bd {
-        border-bottom: none;
-    }
-    
-    .hh {
-        margin-bottom: -14px;
-    }
-    
-    .pseudolink {
-        color: blue;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-</style>
 
 <script>
     export default {
@@ -356,10 +299,23 @@
                     },
                     address: '',
                     access: '',
-                    custname:'',
-                    payment_name: []
+                    custname: '',
+                    payment_name: [],
+                    currentOffset: 0,
+                    windowSize: 1,
+                    paginationFactor: 220,
+
                 };
             },
+            computed: {
+                atEndOfList() {
+                        return this.currentOffset <= (this.paginationFactor * -1) * (this.fav_nursing.length - this.windowSize);
+                    },
+                    atHeadOfList() {
+                        return this.currentOffset === 0;
+                    },
+            },
+
             created() {
                 $('.checkbox1').prop("checked", true);
                 this.iscompare = true;
@@ -374,7 +330,16 @@
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
             },
+
             methods: {
+                 moveCarousel(direction) {
+      // Find a more elegant way to express the :style. consider using props to make it truly generic
+      if (direction === 1 && !this.atEndOfList) {
+        this.currentOffset -= this.paginationFactor;
+      } else if (direction === -1 && !this.atHeadOfList) {
+        this.currentOffset += this.paginationFactor;
+      }
+    },
                 deleteLocalSto: function(id) {
                     if (confirm("Are you sure you want to delete?")) {
                         alert('Delete Successfully!');
@@ -387,7 +352,7 @@
                         l_sto_arr.splice(index, 1);
                         var new_local = l_sto_arr.toString();
                         localStorage.setItem('nursing_fav', new_local);
-                        this.local_sto = localStorage.getItem("nursing_fav");                        
+                        this.local_sto = localStorage.getItem("nursing_fav");
                         if (this.local_sto) {
                             this.getAllFavourite(this.local_sto);
                         } else {
@@ -475,42 +440,42 @@
                     }
                     if (this.address_check == true) {
                         this.address_show = true;
-                    }else {
+                    } else {
                         this.address_show = false;
                     }
                     if (this.tran_check == true) {
                         this.tran_show = true;
-                    }else {
+                    } else {
                         this.tran_show = false;
                     }
                     if (this.month_check == true) {
                         this.month_show = true;
-                    }else {
+                    } else {
                         this.month_show = false;
                     }
                     if (this.entry_check == true) {
                         this.entry_show = true;
-                    }else {
+                    } else {
                         this.entry_show = false;
                     }
                     if (this.condition_check == true) {
                         this.condition_show = true;
-                    }else {
+                    } else {
                         this.condition_show = false;
                     }
                     if (this.special_check == true) {
                         this.special_show = true;
-                    }else {
+                    } else {
                         this.special_show = false;
                     }
                     if (this.capacity_check == true) {
                         this.capacity_show = true;
-                    }else {
+                    } else {
                         this.capacity_show = false;
                     }
                     if (this.opening_check == true) {
                         this.opening_show = true;
-                    }else {
+                    } else {
                         this.opening_show = false;
                     }
                 },
@@ -524,16 +489,16 @@
                             this.markers[0]['position']['lng'] = this.fav_nursing[i].longitude;
                             this.center['lat'] = this.fav_nursing[i].latitude;
                             this.center['lng'] = this.fav_nursing[i].longitude;
-                            this.custname = this.fav_nursing[i].name;  
+                            this.custname = this.fav_nursing[i].name;
                         }
                     }
                 },
                 monthlyCost: function(id) {
                     $('.costcheck').css('display', 'block');
-                    for(var i = 0; i < this.fav_nursing.length; i++){
-                        if(this.fav_nursing[i].id == id) {
-                            this.payment_name = this.fav_nursing[i].payment_method;                            
-                        }                      
+                    for (var i = 0; i < this.fav_nursing.length; i++) {
+                        if (this.fav_nursing[i].id == id) {
+                            this.payment_name = this.fav_nursing[i].payment_method;
+                        }
                     }
                 }
             }
