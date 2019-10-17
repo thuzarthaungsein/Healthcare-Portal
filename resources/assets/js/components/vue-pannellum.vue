@@ -110,7 +110,7 @@ export default {
   methods: {
     load () {
       let options = {
-        type: typeof this.src === 'string' ? 'nursing_profile' : 'cubemap',
+        type: typeof this.src === 'string' ? 'Imagepanorama' : 'cubemap',
         autoLoad: this.autoLoad,
         autoRotate: this.autoRotate === true ? -2 : 0,
         orientationOnByDefault: this.orientation,

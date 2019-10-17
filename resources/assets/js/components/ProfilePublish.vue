@@ -8,8 +8,8 @@
                         <div class="col-12">
                             <div class="card-carousel">
                             <div class="card-img">
-                                <div id="panorama"></div>          
-                                <!-- <Pannellum :src="upload/nursing_profileUrl" style="height: 500px;"></Pannellum>         -->     
+                                <!-- <div id="panorama"></div>           -->
+                                <Pannellum :src="upload/nursing_profileUrl" style="height: 500px;"></Pannellum>             
                             </div>                            
                             <div class="thumbnails">
                                     <div

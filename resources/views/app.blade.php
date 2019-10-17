@@ -781,57 +781,12 @@
 
  $(document).ready(function() {
 
-        // pannellum.viewer('panorama', {
-        //     "type": "equirectangular",
-        //     "panorama": "https://pannellum.org/images/jfk.jpg",
-        //     "autoRotate": -2
-        //  });
-        pannellum.viewer('panorama', {   
-    "default": {
-        "firstScene": "circle",
-        "author": "Matthew Petroff",
-        "sceneFadeDuration": 1000
-    },
+    // pannellum.viewer('panorama', {
+    //     "type": "equirectangular",
+    //     "panorama": "https://pannellum.org/images/jfk.jpg",
+    //     "autoRotate": -2
+    // });      
 
-    "scenes": {
-        "circle": {
-            "title": "Mason Circle",
-            "hfov": 110,
-            "pitch": -3,
-            "yaw": 117,
-            "type": "equirectangular",
-            "panorama": "https://pannellum.org/images/jfk.jpg",
-            "hotSpots": [
-                {
-                    "pitch": -2.1,
-                    "yaw": 132.9,
-                    "type": "scene",
-                    "text": "Spring House or Dairy",
-                    "sceneId": "house"
-                }
-            ]
-        },
-
-        "house": {
-            "title": "Spring House or Dairy",
-            "hfov": 110,
-            "yaw": 5,
-            "type": "equirectangular",
-            "panorama": "https://pannellum.org/images/jfk.jpg",
-            "hotSpots": [
-                {
-                    "pitch": -0.6,
-                    "yaw": 37.1,
-                    "type": "scene",
-                    "text": "Mason Circle",
-                    "sceneId": "circle",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                }
-            ]
-        }
-    }
-});
        
      /*added for back to top*/
      var mybutton = document.getElementById("myBtn");
