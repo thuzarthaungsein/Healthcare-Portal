@@ -698,6 +698,8 @@ export default {
                 });
 
 
+
+
         },
         methods: {
                 onEditorBlur(quill) {

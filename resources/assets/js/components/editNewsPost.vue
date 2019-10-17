@@ -47,7 +47,7 @@
                                     <img :src="upload_img" class='show-img'>
                                 </div>
                             </div>
-                            <div class="form-group image_update" id="x-image" v-if="news.photo && !upload_img">
+                            <div class="form-group image_update" id="x-image" v-if="news.photo && !upload_img && !old_photo">
                                 <div class="col-md-12" >
                                     <div id='x-image' class='col-md-2'>
                                         <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
@@ -147,7 +147,7 @@
                             this.old_photo = '';
                         }
                         // console.log(this.news.photo);
-                        
+
                         // this.updateselected();
                         this.selectedValue = this.news.category_id;
                     });
@@ -163,8 +163,9 @@
             methods: {
                     fileSelected(e) {
                         // $('.image_show').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
-                        
+
                         // this.upload_img = this.news.photo;
+
                         this.news.photo = event.target.files[0];
                         this.upload_img = URL.createObjectURL(event.target.files[0]);
                     },
@@ -181,8 +182,8 @@
                         input.type = 'text';
                         input.type = 'file';
                     },
-                    updatepost() {                       
-                      
+                    updatepost() {
+
                         let fData = new FormData();
                         fData.append('photo', this.news.photo)
                         fData.append('title', this.news.title)
