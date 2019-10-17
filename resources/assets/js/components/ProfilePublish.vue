@@ -3,8 +3,34 @@
   <div id="app">
 
     <div v-if="type == 'nursing'" id="nursingView">
+         <!--panorama-->    
+                <div class="col-12 detail_profile_left">
+                        <div class="col-12">
+                            <div class="card-carousel">
+                            <div class="card-img">
+                                <div id="panorama"></div>          
+                                <!-- <Pannellum :src="upload/nursing_profileUrl" style="height: 500px;"></Pannellum>         -->     
+                            </div>                            
+                            <div class="thumbnails">
+                                    <div
 
-            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
+                                        v-for="(image,index) in  images"
+
+                                        :key="image.id"
+
+                                        :class="['thumbnail-image col-3', (activeImage == index) ? 'active' : '']"
+
+                                        @click="activateImage(index)" >
+                                        <img  :src ="'/upload/nursing_profile/' + image.photo">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                   
+            <!--end panorama-->
+
+            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">           
+           
             <!-- <div class="row col-12 m-t-10">
                 <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
             </div> -->
@@ -1334,25 +1360,24 @@ $(document).scroll(function() {
 });
   
 
- import joboffer from './JobSearchListComponent.vue'
+import joboffer from './JobSearchListComponent.vue'
+import Pano from 'vue-pano'
+import Pannellum from './vue-pannellum.vue';
 
  export default {
-
-
-
-      components:{
-
-            joboffer
-
+      components:{    
+            joboffer,
+            Pano,
+            Pannellum
+          
         },
-
-
 
   data() {
 
             var that = this;
 
             return {
+                panoimages: [],
 
                 markers: [
 
@@ -1493,7 +1518,7 @@ $(document).scroll(function() {
                     this.method_payment = response.data.cost;
 
                     this.nusfacilities = response.data.facility;
-                    console.log('a');
+                    
                     console.log(this.nusfacilities);
 
                     this.cooperate_medical = response.data.comedical;
@@ -1515,6 +1540,8 @@ $(document).scroll(function() {
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
 
                     this.images = response.data.images;
+
+                    this.panoimages = ['examplepano.jpg','wooden-lounge.png'];
 
 
 
@@ -1659,6 +1686,7 @@ $(document).scroll(function() {
             // and is the reason why we don't have to worry about the
 
             // big image getting updated
+           
 
             currentImage() {
 
@@ -1679,6 +1707,7 @@ $(document).scroll(function() {
                 }
 
             }
+           
 
         },
 

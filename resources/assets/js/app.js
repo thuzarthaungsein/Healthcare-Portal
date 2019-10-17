@@ -37,7 +37,20 @@ Vue.component(VueCarousel.name, VueCarousel);
 import Slick from 'vue-slick';
 Vue.use(Slick);
 
+//pano
+import Pano from 'vue-pano';
+Vue.use(Pano);
 
+
+//vue-pannellum
+import VuePannellum from 'vue-pannellum';
+Vue.use(VuePannellum);
+Vue.component('VPannellumn', VuePannellum)
+
+
+//vue Panorama 
+import Panorama from 'vuejs-panorama';
+Vue.use(Panorama);
 
 //vue vuetify
 // import Vuetify from "vuetify";

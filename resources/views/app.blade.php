@@ -49,6 +49,9 @@
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.4/build/pannellum.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.4/build/pannellum.js"></script>
+   
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
     <style>
         .bg-light {
@@ -73,6 +76,10 @@
 
         #myBtn:hover {
             background: url(../images/top-arrow.png) no-repeat left center;
+        }
+        #panorama {
+            width: 100%;
+            height: 400px;            
         }
     </style>
 <!-- link for editor -->
@@ -751,16 +758,14 @@
 
 
 <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>
-
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
-
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
-
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
-
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
-
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+
+
 
 
 
@@ -770,7 +775,61 @@
 
 <script type="text/javascript">
 
+
  $(document).ready(function() {
+
+        // pannellum.viewer('panorama', {
+        //     "type": "equirectangular",
+        //     "panorama": "https://pannellum.org/images/jfk.jpg",
+        //     "autoRotate": -2
+        //  });
+        pannellum.viewer('panorama', {   
+    "default": {
+        "firstScene": "circle",
+        "author": "Matthew Petroff",
+        "sceneFadeDuration": 1000
+    },
+
+    "scenes": {
+        "circle": {
+            "title": "Mason Circle",
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "https://pannellum.org/images/jfk.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -2.1,
+                    "yaw": 132.9,
+                    "type": "scene",
+                    "text": "Spring House or Dairy",
+                    "sceneId": "house"
+                }
+            ]
+        },
+
+        "house": {
+            "title": "Spring House or Dairy",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "https://pannellum.org/images/jfk.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -0.6,
+                    "yaw": 37.1,
+                    "type": "scene",
+                    "text": "Mason Circle",
+                    "sceneId": "circle",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        }
+    }
+});
+       
      /*added for back to top*/
      var mybutton = document.getElementById("myBtn");
         // When the user scrolls down 20px from the top of the document, show the button
