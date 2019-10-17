@@ -5768,10 +5768,12 @@ button.confirmed {
     padding: 15px;
 }
 
-.form-wrap .sp1 {
+.form-wrap .sp1,
+.sp2 {
     margin: 0 10px;
     padding: 0 5px 0 5px;
     background: #F54336;
+    font-size: 0.9em;
     color: #fff;
     font-weight: bold;
     border-radius: 3px;
