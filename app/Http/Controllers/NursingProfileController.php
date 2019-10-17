@@ -25,9 +25,10 @@ class NursingProfileController extends Controller
     }
 
     public function edit($id) {
-        $nursing = NursingProfile::find($id);
 
-        return response()->json($nursing);
+        $nursing = NursingProfile::where('customer_id', $id)
+                    ->first();
+        return $nursing;
     }
 
     public function movePhoto(Request $request) {
@@ -115,6 +116,8 @@ class NursingProfileController extends Controller
             'access' => $request[0]['access'],
             'business_entity' => $request[0]['business_entity'],
             'website' => $request[0]['website'],
+            'moving_in' => $request[0]['moving_in'],
+            'per_month' => $request[0]['per_month'],
             'feature' => $request[0]['feature'],
             'method' => $request[0]['method'],
             'date_of_establishment' =>  $request[0]['date_of_establishment'],
@@ -158,9 +161,8 @@ class NursingProfileController extends Controller
     public function Staffprofileupdate($id,Request $request) {
         
         $request = $request->all();
+        $staff = Staff::where('customer_id', $id)->first();
     
-        $staff = Staff::where('customer_id', $id);
-        dd($staff);
         if($staff) {
             $staff->customer_id = $id;
             $staff->staff = $request[0]['staff'];

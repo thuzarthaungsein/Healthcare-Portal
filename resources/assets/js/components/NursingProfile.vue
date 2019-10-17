@@ -82,6 +82,16 @@
                             <td style="border:none;">
                                 <div class="form-group"><label class="heading-lbl" style="border-left: 5px solid #f9793c;padding-left: 5px;">費用</label></div>
                                 <div class="form-group">
+
+                                <label class="heading-lbl col-2 pad-free">Moving In<span class="error">*</span></label>
+                                <div class="col-10 float-right pad-free">
+                                        <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
+                                </div>
+                                <label class="heading-lbl col-2 pad-free">Per month<span class="error">*</span></label>
+                                <div class="col-10 float-right pad-free">
+                                        <input type="text"  class="form-control col-10 nursing-per-month float-left white-bg-color" v-model="nursing_info.per_month">
+                                </div>
+
                                 <label class="heading-lbl col-2 pad-free">支払い方法<span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                         <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
@@ -497,7 +507,7 @@
                                                 <div class="form-group">
                                                         <label>住所<span class="error">*</span></label>
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                        <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" class="customer-address" v-model="customer_info.address"/>
+                                                        <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" @change="onCustomerAddressChange($event)" class="customer-address" v-model="customer_info.address"/>
                                                 </div>
 
                                                 <!-- Test Station Area -->
@@ -610,6 +620,7 @@ export default {
                 acceptance_remark_val: '',
                 nursing_remarks_val: '',
                 residence_form_val: '',
+                customer_address_val:'',
                 // customer_address_val: '',
                 // transporation_access_val: '',
           }
@@ -630,8 +641,6 @@ export default {
 
                 this.type = localStorage.getItem('cusType');
                 this.cusid = Number(localStorage.getItem('cusId'));
-                // this.cusid = 1;
-                // alert(this.cusid);return;
                 
                 this.axios
                 .get('/api/station/'+this.cusid)
@@ -833,6 +842,10 @@ export default {
                         // console.log('editor change!', editor, html, text)
                         this.residence_form_val = html
                 },
+                onCustomerAddressChange({ editor, html, text }) {
+                        // console.log('editor change!', editor, html, text)
+                        this.customer_address_val = html
+                },
 
             createProfile() {
 
@@ -847,9 +860,11 @@ export default {
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
                 var customer_phone = $('.customer-phone').val();
-                var customer_address = $('.customer-address').text();
+                // var customer_address = $('.customer-address').text();
 
-                var access = $('.transporation-access').text();
+                var access = $('.transporation-access').val();
+                var moving_in = $('.nursing-moving-in').val();
+                var per_month = $('.nursing-per-month').val();
                 var method = $('.nursing-payment-method').val();
                 var business_entity = $('.business-entity').val();
                 var date_of_establishment = $('.date-of-establishment').val();
@@ -878,12 +893,10 @@ export default {
                 var min_num_staff = $('.min-num-staff').val();
                 var num_staff = $('.num-staff').val();
                 // var nursing_remarks = $('.nursing-remarks').val();
-
-                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
+                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:this.customer_address_val});
 
                 this.staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
-
-                console.log(this.staff_info);
+               
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
                         var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
@@ -969,7 +982,7 @@ export default {
 
                 special_features = chek_feature.join(',');
 
-                this.profile_arr.push({feature:this.feature_val,stations:stations,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({feature:this.feature_val,stations:stations,website:website,access:access,moving_in:moving_in,per_month:per_month,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
@@ -990,20 +1003,20 @@ export default {
                         }) ;
                 }
 
-                if(this.cooperate_list.length > 0) {
-                        this.axios
-                                .post(`/api/nursing/cooperate/${this.cusid}`,this.cooperate_list)
-                                .then((response) => {
+                // if(this.cooperate_list.length > 0) {
+                //         this.axios
+                //                 .post(`/api/nursing/cooperate/${this.cusid}`,this.cooperate_list)
+                //                 .then((response) => {
 
-                                }).catch(error=>{
+                //                 }).catch(error=>{
 
-                                if(error.response.status == 422){
-                                this.cooperate_list = 'error';
-                                this.errors = error.response.data.errors
+                //                 if(error.response.status == 422){
+                //                 this.cooperate_list = 'error';
+                //                 this.errors = error.response.data.errors
 
-                                }
-                        }) ;
-                }
+                //                 }
+                //         }) ;
+                // }
 
                 if(this.payment_list.length > 0) {
                         this.axios
@@ -1035,21 +1048,21 @@ export default {
                         }) ;
                 }
 
-                // if(this.customer_info.length > 0) {
-                //         // check
-                //         this.axios
-                //                 .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
-                //                 .then((response) => {
+                if(this.customer_info.length > 0) {
+                        // check
+                        this.axios
+                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
+                                .then((response) => {
 
-                //                 }).catch(error=>{
+                                }).catch(error=>{
 
-                //                 if(error.response.status == 422){
-                //                 this.customer_info = 'error';
-                //                 this.errors = error.response.data.errors
+                                if(error.response.status == 422){
+                                this.customer_info = 'error';
+                                this.errors = error.response.data.errors
 
-                //                 }
-                //         }) ;
-                // }
+                                }
+                        }) ;
+                }
 
                 if(this.staff_info.length > 0) {
                         this.axios

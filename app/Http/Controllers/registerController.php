@@ -71,6 +71,7 @@ class registerController extends Controller
             'cities'=> 'required',
             'township'=> 'required',
             ]);
+            $type = 1;
 
             if($request->types == '2'){
                 $type = $request->nursing;
