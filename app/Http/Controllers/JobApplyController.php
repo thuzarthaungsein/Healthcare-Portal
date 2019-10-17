@@ -56,7 +56,7 @@ class JobApplyController extends Controller
 
                 }
             $jobapply = new JobApply;
-            $jobapply->job_id = 1;
+            $jobapply->job_id = $request->job_id;
             $jobapply->first_name = $request->first_name;
             $jobapply->last_name = $request->last_name;
             $jobapply->birthday = $request->birthday;
@@ -72,7 +72,7 @@ class JobApplyController extends Controller
             $infos = DB::table('jobs')
                             ->join('customers', 'customers.id', '=', 'jobs.customer_id')
                             ->select('jobs.*','customers.email')
-                            ->where('jobs.id', '=', 1)
+                            ->where('jobs.id', '=', $jobapply->job_id)
                             ->get();
             foreach($infos as $info) {
                 $job_title = $info->title;
