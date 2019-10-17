@@ -159,16 +159,27 @@ class NursingProfileController extends Controller
         
         $request = $request->all();
     
-        $customer = Staff::where('customer_id', $id);
-        $uploadData = array(
-            'staff' => $request[0]['staff'],
-            'nursing_staff' =>  $request[0]['nursing_staff'],
-            'min_num_staff'=>  $request[0]['min_num_staff'],
-            'num_staff'=>  $request[0]['num_staff'],
-            'remarks'=>  $request[0]['nursing_remarks']
-       );
-
-       $customer->update($uploadData);
+        $staff = Staff::where('customer_id', $id);
+        dd($staff);
+        if($staff) {
+            $staff->customer_id = $id;
+            $staff->staff = $request[0]['staff'];
+            $staff->nursing_staff = $request[0]['nursing_staff'];
+            $staff->min_num_staff = $request[0]['min_num_staff'];
+            $staff->num_staff = $request[0]['num_staff'];
+            $staff->remarks = $request[0]['nursing_remarks'];
+            $staff->save();
+        } else {
+            $new_staff = new Staff;
+            $new_staff->customer_id = $id;
+            $new_staff->staff = $request[0]['staff'];
+            $new_staff->nursing_staff = $request[0]['nursing_staff'];
+            $new_staff->min_num_staff = $request[0]['min_num_staff'];
+            $new_staff->num_staff = $request[0]['num_staff'];
+            $new_staff->remarks = $request[0]['nursing_remarks'];
+            $new_staff->save();
+        }
+      
     }
 
     public function AcceptanceTransactions($id,Request $request) {

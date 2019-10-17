@@ -629,20 +629,17 @@ export default {
                 }
 
                 this.type = localStorage.getItem('cusType');
-                // this.cusid = Number(localStorage.getItem('cusId'));
-                this.cusid = 1;
+                this.cusid = Number(localStorage.getItem('cusId'));
+                // this.cusid = 1;
                 // alert(this.cusid);return;
                 
                 this.axios
-<<<<<<< HEAD
-=======
                 .get('/api/station/'+this.cusid)
                 .then(response=>{
                         this.station_list = response.data;
                 });
 
                 this.axios
->>>>>>> bfb877ae909d5ac665639f034623fd498785d53f
                 .get('/api/customerinfo/'+this.cusid)
                 .then(response=>{
                         this.customer_info = response.data;
@@ -1038,21 +1035,22 @@ export default {
                         }) ;
                 }
 
-                if(this.customer_info.length > 0) {
-                        // check
-                        this.axios
-                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
-                                .then((response) => {
+                // if(this.customer_info.length > 0) {
+                //         // check
+                //         this.axios
+                //                 .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
+                //                 .then((response) => {
 
-                                }).catch(error=>{
+                //                 }).catch(error=>{
 
-                                if(error.response.status == 422){
-                                this.customer_info = 'error';
-                                this.errors = error.response.data.errors
+                //                 if(error.response.status == 422){
+                //                 this.customer_info = 'error';
+                //                 this.errors = error.response.data.errors
 
-                                }
-                        }) ;
-                }
+                //                 }
+                //         }) ;
+                // }
+
                 if(this.staff_info.length > 0) {
                         this.axios
                                 .post(`/api/staff/profile/${this.cusid}`,this.staff_info)
