@@ -672,14 +672,15 @@ width: 100%; */
 } */
 
 .inputfile>input[type="file"] {
-    display: inline-block;
-    padding: 35px 0 0 0;
-    height: 20px;
-    overflow: hidden;
-    -webkit-box-sizing: border-box;
+    /* display: inline-block; */
+    /* padding: 35px 0 0 0;
+    height: 20px; */
+    /* overflow: hidden; */
+    /* -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background-size: 60px 60px;
+    background-size: 60px 60px; */
+    display: none;
 }
 
 
@@ -1064,7 +1065,7 @@ p {
     position: fixed;
     width: 100%;
     left: 0px;
-    height: 82px;
+    height: 66px;
     /* background-color: #b7dad2; */
     background-color: #eee;
     border-top: 5px solid #e66527;
@@ -1075,7 +1076,7 @@ margin-right: 100px; */
 }
 
 .nav-warp {
-    max-width: 86.3%;
+    max-width: 83.3%;
 }
 
 #app .logo-text {
@@ -1092,7 +1093,7 @@ margin-right: 100px; */
 
 .main-content {
     /* padding: 0px;*/
-    width: 83.33333333%;
+    width: 80%;
     margin: 0 auto;
     box-shadow: 0px 1px 2px 0px #ccc !important;
     min-height: 100vh;
@@ -2010,13 +2011,7 @@ ul.sub-ul li {
     padding: 5px 10px;
 }
 
-.fav-color {
-    background-color: #ff9563;
-}
 
-.history-color {
-    background-color: #0e775d;
-}
 
 .card-header {
     padding: 0.75rem 1.25rem;
@@ -2056,12 +2051,6 @@ li.userprofile-name>a {
 .userprofile-img {
     width: 40px;
     height: 40px;
-}
-
-.maintab-content {
-    padding: 7px;
-    /*for no scroll*/
-    margin: 70px 0 0 0;
 }
 
 .tab-content {
@@ -2383,22 +2372,42 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     border-left: 3px solid #ff9563;
     color: #fff !important;
 }
-
+#headerbar{
+    position: fixed;
+    top: 237px;
+    right: 10px;
+    z-index: 99999;
+}
 #headerbar .router-link-exact-active {
     font-weight: bold;
-    color: #fff !important;
+    color: #000 !important;
     border-left: none !important;
     background-color: transparent;
 }
-
 #headerbar .navbar-dark .navbar-nav .nav-link {
-    color: #fff !important;
+    color: #000 !important;
 }
 
 #headerbar a {
-    color: #fff !important;
+    color: #000 !important;
+    text-decoration: none;
 }
-
+#headbar a:hover{
+    text-decoration: none !important;
+}
+.div1,.div2{
+    background-color: transparent;
+    border-bottom: 1px solid #544e4e;  
+    /* border: 1px solid #ccc; */
+    /* border-radius: 5px; */
+    margin: 5px 0px;
+}
+.div1:hover {
+    background: #eee;
+}
+.div2:hover {
+    background: #eee;
+}
 .router-link-exact-active>i.fa,
 .router-link-exact-active>i.fas {
     color: #ff9563 !important;
@@ -3138,7 +3147,8 @@ div.b {
     z-index: 5;
     overflow: hidden;
     background: #fff;
-    width: 81.999%;
+    width: 79%;
+    top: 66px;
 }
 
 .ads-card,
@@ -3506,6 +3516,9 @@ margin-right: 2% !important;
     padding-top: 5px !important;
 }
 
+.p-t-15 {
+    padding-top: 15px;
+}
 .p-t-30 {
     padding-top: 30px;
 }
@@ -3642,19 +3655,32 @@ margin-right: 2% !important;
 }
 
 .fav-item {
-    font-size: 12px;
+    font-size: 14px;
     padding: 5px 10px;
+    margin-bottom: 15px;
 }
 
 .fav-color {
     /* background-color: #f3a523; */
-    background-color: #d2571c;
+    background-color: #fff;
+    border:1px solid #544e4e  !important;
 }
 
 .history-color {
-    background-color: #5f97d0;
+    background-color: #fff;
+    border:1px solid #544e4e  !important;
 }
-
+.is-hos{
+    color: #2981cc;
+}
+.is-nur{
+    color: #d2571c;
+}
+#hos-fav-local, #nus-fav-local, #hos-his-local, #nus-his-local {
+    color: #C40000;
+    font-weight: bold;
+    font-size: 25px;
+}
 .card-header {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
@@ -3698,7 +3724,7 @@ li.userprofile-name>a {
 .maintab-content {
     padding: 7px;
     /*for no scroll*/
-    margin: 70px 0 0 0;
+    margin: 60px 0 0 0;
 }
 
 .tab-content {
@@ -3987,7 +4013,7 @@ a:hover {
 }
 
 #v-pills-tab li a {
-    padding: 0.7rem 20px 0.7rem 25px;
+    padding: 0.5rem 10px 0.5rem 15px;
 }
 
 .text-pre {
@@ -4046,7 +4072,7 @@ a:hover {
 
 .adminview-sidebar {
     position: fixed;
-    top: 80px;
+    top: 70px;
     width: 13%;
     height: 100%;
     background: transparent;
@@ -5640,6 +5666,11 @@ button.confirmed {
 
 /* nursingFavouriteMail form */
 
+.fav-his-header {
+    border-bottom: 3px solid #c40000;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
 .form-wrap {
     padding-bottom: 100px;
 }

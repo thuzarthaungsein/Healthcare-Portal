@@ -40,6 +40,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-image"></i></span>
                                     </div>
+                                    <span class="btn all-btn" onClick="choosefile()">Choose</span> <span id="imgname"></span>
                                     <input type="file" accept="image/*" onchange="showMyImage(this)" name="img" id="file" ref="file" class="form-control inputfile">
                                 </div>
                                 <div class="input-group mb-3">
@@ -161,6 +162,10 @@
                 }
             });
 
+            function choosefile() {
+                $('.inputfile').trigger('click');
+            }
+
             function showMyImage(fileInput) {
                 var files = fileInput.files;
                 for (var i = 0; i < files.length; i++) {
@@ -180,6 +185,7 @@
                     reader.readAsDataURL(file);
                 }
             }
+
             $(document).ready(function() {
                 window.setTimeout(function() {
                     $(".alert").fadeTo(500, 0).slideUp(500, function() {
@@ -208,8 +214,6 @@
                     $('#nursing').empty();
                 }
             });
-
-
 
             $('#cities').on('change', function(e) {
                 let cities = e.target.value;
