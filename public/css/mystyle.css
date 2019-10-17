@@ -1065,7 +1065,7 @@ p {
     position: fixed;
     width: 100%;
     left: 0px;
-    height: 82px;
+    height: 66px;
     /* background-color: #b7dad2; */
     background-color: #eee;
     border-top: 5px solid #e66527;
@@ -2050,12 +2050,6 @@ li.userprofile-name>a {
     height: 40px;
 }
 
-.maintab-content {
-    padding: 7px;
-    /*for no scroll*/
-    margin: 70px 0 0 0;
-}
-
 .tab-content {
     /* padding: 15px !important; */
     padding: 13px !important;
@@ -2377,7 +2371,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 }
 #headerbar{
     position: fixed;
-    top: 248px;
+    top: 237px;
     right: 0;
     z-index: 99999;
 }
@@ -3146,6 +3140,7 @@ div.b {
     overflow: hidden;
     background: #fff;
     width: 81.999%;
+    top: 66px;
 }
 
 .ads-card,
@@ -3505,6 +3500,9 @@ margin-right: 2% !important;
     padding-top: 5px !important;
 }
 
+.p-t-15 {
+    padding-top: 15px;
+}
 .p-t-30 {
     padding-top: 30px;
 }
@@ -3710,7 +3708,7 @@ li.userprofile-name>a {
 .maintab-content {
     padding: 7px;
     /*for no scroll*/
-    margin: 70px 0 0 0;
+    margin: 60px 0 0 0;
 }
 
 .tab-content {
@@ -4058,7 +4056,7 @@ a:hover {
 
 .adminview-sidebar {
     position: fixed;
-    top: 80px;
+    top: 70px;
     width: 13%;
     height: 100%;
     background: transparent;
