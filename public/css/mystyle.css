@@ -5870,3 +5870,7 @@ button.confirmed {
   {
     background: #ccc;
   }
+  ul.test li{
+    display: inline;
+  }
+  ul.test>li:before { content:'\ffed'; margin-right:0.5em; }

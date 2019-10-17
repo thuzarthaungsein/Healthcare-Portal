@@ -58,7 +58,6 @@
             <div class="row m-lr-0 ele" id="element1">
 
                  <h5 class="profile_header">情報</h5>
-
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
 
                     <!--for slideimage-->
@@ -169,7 +168,7 @@
                                             <font>アクセス　</font>
                                         </th>
                                         <td>
-                                            <font>access</font>
+                                            <font>{{cust.access}}</font>
                                         </td>
                                     </tr>
                                     <tr>
@@ -177,7 +176,7 @@
                                             <font>駅</font>
                                         </th>
                                         <td>
-                                            <font>station</font>
+                                            <font>Nearest Station</font>
                                         </td>
                                     </tr>
                                     <tr>
@@ -188,14 +187,7 @@
                                             <font>expense</font>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th width="250" class="custom-bg-color">
-                                            <font>件名 </font>
-                                        </th>
-                                        <td>
-                                            <font>subject</font>
-                                        </td>
-                                    </tr>
+                                    
                                     </tbody>
                             </table>
 
@@ -870,7 +862,6 @@
              <h5 class="profile_header">情報 </h5>
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
-
                     <div class="col-sm-5 detail_profile_left">
 
                            <div class="thumbnail-img">
@@ -973,7 +964,7 @@
                                             <font>アクセス</font>
                                         </th>
                                         <td>
-                                            <font>{{cust.phone}}</font>
+                                            <font>{{cust.access}}</font>
                                         </td>
                                     </tr>
                                      <tr>
@@ -981,23 +972,26 @@
                                             <font>駅 </font>
                                         </th>
                                         <td>
-                                            <font>{{cust.phone}}</font>
+                                            <font>Nearest Station</font>
                                         </td>
                                     </tr>
-                                     <tr>
+                                     <!-- <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>費用 </font>
                                         </th>
                                         <td>
-                                            <font>{{cust.phone}}</font>
+                                            <font>Cost</font>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                      <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>件名 </font>
                                         </th>
                                         <td>
-                                            <font>{{cust.phone}}</font>
+                                            <label for="" v-for="sub in subjects" :key="sub.id">
+                                                {{sub.name}}
+                                            </label>
+                                            <!-- <font>{{cust.subject}}</font> -->
                                         </td>
                                     </tr>
                                 </table>
@@ -1562,7 +1556,7 @@ $(document).scroll(function() {
 
 
 
-                  this.axios.get('/api/profile/customer/'+this.cusid) .then(response => {
+                  this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
                       console.log(response.data);
                       this.customer = response.data;
 
@@ -1586,8 +1580,8 @@ $(document).scroll(function() {
 
                 });
 
-                 this.axios.get('/api/profile/customer/'+this.cusid).then(response => {
-
+                 this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type).then(response => {
+                     console.log(response.data);
                       this.customer = response.data;
 
                 });

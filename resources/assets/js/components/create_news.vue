@@ -43,10 +43,15 @@
                             <div class="form-group">
                                 <label class="">メディア:</label>
                                 <div>
-                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();">
+                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" ref="fileInput">
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="row" id="image_preview"></div>
+                                    <div class="row" id="image_preview">
+                                        <div class='col-md-2' v-if="upload_img">
+                                            <span class='img-close-btn' v-on:click="removeUpload()">X</span>
+                                            <img :src="upload_img" class="show-news-img">
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -121,7 +126,8 @@
                     },
                     category_id_1: '1',
                     related_news: [],
-                    checkedNews: []
+                    checkedNews: [],
+                    upload_img: null,
                 }
             },
             created() {
@@ -132,11 +138,22 @@
                 this.getPostsByCatId();
             },
             methods: {
-                    preview_image() {
-                        $('#image_preview').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-news-img'></div>");
-                        this.news.image = event.target.files[0]
+                    preview_image(e) {
+                        // $('#image_preview').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-news-img'></div>");
+                        this.news.image = event.target.files[0];
+                        this.upload_img = URL.createObjectURL(event.target.files[0]);
                     },
-                    add() {
+                    removeUpload(e) {
+                        this.news.image = '';
+                        this.upload_img = '';
+                        this.reset();
+                    },
+                    reset() {
+                        const input = this.$refs.fileInput;
+                        input.type = 'text';
+                        input.type = 'file';
+                    },
+                        add() {
                         let fData = new FormData();
                         fData.append('photo', this.news.image)
                         fData.append('title', this.news.title)

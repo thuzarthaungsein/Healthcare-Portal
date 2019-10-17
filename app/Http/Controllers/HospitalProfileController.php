@@ -46,7 +46,7 @@ class HospitalProfileController extends Controller
     }
 
     function getFavouriteNursing($local_sto) {
-        $query = "SELECT nursing_profiles.* ,'' AS medical,'' AS payment_method,'' AS minmax, staffs.nursing_staff,customers.name, customers.email, customers.address, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
+        $query = "SELECT nursing_profiles.* ,'' AS payment_method,'' AS minmax, staffs.nursing_staff,customers.name, customers.email, customers.address, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
                     JOIN customers ON nursing_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
                     JOIN staffs ON staffs.customer_id = nursing_profiles.customer_id
@@ -62,9 +62,9 @@ class HospitalProfileController extends Controller
                 // $fea_arr = explode(",", $nur->special_features);
                 $nur->special_features = $specialfeature;
             }
-            $sql = "SELECT * FROM acceptance_transactions WHERE customer_id = $cId";
-            $accept_type = DB::select($sql);
-            $nur->medical = $accept_type;
+            // $sql = "SELECT * FROM acceptance_transactions WHERE customer_id = $cId";
+            // $accept_type = DB::select($sql);
+            // $nur->medical = $accept_type;
             $sql = "SELECT * FROM method_payment WHERE customer_id = $cId";
             $payment = DB::select($sql);
             $nur->payment_method = $payment;
@@ -96,11 +96,7 @@ class HospitalProfileController extends Controller
         $selectedCity = DB::select($query);
         return $selectedCity;
     }
-
-    public function getMedicalAcceptance(){
-        $medical_acceptance = Medical::select('id','name')->get();
-        return $medical_acceptance;
-    }
+    
     /**
      * Show the form for creating a new resource.
      *

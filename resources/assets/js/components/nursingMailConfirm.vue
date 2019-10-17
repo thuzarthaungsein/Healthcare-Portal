@@ -540,6 +540,7 @@ export default {
       comments: {
         name: "",
         furigana: "",
+        bdate: "",
         postal: "",
         division: "",
         city: "",
@@ -548,6 +549,7 @@ export default {
         present: "",
         relation: "",
         ttname: "",
+        sex1: "",
         sex: "",
         years: "",
         nursing: "",
