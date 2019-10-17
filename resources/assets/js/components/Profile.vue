@@ -13,9 +13,10 @@
 
         <li role="presentation" class="subtab2 nav-item">
           <label for="nursing" class="typelabel dim-btn nav-link active" id="nursing-lbl">
-            <i class="fas fa-id-badge"></i>
+            
             <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType('nursing-lbl','hospital-lbl')" name="btntype" id="nursing" />
-            myページ
+            <span v-if="loginuser"><i class="fas fa-id-badge"></i> myページ</span>
+            <span v-if="!loginuser"><i class="fas fa-home"></i></span>
           </label>
         </li>
       </ul>
@@ -46,9 +47,10 @@
 
         <li role="presentation" class="subtab2 nav-item">
           <label for="nursing" class="typelabel nav-link active" id="nursing-lbl">
-            <i class="fas fa-id-badge"></i>
+            
             <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType('nursing-lbl','hospital-lbl')" name="btntype" id="nursing" />
-            myページ
+            <span v-if="loginuser"><i class="fas fa-id-badge"></i> myページ</span>
+            <span v-if="!loginuser"><i class="fas fa-home"></i></span>
           </label>
         </li>
       </ul>
