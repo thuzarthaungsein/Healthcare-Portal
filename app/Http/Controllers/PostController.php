@@ -133,7 +133,7 @@ class PostController extends Controller
         if($request->old_photo == ' ' || $request->old_photo == null ){
             if(is_object($request->photo)) {
                 $file= $post->photo;
-                $filename = public_path().'/upload/news/'.$file;
+                $filename = './upload/news/'.$file;
                 \File::delete($filename);
                 $imageName = $request->photo->getClientOriginalName();
                 $imageName = str_replace(' ', '', $imageName);
@@ -147,7 +147,7 @@ class PostController extends Controller
         else {
             if(is_object($request->photo)) {
                 $file= $post->photo;
-                $filename = public_path().'/upload/news/'.$file;
+                $filename ='./upload/news/'.$file;
                 \File::delete($filename);
                 $imageName = $request->photo->getClientOriginalName();
                 $imageName = str_replace(' ', '', $imageName);
@@ -155,7 +155,7 @@ class PostController extends Controller
             }
             else {
                 $file= $post->photo;
-                $filename = public_path().'/upload/news/'.$file;
+                $filename ='./upload/news/'.$file;
                 \File::delete($filename);
                 $imageName = '';
             }
@@ -186,7 +186,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $file= $post->photo;
-        $filename = public_path().'/upload/news/'.$file;
+        $filename = './upload/news/'.$file;
         \File::delete($filename);
         $post->delete();
         $posts = Post::all()->toArray();
