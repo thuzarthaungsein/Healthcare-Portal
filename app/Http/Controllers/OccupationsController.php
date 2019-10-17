@@ -154,4 +154,17 @@ class OccupationsController extends Controller
         $occupation->delete();
         return response()->json('The Type was successfully deleted');
     }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+
+        $search_occupations = Occupations::query()
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
+                            ->get()
+                            ->toArray();
+        return $search_occupations;
+    }
 }

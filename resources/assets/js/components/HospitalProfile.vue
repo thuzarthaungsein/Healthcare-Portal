@@ -80,7 +80,7 @@
           </div>
         </div>
 
-        <div class="form-group form-group-wrapper row ml-0 mr-0">
+        <!-- <div class="form-group form-group-wrapper row ml-0 mr-0">
           <label class="heading-lbl col-2 pad-free">
             診療科目
             <span class="error">*</span>
@@ -90,7 +90,30 @@
             class="form-control col-10 white-bg-color subject"
             v-model="hospital_info.subject"
           ></textarea>
-        </div>
+        </div> -->
+
+        <!-- test -->
+        <table class="table table-bordered table-wrapper">
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label  class="heading-lbl col-2 pad-free">診療科目</label>
+                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="clinicalSubject()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate}"></i></span>
+                        <div class="col-md-10 float-right clinical-subject-toggle-div toggle-div m-t-10">
+                            <div class="row">
+                                <div v-for="subj in clinical_subj" :key="subj.id" class="col-md-3 m-b-20">
+                                    <label>
+                                        <input type="checkbox"  name="subject" v-bind:value="subj.id" @click="subjectCheck(subj.id)" v-model="subj.checked">
+                                          {{subj.name}}
+                                    </label>
+                                </div>
+                            </div>                                        
+                        </div>
+                    </div>
+                </td>
+              </tr>
+          </table>
+        <!-- end -->
 
         <div class="form-group form-group-wrapper row ml-0 mr-0">
           <label class="heading-lbl col-2 pad-free">
@@ -642,50 +665,6 @@
 
                   <div class="form-group">
                     <label>
-                      郵便番号
-                      <span class="error">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      v-model="this.postal"
-                      name="postal"
-                      class="postal form-control white-bg-color"
-                      id="postal"
-                      v-on:keyup="getPostal"
-                      placeholder="郵便番号を入力してください。"
-                      maxlength="7"
-                    />
-                    <div id="jsErrorMessage"></div>
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      市区町村、番地（建物名）:
-                      <span class="error sp1">必須</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      class="city form-control white-bg-color"
-                      placeholder="市区町村、番地を入力してください。"
-                      v-model="this.city"
-                    />
-                    <p>例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</p>
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      住所
-                      <span class="error">*</span>
-                    </label>
-                    <textarea
-                      name="address"
-                      rows="10"
-                      class="form-control customer-address white-bg-color"
-                      v-model="customer_info.address"
-                    ></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label>
                       交通 / アクセス
                       <span class="error">*</span>
                     </label>
@@ -719,7 +698,7 @@
         <!-- End Map -->
 
         <div class="row col-2 col-offset-6 mx-auto">
-          <span class="btn main-bg-color col-12 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
+          <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
         </div>
       </div>
     </form>
@@ -735,7 +714,7 @@ export default {
        data() {
                 return {
                         fac_list: [],
-                        img_arr:[],img_list:[], 
+                        img_arr:[],img_list:[],
                         video_arr:[], video_list:[],gallery_list:[],
                         feature_list:[],
                         profile_type:'hospital',
@@ -745,17 +724,23 @@ export default {
                         customer_info:[],
                         hospital_info:[],
                         city: '',
-                        postal: ''
+                        postal: '',clinical_subj:[]
                 }
         },
         created(){
-                
+
+                this.axios
+                .get('/api/clinical-subject/'+this.id)
+                .then(response=>{
+                        this.clinical_subj = response.data;
+                });
+
                  this.axios
                 .get('/api/schedule/'+this.id)
                 .then(response=>{
                         this.schedule_arr = response.data;
                 });
-              
+
 
                 this.axios
                 .get('/api/customerinfo/'+this.id)
@@ -763,7 +748,7 @@ export default {
                         this.customer_info = response.data;
                 });
 
-                
+
                 this.axios
                 .get('/api/hospitalinfo/'+this.id)
                 .then(response=>{
@@ -817,6 +802,13 @@ export default {
             featureCheck(check_id) {
                     $('.feature-'+check_id).attr('checked','true');
             },
+            subjectCheck(check_id) {
+                    $('.subject-'+check_id).attr('checked','true');
+            },
+            clinicalSubject() {
+                     $(".clinical-subject-toggle-div").toggle('medium');
+                     
+            },
             DeltArr(indx,type) {
                     var arr_list = [];
                     var arr_count = document.getElementsByClassName('gallery-area-'+type);
@@ -832,7 +824,7 @@ export default {
                                     parentEle.removeChild(ele);
                             }
                     }
-                    
+
             },
             galleryAdd() {
                     var date = new Date;
@@ -849,7 +841,7 @@ export default {
                    this.video_arr.push({title:'',description:'',url:''});
 
             },
-            
+
             specialFeAdd() {
                      $(".special-feature-toggle-div").toggle('medium');
             },
@@ -863,10 +855,11 @@ export default {
                     var name = $('.customer-name').val();
                     var email = $('.customer-email').val();
                     var phone = $('.customer-phone').val();
-                    var address = $('.customer-address').val();
+                    var address = $('#city').val();
+      
                     this.customer_info.push({name:name,email:email,phone:phone,address:address});
 
-                    
+
                     var access = $('.access').val();
                     var subject = $('.subject').val();
                     var specialist = $('.specialist').val();
@@ -874,8 +867,8 @@ export default {
                     var close_day = $('.close-day').val();
                     var website = $('.website').val();
                     var congestion = $('.congestion').val();
-                   
-               
+
+
                     var img = document.getElementsByClassName('gallery-area-photo');
                         for(var i = 0; i< img.length; i++) {
 
@@ -900,61 +893,70 @@ export default {
 
                            this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                         }
-                       
+
 
                     var video = document.getElementsByClassName('gallery-area-video');
                         for(var i = 0; i< video.length; i++) {
                            this.video_list.push({type:"video",photo:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                         }
-                        
+
                      this.gallery_list = this.img_list.concat(this.video_list);
 
                      var chek_feature = [];
                      var special_features ;
-                        $.each($("input[name='special-features']:checked"), function(){ 
+                        $.each($("input[name='special-features']:checked"), function(){
                                 chek_feature.push($(this).val());
                         });
-                
+
                         special_features = chek_feature.join(',');
-        
+
 
                      var chek_facility = [];
                      var facilities ;
-                        $.each($("input[name='facility']:checked"), function(){ 
+                        $.each($("input[name='facility']:checked"), function(){
                                chek_facility.push($(this).val());
                         });
 
                         facilities = chek_facility.join(',');
 
+                    
+                    var chek_subj = [];
+                    var subjects ;
+                        $.each($("input[name='subject']:checked"), function(){
+                               chek_subj.push($(this).val());
+                        });
+
+                        subjects = chek_subj.join(',');
+
                      // Consultation
                      for(var j = 0; j< 2; j++) {
                         for(var i = 0; i< 7; i++) {
-                                if(j == 0) { this.shedule_am[i] = $('.form-control.am-from'+i+'').val() + '-' + $('.form-control.am-to'+i+'').val(); } 
+                                if(j == 0) { this.shedule_am[i] = $('.form-control.am-from'+i+'').val() + '-' + $('.form-control.am-to'+i+'').val(); }
                                 if(j == 1) { this.shedule_pm[i] = $('.form-control.pm-from'+i+'').val() + '-' + $('.form-control.pm-to'+i+'').val(); }
                         }
 
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                     
 
-                       this.hospital_info.push({access:access,subject:subject,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
-                       congestion:congestion,special_features:special_features,facilities:facilities});
-                        
-                        if(this.gallery_list.length > 0) {
-                                this.axios
-                                        .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
-                                                .then((response) => {
-                                                
-                                                }).catch(error=>{
 
-                                                if(error.response.status == 422){
+                       this.hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       congestion:congestion,special_features:special_features,facilities:facilities,subjects:subjects});
 
-                                                this.errors = error.response.data.errors
+                        // if(this.gallery_list.length > 0) {
+                        //         this.axios
+                        //                 .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
+                        //                         .then((response) => {
 
-                                        }
-                                }) ;
-                        }
+                        //                         }).catch(error=>{
+
+                        //                         if(error.response.status == 422){
+
+                        //                         this.errors = error.response.data.errors
+
+                        //                 }
+                        //         }) ;
+                        // }
 
                         if(this.customer_info.length > 0) {
                                 this.axios
@@ -975,7 +977,7 @@ export default {
                                 this.axios
                                         .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
                                                 .then((response) => {
-                                        
+
                                                 }).catch(error=>{
 
                                                 if(error.response.status == 422){
