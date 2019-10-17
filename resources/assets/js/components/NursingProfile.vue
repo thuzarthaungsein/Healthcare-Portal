@@ -511,7 +511,7 @@
                                                 </div>
 
                                                 <!-- Test Station Area -->
-                                                <table class="table table-bordered table-wrapper">
+                                                <!-- <table class="table table-bordered table-wrapper">
                                                         <tr>
                                                                 <td>
                                                                         <div class="form-group">
@@ -530,7 +530,7 @@
                                                                         </div>
                                                                 </td>
                                                         </tr>
-                                                </table>
+                                                </table> -->
                                                 <!-- End Test Station Area -->
 
                                                 <div class="form-group">
@@ -642,11 +642,11 @@ export default {
                 this.type = localStorage.getItem('cusType');
                 this.cusid = Number(localStorage.getItem('cusId'));
                 
-                this.axios
-                .get('/api/station/'+this.cusid)
-                .then(response=>{
-                        this.station_list = response.data;
-                });
+                // this.axios
+                // .get('/api/station/'+this.cusid)
+                // .then(response=>{
+                //         this.station_list = response.data;
+                // });
 
                 this.axios
                 .get('/api/customerinfo/'+this.cusid)
@@ -962,12 +962,12 @@ export default {
                         chek_feature.push($(this).val());
                 });
 
-                var chek_station=[];
-                var stations;
-                $.each($("input[name='station']:checked"), function(){
-                        chek_station.push($(this).val());
-                });
-                stations = chek_station.join(',');
+                // var chek_station=[];
+                // var stations;
+                // $.each($("input[name='station']:checked"), function(){
+                //         chek_station.push($(this).val());
+                // });
+                // stations = chek_station.join(',');
 
                 var acceptance=[];
                 $.each($("input[class='medical-acceptance']:checked"), function(){
@@ -982,7 +982,7 @@ export default {
 
                 special_features = chek_feature.join(',');
 
-                this.profile_arr.push({feature:this.feature_val,stations:stations,website:website,access:access,moving_in:moving_in,per_month:per_month,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({feature:this.feature_val,website:website,access:access,moving_in:moving_in,per_month:per_month,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
