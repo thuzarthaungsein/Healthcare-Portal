@@ -44,9 +44,10 @@
                       type="text"
                       class="form-control"
                       placeholder="検索"
-                      id="search-item" 
+                      id="search-item"
                       @keyup="searchJobOffer()"
                     />
+                    <input type="hidden" class=form-contrl id="customer-id" v-model="customer_id">
                   </div>
                   <!-- <div class="col-6 row align-items-baseline">
                     <div class="col-md-3">
@@ -139,14 +140,16 @@
 export default {
   data() {
     return {
-      jobs: []
+      jobs: [],
+      customer_id:''
     };
   },
   created() {
- 
+
     this.axios.get("/api/job/index").then(response => {
-      console.log(response);
       this.jobs = response.data.profilejob;
+      this.customer_id = response.data.user;
+
     });
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)
@@ -154,19 +157,56 @@ export default {
   },
   methods: {
     deleteJob(id) {
-      if (confirm("Are you sure you want to delete?")) {
-        this.axios.delete(`/api/job/delete/${id}`).then(response => {
-          alert("Delete Successfully!");
-          let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
-          this.jobs.splice(i, 1);
+                this.$swal({
+                title: "確認",
+                text: "削除よろしいでしょうか",
+                type: "warning",
+                width: 350,
+                height: 200,
+                showCancelButton: true,
+                confirmButtonColor: "#dc3545",
+                cancelButtonColor: "#b1abab",
+                cancelButtonTextColor: "#000",
+                confirmButtonText: "削除",
+                cancelButtonText: "キャンセル",
+                confirmButtonClass: "all-btn",
+                cancelButtonClass: "all-btn"
+            }).then(response => {
+            this.axios.delete(`/api/job/delete/${id}`)
+                   .then(response => {
+                       let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
+                        this.jobs.splice(i, 1);
+                         this.$swal({
+                title: "削除された",
+                text: "ファイルが削除されました。",
+                type: "success",
+                width: 350,
+                height: 200,
+                confirmButtonText: "はい",
+                confirmButtonColor: "#dc3545"
+                    });
+                }).catch(() => {
+                this.$swal("Failed", "wrong");
+            });
         });
-      }
+
+
+    //   if (confirm("Are you sure you want to delete?")) {
+    //     this.axios.delete(`/api/job/delete/${id}`).then(response => {
+    //       alert("Delete Successfully!");
+    //       let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
+    //       this.jobs.splice(i, 1);
+    //     });
+    //   }
     },
     searchJobOffer() {
       var search_word = $("#search-item").val();
-       let fd = new FormData();
+      var customer_id = $('#customer-id').val();
+
+      let fd = new FormData();
       fd.append("search_word", search_word);
-      this.axios.post("/api/job/search", fd).then(response => {
+      fd.append("customer_id", customer_id);
+        this.axios.post("/api/job/search", fd).then(response => {
         this.jobs = response.data;
       });
     }

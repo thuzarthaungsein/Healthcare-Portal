@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="col-md-12 pad-free">
     <!-- <div class="col-12"> -->
     <!-- <div class="card card-default m-b-20">
             <div class="card-body">
@@ -17,11 +17,11 @@
         </div>
     </div>-->
 
-    <div class="col-12 m-b-10" v-if="this.customers.length !== 0">
+    <!-- <div class="col-12 m-b-10" v-if="this.customers.length !== 0">
       <router-link to="/createcustomer" class="float-right main-bg-color create-btn all-btn">
         <i class="fas fa-plus-circle"></i> 新しい事業者を作成
       </router-link>
-    </div>
+    </div> -->
 
     <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
       <div class="col-md-12 scrolldiv p-0">
@@ -50,6 +50,7 @@
             <hr />
             <h5 class="header">事業者</h5>
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
+          
               <div class="card-body news-post">
                 <div class="row">
                   <div class="col-md-2">
@@ -79,10 +80,11 @@
                       <div class="col-4 col-offset-4 pl-3">
                         <button class="btn delete-borderbtn" @click="deleteCustomer(customer.id)">削除</button>
                         <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
-                        <button class="btn confirm-borderbtn" v-if="customer.status != 0">確認済</button>
+                        <!-- <button class="btn confirm-borderbtn" v-if="customer.status == 0">確認済</button> -->
+                    
                         <button
                           class="btn confirm-borderbtn"
-                          v-else
+                          v-if="customer.status == 0"
                           @click="comfirm(customer.id)"
                         >確認</button>
                       </div>

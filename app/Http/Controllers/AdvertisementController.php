@@ -41,9 +41,6 @@ class AdvertisementController extends Controller
              'title' => 'required|unique:advertisements',
              'location'=>'required',
              'photo'=>'required',
-        //     'user_id'=>'required',
-        //     'recordstatus'=>'required',
-
          ]);
 
         $imageName = $request->photo->getClientOriginalName();
@@ -60,7 +57,7 @@ class AdvertisementController extends Controller
 
          $ads ->save();
 
-         $request->photo->move('upload/advertisement/', $imgname);
+         $request->photo->move('./upload/advertisement/', $imgname);
          //return $ads;
          return response()->json('Success ');
 
@@ -112,28 +109,44 @@ class AdvertisementController extends Controller
             $imageName = $request->photo->getClientOriginalName();
             $imageName = str_replace(' ', '', $imageName);
             // $request->photo->move(public_path('/upload/advertisement'), $imageName);
-            $request->photo->move('upload/advertisement/', $imageName);
+            $request->photo->move('./upload/advertisement/', $imageName);
         } else {
             $imageName = $request->photo;
         }
-          $uploadData = array(
-              'title' => $request->input('title'),
-              'description' => $request->input('description'),
-              'link'=>$request->input('link'),
-              'location'=>$request->input('location'),
-              'photo' => $imageName,
-              'user_id' => 1,
-              'recordstatus' => 1
-         );
-          $ads = Advertisement::find($id);
-          if(is_object($request->photo)) {
-            $file= $ads->photo;
-           $filename = '/upload/advertisement/'.$file;
-        //    $filename = public_path().'/upload/advertisement/'.$file;
-           \File::delete($filename);
-          }
-          $err = $ads->update($uploadData);
-          return response()->json($err);
+        //   $uploadData = array(
+        //       'title' => $request->input('title'),
+        //       'description' => $request->input('description'),
+        //       'link'=>$request->input('link'),
+        //       'location'=>$request->input('location'),
+        //       'photo' => $imageName,
+        //       'user_id' => 1,
+        //       'recordstatus' => 1
+        //  );
+            $ads = Advertisement::find($id);
+            if(is_object($request->photo)) {
+                     $file= $ads->photo;
+                     $filename = './upload/advertisement/'.$file;
+                   \File::delete($filename);
+                }
+
+            $ads->title = $request->input('title');
+            $ads->description = $request->input('description');
+            $ads->link=$request->input('link');
+            $ads->location=$request->input('location');
+            $ads->photo = $imageName;
+            $ads->user_id = 1;
+            $ads->save();
+
+
+        //   if(is_object($request->photo)) {
+        //     $file= $ads->photo;
+        //     $filename = './upload/advertisement/'.$file;
+        //     // $filename = public_path().'/upload/advertisement/'.$file;
+        //    \File::delete($filename);
+        //   }
+
+            return response()->json('successfully updated');
+        //return response()->json($ads);
     }
 
     /**
@@ -147,10 +160,13 @@ class AdvertisementController extends Controller
         //
         $ads = Advertisement::find($id);
         $file= $ads->photo;
-        $filename = '/upload/advertisement/'.$file;
+        $filename = './upload/advertisement/'.$file;
+        //$filename = public_path().'/upload/advertisement/'.$file;
         \File::delete($filename);
         $ads->delete();
-        return response()->json('The successfully deleted');
+        $advertisements = Advertisement::all()->toArray();
+        return array_reverse($advertisements);
+        // return response()->json('The successfully deleted');
     }
 
     public function search(Request $request)

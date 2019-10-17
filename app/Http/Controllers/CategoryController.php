@@ -98,7 +98,9 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        return response()->json('The Category successfully deleted');
+        $categories = Category::all()->toArray();
+        // return response()->json(array('categories'=>$categories,'msg'=>'The Category successfully deleted'));
+        return array_reverse($categories);
 
 
     }
@@ -108,8 +110,7 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
-    public function search(Request $request)
-    {
+    public function search(Request $request) {
         $request = $request->all();
         $search_word = $request['search_word'];
 

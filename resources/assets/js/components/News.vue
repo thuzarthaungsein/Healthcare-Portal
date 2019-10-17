@@ -4,13 +4,13 @@
                 <div class="row">
                         <div class="col-12">
                                 <div class="col-12">
-                                        <form class="col-lg-12 mb-2 pad-free">
-                                                <div class="col-md-6 offset-6 pad-free">
+                                        <form class="col-lg-12 mb-2 pad-free"  v-if="status == '0'">
+                                                <div class="col-md-7 offset-5">
                                                         <div class="row ">
-                                                                <div class="col-md-9">
+                                                                <div class="col-md-10">
                                                                         <input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
                                                                 </div>
-                                                                <div class="col-md-3">
+                                                                <div class="col-md-2">
                                                                         <span v-if="status=='0'" class="btn btn my-2 col-md-12 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
                                                                 </div>
                                                         </div>
@@ -58,7 +58,7 @@
                                                 </div>
                                         </div>
                                         <div v-else>
-                                                <NewsSearchListComponent></NewsSearchListComponent>
+                                                <NewsSearchListComponent :first_search_word="first_search_word"></NewsSearchListComponent>
                                         </div>
                                 </div>
                                 <div class="col-md-12 m-lr-0" v-if="status =='0'">
@@ -115,27 +115,6 @@
         
 </template>
 
-<style scoped>
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    color: #fff !important;
-    font-weight: bold;
-    background-color: #1aa985  !important;
-    border-top: 1px solid #1aa985  ;
-    border-color: #1aa985   #ecede1   #1aa985   #1aa985  !important;
-
-}
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-link {
-    border: 1px solid #1aa985  !important;
-
-}
-div.tab-card-header > .card-header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
-
-    border-color: transparent   #ecede1   transparent   #ecede1   !important;
-
-
-}
-
-</style>
 <script>
 import News from './News.vue'
 import hospitalSearch from './hospitalSearch.vue'
@@ -176,9 +155,8 @@ export default {
                 id_arr:[],
                 post_groups : [],
                 status:'0',
-                search_word:''
-               
-                
+                search_word:'',
+                first_search_word:''
             }
         },
         created() {
@@ -273,7 +251,7 @@ export default {
 
                 searchCategory() {
                         this.status = 1;
-                        this.search_word = $('#search-word').val();
+                        this.first_search_word = $('#search-word').val();
                 },
 
                 imgUrlAlt(event) {

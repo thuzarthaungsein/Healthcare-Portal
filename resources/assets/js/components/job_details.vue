@@ -1,5 +1,5 @@
 <template>
-  <div class="cont-pad job-detail">
+  <div class="tab-content job-detail">
     <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">
       <h4 class="h_4 header m-4">{{job_details.title}}</h4>
       <label>求人番号: {{jobDetail.jobid}}</label>
@@ -70,7 +70,8 @@
           <div class="row mt-4">
             <div class="col-md-12 text-center">
               <!-- <button type="button" class="btn btn-warning btn-width white">戻る</button> -->
-              <router-link to="/jobapply" class="btn secondary-bg-color white all-btn">この案件に応募</router-link>
+              <span class="btn main-bg-color white all-btn" @click="jobApply()" >確認画面へ進む</span>
+              <!-- <router-link to="/jobapply" class="btn secondary-bg-color white all-btn">この案件に応募</router-link> -->
             </div>
           </div>
         </div>
@@ -83,7 +84,8 @@
 export default {
   data() {
     return {
-      job_details: []
+      job_details: [],
+      job_id: ""
     };
   },
   created() {
@@ -93,6 +95,12 @@ export default {
         console.log(response.data);
         this.job_details = response.data;
       });
+    this.job_id = this.$route.params.id;
+  },
+  methods: {
+    jobApply() {
+      this.$router.push({name: 'jobapply' , params: { job_id: this.job_id}});
+    }
   }
 };
 </script>

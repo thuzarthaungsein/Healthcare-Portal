@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12">
-      <div class="row m-b-10" v-if="this.features.length !== 0">
+      <div class="row m-b-10" v-if="norecord!== 0">
         <div class="col-md-12">
           <router-link to="/specialfeature" class="float-right main-bg-color create-btn all-btn">
             <i class="fas fa-plus-circle"></i> 特殊機能を作成
@@ -11,7 +11,7 @@
       <!--card-->
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="col-md-12 scrolldiv">
-          <div v-if="!this.features.length" class="card card-default card-wrap">
+          <div v-if="norecord ===0" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -23,7 +23,7 @@
             </a>
           </div>
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">検索特徴リスト</h4>
+            <h4 class="main-color m-b-10">特徴一覧検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <input
@@ -36,7 +36,7 @@
               </div>
             </div>
             <hr />
-            <h5 class="header">特徴リスト</h5>
+            <h5 class="header">特徴一覧</h5>
             <div class="col-md-12 pad-free scrolldiv">
               <div
                 v-if="!this.features.length"
@@ -47,7 +47,7 @@
                   <thead style="background-color:rgb(183, 218, 210);">
                     <tr>
                       <th>機能名</th>
-                      <th>略称</th>
+                      <th>縮小</th>
                       <th>種類</th>
                       <th></th>
                     </tr>
@@ -86,13 +86,15 @@
 export default {
   data() {
     return {
-      features: []
+      features: [],
+      norecord:0,
     };
   },
 
   created() {
     this.axios.get("/api/feature/featurelist").then(response => {
       this.features = response.data;
+      this.norecord = this.features.length;
     });
   },
   methods: {
@@ -115,9 +117,11 @@ export default {
         this.axios
           .delete(`/api/feature/delete/${id}`)
           .then(response => {
+              this.features = response.data;
+              this.norecord=this.features.length;
             //   alert("Delete Successfully!");
-            let i = this.features.map(item => item.id).indexOf(id); // find index of your object
-            this.features.splice(i, 1);
+            // let i = this.features.map(item => item.id).indexOf(id); // find index of your object
+            // this.features.splice(i, 1);
             this.$swal({
               title: "削除された",
               text: "ファイルが削除されました。",

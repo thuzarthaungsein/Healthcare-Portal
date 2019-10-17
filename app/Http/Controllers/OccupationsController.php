@@ -52,7 +52,7 @@ class OccupationsController extends Controller
      */
     public function store(Request $request)
     {
-          
+
         $request->validate([
             'name' => 'required|unique:occupation',
 
@@ -61,7 +61,7 @@ class OccupationsController extends Controller
 
         if( $request->parent != null)
         {
-           
+
             $occupation = new Occupations();
             $occupation->name = $request->input('name');
             $occupation->user_id = 1;
@@ -71,8 +71,8 @@ class OccupationsController extends Controller
         }
         else if( $request->parent == null)
         {
-            
-            
+
+
             $occupation = new Occupations();
             $occupation->name = $request->input('name');
             $occupation->user_id = 1;
@@ -80,7 +80,7 @@ class OccupationsController extends Controller
             $occupation ->recordstatus = 2;
 
         }
-      
+
         $occupation->save();
 
         return $occupation;
@@ -93,7 +93,7 @@ class OccupationsController extends Controller
     }
 
 
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -136,8 +136,8 @@ class OccupationsController extends Controller
             $occupation ->recordstatus = 2;
             $occupation->save();
         }
-      
-    
+
+
 
         return response()->json('The Type successfully updated');
     }
@@ -150,8 +150,24 @@ class OccupationsController extends Controller
      */
     public function destroy($id)
     {
+
         $occupation = Occupations::find($id);
         $occupation->delete();
-        return response()->json('The Type was successfully deleted');
+        $occupations = Occupations::all()->toArray();
+        return array_reverse($occupations);
+        // return response()->json('The Type was successfully deleted');
+    }
+
+    public function search(Request $request)
+    {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+
+        $search_occupations = Occupations::query()
+                            ->where('name', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
+                            ->get()
+                            ->toArray();
+        return $search_occupations;
     }
 }

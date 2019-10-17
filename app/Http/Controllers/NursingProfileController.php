@@ -134,7 +134,8 @@ class NursingProfileController extends Controller
             'special_features' =>  $request[0]['special_features'],
             'acceptance_remark' =>  $request[0]['acceptance_remark'],
             'latitude' =>  $request[0]['latitude'],
-            'longitude' =>  $request[0]['longitude']
+            'longitude' =>  $request[0]['longitude'],
+            'stations' =>  $request[0]['stations']
        );
 
        $nursing->update($uploadData);
@@ -155,8 +156,9 @@ class NursingProfileController extends Controller
     }
 
     public function Staffprofileupdate($id,Request $request) {
+        
         $request = $request->all();
-     
+    
         $customer = Staff::where('customer_id', $id);
         $uploadData = array(
             'staff' => $request[0]['staff'],
