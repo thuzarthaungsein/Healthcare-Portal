@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="form-group">
                                         <router-link class="btn btn-danger all-btn" to="/ads" > キャンセル </router-link>
-                                        <button class="btn news-post-btn all-btn" to="/ads" >作る</button>
+                                        <button class="btn news-post-btn all-btn">作る</button>
                                     </div>
                                     </form>
                                 </div>
