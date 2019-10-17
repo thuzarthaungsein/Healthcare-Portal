@@ -1,7 +1,5 @@
-
-
 <pre>
-    [施設名」([施設No])様
+    {{$getComment->fav_name}}(施設No: {{$getComment->fav_id}})様
 
     [Healthcare Portal]より資料請求がございました。
 
@@ -34,5 +32,3 @@
     東京都新宿区西新宿2-7-1小田急第一生命ビル13階 
     TEL：03-6911-???? FAX：03-6911-????
 </pre>
-
-    

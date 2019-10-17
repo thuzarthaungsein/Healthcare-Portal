@@ -4,7 +4,7 @@
         <div class="col-12 scrolldiv4">
             <div class="row">
                 <div class="col-12 text-center p-3 jt1 mb-4">
-                    <h4>お気に入りのフォーム</h4>
+                    <h4>お客様情報のご入力</h4>
                 </div>
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
