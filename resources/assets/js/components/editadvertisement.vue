@@ -38,7 +38,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group" id="showimage">
+                            <!-- <div class="form-group" id="showimage">
                                 <label class="">メディア:<span class="error">*</span></label>
                                 <div class="custom-file">
                                     <input type="file" ref="file" accept="image/*" @change="fileSelected" required>
@@ -53,21 +53,22 @@
                             <div class="form-group image_update" id="x-image">
                                 <div class="col-md-12" >
                                     <div id='x-image' class='col-md-2'>
-                                        <span class='img-close-btn' v-on:click='onClick(advertisement.photo)'>X</span>
+                                        <span class='img-close-btn' v-on:click='closeBtnMethod(advertisement.photo)'>X</span>
                                         <img :src="'/upload/advertisement/'+ advertisement.photo" class='show-img' alt="ads">
                                     </div>
                                 </div>
                             </div>
-                            <!-- <input type="hidden" v-model="old_photo" > -->
-                             <!-- <div class="form-group" style="display:none" id="showimage">
+                            <input type="hidden" v-model="old_photo" > -->
+                            <div class="form-group" style="display:none" id="showimage">
                                 <label>メディア : <span class="error">*</span></label><br/>
                                 <div class="custom-file">
-                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
-                                    <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span>
+                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected" required>
+                                    <!-- <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span> -->
                                 </div>
                             </div>
                             <div class="image_show"></div>
-                            <div class="form-group image_update" id="x-image"> </div> -->
+                            <div class="form-group image_update" id="x-image"> </div>
+
                             <div class="form-group">
                                 <router-link to="/ads" class="btn btn-danger all-btn">戻る</router-link>
                                 <button class="btn news-post-btn all-btn">更新</button>
@@ -94,11 +95,11 @@ export default {
                             topbars: false,
                             sidebars:false
                         }],
-                        photo:''
+                        photo:'',
                     },
                     ischeck:'',
-                    old_photo: "",
-                    upload_img:'',
+                   // old_photo: "",
+                    upload_img:null,
                     //deleteImage:'',
             }
         },
@@ -111,8 +112,9 @@ export default {
                      this.advertisement.link = response.data.link;
                      this.ischeck = response.data.location;
                      this.updateCheck(this.ischeck);
-                     this.advertisement.photo=response.data.photo;
-                    //  this.updateselected();
+                    this.advertisement.photo=response.data.photo;
+                     //console.log(this.advertisement.photo);
+                     this.updateselected();
                 });
 
         },
@@ -120,16 +122,16 @@ export default {
          methods: {
               fileSelected(){
 
-                    //  $('.image_show').html("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+                     $('.image_show').html("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
 
-                    //  this.advertisement.photo = event.target.files[0]
-                    this.advertisement.photo = event.target.files[0];
-                    this.upload_img = URL.createObjectURL(event.target.files[0]);
+                     this.advertisement.photo = event.target.files[0]
+                    // this.advertisement.photo = event.target.files[0];
+                    // this.upload_img = URL.createObjectURL(event.target.files[0]);
               },
-            //   updateselected()
-            //   {
-            //        $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
-            //   },
+              updateselected()
+              {
+                   $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closeBtnMethod()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
+              },
              removeUpload(e) {
                         this.advertisement.photo = '';
                         this.upload_img = '';
@@ -209,19 +211,6 @@ export default {
                     }
                 })
             },
-             onClick: function(old_photo) {
-                        // console.log(old_photo);
-                        if(confirm("Are you sure you want to delete?"))
-                        {
-                            // this.deleteImage='Delete';
-                            var image_x = document.getElementById('x-image');
-                            image_x.parentNode.removeChild(image_x);
-                            document.getElementById('showimage').style.display = 'block';
-                        }
-                        // else{
-                        //      this.deleteImage='';
-                        // }
-                    },
         }
 }
 </script>

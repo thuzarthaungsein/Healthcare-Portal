@@ -316,15 +316,15 @@ $('#save_value').click(function(){
   //     );
   // });
 
-//   function closebtn(){
+  function closeBtnMethod(){
 
-//     if(confirm("Are you sure you want to delete?"))
-//     {
-//         var image_x = document.getElementById('x-image');
-//         image_x.parentNode.removeChild(image_x);
-//         document.getElementById('showimage').style.display = 'block';
-//     }
-// }
+    if(confirm("Are you sure you want to delete?"))
+    {
+        var image_x = document.getElementById('x-image');
+        image_x.parentNode.removeChild(image_x);
+        document.getElementById('showimage').style.display = 'block';
+    }
+}
 
 
   // function closebtn(){
