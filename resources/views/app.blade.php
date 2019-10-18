@@ -770,15 +770,7 @@
 <script type="text/javascript">
 
 
- $(document).ready(function() {
-
-    // pannellum.viewer('panorama', {
-    //     "type": "equirectangular",
-    //     "panorama": ["examplepano.jpg"],
-    //     "autoRotate": -2
-    // });      
-
-       
+ $(document).ready(function() {       
      /*added for back to top*/
      var mybutton = document.getElementById("myBtn");
         // When the user scrolls down 20px from the top of the document, show the button
