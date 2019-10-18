@@ -25,10 +25,10 @@
                                     <div class="row" id ="gallery-photo">
                                             <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                                                 <div class="col-md-12">
-                                                                        <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
+                                                                        <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)">
                                                                         <div class="col-md-12 m-b-10" v-bind:class="img.classname">
                                                                                 <input type="hidden" class="already-photo" v-model="img.photo">
-                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" id="already-photo">
+                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx">
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-md-12">
@@ -38,7 +38,6 @@
                                                                 <div class="col-md-12 text-right">
                                                                         <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')"> <i class="fa fa-trash"></i> 削除</a>
                                                                 </div>
-
 
                                                 </div>
                                     </div>
@@ -83,6 +82,16 @@
                             <td style="border:none;">
                                 <div class="form-group"><label class="heading-lbl" style="border-left: 5px solid #f9793c;padding-left: 5px;">費用</label></div>
                                 <div class="form-group">
+
+                                <label class="heading-lbl col-2 pad-free">Moving In<span class="error">*</span></label>
+                                <div class="col-10 float-right pad-free">
+                                        <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
+                                </div>
+                                <label class="heading-lbl col-2 pad-free">Per month<span class="error">*</span></label>
+                                <div class="col-10 float-right pad-free">
+                                        <input type="text"  class="form-control col-10 nursing-per-month float-left white-bg-color" v-model="nursing_info.per_month">
+                                </div>
+
                                 <label class="heading-lbl col-2 pad-free">支払い方法<span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                         <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
@@ -498,11 +507,11 @@
                                                 <div class="form-group">
                                                         <label>住所<span class="error">*</span></label>
                                                         <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                        <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" class="customer-address" v-model="customer_info.address"/>
+                                                        <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" @change="onCustomerAddressChange($event)" class="customer-address" v-model="customer_info.address"/>
                                                 </div>
 
                                                 <!-- Test Station Area -->
-                                                <table class="table table-bordered table-wrapper">
+                                                <!-- <table class="table table-bordered table-wrapper">
                                                         <tr>
                                                                 <td>
                                                                         <div class="form-group">
@@ -521,7 +530,7 @@
                                                                         </div>
                                                                 </td>
                                                         </tr>
-                                                </table>
+                                                </table> -->
                                                 <!-- End Test Station Area -->
 
                                                 <div class="form-group">
@@ -611,6 +620,7 @@ export default {
                 acceptance_remark_val: '',
                 nursing_remarks_val: '',
                 residence_form_val: '',
+                customer_address_val:'',
                 // customer_address_val: '',
                 // transporation_access_val: '',
           }
@@ -621,6 +631,7 @@ export default {
         },
         
         created(){
+               
                 if(this.type != undefined && this.cusid!= undefined){
                         localStorage.setItem('cusType',this.type);
                         localStorage.setItem('cusId',this.cusid);
@@ -628,12 +639,11 @@ export default {
 
                 this.type = localStorage.getItem('cusType');
                 this.cusid = Number(localStorage.getItem('cusId'));
-                
-                this.axios
-                .get('/api/station/'+this.cusid)
-                .then(response=>{
-                        this.station_list = response.data;
-                });
+                // this.axios
+                // .get('/api/station/'+this.cusid)
+                // .then(response=>{
+                //         this.station_list = response.data;
+                // });
 
                 this.axios
                 .get('/api/customerinfo/'+this.cusid)
@@ -727,10 +737,9 @@ export default {
             stationCheck(check_id) {
                     $('.station-'+check_id).attr('checked','true');
             },
-            preview_image(img_class) {
-                document.getElementById('already-photo').src= URL.createObjectURL(event.target.files[0]);
+            preview_image(img_class,indx) {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
-                this.test = event.target.files[0]
+                document.getElementById('already-photo'+indx).src= URL.createObjectURL(event.target.files[0]);
             },
 
             DeltArr(indx,type) {
@@ -833,6 +842,10 @@ export default {
                         // console.log('editor change!', editor, html, text)
                         this.residence_form_val = html
                 },
+                onCustomerAddressChange({ editor, html, text }) {
+                        // console.log('editor change!', editor, html, text)
+                        this.customer_address_val = html
+                },
 
             createProfile() {
 
@@ -847,9 +860,11 @@ export default {
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
                 var customer_phone = $('.customer-phone').val();
-                var customer_address = $('.customer-address').text();
+                // var customer_address = $('.customer-address').text();
 
-                var access = $('.transporation-access').text();
+                var access = $('.transporation-access').val();
+                var moving_in = $('.nursing-moving-in').val();
+                var per_month = $('.nursing-per-month').val();
                 var method = $('.nursing-payment-method').val();
                 var business_entity = $('.business-entity').val();
                 var date_of_establishment = $('.date-of-establishment').val();
@@ -878,12 +893,10 @@ export default {
                 var min_num_staff = $('.min-num-staff').val();
                 var num_staff = $('.num-staff').val();
                 // var nursing_remarks = $('.nursing-remarks').val();
-
-                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
+                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:this.customer_address_val});
 
                 this.staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
-
-                console.log(this.staff_info);
+               
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
                         var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
@@ -949,12 +962,12 @@ export default {
                         chek_feature.push($(this).val());
                 });
 
-                var chek_station=[];
-                var stations;
-                $.each($("input[name='station']:checked"), function(){
-                        chek_station.push($(this).val());
-                });
-                stations = chek_station.join(',');
+                // var chek_station=[];
+                // var stations;
+                // $.each($("input[name='station']:checked"), function(){
+                //         chek_station.push($(this).val());
+                // });
+                // stations = chek_station.join(',');
 
                 var acceptance=[];
                 $.each($("input[class='medical-acceptance']:checked"), function(){
@@ -969,7 +982,7 @@ export default {
 
                 special_features = chek_feature.join(',');
 
-                this.profile_arr.push({feature:this.feature_val,stations:stations,website:website,access:access,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({feature:this.feature_val,website:website,access:access,moving_in:moving_in,per_month:per_month,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
@@ -1050,6 +1063,7 @@ export default {
                                 }
                         }) ;
                 }
+
                 if(this.staff_info.length > 0) {
                         this.axios
                                 .post(`/api/staff/profile/${this.cusid}`,this.staff_info)
