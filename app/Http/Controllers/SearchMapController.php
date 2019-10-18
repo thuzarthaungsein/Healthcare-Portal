@@ -9,8 +9,6 @@ class SearchMapController extends Controller
 {
     public function getMap(Request $request, $id){
      
-      
-   
         $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng from customers As c  Join townships As t on t.id =  c.townships_id Join nursing_profiles As n on n.customer_id = c.id 
             where t.city_id =".$id." order BY n.id ASC LIMIT 26";
         $nus_latlng = DB::select($query);
@@ -48,12 +46,16 @@ class SearchMapController extends Controller
             $nus_latlng = DB::select($query);
            
        
-            return response()->json($nus_latlng);
-      
-       
+            return response()->json($nus_latlng) ;
+         
     } 
 
- 
+    public function gethospitalsearch()
+    {
+       $query = "SELECT  h.* from customers as c   join hospital_profiles as h on h.customer_id = c.id join townships as t on t.id = c. ";
+       $test = DB::select($query);
+    }
+
     public function getJobSearch()
     {
         //for city
@@ -94,7 +96,7 @@ class SearchMapController extends Controller
         if($empstatus[0] === '0' && count($empstatus) === 1)
         {       
             $empstatus = '0';
-        } else if($empstatus[0] === '0' && count($empstatus > 1)){
+        } else if($empstatus[0] === '0' && count($empstatus > 1)){   
            
             unset($empstatus[0]);
             $empstatus = implode(',',$empstatus);   
@@ -251,7 +253,7 @@ class SearchMapController extends Controller
        
 
         return response()->json($job_data);
-      
+         
 
     }
  

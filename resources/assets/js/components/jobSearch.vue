@@ -949,7 +949,7 @@
                 <tr class="text-center">
                   <td colspan="2">
                   
-                     <button class="btn-success" id="search" @click="search"> Search </button>
+                     <button class="btn-success" v-scroll-to="{ el: '#job_detail'}" id="search" @click="search"> Search </button>
                  
                   </td>
                 </tr>
@@ -1024,7 +1024,34 @@ export default {
 
     search()
     {  
-      window.scrollTo({ top : 1000, behavior: 'smooth' });
+       
+        if(this.townshipID == null || this.townshipID == '')
+        {
+          this.townshipID[0] = 0;
+        }
+        if(this.occupationID == null || this.occupationID == '')
+        {
+          this.occupationID[0] = 0;
+        }
+        if(this.empstatus == null || this.empstatus == '')
+        {
+          this.empstatus[0] = 0;
+        }
+    
+        this.axios.get('api/getjobsearch',{
+          params:{
+              id: this.id,
+              townshipID:this.townshipID,
+              occupationID:this.occupationID,
+              empstatus:this.empstatus
+          },
+        }).then((response)=>{
+    
+          this.job_data = response.data;
+      
+        })
+        
+         // window.scrollTo({ top : 1000, behavior: 'smooth' });
     },
  
     toggleContent4() {
@@ -1056,34 +1083,7 @@ export default {
         
       getStateClick(e){
        
-        if(e.target.tagName == 'BUTTON')
-        {
-            if(this.townshipID == null || this.townshipID == '')
-          {
-            this.townshipID[0] = 0;
-          }
-          if(this.occupationID == null || this.occupationID == '')
-          {
-            this.occupationID[0] = 0;
-          }
-          if(this.empstatus == null || this.empstatus == '')
-          {
-            this.empstatus[0] = 0;
-          }
-      
-          this.axios.get('api/getjobsearch',{
-            params:{
-                id: this.id,
-                townshipID:this.townshipID,
-                occupationID:this.occupationID,
-                empstatus:this.empstatus
-            },
-          }).then((response)=>{
-      
-            this.job_data = response.data;
-        
-          })
-        }
+       
            
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
