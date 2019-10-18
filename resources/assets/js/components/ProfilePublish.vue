@@ -53,16 +53,20 @@
           :class="{ active : active_el == 6 }"
         >ロコミ</button>
 
-        <button
-          v-scroll-to="{ el: '#element7' }"
-          class="top-fixed-btn"
-          @click="activate(7)"
-          :class="{ active : active_el == 7 }"
-        >求人応募</button>
+        <!-- <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn"  @click="activate(7)" :class="{ active : active_el == 7 }">
+
+
+
+                求人応募
+
+
+
+        </button>-->
       </div>
 
       <div class="row m-lr-0 ele" id="element1">
         <h5 class="profile_header">情報</h5>
+
         <div
           class="row col-12 list-wrap m-lr-0 white-bg-color"
           v-for="cust in customer"
@@ -657,8 +661,22 @@
 
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="row col-12">
-            <div class="col-12 comment-wrapper mb-2">
+            <div class="col-12 comment-wrapper">
               <div class="card" v-for="comment in comments" :key="comment.id">
+                <!-- <div class="card-profile_header comment-title text-truncate">
+
+
+
+                                    <i class="fas fa-comment"></i>
+
+
+
+                                    {{comment.title}}
+
+
+
+                </div>-->
+
                 <div class="card-body">
                   <div class="comment-title">
                     <i class="fas fa-comment"></i>
@@ -684,9 +702,11 @@
         </div>
       </div>
 
-      <div class="ele m-lr-0" id="element7">
-        <joboffer profile="profile"></joboffer>
-      </div>
+      <!-- <div class="ele m-lr-0" id="element7">
+
+                <joboffer profile="profile"></joboffer>
+
+      </div>-->
     </div>
 
     <div v-if="type == 'hospital'" id="hospitalView">
@@ -721,12 +741,11 @@
           :class="{ active : active_el == 3 }"
         >地図</button>
 
-        <button
-          v-scroll-to="{ el: '#element4' }"
-          class="top-fixed-btn"
-          @click="activate(4)"
-          :class="{ active : active_el == 4 }"
-        >求人応募</button>
+        <!-- <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
+
+                求人応募
+
+        </button>-->
       </div>
 
       <div class="row ele m-lr-0" id="element1">
@@ -740,6 +759,7 @@
           :key="cust.id"
         >
           <!--for slideimage-->
+
           <div class="col-sm-5 detail_profile_left">
             <div class="thumbnail-img">
               <div class="card-carousel">
@@ -841,7 +861,9 @@
                       <font>Nearest Station</font>
                     </td>
                   </tr>
+
                   <!-- <tr>
+
                                         <th width="250" class="custom-bg-color">
 
                                             <font>費用 </font>
@@ -849,9 +871,13 @@
                                         </th>
 
                                         <td>
+
                                             <font>Cost</font>
+
                                         </td>
+
                   </tr>-->
+
                   <tr>
                     <th width="250" class="custom-bg-color">
                       <font>件名</font>
@@ -859,6 +885,7 @@
 
                     <td>
                       <label for v-for="sub in subjects" :key="sub.id">{{sub.name}}</label>
+
                       <!-- <font>{{cust.subject}}</font> -->
                     </td>
                   </tr>
@@ -1133,9 +1160,11 @@
         </div>
       </div>
 
-      <div class="ele m-lr-0" id="element4">
-        <joboffer profile="profile"></joboffer>
-      </div>
+      <!-- <div class="ele m-lr-0" id="element4">
+
+                <joboffer profile="profile"></joboffer>
+
+      </div>-->
     </div>
   </div>
 </template>
@@ -1361,6 +1390,7 @@ export default {
         .get("/api/profile/customer/" + this.cusid + "/" + this.type)
         .then(response => {
           console.log(response.data);
+
           this.customer = response.data;
         });
 
@@ -1683,24 +1713,33 @@ export default {
   padding-bottom: 10px;
 }
 
-.comment-ico {
-  display: inline-block;
-  float: right;
-  border: 1px solid #ddd;
-  padding: 10px 30px;
-  border-radius: 20px;
-  margin-top: 20px;
-}
 .comment-ico a {
   font-size: 13px;
+
   color: #111;
+  display: inline-block;
+
+  float: right;
+
+  border: 1px solid #111;
+
+  padding: 5px 20px;
+
+  border-radius: 20px;
+
+  margin-top: 20px;
 }
+
 .comment-ico i {
   display: block;
+
   float: left;
+
   margin: 3px 5px 0 0;
+
   font-size: 15px;
 }
+
 .comment-ico a:hover {
   text-decoration: none;
 }
