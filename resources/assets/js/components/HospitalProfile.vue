@@ -66,13 +66,13 @@
 
                 <div class="col-md-12">
 
-                  <input type="file" name class="hospital-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)" />
+                  <input type="file" name class="hospital-photo m-b-15" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)" />
 
                   <div class="col-md-12" v-bind:class="img.classname">
 
                     <input type="hidden" class="already-photo" v-model="img.photo" />
 
-                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" id="already-photo"/>
+                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx"/>
 
                   </div>
 
@@ -1360,9 +1360,9 @@ export default {
                     $(".hos-fac-toggle-div").toggle('medium');
                     this.isRotate3 = !this.isRotate3;
             },
-            preview_image(img_class) {
-                  document.getElementById('already-photo').src= URL.createObjectURL(event.target.files[0]);
+            preview_image(img_class,indx) {
                   $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+                  document.getElementById('already-photo'+indx).src= URL.createObjectURL(event.target.files[0]);
             },
             facilityCheck(check_id) {
                     $('.facility-'+check_id).attr('checked','true');

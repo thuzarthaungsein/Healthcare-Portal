@@ -180,7 +180,7 @@ class ProfilePublishController extends Controller
     }
 
     public function getStaffbyCustomerId($cusid) {
-        $staff = Staff::where("customer_id",$cusid)->get();
+        $staff = Staff::where("customer_id",$cusid)->first();
 
         return $staff;
     }

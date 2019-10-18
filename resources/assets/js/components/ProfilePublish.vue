@@ -184,46 +184,53 @@
                             <table class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                        <th width="250" class="custom-bg-color">
-                                            <font>住所</font>
-                                        </th>
-                                        <td>
-                                            <font>{{cust.address}}</font>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th width="250" class="custom-bg-color">
-                                            <font>電話</font>
-                                        </th>
-                                        <td>
-                                            <font>{{cust.phone}}</font>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th width="250" class="custom-bg-color">
-                                            <font>アクセス　</font>
-                                        </th>
-                                        <td>
-                                            <font>{{cust.access}}</font>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th width="250" class="custom-bg-color">
-                                            <font>駅</font>
-                                        </th>
-                                        <td>
-                                            <font>Nearest Station</font>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th width="250" class="custom-bg-color">
-                                            <font>費用 </font>
-                                        </th>
-                                        <td>
-                                            <font>expense</font>
-                                        </td>
-                                    </tr>
-                                    
+                                            <th width="250" class="custom-bg-color">
+                                                <font>入居時</font>
+                                            </th>
+                                            <td>
+                                                <font class="cash-lbl">{{cust.moving_in}}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="250" class="custom-bg-color">
+                                                <font>月額</font>
+                                            </th>
+                                            <td>
+                                                <font class="cash-lbl">{{cust.per_month}}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="250" class="custom-bg-color">
+                                                <font>住所</font>
+                                            </th>
+                                            <td>
+                                                <font>{{cust.address}}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="250" class="custom-bg-color">
+                                                <font>電話</font>
+                                            </th>
+                                            <td>
+                                                <font>{{cust.phone}}</font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="250" class="custom-bg-color">
+                                                <font>アクセス　</font>
+                                            </th>
+                                            <td>
+                                                <p v-html="cust.access"></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="250" class="custom-bg-color">
+                                                <font>駅</font>
+                                            </th>
+                                            <td>
+                                                <font>Nearest Station</font>
+                                            </td>
+                                        </tr>
                                     </tbody>
                             </table>
 
@@ -992,7 +999,7 @@
                                             <font>アクセス</font>
                                         </th>
                                         <td>
-                                            <font>{{cust.access}}</font>
+                                            <p v-html="cust.access"></p>
                                         </td>
                                     </tr>
                                      <tr>
@@ -1512,7 +1519,7 @@ export default {
                 });
 
                   this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
-                      console.log(response.data);
+                      
                       this.customer = response.data;
 
                 });
