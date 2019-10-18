@@ -1076,7 +1076,7 @@ margin-right: 100px; */
 }
 
 .nav-warp {
-    max-width: 86.3%;
+    max-width: 83.3%;
 }
 
 #app .logo-text {
@@ -1093,7 +1093,7 @@ margin-right: 100px; */
 
 .main-content {
     /* padding: 0px;*/
-    width: 83.33333333%;
+    width: 80%;
     margin: 0 auto;
     box-shadow: 0px 1px 2px 0px #ccc !important;
     min-height: 100vh;
@@ -2372,7 +2372,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 #headerbar{
     position: fixed;
     top: 237px;
-    right: 0;
+    right: 10px;
     z-index: 99999;
 }
 #headerbar .router-link-exact-active {
@@ -2381,7 +2381,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     border-left: none !important;
     background-color: transparent;
 }
-
 #headerbar .navbar-dark .navbar-nav .nav-link {
     color: #000 !important;
 }
@@ -2393,12 +2392,18 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 #headbar a:hover{
     text-decoration: none !important;
 }
-.div1{
+.div1,.div2{
     background-color: transparent;
     border-bottom: 1px solid #544e4e;  
+    /* border: 1px solid #ccc; */
+    /* border-radius: 5px; */
+    margin: 5px 0px;
 }
-.div2{
-    background-color: transparent;   
+.div1:hover {
+    background: #eee;
+}
+.div2:hover {
+    background: #eee;
 }
 .router-link-exact-active>i.fa,
 .router-link-exact-active>i.fas {
@@ -3139,7 +3144,7 @@ div.b {
     z-index: 5;
     overflow: hidden;
     background: #fff;
-    width: 81.999%;
+    width: 79%;
     top: 66px;
 }
 
@@ -3641,7 +3646,7 @@ margin-right: 2% !important;
 .fav-item {
     font-size: 14px;
     padding: 5px 10px;
-    
+    margin-bottom: 15px;
 }
 
 .fav-color {
@@ -3997,7 +4002,7 @@ a:hover {
 }
 
 #v-pills-tab li a {
-    padding: 0.7rem 20px 0.7rem 25px;
+    padding: 0.5rem 10px 0.5rem 15px;
 }
 
 .text-pre {
@@ -5648,6 +5653,11 @@ button.confirmed {
 
 /* nursingFavouriteMail form */
 
+.fav-his-header {
+    border-bottom: 3px solid #c40000;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
 .form-wrap {
     padding-bottom: 100px;
 }

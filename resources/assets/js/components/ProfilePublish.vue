@@ -45,11 +45,11 @@
 
             </button>
 
-            <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn"  @click="activate(7)" :class="{ active : active_el == 7 }">
+            <!-- <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn"  @click="activate(7)" :class="{ active : active_el == 7 }">
 
                 求人応募
 
-            </button>
+            </button> -->
 
             </div>
 
@@ -810,21 +810,13 @@
 
                     </div>
 
-
-
                </div>
 
             </div>
 
-
-
-            <div class="ele m-lr-0" id="element7">
-
+            <!-- <div class="ele m-lr-0" id="element7">
                 <joboffer profile="profile"></joboffer>
-
-
-
-            </div>
+            </div> -->
 
     </div>
 
@@ -849,9 +841,9 @@
                 地図
             </button>
 
-            <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
+            <!-- <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
                 求人応募
-            </button>
+            </button> -->
 
             </div>
 
@@ -1307,11 +1299,9 @@
 
             </div>
 
-            <div class="ele m-lr-0" id="element4">
-
+            <!-- <div class="ele m-lr-0" id="element4">
                 <joboffer profile="profile"></joboffer>
-
-            </div>
+            </div> -->
 
     </div>
 
