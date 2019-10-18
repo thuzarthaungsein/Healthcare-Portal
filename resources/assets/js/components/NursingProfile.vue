@@ -25,10 +25,10 @@
                                     <div class="row" id ="gallery-photo">
                                             <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                                                 <div class="col-md-12">
-                                                                        <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname)">
+                                                                        <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)">
                                                                         <div class="col-md-12 m-b-10" v-bind:class="img.classname">
                                                                                 <input type="hidden" class="already-photo" v-model="img.photo">
-                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" id="already-photo">
+                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx">
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-md-12">
@@ -740,10 +740,9 @@ export default {
             stationCheck(check_id) {
                     $('.station-'+check_id).attr('checked','true');
             },
-            preview_image(img_class) {
-                document.getElementById('already-photo').src= URL.createObjectURL(event.target.files[0]);
+            preview_image(img_class,indx) {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
-                this.test = event.target.files[0]
+                document.getElementById('already-photo'+indx).src= URL.createObjectURL(event.target.files[0]);
             },
 
             DeltArr(indx,type) {
