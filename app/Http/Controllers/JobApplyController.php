@@ -62,6 +62,7 @@ class JobApplyController extends Controller
             $jobapply->birthday = $request->birthday;
             $jobapply->gender = $request->gender;
             $jobapply->postal = $request->postal;
+            $jobapply->prefecture = $request->prefecture;
             $jobapply->street_address = $request->str_address;
             $jobapply->home_address = $request->home_address;
             $jobapply->phone = $request->phone;
