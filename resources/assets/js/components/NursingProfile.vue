@@ -1,6 +1,6 @@
 <template>
-<div class="card profile m-t-22 " style="border:none;">
-    <form class="col-md-12 form-class">
+    <div class="card profile m-t-22 " style="border:none;">
+        <form class="col-md-12 form-class">
             <div class="col-md-12 pad-free">
                 <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
                     <div class="form-group form-group-wrapper">
@@ -78,14 +78,13 @@
 
                 <!--table 1 for 費用-->
                 <table class="table table-bordered table-wrapper">
-                        <tr>
-                            <td style="border:none;">
-                                <div class="form-group"><label class="heading-lbl" style="border-left: 5px solid #f9793c;padding-left: 5px;">費用</label></div>
-                                <div class="form-group">
-
+                    <tr>
+                        <td style="border:none;">
+                            <div class="form-group"><label class="heading-lbl" style="border-left: 5px solid #f9793c;padding-left: 5px;">費用</label></div>
+                            <div class="form-group">
                                 <label class="heading-lbl col-2 pad-free">Moving In<span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
-                                        <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
+                                    <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
                                 </div>
                                 <label class="heading-lbl col-2 pad-free">Per month<span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
@@ -94,12 +93,12 @@
 
                                 <label class="heading-lbl col-2 pad-free">支払い方法<span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
-                                        <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
-                                        <div class="col-2 float-right">
-                                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
-                                        </div>
-                                        <div class="col-md-12 pad-free m-t-50" id="gallery-payment">
-                                                <!-- test -->
+                                    <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
+                                    <div class="col-2 float-right">
+                                            <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
+                                    </div>
+                                    <div class="col-md-12 pad-free m-t-50" id="gallery-payment">
+                                            <!-- test -->
                                         <div class="pad-free col-md-12 gallery-area-payment" v-bind:id="'payment'+indx" v-for="(payment,indx) in payment_arr" :key="payment.id">
                                                 <div class="col-md-12 m-t-15 m-b-15">
                                                 <table class="table">
@@ -110,12 +109,12 @@
 
                                                                 </span>
                                                                 <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
-                                                                         <i class="fa fa-trash"></i> 削除</a>
+                                                                        <i class="fa fa-trash"></i> 削除</a>
                                                         </td>
                                                         </tr>
                                                         <tr>
                                                         <th>
-                                                                 <label class="title-lbl">タイプ名</label>
+                                                                <label class="title-lbl">タイプ名</label>
                                                         </th>
                                                         <th>
                                                                 <input type="text" name="method[]" class="form-control payment-name white-bg-color" v-model="payment.payment_name">
@@ -237,16 +236,16 @@
                                                 </table>
                                                 </div>
                                         </div>
+                                    </div>
                                 </div>
-                                        </div>
-                        </div>
-                </td>
-                </tr>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
                 <!-- end table 1 for 費用--->
 
                 <!--table 2 for 施設の概要-->
-                 <table class="table table-bordered table-wrapper">
+                    <table class="table table-bordered table-wrapper">
                         <tr>
                             <td style="border:none;">
                                 <label class="heading-lbl col-2 pad-free">施設の概要</label>
@@ -257,85 +256,85 @@
                                                 <tr>
                                                         <td class="width15 title-bg">事業主体</td>
                                                         <td ><textarea class="form-control white-bg-color business-entity" :options="editorOption" v-model="nursing_info.business_entity"></textarea></td>
-                                                         <!-- <td> <quill-editor class="business-entity" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.business_entity"/></td> -->
+                                                            <!-- <td> <quill-editor class="business-entity" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.business_entity"/></td> -->
 
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">開設年月日</td>
                                                         <td ><textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea></td>
-                                                         <!-- <td> <quill-editor  class="date-of-establishment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.date_of_establishment"/></td> -->
+                                                            <!-- <td> <quill-editor  class="date-of-establishment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.date_of_establishment"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">土地の権利形態</td>
                                                         <td ><textarea class="form-control white-bg-color land-right-form" :options="editorOption" v-model="nursing_info.land_right_form"></textarea></td>
-                                                         <!-- <td> <quill-editor  class="land-right-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.land_right_form"/></td> -->
+                                                            <!-- <td> <quill-editor  class="land-right-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.land_right_form"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">建物の権利形態</td>
                                                         <td ><textarea class="form-control white-bg-color building-right-form" :options="editorOption" v-model="nursing_info.building_right_form"></textarea></td>
-                                                         <!-- <td> <quill-editor  class="building-right-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.building_right_form"/></td> -->
+                                                            <!-- <td> <quill-editor  class="building-right-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.building_right_form"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">敷地面積</td>
                                                         <td ><textarea class="form-control white-bg-color site-area" :options="editorOption" v-model="nursing_info.site_area"></textarea></td>
-                                                         <!-- <td> <quill-editor  class="site-area" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.site_area"/></td> -->
+                                                            <!-- <td> <quill-editor  class="site-area" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.site_area"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">延床面積</td>
                                                         <td ><textarea class="form-control white-bg-color floor-area" :options="editorOption" v-model="nursing_info.floor_area"></textarea></td>
-                                                         <!-- <td> <quill-editor  class="floor-area" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.floor_area"/></td> -->
+                                                            <!-- <td> <quill-editor  class="floor-area" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.floor_area"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">構造</td>
                                                         <td ><textarea class="form-control white-bg-color construction" :options="editorOption" v-model="nursing_info.construction"></textarea></td>
-                                                         <!-- <td > <quill-editor  class="construction" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.construction"/></td> -->
+                                                            <!-- <td > <quill-editor  class="construction" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.construction"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">定員</td>
                                                         <td ><textarea class="form-control white-bg-color capacity" :options="editorOption" v-model="nursing_info.capacity"></textarea></td>
-                                                         <!-- <td > <quill-editor  class="capacity" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.capacity"/></td> -->
+                                                            <!-- <td > <quill-editor  class="capacity" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.capacity"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">総居室・戸数</td>
                                                         <td ><textarea class="form-control white-bg-color num-rooms" :options="editorOption" v-model="nursing_info.num_rooms"></textarea></td>
-                                                         <!-- <td > <quill-editor  class="num-rooms" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.num_rooms"/></td> -->
+                                                            <!-- <td > <quill-editor  class="num-rooms" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.num_rooms"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">居住の権利形態</td>
                                                         <td ><textarea class="form-control white-bg-color residence-form" :options="editorOption" v-model="nursing_info.residence_form"></textarea></td>
-                                                         <!-- <td > <quill-editor  class="residence-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.residence_form"/></td> -->
+                                                            <!-- <td > <quill-editor  class="residence-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.residence_form"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">類型</td>
                                                         <td ><textarea class="form-control white-bg-color fac-type" :options="editorOption" v-model="nursing_info.fac_type"></textarea></td>
-                                                         <!-- <td > <quill-editor  class="fac-type" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.fac_type"/></td> -->
+                                                            <!-- <td > <quill-editor  class="fac-type" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.fac_type"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">入居条件</td>
                                                         <td ><textarea class="form-control white-bg-color occupancy-condition" :options="editorOption" v-model="nursing_info.occupancy_condition"></textarea></td>
-                                                         <!-- <td > <quill-editor  class="occupancy-condition" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.occupancy_condition"/></td> -->
+                                                            <!-- <td > <quill-editor  class="occupancy-condition" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.occupancy_condition"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">居室区分・間取り等</td>
                                                         <td ><textarea class="form-control white-bg-color room-floor" :options="editorOption"  v-model="nursing_info.room_floor"></textarea></td>
-                                                         <!-- <td > <quill-editor  class="room-floor" ref="myQuilEditor" :options="editorOption"  v-model="nursing_info.room_floor"/></td> -->
+                                                            <!-- <td > <quill-editor  class="room-floor" ref="myQuilEditor" :options="editorOption"  v-model="nursing_info.room_floor"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">居室設備</td>
                                                         <td ><textarea class="form-control white-bg-color living-room-facilities" :options="editorOption" v-model="nursing_info.living_room_facilities"></textarea></td>
                                                         
-                                                         <!-- <td > <quill-editor  class="equipment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.equipment"/></td> -->
+                                                            <!-- <td > <quill-editor  class="equipment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.equipment"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">共用施設・設備</td>
                                                         <td ><textarea class="form-control white-bg-color equipment" :options="editorOption" v-model="nursing_info.equipment"></textarea></td>
-                                                         <!-- <td > <quill-editor  class="living-room-facilities" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.living_room_facilities"/></td> -->
+                                                            <!-- <td > <quill-editor  class="living-room-facilities" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.living_room_facilities"/></td> -->
                                                 </tr>
                                         </table>
                                 </div>
                             </td>
                         </tr>
-                 </table>
+                    </table>
                 <!-- end table 2 for 施設の概要 -->
 
                 <!-- table 3 for 協力医療機関 -->
@@ -388,7 +387,7 @@
 
                 <!-- table 4 for 医療面の受入れ  -->
                 <table class="table table-bordered table-wrapper">
-                         <tr>
+                            <tr>
                             <td>
                                 <div class="form-group">
                                         <label class="heading-lbl col-2 pad-free">医療面の受入れ</label>
@@ -440,24 +439,24 @@
                                                 <tr>
                                                         <td class="width15 title-bg">介護職員</td>
                                                         <td><textarea class="form-control nursing-staff white-bg-color" :options="editorOption" v-model="staff_info.nursing_staff"></textarea></td>
-                                                         <!-- <td><quill-editor  ref="myQuilEditor" class="nursing-staff" :options="editorOption" v-model="staff_info.nursing_staff"/></td> -->
+                                                            <!-- <td><quill-editor  ref="myQuilEditor" class="nursing-staff" :options="editorOption" v-model="staff_info.nursing_staff"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">夜間の最少職員数</td>
                                                         <td><textarea class="form-control min-num-staff white-bg-color" :options="editorOption" v-model="staff_info.min_num_staff"></textarea></td>
-                                                         <!-- <td><quill-editor  ref="myQuilEditor" class="min-num-staff" :options="editorOption" v-model="staff_info.min_num_staff"/></td>                                                        -->
+                                                            <!-- <td><quill-editor  ref="myQuilEditor" class="min-num-staff" :options="editorOption" v-model="staff_info.min_num_staff"/></td>                                                        -->
                                                 </tr>
                                                 <tr>
-                                                         <td class="width15 title-bg">看護職員数</td>
+                                                            <td class="width15 title-bg">看護職員数</td>
                                                         <td><textarea class="form-control num-staff white-bg-color" :options="editorOption" v-model="staff_info.num_staff"></textarea></td>
                                                         <!-- <td><quill-editor  ref="myQuilEditor" class="num-staff" :options="editorOption" v-model="staff_info.num_staff"/></td> -->
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">
-                                                                 <label for="">備考</label>
+                                                                    <label for="">備考</label>
                                                         </td>
                                                         <td>
-                                                               <quill-editor  ref="myQuilEditor" name="" :options="editorOption" @change="onNursingEditorChange($event)" class="nursing-remarks" v-model="staff_info.remarks"/>
+                                                                <quill-editor  ref="myQuilEditor" name="" :options="editorOption" @change="onNursingEditorChange($event)" class="nursing-remarks" v-model="staff_info.remarks"/>
                                                         </td>
                                                 </tr>
                                         </table>
@@ -471,87 +470,87 @@
                 <!-- end table 5 for 職員体制 -->
 
                 <!-- table 6 for こだわりの特長  -->
-                 <table class="table table-bordered table-wrapper">
-                           <tr>
-                            <td>
-                                <div class="form-group">
-                                        <label  class="heading-lbl col-2 pad-free">こだわりの特長</label>
-                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
+                <table class="table table-bordered table-wrapper">
+                        <tr>
+                        <td>
+                            <div class="form-group">
+                                    <label  class="heading-lbl col-2 pad-free">こだわりの特長</label>
+                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
 
-                                        <div class="col-md-10 float-right special-feature-toggle-div toggle-div m-t-10">
-                                                <div class="row">
-                                                        <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
-                                                                <label>
-                                                                 <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
-                                                                        {{feat.name}}
-                                                                </label>
-                                                         </div>
-                                                </div>
-                                        </div>
-                                </div>
-                            </td>
-                        </tr>
-                 </table>
+                                    <div class="col-md-10 float-right special-feature-toggle-div toggle-div m-t-10">
+                                            <div class="row">
+                                                    <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
+                                                            <label>
+                                                                <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
+                                                                    {{feat.name}}
+                                                            </label>
+                                                        </div>
+                                            </div>
+                                    </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
 
                 <!-- end table 6 for こだわりの特長  -->
 
                 <!-- table 7 for 公式サイト -->
-                   <table class="table table-bordered table-wrapper">
-                        <tr>
-                            <td>
-                                <label class="heading-lbl col-2 pad-free">地図</label>
-                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
-                                <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
-                                        <div class="col-md-12">
-                                            <GoogleMap></GoogleMap>
-                                                <div class="form-group">
-                                                        <label>住所<span class="error">*</span></label>
-                                                        <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                        <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" @change="onCustomerAddressChange($event)" class="customer-address" v-model="customer_info.address"/>
-                                                </div>
+                <table class="table table-bordered table-wrapper">
+                    <tr>
+                        <td>
+                            <label class="heading-lbl col-2 pad-free">地図</label>
+                            <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
+                            <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
+                                    <div class="col-md-12">
+                                        <GoogleMap></GoogleMap>
+                                            <div class="form-group">
+                                                    <label>住所<span class="error">*</span></label>
+                                                    <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                                    <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" @change="onCustomerAddressChange($event)" class="customer-address" v-model="customer_info.address"/>
+                                            </div>
 
-                                                <!-- Test Station Area -->
-                                                <!-- <table class="table table-bordered table-wrapper">
-                                                        <tr>
-                                                                <td>
-                                                                        <div class="form-group">
-                                                                                <label  class="heading-lbl col-2 pad-free">駅</label>
-                                                                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="StationAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
-                                                                                <div class="col-md-10 float-right station-toggle-div toggle-div m-t-10">
-                                                                                        <div class="row">
-                                                                                                <div v-for="stat in station_list" :key="stat.id" class="col-md-3 m-b-20">
-                                                                                                        <label>
-                                                                                                                <input type="checkbox"  name="station" v-bind:value="stat.id" @click="featureCheck(stat.id)" v-model="stat.checked">
-                                                                                                                {{stat.name}}
-                                                                                                        </label>
-                                                                                                </div>
-                                                                                        </div>
-                                                                                </div>
-                                                                        </div>
-                                                                </td>
-                                                        </tr>
-                                                </table> -->
-                                                <!-- End Test Station Area -->
+                                            <!-- Test Station Area -->
+                                            <!-- <table class="table table-bordered table-wrapper">
+                                                    <tr>
+                                                            <td>
+                                                                    <div class="form-group">
+                                                                            <label  class="heading-lbl col-2 pad-free">駅</label>
+                                                                            <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="StationAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
+                                                                            <div class="col-md-10 float-right station-toggle-div toggle-div m-t-10">
+                                                                                    <div class="row">
+                                                                                            <div v-for="stat in station_list" :key="stat.id" class="col-md-3 m-b-20">
+                                                                                                    <label>
+                                                                                                            <input type="checkbox"  name="station" v-bind:value="stat.id" @click="featureCheck(stat.id)" v-model="stat.checked">
+                                                                                                            {{stat.name}}
+                                                                                                    </label>
+                                                                                            </div>
+                                                                                    </div>
+                                                                            </div>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                            </table> -->
+                                            <!-- End Test Station Area -->
 
-                                                <div class="form-group">
-                                                        <label>交通 / アクセス<span class="error">*</span></label>
-                                                        <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                        <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
-                                                </div>
-                                                
-                                        </div>
+                                            <div class="form-group">
+                                                    <label>交通 / アクセス<span class="error">*</span></label>
+                                                    <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                                    <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
+                                            </div>
+                                            
+                                    </div>
 
-                                </div>
-                            </td>
-                        </tr>
-                   </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
                 <!-- end table 7 for 公式サイト -->
                 <div class="row col-2 col-offset-6 mx-auto">
                         <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
                 </div>
             </div>
-    </form>
-</div>
+        </form>
+    </div>
 </template>
 
 <script>
