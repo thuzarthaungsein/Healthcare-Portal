@@ -152,7 +152,7 @@
                                                 <font>入居時</font>
                                             </th>
                                             <td>
-                                                <font>{{cust.moving_in}}</font>
+                                                <font class="cash-lbl">{{cust.moving_in}}</font>
                                             </td>
                                         </tr>
                                         <tr>
@@ -160,7 +160,7 @@
                                                 <font>月額</font>
                                             </th>
                                             <td>
-                                                <font>{{cust.per_month}}</font>
+                                                <font class="cash-lbl">{{cust.per_month}}</font>
                                             </td>
                                         </tr>
                                         <tr>
@@ -184,7 +184,7 @@
                                                 <font>アクセス　</font>
                                             </th>
                                             <td>
-                                                <font>{{cust.access}}</font>
+                                                <p v-html="cust.access"></p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -963,7 +963,7 @@
                                             <font>アクセス</font>
                                         </th>
                                         <td>
-                                            <font>{{cust.access}}</font>
+                                            <p v-html="cust.access"></p>
                                         </td>
                                     </tr>
                                      <tr>

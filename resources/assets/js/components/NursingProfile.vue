@@ -533,7 +533,7 @@
                                     <div class="form-group">
                                             <label>交通 / アクセス<span class="error">*</span></label>
                                             <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                            <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
+                                            <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" @change="onAccessEditorChange($event)" v-model="nursing_info.access"/>
                                     </div>
                                         
                                 </div>
@@ -618,7 +618,7 @@ export default {
                 residence_form_val: '',
                 customer_address_val:'',
                 // customer_address_val: '',
-                // transporation_access_val: '',
+                access_val: '',
           }
         },
      
@@ -838,10 +838,10 @@ export default {
                         // console.log('editor change!', editor, html, text)
                         this.residence_form_val = html
                 },
-                // onCustomerAddressChange({ editor, html, text }) {
-                //         // console.log('editor change!', editor, html, text)
-                //         this.customer_address_val = html
-                // },
+                onAccessEditorChange({ editor, html, text }) {
+                        // console.log('editor change!', editor, html, text)
+                        this.access_val = html
+                },
 
             createProfile() {
 
@@ -858,7 +858,7 @@ export default {
                 var customer_phone = $('.customer-phone').val();
                 var customer_address = $('#city').val();
 
-                var access = $('.transporation-access').val();
+                // var access = $('.transporation-access').val();
                 var moving_in = $('.nursing-moving-in').val();
                 var per_month = $('.nursing-per-month').val();
                 var method = $('.nursing-payment-method').val();
@@ -978,7 +978,7 @@ export default {
 
                 special_features = chek_feature.join(',');
 
-                this.profile_arr.push({feature:this.feature_val,website:website,access:access,moving_in:moving_in,per_month:per_month,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in:moving_in,per_month:per_month,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
