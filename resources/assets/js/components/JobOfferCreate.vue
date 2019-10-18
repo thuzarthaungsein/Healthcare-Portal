@@ -1,35 +1,4 @@
 
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@SuSandyAung
-Learn Git and GitHub without any code!
-
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-2
-0
-
-    0
-
-Thuzar-TS/Healthcare-Portal
-Code
-Issues 0
-Pull requests 0
-Projects 0
-Wiki
-Security
-Insights
-Healthcare-Portal/resources/assets/js/components/JobOfferCreate.vue
-@SuSandyAung SuSandyAung job a271e65 3 days ago
-@SuSandyAung
-@Thuzar-TS
-@MayPhueKyawSoe
-@zinkomyint
-@EiM0hM0hAung
-336 lines (326 sloc) 18.7 KB
 <template>
     <div class="row">
         <div class="col-12">

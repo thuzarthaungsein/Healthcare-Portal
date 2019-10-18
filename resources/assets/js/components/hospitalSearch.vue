@@ -337,7 +337,7 @@
                 </td>
               </tr>
               <tr class="toBeToggled1 ShowHide1">
-                <th>施設の種類</th>
+                <th>Subjects</th>
                 <td>
                   <div class="form-check form-check-inline col-sm-2" v-for="subject in subjects" :key="subject.id">
                     <label class="form-check-label" :for="subject.id">
