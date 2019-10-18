@@ -339,154 +339,148 @@
 
                 <!-- table 3 for 協力医療機関 -->
                 <table class="table table-bordered table-wrapper">
-                        <tr>
-                            <td style="border:none;">
-                                <div class="form-group">
-                                        <label class="heading-lbl col-2 pad-free">協力医療機関<span class="error">*</span></label>
-                                        <div class="col-10 pad-free float-right">
-                                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
-                                                <div class="col-md-12 pad-free" id="gallery-cooperate">
-                                                        <!-- cooperation -->
-                                                        <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
-                                                                <div class="form-group">
-                                                                        <label class="col-2 pad-free">名前 :</label>
-                                                                        <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
-                                                                </div>
-                                                                <table class="table table-bordered">
-                                                                <tr>
-                                                                        <th class="width15 title-bg">診療科目</th>
-                                                                        <th ><textarea class="form-control clinical-sub white-bg-color" name="clinical-sub" v-model="cooperate.clinical_subject"></textarea></th>
-                                                                </tr>
-                                                                <tr>
-                                                                        <th class="width15 title-bg">協力内容</th>
-                                                                        <th><textarea class="form-control details white-bg-color" name="details" v-model="cooperate.details"></textarea></th>
-                                                                </tr>
-                                                                <tr>
-                                                                        <th class="width15 title-bg">診療費用</th>
-                                                                        <th><textarea class="form-control expense white-bg-color" name="expense" v-model="cooperate.medical_expense"></textarea></th>
-                                                                </tr>
-                                                                <tr>
-                                                                        <th class="width15 title-bg">備考</th>
-                                                                        <th><textarea class="form-control remark white-bg-color" name="remark" v-model="cooperate.remark"></textarea></th>
-                                                                </tr>
-                                                                </table>
-                                                                <div class="clearfix">
-                                                                        <a class="mr-auto text-danger btn delete-borderbtn float-right" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
-                                                                </div>
-
-                                                        </div>
-                                                </div>
+                    <tr>
+                        <td style="border:none;">
+                            <div class="form-group">
+                                <label class="heading-lbl col-2 pad-free">協力医療機関<span class="error">*</span></label>
+                                <div class="col-10 pad-free float-right">
+                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
+                                    <div class="col-md-12 pad-free" id="gallery-cooperate">
+                                        <!-- cooperation -->
+                                        <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                            <div class="form-group">
+                                                <label class="col-2 pad-free">名前 :</label>
+                                                <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
+                                            </div>
+                                            <table class="table table-bordered">
+                                            <tr>
+                                                <th class="width15 title-bg">診療科目</th>
+                                                <th ><textarea class="form-control clinical-sub white-bg-color" name="clinical-sub" v-model="cooperate.clinical_subject"></textarea></th>
+                                            </tr>
+                                            <tr>
+                                                <th class="width15 title-bg">協力内容</th>
+                                                <th><textarea class="form-control details white-bg-color" name="details" v-model="cooperate.details"></textarea></th>
+                                            </tr>
+                                            <tr>
+                                                <th class="width15 title-bg">診療費用</th>
+                                                <th><textarea class="form-control expense white-bg-color" name="expense" v-model="cooperate.medical_expense"></textarea></th>
+                                            </tr>
+                                            <tr>
+                                                <th class="width15 title-bg">備考</th>
+                                                <th><textarea class="form-control remark white-bg-color" name="remark" v-model="cooperate.remark"></textarea></th>
+                                            </tr>
+                                            </table>
+                                            <div class="clearfix">
+                                                <a class="mr-auto text-danger btn delete-borderbtn float-right" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
+                                            </div>
                                         </div>
-
+                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-
+                            </div>
+                        </td>
+                    </tr>
                 </table>
                 <!-- end table 3 for 協力医療機関 -->
 
                 <!-- table 4 for 医療面の受入れ  -->
                 <table class="table table-bordered table-wrapper">
-                            <tr>
-                            <td>
-                                <div class="form-group">
-                                        <label class="heading-lbl col-2 pad-free">医療面の受入れ</label>
-                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="acceptanceList()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate2}"></i></span>
-                                    <div class="col-md-10 float-right m-t-10 accept-toggle-div toggle-div pad-free">
-                                            <label for="" class="m-r-15"><i class="fas fa-check green"></i> 受入れ可</label>
-                                            <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
-                                            <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
-                                            <div class="row">
-                                                    <div class="col-md-6" v-for="medical in medical_acceptance" :key="medical.id">
-                                                            <div class="col-md-12 accept-box">
-                                                                    {{medical.name}} {{medical.id}}
-                                                                    <div class="float-right">
-                                                                            <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.accept_checked" v-bind:value="'accept-'+medical.id"> <i class="fas fa-check green"></i></label>
-                                                                            <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.unaccept_checked" v-bind:value="'unaccept-'+medical.id"> <i class="fas fa-times red"></i></label>
-                                                                            <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.negotiate_checked" v-bind:value="'negotiate-'+medical.id"> <i class="fas fa-adjust blue"></i></label>
-                                                                    </div>
-                                                            </div>
-                                                    </div>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label class="heading-lbl col-2 pad-free">医療面の受入れ</label>
+                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="acceptanceList()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate2}"></i></span>
+                                <div class="col-md-10 float-right m-t-10 accept-toggle-div toggle-div pad-free">
+                                    <label for="" class="m-r-15"><i class="fas fa-check green"></i> 受入れ可</label>
+                                    <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
+                                    <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
+                                    <div class="row">
+                                        <div class="col-md-6" v-for="medical in medical_acceptance" :key="medical.id">
+                                            <div class="col-md-12 accept-box">
+                                                {{medical.name}} {{medical.id}}
+                                                <div class="float-right">
+                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.accept_checked" v-bind:value="'accept-'+medical.id"> <i class="fas fa-check green"></i></label>
+                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.unaccept_checked" v-bind:value="'unaccept-'+medical.id"> <i class="fas fa-times red"></i></label>
+                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.negotiate_checked" v-bind:value="'negotiate-'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                    <label for="">備考</label>
-                                                    <!-- <textarea name="" class="form-control"></textarea> -->
-                                                    <quill-editor  ref="myQuilEditor" :options="editorOption" @change="onAcceptanceEditorChange($event)" name="" class="acceptance-remark" v-model="nursing_info.acceptance_remark"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="">備考</label>
+                                            <!-- <textarea name="" class="form-control"></textarea> -->
+                                            <quill-editor  ref="myQuilEditor" :options="editorOption" @change="onAcceptanceEditorChange($event)" name="" class="acceptance-remark" v-model="nursing_info.acceptance_remark"/>
 
-                                            </div>
                                     </div>
                                 </div>
-                            </td>
-                        </tr>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
 
                 <!-- end table 4 for 医療面の受入れ -->
 
                 <!-- table 5 for 職員体制 -->
                 <table class="table table-bordered table-wrapper">
-                        <tr>
-                            <td>
-                                <label class="heading-lbl col-2 pad-free">職員体制</label>
-                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="staffToggleDiv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate3}"></i></span>
+                    <tr>
+                        <td>
+                            <label class="heading-lbl col-2 pad-free">職員体制</label>
+                            <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="staffToggleDiv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate3}"></i></span>
 
-                                <div class="col-10 pad-free float-right staff-toggle-div toggle-div m-t-10">
-                                        <table class="table table-striped table-bordered">
-                                                <tr>
-                                                        <td class="width15 title-bg">介護に関わる職員体制（入居者：職員）</td>
-                                                        <td><textarea class="form-control staff white-bg-color" :options="editorOption" v-model="staff_info.staff"></textarea></td>
-                                                        <!-- <td><quill-editor  ref="myQuilEditor" class="staff" :options="editorOption" v-model="staff_info.staff"/></td>                                                       -->
-                                                </tr>
-                                                <tr>
-                                                        <td class="width15 title-bg">介護職員</td>
-                                                        <td><textarea class="form-control nursing-staff white-bg-color" :options="editorOption" v-model="staff_info.nursing_staff"></textarea></td>
-                                                            <!-- <td><quill-editor  ref="myQuilEditor" class="nursing-staff" :options="editorOption" v-model="staff_info.nursing_staff"/></td> -->
-                                                </tr>
-                                                <tr>
-                                                        <td class="width15 title-bg">夜間の最少職員数</td>
-                                                        <td><textarea class="form-control min-num-staff white-bg-color" :options="editorOption" v-model="staff_info.min_num_staff"></textarea></td>
-                                                            <!-- <td><quill-editor  ref="myQuilEditor" class="min-num-staff" :options="editorOption" v-model="staff_info.min_num_staff"/></td>                                                        -->
-                                                </tr>
-                                                <tr>
-                                                            <td class="width15 title-bg">看護職員数</td>
-                                                        <td><textarea class="form-control num-staff white-bg-color" :options="editorOption" v-model="staff_info.num_staff"></textarea></td>
-                                                        <!-- <td><quill-editor  ref="myQuilEditor" class="num-staff" :options="editorOption" v-model="staff_info.num_staff"/></td> -->
-                                                </tr>
-                                                <tr>
-                                                        <td class="width15 title-bg">
-                                                                    <label for="">備考</label>
-                                                        </td>
-                                                        <td>
-                                                                <quill-editor  ref="myQuilEditor" name="" :options="editorOption" @change="onNursingEditorChange($event)" class="nursing-remarks" v-model="staff_info.remarks"/>
-                                                        </td>
-                                                </tr>
-                                        </table>
-
-
-                                </div>
-                            </td>
-                        </tr>
-
+                            <div class="col-10 pad-free float-right staff-toggle-div toggle-div m-t-10">
+                                <table class="table table-striped table-bordered">
+                                    <tr>
+                                        <td class="width15 title-bg">介護に関わる職員体制（入居者：職員）</td>
+                                        <td><textarea class="form-control staff white-bg-color" :options="editorOption" v-model="staff_info.staff"></textarea></td>
+                                        <!-- <td><quill-editor  ref="myQuilEditor" class="staff" :options="editorOption" v-model="staff_info.staff"/></td>                                                       -->
+                                    </tr>
+                                    <tr>
+                                        <td class="width15 title-bg">介護職員</td>
+                                        <td><textarea class="form-control nursing-staff white-bg-color" :options="editorOption" v-model="staff_info.nursing_staff"></textarea></td>
+                                            <!-- <td><quill-editor  ref="myQuilEditor" class="nursing-staff" :options="editorOption" v-model="staff_info.nursing_staff"/></td> -->
+                                    </tr>
+                                    <tr>
+                                        <td class="width15 title-bg">夜間の最少職員数</td>
+                                        <td><textarea class="form-control min-num-staff white-bg-color" :options="editorOption" v-model="staff_info.min_num_staff"></textarea></td>
+                                            <!-- <td><quill-editor  ref="myQuilEditor" class="min-num-staff" :options="editorOption" v-model="staff_info.min_num_staff"/></td>                                                        -->
+                                    </tr>
+                                    <tr>
+                                        <td class="width15 title-bg">看護職員数</td>
+                                        <td><textarea class="form-control num-staff white-bg-color" :options="editorOption" v-model="staff_info.num_staff"></textarea></td>
+                                        <!-- <td><quill-editor  ref="myQuilEditor" class="num-staff" :options="editorOption" v-model="staff_info.num_staff"/></td> -->
+                                    </tr>
+                                    <tr>
+                                        <td class="width15 title-bg">
+                                            <label for="">備考</label>
+                                        </td>
+                                        <td>
+                                            <quill-editor  ref="myQuilEditor" name="" :options="editorOption" @change="onNursingEditorChange($event)" class="nursing-remarks" v-model="staff_info.remarks"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
                 <!-- end table 5 for 職員体制 -->
 
                 <!-- table 6 for こだわりの特長  -->
                 <table class="table table-bordered table-wrapper">
-                        <tr>
+                    <tr>
                         <td>
                             <div class="form-group">
-                                    <label  class="heading-lbl col-2 pad-free">こだわりの特長</label>
-                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
+                                <label  class="heading-lbl col-2 pad-free">こだわりの特長</label>
+                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="specialFeAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
 
-                                    <div class="col-md-10 float-right special-feature-toggle-div toggle-div m-t-10">
-                                            <div class="row">
-                                                    <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
-                                                            <label>
-                                                                <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
-                                                                    {{feat.name}}
-                                                            </label>
-                                                        </div>
-                                            </div>
+                                <div class="col-md-10 float-right special-feature-toggle-div toggle-div m-t-10">
+                                    <div class="row">
+                                        <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
+                                            <label>
+                                                <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
+                                                {{feat.name}}
+                                            </label>
+                                        </div>
                                     </div>
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -495,57 +489,56 @@
                 <!-- end table 6 for こだわりの特長  -->
 
                 <!-- table 7 for 公式サイト -->
-                   <table class="table table-bordered table-wrapper">
-                        <tr>
-                            <td>
-                                <label class="heading-lbl col-2 pad-free">地図</label>
-                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
-                                <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
-                                        <div class="col-md-12">
-                                            <GoogleMap :address="customer_info.address"></GoogleMap>
-                                                <!-- <div class="form-group">
-                                                        <label>住所<span class="error">*</span></label>
-                                                        <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" @change="onCustomerAddressChange($event)" class="customer-address" v-model="customer_info.address"/>
-                                                </div> -->
+                <table class="table table-bordered table-wrapper">
+                    <tr>
+                        <td>
+                            <label class="heading-lbl col-2 pad-free">地図</label>
+                            <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
+                            <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
+                                <div class="col-md-12">
+                                    <GoogleMap :address="customer_info.address"></GoogleMap>
+                                    <!-- <div class="form-group">
+                                            <label>住所<span class="error">*</span></label>
+                                            <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" @change="onCustomerAddressChange($event)" class="customer-address" v-model="customer_info.address"/>
+                                    </div> -->
 
-                                            <!-- Test Station Area -->
-                                            <!-- <table class="table table-bordered table-wrapper">
-                                                    <tr>
-                                                            <td>
-                                                                    <div class="form-group">
-                                                                            <label  class="heading-lbl col-2 pad-free">駅</label>
-                                                                            <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="StationAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
-                                                                            <div class="col-md-10 float-right station-toggle-div toggle-div m-t-10">
-                                                                                    <div class="row">
-                                                                                            <div v-for="stat in station_list" :key="stat.id" class="col-md-3 m-b-20">
-                                                                                                    <label>
-                                                                                                            <input type="checkbox"  name="station" v-bind:value="stat.id" @click="featureCheck(stat.id)" v-model="stat.checked">
-                                                                                                            {{stat.name}}
-                                                                                                    </label>
-                                                                                            </div>
+                                    <!-- Test Station Area -->
+                                    <!-- <table class="table table-bordered table-wrapper">
+                                            <tr>
+                                                    <td>
+                                                            <div class="form-group">
+                                                                    <label  class="heading-lbl col-2 pad-free">駅</label>
+                                                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="StationAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
+                                                                    <div class="col-md-10 float-right station-toggle-div toggle-div m-t-10">
+                                                                            <div class="row">
+                                                                                    <div v-for="stat in station_list" :key="stat.id" class="col-md-3 m-b-20">
+                                                                                            <label>
+                                                                                                    <input type="checkbox"  name="station" v-bind:value="stat.id" @click="featureCheck(stat.id)" v-model="stat.checked">
+                                                                                                    {{stat.name}}
+                                                                                            </label>
                                                                                     </div>
                                                                             </div>
                                                                     </div>
-                                                            </td>
-                                                    </tr>
-                                            </table> -->
-                                            <!-- End Test Station Area -->
+                                                            </div>
+                                                    </td>
+                                            </tr>
+                                    </table> -->
+                                    <!-- End Test Station Area -->
 
-                                            <div class="form-group">
-                                                    <label>交通 / アクセス<span class="error">*</span></label>
-                                                    <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
-                                                    <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
-                                            </div>
-                                            
+                                    <div class="form-group">
+                                            <label>交通 / アクセス<span class="error">*</span></label>
+                                            <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                            <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" v-model="nursing_info.access"/>
                                     </div>
-
+                                        
+                                </div>
                             </div>
                         </td>
                     </tr>
                 </table>
                 <!-- end table 7 for 公式サイト -->
                 <div class="row col-2 col-offset-6 mx-auto">
-                        <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
+                    <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
                 </div>
             </div>
         </form>
