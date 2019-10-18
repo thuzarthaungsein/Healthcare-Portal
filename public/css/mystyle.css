@@ -5079,6 +5079,11 @@ body::-webkit-scrollbar-thumb {
     font-size: 0.7rem;
     text-align: center;
 }
+.hos-btn2 {
+    font-size: 0.7rem;
+    text-align: center;
+    float: right;
+}
 
 .hos-l {
     width: 28%;

@@ -129,6 +129,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-1">
                 <button class="btn news-post-btn all-btn hos-btn m-t-10" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">変更する</button>
             </div>
@@ -222,8 +223,11 @@
                 <div v-if="opening_show" class="list-group-item list-group-item-action" style="height:70px;">開設日</div>
 
             </div> -->
-
-        <div class="col-12">
+                
+                
+        <label class="btn all-btn secondary-bg-color hos-btn2">
+        <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
+        <div class="col-12" style="margin-top: 20px;">
             <div class="row">
                 <div class="card-carousel-wrapper">
 
