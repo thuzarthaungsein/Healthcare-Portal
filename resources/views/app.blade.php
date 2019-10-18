@@ -767,25 +767,16 @@
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-
-
-
-
-
-
-
-
-
 <script type="text/javascript">
 
 
  $(document).ready(function() {
 
-    pannellum.viewer('panorama', {
-        "type": "equirectangular",
-        "panorama": "https://pannellum.org/images/jfk.jpg",
-        "autoRotate": -2
-    });      
+    // pannellum.viewer('panorama', {
+    //     "type": "equirectangular",
+    //     "panorama": ["examplepano.jpg"],
+    //     "autoRotate": -2
+    // });      
 
        
      /*added for back to top*/

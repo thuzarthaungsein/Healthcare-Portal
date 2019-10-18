@@ -43,7 +43,7 @@ Vue.use(Pano);
 
 
 //vue-pannellum
-import VuePannellum from 'vue-pannellum';
+import VuePannellum from '../../../resources/assets/js/components/vue-pannellum.vue'
 Vue.use(VuePannellum);
 Vue.component('VPannellumn', VuePannellum)
 
