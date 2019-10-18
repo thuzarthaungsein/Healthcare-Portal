@@ -171,15 +171,6 @@ class PostController extends Controller
                 \File::delete($filename);
                 $imageName = '';
             }
-            $post->title = $request->input('title');
-            $post->main_point = $request->input('main_point');
-            $post->body=$request->input('body');
-            $post->photo = $imageName;
-            $post->category_id=$request->input('category_id');
-            $post->related_news=$request->input('related_news');
-            $post->user_id = 1;
-            $post->recordstatus=1;
-            $post->save();
         }
         // $formData = array(
         //     'title' => $request->input('title'),
@@ -191,9 +182,18 @@ class PostController extends Controller
         //     'user_id' => 1,
         //     'recordstatus' => 1
         // );
+            $post->title = $request->input('title');
+            $post->main_point = $request->input('main_point');
+            $post->body=$request->input('body');
+            $post->photo = $imageName;
+            $post->category_id=$request->input('category_id');
+            $post->related_news=$request->input('related_news');
+            $post->user_id = 1;
+            $post->recordstatus=1;
+            $post->save();
 
 
-        // $post->update($formData);
+        //$post->update($formData);
         return response()->json('The news successfully updated');
     }
 
