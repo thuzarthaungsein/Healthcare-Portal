@@ -102,7 +102,6 @@ class AdvertisementController extends Controller
         $request->validate([
             'title' => 'required',
             'location'=>'required',
-            'photo'=>'required',
         ]);
 
         if(is_object($request->photo)) {
