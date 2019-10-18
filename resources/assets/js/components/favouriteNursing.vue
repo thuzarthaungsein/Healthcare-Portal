@@ -227,7 +227,7 @@
                 
         <label class="btn all-btn secondary-bg-color hos-btn2">
         <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
-        <div class="col-12" style="margin-top: 20px;">
+        <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
             <div class="row">
                 <div class="card-carousel-wrapper">
 
@@ -263,8 +263,10 @@
                                                 <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
                                             </ul>
                                         </div>
-                                        
-                                        <div v-if="capacity_show" class="list-group-item list-group-item-action" style="height:50px;">{{nur_profile.nursing_staff }} 人</div>
+                                        <div v-if="capacity_show">
+                                        <div class="list-group-item list-group-item-action" v-if="nur_profile.nursing_staff != null" style="height:50px;">{{nur_profile.nursing_staff }} 人</div>
+                                        <div class="list-group-item list-group-item-action" v-else style="height:50px;">-人</div>
+                                        </div>
                                         <div v-if="opening_show" class="list-group-item list-group-item-action" style="height:70px;">{{nur_profile.date_of_establishment }}</div>
                               
                                 </div>

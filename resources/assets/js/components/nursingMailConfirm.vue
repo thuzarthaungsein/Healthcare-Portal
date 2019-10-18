@@ -272,21 +272,6 @@
                   />
                 </div>
               </div>
-              <!-- <div class="form-group m-0 row bd">
-                <div class="col-md-3 col-sm-12 form-left">
-                  <label>入居希望時期</label>
-                </div>
-                <div class="col-md-9 col-sm-12 form-right">
-                  <input
-                    type="text"
-                    name="outputdesire"
-                    id="outputdesire"
-                    class="mailbox"
-                    disabled
-                    v-model="comments.desire"
-                  />
-                </div>
-              </div> -->
               <div class="form-group m-0 row bd-all">
                 <div class="col-md-3 col-sm-12 form-left">
                   <label>ご要望や、お困りごと、その他お問い合わせ</label>

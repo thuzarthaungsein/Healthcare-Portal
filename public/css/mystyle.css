@@ -5912,7 +5912,7 @@ button.confirmed {
   ul.test>li:before { content:'\ffed'; margin-right:0.5em; }
 
   /* fav_slider */
-  .card-carousel-wrapper {
+  #fav-history-page .card-carousel-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5920,13 +5920,13 @@ button.confirmed {
     color: #666a73;
   }
   
-  .card-carousel {
+  #fav-history-page .card-carousel {
     display: flex;
     justify-content: center;
     width: 1424px;
   }
   /*slick carousel*/
-  .card-carousel-wrapper {
+  #fav-history-page .card-carousel-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -5934,20 +5934,20 @@ button.confirmed {
       color: #666a73;
   }
   
-  .card-carousel-comment {
+  #fav-history-page .card-carousel-comment {
       display: flex;
       justify-content: center;
       width: 1145px;
   }
-  .card-carousel-comment .card{
+  #fav-history-page .card-carousel-comment .card{
       margin: 0px 10px 0px 0px;
   }
-  .card-carousel--overflow-container {
+  #fav-history-page .card-carousel--overflow-container {
       color: #000;
       text-align: center;
       overflow: hidden;
   }
-  .card-carousel--nav__left, .card-carousel--nav__right {
+  #fav-history-page .card-carousel--nav__left, .card-carousel--nav__right {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -5959,29 +5959,29 @@ button.confirmed {
     margin: 0 10px;
     transition: transform 150ms linear;
   }
-  .card-carousel--nav__left[disabled], .card-carousel--nav__right[disabled] {
+  #fav-history-page .card-carousel--nav__left[disabled], .card-carousel--nav__right[disabled] {
     opacity: 0.2;
     border-color: black;
   }
-  .card-carousel--nav__left {
+  #fav-history-page .card-carousel--nav__left {
     transform: rotate(-135deg);
   }
-  .card-carousel--nav__left:active {
+  #fav-history-page .card-carousel--nav__left:active {
     transform: rotate(-135deg) scale(0.9);
   }
-  .card-carousel--nav__right {
+  #fav-history-page .card-carousel--nav__right {
     transform: rotate(45deg);
   }
-  .card-carousel--nav__right:active {
+  #fav-history-page .card-carousel--nav__right:active {
     transform: rotate(45deg) scale(0.9);
   }
   
-  .card-carousel-cards {
+  #fav-history-page .card-carousel-cards {
     display: flex;
     transition: transform 150ms ease-out;
     transform: translatex(0px);
   }
-  .card-carousel-cards .card-carousel--card {
+  #fav-history-page .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
     cursor: pointer;
     box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08);
@@ -5990,27 +5990,27 @@ button.confirmed {
     z-index: 3;
     margin-bottom: 2px;
   }
-  .card-carousel-cards .card-carousel--card:first-child {
+  #fav-history-page .card-carousel-cards .card-carousel--card:first-child {
     margin-left: 0;
   }
-  .card-carousel-cards .card-carousel--card:last-child {
+  #fav-history-page .card-carousel-cards .card-carousel--card:last-child {
     margin-right: 0;
   }
-  .card-carousel-cards .card-carousel--card img {
+  #fav-history-page .card-carousel-cards .card-carousel--card img {
     vertical-align: bottom;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     transition: opacity 150ms linear;
     user-select: none;
   }
-  .card-carousel-cards .card-carousel--card img:hover {
+  #fav-history-page .card-carousel-cards .card-carousel--card img:hover {
     opacity: 0.5;
   }
-  .card-carousel-cards .card-carousel--card--footer {
+  #fav-history-page .card-carousel-cards .card-carousel--card--footer {
     border-top: 0;
     padding: 7px 15px;
   }
-  .card-carousel-cards .card-carousel--card--footer p {
+  #fav-history-page .card-carousel-cards .card-carousel--card--footer p {
     padding: 3px 0;
     margin: 0;
     margin-bottom: 2px;
@@ -6019,7 +6019,7 @@ button.confirmed {
     color: #2c3e50;
     user-select: none;
   }
-  .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
+  #fav-history-page .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
     font-size: 12px;
     font-weight: 300;
     padding: 6px;
@@ -6029,7 +6029,7 @@ button.confirmed {
     margin-left: 4px;
     color: #666a73;
   }
-  .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
+  #fav-history-page .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
     content: "";
     float: left;
     position: absolute;
@@ -6041,7 +6041,7 @@ button.confirmed {
     border-style: solid;
     border-width: 12px 12px 12px 0;
   }
-  .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
+  #fav-history-page .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
     content: "";
     position: absolute;
     top: 10px;

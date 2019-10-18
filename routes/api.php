@@ -293,7 +293,6 @@ Route::post('news/search/{searchword}', 'PostController@searchPost');
 Route::group(['prefix' => 'hospital'], function () {
     Route::post('postList/{postal}', 'HospitalProfileController@getPostalList');
     Route::get('citiesList', 'HospitalProfileController@getCitiesName');
-    Route::post('selectedCity/{selectedId}', 'HospitalProfileController@getSelectedCityName');
     Route::get('favourite_list', 'HospitalProfileController@index');
     Route::delete('delete/{id}', 'HospitalProfileController@destroy');
 });
