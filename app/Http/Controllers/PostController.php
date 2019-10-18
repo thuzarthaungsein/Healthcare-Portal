@@ -39,21 +39,32 @@ class PostController extends Controller
         }else {
             $imageName =$request->photo;
         }
+        $post = new Post() ;
+            $post->title = $request->input('title');
+            $post->main_point = $request->input('main_point');
+            $post->body=$request->input('body');
+            $post->photo = $imageName;
+            $post->category_id=$request->input('category_id');
+            $post->related_news=$request->input('related_news');
+            $post->user_id = 1;
+            $post->recordstatus=1;
 
-        $post = new Post([
-                    'title' => $request->input('title'),
-                    'main_point' => $request->input('main_point'),
-                    'body' => $request->input('body'),
-                    'photo' =>$imageName,
-                    'category_id' =>$request->input('category_id'),
-                    'related_news' =>$request->input('related_news'),
-                    'user_id' => 1,
-                    'recordstatus' => 1
-                ]);
+            $post->save();
 
-        $post->save();
+        return response()->json('The New successfully added');
 
-        // return response()->json('The New successfully added');
+
+        // $post = new Post([
+        //             'title' => $request->input('title'),
+        //             'main_point' => $request->input('main_point'),
+        //             'body' => $request->input('body'),
+        //             'photo' =>$imageName,
+        //             'category_id' =>$request->input('category_id'),
+        //             'related_news' =>$request->input('related_news'),
+        //             'user_id' => 1,
+        //             'recordstatus' => 1
+        //         ]);
+
     }
 
 
@@ -153,26 +164,36 @@ class PostController extends Controller
                 $imageName = str_replace(' ', '', $imageName);
                 $request->photo->move('upload/news/', $imageName);
             }
+
             else {
                 $file= $post->photo;
                 $filename ='./upload/news/'.$file;
                 \File::delete($filename);
                 $imageName = '';
             }
+            $post->title = $request->input('title');
+            $post->main_point = $request->input('main_point');
+            $post->body=$request->input('body');
+            $post->photo = $imageName;
+            $post->category_id=$request->input('category_id');
+            $post->related_news=$request->input('related_news');
+            $post->user_id = 1;
+            $post->recordstatus=1;
+            $post->save();
         }
-        $formData = array(
-            'title' => $request->input('title'),
-            'main_point' => $request->input('main_point'),
-            'body' => $request->input('body'),
-            'photo' => $imageName,
-            'category_id' =>$request->input('category_id'),
-            'related_news' =>$request->input('related_news'),
-            'user_id' => 1,
-            'recordstatus' => 1
-        );
+        // $formData = array(
+        //     'title' => $request->input('title'),
+        //     'main_point' => $request->input('main_point'),
+        //     'body' => $request->input('body'),
+        //     'photo' => $imageName,
+        //     'category_id' =>$request->input('category_id'),
+        //     'related_news' =>$request->input('related_news'),
+        //     'user_id' => 1,
+        //     'recordstatus' => 1
+        // );
 
 
-        $post->update($formData);
+        // $post->update($formData);
         return response()->json('The news successfully updated');
     }
 
