@@ -6022,10 +6022,6 @@ button.confirmed {
           min-height: 100px;
       }
       
-      .bd {
-          border: 1px solid rgba(0, 0, 0, 0.125);
-      }
-      
       .che {
           size: 45%;
           width: 25px;
@@ -6056,9 +6052,9 @@ button.confirmed {
           margin-bottom: 3px;
       }
       
-      .bd {
+      /* .bd {
           border-bottom: none;
-      }
+      } */
       
       .hh {
           margin-bottom: -14px;
