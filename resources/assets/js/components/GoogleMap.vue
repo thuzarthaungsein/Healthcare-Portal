@@ -12,7 +12,7 @@
                     <label>市区町村、番地（建物名）<span class="error">*</span></label>
                     <div class="row">
                       <div class="col-md-10" v-if="status === '0'">
-                        <input type="text" id="old_city" name="city" class="old-city form-control white-bg-color" placeholder="市区町村、番地を入力してください。" v-model="address">                        
+                        <input type="text" id="city" name="city" class="old-city form-control white-bg-color" placeholder="市区町村、番地を入力してください。" v-model="address">                        
                       </div>
                       <div class="col-md-10" v-else>
                         <input type="text" id="city" name="city" class="city form-control white-bg-color" placeholder="市区町村、番地を入力してください。" v-model="comment.city">
