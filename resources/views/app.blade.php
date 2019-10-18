@@ -781,11 +781,11 @@
 
  $(document).ready(function() {
 
-    // pannellum.viewer('panorama', {
-    //     "type": "equirectangular",
-    //     "panorama": "https://pannellum.org/images/jfk.jpg",
-    //     "autoRotate": -2
-    // });      
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "https://pannellum.org/images/jfk.jpg",
+        "autoRotate": -2
+    });      
 
        
      /*added for back to top*/

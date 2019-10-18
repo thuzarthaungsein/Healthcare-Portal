@@ -84,9 +84,11 @@ body {
     display: none;
 }
 
-.font15rem{
+.font15rem {
     font-size: 1.5rem;
 }
+
+
 /* News List */
 
 #content {
@@ -418,15 +420,16 @@ body {
     /* background-color: #2981cc; */
     color: #2981cc;
 }
+
 #nursingView .pro-heading h5 {
     /* background-color: #d2571c; */
     color: #d2571c;
 }
-.pro-heading h5{
+
+.pro-heading h5 {
     position: relative;
     margin: 0 15px 15px 0;
     padding: 7px;
-    
     text-align: left;
     line-height: 1.1;
     letter-spacing: 1px;
@@ -443,7 +446,8 @@ body {
 #nursingView .pro-heading h5::after {
     border-top-color: #d2571c;
 }
-.pro-heading h5::after{
+
+.pro-heading h5::after {
     top: 100%;
     border: solid transparent;
     content: " ";
@@ -457,6 +461,7 @@ body {
     left: 50%;
     margin-left: -10px;
 } */
+
 
 /* End Profile */
 
@@ -884,6 +889,7 @@ scrollbar-width: thin;
 .scrolldiv4 {
     background: white;
     border: 1px solid #eee;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 #search-word {
@@ -966,6 +972,7 @@ p.p_2>a {
 #hospitalView .profile_header {
     border-left: 5px solid #63b7ff;
 }
+
 #nursingView .profile_header {
     border-left: 5px solid #ff9563;
 }
@@ -982,22 +989,21 @@ p.p_2>a {
     width: 100%;
     padding: 7px 10px;
     margin-bottom: 20px;
-    
 }
 
 #hospitalView .header {
     color: #2981cc;
 }
+
 #nursingView .header {
     color: #ec7338;
 }
 
 .header {
-    font-weight: bold;    
+    font-weight: bold;
     display: inline-block;
     position: relative;
     background: #fff;
-    
     border-radius: 1px;
     border-bottom: 1px dashed #25ac8a;
     width: 100%;
@@ -1229,6 +1235,106 @@ textarea {
 
 .form-control {
     background-color: #f5f5f5;
+}
+
+.multi-step {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.multi-step li {
+    display: inline-block;
+    list-style: none;
+    letter-spacing: normal;
+    vertical-align: top;
+    margin-left: 25px;
+    width: 25%;
+    color: #2c927b;
+    border: 1px solid #2c927b;
+    position: relative;
+    background: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.multi-step li:first-child {
+    margin-left: 0;
+}
+
+.multi-step li::before,
+.multi-step li::after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.multi-step li::before {
+    border-left-color: #2c927b;
+    border-width: 11px;
+    margin-top: -11px;
+}
+
+.multi-step li.no-active::after {
+    border-left-color: #fff;
+    border-width: 10px;
+    margin-top: -10px;
+}
+
+.multi-step :last-child::before,
+.multi-step :last-child::after {
+    border: solid transparent !important;
+}
+
+.multi-step li.active::before {
+    border-color: rgba(48, 146, 172, 0);
+    border-left-color: #d2571c;
+}
+
+.multi-step li.active {
+    color: #fff;
+    background: 20px 11px #d2571c;
+    border: 1px solid #d2571c;
+}
+
+#loader {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #d2571c;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -2132,7 +2238,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     border: 1px solid #ccc;
 }
 
-.nav-tabs .nav-link {    
+.nav-tabs .nav-link {
     border-top-left-radius: 0px !important;
     border-top-right-radius: 0px !important;
 }
@@ -2343,14 +2449,17 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     background: transparent;
     margin-bottom: -1px;
 }
-#Profile-page .nursing-tabColor .nav-link.active {   
+
+#Profile-page .nursing-tabColor .nav-link.active {
     border-left: 1px solid #ff9563 !important;
     border-right: 1px solid #ff9563 !important;
 }
-#Profile-page .hospital-tabColor .nav-link.active {   
+
+#Profile-page .hospital-tabColor .nav-link.active {
     border-left: 1px solid #63b7ff !important;
     border-right: 1px solid #63b7ff !important;
 }
+
 
 /* profilepublish css end */
 
@@ -3721,7 +3830,7 @@ li.userprofile-name>a {
     padding: 13px !important;
     /*for no scroll*/
     background: white;
-    border: 1px solid #ccc ;
+    border: 1px solid #ccc;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -3945,9 +4054,11 @@ a:hover {
 a:hover {
     color: #000;
 }
+
 #navtab {
     border-bottom: none;
 }
+
 #navtab .nav-item {
     margin-bottom: -3px !important;
     /* border-left: 1px solid #fff !important; */
@@ -5578,12 +5689,16 @@ button.confirmed {
     background: transparent;
     width: 79.9%;
     margin-top: -1px;
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 #hospitalView .top-fixed-btn {
     background: #85c7ff;
     border: 1px solid #5c95c5;
 }
+
 #nursingView .top-fixed-btn {
     background: #fbaa84;
     border: 1px solid #ff9563;
@@ -5597,17 +5712,17 @@ button.confirmed {
     cursor: pointer;
     padding: 5px;
     /* transition: all .3s ease-in; */
-    
     border-radius: 5px;
     text-decoration: none;
     position: relative;
-    box-shadow: 3px 5px 3px #ccc!important;    
+    box-shadow: 3px 5px 3px #ccc!important;
 }
 
 #hospitalView .top-fixed-btn.active {
     background: #2981cc;
     border: 1px solid #5f97d0;
 }
+
 #nursingView .top-fixed-btn.active {
     background: #d2571c;
     border: 1px solid #ff9563;
@@ -5622,7 +5737,6 @@ button.confirmed {
     padding: 5px;
     box-shadow: 3px 5px 3px 0px #ccc !important;
     border: 0px;
-    
     margin: 0px !important;
     border-radius: 5px;
 }
@@ -5685,10 +5799,12 @@ button.confirmed {
     padding: 15px;
 }
 
-.form-wrap .sp1 {
+.form-wrap .sp1,
+.sp2 {
     margin: 0 10px;
     padding: 0 5px 0 5px;
     background: #F54336;
+    font-size: 0.9em;
     color: #fff;
     font-weight: bold;
     border-radius: 3px;
