@@ -5682,7 +5682,11 @@ button.confirmed {
 
 .form-wrap .form-tit {
     position: relative;
-    margin: 30px 0 50px 0;
+    margin: 30px 0 40px 0;
+}
+.require-txt{
+    position: relative;
+    margin: 0 0 30px 0;
 }
 
 .form-wrap .form-tit:before {
@@ -6074,7 +6078,7 @@ button.confirmed {
           min-height: 100px;
       }
       
-      .bd {
+      .bd3 {
           border: 1px solid rgba(0, 0, 0, 0.125);
       }
       

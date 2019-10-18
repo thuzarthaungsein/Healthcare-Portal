@@ -22,6 +22,8 @@
           <form class="col-md-12 form-wrap" @submit.prevent="add" method="post">
             <div class="mb-5">
               <h3 class="form-tit">確認内容</h3>
+              <p class="require-txt">ご入力いただいた内容に誤りがないかどうか、ご確認ください。
+              <br>こちらの内容でよろしければ、「上記内容を送信する」ボタンを押してください。</p>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
                   <label>お名前</label>
@@ -149,7 +151,7 @@
                   />
                 </div>
               </div>
-              <div class="form-group m-0 row bd">
+              <div class="form-group m-0 row bd-all">
                 <div class="col-md-3 col-sm-12 form-left">
                   <label>メールアドレス</label>
                 </div>
@@ -164,7 +166,7 @@
                   />
                 </div>
               </div>
-              <div class="form-group m-0 row bd-all">
+              <!-- <div class="form-group m-0 row bd-all">
                 <div class="col-md-3 col-sm-12 form-left">
                   <label>プレゼントのご希望</label>
                 </div>
@@ -178,7 +180,7 @@
                     v-model="comments.present"
                   />
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="mb-5">
               <h3 class="form-tit">入居対象者様について</h3>
@@ -318,7 +320,7 @@ export default {
         city: "",
         phone: "",
         mail: "",
-        present: "",
+        // present: "",
         relation: "",
         ttname: "",
         sex1: "",
@@ -331,7 +333,7 @@ export default {
         fav_mail: [{}],
         fav_id: [{}],
         fav_name: [{}],
-        arr_reserve: [{}],
+        // arr_reserve: [{}],
         arr_document: [{}],
         selectedValue: 0
       },
@@ -345,11 +347,11 @@ export default {
   created() {
     this.comments = JSON.parse(localStorage.getItem("inputValue"));
     console.log("confirm", this.comments);
-    if (this.comments.present) {
-      this.comments.present = "する";
-    } else {
-      this.comments.present = "しない";
-    }
+    // if (this.comments.present) {
+    //   this.comments.present = "する";
+    // } else {
+    //   this.comments.present = "しない";
+    // }
     this.axios.get("/api/hospital/citiesList").then(response => {
       this.city_list = response.data;
       console.log("testing", this.comments.division);
@@ -375,7 +377,7 @@ export default {
         });
       localStorage.removeItem("item");
       localStorage.removeItem("inputValue");
-      localStorage.removeItem("reserve");
+      // localStorage.removeItem("reserve");
       localStorage.removeItem("document");
     }
     // back() {
