@@ -11,7 +11,10 @@
                   <div class="form-group">
                     <label>市区町村、番地（建物名）<span class="error">*</span></label>
                     <div class="row">
-                      <div class="col-md-10">
+                      <div class="col-md-10" v-if="status === '0'">
+                        <input type="text" id="old_city" name="city" class="old-city form-control white-bg-color" placeholder="市区町村、番地を入力してください。" v-model="address">                        
+                      </div>
+                      <div class="col-md-10" v-else>
                         <input type="text" id="city" name="city" class="city form-control white-bg-color" placeholder="市区町村、番地を入力してください。" v-model="comment.city">
                         
                       </div>
@@ -60,8 +63,12 @@
 <script>
 export default {
   name: "GoogleMap",
+  props:{
+         address:String,
+        },
   data () {
     return {
+      status:'0',
       markers: [
         { position: { lat: 35.6803997, lng: 139.76901739 } }
       ],
@@ -79,9 +86,10 @@ export default {
       address_btn: false,
     }
   },
-  created() {   
+  created() { 
     this.new_lat = 35.6803997;
     this.new_long = 139.76901739;
+    
     $('#gmap-search').css({'display':'none'});
   },
   methods: {    
@@ -149,6 +157,7 @@ export default {
       
     }, 
     getPostal: function(event) {
+                this.status = 1;
                 if (this.comment.postal.length > 4) {
                     var postal = this.comment.postal;
                     this.axios

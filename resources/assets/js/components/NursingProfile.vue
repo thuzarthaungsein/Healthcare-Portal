@@ -302,8 +302,8 @@
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">居住の権利形態</td>
-                                                        <td ><textarea class="form-control white-bg-color residence-form" :options="editorOption" v-model="nursing_info.residence_form"></textarea></td>
-                                                         <!-- <td > <quill-editor  class="residence-form" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.residence_form"/></td> -->
+                                                        <!-- <td ><textarea class="form-control white-bg-color residence-form" :options="editorOption" v-model="nursing_info.residence_form"></textarea></td> -->
+                                                         <td > <quill-editor  class="residence-form" ref="myQuilEditor" @change="onResidenceEditorChange($event)" :options="editorOption" v-model="nursing_info.residence_form"/></td>
                                                 </tr>
                                                 <tr>
                                                         <td class="width15 title-bg">類型</td>
@@ -503,12 +503,11 @@
                                 <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
                                 <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
                                         <div class="col-md-12">
-                                            <GoogleMap></GoogleMap>
-                                                <div class="form-group">
+                                            <GoogleMap :address="customer_info.address"></GoogleMap>
+                                                <!-- <div class="form-group">
                                                         <label>住所<span class="error">*</span></label>
-                                                        <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                                         <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" @change="onCustomerAddressChange($event)" class="customer-address" v-model="customer_info.address"/>
-                                                </div>
+                                                </div> -->
 
                                                 <!-- Test Station Area -->
                                                 <!-- <table class="table table-bordered table-wrapper">
@@ -845,10 +844,10 @@ export default {
                         // console.log('editor change!', editor, html, text)
                         this.residence_form_val = html
                 },
-                onCustomerAddressChange({ editor, html, text }) {
-                        // console.log('editor change!', editor, html, text)
-                        this.customer_address_val = html
-                },
+                // onCustomerAddressChange({ editor, html, text }) {
+                //         // console.log('editor change!', editor, html, text)
+                //         this.customer_address_val = html
+                // },
 
             createProfile() {
 
@@ -863,7 +862,7 @@ export default {
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
                 var customer_phone = $('.customer-phone').val();
-                // var customer_address = $('.customer-address').text();
+                var customer_address = $('#city').val();
 
                 var access = $('.transporation-access').val();
                 var moving_in = $('.nursing-moving-in').val();
@@ -896,7 +895,7 @@ export default {
                 var min_num_staff = $('.min-num-staff').val();
                 var num_staff = $('.num-staff').val();
                 // var nursing_remarks = $('.nursing-remarks').val();
-                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:this.customer_address_val});
+                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
                 this.staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
                
@@ -1056,7 +1055,7 @@ export default {
                         this.axios
                                 .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
                                 .then((response) => {
-
+                                   
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
