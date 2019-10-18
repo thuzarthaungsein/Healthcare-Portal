@@ -243,7 +243,7 @@ $('#save_value').click(function(){
           $(".displaytext").slideUp();
         }
       });
-   
+
      /* end nurse profile*/
 
 /*select check
@@ -326,7 +326,7 @@ $('#save_value').click(function(){
     }
 }
 
-  
+
   // function closebtn(){
   //   swal({
   //     title: "Are you sure?",
@@ -455,7 +455,7 @@ function new_link()
 
         }
     }
-  
+
 //   $('input[name="number"]').keyup(function(e)
 //   {
 //   if (/\D/g.test(this.value))

@@ -73,6 +73,8 @@ class registerController extends Controller
             ]);
             $type = 1;
 
+            $type = 1;
+
             if($request->types == '2'){
                 $type = $request->nursing;
             }
