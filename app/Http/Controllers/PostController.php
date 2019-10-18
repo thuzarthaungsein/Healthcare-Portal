@@ -211,7 +211,7 @@ class PostController extends Controller
         \File::delete($filename);
         $post->delete();
         $posts = Post::all()->toArray();
-        return $posts;
+        return array_reverse($posts);
         // return response()->json('The news post successfully deleted');
     }
 
