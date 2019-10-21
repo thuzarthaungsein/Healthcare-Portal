@@ -38,8 +38,8 @@ import Slick from 'vue-slick';
 Vue.use(Slick);
 
 //pano
-import Pano from 'vue-pano';
-Vue.use(Pano);
+// import Pano from 'vue-pano';
+// Vue.use(Pano);
 
 
 //vue-pannellum
