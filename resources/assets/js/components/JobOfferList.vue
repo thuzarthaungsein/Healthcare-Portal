@@ -75,7 +75,7 @@
                   <th>施設種別</th>
                   <th>仕事内容</th>
                   <th>雇用形態</th>
-                  <th></th>
+                 <th><a href="jobapplylist">Jobapplylist</a></th>
                 </tr>
               </thead>
               <tbody>

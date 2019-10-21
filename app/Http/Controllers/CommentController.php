@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailComment;
@@ -62,17 +63,20 @@ class CommentController extends Controller
         $comment->recordstatus = 1;
         $comment ->save();
 
+    
         $getComment = Comment::findOrFail($comment->id);
-
-        if($getComment->gender == 0 )
+        $query = "SELECT cu.id as cusid ,cu.name as cusname,co.* from customers As cu  Join comments As co on cu.id = co.customer_id  where co.customer_id =" . $comment->customer_id . " and co.id =" .$comment->id;
+        $getComment = DB::select($query);
+      
+        if($getComment[0]->gender == 0 )
         {
-            $getComment->gender = "Male";
+            $getComment[0]->gender = "Male";
         }
         else{
-            $getComment->gender = "Female";
+            $getComment[0]->gender = "Female";
         }
         // \Mail::to('mayphue17@management-part')->send(new SendMailComment($getComment));
-        \Mail::to($getComment)->send(new SendMailComment($getComment));
+        \Mail::to($getComment[0]->email)->send(new SendMailComment($getComment));
 
         // return response()->json(['success'=>'Done!']);
 

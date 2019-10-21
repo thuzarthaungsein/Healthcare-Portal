@@ -948,15 +948,16 @@
 
                 <tr class="text-center">
                   <td colspan="2">
-                     <!-- <input type="button" v-scroll-to="{ el: '#job_details', offset: -240}"  name="save_value" value="Search" @click="search"/>   -->
-                     <button class="btn-success"  id="btn" name="save_value" value="search" @click="search">Search </button>
+
+                     <button class="btn-success" id="search" @click="search"> Search </button>
+
                   </td>
                 </tr>
 
               </tbody>
             </table>
 
-            <div id="job_details" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
+            <div id="job_detail" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
               <div class="card-header bg-success text-center pad"  >{{job.name}}</div>
                 <div class="card-body bg-danger">
                     <table  class="table table-bordered table-sm">
@@ -976,10 +977,11 @@
                         <td>Special conditions</td>
                         <td> {{job.allowances}} </td>
                       </tr>
-
                     </table>
+                        <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn btn all-btn secondary-bg-color white">詳細を見る</router-link>
 
                 </div>
+
 
             </div>
         </div>
@@ -1019,37 +1021,11 @@ export default {
       }
     },
   methods:{
-    search(){
 
-        if(this.townshipID == null || this.townshipID == '')
-        {
-          this.townshipID[0] = 0;
-        }
-        if(this.occupationID == null || this.occupationID == '')
-        {
-          this.occupationID[0] = 0;
-        }
-        if(this.empstatus == null || this.empstatus == '')
-        {
-          this.empstatus[0] = 0;
-        }
-
-        this.axios.get('api/getjobsearch',{
-          params:{
-              id: this.id,
-              townshipID:this.townshipID,
-              occupationID:this.occupationID,
-              empstatus:this.empstatus
-          },
-        }).then((response)=>{
-
-          this.job_data = response.data;
-
-        })
-
-      },
-
-
+    search()
+    {
+      window.scrollTo({ top : 1000, behavior: 'smooth' });
+    },
 
     toggleContent4() {
         this.toggleCheck = !this.toggleCheck;
@@ -1077,15 +1053,44 @@ export default {
                 $('#close4').append('<i class="fas fa-arrow-circle-down"></i> close');
             }
         },
+
       getStateClick(e){
 
-         console.log(e.target.tagName)
+        if(e.target.tagName == 'BUTTON')
+        {
+            if(this.townshipID == null || this.townshipID == '')
+          {
+            this.townshipID[0] = 0;
+          }
+          if(this.occupationID == null || this.occupationID == '')
+          {
+            this.occupationID[0] = 0;
+          }
+          if(this.empstatus == null || this.empstatus == '')
+          {
+            this.empstatus[0] = 0;
+          }
+
+          this.axios.get('api/getjobsearch',{
+            params:{
+                id: this.id,
+                townshipID:this.townshipID,
+                occupationID:this.occupationID,
+                empstatus:this.empstatus
+            },
+          }).then((response)=>{
+
+            this.job_data = response.data;
+
+          })
+        }
+
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
           const id = e.target.id;
           this.axios.post('api/getmap/'+id+'')
           .then((response)=>{
-            console.log(response.data.fac_types)
+
           $('.jobselect').removeClass('jobselect');
           this.cities = response.data.city
           this.getCity = response.data.getCity
@@ -1094,7 +1099,7 @@ export default {
           this.id = id
          })
         }else if(e.target.tagName ==='SELECT'|| e.target.tagName ==='OPTION'){
-          console.log(e.target.tagName)
+
           const id = this.id;
           this.axios.post('api/getmap/'+id+'')
           .then((response)=>{
@@ -1106,7 +1111,10 @@ export default {
           this.id = id
          })
         }
+
+
       },
+
       getCheck(e){
 
          console.log(this.townshipID);
@@ -1127,8 +1135,15 @@ export default {
          //console.log(e)
         }
       }
+
     }
 };
+
+  // $("#search").on("click", function() {
+  //   alert('a');
+  //     // $("body").scrollTop(0);
+  // });
+
 </script>
 
 
