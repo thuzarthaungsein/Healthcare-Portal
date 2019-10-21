@@ -102,7 +102,6 @@ class AdvertisementController extends Controller
         $request->validate([
             'title' => 'required',
             'location'=>'required',
-            'photo'=>'required',
         ]);
 
         if(is_object($request->photo)) {
@@ -136,15 +135,6 @@ class AdvertisementController extends Controller
             $ads->photo = $imageName;
             $ads->user_id = 1;
             $ads->save();
-
-
-        //   if(is_object($request->photo)) {
-        //     $file= $ads->photo;
-        //     $filename = './upload/advertisement/'.$file;
-        //     // $filename = public_path().'/upload/advertisement/'.$file;
-        //    \File::delete($filename);
-        //   }
-
             return response()->json('successfully updated');
         //return response()->json($ads);
     }
