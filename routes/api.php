@@ -222,6 +222,8 @@ Route::get('job_details', 'JobDetailController@index');
 Route::get('featurelist', 'SpecialFeatureController@index');
 
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
+Route::post('feature/update/{id}','SpecialFeaturesJunctionsController@update');
+
 Route::get('facility/{type}/{id}','FacilityController@getFacilitybyProfileType');
 Route::get('clinical-subject/{id}','SubjectController@getHospitalClinicalSubject');
 Route::get('station/{id}','StationController@getStationbyCustomerId');
