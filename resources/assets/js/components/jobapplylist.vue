@@ -43,7 +43,6 @@
                         <th>Home Address</th>
                         <th>Phone</th>
                         <th>Email</th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
