@@ -9,7 +9,7 @@
                                                 <div class="col-md-8 offset-4 pad-free m-b-15">
                                                         <div class="row ">
                                                             <div class="col-md-1 offset-1">
-                                                                <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger" v-if="status == 1" @click="searchCategory()">X</span>
+                                                                <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger" v-if="status == 1" @click="clearSearch()">X</span>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <input type="text" placeholder="検索" aria-label="検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
@@ -262,9 +262,7 @@ export default {
 
             searchCategory() {
                 if($('#search-word').val() == null || $('#search-word').val() == '' || $('#search-word').val() == 'null'){
-                    this.status = 0;
-                    this.search_word = $('#search-word').val();
-                    this.getLatestPostsByCatID();
+                    this.clearSearch();
                 }
                 else{
                     this.status = 1;
@@ -272,6 +270,12 @@ export default {
                     this.getLatestPostsByCatID();
                 }
                     
+            },
+
+            clearSearch() {
+                this.status = 0;
+                this.search_word = '';
+                this.getLatestPostsByCatID();
             },
 
             imgUrlAlt(event) {
