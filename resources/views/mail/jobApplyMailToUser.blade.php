@@ -1,10 +1,4 @@
-    <!-- <div>
 
-<<<<<<< HEAD
-    Dear User,
-        job_title : {{$getComment->job_title}}  <br>
-        Applied successfully!
-    </div> -->
 
     <pre>
             [$getComment->first_name]様
@@ -37,7 +31,7 @@
             TEL：03-6911-???? FAX：03-6911-????
 
     </pre>
-=======
+    <div>
 Dear User,
     Job Description
     job_title : {{$getComment->job_title}}  <br>
@@ -47,5 +41,5 @@ Dear User,
     job_employment_status: {{$getComment->job_employment_status}} <br>
     job_salary: {{$getComment->job_salary}} <br>
     job_working_hours: {{$getComment->job_working_hours}} <br>
+
 </div>
->>>>>>> e8537fd57ee3bac4d767a61fb402c31c3e4c6609

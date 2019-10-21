@@ -419,12 +419,12 @@
             this.subjectID[0] = 0;
           }
       
-          this.axios.get('api/getjobsearch',{
+          this.axios.get('api/gethospitalsearch',{
             params:{
                 id: this.id,
                 townshipID:this.townshipID,
-                occupationID:this.occupationID,
-                empstatus:this.empstatus
+                occupationID:this.specialfeatureID,
+                empstatus:this.subjectID
             },
           }).then((response)=>{
       

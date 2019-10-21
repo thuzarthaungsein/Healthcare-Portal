@@ -104,7 +104,7 @@ export default {
         cancelButtonClass: "all-btn"
       }).then(response => {
         this.axios
-          .delete(`/api/category/delete/${id}`)
+          .delete(`/api/category//${id}`)
           .then(response => {
             this.categories = response.data;
             this.norecord = this.categories.length;

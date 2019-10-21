@@ -40,7 +40,7 @@
                              <div class="form-group" style="display:none" id="showimage">
                                 <label>メディア : <span class="error">*</span></label><br/>
                                 <div class="custom-file">
-                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
+                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected" name="photo">
                                     <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@ export default {
 
                      $('.image_show').html("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
 
-                     this.advertisement.photo = event.target.files[0]
+                     this.advertisement.photo = event.target.files[0];
 
               },
               updateselected()
@@ -108,7 +108,8 @@ export default {
                    $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
               },
              removeFile(){
-                 this.photo = ''
+                 this.photo = '';
+
              },
               updateCheck: function (check){
                      this.advertisement.location.shift()
@@ -149,6 +150,7 @@ export default {
 
 
             }
+            console.log(this.advertisement.photo);
              adsData.append('title',this.advertisement.title)
              adsData.append('description',this.advertisement.description)
              adsData.append('link',this.advertisement.link)

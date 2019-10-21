@@ -65,13 +65,13 @@ class NursingMailController extends Controller
          for($i = 1; $i<count($favourite_id); $i++){
             
             $request->fav_id = $favourite_id[$i];
-          
+            $request->fav_name = $favourite_name[$i];          
            \Mail::to($favourite_mail[$i])->send(new nursingMailing($request));
 
         // \Mail::to('hero2012.zk@gmail.com')->send(new nursingMailing($request));
     
     }
-        \Mail::to($request->mail)->send(new userNursingMail($favourite_name));
+        \Mail::to($request->mail)->send(new userNursingMail($request));
 
         return response()->json(['success'=>'Done!']);
     }

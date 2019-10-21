@@ -1,23 +1,14 @@
-<!-- <div> 
-<h4>お客様の情報を介護にメールを送りました。要求ありがとうございます。<h4>
-メールを送った介護はこれらです。: <br>
-@for ($i = 1; $i< count($getComment); $i++)
-     {{$getComment[$i]}}  <br>
-@endfor
-
-</div> -->
-
 <pre>
-    [お名前]様
+{{$getComment->name}}様
 
-    [サイト名]より資料請求が完了しました。
+    [Healthcare Portal]より資料請求が完了しました。
 
 
     【資料請求された方について】
     お名前： {{$getComment->name}}
     ふりがな：{{$getComment->furigana}}
-    生年月日：
-    性別：{{$getComment->sex}} 
+    生年月日：{{$getComment->bdate}}
+    性別：{{$getComment->sex1}} 
     郵便番号：{{$getComment->postal}}
     都道府県：{{$getComment->division}}
     市区町村、番地（建物名)：{{$getComment->city}}
