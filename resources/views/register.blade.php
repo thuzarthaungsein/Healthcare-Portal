@@ -52,7 +52,7 @@
 
                                 </div>
                                 <div class="input-group mb-3">
-                                    <label class="col-4 col-lg-3 control-label">電子メールアドレス </label>
+                                    <label class="col-4 col-lg-3 control-label">メールアドレス </label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                     </div>
@@ -97,20 +97,21 @@
                                     <div class="nurse_type_error error" style="margin-bottom: 6px;margin-left: 210px;display: none;">Required</div>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <label class="col-4 col-lg-3 control-label">都市を選択</label>
+                                    <label class="col-4 col-lg-3 control-label">都道府県選択</label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-map"></i></span>
 
                                     </div>
                                     <select name="cities" id="cities" class="form-control custom-select" required>
                                         <option value="">都市を選択</option>
+                                        <!-- <option value="">選択してください。</option> -->
                                         @foreach($cities as $city)
                                         <option value="{{$city->id}}">{{$city->city_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="input-group mb-3 hide" id="showHideActionTownship">
-                                    <label class="col-4 col-lg-3 control-label">郷を選ぶ</label>
+                                    <label class="col-4 col-lg-3 control-label">市区町村</label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-map"></i></span>
 
@@ -242,7 +243,7 @@
                 let cities = e.target.value;
                 $.getJSON("ajax-cities?cities=" + cities, function(data) {
                     $('#showHideActionTownship').removeClass('hide').addClass('show');
-                    $('#township').html('<option selected="selected" value="">郷を選ぶ</option>');
+                    $('#township').html('<option selected="selected" value="">選択してください。</option>');
                     $.each(data.data, function(id, name) {
                         $('#township').append('<option value="' + name.id + '">' + name.township_name + '</option>');
                     });
