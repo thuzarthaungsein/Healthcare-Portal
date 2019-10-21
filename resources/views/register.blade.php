@@ -48,7 +48,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" name="name" value="" required autofocus placeholder="事業者名">
+                                    <input type="text" class="form-control" name="name" value="" required placeholder="事業者名">
 
                                 </div>
                                 <div class="input-group mb-3">
@@ -56,7 +56,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                     </div>
-                                    <input type="email" class="form-control" name="email" value="" required autofocus placeholder="電子メールアドレス">
+                                    <input type="email" class="form-control" name="email" value="" required placeholder="電子メールアドレス">
 
                                 </div>
                                 <div class="input-group mb-3">
@@ -64,7 +64,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" name="password" value="" id="pwd" required autofocus placeholder="パスワード">
+                                    <input type="password" class="form-control" name="password" onkeyup="isPasswordSame()" value="" id="pwd" required placeholder="パスワード">
 
                                 </div>
                                 <div class="input-group mb-3">
@@ -72,7 +72,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" name="comfirm_password" id="confirm_pwd" onchange="isPasswordSame()" value="" required autofocus placeholder="パスワードを認証">
+                                    <input type="password" class="form-control" name="comfirm_password" id="confirm_pwd" onkeyup="isPasswordSame()" value="" required placeholder="パスワードを認証">
                                     <br>
                                     
                                 </div>
@@ -127,7 +127,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="phone" value="" required autofocus placeholder="電話番号">
+                                    <input type="number" class="form-control" name="phone" value="" required placeholder="電話番号">
  
                                 </div>
                                 <!-- <div class="input-group mb-3">
@@ -195,16 +195,8 @@
                 window.setTimeout(function() {
                     $(".alert").fadeTo(500, 0).slideUp(500, function() {
                         $('.showHideAction').removeClass('hide').addClass('show');
-
                     });
                 }, 5000);
-
-                $('#pwd').change(function() {
-                    isPasswordSame();
-                });
-                $('#confirm_pwd').keyup(function() {
-                    isPasswordSame();
-                });
             });
 
             function isPasswordSame() {
@@ -220,14 +212,14 @@
 
             $('#type').on('change', function() {
                 const type = $("#type option:selected").val();
-                if (type == 2) {
+                if (type == 3) {
                     $.getJSON("ajax-type?type=" + type, function(data) {
                         $('#showHideActionNursing').removeClass('hide').addClass('show');
                         $('#nursing').empty();
                         $.each(data.data, function(id, name) {
                             $('#nursing').append(
                                 '<div class="form-check sample">' +
-                                '<input class="form-check-input custom-radio nursing_type" onchange="chooseNursingType()" type="radio" name="nursing" value="' + name.id + '" id="' + name.id + '">' +
+                                '<input class="form-check-input custom-radio nursing_type" required onchange="chooseNursingType()" type="radio" name="nursing" value="' + name.id + '" id="' + name.id + '">' +
                                 '<label class="form-check-label custom-radio" for="' + name.id + '">' + name.name + '</label>' +
                                 '</div>');
                         });
