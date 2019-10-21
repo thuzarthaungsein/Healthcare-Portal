@@ -1938,6 +1938,9 @@ ul.sub-ul li {
 .p-t-130 {
     padding-top: 130px;
 }
+.p-t-65{
+    padding-top: 65px;
+}
 
 .p-b-5 {
     padding-bottom: 5px;
@@ -5732,7 +5735,7 @@ button.confirmed {
 
 .ele {
     margin-top: 5px;
-    padding-top: 65px;
+    /* padding-top: 65px; */
 }
 
 .table-wrapper {

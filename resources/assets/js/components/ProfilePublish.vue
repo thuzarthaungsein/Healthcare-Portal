@@ -4,7 +4,7 @@
 
     <div v-if="type == 'nursing'" id="nursingView">
     <!--panorama-->    
-                <div class="col-12 detail_profile_left">
+                <div class="col-12 detail_profile_left pad-free">
                         <div class="thumbnail-img" style="padding:0px;border:none;">
                             <div class="card-carousel">
                             <div class="card-img">
@@ -18,7 +18,7 @@
                                             :auto-rotate="isAutoRotationOn"
                                             :orientation="isOrientationOn"
                                             :compass="true"
-                                            ></Pannellum>    
+                                            :hfov= "120"></Pannellum>    
                            
                             </div>     
                                               
@@ -91,7 +91,7 @@
 
 
 
-            <div class="row m-lr-0 ele" id="element1">
+            <div class="row m-lr-0 ele p-t-65" id="element1">
 
                  <h5 class="profile_header">情報</h5>
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">                     
@@ -872,7 +872,44 @@
 
 
     <div v-if="type == 'hospital'" id="hospitalView">
+       <!--panorama-->    
+                <div class="col-12 detail_profile_left pad-free">
+                        <div class="thumbnail-img" style="padding:0px;border:none;">
+                            <div class="card-carousel">
+                            <div class="card-img">
+                                <!-- <div id="panorama"></div>           -->                              
+                           
+                                <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" 
+                                            class="pannellum"                                          
+                                            :auto-load="true"
+                                            :show-zoom="true"
+                                            :show-fullscreen="true"
+                                            :auto-rotate="isAutoRotationOn"
+                                            :orientation="isOrientationOn"
+                                            :compass="true"
+                                            :hfov= "120"
+                                            
+                                            ></Pannellum>    
+                           
+                            </div>     
+                                              
+                            <div  class="thumbnails">
+                                    <div
 
+                                        v-for="(image,index) in  panoimages"
+
+                                        :key="image.id"
+
+                                        :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"                                      
+
+                                        @click="activatePanoImage(index)" >
+                                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                   
+            <!--end panorama-->
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
                 <!-- <div class="row col-12 m-t-10">
                      <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
@@ -896,7 +933,7 @@
 
             </div>
 
-            <div class="row ele m-lr-0" id="element1">
+            <div class="row ele m-lr-0 p-t-65" id="element1">
 
             <!-- ee-->
 
@@ -1400,7 +1437,7 @@ export default {
                 ],
                 am_arr:[],
                 pm_arr:[],
-                active_el:1,
+                active_el:0,
                 width: '',
                 center: { lat: 0, lng: 0 },
                 address: '',
@@ -1443,7 +1480,7 @@ export default {
                         that.index = current;
                     }
                 },
-                panoimages: ['examplepano.jpg','pano3.jpg','pano3.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','pano3.jpg','pano3.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg',],
+                panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
                 changelinktitle:'内容を見る',
                 currentOffset: 0,
                 windowSize: 1,
