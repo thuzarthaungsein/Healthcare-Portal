@@ -63,6 +63,12 @@ class JobController extends Controller
             'salary' => 'required',
             'working_hours' => 'required',
 
+        ],[
+            'title.required'=>'施設種別が必須です。',
+            'description.required'=>'仕事内容が必須です。',
+            'location.required'=>'勤務地が必須です。',
+            'salary.required'=>'給与が必須です。',
+            'working_hours.required'=>'就業時間が必須です。',
         ]);
 
         $string = '';
