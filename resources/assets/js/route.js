@@ -2,6 +2,7 @@ import home from "./components/home.vue";
 import Newsdetails from "./components/Newsdetails.vue";
 import hospitalSearch from "./components/hospitalSearch.vue";
 import JobApply from "./components/JobApply.vue";
+import jobapplylist from "./components/jobapplylist.vue";
 import customerlist from "./components/customerlist.vue";
 import JobSearchListComponent from "./components/JobSearchListComponent.vue";
 import JobOfferComponent from "./components/JobOfferComponent.vue";
@@ -355,7 +356,11 @@ export const routes = [
     name: 'occupationlist',
     path: '/occupationlist',
     component: occupationlist
-  }
- 
+  },
+  {
+    name:'jobapplylist',
+    path:'/jobapplylist',
+    component:jobapplylist
+  },
 ];
 
