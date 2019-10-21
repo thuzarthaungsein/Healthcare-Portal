@@ -7,8 +7,13 @@
         </div>
       </div>
       <div class="col-md-12 register_box" v-if="type == 'register'">
+        <ul class="multi-step">
+          <li class="active">必要事項のご入力</li>
+          <li class="no-active">内容のご確認</li>
+          <li>送信完了</li>
+        </ul>
         <form class="col-md-12 form-wrap">
-          <input type="hidden" v-model="jobApply.job_id" >
+          <input type="hidden" v-model="jobApply.job_id" />
           <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
               <label for="first_name">
@@ -26,7 +31,7 @@
                 placeholder="トラスト　太郎"
                 v-model="jobApply.first_name"
               />
-              <div v-if="errors.first_name" class="text-danger">{{ errors.first_name }}</div>
+              <div v-if="errors.first_name" class="text-danger mt-2 ml-4">{{ errors.first_name }}</div>
             </div>
           </div>
           <div class="form-group m-0 row bd">
@@ -46,7 +51,7 @@
                 placeholder="トラスト　タロウ"
                 v-model="jobApply.last_name"
               />
-              <div v-if="errors.last_name" class="text-danger">{{ errors.last_name }}</div>
+              <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div>
             </div>
           </div>
           <div class="form-group m-0 row bd">
@@ -105,7 +110,7 @@
                 maxlength="7"
                 v-on:keyup="getPostal"
               />
-              <div v-if="errors.postal" class="text-danger">{{ errors.postal }}</div>
+              <div v-if="errors.postal" class="text-danger mt-2 ml-4">{{ errors.postal }}</div>
             </div>
           </div>
           <div class="form-group m-0 row bd">
@@ -155,7 +160,7 @@
             </div>
             <div class="col-md-9 col-sm-12 form-right">
               <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" />
-              <div v-if="errors.phone" class="text-danger">{{ errors.phone }}</div>
+              <div v-if="errors.phone" class="text-danger mt-2 ml-4">{{ errors.phone }}</div>
             </div>
           </div>
           <div class="form-group m-0 row bd">
@@ -175,7 +180,7 @@
                 placeholder="例：abc@gmail.com"
                 v-model="jobApply.email"
               />
-              <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
+              <div v-if="errors.email" class="text-danger mt-2 ml-4">{{ errors.email }}</div>
             </div>
           </div>
           <!-- <div class="form-group m-0 row bd">
@@ -223,7 +228,7 @@
               <label class="ml-4">
                 <input type="checkbox" v-model="jobApply.terms" /> 同意する
               </label>
-              <div v-if="errors.terms" class="text-danger">{{ errors.terms }}</div>
+              <div v-if="errors.terms" class="text-danger ml-4">{{ errors.terms }}</div>
             </div>
           </div>
           <div class="text-center mt-4 pb-5">
@@ -236,147 +241,165 @@
         </form>
       </div>
 
-      <div class="col-md-7 offset-md-3 confirm_box" v-if="type == 'confirm'">
-        <form >
+      <div class="col-md-12 confirm_box" v-if="type == 'confirm'">
+        <div id="loader"></div>
+        <ul class="multi-step">
+          <li class="active">必要事項のご入力</li>
+          <li class="active">内容のご確認</li>
+          <li>送信完了</li>
+        </ul>
+        <form class="col-md-10 offset-md-1 form-wrap">
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="first_name">
-                <strong>お名前 :</strong>
+                <strong>お名前</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.first_name }}</span>
+              <span class="pl-4">{{ jobApply.first_name }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="last_name">
-                <strong>お名前フリガナ :</strong>
+                <strong>お名前フリガナ</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.last_name }}</span>
+              <span class="pl-4">{{ jobApply.last_name }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="birthday">
-                <strong>生年月日 :</strong>
+                <strong>生年月日</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.birthday }}</span>
+              <span class="pl-4">{{ jobApply.birthday }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="gender">
-                <strong>性別 :</strong>
+                <strong>性別</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span v-if="jobApply.gender == 'Male'">女性</span>
-              <span v-if="jobApply.gender == 'Female'">男性</span>
+              <span v-if="jobApply.gender == 'Male'" class="pl-4">女性</span>
+              <span v-if="jobApply.gender == 'Female'" class="pl-4">男性</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="postal">
-                <strong>郵便番号 :</strong>
+                <strong>郵便番号</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.postal }}</span>
+              <span class="pl-4">{{ jobApply.postal }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="str_address">
-                <strong>住所 :</strong>
+                <strong>住所</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.str_address }}</span>
+              <span class="pl-4">{{ jobApply.str_address }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="home_address">
-                <strong>番地以下 :</strong>
+                <strong>番地以下</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.home_address }}</span>
+              <span class="pl-4">{{ jobApply.home_address }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="phone">
-                <strong>電話番号 :</strong>
+                <strong>電話番号</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.phone }}</span>
+              <span class="pl-4">{{ jobApply.phone }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="email">
-                <strong>メールアドレス :</strong>
+                <strong>メールアドレス</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.email }}</span>
-                <label for ="remark"  ><strong>連絡事項 <span class="error sp1">必須</span></strong>  </label>
+              <span class="pl-4">{{ jobApply.email }}</span>
+              <!-- <label for="remark">
+                <strong>
+                  連絡事項
+                  <span class="error sp1">必須</span>
+                </strong>
+              </label>-->
             </div>
-            <div class="col-sm-9">
-                <textarea name="remark" placeholder="連絡事項等がございましたらご記入をおねがいいたます。" class="form-control" cols="50" rows="5" v-model="jobApply.remark"></textarea>
-            </div>
+            <!-- <div class="col-sm-9">
+              <textarea
+                name="remark"
+                placeholder="連絡事項等がございましたらご記入をおねがいいたます。"
+                class="form-control"
+                cols="50"
+                rows="5"
+                v-model="jobApply.remark"
+              ></textarea>
+            </div>-->
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="qualification">
-                <strong>資格 :</strong>
+                <strong>資格</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.qualification }}</span>
+              <span class="pl-4">{{ jobApply.qualification }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="workable_day">
-                <strong>実行可能日 :</strong>
+                <strong>実行可能日</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.workable_day }}</span>
+              <span class="pl-4">{{ jobApply.workable_day }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="skill">
-                <strong>スキル :</strong>
+                <strong>スキル</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.skill }}</span>
+              <span class="pl-4">{{ jobApply.skill }}</span>
             </div>
           </div>
-          <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+          <div class="form-group m-0 row bd-all">
+            <div class="col-sm-3 form-left">
               <label for="remark">
-                <strong>リマーク :</strong>
+                <strong>リマーク</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.remark }}</span>
+              <span class="pl-4">{{ jobApply.remark }}</span>
             </div>
           </div>
 
-          <div class="text-center">
-            <span class="btn main-bg-color white all-btn" @click="editUserInfo()">戻る</span>
-            <span class="btn main-bg-color white all-btn" @click="apply()">登録</span>
+          <div class="text-center mt-4 pb-5">
+            <span class="btn btn-danger white all-btn" @click="editUserInfo()">入力画面へ戻る</span>
+            <span class="btn main-bg-color white all-btn" @click="apply()">登録する</span>
           </div>
           <br />
           <!-- <div v-if="success" class="alert alert-success mt-3">Apply sent!</div> -->
@@ -384,9 +407,23 @@
           <!-- <router-link to="" class="btn main-bg-color white all-btn">Apply</router-link> -->
         </form>
       </div>
-      <div class="col-md-7 offset-md-3 confirm_box" v-if="type == 'completed'">
-        <h5>Your job has been applied successfully.</h5><br>
-        <router-link class="btn btn-info all-btn center" to="/"  > Back To Home </router-link><br>
+      <div class="col-md-12 confirm_box" v-if="type == 'completed'">
+        <ul class="multi-step">
+          <li class="active">必要事項のご入力</li>
+          <li class="active">内容のご確認</li>
+          <li class="active">送信完了</li>
+        </ul>
+        <div class="text-center">
+          <h3>入力内容は送信されました‼</h3>
+          <br />
+          <p>ご登録頂き、ありがとうございます。</p>
+          <p>今後ともどうぞよろしくお願い申し上げます。</p>
+          <br />
+          <br />
+          <router-link class="btn btn-info all-btn" to="/">ホームへ戻る</router-link>
+        </div>
+
+        <br />
         <br />
       </div>
     </div>
@@ -475,10 +512,12 @@ export default {
       }
     },
     apply() {
+      // $("#loader").css("display", "block");
       this.axios
         .post("/api/jobapply", this.jobApply)
         .then(response => {
-          alert("Successful Apply");
+          // alert("Successful Apply");
+          // $("#loader").css("display", "none");
           this.jobApply = response.data;
           this.errors.email = this.jobApply;
           this.type = "completed";
@@ -496,32 +535,32 @@ export default {
       if (this.jobApply.first_name) {
         this.errors.first_name = "";
       } else {
-        this.errors.first_name = "ニュースの題名が必須です。";
+        this.errors.first_name = "お名前が必須です。";
       }
       if (this.jobApply.last_name) {
         this.errors.last_name = "";
       } else {
-        this.errors.last_name = "ニュースの題名が必須です。";
+        this.errors.last_name = "フリガナが必須です。";
       }
       if (this.jobApply.postal) {
         this.errors.postal = "";
       } else {
-        this.errors.postal = "ニュースの題名が必須です。";
+        this.errors.postal = "郵便番号が必須です。";
       }
       if (this.jobApply.phone) {
         this.errors.phone = "";
       } else {
-        this.errors.phone = "ニュースの題名が必須です。";
+        this.errors.phone = "電話番号が必須です。";
       }
       if (this.jobApply.email) {
         this.errors.email = "";
       } else {
-        this.errors.email = "ニュースの題名が必須です。";
+        this.errors.email = "メールアドレスが必須です。";
       }
       if (this.jobApply.terms) {
         this.errors.terms = "";
       } else {
-        this.errors.terms = "ニュースの題名が必須です。";
+        this.errors.terms = "「同意する」にチェックが必須です。";
       }
       if (
         !this.errors.first_name &&
