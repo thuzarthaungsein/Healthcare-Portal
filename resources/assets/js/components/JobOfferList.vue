@@ -75,7 +75,7 @@
                   <th>施設種別</th>
                   <th>仕事内容</th>
                   <th>雇用形態</th>
-                 <th><a href="jobapplylist">Jobapplylist</a></th>
+                 <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -98,6 +98,7 @@
                     <small>
                       <a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a>
                     </small>
+                        <a href="jobapplylist">Jobapplylist</a>
                   </th>
                 </tr>
               </tbody>
