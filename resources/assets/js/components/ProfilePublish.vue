@@ -1437,7 +1437,7 @@ export default {
                 ],
                 am_arr:[],
                 pm_arr:[],
-                active_el:1,
+                active_el:0,
                 width: '',
                 center: { lat: 0, lng: 0 },
                 address: '',
