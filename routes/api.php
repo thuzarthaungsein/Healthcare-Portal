@@ -266,8 +266,7 @@ Route::post('posts', 'HomeController@getPosts');
 Route::post('get_latest_post', 'HomeController@getLatestPost');
 Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 Route::post('search', 'HomeController@search');
-Route::get('get_latest_posts_by_catId', 'HomeController@getLatestPostsByAllCatId');
-
+Route::get('get_latest_posts_by_catId/{searchword}', 'HomeController@getLatestPostsByAllCatId');
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
@@ -289,7 +288,7 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
 Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
 
-Route::post('news/search/{searchword}', 'PostController@searchPost');
+// Route::post('news/search/{searchword}', 'PostController@searchPost');
 
 Route::group(['prefix' => 'hospital'], function () {
     Route::post('postList/{postal}', 'HospitalProfileController@getPostalList');
