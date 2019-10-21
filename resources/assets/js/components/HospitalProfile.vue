@@ -1454,12 +1454,15 @@ export default {
                            this.video_list.push({type:"video",phoまで:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                         }
                      this.gallery_list = this.img_list.concat(this.video_list);
+
                      var chek_feature = [];
-                     var special_features ;
+                    //  var special_features ;
                         $.each($("input[name='special-features']:checked"), function(){
                                 chek_feature.push($(this).val());
                         });
-                        special_features = chek_feature.join(',');
+
+                        // special_features = chek_feature.join(',');
+                        
                      var chek_facility = [];
                      var facilities ;
                         $.each($("input[name='facility']:checked"), function(){
@@ -1483,7 +1486,7 @@ export default {
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
                        this.hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
-                       congestion:congestion,special_features:special_features,facilities:facilities,subjects:subjects});
+                       congestion:congestion,facilities:facilities,subjects:subjects});
                         // if(this.gallery_list.length > 0) {
                         //         this.axios
                         //                 .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
@@ -1529,6 +1532,17 @@ export default {
                                                   this.errors = error.response.data.errors
                                 }
                         }) ;
+
+                        // if(this.schedule_list.length > 0) {
+                        //         this.axios
+                        //                 .post(`/api/special_feature/update/${this.id}`,chek_feature)
+                        //                         .then((response) => {
+                                                        
+                        //                         }).catch(error=>{
+                        //                         if(error.response.status == 422){
+                        //                           this.errors = error.response.data.errors
+                        //         }
+                        // }) ;
 
                         if(this.gallery_list != 'error' && this.customer_info != 'error' && this.hospital_info != 'error' && this.schedule_list != 'error') {
                           alert('Hospital Profile is Successfully Updated!');

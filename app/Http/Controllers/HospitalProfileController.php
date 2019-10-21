@@ -197,7 +197,6 @@ class HospitalProfileController extends Controller
             'facilities' =>  $request[0]['facilities'],
             'subject' =>  $request[0]['subjects'],
             'website' =>  $request[0]['website'],
-            'special_features' =>  $request[0]['special_features'],
             'congestion' =>  $request[0]['congestion']
        );
 
