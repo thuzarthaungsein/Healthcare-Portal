@@ -195,7 +195,6 @@ class HospitalProfileController extends Controller
             'details_info'=>  $request[0]['details_info'],
             'closed_day' =>  $request[0]['close_day'],
             'facilities' =>  $request[0]['facilities'],
-            'subject' =>  $request[0]['subjects'],
             'website' =>  $request[0]['website'],
             'congestion' =>  $request[0]['congestion']
        );

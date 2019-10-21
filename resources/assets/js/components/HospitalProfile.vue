@@ -1296,6 +1296,7 @@ export default {
                         customer_info:[],
                         hospital_info:[],
                         chek_feature : [],
+                        subjects:[],
                         city: '',
                         postal: '',clinical_subj:[],
                         isRotate1: false,
@@ -1473,11 +1474,11 @@ export default {
                         facilities = chek_facility.join(',');
                     
                     var chek_subj = [];
-                    var subjects ;
                         $.each($("input[name='subject']:checked"), function(){
                                chek_subj.push($(this).val());
                         });
-                        subjects = chek_subj.join(',');
+                        this.subjects.push({subject_id:chek_subj});
+                        
                      // Consultation
                      for(var j = 0; j< 2; j++) {
                         for(var i = 0; i< 7; i++) {
@@ -1488,7 +1489,7 @@ export default {
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
                        this.hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
-                       congestion:congestion,facilities:facilities,subjects:subjects});
+                       congestion:congestion,facilities:facilities});
                         // if(this.gallery_list.length > 0) {
                         //         this.axios
                         //                 .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
@@ -1544,6 +1545,19 @@ export default {
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
                                                   this.chek_feature = 'error';
+                                                  this.errors = error.response.data.errors
+                                }
+                        }) ;
+                        }
+
+                        if(this.subjects.length > 0) {
+                                this.axios
+                                        .post(`/api/subject_junctions/update/${this.id}`,this.subjects)
+                                                .then((response) => {
+                                                        
+                                                }).catch(error=>{
+                                                if(error.response.status == 422){
+                                                  this.subjects = 'error';
                                                   this.errors = error.response.data.errors
                                 }
                         }) ;
