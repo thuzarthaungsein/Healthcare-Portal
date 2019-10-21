@@ -1431,7 +1431,7 @@ export default {
                         that.index = current;
                     }
                 },
-                panoimages: ['examplepano.jpg','wooden-lounge.png','pano1.jpg','pano2.jpg','pano3.jpg',],
+                panoimages: ['examplepano.jpg','pano3.jpg','pano3.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','pano3.jpg','pano3.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg',],
                 changelinktitle:'内容を見る',
                 currentOffset: 0,
                 windowSize: 1,
@@ -1742,7 +1742,7 @@ export default {
 
 <style>
 .pannellum{
-    height: 400px;
+    height: 350px;
 }
 
 
