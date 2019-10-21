@@ -150,7 +150,7 @@ export default {
 
 
             }
-            console.log(this.advertisement.photo);return;
+            console.log(this.advertisement.photo);
              adsData.append('title',this.advertisement.title)
              adsData.append('description',this.advertisement.description)
              adsData.append('link',this.advertisement.link)

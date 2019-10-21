@@ -4108,6 +4108,12 @@ a:hover {
     margin-right: 10px;
 }
 
+.cash-lbl {
+    color: #ff6117;
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
 
 /*for sidebar*/
 
@@ -5984,7 +5990,7 @@ dl.favnur dd {
 .favnur {
     border: 1px solid #ccc;
     border-radius: 3px;
-    border-right: none;
+    /* border-right:none; */
     padding: 12px;
     background: white;
 }
