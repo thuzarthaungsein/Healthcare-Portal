@@ -339,7 +339,7 @@
                 </div>
               </div>
             </div>
-          
+
             <div class="map">
               <svg
                 class="map_svg"
@@ -350,7 +350,7 @@
                 mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586"
                 width="100%"
                 height="730"
-                
+
               >
                 <path
                   id="1"
@@ -854,7 +854,7 @@
               </svg>
             </div>
           </div>
-         
+
             <table class="table card-2 col-10 jobselect">
               <tbody>
                 <tr>
@@ -868,13 +868,13 @@
                           <!-- <em>{{city.city_name}}</em> -->
                           <span id="close6"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
                     </button>
-                   
+
                     <div  class="toBeToggled4" id="toBeToggled4">
 
                       <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
                         <label class="form-check-label" :for="township.id">
-                         <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)"> 
-                       
+                         <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)">
+
                         {{township.township_name}}
                         </label>
                       </div>
@@ -882,7 +882,7 @@
                     </div>
                   </td>
                 </tr>
-               
+
                 <tr class="toBeToggled1 ShowHide">
                   <th>
                   フリーワード
@@ -898,8 +898,8 @@
                   <td>
                       <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
                         <label class="form-check-label" :for="occupation.id">
-                        <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" > 
-                        
+                        <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" >
+
                         {{occupation.name}}
                         </label>
                       </div>
@@ -908,35 +908,35 @@
                 <tr class="toBeToggled1 ShowHide">
                   <th>雇用形態</th>
                   <td>
-                 
+
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label" >
-                    <input class="form-check-input" value="Full" v-model="empstatus" type="checkbox"> 
-                    正社員(正職員)  
+                    <input class="form-check-input" value="Full" v-model="empstatus" type="checkbox">
+                    正社員(正職員)
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label" >
-                    <input class="form-check-input" value="ContractEmployee" v-model="empstatus" type="checkbox"> 
+                    <input class="form-check-input" value="ContractEmployee" v-model="empstatus" type="checkbox">
                     契約社員(職員)
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" value="Part" v-model="empstatus" type="checkbox"> 
-                    非常勤。パート 
+                    <input class="form-check-input" value="Part" v-model="empstatus" type="checkbox">
+                    非常勤。パート
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" value="Other" v-model="empstatus" type="checkbox"> 
+                    <input class="form-check-input" value="Other" v-model="empstatus" type="checkbox">
                     その他
                     </label>
                   </div>
 
                   </td>
                 </tr>
-                 
+
                 <tr class="text-center">
                   <td colspan='2'>
                     <button @click="ShowHide4" class="btn btn-link">
@@ -945,17 +945,17 @@
                     </button>
                   </td>
                 </tr>
-               
+
                 <tr class="text-center">
                   <td colspan="2">
                      <!-- <input type="button" v-scroll-to="{ el: '#job_details', offset: -240}"  name="save_value" value="Search" @click="search"/>   -->
-                     <button class="btn-success" v-scroll-to="{ el: '#job_details', offset: -240}" id="btn" name="save_value" value="search" @click="search">Search </button>
+                     <button class="btn-success"  id="btn" name="save_value" value="search" @click="search">Search </button>
                   </td>
                 </tr>
-                
+
               </tbody>
             </table>
-            
+
             <div id="job_details" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
               <div class="card-header bg-success text-center pad"  >{{job.name}}</div>
                 <div class="card-body bg-danger">
@@ -978,15 +978,15 @@
                       </tr>
 
                     </table>
-        
+
                 </div>
-           
+
             </div>
         </div>
       </div>
 
     </div>
-    
+
   </div>
 </template>
 
@@ -1005,9 +1005,9 @@ export default {
         cities:[],
         getCity:[],
         getTownships:[],
-        special_features:[], 
+        special_features:[],
         fac_types:[],
-        fac_id:[],      
+        fac_id:[],
         medical_acceptance:[],
         subjects:[],
         occupationID:[],
@@ -1020,7 +1020,7 @@ export default {
     },
   methods:{
     search(){
-       
+
         if(this.townshipID == null || this.townshipID == '')
         {
           this.townshipID[0] = 0;
@@ -1033,7 +1033,7 @@ export default {
         {
           this.empstatus[0] = 0;
         }
-    
+
         this.axios.get('api/getjobsearch',{
           params:{
               id: this.id,
@@ -1042,15 +1042,15 @@ export default {
               empstatus:this.empstatus
           },
         }).then((response)=>{
-     
+
           this.job_data = response.data;
-        
+
         })
-       
+
       },
 
-  
- 
+
+
     toggleContent4() {
         this.toggleCheck = !this.toggleCheck;
             if (this.toggleCheck == true) {
@@ -1078,7 +1078,7 @@ export default {
             }
         },
       getStateClick(e){
-      
+
          console.log(e.target.tagName)
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
@@ -1106,7 +1106,7 @@ export default {
           this.id = id
          })
         }
-      }, 
+      },
       getCheck(e){
 
          console.log(this.townshipID);
@@ -1233,7 +1233,7 @@ span:hover::before {
   display: inline-block;
 }
 
-[data-toggle="collapse"] .fa:before {  
+[data-toggle="collapse"] .fa:before {
   content: "\f139";
 }
 
