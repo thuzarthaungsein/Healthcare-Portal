@@ -1754,7 +1754,7 @@ export default {
 
 <style>
 .pannellum{
-    height: 350px;
+    height: 500px;
 }
 
 
