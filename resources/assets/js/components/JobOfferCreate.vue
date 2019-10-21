@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 43af515d1c3f1f954478b3099c9db3bf47856651
 <template>
   <!-- Page Content  -->
   <div class="row">
@@ -10,7 +6,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h4 class="page-header header">求人採用作成</h4>
+              <h4 class="page-header header">{{ header }}</h4>
               <br />
             </div>
             <form @submit.prevent="add" class="mt-2 pb-5 col-md-12">
@@ -402,7 +398,7 @@
               <div class="form-group mt-3 pb-5">
                 <router-link class="btn btn-danger all-btn" to="/jobofferlist">戻る</router-link>
 
-                <button class="btn main-bg-color white all-btn">作成する</button>
+                <button class="btn main-bg-color white all-btn">{{subtitle}}</button>
               </div>
             </form>
           </div>
@@ -420,6 +416,8 @@
 export default {
   data() {
     return {
+      header: "求人採用作成",
+      subtitle: "作成する",
       errors: [],
 
       OccupationList: {
@@ -538,6 +536,10 @@ export default {
           this.joboffer.user_id = response.data.user_id;
 
           this.joboffer.recordstatus = response.data.recordstatus;
+          this.header = " 求人採用更新";
+          this.subtitle = "更新";
+          return this.header;
+          return this.subtitle;
         });
     }
   },
@@ -548,49 +550,61 @@ export default {
         this.updateJob();
       } else {
         console.log(this.joboffer);
+        this.$swal({
+          title: "確認",
+          text: "作成よろしいでしょうか",
+          type: "warning",
+          width: 350,
+          height: 200,
+          showCancelButton: true,
+          reverseButtons: true,
+          confirmButtonColor: "#0cc72c",
+          cancelButtonColor: "#b1abab",
+          cancelButtonTextColor: "#000",
+          cancelButtonText: "キャンセル",
+          confirmButtonText: "作成",
+          confirmButtonClass: "all-btn",
+          cancelButtonClass: "all-btn"
+        }).then(response => {
+          this.axios
+            .post("/api/job/add", this.joboffer)
 
-        this.axios
-          .post("/api/job/add", this.joboffer)
+            .then(response => {
+              (this.title = ""),
+                (this.description = ""),
+                (this.location = ""),
+                (this.salary = ""),
+                (this.working_hours = ""),
+                (this.employment_status = "");
 
-          .then(response => {
-            (this.title = ""),
-              (this.description = ""),
-              (this.location = ""),
-              (this.salary = ""),
-              (this.working_hours = ""),
-              (this.employment_status = "");
+              console.log(response);
 
-            console.log(response);
+              this.$swal({
+                position: "top-end",
+                type: "success",
+                title: "作成されました",
+                text: "ファイルが作成されました。",
+                type: "success",
+                width: 350,
+                height: 200,
+                confirmButtonText: "はい",
+                confirmButtonColor: "#0cc72c"
+              });
 
-            this.$swal({
-              position: "top-end",
+              // alert('Successfully Created')
 
-              type: "success",
+              this.$router.push({
+                name: "jobofferlist"
+              });
 
-              title: "作成されました",
-
-              showConfirmButton: false,
-
-              timer: 1800,
-
-              width: 250,
-
-              height: 200
+              this.$route.params.id = null;
+            })
+            .catch(error => {
+              if (error.response.status == 422) {
+                this.errors = error.response.data.errors;
+              }
             });
-
-            // alert('Successfully Created')
-
-            this.$router.push({
-              name: "jobofferlist"
-            });
-
-            this.$route.params.id = null;
-          })
-          .catch(error => {
-            if (error.response.status == 422) {
-              this.errors = error.response.data.errors;
-            }
-          });
+        });
       }
     },
 
@@ -659,36 +673,47 @@ export default {
     // },
 
     updateJob() {
-      this.axios
+      this.$swal({
+        title: "確認",
+        text: "更新よろしいでしょうか",
+        type: "warning",
+        width: 350,
+        height: 200,
+        showCancelButton: true,
+        reverseButtons: true,
+        confirmButtonColor: "#0cc72c",
+        cancelButtonColor: "#b1abab",
+        cancelButtonTextColor: "#000",
+        cancelButtonText: "キャンセル",
+        confirmButtonText: "更新",
+        confirmButtonClass: "all-btn",
+        cancelButtonClass: "all-btn"
+      }).then(response => {
+        this.axios
 
-        .post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
+          .post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
 
-        .then(response => {
-          this.$swal({
-            position: "top-end",
+          .then(response => {
+            this.$swal({
+              title: "更新された",
+              text: "ファイルが更新されました。",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#0cc72c"
+            });
 
-            type: "success",
-
-            title: "作成されました",
-
-            showConfirmButton: false,
-
-            timer: 1800,
-
-            width: 250,
-
-            height: 200
+            this.$router.push({
+              name: "jobofferlist"
+            });
+          })
+          .catch(error => {
+            if (error.response.status == 422) {
+              this.errors = error.response.data.errors;
+            }
           });
-
-          this.$router.push({
-            name: "jobofferlist"
-          });
-        })
-        .catch(error => {
-          if (error.response.status == 422) {
-            this.errors = error.response.data.errors;
-          }
-        });
+      });
     }
   }
 };
