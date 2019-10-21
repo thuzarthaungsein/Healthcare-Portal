@@ -8,9 +8,13 @@ use DB;
 class SearchMapController extends Controller
 {
     public function getMap(Request $request, $id){
-     
-        $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng from customers As c  Join townships As t on t.id =  c.townships_id Join nursing_profiles As n on n.customer_id = c.id 
-            where t.city_id =".$id." order BY n.id ASC LIMIT 26";
+      
+      
+        // return $id;
+        $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng , n.feature, n.business_entity
+                  from customers As c  Join townships As t on t.id =  c.townships_id 
+                  Join nursing_profiles As n on n.customer_id = c.id 
+                  where t.city_id =".$id." order BY n.id ASC LIMIT 26";
         $nus_latlng = DB::select($query);
 
     
@@ -40,20 +44,30 @@ class SearchMapController extends Controller
     public  function getMapTownship($id)
     {
       
-            $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng from customers As c  Join nursing_profiles As n on n.customer_id = c.id 
+      
+            $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng, n.feature, n.business_entity from customers As c  Join nursing_profiles As n on n.customer_id = c.id 
             where c.townships_id IN (" . $id . ")  order BY n.id ASC LIMIT 26";
            
             $nus_latlng = DB::select($query);
            
        
-            return response()->json($nus_latlng) ;
+            return response()->json($nus_latlng);
          
     } 
 
     public function gethospitalsearch()
     {
-       $query = "SELECT  h.* from customers as c   join hospital_profiles as h on h.customer_id = c.id join townships as t on t.id = c. ";
-       $test = DB::select($query);
+         $query =  "SELECT h.*,c.* from customers as c 
+                    join hospital_profiles as h on h.customer_id = c.id 
+                    join townships as t on t.id = c.townships_id 
+                    join cities as ci on ci.id = t.city_id
+                    join special_features_junctions as spej on spej.customer_id = c.id 
+                    join special_features as spe on spe.id = spej.special_feature_id
+                    join subject_junctions as subj on subj.customer_id = c.id
+                    join subjects as sub on sub.id = subj.subject_id
+                    where spe.id in (14,15,16,17,26) and sub.id in (1,2,3,26) and ci.id = 1 and t.id in (1,2)
+                    group by c.id";
+        $test = DB::select($query);
     }
 
     public function getJobSearch()

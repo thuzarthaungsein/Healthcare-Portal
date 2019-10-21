@@ -72,7 +72,7 @@
 
                     <input type="hidden" class="already-photo" v-model="img.photo" />
 
-                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" />
+                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" id="already-photo"/>
 
                   </div>
 
@@ -1345,6 +1345,7 @@ export default {
                 .then(response=>{
                         this.fac_list = response.data;
                 });
+                quill.editor.disable()
         },
         methods: {
             scheduletogglediv() {
@@ -1360,7 +1361,8 @@ export default {
                     this.isRotate3 = !this.isRotate3;
             },
             preview_image(img_class) {
-                   $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
+                  document.getElementById('already-photo').src= URL.createObjectURL(event.target.files[0]);
+                  $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
             },
             facilityCheck(check_id) {
                     $('.facility-'+check_id).attr('checked','true');
@@ -1488,6 +1490,7 @@ export default {
                         //                         .then((response) => {
                         //                         }).catch(error=>{
                         //                         if(error.response.status == 422){
+                        //                           this.gallery_list = 'error';
                         //                         this.errors = error.response.data.errors
                         //                 }
                         //         }) ;
@@ -1496,10 +1499,11 @@ export default {
                                 this.axios
                                         .post(`/api/customer/profile/${this.id}`,this.customer_info)
                                                 .then((response) => {
-                                                alert('Successfully Updated!')
+    
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                this.errors = error.response.data.errors
+                                                  this.customer_info = 'error';
+                                                  this.errors = error.response.data.errors
                                         }
                                 }) ;
                         }
@@ -1509,7 +1513,8 @@ export default {
                                                 .then((response) => {
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                this.errors = error.response.data.errors
+                                                  this.hospital_info = 'error';
+                                                  this.errors = error.response.data.errors
                                         }
                                 }) ;
                         }
@@ -1517,12 +1522,17 @@ export default {
                                 this.axios
                                         .post(`/api/schedule/update/${this.id}`,this.schedule_list)
                                                 .then((response) => {
-                                                        alert('Successfully Updated!');
+                                                        
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                this.errors = error.response.data.errors
+                                                  this.schedule_list = 'error';
+                                                  this.errors = error.response.data.errors
                                 }
                         }) ;
+
+                        if(this.gallery_list != 'error' && this.customer_info != 'error' && this.hospital_info != 'error' && this.schedule_list != 'error') {
+                          alert('Hospital Profile is Successfully Updated!');
+                        }
                 }
             },
             getPostal: function(event) {

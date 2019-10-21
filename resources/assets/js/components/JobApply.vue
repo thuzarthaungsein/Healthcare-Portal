@@ -8,6 +8,7 @@
       </div>
       <div class="col-md-12 register_box" v-if="type == 'register'">
         <form class="col-md-12 form-wrap">
+          <input type="hidden" v-model="jobApply.job_id" >
           <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
               <label for="first_name">
@@ -384,7 +385,8 @@
         </form>
       </div>
       <div class="col-md-7 offset-md-3 confirm_box" v-if="type == 'completed'">
-        <h5>Your job has been applied successfully.</h5>
+        <h5>Your job has been applied successfully.</h5><br>
+        <router-link class="btn btn-info all-btn center" to="/"  > Back To Home </router-link><br>
         <br />
       </div>
     </div>
@@ -404,6 +406,7 @@ export default {
       },
 
       jobApply: {
+        job_id: "",
         first_name: "",
         last_name: "",
         birthday: "",
@@ -429,6 +432,7 @@ export default {
     };
   },
   created() {
+    this.jobApply.job_id = this.$route.params.job_id;
     this.axios.get("/api/getskill").then(response => {
       this.Job.fields = response.data;
     });

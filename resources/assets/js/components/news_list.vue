@@ -2,7 +2,7 @@
   <!-- Page Content  -->
   <div class="row">
     <div class="col-12">
-      <div class="row m-b-10" v-if="this.news_list.length !== 0">
+      <div class="row m-b-10" v-if="norecord !== 0">
         <div class="col-md-12">
           <router-link
             to="/create_news"
@@ -16,7 +16,7 @@
       </div>
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="col-12 scrolldiv">
-          <div v-if="!this.news_list.length" class="card card-default card-wrap">
+          <div v-if="norecord ==0" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -111,6 +111,7 @@ export default {
   data() {
     return {
       news_list: [],
+      norecord:0,
       categories: {
         id: "",
         name: ""
@@ -121,6 +122,7 @@ export default {
   created() {
     this.axios.get("/api/news_list").then(response => {
       this.news_list = response.data;
+      this.norecord = this.news_list.length;
     });
   },
   mounted() {
@@ -153,8 +155,10 @@ export default {
         this.axios
           .delete(`/api/new/delete/${id}`)
           .then(response => {
-            let i = this.news_list.map(item => item.id).indexOf(id);
-            this.news_list.splice(i, 1);
+              this.news_list = response.data;
+              this.norecord = this.news_list.length;
+            // let i = this.news_list.map(item => item.id).indexOf(id);
+            // this.news_list.splice(i, 1);
             this.$swal({
               title: "削除された",
               text: "ファイルが削除されました。",
@@ -170,16 +174,6 @@ export default {
           });
       });
     },
-
-    // deletePost(id) {
-    //     this.axios
-    //         .delete(`/api/new/delete/${id}`)
-    //         .then(response => {
-    //             // alert('Delete Successfully!');
-    //             let i = this.news_list.map(item => item.id).indexOf(id); // find index of your object
-    //             this.news_list.splice(i, 1)
-    //         });
-    // },
     searchbyCategory() {
       var search_word = $("#search-item").val();
 

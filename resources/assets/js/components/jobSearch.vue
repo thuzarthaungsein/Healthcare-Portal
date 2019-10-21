@@ -46,7 +46,7 @@
                             id="7"
                             data-info="Fukushima"
                             class="path Fukushima card-text"
-                          >福島県</a>
+                            >福島県</a>
                         </span>
                       </p>
                     </div>

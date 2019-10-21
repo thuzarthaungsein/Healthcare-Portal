@@ -306,7 +306,7 @@
 
                     <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
                       <label class="form-check-label" :for="township.id">
-                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID[township.id]" @click="getCheck($event)">
+                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @click="getCheck($event)">
                         {{township.township_name}}
                       </label>
                     </div>
@@ -327,21 +327,21 @@
               <tr class="toBeToggled1 ShowHide1">
                 <th>特長</th>
                 <td>
-                  <div class="form-check form-check-inline col-sm-2" v-for="features in special_features" :key="features.id">
-                    <label class="form-check-label" :for="features.id">
-                      <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)">
-                      {{features.name}}
+                  <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
+                    <label class="form-check-label" :for="feature.id">
+                      <input class="form-check-input" type="checkbox" :id="feature.id" v-model="specialfeatureID" :value="feature.id" @click="features($event)">
+                      {{feature.name}}
                     </label>
                   </div>
 
                 </td>
               </tr>
               <tr class="toBeToggled1 ShowHide1">
-                <th>施設の種類</th>
+                <th>Subjects</th>
                 <td>
                   <div class="form-check form-check-inline col-sm-2" v-for="subject in subjects" :key="subject.id">
                     <label class="form-check-label" :for="subject.id">
-                      <input class="form-check-input" type="checkbox" :id="subject.id" :value="subject.id">
+                      <input class="form-check-input" type="checkbox" :id="subject.id" v-model="subjectID" :value="subject.id">
                       {{subject.name}}
                     </label>
                   </div>
@@ -359,7 +359,7 @@
               </tr>
               <tr class="text-center">
                 <td colspan="2">
-                  <input type="button" id="save_value" name="save_value" value="Save" />
+                  <input type="button" id="search" name="search" value="Search"  @click="Search"/>
                 </td>
               </tr>
 
@@ -391,16 +391,50 @@
         cities: [],
         getCity: [],
         getTownships: [],
+        specialfeatureID:[],
         special_features: [],
         fac_types: [],
         fac_id: [],
         medical_acceptance: [],
+        subjectID:[],
         subjects: [],
         toggleCheck: true,
         toggleCheck_1: false,
       }
     },
     methods: {
+        search()
+        {  
+        
+          if(this.townshipID == null || this.townshipID == '')
+          {
+            this.townshipID[0] = 0;
+          }
+          if(this.specialfeatureID == null || this.specialfeatureID == '')
+          {
+            this.specialfeatureID[0] = 0;
+          }
+          if(this.subjectID == null || this.subjectID == '')
+          {
+            this.subjectID[0] = 0;
+          }
+      
+          this.axios.get('api/getjobsearch',{
+            params:{
+                id: this.id,
+                townshipID:this.townshipID,
+                occupationID:this.occupationID,
+                empstatus:this.empstatus
+            },
+          }).then((response)=>{
+      
+            this.job_data = response.data;
+        
+          })
+          
+          // window.scrollTo({ top : 1000, behavior: 'smooth' });
+        },
+     
       toggleContent() {
         this.toggleCheck = !this.toggleCheck;
         if (this.toggleCheck == true) {
@@ -428,6 +462,7 @@
         }
       },
       getStateClick(e) {
+      
         if (e.target.tagName === 'A' || e.target.tagName === 'path') {
 
           const id = e.target.id;
@@ -462,7 +497,7 @@
       },
       features(e) {
         if (e.target.checked) {
-          alert('1');
+         
         }
       },
       getStateHover(e) {
