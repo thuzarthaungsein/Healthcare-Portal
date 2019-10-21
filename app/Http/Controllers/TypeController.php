@@ -46,6 +46,9 @@ class TypeController extends Controller
             'name' => 'required|unique:types',
 
 
+        ],[
+            'name.required'=>'名前が必須です。',
+            'name.unique'=>'名前はすでに使用されています。',
         ]);
 
 

@@ -26,9 +26,9 @@ Route::group(['middleware' => ['auth']], function() {
 // public route api start
 
     Route::post('getmap/{id}','SearchMapController@getMap');
-    Route::get('getjobsearch','SearchMapController@getJobSearch');   
+    Route::get('getjobsearch','SearchMapController@getJobSearch');
     Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
-    
+
     Route::get('getCity','SearchMapController@getCity');
 
 // public route api end
@@ -138,7 +138,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}', 'PostController@delete');
         Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
-        
+
     });
     // End News
 
@@ -278,6 +278,7 @@ Route::get('relatednews/{id}', 'PostController@show_related');
 Route::post('news_list/search', 'PostController@search');
 
 Route::post('jobapply','JobApplyController@store');
+Route::get('jobapplylist','JobApplyController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
 
