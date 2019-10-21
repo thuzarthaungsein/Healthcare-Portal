@@ -239,7 +239,7 @@
                                     <div class="card-carousel--card--footer">
                                        
 
-                                        <div class="list-group-item list-group-item-action" style="width:300px;margin-bottom:0px;"><img class="img-fluid" v-bind:src="'/images/' + nur_profile.logo" alt style />
+                                        <div class="list-group-item list-group-item-action" style="height:340px;width:300px;margin-bottom:0px;"><img class="img-fluid" v-bind:src="'/images/' + nur_profile.logo" alt style />
                                             
                                             <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}">{{nur_profile.name}}</router-link>
                                             <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
@@ -248,12 +248,12 @@
                                         </div>
                                         <div class="bd">
                                             <div class="list-group-item list-group-item-action" v-if="address_show" style="border:none;">{{nur_profile.township_name}} {{nur_profile.city_name}}</div>
-                                            <div class="list-group-item list-group-item-action bd1" v-if="tran_show" style=""><p v-html="nur_profile.access"></p></div>
+                                            <div class="list-group-item list-group-item-action bd1" v-if="tran_show" style="height:200px;"><p v-html="nur_profile.access"></p></div>
                                             <div class="list-group-item list-group-item-action bd1" v-if="tran_show || address_show" style="height:50px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
                                         </div>
                                         <div class="bd" v-for="min_max in nur_profile.minmax" :key="min_max.id">
-                                            <div class="list-group-item list-group-item-action" v-if="month_show" style="border:none;color:#ff6117;font-size:large;"><strong>{{nur_profile.per_month}}</strong></div>
-                                            <div class="list-group-item list-group-item-action bd1" v-if="entry_show" style="color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in}}</strong></div>
+                                            <div class="list-group-item list-group-item-action" v-if="month_show" style="height:100px;border:none;color:#ff6117;font-size:large;"><strong>{{nur_profile.per_month}}</strong></div>
+                                            <div class="list-group-item list-group-item-action bd1" v-if="entry_show" style="height:100px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in}}</strong></div>
                                             <div class="list-group-item list-group-item-action bd1" v-if="entry_show || month_show" style="height:50px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
                                         </div>
                                         <div v-if="condition_show" class="list-group-item list-group-item-action" style="">{{nur_profile.occupancy_condition }}</div>
