@@ -579,14 +579,10 @@
                                 
                                     <div class="row col-md-12 pad-free fixed-ads-fluid">
                                 @endif
-                                    <!--jssor carousel-->
-
-                                    
-
+                                    <!--Ads slider-->
                                     <ads_slider></ads_slider>
 
-                                        <!--end jssor slider-->
-                                        
+                                    <!--end Ads slider-->                                  
 
                                 </div>
                                 
@@ -596,8 +592,8 @@
                                 @if(Auth::check())
                                 <div class="row justify-content-md-center p-t-15">
                                 @else
-                                <!-- <div class="row justify-content-md-center p-t-130"> -->
-                                <div class="row justify-content-md-center">
+                                <div class="row justify-content-md-center p-t-130">
+                                
                                 @endif
 
                                     <div class="col-12 col-lg-12 col-md-10 tab">

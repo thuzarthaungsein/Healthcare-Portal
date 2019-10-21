@@ -1600,30 +1600,34 @@ div.b {
     position: relative;
     top: 17px;
     width: 702px;
-    height: 100px;
     margin: 0 auto 30px;
 }
 
 .ads-slider .slick-slide {
-    border: 1px solid rgba(0, 0, 0, 0.125);
     margin-left: 3px;
 }
 
+.ads-slider .slide-img {
+    float: left;
+    width: 100px;
+    margin-right: 8px;
+}
+
 .ads-slider .adslist-card {
-    padding: 10px;
-    height: 100px;
-    border: 0px;
+    padding: 6px 10px;
+    height: 80px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 1px;
 }
 
 .ads-slider h3 {
-    position: unset;
-    max-height: 80px;
+    width: 100px;
+    height: 60px;
 }
 
 .ads-slider .ads-img {
     width: auto;
-    max-width: 100px;
-    margin-right: 10px;
+    max-width: 90px;
 }
 
 .source-img {
@@ -6385,23 +6389,8 @@ ul.test>li:before {
     display: none;
 }
 
-@charset 'UTF-8';
-
-/* Slider */
-
 .slick-loading .slick-list {
-    background: #fff url('./ajax-loader.gif') center center no-repeat;
-}
-
-
-/* Icons */
-
-@font-face {
-    font-family: 'slick';
-    font-weight: normal;
-    font-style: normal;
-    src: url('./fonts/slick.eot');
-    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+    background: #fff url('../images/spin.svg') center center no-repeat;
 }
 
 
