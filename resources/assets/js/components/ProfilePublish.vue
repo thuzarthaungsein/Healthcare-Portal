@@ -1542,11 +1542,11 @@
 
 
 
-                        <div class="col-12 comment-wrapper" v-for="comment in comments" :key="comment.id">
+                        <div class="col-12 comment-wrapper">
 
 
 
-                            <div class="card">
+                            <div class="card" v-for="comment in comments" :key="comment.id">
 
 
 
@@ -1611,7 +1611,12 @@
 
 
                             </div>
-
+                            <div class="comment-ico">
+                                <a href="/comment">
+                                <i class="far fa-comment"></i>
+                                <span>口コミを追加する</span>
+                                </a>
+                            </div>
 
 
                         </div>
@@ -2370,11 +2375,11 @@
 
 
 
-                        <div class="col-12 comment-wrapper" v-for="comment in comments" :key="comment.id">
+                        <div class="col-12 comment-wrapper">
 
 
 
-                            <div class="card">                                
+                            <div class="card" v-for="comment in comments" :key="comment.id">                                
 
 
 
@@ -2422,6 +2427,12 @@
 
 
 
+                            </div>
+                            <div class="comment-ico">
+                                <a href="/comment">
+                                <i class="far fa-comment"></i>
+                                <span>口コミを追加する</span>
+                                </a>
                             </div>
 
 
@@ -3901,6 +3912,36 @@ $(document).scroll(function() {
 }
 
 
+.comment-ico a {
+  font-size: 13px;
+
+  color: #111;
+  display: inline-block;
+
+  float: right;
+
+  border: 1px solid #111;
+
+  padding: 5px 20px;
+
+  border-radius: 20px;
+
+  margin-top: 20px;
+}
+
+.comment-ico i {
+  display: block;
+
+  float: left;
+
+  margin: 3px 5px 0 0;
+
+  font-size: 15px;
+}
+
+.comment-ico a:hover {
+  text-decoration: none;
+}
 
 
 
