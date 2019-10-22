@@ -21,11 +21,12 @@ class CreateJobAppliesTable extends Migration
             $table->string('birthday');
             $table->string('gender');
             $table->integer('postal');
+            $table->string('prefecture');
             $table->string('street_address');
             $table->string('home_address');
             $table->string('phone');
             $table->string('email');
-            $table->string('skill');
+            // $table->string('skill');
             $table->text('remark');
             $table->timestamps();
         });

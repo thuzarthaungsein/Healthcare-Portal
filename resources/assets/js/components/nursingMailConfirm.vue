@@ -26,7 +26,7 @@
               <br>こちらの内容でよろしければ、「上記内容を送信する」ボタンを押してください。</p>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>お名前</label>
+                  お名前
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -41,7 +41,7 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>ふりがな</label>
+                  ふりがな
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -56,7 +56,7 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>生年月日</label>
+                  生年月日
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -71,7 +71,7 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>性別</label>
+                  性別
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -86,14 +86,14 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>ご住所</label>
+                  ご住所
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
-                  <div class="form-group row pl-3">
-                    <div class="col-md-12">
-                      <label>郵便番号</label>
+                  <div class="form-group row pl-4 mb-0">
+                    <div class="col-md-3 font-weight-bold">
+                      郵便番号
                     </div>
-                    <div class="col-md-12 p-0">
+                    <div class="col-md-9 p-0">
                       <input
                         type="text"
                         name="outputpostal"
@@ -104,11 +104,11 @@
                       />
                     </div>
                   </div>
-                  <div class="form-group row pl-3">
-                    <div class="col-md-12">
-                      <label>都道府県</label>
+                  <div class="form-group row pl-4 mb-0">
+                     <div class="col-md-3 font-weight-bold">
+                      都道府県
                     </div>
-                    <div class="col-md-12 p-0">
+                    <div class="col-md-9 p-0">
                       <input
                         type="text"
                         name="outputdivision"
@@ -119,11 +119,11 @@
                       />
                     </div>
                   </div>
-                  <div class="form-group row pl-3">
-                    <div class="col-md-12">
-                      <label>市区町村、番地（建物名）</label>
+                  <div class="form-group row pl-4 mb-0">
+                     <div class="col-md-3 font-weight-bold">
+                      市区町村、番地（建物名）
                     </div>
-                    <div class="col-md-12 p-0">
+                    <div class="col-md-9 p-0">
                       <input
                         type="text"
                         name="outputcity"
@@ -138,7 +138,7 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>電話番号</label>
+                  電話番号
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -153,7 +153,7 @@
               </div>
               <div class="form-group m-0 row bd-all">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>メールアドレス</label>
+                  メールアドレス
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -168,7 +168,7 @@
               </div>
               <!-- <div class="form-group m-0 row bd-all">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>プレゼントのご希望</label>
+                  プレゼントのご希望
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -186,7 +186,7 @@
               <h3 class="form-tit">入居対象者様について</h3>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>入居対象者様とのご関係</label>
+                  入居対象者様とのご関係
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -201,7 +201,7 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>お名前</label>
+                  お名前
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -216,7 +216,7 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>性別</label>
+                  性別
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -231,7 +231,7 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>年齢</label>
+                  年齢
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -246,7 +246,7 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>介護度</label>
+                  介護度
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -261,7 +261,7 @@
               </div>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>認知症</label>
+                  認知症
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input
@@ -276,7 +276,7 @@
               </div>
               <div class="form-group m-0 row bd-all">
                 <div class="col-md-3 col-sm-12 form-left">
-                  <label>ご要望や、お困りごと、その他お問い合わせ</label>
+                  ご要望や、お困りごと、その他お問い合わせ
                 </div>
                 <div class="col-md-9 col-sm-12 form-right">
                   <input

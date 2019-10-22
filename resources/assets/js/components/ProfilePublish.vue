@@ -3,6 +3,42 @@
   <div id="app">
 
     <div v-if="type == 'nursing'" id="nursingView">
+    <!--panorama-->    
+                <div class="col-12 detail_profile_left pad-free">
+                        <div class="thumbnail-img" style="padding:0px;border:none;">
+                            <div class="card-carousel">
+                            <div class="card-img">
+                                <!-- <div id="panorama"></div>           -->                              
+                           
+                                <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" 
+                                            class="pannellum"                                          
+                                            :auto-load="true"
+                                            :show-zoom="true"
+                                            :show-fullscreen="true"
+                                            :auto-rotate="isAutoRotationOn"
+                                            :orientation="isOrientationOn"
+                                            :compass="true"
+                                            :hfov= "120"></Pannellum>    
+                           
+                            </div>     
+                                              
+                            <div  class="thumbnails">
+                                    <div
+
+                                        v-for="(image,index) in  panoimages"
+
+                                        :key="image.id"
+
+                                        :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"                                      
+
+                                        @click="activatePanoImage(index)" >
+                                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                   
+            <!--end panorama-->
 
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
             <!-- <div class="row col-12 m-t-10">
@@ -55,10 +91,10 @@
 
 
 
-            <div class="row m-lr-0 ele" id="element1">
+            <div class="row m-lr-0 ele p-t-65" id="element1">
 
                  <h5 class="profile_header">情報</h5>
-                 <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
+                 <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">                     
 
                     <!--for slideimage-->
 
@@ -777,9 +813,9 @@
 
 
 
-                        <div class="col-12 comment-wrapper" v-for="comment in comments" :key="comment.id">
+                        <div class="col-12 comment-wrapper">
 
-                            <div class="card">
+                            <div class="card" v-for="comment in comments" :key="comment.id">
 
                                 <!-- <div class="card-profile_header comment-title text-truncate">
 
@@ -812,6 +848,12 @@
                                 </div>
 
                             </div>
+                            <div class="comment-ico">
+                              <a href="/comment">
+                              <i class="far fa-comment"></i>
+                              <span>口コミを追加する</span>
+                              </a>
+                           </div>
 
                         </div>
 
@@ -830,7 +872,44 @@
 
 
     <div v-if="type == 'hospital'" id="hospitalView">
+       <!--panorama-->    
+                <div class="col-12 detail_profile_left pad-free">
+                        <div class="thumbnail-img" style="padding:0px;border:none;">
+                            <div class="card-carousel">
+                            <div class="card-img">
+                                <!-- <div id="panorama"></div>           -->                              
+                           
+                                <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" 
+                                            class="pannellum"                                          
+                                            :auto-load="true"
+                                            :show-zoom="true"
+                                            :show-fullscreen="true"
+                                            :auto-rotate="isAutoRotationOn"
+                                            :orientation="isOrientationOn"
+                                            :compass="true"
+                                            :hfov= "120"
+                                            
+                                            ></Pannellum>    
+                           
+                            </div>     
+                                              
+                            <div  class="thumbnails">
+                                    <div
 
+                                        v-for="(image,index) in  panoimages"
+
+                                        :key="image.id"
+
+                                        :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"                                      
+
+                                        @click="activatePanoImage(index)" >
+                                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                   
+            <!--end panorama-->
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
                 <!-- <div class="row col-12 m-t-10">
                      <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
@@ -854,7 +933,7 @@
 
             </div>
 
-            <div class="row ele m-lr-0" id="element1">
+            <div class="row ele m-lr-0 p-t-65" id="element1">
 
             <!-- ee-->
 
@@ -1191,9 +1270,9 @@
 
                     <div class="row col-12">
 
-                        <div class="col-12 comment-wrapper" v-for="comment in comments" :key="comment.id">
+                        <div class="col-12 comment-wrapper">
 
-                            <div class="card">                                
+                            <div class="card" v-for="comment in comments" :key="comment.id">                                
 
                                 <div class="card-body">
 
@@ -1218,6 +1297,12 @@
                                 </div>
 
                             </div>
+                            <div class="comment-ico">
+                              <a href="/comment">
+                              <i class="far fa-comment"></i>
+                              <span>口コミを追加する</span>
+                              </a>
+                           </div>
 
                         </div>
 
@@ -1331,146 +1416,90 @@ $(document).scroll(function() {
 });
   
 
- import joboffer from './JobSearchListComponent.vue'
+import joboffer from './JobSearchListComponent.vue'
+import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
 
- export default {
+export default {
 
-
-
-      components:{
-
-            joboffer
-
-        },
-
-
-
-  data() {
+    components:{
+        joboffer,        
+        Pannellum
+    },
+    data() {
 
             var that = this;
-
-            return {
-
+            return {              
+                url: 'upload/nursing_profile/Imagepanorama/', 
+                isAutoRotationOn: true,
+                isOrientationOn: true,
                 markers: [
-
                     {  position: { lat: 0, lng: 0 }  },
-
                 ],
-
                 am_arr:[],
-
                 pm_arr:[],
-
-                active_el:1,
-
+                active_el:0,
                 width: '',
-
                 center: { lat: 0, lng: 0 },
-
                 address: '',
-
                 google:[],
-
                 customer:[],
-
                 hosfacilities:[],
-
                 specialfeature:[],
-
                 nusfacilities:[],
-
                 nus_method:[],
-
                 cooperate_medical:[],
-
                 medical_acceptance:[],
-
                 medical:[],
-
                 fac_list:[],
-
                 staff:[],
-
                 schedules:[],
-
                 subjects:[],
-
                 hospitals:[],
-
                 nursing_profiles:[],
-
                 method_payment:[],
-
                 comments:[],
-
                 activeImage: 0,
-
+                activePanoImage: 0,
                 activeImageTitle:'',
-
                 activeImageDescription:'',
-
                 index: 0,
-
                 // cusid: 0,
-
                 // type: 0,
-
                 pageNum: 0,
-
                 opts: {
 
                     start: 0,
-
                     dir: 'v',
-
                     loop: false,
-
                     duration:500,
-
                     beforeChange: function(ele, current, next) {
-
                         that.index = next;
-
                     },
 
                     afterChange: function(ele, current) {
-
                         that.index = current;
-
                     }
-
                 },
-
-
-
-                images: [],
+                panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
                 changelinktitle:'内容を見る',
-                activeImage: 0,
                 currentOffset: 0,
                 windowSize: 1,
                 paginationFactor: 220,
+                
             };
-
         },
 
-
-
         props:{
-
                 cusid:Number,
-
                 type:String,
-
         },
 
         created(){
+          this.activePanoImage = 0;
             
             if(this.type != undefined && this.cusid!= undefined){
-
                 localStorage.setItem('cusType',this.type);
-
                 localStorage.setItem('cusId',this.cusid);
-
             }
 
             this.type = localStorage.getItem('cusType');
@@ -1480,9 +1509,7 @@ $(document).scroll(function() {
 
             {
 
-
                 this.axios.get('/api/profile/nursing/'+this.cusid) .then(response => {
-
                     this.nursing_profiles = response.data.feature;
 
                     this.nus_method= response.data.method;
@@ -1513,8 +1540,6 @@ $(document).scroll(function() {
 
                     this.images = response.data.images;
 
-
-
                     if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
 
                     {
@@ -1528,38 +1553,25 @@ $(document).scroll(function() {
                          this.markers[0]['position']['lng']  = 139.76901739;
 
                     }
-
-
-
                 });
 
 
 
                 this.axios.get(`/api/profile/specialfeature/${this.type}/${this.cusid}`) .then(response => {
-
-
-
                     this.specialfeature = response.data;
 
                 });
 
-
-
                   this.axios.get('/api/profile/comment/'+this.cusid) .then(response => {
-
                       this.comments = response.data;
 
                 });
-
-
 
                   this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
                       
                       this.customer = response.data;
 
                 });
-
-
 
             }
 
@@ -1592,7 +1604,6 @@ $(document).scroll(function() {
                  this.axios.get('/api/profile/schedule/'+this.cusid) .then(response => {
 
                         this.am_arr = response.data.am;
-
                         this.pm_arr = response.data.pm;
 
                 });
@@ -1615,7 +1626,7 @@ $(document).scroll(function() {
 
                     this.center['lng'] = response.data.hoslatlong[0]['longitude'];
 
-                    this.images = response.data.images;
+                     this.images = response.data.images;
 
                     if(response.data.hoslatlong[0]['latitude'] == 0 && response.data.hoslatlong[0]['longitude'] == 0)
 
@@ -1632,11 +1643,6 @@ $(document).scroll(function() {
                     }
 
                 })
-
-
-
-
-
             }
 
             var new_width = $("#content-all").width();
@@ -1645,18 +1651,26 @@ $(document).scroll(function() {
 
             this.width = fixed_width + "px";
 
-
-
           },
 
           computed: {
 
-            // currentImage gets called whenever activeImage changes
+              currentPanoImage() {
+              
+                if(this.panoimages.length > 0) {                     
 
-            // and is the reason why we don't have to worry about the
+                    return this.panoimages[this.activePanoImage];
 
-            // big image getting updated
+                }
 
+                else{
+               
+                    return 'no-image-big.jpg';
+
+                }
+
+            },         
+          
             currentImage() {
 
                 if(this.images.length > 0) {
@@ -1676,10 +1690,15 @@ $(document).scroll(function() {
                 }
 
             }
+              
 
         },
-
-          methods: {
+        methods: {
+              activatePanoImage(imageIndex) {
+  
+                this.activePanoImage = imageIndex;                    
+          
+            },
 
               moveTo: function(index) {
 
@@ -1719,8 +1738,6 @@ $(document).scroll(function() {
 
             activateImage(imageIndex) {
 
-
-
                 this.activeImage = imageIndex;
 
                 this.activeImageTitle = this.images[imageIndex].title;
@@ -1730,6 +1747,8 @@ $(document).scroll(function() {
 
 
             },
+
+           
 
              activate:function(el){
 
@@ -1768,18 +1787,13 @@ $(document).scroll(function() {
  }
 
 
-
 </script>
 
-
-
-
-
-
-
-
-
 <style>
+.pannellum{
+    height: 500px;
+}
+
 
 .first-row{
 
@@ -1957,6 +1971,26 @@ $(document).scroll(function() {
 
 }
 
+
+.comment-ico a {
+ font-size: 13px;
+ color: #111;
+ display: inline-block;
+ float: right;
+ border: 1px solid #111;
+ padding: 5px 20px;
+ border-radius: 20px;
+ margin-top: 20px;
+}
+.comment-ico i {
+ display: block;
+ float: left;
+ margin: 3px 5px 0 0;
+ font-size: 15px;
+}
+.comment-ico a:hover {
+ text-decoration: none;
+}
 
 /* div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
 
