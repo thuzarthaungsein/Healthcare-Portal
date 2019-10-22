@@ -6295,13 +6295,10 @@ ul.test>li:before {
 .job-content {
     position: relative;
     margin-bottom: 20px;
-    padding: 20px 20px 70px 20px;
+    padding: 20px 20px 50px 20px;
     height: 100%;
-    border: 1px solid #dee2e6;
-}
-
-.job-left {
-    /* border-right: 1px solid #eee; */
+    border: 1px solid #d2571c;
+    border-radius: 5px;
 }
 
 .job-header {
@@ -6368,11 +6365,13 @@ ul.test>li:before {
     left: 0;
     right: 0;
     text-align: center;
-    bottom: 50px;
+    bottom: 30px;
 }
 
 .job-content .detail-btn .btn {
     width: 25%;
+    background: #d2571c;
+    color: #fff;
 }
 
 
