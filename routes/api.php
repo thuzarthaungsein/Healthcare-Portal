@@ -222,6 +222,9 @@ Route::get('job_details', 'JobDetailController@index');
 Route::get('featurelist', 'SpecialFeatureController@index');
 
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
+Route::post('feature/update/{id}','SpecialFeaturesJunctionsController@update');
+Route::post('subject_junctions/update/{id}','SubjectJunctionsController@update');
+
 Route::get('facility/{type}/{id}','FacilityController@getFacilitybyProfileType');
 Route::get('clinical-subject/{id}','SubjectController@getHospitalClinicalSubject');
 Route::get('station/{id}','StationController@getStationbyCustomerId');
@@ -266,8 +269,7 @@ Route::post('posts', 'HomeController@getPosts');
 Route::post('get_latest_post', 'HomeController@getLatestPost');
 Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 Route::post('search', 'HomeController@search');
-Route::get('get_latest_posts_by_catId', 'HomeController@getLatestPostsByAllCatId');
-
+Route::get('get_latest_posts_by_catId/{searchword}', 'HomeController@getLatestPostsByAllCatId');
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
@@ -289,7 +291,7 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
 Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
 
-Route::post('news/search/{searchword}', 'PostController@searchPost');
+// Route::post('news/search/{searchword}', 'PostController@searchPost');
 
 Route::group(['prefix' => 'hospital'], function () {
     Route::post('postList/{postal}', 'HospitalProfileController@getPostalList');
