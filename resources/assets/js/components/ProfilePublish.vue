@@ -1650,6 +1650,7 @@ $(document).scroll(function() {
           },
 
           computed: {
+          
 
             // currentImage gets called whenever activeImage changes
 

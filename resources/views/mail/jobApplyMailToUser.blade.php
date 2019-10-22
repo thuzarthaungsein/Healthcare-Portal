@@ -32,7 +32,7 @@
 
     </pre>
     <div>
-Dear User,
+    Dear User,
     Job Description
     job_title : {{$getComment->job_title}}  <br>
     job_description: {{$getComment->job_description}} <br>
@@ -42,4 +42,4 @@ Dear User,
     job_salary: {{$getComment->job_salary}} <br>
     job_working_hours: {{$getComment->job_working_hours}} <br>
 
-</div>
+    </div>

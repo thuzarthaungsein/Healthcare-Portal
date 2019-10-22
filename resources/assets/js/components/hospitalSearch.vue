@@ -359,12 +359,36 @@
               </tr>
               <tr class="text-center">
                 <td colspan="2">
-                  <input type="button" id="search" name="search" value="Search"  @click="Search"/>
+                  <input type="button" id="search" name="search" value="Search"  @click="search"/>
                 </td>
               </tr>
 
             </tbody>
           </table>
+           <div id="hos_detail" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
+              <div class="card-header bg-success text-center pad"  >{{hos.access}}</div>
+                <div class="card-body bg-danger">
+                    <table  class="table table-bordered table-sm">
+                      <tr>
+                        <td>Name</td>
+                        <td>{{hos.id}}</td>
+                      </tr>
+                      <tr>
+                        <td> Address </td>
+                        <td> {{hos.congestion}}</td>
+                      </tr>
+                      <tr>
+                        <td>Working hours / days / holiday details</td>
+                        <td> {{hos.access}} </td>
+                      </tr>
+                      
+                    </table>
+                        <!-- <router-link :to="{name: 'job_details', params:{id:hos.id}}" class="btn btn all-btn secondary-bg-color white">詳細を見る</router-link> -->
+
+                </div>
+              
+           
+            </div>
 
         </div>
       </div>
@@ -383,9 +407,11 @@
     components: {
       asidebar
     },
+   
     data() {
       return {
         id: '',
+        hos_data:[],
         townshipID: [],
         township_id: [],
         cities: [],
@@ -402,10 +428,12 @@
         toggleCheck_1: false,
       }
     },
+   
     methods: {
+    
         search()
         {  
-        
+         
           if(this.townshipID == null || this.townshipID == '')
           {
             this.townshipID[0] = 0;
@@ -418,22 +446,36 @@
           {
             this.subjectID[0] = 0;
           }
-      
+    
           this.axios.get('api/gethospitalsearch',{
             params:{
                 id: this.id,
-                townshipID:this.townshipID,
-                occupationID:this.specialfeatureID,
-                empstatus:this.subjectID
+                townshipID:this.townshipID, 
+                specialfeatureID:this.specialfeatureID,
+                subjectID:this.subjectID
             },
           }).then((response)=>{
       
-            this.job_data = response.data;
-        
-          })
+            this.hos_data = this.groupBy(response.data,"id");
+            console.log(this.hos_data);
           
+          })
+        
           // window.scrollTo({ top : 1000, behavior: 'smooth' });
         },
+      
+        groupBy(array, key){
+           
+            const result = {}
+            array.forEach(item => {
+            if (!result[item[key]]){
+            result[item[key]] = []
+            }
+            result[item[key]].push(item)
+            })
+            return result
+        },
+
      
       toggleContent() {
         this.toggleCheck = !this.toggleCheck;
@@ -474,7 +516,8 @@
               this.getTownships = response.data.getTownships
               this.special_features = response.data.special_features
               this.subjects = response.data.subjects
-              this.id = id
+              this.id = id;
+             
             })
         } else if (e.target.tagName === 'SELECT' || e.target.tagName === 'OPTION') {
           const id = this.id;
@@ -486,7 +529,8 @@
               this.getTownships = response.data.getTownships
               this.special_features = response.data.special_features
               this.subjects = response.data.subjects
-              this.id = id
+              this.id = id;
+               
             })
         }
       },
