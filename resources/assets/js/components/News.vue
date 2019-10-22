@@ -198,9 +198,11 @@ export default {
                 else{
                     var searchword = this.search_word;
                 }
+                console.log(searchword);
                 this.axios
                 .get('/api/get_latest_posts_by_catId/'+searchword)
                 .then(response => {
+                    console.log(response);
                     this.post_groups = this.groupBy(response.data, 'name');
                 });
             },
