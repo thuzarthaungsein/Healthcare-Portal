@@ -62,7 +62,7 @@
                  </table>
                  </div>
                  <div class="form-group mt-3 pb-5">
-                <router-link class="btn main-bg-color white all-btn" to="/jobofferlist">Cancel</router-link>
+                <router-link class="btn main-bg-color white all-btn" to="/jobofferlist">applylist</router-link>
               </div>
             </div>
                 </div>
