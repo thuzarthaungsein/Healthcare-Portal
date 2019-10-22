@@ -1294,7 +1294,8 @@ export default {
                         schedule_arr:[],shedule_am:[],shedule_pm:[],
                         schedule_list:[],
                         customer_info:[],
-                        hospital_info:[],
+                        save_customer_info:[],
+                        hospital_info:[],  save_hospital_info:[], 
                         chek_feature : [],
                         subjects:[],
                         city: '',
@@ -1412,13 +1413,14 @@ export default {
                      this.isRotate4 = !this.isRotate4;
             },
             Create_Profile () {
-
+                    // this.customer_info = [];
+                    // this.staff_info = [];
 
                     var name = $('.customer-name').val();
                     var email = $('.customer-email').val();
                     var phone = $('.customer-phone').val();
                     var address = $('#city').val();
-                    this.customer_info.push({name:name,email:email,phone:phone,address:address});
+                    this.save_customer_info.push({name:name,email:email,phone:phone,address:address});
 
                     var access = $('.access').val();
                     var subject = $('.subject').val();
@@ -1483,7 +1485,7 @@ export default {
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                       this.hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       this.save_hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,facilities:facilities});
                         if(this.gallery_list.length > 0) {
                                 this.axios
@@ -1496,32 +1498,32 @@ export default {
                                         }
                                 }) ;
                         }
-                        if(this.customer_info.length > 0) {
+                        if(this.save_customer_info.length > 0) {
                                 this.axios
-                                        .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                                        .post(`/api/customer/profile/${this.id}`,this.save_customer_info)
                                                 .then((response) => {
     
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                  this.customer_info = 'error';
+                                                  this.save_customer_info = 'error';
                                                   this.errors = error.response.data.errors
                                         }
                                 }) ;
                         }
-                        if(this.hospital_info.length > 0) {
+                        if(this.save_hospital_info.length > 0) {
                                 this.axios
-                                        .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
+                                        .post(`/api/hospital/profile/${this.id}`,this.save_hospital_info)
                                                 .then((response) => {
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                  this.hospital_info = 'error';
+                                                  this.save_hospital_info = 'error';
                                                   this.errors = error.response.data.errors
                                         }
                                 }) ;
                         }
                         if(this.schedule_list.length > 0) {
                                 this.axios
-                                        .post(`/api/schedule/updates/${this.id}`,this.schedule_list)
+                                        .post(`/api/schedule/update/${this.id}`,this.schedule_list)
                                                 .then((response) => {
                                                         
                                                 }).catch(error=>{

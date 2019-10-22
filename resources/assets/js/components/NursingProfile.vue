@@ -580,6 +580,7 @@ export default {
                 feature_list:[],
                 medical_acceptance:[],
                 customer_info:[], nursing_info:[], staff_info:[],
+                save_customer_info:[],  save_staff_info:[],
                 acceptance: [],
 
                 img_arr:[],img_list:[],
@@ -843,8 +844,8 @@ export default {
                 },
 
             createProfile() {
-                this.customer_info = [];
-                this.staff_info = [];
+                // this.customer_info = [];
+                // this.staff_info = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
@@ -882,9 +883,9 @@ export default {
                 var min_num_staff = $('.min-num-staff').val();
                 var num_staff = $('.num-staff').val();
                 // var nursing_remarks = $('.nursing-remarks').val();
-                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
+                this.save_customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
-                this.staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
+                this.save_staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
                
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
@@ -1035,32 +1036,32 @@ export default {
                         }) ;
                 }
 
-                if(this.customer_info.length > 0) {
+                if(this.save_customer_info.length > 0) {
                         // check
                         this.axios
-                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
+                                .post(`/api/customer/profile/${this.cusid}`,this.save_customer_info)
                                 .then((response) => {
                                    
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-                                this.customer_info = 'error';
+                                this.save_customer_info = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
                         }) ;
                 }
 
-                if(this.staff_info.length > 0) {
+                if(this.save_staff_info.length > 0) {
                         this.axios
-                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info)
+                                .post(`/api/staff/profile/${this.cusid}`,this.save_staff_info)
                                 .then((response) => {
                                         console.log(response.data);
 
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-                                        this.staff_info = 'error';
+                                        this.save_staff_info = 'error';
                                         this.errors = error.response.data.errors
                                 }
                         }) ;
