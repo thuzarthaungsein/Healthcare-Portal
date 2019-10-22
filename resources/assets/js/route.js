@@ -83,7 +83,7 @@ export const routes = [
     },
     {
         name: "jobapply",
-        path: "/jobapply",
+        path: "/jobapply/:job_id",
         component: JobApply
     },
     {
