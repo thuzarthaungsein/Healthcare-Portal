@@ -81,7 +81,7 @@
               <tbody>
                 <tr v-for="job in jobs" :key="job.id">
                   <th>
-                    <p>{{job.title}}</p>
+                    <p> {{job.title}}</p>
                   </th>
                   <th>
                     <p>{{job.description}}</p>
@@ -98,7 +98,11 @@
                     <small>
                       <a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a>
                     </small>
-                        <a href="jobapplylist">Jobapplylist</a>
+                   <router-link
+                        :to="{name: 'jobapplylist', params:{id:job.id}}"
+                        class="btn edit-borderbtn">jobapplylist</router-link>
+                        <!-- <button class="btn edit-borderbtn" @click="jobConfirm(job.id)">Jobapply</button> -->
+                    <!-- <button class="btn edit-borderbtn" @click="jobConfirm(job.id)" >JobApply</button> -->
                   </th>
                 </tr>
               </tbody>
@@ -195,14 +199,6 @@ export default {
             this.$swal("Failed", "wrong");
           });
       });
-
-      //   if (confirm("Are you sure you want to delete?")) {
-      //     this.axios.delete(`/api/job/delete/${id}`).then(response => {
-      //       alert("Delete Successfully!");
-      //       let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
-      //       this.jobs.splice(i, 1);
-      //     });
-      //   }
     },
     searchJobOffer() {
       var search_word = $("#search-item").val();
