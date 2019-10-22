@@ -845,15 +845,6 @@ export default {
 
             createProfile() {
 
-                this.img_list = [];
-                this.video_list = [];
-                this.cooperate_list = [];
-                this.payment_list = [];
-                this.customer_info = [];
-                this.staff_info = [];
-                this.acceptance = [];
-                this.chek_feature = [];
-
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
                 var customer_phone = $('.customer-phone').val();
