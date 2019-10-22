@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="row">
           <div class="info-box"></div>
-          <div class="col-sm-11 map-wrap">
+          <div class="col-sm-11 col-offset-1 map-wrap" style="margin:0 auto">
             <div class="divisions">
               <div class="row">
                 <div class="col-sm-2 hokkaido-box">
@@ -855,18 +855,21 @@
             </div>
           </div>
 
-            <table class="table card-2 col-10 jobselect">
+         
+          <div class="col-12 jobselect"> 
+             <h5 class="profile_header" style="border-left: 5px solid #ff9563;">現在の検索条件</h5>      
+            <table class="table table-bordered col-12 ">
               <tbody>
                 <tr>
                   <th>地域</th>
                   <td>
-                    <select  id="select" class="form-control col-3 custom-select mt-2" v-model="id">
+                    <select  id="select" class="col-9 form-control custom-select mt-2 mb-2" v-model="id">
                       <option v-for = "city in cities" :value="city.id" :key="city.id" >{{city.city_name}}</option>
                     </select>
-                    <button @click="toggleContent4" class="btn btn-link">
+                    <button @click="toggleContent4" class="btn col-3 seemore-btn">
                       <i class="fa" aria-hidden="true"></i>
                           <!-- <em>{{city.city_name}}</em> -->
-                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> collapse Township</span>
                     </button>
 
                     <div  class="toBeToggled4" id="toBeToggled4">
@@ -888,9 +891,9 @@
                   フリーワード
                   </th>
                   <td>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id=""  placeholder="例）施設名、エリア">
-                    </div>
+                    
+                      <input type="text" class="form-control mt-2 mb-2" id=""  placeholder="例）施設名、エリア">
+                    
                   </td>
                 </tr>
                 <tr class="toBeToggled1 ShowHide">
@@ -938,52 +941,57 @@
                 </tr>
 
                 <tr class="text-center">
-                  <td colspan='2'>
-                    <button @click="ShowHide4" class="btn btn-link">
+                  <td colspan='2' style="border:none;">
+                    <button @click="ShowHide4" class="btn seemore-btn">
                       <i class="fa" aria-hidden="true"></i>
-                          <span id="close4"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
+                          <span id="close4"><i class="fas fa-arrow-circle-down"></i> see more</span>
                     </button>
                   </td>
                 </tr>
 
                 <tr class="text-center">
-                  <td colspan="2">
+                  <td colspan="2" style="border:none;">
 
-                     <button class="btn-success" id="search" @click="search"> Search </button>
+                     <button class="main-bg-color create-btn all-btn" id="search" style="width:16%;" @click="search"><i class="fas fa-search"></i>&nbsp; Search </button>
 
                   </td>
                 </tr>
 
               </tbody>
             </table>
+            </div>  
 
-            <div id="job_detail" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
-              <div class="card-header bg-success text-center pad"  >{{job.name}}</div>
-                <div class="card-body bg-danger">
-                    <table  class="table table-bordered table-sm">
-                      <tr>
-                        <td>Access</td>
-                        <td>{{job.access}}</td>
-                      </tr>
-                      <tr>
-                        <td> Salary </td>
-                        <td> {{job.salary}}</td>
-                      </tr>
-                      <tr>
-                        <td>Working hours / days / holiday details</td>
-                        <td> {{job.working_hours}} / {{job.holidays}} </td>
-                      </tr>
-                      <tr>
-                        <td>Special conditions</td>
-                        <td> {{job.allowances}} </td>
-                      </tr>
-                    </table>
-                        <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn btn all-btn secondary-bg-color white">詳細を見る</router-link>
+            
+              <div class="row col-12">
+               
+                   <div id="job_detail" class="col-4" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
+                    <div class="card-header bg-success text-center pad">{{job.name}}</div>
+                      <div class="card-body bg-danger">
+                          <table  class="table table-bordered table-sm">
+                            <tr>
+                              <td>Access</td>
+                              <td>{{job.access}}</td>
+                            </tr>
+                            <tr>
+                              <td> Salary </td>
+                              <td> {{job.salary}}</td>
+                            </tr>
+                            <tr>
+                              <td>Working hours / days / holiday details</td>
+                              <td> {{job.working_hours}} / {{job.holidays}} </td>
+                            </tr>
+                            <tr>
+                              <td>Special conditions</td>
+                              <td> {{job.allowances}} </td>
+                            </tr>
+                          </table>
+                              <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn col-12 all-btn secondary-bg-color white">詳細を見る</router-link>
 
-                </div>
-
-
-            </div>
+                      </div>
+                  </div>
+                         
+              </div>
+            
         </div>
       </div>
 
@@ -1032,7 +1040,7 @@ export default {
             if (this.toggleCheck == true) {
                 $('#close6').empty();
                 $("#toBeToggled4").slideToggle();
-                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
+                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> Collapse Township');
 
             } else {
                 $('#close6').empty();
@@ -1045,12 +1053,12 @@ export default {
             if (this.toggleCheck_1 == true) {
                 $('#close4').empty();
                 $(".ShowHide").slideDown();
-                $('#close4').append('<i class="fas fa-arrow-circle-up"></i> もっと見る');
+                $('#close4').append('<i class="fas fa-arrow-circle-up"></i> close');
 
             } else {
                 $('#close4').empty();
                 $(".ShowHide").slideUp();
-                $('#close4').append('<i class="fas fa-arrow-circle-down"></i> close');
+                $('#close4').append('<i class="fas fa-arrow-circle-down"></i> seemore');
             }
         },
 
@@ -1190,14 +1198,15 @@ export default {
 }
 
 .bg-success{
- background-color: #ddd2fd  !important;
+ background-color: #8282829e !important;
 }
 .pad{
   padding-top: 10px !important;
 }
 
 .bg-danger{
-  background-color: #fcf4f4 !important;
+  background-color: #fff !important;
+  border: 1px solid #eee;
 }
 
 .card-header{
@@ -1272,10 +1281,10 @@ table{
   border-top:none !important;
 }
 table > tbody > tr th{
-  background-color: #e8e7e7;
+  background-color: #eeeeee;
   text-align:right;
   width:140px;
-  padding:25px;
+  /* padding:25px; */
 }
 
 </style>

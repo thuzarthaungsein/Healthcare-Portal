@@ -301,7 +301,7 @@
                     <div v-if="method_payment.length > 0" class="col-md-12">
                         <div class="cost_tb">
 
-                            <div class="row col-12 pad-free" >
+                            <div class="row" >
 
                                 <div class="col-md-12" >
 

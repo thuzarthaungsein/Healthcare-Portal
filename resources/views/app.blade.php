@@ -94,6 +94,7 @@
     <div class="main-content pad-free">
 
         <flash message=""></flash>
+  
 
         <!--navigation bar-->
         @if(!Auth::check())
@@ -687,6 +688,7 @@
                                                 </div>
 
                                             </div>
+
 
                                             <!--end ads slider-->
 

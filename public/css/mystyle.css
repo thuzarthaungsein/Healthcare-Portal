@@ -649,6 +649,9 @@ width: 100%; */
 .form-check-inline.show {
     display: inline-flex;
 }
+.form-check-inline{
+    margin-right: 0px !important;
+}
 
 .collapse.show {
     display: block;
@@ -2515,10 +2518,13 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 .div1,
 .div2 {
     background-color: transparent;
-    border-bottom: 1px solid #544e4e;
+   
     /* border: 1px solid #ccc; */
     /* border-radius: 5px; */
     margin: 5px 0px;
+}
+.div1{
+    border-bottom: 1px solid #544e4e;
 }
 
 .div1:hover {
@@ -6249,3 +6255,24 @@ ul.test>li:before {
 
 
 /* fav_slider */
+/*for see more btn*/
+.seemore-btn {
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #ffc041;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #ffc;
+    width: 205px;
+}
+
+
+
+.seemore-btn:hover {
+    color: #f9793c;
+    border: 1px solid #68ec37;
+}
+
+
+}
