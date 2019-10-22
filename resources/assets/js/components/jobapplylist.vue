@@ -31,6 +31,7 @@
                 </div>
                 <hr/>
                 <h4 class="header">JobApplyList</h4>
+                <div class="col-12 jobdetail">
                  <table class="table table-hover custom-table">
                     <thead style="background-color:rgb(183, 218, 210);">
                     <tr>
@@ -49,7 +50,7 @@
                     <tr v-for="jobapply in jobapplies" :key="jobapply.id">
                         <th>{{jobapply.first_name}}</th>
                         <th>{{jobapply.last_name}}</th>
-                         <th>{{jobapply.birthday}}</th>
+                        <th>{{jobapply.birthday}}</th>
                         <th>{{jobapply.gender}}</th>
                         <th>{{jobapply.postal}}</th>
                         <th>{{jobapply.street_address}}</th>
@@ -59,6 +60,10 @@
                     </tr>
                     </tbody>
                  </table>
+                 </div>
+                 <div class="form-group mt-3 pb-5">
+                <router-link class="btn main-bg-color white all-btn" to="/jobofferlist">Cancel</router-link>
+              </div>
             </div>
                 </div>
             </div>
@@ -75,9 +80,17 @@ export default {
     };
   },
   created(){
-      this.axios.get("/api/jobapplylist").then(response => {
-      this.jobapplies = response.data;
-    });
+      if(this.$route.params.id){
+          this.axios.get(`/api/jobapplylist/`+this.$route.params.id).then(response=>{
+              if(response.data == '') {
+                 $('.custom-table').hide();
+                 $('.jobdetail').append('<p> No Record data</p>');
+              } else {
+                this.jobapplies = response.data;
+              }
+
+          });
+      }
 
   }
 
