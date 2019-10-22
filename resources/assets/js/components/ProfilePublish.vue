@@ -1576,40 +1576,7 @@ export default {
             }
 
             else{
-
-                this.axios.get(`/api/profile/specialfeature/${this.type}/${this.cusid}`).then(response => {
-
-                    this.specialfeature = response.data;
-
-                });
-
-                 this.axios.get('/api/profile/comment/'+this.cusid).then(response => {
-
-                      this.comments = response.data;
-
-                });
-
-                 this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type).then(response => {
-                     console.log(response.data);
-                      this.customer = response.data;
-
-                });
-
-                this.axios.get('/api/profile/subject/'+this.cusid).then(response => {
-
-                      this.subjects = response.data;
-
-                });
-
-                 this.axios.get('/api/profile/schedule/'+this.cusid) .then(response => {
-
-                        this.am_arr = response.data.am;
-                        this.pm_arr = response.data.pm;
-
-                });
-
                 this.axios.get('/api/profile/hospital/'+this.cusid).then(response => {
-
                     this.google = response.data.hoslatlong;
 
                     this.hospitals = response.data.hospital;
@@ -1642,7 +1609,36 @@ export default {
 
                     }
 
-                })
+                });
+
+                this.axios.get(`/api/profile/specialfeature/${this.type}/${this.cusid}`).then(response => {
+
+                    this.specialfeature = response.data;
+
+                });
+
+                 this.axios.get('/api/profile/comment/'+this.cusid).then(response => {
+
+                      this.comments = response.data;
+
+                });
+
+                 this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type).then(response => {
+                      this.customer = response.data;
+                });
+
+                this.axios.get('/api/profile/subject/'+this.cusid).then(response => {
+
+                      this.subjects = response.data;
+
+                });
+
+                 this.axios.get('/api/profile/schedule/'+this.cusid) .then(response => {
+
+                        this.am_arr = response.data.am;
+                        this.pm_arr = response.data.pm;
+
+                });                
             }
 
             var new_width = $("#content-all").width();
@@ -1672,16 +1668,22 @@ export default {
             },         
           
             currentImage() {
+                if(this.images) {
+                    if(this.images.length > 0) {
 
-                if(this.images.length > 0) {
+                        this.activeImageTitle = this.images[this.activeImage].title;
 
-                    this.activeImageTitle = this.images[this.activeImage].title;
+                        this.activeImageDescription = this.images[this.activeImage].description;
 
-                    this.activeImageDescription = this.images[this.activeImage].description;
+                        return this.images[this.activeImage].photo;
 
-                    return this.images[this.activeImage].photo;
+                    }
+                    else{
 
-                }
+                        return 'no-image-big.jpg';
+
+                    }
+                }              
 
                 else{
 

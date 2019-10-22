@@ -13,7 +13,6 @@
           <li>3.送信完了</li>
         </ul>
         <form class="col-md-12 form-wrap">
-          <input type="hidden" v-model="jobApply.job_id" />
           <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
               <label for="first_name">
