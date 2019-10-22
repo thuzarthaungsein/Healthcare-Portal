@@ -98,6 +98,7 @@
                     <small>
                       <a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a>
                     </small>
+                    <a herf="jobapplylist">Jobapply</a>
                   </th>
                 </tr>
               </tbody>
