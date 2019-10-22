@@ -206,14 +206,14 @@
                 if(pwd != confirm_pwd) {
                     $('.error').css("display","block");
                     global_var = false;
-                    $('#reg_btn').attr("disabled", true);
+                    return false;
                 }
                 else {
                     $('.error').css("display","none");
                     global_var = true;
-                    $('#reg_btn').attr("disabled", false);
-                } 
-                // enableSubmitBtn(); 
+                    return true;
+                }
+                chooseNursingType();
             }
 
             $('#type').on('change', function() {
@@ -235,7 +235,10 @@
                     $('#showHideActionNursing').removeClass('show').addClass('hide');
                     $('#nursing').empty();
                     global_var = true;
-                    enableSubmitBtn();
+                    console.log(isPasswordSame());
+                    if(isPasswordSame()) {
+                        $('#reg_btn').attr("disabled", false);
+                    }
                 }
             });
 
@@ -253,7 +256,8 @@
 
             function chooseNursingType() {
                 var nur_type = $('.nursing_type').is(':checked');
-                if(nur_type) {
+                var same_pwd = isPasswordSame();
+                if(nur_type && same_pwd) {
                     $('.nurse_type_error').css("display", "none");
                     global_var = true;
                 }
@@ -264,14 +268,12 @@
                 enableSubmitBtn();
             }
             function enableSubmitBtn() {
-                // console.log(global_var);
                 if(global_var)
                     $('#reg_btn').attr("disabled", false);
                 else
                     $('#reg_btn').attr("disabled", true);
             }
             function disableSubmitBtn() {
-                // console.log(global_var);
                 $('#reg_btn').attr("disabled", true);
             }
         </script>
