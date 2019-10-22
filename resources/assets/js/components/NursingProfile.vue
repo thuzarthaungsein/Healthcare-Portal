@@ -657,7 +657,6 @@ export default {
                 .get('/api/staffinfo/'+this.cusid)
                 .then(response=>{
                         this.staff_info = response.data;
-
                 });
 
                 this.axios
@@ -844,6 +843,8 @@ export default {
                 },
 
             createProfile() {
+                this.customer_info = [];
+                this.staff_info = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
