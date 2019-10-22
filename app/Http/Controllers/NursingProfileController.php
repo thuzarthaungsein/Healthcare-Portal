@@ -133,7 +133,6 @@ class NursingProfileController extends Controller
         $nursing->room_floor = $request[0]['room_floor'];
         $nursing->living_room_facilities = $request[0]['living_room_facilities'];
         $nursing->equipment = $request[0]['equipment'];
-        $nursing->special_features = $request[0]['special_features'];
         $nursing->acceptance_remark = $request[0]['acceptance_remark'];
         $nursing->latitude = $request[0]['latitude'];
         $nursing->longitude = $request[0]['longitude'];
