@@ -944,7 +944,7 @@
                   <td colspan='2' style="border:none;">
                     <button @click="ShowHide4" class="btn seemore-btn">
                       <i class="fa" aria-hidden="true"></i>
-                          <span id="close4"><i class="fas fa-arrow-circle-down"></i> see more</span>
+                          <span id="close4"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
                     </button>
                   </td>
                 </tr>
@@ -952,7 +952,7 @@
                 <tr class="text-center">
                   <td colspan="2" style="border:none;">
 
-                     <button class="main-bg-color create-btn all-btn" id="search" style="width:16%;" @click="search"><i class="fas fa-search"></i>&nbsp; Search </button>
+                     <button class="main-bg-color create-btn all-btn" id="search" style="width:16%;" @click="search"><i class="fas fa-search"></i>&nbsp; 検査 </button>
 
                   </td>
                 </tr>
@@ -962,34 +962,64 @@
             </div>  
 
             
-              <div class="row col-12">
-               
-                   <div id="job_detail" class="col-4" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
-                    <div class="card-header bg-success text-center pad">{{job.name}}</div>
-                      <div class="card-body bg-danger">
-                          <table  class="table table-bordered table-sm">
+              <div class=" col-12">
+                <div class="row">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
+                     <div class="job-content">
+                      <div class="job-header">
+                        <h5 class="job-tit"><a :href="job.jobid">{{job.name}}</a></h5>
+                        <div class="clearfix">
+                          <p class="job_status">正職員</p>
+                          <p class="job_id">求人NO.{{job.job_number}}</p>
+                        </div>
+                      </div>
+                      <div class="job-body row  clearfix">
+                        <div class="col-4 job-img">
+                          <img src="/upload/news/nursing.JPG"  alt="">
+                        </div>
+                        <div class="col-8 job-box">
+                          <!-- <div class="row mb-2">
+                            <div class="col-3 job-left"><span class="job_ico"><i class="fa fa-map-marker"></i></span>アクセス</div>
+                            <div class="col-9">{{job.access}}</div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="col-3 job-left"><span class="job_ico">&#xa5;</span>【給料】</div>
+                            <div class="col-9">{{job.salary}}</div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="col-3 job-left"><span class="job_ico"><i class="fa fa-clock-o"></i></span>勤務時間/日/休日の詳細</div>
+                            <div class="col-9">{{job.working_hours}} / {{job.holidays}} </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="col-3 job-left"><span class="job_ico">&#xa5;</span>特別な条件</div>
+                            <div class="col-9">{{job.working_hours}} / {{job.holidays}} </div>
+                          </div> -->
+                          <table  class="table table-bordered  table-sm">
                             <tr>
-                              <td>Access</td>
+                              <td><span class="job_ico"><i class="fa fa-map-marker"></i></span>アクセス</td>
                               <td>{{job.access}}</td>
                             </tr>
                             <tr>
-                              <td> Salary </td>
+                              <td><span class="job_ico">&#xa5;</span>給料</td>
                               <td> {{job.salary}}</td>
                             </tr>
                             <tr>
-                              <td>Working hours / days / holiday details</td>
+                              <td><span class="job_ico">時</span>勤務時間/日/休日の詳細</td>
                               <td> {{job.working_hours}} / {{job.holidays}} </td>
                             </tr>
                             <tr>
-                              <td>Special conditions</td>
+                              <td><span class="job_ico">特</span>特別な条件</td>
                               <td> {{job.allowances}} </td>
                             </tr>
                           </table>
-                              <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn col-12 all-btn secondary-bg-color white">詳細を見る</router-link>
-
+                        </div>  
                       </div>
+                      <div class="mt-4 detail-btn">
+                        <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn all-btn secondary-bg-color white">詳細を見る</router-link>
+                        </div>
+                    </div>
                   </div>
-                         
+                </div>        
               </div>
             
         </div>
@@ -1053,12 +1083,12 @@ export default {
             if (this.toggleCheck_1 == true) {
                 $('#close4').empty();
                 $(".ShowHide").slideDown();
-                $('#close4').append('<i class="fas fa-arrow-circle-up"></i> close');
+                $('#close4').append('<i class="fas fa-arrow-circle-up"></i> 閉じる');
 
             } else {
                 $('#close4').empty();
                 $(".ShowHide").slideUp();
-                $('#close4').append('<i class="fas fa-arrow-circle-down"></i> seemore');
+                $('#close4').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
             }
         },
 
@@ -1209,9 +1239,7 @@ export default {
   border: 1px solid #eee;
 }
 
-.card-header{
-  height: 40px;
-  }
+
 
 .path:hover,
 a:hover {
