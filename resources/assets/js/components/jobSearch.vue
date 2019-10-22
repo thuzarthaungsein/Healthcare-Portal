@@ -970,7 +970,7 @@
                         <h5 class="job-tit"><a :href="job.jobid">{{job.name}}</a></h5>
                         <div class="clearfix">
                           <p class="job_status">正職員</p>
-                          <p class="job_id">求人NO.{{job.job_number}}</p>
+                          <p class="job_id">求人NO.{{job.jobnum}}</p>
                         </div>
                       </div>
                       <div class="job-body row  clearfix">
