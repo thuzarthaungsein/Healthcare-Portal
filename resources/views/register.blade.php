@@ -94,7 +94,7 @@
                                     <div class="input-group-append " id="nursing">
 
                                     </div>
-                                    <div class="nurse_type_error error" style="margin-bottom: 6px;margin-left: 210px;display: none;">Required</div>
+                                    <div class="nurse_type_error" style="margin-bottom: 6px;margin-left: 210px;display: none;color: red;">Required</div>
                                 </div>
                                 <div class="input-group mb-3">
                                     <label class="col-4 col-lg-3 control-label">都道府県選択</label>
@@ -141,7 +141,7 @@
                                     <div class="form-group row float-right">
                                         <div class="col-12">
                                             <button class="btn btn-danger register_btn">キャンセル</button>
-                                            <button type="submit" class="btn register_btn" style="background: #4db197;">作成</button>
+                                            <button type="submit" class="btn register_btn" id="reg_btn" style="background: #4db197;" disabled>作成</button>
                                             <!-- <a class="btn btn-danger register_btn">キャンセル</a>
                                                  <a class="btn register_btn" >作成</a> -->
                                         </div>
@@ -159,6 +159,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         <script>
+            var global_var = false;
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -204,10 +205,15 @@
                 var confirm_pwd = $('#confirm_pwd').val();
                 if(pwd != confirm_pwd) {
                     $('.error').css("display","block");
+                    global_var = false;
+                    $('#reg_btn').attr("disabled", true);
                 }
                 else {
                     $('.error').css("display","none");
-                }    
+                    global_var = true;
+                    $('#reg_btn').attr("disabled", false);
+                } 
+                // enableSubmitBtn(); 
             }
 
             $('#type').on('change', function() {
@@ -228,6 +234,8 @@
                 } else {
                     $('#showHideActionNursing').removeClass('show').addClass('hide');
                     $('#nursing').empty();
+                    global_var = true;
+                    enableSubmitBtn();
                 }
             });
 
@@ -247,10 +255,24 @@
                 var nur_type = $('.nursing_type').is(':checked');
                 if(nur_type) {
                     $('.nurse_type_error').css("display", "none");
+                    global_var = true;
                 }
                 else {
                     $('.nurse_type_error').css("display", "block");
+                    global_var = false;
                 }
+                enableSubmitBtn();
+            }
+            function enableSubmitBtn() {
+                // console.log(global_var);
+                if(global_var)
+                    $('#reg_btn').attr("disabled", false);
+                else
+                    $('#reg_btn').attr("disabled", true);
+            }
+            function disableSubmitBtn() {
+                // console.log(global_var);
+                $('#reg_btn').attr("disabled", true);
             }
         </script>
 
