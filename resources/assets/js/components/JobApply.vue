@@ -117,6 +117,23 @@
             <div class="col-md-3 col-sm-12 form-left">
               <label for="str_address">
                 <strong>
+                  Prefecture
+                  <span class="error sp1">必須</span>
+                </strong>
+              </label>
+            </div>
+            <div class="col-md-9 col-sm-12 form-right">
+              <input
+                type="text"
+                class="form-control box"
+                v-model="jobApply.pref"
+              />
+            </div>
+          </div>
+          <div class="form-group m-0 row bd">
+            <div class="col-md-3 col-sm-12 form-left">
+              <label for="str_address">
+                <strong>
                   住所
                   <span class="error sp1">必須</span>
                 </strong>
@@ -303,7 +320,17 @@
           <div class="form-group m-0 row bd">
             <div class="col-sm-3 form-left">
               <label for="str_address">
-                <strong>住所</strong>
+                <strong>Prefecture :</strong>
+              </label>
+            </div>
+            <div class="col-md-9 col-sm-12 form-right">
+              <span>{{ jobApply.pref }}</span>
+            </div>
+          </div>
+          <div class="form-group m-0 row bd">
+            <div class="col-sm-3">
+              <label for="str_address">
+                <strong>住所 :</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
@@ -337,47 +364,11 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span class="pl-4">{{ jobApply.email }}</span>
-              <!-- <label for="remark">
-                <strong>
-                  連絡事項
-                  <span class="error sp1">必須</span>
-                </strong>
-              </label>-->
-            </div>
-            <!-- <div class="col-sm-9">
-              <textarea
-                name="remark"
-                placeholder="連絡事項等がございましたらご記入をおねがいいたます。"
-                class="form-control"
-                cols="50"
-                rows="5"
-                v-model="jobApply.remark"
-              ></textarea>
-            </div>-->
-          </div>
-          <div class="form-group m-0 row bd">
-            <div class="col-sm-3 form-left">
-              <label for="qualification">
-                <strong>資格</strong>
-              </label>
-            </div>
-            <div class="col-md-9 col-sm-12 form-right">
-              <span class="pl-4">{{ jobApply.qualification }}</span>
+              <span>{{ jobApply.email }}</span>
             </div>
           </div>
-          <div class="form-group m-0 row bd">
-            <div class="col-sm-3 form-left">
-              <label for="workable_day">
-                <strong>実行可能日</strong>
-              </label>
-            </div>
-            <div class="col-md-9 col-sm-12 form-right">
-              <span class="pl-4">{{ jobApply.workable_day }}</span>
-            </div>
-          </div>
-          <div class="form-group m-0 row bd">
-            <div class="col-sm-3 form-left">
+          <!-- <div class="form-group m-0 row bd">
+            <div class="col-sm-3">
               <label for="skill">
                 <strong>スキル</strong>
               </label>
@@ -385,9 +376,9 @@
             <div class="col-md-9 col-sm-12 form-right">
               <span class="pl-4">{{ jobApply.skill }}</span>
             </div>
-          </div>
-          <div class="form-group m-0 row bd-all">
-            <div class="col-sm-3 form-left">
+          </div> -->
+          <div class="form-group m-0 row bd">
+            <div class="col-sm-3">
               <label for="remark">
                 <strong>リマーク</strong>
               </label>
@@ -449,6 +440,8 @@ export default {
         birthday: "",
         gender: "",
         postal: "",
+        pref: "",
+        city_id: "",
         str_address: "",
         home_address: "",
         phone: "",
@@ -489,11 +482,13 @@ export default {
         this.axios.post("/api/hospital/postList/" + postal).then(response => {
           var post_data = response.data;
           var length = response.data.length;
+          console.log(post_data[0]["pref"]);
           if (length > 0) {
             var pref = post_data[0]["city_id"];
             if (post_data[0]["street"] == "") {
-              this.jobApply.str_address =
-                post_data[0]["pref"] + " - " + post_data[0]["city"];
+              this.jobApply.city_id = post_data[0]["city_id"];
+              this.jobApply.pref = post_data[0]["pref"];
+              this.jobApply.str_address = post_data[0]["city"];
             } else {
               this.jobApply.str_address =
                 post_data[0]["pref"] +

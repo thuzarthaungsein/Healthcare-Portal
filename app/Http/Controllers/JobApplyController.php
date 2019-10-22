@@ -18,6 +18,11 @@ class JobApplyController extends Controller
      */
     public function index()
     {
+            // $jobapplies = JobApply::all()->toArray();
+            // return $jobapplies;
+            $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id";
+            $jobapplies = DB::select($sql);
+            return $jobapplies;
 
     }
 
@@ -62,6 +67,7 @@ class JobApplyController extends Controller
             $jobapply->birthday = $request->birthday;
             $jobapply->gender = $request->gender;
             $jobapply->postal = $request->postal;
+            $jobapply->city_id = $request->city_id;
             $jobapply->street_address = $request->str_address;
             $jobapply->home_address = $request->home_address;
             $jobapply->phone = $request->phone;

@@ -316,7 +316,7 @@ $('#save_value').click(function(){
   //     );
   // });
 
-  function closebtn(){
+  function closeBtnMethod(){
 
     if(confirm("Are you sure you want to delete?"))
     {

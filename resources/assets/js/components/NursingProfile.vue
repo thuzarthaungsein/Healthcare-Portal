@@ -589,7 +589,7 @@ export default {
                 payment_arr:[],payment_list:[],
                 profile_type:'nursing',
                 profile_arr:[], test:'',
-                station_list:[],
+                station_list:[],chek_feature : [],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -852,6 +852,7 @@ export default {
                 this.customer_info = [];
                 this.staff_info = [];
                 this.acceptance = [];
+                this.chek_feature = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
@@ -952,11 +953,11 @@ export default {
                 }
 
 
-                var chek_feature=[];
-                var special_features;
-                $.each($("input[name='special-features']:checked"), function(){
-                        chek_feature.push($(this).val());
-                });
+               var s_features =[];
+                        $.each($("input[name='special-features']:checked"), function(){
+                            s_features.push($(this).val());
+                        }); 
+                        this.chek_feature.push({special_feature_id:s_features});
 
                 // var chek_station=[];
                 // var stations;
@@ -976,11 +977,9 @@ export default {
                         acceptance.push({id:id,type:type});
                 });
 
-                special_features = chek_feature.join(',');
-
                 this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in:moving_in,per_month:per_month,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
-                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,special_features:special_features,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
+                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
                 this.gallery_list = this.img_list.concat(this.video_list);
 
@@ -1085,6 +1084,19 @@ export default {
                                                 acceptance = 'error';
                                                 this.errors = error.response.data.errors
                                         }
+                        }) ;
+                }
+
+                if(this.chek_feature.length > 0) {
+                                this.axios
+                                        .post(`/api/feature/update/${this.cusid}`,this.chek_feature)
+                                                .then((response) => {
+                                                        
+                                                }).catch(error=>{
+                                                if(error.response.status == 422){
+                                                  this.chek_feature = 'error';
+                                                  this.errors = error.response.data.errors
+                                }
                         }) ;
                 }
 

@@ -1295,6 +1295,8 @@ export default {
                         schedule_list:[],
                         customer_info:[],
                         hospital_info:[],
+                        chek_feature : [],
+                        subjects:[],
                         city: '',
                         postal: '',clinical_subj:[],
                         isRotate1: false,
@@ -1415,6 +1417,8 @@ export default {
                     this.gallery_list = [];
                     this.customer_info = [];
                     this.hospital_info = [];
+                    this.chek_feature = [];
+
                     var name = $('.customer-name').val();
                     var email = $('.customer-email').val();
                     var phone = $('.customer-phone').val();
@@ -1447,19 +1451,21 @@ export default {
                         } else {
                                 var file_name = img[i].getElementsByClassName('already-photo')[0].value;
                         }
-                           this.img_list.push({type:"photo",phoまで:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+                           this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                         }
                     var video = document.getElementsByClassName('gallery-area-video');
                         for(var i = 0; i< video.length; i++) {
-                           this.video_list.push({type:"video",phoまで:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
+                           this.video_list.push({type:"video",photo:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                         }
                      this.gallery_list = this.img_list.concat(this.video_list);
-                     var chek_feature = [];
-                     var special_features ;
+
+                    
+                    var s_features =[];
                         $.each($("input[name='special-features']:checked"), function(){
-                                chek_feature.push($(this).val());
-                        });
-                        special_features = chek_feature.join(',');
+                            s_features.push($(this).val());
+                        }); 
+                        this.chek_feature.push({special_feature_id:s_features});
+                        
                      var chek_facility = [];
                      var facilities ;
                         $.each($("input[name='facility']:checked"), function(){
@@ -1468,11 +1474,11 @@ export default {
                         facilities = chek_facility.join(',');
                     
                     var chek_subj = [];
-                    var subjects ;
                         $.each($("input[name='subject']:checked"), function(){
                                chek_subj.push($(this).val());
                         });
-                        subjects = chek_subj.join(',');
+                        this.subjects.push({subject_id:chek_subj});
+                        
                      // Consultation
                      for(var j = 0; j< 2; j++) {
                         for(var i = 0; i< 7; i++) {
@@ -1483,7 +1489,7 @@ export default {
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
                        this.hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
-                       congestion:congestion,special_features:special_features,facilities:facilities,subjects:subjects});
+                       congestion:congestion,facilities:facilities});
                         // if(this.gallery_list.length > 0) {
                         //         this.axios
                         //                 .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
@@ -1529,6 +1535,33 @@ export default {
                                                   this.errors = error.response.data.errors
                                 }
                         }) ;
+                        }
+
+                        if(this.chek_feature.length > 0) {
+                                this.axios
+                                        .post(`/api/feature/update/${this.id}`,this.chek_feature)
+                                                .then((response) => {
+                                                        
+                                                }).catch(error=>{
+                                                if(error.response.status == 422){
+                                                  this.chek_feature = 'error';
+                                                  this.errors = error.response.data.errors
+                                }
+                        }) ;
+                        }
+
+                        if(this.subjects.length > 0) {
+                                this.axios
+                                        .post(`/api/subject_junctions/update/${this.id}`,this.subjects)
+                                                .then((response) => {
+                                                        
+                                                }).catch(error=>{
+                                                if(error.response.status == 422){
+                                                  this.subjects = 'error';
+                                                  this.errors = error.response.data.errors
+                                }
+                        }) ;
+                        }
 
                         if(this.gallery_list != 'error' && this.customer_info != 'error' && this.hospital_info != 'error' && this.schedule_list != 'error') {
                           alert('Hospital Profile is Successfully Updated!');
@@ -1561,7 +1594,7 @@ export default {
                 }
             },
         }
-}
+
 </script>
 <style>
  .quill-editor{
