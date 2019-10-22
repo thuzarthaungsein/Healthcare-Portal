@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\HospitalProfile;
 use App\Gallery;
 use DB;
+use App\Medical;
 use App\Category;
 
 class HospitalProfileController extends Controller
@@ -45,21 +46,31 @@ class HospitalProfileController extends Controller
     }
 
     function getFavouriteNursing($local_sto) {
-        $query = "SELECT nursing_profiles.* ,customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
-                    JOIN customers ON nursing_profiles.customer_id = customers.id
+        $query = "SELECT nursing_profiles.* ,'' AS payment_method, staffs.nursing_staff,customers.name, customers.email, customers.address, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
+                    LEFT JOIN customers ON nursing_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
+                    LEFT JOIN staffs ON staffs.customer_id = nursing_profiles.customer_id
                     JOIN cities ON townships.city_id = cities.id
                     WHERE nursing_profiles.id IN (" . $local_sto . ")";
         $fav_nursing = DB::select($query);
         foreach($fav_nursing as $nur) {
             $sfeature = $nur->special_features;
+            $cId = $nur->customer_id;
             if($sfeature != null){
                 $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
                 $specialfeature = DB::select($sql);
                 // $fea_arr = explode(",", $nur->special_features);
                 $nur->special_features = $specialfeature;
             }
-            
+            // $sql = "SELECT * FROM acceptance_transactions WHERE customer_id = $cId";
+            // $accept_type = DB::select($sql);
+            // $nur->medical = $accept_type;
+            $sql = "SELECT * FROM method_payment WHERE customer_id = $cId";
+            $payment = DB::select($sql);
+            $nur->payment_method = $payment;
+            $sql = "SELECT MIN(monthly_fees) AS smallestCost, MAX(monthly_fees) AS largeCost FROM method_payment WHERE customer_id=$cId";
+            $min_max = DB::select($sql);
+            $nur->minmax = $min_max;
         }
         return $fav_nursing;
     }
@@ -76,15 +87,7 @@ class HospitalProfileController extends Controller
         $city_list = DB::select($query);
         return $city_list;
     }
-
-    public function getSelectedCityName($selectedId){
-        $query = "SELECT cities.id AS c_Id, zipcode.id, zipcode.pref, CONCAT(zipcode.city,' ', zipcode.street) AS street FROM zipcode
-                    RIGHT JOIN cities
-                    ON zipcode.city_id = cities.id
-                    WHERE zipcode.id = $selectedId";
-        $selectedCity = DB::select($query);
-        return $selectedCity;
-    }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -192,9 +195,7 @@ class HospitalProfileController extends Controller
             'details_info'=>  $request[0]['details_info'],
             'closed_day' =>  $request[0]['close_day'],
             'facilities' =>  $request[0]['facilities'],
-            'subject' =>  $request[0]['subjects'],
             'website' =>  $request[0]['website'],
-            'special_features' =>  $request[0]['special_features'],
             'congestion' =>  $request[0]['congestion']
        );
 

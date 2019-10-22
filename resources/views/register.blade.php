@@ -40,7 +40,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-image"></i></span>
                                     </div>
-                                    <span class="btn all-btn" onClick="choosefile()">Choose</span> <span id="imgname"></span>
+                                    <span class="btn all-btn" onClick="choosefile()">Choose</span> <span id="imgname" style = "padding: 8px 0 0 30px;color: #fff;"></span>
                                     <input type="file" accept="image/*" onchange="showMyImage(this)" name="img" id="file" ref="file" class="form-control inputfile">
                                 </div>
                                 <div class="input-group mb-3">
@@ -48,15 +48,15 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" name="name" value="" required autofocus placeholder="事業者名">
+                                    <input type="text" class="form-control" name="name" value="" required placeholder="事業者名">
 
                                 </div>
                                 <div class="input-group mb-3">
-                                    <label class="col-4 col-lg-3 control-label">電子メールアドレス </label>
+                                    <label class="col-4 col-lg-3 control-label">メールアドレス </label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                     </div>
-                                    <input type="email" class="form-control" name="email" value="" required autofocus placeholder="電子メールアドレス">
+                                    <input type="email" class="form-control" name="email" value="" required placeholder="電子メールアドレス">
 
                                 </div>
                                 <div class="input-group mb-3">
@@ -64,7 +64,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" name="password" value="" required autofocus placeholder="パスワード">
+                                    <input type="password" class="form-control" name="password" onkeyup="isPasswordSame()" value="" id="pwd" required placeholder="パスワード">
 
                                 </div>
                                 <div class="input-group mb-3">
@@ -72,16 +72,18 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" name="comfirm_password" value="" required autofocus placeholder="パスワードを認証">
-
+                                    <input type="password" class="form-control" name="comfirm_password" id="confirm_pwd" onkeyup="isPasswordSame()" value="" required placeholder="パスワードを認証">
+                                    <br>
+                                    
                                 </div>
+                                <div class="error" style="padding-left: 162px;margin-bottom: 18px;display: none;">Password not match.</div>
                                 <div class="input-group mb-3">
                                     <label class="col-4 col-lg-3 control-label">タイプを選択</label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-list"></i></span>
 
                                     </div>
-                                    <select id="type" class="form-control custom-select" name="types">
+                                    <select id="type" class="form-control custom-select" name="types" required>
                                         <option value="">タイプを選択</option>
                                         <option value="2">病院</option>
                                         <option value="3">介護</option>
@@ -92,28 +94,29 @@
                                     <div class="input-group-append " id="nursing">
 
                                     </div>
-
+                                    <div class="nurse_type_error error" style="margin-bottom: 6px;margin-left: 210px;display: none;">Required</div>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <label class="col-4 col-lg-3 control-label">都市を選択</label>
+                                    <label class="col-4 col-lg-3 control-label">都道府県選択</label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-map"></i></span>
 
                                     </div>
-                                    <select name="cities" id="cities" class="form-control custom-select">
+                                    <select name="cities" id="cities" class="form-control custom-select" required>
                                         <option value="">都市を選択</option>
+                                        <!-- <option value="">選択してください。</option> -->
                                         @foreach($cities as $city)
                                         <option value="{{$city->id}}">{{$city->city_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="input-group mb-3 hide" id="showHideActionTownship">
-                                    <label class="col-4 col-lg-3 control-label">郷を選ぶ</label>
+                                    <label class="col-4 col-lg-3 control-label">市区町村</label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-map"></i></span>
 
                                     </div>
-                                    <select name="township" id="township" class="form-control custom-select">
+                                    <select name="township" id="township" class="form-control custom-select" required>
 
                                     </select>
                                 </div>
@@ -124,7 +127,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="phone" value="" required autofocus placeholder="電話番号">
+                                    <input type="number" class="form-control" name="phone" value="" required placeholder="電話番号">
  
                                 </div>
                                 <!-- <div class="input-group mb-3">
@@ -168,6 +171,8 @@
 
             function showMyImage(fileInput) {
                 var files = fileInput.files;
+                var file_name = fileInput.files[0].name;
+                $('#imgname').html(file_name);
                 for (var i = 0; i < files.length; i++) {
                     var file = files[i];
                     var imageType = /image.*/;
@@ -190,25 +195,36 @@
                 window.setTimeout(function() {
                     $(".alert").fadeTo(500, 0).slideUp(500, function() {
                         $('.showHideAction').removeClass('hide').addClass('show');
-
                     });
                 }, 5000);
             });
 
+            function isPasswordSame() {
+                var pwd = $('#pwd').val();
+                var confirm_pwd = $('#confirm_pwd').val();
+                if(pwd != confirm_pwd) {
+                    $('.error').css("display","block");
+                }
+                else {
+                    $('.error').css("display","none");
+                }    
+            }
+
             $('#type').on('change', function() {
                 const type = $("#type option:selected").val();
-                if (type == 2) {
+                if (type == 3) {
                     $.getJSON("ajax-type?type=" + type, function(data) {
                         $('#showHideActionNursing').removeClass('hide').addClass('show');
                         $('#nursing').empty();
                         $.each(data.data, function(id, name) {
                             $('#nursing').append(
                                 '<div class="form-check sample">' +
-                                '<input class="form-check-input custom-radio"  type="radio" name="nursing" value="' + name.id + '" id="' + name.id + '">' +
+                                '<input class="form-check-input custom-radio nursing_type" required onchange="chooseNursingType()" type="radio" name="nursing" value="' + name.id + '" id="' + name.id + '">' +
                                 '<label class="form-check-label custom-radio" for="' + name.id + '">' + name.name + '</label>' +
                                 '</div>');
                         });
                     });
+                    chooseNursingType();
                 } else {
                     $('#showHideActionNursing').removeClass('show').addClass('hide');
                     $('#nursing').empty();
@@ -219,13 +235,23 @@
                 let cities = e.target.value;
                 $.getJSON("ajax-cities?cities=" + cities, function(data) {
                     $('#showHideActionTownship').removeClass('hide').addClass('show');
-                    $('#township').html('<option selected="selected" value="">郷を選ぶ</option>');
+                    $('#township').html('<option selected="selected" value="">選択してください。</option>');
                     $.each(data.data, function(id, name) {
                         $('#township').append('<option value="' + name.id + '">' + name.township_name + '</option>');
                     });
 
                 });
             });
+
+            function chooseNursingType() {
+                var nur_type = $('.nursing_type').is(':checked');
+                if(nur_type) {
+                    $('.nurse_type_error').css("display", "none");
+                }
+                else {
+                    $('.nurse_type_error').css("display", "block");
+                }
+            }
         </script>
 
 </body>
