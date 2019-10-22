@@ -1015,7 +1015,7 @@
                         </div>  
                       </div>
                       <div class="mt-4 detail-btn">
-                        <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn all-btn secondary-bg-color white">詳細を見る</router-link>
+                        <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn all-btn">詳細を見る</router-link>
                         </div>
                     </div>
                   </div>
