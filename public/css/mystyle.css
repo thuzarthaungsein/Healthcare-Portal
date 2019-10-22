@@ -1600,7 +1600,7 @@ div.b {
     position: relative;
     top: 17px;
     width: 702px;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;
 }
 
 .ads-slider .slick-slide {
@@ -1609,8 +1609,10 @@ div.b {
 
 .ads-slider .slide-img {
     float: left;
-    width: 100px;
-    margin-right: 8px;
+    width: 90px;
+    height: 65px;
+    margin-right: 18px;
+    overflow: hidden;
 }
 
 .ads-slider .adslist-card {
@@ -1622,7 +1624,7 @@ div.b {
 
 .ads-slider h3 {
     width: 100px;
-    height: 60px;
+    height: 50px;
 }
 
 .ads-slider .ads-img {
@@ -1971,6 +1973,10 @@ ul.sub-ul li {
 
 .p-t-130 {
     padding-top: 130px;
+}
+
+.p-t-110 {
+    padding-top: 110px;
 }
 
 .p-b-5 {
