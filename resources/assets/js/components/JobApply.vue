@@ -8,9 +8,9 @@
       </div>
       <div class="col-md-12 register_box" v-if="type == 'register'">
         <ul class="multi-step">
-          <li class="active">必要事項のご入力</li>
-          <li class="no-active">内容のご確認</li>
-          <li>送信完了</li>
+          <li class="active">1.必要事項のご入力</li>
+          <li class="no-active">2.内容のご確認</li>
+          <li>3.送信完了</li>
         </ul>
         <form class="col-md-12 form-wrap">
           <input type="hidden" v-model="jobApply.job_id" />
@@ -117,7 +117,7 @@
             <div class="col-md-3 col-sm-12 form-left">
               <label for="str_address">
                 <strong>
-                  Prefecture
+                  県
                   <span class="error sp1">必須</span>
                 </strong>
               </label>
@@ -251,7 +251,7 @@
           <div class="text-center mt-4 pb-5">
             <span
               :disabled="isDisabled"
-              class="btn main-bg-color white all-btn"
+              class="btn main-bg-color white all-btn width17"
               @click="checkValidate()"
             >確認画面へ進む</span>
           </div>
@@ -261,9 +261,9 @@
       <div class="col-md-12 confirm_box" v-if="type == 'confirm'">
         <div id="loader"></div>
         <ul class="multi-step">
-          <li class="active">必要事項のご入力</li>
-          <li class="active">内容のご確認</li>
-          <li>送信完了</li>
+          <li class="active">1.必要事項のご入力</li>
+          <li class="active">2.内容のご確認</li>
+          <li>3.送信完了</li>
         </ul>
         <form class="col-md-10 offset-md-1 form-wrap">
           <div class="form-group m-0 row bd">
@@ -320,15 +320,15 @@
           <div class="form-group m-0 row bd">
             <div class="col-sm-3 form-left">
               <label for="str_address">
-                <strong>Prefecture :</strong>
+                <strong>県</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.pref }}</span>
+              <span class="pl-4">{{ jobApply.pref }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="str_address">
                 <strong>住所 :</strong>
               </label>
@@ -364,7 +364,7 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.email }}</span>
+              <span class="pl-4">{{ jobApply.email }}</span>
             </div>
           </div>
           <!-- <div class="form-group m-0 row bd">
@@ -377,8 +377,8 @@
               <span class="pl-4">{{ jobApply.skill }}</span>
             </div>
           </div> -->
-          <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+          <div class="form-group m-0 row bd-all">
+            <div class="col-sm-3 form-left">
               <label for="remark">
                 <strong>リマーク</strong>
               </label>
@@ -389,8 +389,8 @@
           </div>
 
           <div class="text-center mt-4 pb-5">
-            <span class="btn btn-danger white all-btn" @click="editUserInfo()">入力画面へ戻る</span>
-            <span class="btn main-bg-color white all-btn" @click="apply()">登録する</span>
+            <span class="btn btn-danger white all-btn width17" @click="editUserInfo()">入力画面へ戻る</span>
+            <span class="btn main-bg-color white all-btn width17" @click="apply()">登録する</span>
           </div>
           <br />
           <!-- <div v-if="success" class="alert alert-success mt-3">Apply sent!</div> -->
@@ -400,9 +400,9 @@
       </div>
       <div class="col-md-12 confirm_box" v-if="type == 'completed'">
         <ul class="multi-step">
-          <li class="active">必要事項のご入力</li>
-          <li class="active">内容のご確認</li>
-          <li class="active">送信完了</li>
+          <li class="active">1.必要事項のご入力</li>
+          <li class="active">2.内容のご確認</li>
+          <li class="active">3.送信完了</li>
         </ul>
         <div class="text-center">
           <h3>入力内容は送信されました‼</h3>
@@ -411,7 +411,7 @@
           <p>今後ともどうぞよろしくお願い申し上げます。</p>
           <br />
           <br />
-          <router-link class="btn btn-info all-btn" to="/">ホームへ戻る</router-link>
+          <router-link class="btn btn-info all-btn width17" to="/">ホームへ戻る</router-link>
         </div>
 
         <br />
@@ -421,6 +421,7 @@
   </div>
 </template>
 <script>
+
 export default {
   data() {
     return {
@@ -507,11 +508,13 @@ export default {
       }
     },
     apply() {
+    this.$loading(true);
       // $("#loader").css("display", "block");
       this.axios
         .post("/api/jobapply", this.jobApply)
         .then(response => {
-          // alert("Successful Apply");
+          // alert("Successful Apply");          
+          this.$loading(false);
           // $("#loader").css("display", "none");
           this.jobApply = response.data;
           this.errors.email = this.jobApply;

@@ -1,10 +1,21 @@
 <template>
   <div class="tab-content job-detail">
+    <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/" class="router-link-active">ホーム</a></li>
+          <li aria-current="page" class="breadcrumb-item active">仕事詳細</li>
+        </ol>
+      </nav>
+    </div>
     <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">
-      <h4 class="h_4 header m-4">{{job_details.title}}</h4>
+      <div class="col-12">
+        <h4 class="h_4 header job-title-color">{{jobDetail.title}} <label class="jobid">求人番号: {{jobDetail.jobid}}</label></h4> 
+        
+      </div>
       <div class="col-sm-10 offset-1">
         <!-- <img src="/images/img1.jpg" class="img-responsive" style="width:150px;"> -->
-        <label>求人番号: {{jobDetail.jobid}}</label>
+        
         <div class="form-wrap mt-3">
           <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
@@ -70,7 +81,7 @@
           <div class="row mt-4">
             <div class="col-md-12 text-center">
               <!-- <button type="button" class="btn btn-warning btn-width white">戻る</button> -->
-              <span class="btn main-bg-color white all-btn" @click="jobApply()">確認画面へ進む</span>
+              <span class="btn main-bg-color white all-btn width17" @click="jobApply()">この案件に応募</span>
               <!-- <router-link to="/jobapply" class="btn secondary-bg-color white all-btn">この案件に応募</router-link> -->
             </div>
           </div>

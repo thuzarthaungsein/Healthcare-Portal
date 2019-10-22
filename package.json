@@ -52,6 +52,7 @@
         "vue2-editor": "^2.10.2",
         "vue2-google-maps": "^0.10.7",
         "vuejs-auto-complete": "^0.9.0",
+        "vuejs-loading-plugin": "^1.0.51",
         "vuejs-panorama": "^1.1.9",
         "vuetify": "^2.0.17"
     }
