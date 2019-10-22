@@ -70,8 +70,8 @@
           <div class="row mt-4">
             <div class="col-md-12 text-center">
               <!-- <button type="button" class="btn btn-warning btn-width white">戻る</button> -->
-              <span class="btn main-bg-color white all-btn" @click="jobApply()">確認画面へ進む</span>
-              <!-- <router-link to="/jobapply" class="btn secondary-bg-color white all-btn">この案件に応募</router-link> -->
+              <!-- <span class="btn main-bg-color white all-btn" @click="jobApply()">確認画面へ進む</span> -->
+              <router-link :to="{name: 'jobapply', params: { job_id: job_id }}" class="btn secondary-bg-color white all-btn">この案件に応募</router-link>
             </div>
           </div>
         </div>
@@ -97,10 +97,5 @@ export default {
       });
     this.job_id = this.$route.params.id;
   },
-  methods: {
-    jobApply() {
-      this.$router.push({ name: "jobapply", params: { job_id: this.job_id } });
-    }
-  }
 };
 </script>
