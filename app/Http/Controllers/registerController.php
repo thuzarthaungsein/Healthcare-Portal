@@ -72,9 +72,9 @@ class registerController extends Controller
             'township'=> 'required',
             ]);
 
-            $type = 1;
+            $type = 2;
 
-            if($request->types == '2'){
+            if($request->types == '3'){
                 $type = $request->nursing;
             }
 

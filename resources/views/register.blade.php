@@ -83,8 +83,8 @@
                                     </div>
                                     <select id="type" class="form-control custom-select" name="types">
                                         <option value="">タイプを選択</option>
-                                        <option value="1">病院</option>
-                                        <option value="2">看護</option>
+                                        <option value="2">病院</option>
+                                        <option value="3">介護</option>
                                     </select>
                                 </div>
                                 <div class="input-group mb-3 hide form-check form-check-inline" id="showHideActionNursing">
