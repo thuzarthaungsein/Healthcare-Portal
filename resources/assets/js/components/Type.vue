@@ -1,164 +1,183 @@
 <template>
-
-<div class="row">
-      <div class="col-12">
-          <div class="card ">
-                    <div class="card-header text-center">
-                        <h4 style="padding-top: 20px;"> Type Create </h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                         <div class="col-sm-1"></div>
-                         <div class="col-sm-9">
-                                <form @submit.prevent ="add" class="m-t-16">
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 text-right">
-                                                <label for ="name"  ><strong> Name : <span class="error">*</span></strong>  </label>
-                                            </div>
-                                             <div class="col-sm-9">
-                                                <input type="name" class="form-control box" id="name"  name="name" v-model="Type.name"  >
-                                             </div>
-                                        </div>
-                                          <div class="form-group row">
-                                                <div class="col-sm-3">
-                                                </div>
-                                                <div class="col-sm-9">
-                                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
-                                                </div>
-                                         </div>
-
-                                        <div class="form-group row">
-                                                <div class="col-sm-3 text-right">
-                                                        <label for ="description" ><strong> Parent :</strong>  </label>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <select v-model="selectedValue" class="form-control" @change='getParent()'>
-                                                        <option value="0">None</option>
-                                                        <option v-for="typelist in TypeList" :key="typelist.id" v-bind:value="typelist.id">
-                                                           {{typelist.name}}
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                        </div>
-
-                                          <div class="form-group row">
-                                                <div class="col-sm-10">
-
-                                                </div>
-                                                <div class="col-sm-2">
-                                                     <button class="btn news-post-btn">Create</button>
-                                                </div>
-                                        </div>
-                                </form>
-                           </div>
-                            <div class="col-sm-2"></div>
-
-                       </div>
-
-                     </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="page-header header">{{ header }}</h4>
+            </div>
+            <div class="col-md-12">
+              <form @submit.prevent="add">
+                <div class="form-group">
+                  <label>
+                    名前 :
+                    <span class="error">*</span>
+                  </label>
+                  <input type="text" class="form-control" v-model="Type.name" placeholder="名前" />
+                  <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                 </div>
-             </div>
-         </div>
+                <div class="form-group">
+                  <label>
+                    ペアレント :
+                    <span class="error">*</span>
+                  </label>
+                  <select v-model="selectedValue" class="form-control" @change="getParent()">
+                    <option value="0">なし</option>
+                    <option
+                      v-for="typelist in TypeList"
+                      :key="typelist.id"
+                      v-bind:value="typelist.id"
+                    >{{typelist.name}}</option>
+                  </select>
+                </div>
+                <br />
+                <div class="form-group">
+                  <router-link class="btn btn-danger all-btn" to="/typelist">キャンセル</router-link>
+                  <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->
+                  <button class="btn news-post-btn all-btn">{{subtitle}}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
 <script>
 export default {
-          data() {
-            return {
-                 errors:[
-                ],
-                //  Parents : [ { id: 0,name : 'None'},{ id: 1, name: 'Hospital' },{ id: 2, name: 'Nursing' }],
-                 Type: {
-                        name: '',
-                        parent:'',
-                    },
-                TypeList:{
-                        id: '',
-                        name: ''
-                   },
+  data() {
+    return {
+      errors: [],
 
-                selectedValue:0
+      Type: {
+        name: "",
+        parent: ""
+      },
+      TypeList: {
+        id: "",
+        name: ""
+      },
 
-            }
-        },
-         created() {
+      selectedValue: 0,
+      header: "タイプ作成",
+      subtitle: "タイプを投稿する"
+    };
+  },
+  created() {
+    this.axios.get("/api/types/typelist").then(
+      function(response) {
+        this.TypeList = response.data;
+      }.bind(this)
+    );
+  },
+  mounted() {
+    if (this.$route.params.id) {
+      this.axios
+        .get(`/api/types/edit/${this.$route.params.id}`)
+        .then(response => {
+          this.Type.name = response.data.name;
+          this.Type.parent = response.data.parent;
+          this.selectedValue = response.data.parent;
+          this.TypeList.name = response.data.name;
+          this.header = " 特徴更新";
+          this.subtitle = "更新";
+          return this.header;
+          return this.subtitle;
+        });
+    }
+  },
 
-             this.axios.get('/api/types/typelist')
-              .then(function (response) {
-                   this.TypeList = response.data;
-
-              }.bind(this));
-        },
-        mounted() {
-             this.axios
-               .get(`/api/types/edit/${this.$route.params.id}`)
-                .then((response) => {
-
-                    if( `${this.$route.params.id}` == "undefined")
-                    {
-
-                    }
-                    else{
-
-                        this.Type.name = response.data.name;
-                        this.Type.parent = response.data.parent;
-                        this.selectedValue = response.data.parent;
-                        this.TypeList.name = response.data.name;
-                        console.log(this.selectedValue);
-
-                    }
-
-                });
-
-        },
-
-         methods: {
-            add() {
-                if( `${this.$route.params.id}` == "undefined")
-                {
-                    this.axios.post('/api/types/add', this.Type)
-                        .then((response) => {
-                            this.name = ''
-                        alert('Successfully Created')
-                        this.$router.push({name: 'typelist'});
-                        }).catch(error=>{
-
-                    if(error.response.status == 422){
-
-                        this.errors = error.response.data.errors
-
-                    }
-                })
-                }
-                else{
-                     this.updateType();
-                }
-            },
-             getParent: function(){
-
-               this.Type.parent = this.selectedValue;
-
-           },
-           updateType() {
-
-                this.axios
-                    .post(`/api/types/update/${this.$route.params.id}`, this.Type)
-                    .then((response) => {
-                        this.name = ''
-                          alert('Successfully Updated!')
-                        this.$router.push({name: 'typelist'});
-                    }).catch(error=>{
-
-                    if(error.response.status == 422){
-
-                        this.errors = error.response.data.errors
-
-                    }
-                })   ;
-            },
-
-        }
-
-}
+  methods: {
+    add() {
+      if (this.$route.params.id) {
+        this.updateType();
+      } else {
+        this.$swal({
+          title: "確認",
+          text: "作成よろしいでしょうか",
+          type: "warning",
+          width: 350,
+          height: 200,
+          showCancelButton: true,
+          confirmButtonColor: "#dc3545",
+          cancelButtonColor: "#b1abab",
+          cancelButtonTextColor: "#000",
+          cancelButtonText: "キャンセル",
+          confirmButtonText: "作成",
+          confirmButtonClass: "all-btn",
+          cancelButtonClass: "all-btn"
+        }).then(response => {
+          this.axios
+            .post("/api/types/add", this.Type)
+            .then(response => {
+              this.name = "";
+              console.log(response);
+              this.$swal({
+                position: "top-end",
+                type: "success",
+                title: "作成されました",
+                text: "ファイルが作成されました。",
+                type: "success",
+                width: 350,
+                height: 200,
+                confirmButtonText: "はい",
+                confirmButtonColor: "#dc3545"
+              });
+              // alert('Successfully Created')
+              this.$router.push({ name: "typelist" });
+            })
+            .catch(error => {
+              if (error.response.status == 422) {
+                this.errors = error.response.data.errors;
+              }
+            });
+        });
+      }
+    },
+    getParent: function() {
+      this.Type.parent = this.selectedValue;
+    },
+    updateType() {
+      this.$swal({
+        title: "確認",
+        text: "更新よろしいでしょうか",
+        type: "warning",
+        width: 350,
+        height: 200,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#b1abab",
+        cancelButtonTextColor: "#000",
+        cancelButtonText: "キャンセル",
+        confirmButtonText: "更新",
+        confirmButtonClass: "all-btn",
+        cancelButtonClass: "all-btn"
+      }).then(response => {
+        this.axios
+          .post(`/api/types/update/${this.$route.params.id}`, this.Type)
+          .then(response => {
+            this.types = response.data;
+            this.norecord = this.types.length;
+            this.$swal({
+              title: "更新された",
+              text: "ファイルが更新されました。",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#dc3545"
+            });
+            this.$router.push({ name: "typelist" });
+          })
+          .catch(() => {
+            this.$swal("Failed", "wrong");
+          });
+      });
+    }
+  }
+};
 </script>

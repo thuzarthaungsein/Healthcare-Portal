@@ -1,4 +1,4 @@
-<template>
+<template> 
     <div class="alert alert-success spacing" role="alert" v-show="show">
         {{ body }}
     </div>

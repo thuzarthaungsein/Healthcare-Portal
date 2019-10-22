@@ -7,8 +7,7 @@
                     </div>
                     <div class="card-body ">
                         <div class="row">
-                         <div class="col-sm-1"></div>
-                         <div class="col-sm-9">
+                         <div class="col-sm-10 offset-1">
                                 <form @submit.prevent ="add" class="m-t-16 sendEmail"  method="post">
                                         <div class="form-group row">
                                             <div class="col-sm-3 text-right">
@@ -16,13 +15,13 @@
                                             </div>
                                              <div class="col-sm-9">
                                                 <input type="title"  class="form-control box" id="title"  name="title" v-model="comments.title">
-                                             </div>    
-                                        </div> 
+                                             </div>
+                                        </div>
                                          <div class="form-group row">
                                                 <div class="col-sm-3">
                                                 </div>
                                                 <div class="col-sm-9">
-                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>  
+                                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
                                                 </div>
                                          </div>
 
@@ -64,21 +63,21 @@
                                             </div>
                                              <div class="col-sm-9">
                                                 <input type="name" class="form-control box" id="name"  name="name" v-model="comments.name">
-                                             </div>    
-                                        </div> 
-                                         
-                                         
+                                             </div>
+                                        </div>
+
+
                                          <div class="form-group row">
                                             <div class="col-sm-3 text-right">
                                                 <label for ="year"  ><strong> 生まれた年 <span class="error sp1">必須</span></strong>   </label>
                                             </div>
-                                             <div class="col-sm-9">     
+                                             <div class="col-sm-9">
                                                 <select id="dob" class="form-control"  v-model="selectedValue" @change="getYear()">
                                                     <option value="0">選択してください:</option>
                                                     <option v-for="year in years" :key="year.id"  :value="year">{{ year }}</option>
-                                                    </select>
-                                             </div>    
-                                        </div> 
+                                                </select>
+                                             </div>
+                                        </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-3 text-right">
@@ -87,23 +86,23 @@
                                              <div class="col-sm-9">
                                                    <label> <input type="radio" class="custom-radio" v-model="comments.gender" value="0"  > 男性 </label>
                                                    <label> <input type="radio" class="custom-radio" v-model="comments.gender" value="1" >女性 </label>
-                                             </div>    
-                                        </div> 
-                                        
+                                             </div>
+                                        </div>
+
 
                                         <div class="form-group row"  v-for="field in comments.fields" :key="field.id">
                                             <div class="col-sm-3 text-right">
                                                 <label for ="zipcode"  ><strong> 郵便番号(半角数字) <span class="error sp1">必須</span></strong>   </label>
                                             </div>
                                              <div class="col-sm-2">
-                                                 <input type="text" class="form-control box fnumericzip" value="firstzip" v-model="field.fzipcode" maxlength="3" v-on:keyup="CheckFirstZipcode" required>
+                                                 <input type="text" class="form-control box fnumericzip" value="firstzip" v-model="field.fzipcode" maxlength="3" v-on:keyup="CheckFirstZipcode" >
                                               <span v-if="errors.fzipcode" class="error">{{errors.fzipcode[0]}}</span>
-                                             </div>   
+                                             </div>
                                                <div class="col-sm-2">
-                                                 <input type="text" class="form-control box lnumericzip" value="secondzip" v-model="field.lzipcode" maxlength="4" v-on:keyup="CheckFirstZipcode" required>      
+                                                 <input type="text" class="form-control box lnumericzip" value="secondzip" v-model="field.lzipcode" maxlength="4" v-on:keyup="CheckFirstZipcode" >
                                                   <span v-if="errors.lzipcode" class="error">{{errors.lzipcode[0]}}</span>
-                                             </div>   
-                                        </div> 
+                                             </div>
+                                        </div>
                                         <div class="form-group row">
                                                 <div class="col-sm-3">
                                                 </div>
@@ -114,21 +113,22 @@
 
                                         <div class="form-group row" style="padding-top:60px;">
                                             <div class="col-sm-5"></div>
-                                            <div class="col-sm-4">     
-                                              <a href="#" ><strong> 利用規約 </strong></a>  
-                                              <a href="#" ><strong> 個人情報保護方針 </strong></a>     
+                                            <div class="col-sm-4">
+                                              <!-- <a href="#" ><strong> 利用規約 </strong></a>
+                                              <a href="#" ><strong> 個人情報保護方針 </strong></a>      -->
+                                              <router-link to="/termsAndConditions" > <strong>「プライバシーポリシー」</strong></router-link>
                                             </div>
                                             <div class="col-sm-3"></div>
-                                          
+
                                         </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-3"></div>
                                             <div class="col-sm-7">
-                                                 <button class="btn news-post-btn btn-md"> 利用規約、個人情報の取り扱いについてに同意して確認する </button>   
+                                                 <button class="btn news-post-btn btn-md"> 利用規約、個人情報の取り扱いについてに同意して確認する </button>
                                             </div>
-                                            <div class="col-sm-4"></div>    
-                                        </div>             
+                                            <div class="col-sm-4"></div>
+                                        </div>
                                   </form>
                              </div>
                             <div class="col-sm-2"></div>
@@ -141,7 +141,7 @@
 
 <script>
 export default {
-          data() {        
+          data() {
             return {
                 errors:[],
                 comments: {
@@ -159,10 +159,10 @@ export default {
                         status:'',
                         recordstatus:'',
 
-                    },    
-                    selectedValue:0,  
+                    },
+                    selectedValue:0,
             }
-          
+
         },
         computed : {
             years () {
@@ -179,20 +179,20 @@ export default {
             add() {
 
                   this.axios.post('/api/comments/add', this.comments)
-                    .then((response) => {   
-                    alert('Mail Sent Successfully !') 
+                    .then((response) => {
+                    alert('Mail Sent Successfully !')
 
                      this.$router.push({name: 'commentlist'});
                     }).catch(error=>{
-                        
+
                     if(error.response.status == 422){
-                      
-                        this.errors = error.response.data.errors       
-                          
+
+                        this.errors = error.response.data.errors
+
                     }
-                }) 
-               
-                  
+                })
+
+
             },
              getYear: function(){
 
@@ -202,9 +202,9 @@ export default {
            CheckFirstZipcode(){
                var fzip = $('.fnumericzip').val();
                var lzip = $('.lnumericzip').val();
-               
+
                 if(!fzip.match('^(0|[1-9][0-9]*)$')){
-                  
+
                    this.errors.fields = 'Zipcode must be numeric !'
                 }
                 else if(fzip.match('^(0|[1-9][0-9]*)$') && lzip == '' )
@@ -213,21 +213,21 @@ export default {
                 }
                 else if(fzip.match('^(0|[1-9][0-9]*)$') && !lzip.match('^(0|[1-9][0-9]*)$'))
                 {
-                  
+
                      this.errors.fields = 'Zipcode must be numeric !'
                 }
                 else if(!fzip.match('^(0|[1-9][0-9]*)$') && lzip.match('^(0|[1-9][0-9]*)$'))
-                {  
+                {
                      this.errors.fields = 'Zipcode must be numeric !'
-                }      
+                }
                 else{
                     this.errors.fields = ''
                 }
-                    
+
             }
-           
-          
-         }  
+
+
+         }
 }
 
 

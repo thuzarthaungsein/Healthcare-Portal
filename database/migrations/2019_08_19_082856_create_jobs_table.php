@@ -17,6 +17,7 @@ class CreateJobsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->integer('customer_id');
+            $table->integer('occupation_id');
             $table->text('description');
             $table->text('skills');
             $table->text('location');
@@ -27,6 +28,7 @@ class CreateJobsTable extends Migration
             $table->text('insurance');
             $table->text('working_hours');
             $table->text('holidays');
+            $table->string('job_number');
             $table->integer('user_id');
             $table->integer('recordstatus')->default(1);
             $table->timestamps();

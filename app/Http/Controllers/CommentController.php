@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailComment;
@@ -12,10 +13,8 @@ class CommentController extends Controller
     protected $zipcode;
     public function index()
     {
-        //$comment =Comment::all()->toArray();
-        $comment = Comment::where('id',2)->get();
-         return $comment;
-         //return array_reverse($comment);
+        $comment =Comment::all()->toArray();
+        return array_reverse($comment);
     }
 
 
@@ -28,44 +27,28 @@ class CommentController extends Controller
     public function store(Request $request)
     {
 
-        // $request->validate([
-        //     'title' => 'required',
-        //     'comment' =>'required',
-        //     'email' => 'required|email',
-        //     'fzipcode' => 'required|numeric',
-        //     'lzipcode' => 'required|numeric',
-        // ],[
-        //     'fzipcode.required' => 'First zipcode is required',
-        //     'lzipcode.required' => 'Second zipcode is required'
-        // ]);
-
         $request->validate([
             'title' => 'required',
             'comment' =>'required',
             'email' => 'required|email',
+            //  'fzipcode' => 'required',
+            //  'lzipcode' => 'required',
+        ]
+        // ,[
+        //     'fzipcode.required' => 'First zipcode is required and must be three !',
+        //     'lzipcode.required' => 'Second zipcode is required and  must be four'
+        // ]
+    );
 
-        ]);
+        // $request->validate([
+        //     'title' => 'required',
+        //     'comment' =>'required',
+        //     'email' => 'required|email',
 
-
-
-
+        // ]);
 
         $zipcode =  $request->fields[0]['fzipcode'] . '-' . $request->fields[0]['lzipcode'];
 
-        // $comment = new Comment ([
-
-        //     'title' => $request->input('title'),
-        //     'comment' => $request->input('comment'),
-        //     'email' => $request->input('email'),
-        //     'name' =>  $request->input('name'),
-        //     'year' => $request->input('year'),
-        //     'gender' => $request->input('gender'),
-        //     'zipcode' =>  $zipcode,
-        //     'customer_id' => 1,
-        //     'status' => 0,
-        //     'recordstatus' => 2
-
-        // ]);
 
         $comment = new Comment();
         $comment->title = $request->input('title');
@@ -80,16 +63,20 @@ class CommentController extends Controller
         $comment->recordstatus = 1;
         $comment ->save();
 
+    
         $getComment = Comment::findOrFail($comment->id);
-
-        if($getComment->gender == 0 )
+        $query = "SELECT cu.id as cusid ,cu.name as cusname,co.* from customers As cu  Join comments As co on cu.id = co.customer_id  where co.customer_id =" . $comment->customer_id . " and co.id =" .$comment->id;
+        $getComment = DB::select($query);
+      
+        if($getComment[0]->gender == 0 )
         {
-            $getComment->gender = "Male";
+            $getComment[0]->gender = "Male";
         }
         else{
-            $getComment->gender = "Female";
+            $getComment[0]->gender = "Female";
         }
-        \Mail::to($getComment)->send(new SendMailComment($getComment));
+        // \Mail::to('mayphue17@management-part')->send(new SendMailComment($getComment));
+        \Mail::to($getComment[0]->email)->send(new SendMailComment($getComment));
 
         // return response()->json(['success'=>'Done!']);
 

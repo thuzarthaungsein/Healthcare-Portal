@@ -9,7 +9,7 @@ use App\Cooperate_Medical;
 use App\method_payment;
 use App\Customer;
 use App\Staff;
-use App\Transition;
+use App\AcceptanceTransaction;
 use DB;
 
 class NursingProfileController extends Controller
@@ -25,33 +25,33 @@ class NursingProfileController extends Controller
     }
 
     public function edit($id) {
-        $nursing = NursingProfile::find($id);
 
-        return response()->json($nursing);
+        $nursing = NursingProfile::where('customer_id', $id)
+                    ->first();
+        return $nursing;
+    }
+
+    public function movePhoto(Request $request) {
+        $request = $request->all();
+
+        $destination = 'upload/nursing_profile/'.$request['photo'];
+        $upload_img = move_uploaded_file($request['file'], $destination);
     }
 
     public function galleryupdate($id,Request $request) {
         $request = $request->all();
-
-        // $gallery = Gallery::where('customer_id', $id)
-        //                 ->delete();
-
+        $del_gallery = Gallery::where('customer_id', $id)
+                        ->delete();
+       
         for($i=0; $i<count($request); $i++) {
-            if(is_object($request[0]['photo'])) {
-                echo 'Yes';
-            }else {
-                echo 'No';
-            }exit;
-            $data = array(
-                'customer_id' => $id,
-                'type' => $request[$i]['type'],
-                'photo'=>$request[$i]['photo'],
-                'title'=>$request[$i]['title'],
-                'description'=>$request[$i]['description'],
-                'created_at' => date('Y/m/d H:i:s'),
-                'updated_at' => date('Y/m/d H:i:s')
-            );
-            DB::table('galleries')->insert($data);
+            $gallery = new Gallery;
+            $gallery->customer_id = $id;
+            $gallery->type = $request[$i]['type'];
+            $gallery->photo = $request[$i]['photo'];
+            $gallery->title = $request[$i]['title'];
+            $gallery->description = $request[$i]['description'];
+
+            $gallery->save();
         }
     }
 
@@ -62,15 +62,15 @@ class NursingProfileController extends Controller
                         ->delete();
 
         for($i=0; $i<count($request); $i++) {
-            $data = array(
-                'customer_id' => $id,
-                'name' => $request[$i]['name'],
-                'clinical_subject'=>$request[$i]['subject'],
-                'details'=>$request[$i]['details'],
-                'medical_expense'=>$request[$i]['expense'],
-                'remark'=>$request[$i]['remark'],
-            );
-            DB::table('cooperate_medical')->insert($data);
+            $cop_medical = new Cooperate_Medical;
+            $cop_medical->customer_id = $id;
+            $cop_medical->name = $request[$i]['name'];
+            $cop_medical->clinical_subject = $request[$i]['subject'];
+            $cop_medical->details = $request[$i]['details'];
+            $cop_medical->medical_expense = $request[$i]['expense'];
+            $cop_medical->remark = $request[$i]['remark'];
+
+            $cop_medical->save();
         }
        
     }
@@ -82,27 +82,27 @@ class NursingProfileController extends Controller
                         ->delete();
 
         for($i=0; $i<count($request); $i++) {
-            $data = array(
-                'customer_id' => $id,
-                'payment_name' => $request[$i]['payment_name'],
-                'expense_moving'=>$request[$i]['expense_moving'],
-                'monthly_fees'=>$request[$i]['monthly_fees'],
-                'living_room_type'=>$request[$i]['living_room_type'],
-                'area'=>$request[$i]['area'],
-                'details'=>$request[$i]['details'],
-                'deposit'=>$request[$i]['deposit'],
-                'other_use'=>$request[$i]['other_use'],
-                'rent'=>$request[$i]['rent'],
-                'admin_expense'=>$request[$i]['admin_expense'],
-                'food_expense'=>$request[$i]['food_expense'],
-                'nurse_care_surcharge'=>$request[$i]['nurse_care_surcharge'],
-                'other_monthly_cost'=>$request[$i]['other_monthly_cost'],
-                'refund_system'=>$request[$i]['refund_system'],
-                'depreciation_period'=>$request[$i]['depreciation_period'],
-                'initial_deprecration'=>$request[$i]['initial_deprecration'],
-                'other_message_refund'=>$request[$i]['other_message_refund']
-            );
-            DB::table('method_payment')->insert($data);
+            $m_payment = new method_payment;
+            $m_payment->customer_id = $id;
+            $m_payment->payment_name = $request[$i]['payment_name'];
+            $m_payment->expense_moving = $request[$i]['expense_moving'];
+            $m_payment->monthly_fees = $request[$i]['monthly_fees'];
+            $m_payment->living_room_type = $request[$i]['living_room_type'];
+            $m_payment->area = $request[$i]['area'];
+            $m_payment->deposit = $request[$i]['deposit'];
+            $m_payment->other_use = $request[$i]['other_use'];
+            $m_payment->rent = $request[$i]['rent'];
+            $m_payment->admin_expense = $request[$i]['admin_expense'];
+            $m_payment->food_expense = $request[$i]['food_expense'];
+            $m_payment->nurse_care_surcharge = $request[$i]['nurse_care_surcharge'];
+            $m_payment->other_monthly_cost = $request[$i]['other_monthly_cost'];
+            $m_payment->refund_system = $request[$i]['refund_system'];
+            $m_payment->depreciation_period = $request[$i]['depreciation_period'];
+            $m_payment->initial_deprecration = $request[$i]['initial_deprecration'];
+            $m_payment->other_message_refund = $request[$i]['other_message_refund'];
+
+            $m_payment->save();
+
         }
         
     }
@@ -110,77 +110,88 @@ class NursingProfileController extends Controller
     public function profileupdate($id,Request $request) {
         $request = $request->all();
     
-        $nursing = NursingProfile::where('customer_id',$id);
-        $uploadData = array(
-            'access' => $request[0]['access'],
-            'business_entity' => $request[0]['business_entity'],
-            'date_of_establishment' =>  $request[0]['date_of_establishment'],
-            'land_right_form'=>  $request[0]['land_right_form'],
-            'building_right_form'=>  $request[0]['building_right_form'],
-            'site_area' =>  $request[0]['site_area'],
-            'floor_area' =>  $request[0]['floor_area'],
-            'construction' =>  $request[0]['construction'],
-            'capacity' =>  $request[0]['capacity'],
-            'num_rooms' =>  $request[0]['num_rooms'],
-            'residence_form' =>  $request[0]['residence_form'],
-            'fac_type' =>  $request[0]['fac_type'],
-            'occupancy_condition' =>  $request[0]['occupancy_condition'],
-            'room_floor' =>  $request[0]['room_floor'],
-            'living_room_facilities' =>  $request[0]['living_room_facilities'],
-            'equipment' =>  $request[0]['equipment'],
-            'special_features' =>  $request[0]['special_features'],
-            'acceptance_remark' =>  $request[0]['acceptance_remark'],
-            'latitude' =>  $request[0]['latitude'],
-            'longitude' =>  $request[0]['longitude']
-       );
+        $nursing = NursingProfile::where('customer_id',$id)->first();
 
-       $nursing->update($uploadData);
+        $nursing->access = $request[0]['access'];
+        $nursing->business_entity = $request[0]['business_entity'];
+        $nursing->website = $request[0]['website'];
+        $nursing->moving_in = $request[0]['moving_in'];
+        $nursing->per_month = $request[0]['per_month'];
+        $nursing->feature = $request[0]['feature'];
+        $nursing->method = $request[0]['method'];
+        $nursing->date_of_establishment = $request[0]['date_of_establishment'];
+        $nursing->land_right_form = $request[0]['land_right_form'];
+        $nursing->building_right_form = $request[0]['building_right_form'];
+        $nursing->site_area = $request[0]['site_area'];
+        $nursing->floor_area = $request[0]['floor_area'];
+        $nursing->construction = $request[0]['construction'];
+        $nursing->capacity = $request[0]['capacity'];
+        $nursing->num_rooms = $request[0]['num_rooms'];
+        $nursing->residence_form = $request[0]['residence_form'];
+        $nursing->fac_type = $request[0]['fac_type'];
+        $nursing->occupancy_condition = $request[0]['occupancy_condition'];
+        $nursing->room_floor = $request[0]['room_floor'];
+        $nursing->living_room_facilities = $request[0]['living_room_facilities'];
+        $nursing->equipment = $request[0]['equipment'];
+        $nursing->acceptance_remark = $request[0]['acceptance_remark'];
+        $nursing->latitude = $request[0]['latitude'];
+        $nursing->longitude = $request[0]['longitude'];
+        // $nursing->stations = $request[0]['stations'];
+
+        $nursing->save();
     }
 
     public function Customerprofileupdate($id,Request $request) {
         $request = $request->all();
-
         $customer = Customer::find($id);
-        $uploadData = array(
-            'name' => $request['name'],
-            'email' =>  $request['email'],
-            'phone'=>  $request['phone'],
-            'address'=>  $request['address']
-       );
 
-       $customer->update($uploadData);
+        $customer->name = $request[0]['name'];
+        $customer->email = $request[0]['email'];
+        $customer->phone = $request[0]['phone'];
+        $customer->address = $request[0]['address'];
 
+        $customer->save();
     }
 
     public function Staffprofileupdate($id,Request $request) {
+        
         $request = $request->all();
-     
-        $customer = Staff::where('customer_id', $id);
-        $uploadData = array(
-            'staff' => $request[0]['staff'],
-            'nursing_staff' =>  $request[0]['nursing_staff'],
-            'min_num_staff'=>  $request[0]['min_num_staff'],
-            'num_staff'=>  $request[0]['num_staff'],
-            'remarks'=>  $request[0]['nursing_remarks']
-       );
-
-       $customer->update($uploadData);
+        $staff = Staff::where('customer_id', $id)->first();
+    
+        if($staff) {
+            $staff->customer_id = $id;
+            $staff->staff = $request[0]['staff'];
+            $staff->nursing_staff = $request[0]['nursing_staff'];
+            $staff->min_num_staff = $request[0]['min_num_staff'];
+            $staff->num_staff = $request[0]['num_staff'];
+            $staff->remarks = $request[0]['nursing_remarks'];
+            $staff->save();
+        } else {
+            $new_staff = new Staff;
+            $new_staff->customer_id = $id;
+            $new_staff->staff = $request[0]['staff'];
+            $new_staff->nursing_staff = $request[0]['nursing_staff'];
+            $new_staff->min_num_staff = $request[0]['min_num_staff'];
+            $new_staff->num_staff = $request[0]['num_staff'];
+            $new_staff->remarks = $request[0]['nursing_remarks'];
+            $new_staff->save();
+        }
+      
     }
 
-    public function AcceptanceTransition($id,Request $request) {
+    public function AcceptanceTransactions($id,Request $request) {
         $request = $request->all();
 
-        $transition = Transition::where('customer_id', $id)
+        $transition = AcceptanceTransaction::where('customer_id', $id)
                         ->delete();
 
         for($i=0; $i<count($request); $i++) { 
             if($request[$i] != '') {
-                $uploadData = array(
-                    'customer_id' => $id,
-                    'acceptance_id' =>  $i,
-                    'status'=>  $request[$i]
-               );
-               DB::table('transition')->insert($uploadData);
+                $accept_transaction = new AcceptanceTransaction;
+                $accept_transaction->customer_id = $id;
+                $accept_transaction->medical_acceptance_id = $request[$i]['id'];
+                $accept_transaction->accept_type = $request[$i]['type'];
+                $accept_transaction->save();
             } 
         }
 

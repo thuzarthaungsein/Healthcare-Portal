@@ -9,6 +9,15 @@ use App\Cooperate_Medical;
 use App\Medical;
 use App\Staff;
 use App\HospitalProfile;
+use App\AcceptanceTransaction;
+use DB;
+use App\special_feature;
+use App\Customer;
+use App\Comment;
+use App\Schedule;
+use App\Facility;
+use App\Subject;
+use App\Gallery;
 
 class ProfilePublishController extends Controller
 {
@@ -19,142 +28,159 @@ class ProfilePublishController extends Controller
      */
     public function index()
     {
-        //$nurse = NursingProfile::all()->toArray();
-         $feature = NursingProfile::select('feature')->where('id',1)->get();
-        $facility = NursingProfile::where('customer_id',5)->get();
-        $comedical = Cooperate_Medical::all()->toArray();
-        $medical = Medical::select('name')->where('id',1)->get();
-        $staff = Staff::where('id',1)->get();
-        $nurselatlong = NursingProfile::where('id',1)->get();
-        $hoslatlong = HospitalProfile::where('id',1)->get();
-        $hospital = HospitalProfile::where('id',4)->get();
-        $cost =method_payment::where('id',1)->get();
-        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medical"=>$medical,"staff"=>$staff,"nurselatlong"=>$nurselatlong,"hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"cost"=>$cost));
-        // return $feature;
-  
-    }
-
-    public function getfacilities()
-    {
-       // $nurse = NursingProfile::all()->toArray();
-    //    $nurse = NursingProfile::where('customer_id',5)->get();
-      
-       return response()->json(array("nurse"=>$nurse,"test"=>$test));
-  
-    }
-
-    public function getcooperatemedical()
-    {
         //
-        // $comedical = Cooperate_Medical::all()->toArray();
-        return array_reverse($comedical);
-    }
-    public function hospital(){
-        // $hospital = HospitalProfile::where('id',4)->get();
-        return $hospital;
     }
 
-    public function getmedicalacceptance()
+    public function hospitalProfile($cusid)
     {
-        //
-        // $medical = Medical::select('name')->where('id',1)->get();
-        return $medical;
+        $hospital = HospitalProfile::where('customer_id',$cusid)->get();        
+
+        //for hospital map
+        $hoslatlong =  DB::table('customers') ->select('customers.address','hospital_profiles.*')
+                        ->join('hospital_profiles','hospital_profiles.customer_id','=','customers.id')
+                        ->where('hospital_profiles.customer_id','=',$cusid)->get();
+
+        $facility_list = Facility::select('id','description')->get();
+        $profile_facility =  HospitalProfile::select('facilities')->where('customer_id',$cusid)->value('facilities');
+        $hosfacility= explode(',',$profile_facility);
+        $facility = Facility::whereIn('id',$hosfacility)->select('description','id')->get();
+        //for image slide show
+        $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
+        
+        return response()->json(array("hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"images"=>$images,"facility_list"=>$facility_list,"facility"=>$facility));
     }
-   
-    public function getstaff()
+
+    public function nursingProfile($cusid)
     {
-        //
-        // $staff = Staff::where('id',1)->get();
-        return $staff;
+        
+        $feature = NursingProfile::select('feature')->where('customer_id',$cusid)->get();
+       
+        $method = NursingProfile::select('method')->where('customer_id',$cusid)->get();
+        $facility = NursingProfile::where('customer_id',$cusid)->get();
+        $comedical = Cooperate_Medical::where('customer_id',$cusid)->get();
+
+        $sql = "SELECT method_payment.* from method_payment INNER JOIN customers ON method_payment.customer_id= customers.id";
+        $cost = DB::select($sql);
+
+        //forshow all medical acceptance
+        $medicalacceptance = Medical::select('id','name')->get();
+
+        //forshow custom icon
+        $medical =  DB::table('acceptance_transactions') ->select('acceptance_transactions.accept_type','medical_acceptance.name')
+                        ->join('medical_acceptance','medical_acceptance.id','=','acceptance_transactions.medical_acceptance_id')
+                        ->where('acceptance_transactions.customer_id','=',$cusid)->get();
+
+        $staff = Staff::where('customer_id',$cusid)->get();
+
+         //for nursing map
+        $nurselatlong =  DB::table('customers') ->select('customers.address','nursing_profiles.*')
+                             ->join('nursing_profiles','nursing_profiles.customer_id','=','customers.id')
+                             ->where('nursing_profiles.customer_id','=',$cusid)->get();       
+
+        //for image slide show
+        $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
+
+        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff, "nurselatlong"=>$nurselatlong,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"images"=>$images));
     }
 
-    public function getGoogleMapForNurse()
+    public function getComment($cusid)
     {
-        //
-        // $latlong = NursingProfile::where('id',1)->get();
-        return $latlong;
+        $sql = "SELECT comments.id,comments.title,comments.email,comments.year,comments.comment from comments INNER JOIN nursing_profiles ON comments.customer_id= nursing_profiles.customer_id WHERE comments.customer_id = $cusid";
+        $comment = DB::select($sql);
+        return $comment;
     }
 
-    public function getGoogleMapForHospital()
+    public function getCustomer($cusid,$type)
     {
-        //
-        // $latlong = HospitalProfile::where('id',1)->get();
-        return $latlong;
+        // $customer = Customer::where('id',$cusid)->get();
+        if($type == 'hospital'){
+            $type = 'hospital_profiles';
+        }
+        else{
+            $type = 'nursing_profiles';
+        }
+        $sql = "SELECT customers.*,$type.* from customers inner join $type on customers.id = $type.customer_id where customers.id = $cusid";
+        $customer = DB::select($sql);
+        return $customer;
     }
 
+    public function getSpecialfeature($type,$cusid){
+        if($type == 'hospital'){
+            $sfeature=HospitalProfile::select('special_features')->where('customer_id',$cusid)->value('special_features');
+        }
+        else{
+            $sfeature=NursingProfile::select('special_features')->where('customer_id',$cusid)->value('special_features');
+        }
 
+        $sql = "SELECT * FROM special_features WHERE id IN (".$sfeature.")";
+        $specialfeature = DB::select($sql);
+        return response()->json($specialfeature);
+    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function getSubject($cusid){
+        $sub = HospitalProfile::select('subject')->where('customer_id',$cusid)->value('subject');
+        
+        if($sub != null){
+            $query="SELECT * FROM subjects WHERE id IN (".$sub.")";
+            $subject = DB::select($query);
+        }
+        else{
+            $subject = '';
+        }
+        
+        return response()->json($subject);
+    }
+
+    public function getSchedule($cusid){
+        $schedule_am = Schedule::select('mon','tue','wed','thu','fri','sat','sun')->where('customer_id', $cusid)
+                            ->where('part', '=', 'am')
+                            ->get();
+        $schedule_pm = Schedule::select('mon','tue','wed','thu','fri','sat','sun')->where('customer_id', $cusid)
+                            ->where('part', '=', 'pm')
+                            ->get();
+
+        return response()->json(array("am"=> $schedule_am, "pm"=> $schedule_pm));
+    }
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show()
     {
         //
-        // $cost =method_payment::all()->toArray();
-        return $cost;
+
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-       
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //
     }
 
-    public function getStaffbyCustomerId($customer_id) {
-        $staff = Staff::where("customer_id",$customer_id)->get();
+    public function getStaffbyCustomerId($cusid) {
+        $staff = Staff::where("customer_id",$cusid)->first();
 
         return $staff;
     }

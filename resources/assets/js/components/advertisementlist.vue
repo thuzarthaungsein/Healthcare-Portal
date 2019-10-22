@@ -2,7 +2,7 @@
 <template>
   <div class="row">
     <div class="col-12">
-      <div class="row m-b-15" v-if="this.advertisements.length !== 0">
+      <div class="row m-b-15" v-if="norecord!== 0">
         <div class="col-md-12">
           <router-link
             to="/advertisement"
@@ -16,7 +16,7 @@
 
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="scrolldiv col-12">
-          <div v-if="!this.advertisements.length" class="card card-default card-wrap">
+          <div v-if="!norecord" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -41,7 +41,7 @@
               </div>
             </div>
             <hr />
-            <h5 class="header">広告</h5>
+            <h5 class="header">広告一覧</h5>
             <div v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
               <div class="card-body news-post">
                 <div class="row">
@@ -80,12 +80,14 @@ export default {
   data() {
     return {
       advertisements: [],
-      isOpen: false
+      isOpen: false,
+      norecord:0,
     };
   },
   created() {
     this.axios.get("/api/advertisement/ads").then(response => {
       this.advertisements = response.data;
+      this.norecord = this.advertisements.length;
     });
   },
 
@@ -94,14 +96,41 @@ export default {
     //     this.isOpen = !this.isOpen;
     // },
     deleteAds(id) {
-      if (confirm("Are you sure you want to delete?")) {
+      this.$swal({
+        title: "確認",
+        text: "削除よろしいでしょうか",
+        type: "warning",
+        width: 350,
+        height: 200,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#b1abab",
+        cancelButtonTextColor: "#000",
+        confirmButtonText: "削除",
+        cancelButtonText: "キャンセル",
+        confirmButtonClass: "all-btn",
+        cancelButtonClass: "all-btn"
+      }).then(response=>{
         this.axios.delete(`/api/advertisement/delete/${id}`).then(response => {
-          alert("Delete Successfully!");
-          let a = this.advertisements.map(item => item.id).indexOf(id);
-          this.advertisements.splice(a, 1);
+            this.advertisements = response.data;
+            this.norecord = this.advertisements.length;
+          //alert("Delete Successfully!");
+        //   let a = this.advertisements.map(item => item.id).indexOf(id);
+        //   this.advertisements.splice(a, 1);
+          this.$swal({
+              title: "削除された",
+              text: "ファイルが削除されました。",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#dc3545"
+            });
         });
-      }
-    },
+      })
+
+      },
+
 
     searchAdvertisment() {
       var search_word = $("#search-item").val();
@@ -111,7 +140,8 @@ export default {
         this.advertisements = response.data;
       });
     }
+     }
   }
-};
+
 </script>
 

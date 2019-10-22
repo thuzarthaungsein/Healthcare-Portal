@@ -32,54 +32,39 @@ class PostController extends Controller
     // add news
     public function add(Request $request)
     {
-        // return $request->input('related_news');
-        $request->validate([
-            'title' => 'required',
-            'main_point' => 'required',
-            'category_id' => 'required',
-            'related_news' => 'required',
-            'body' => 'required',
-        ],[
-            'title.required' => 'ニュースの題名が必須です。',
-            'main_point.required' => 'ニュースの主な情報が必須です。',
-            'category_id.required' => 'ニュースのカテゴリーが必須です。',
-            'related_news.required' => 'ニュースのカテゴリーが必須です。',
-            'body.required' => 'ニュースの内容が必須です。',
-        ]);
-
-        if($request->image != null && $request->image != "")
-        {
-            $imageName = $request->image->getClientOriginalName();
-            // $request->image->move(public_path('/upload/news'), $imageName);
-
+        if(is_object($request->photo)){
+            $imageName = $request->photo->getClientOriginalName();
             $imageName = str_replace(' ', '', $imageName);
             $request->photo->move('upload/news/', $imageName);
-
-            $post = new Post([
-                'title' => $request->input('title'),
-                'main_point' => $request->input('main_point'),
-                'body' => $request->input('body'),
-                'photo' =>$imageName,
-                'category_id' =>$request->input('category_id'),
-                'related_news' =>$request->input('related_news'),
-                'user_id' => 1,
-                'recordstatus' => 1
-            ]);
+        }else {
+            $imageName =$request->photo;
         }
-        else{
-            $post = new Post([
-                'title' => $request->input('title'),
-                'main_point' => $request->input('main_point'),
-                'body' => $request->input('body'),
-                'category_id' =>$request->input('category_id'),
-                'related_news' =>$request->input('related_news'),
-                'user_id' => 1,
-                'recordstatus' => 1
-            ]);
-        }
-        $post->save();
+        $post = new Post() ;
+            $post->title = $request->input('title');
+            $post->main_point = $request->input('main_point');
+            $post->body=$request->input('body');
+            $post->photo = $imageName;
+            $post->category_id=$request->input('category_id');
+            $post->related_news=$request->input('related_news');
+            $post->user_id = 1;
+            $post->recordstatus=1;
 
-        // return response()->json('The New successfully added');
+            $post->save();
+
+        return response()->json('The New successfully added');
+
+
+        // $post = new Post([
+        //             'title' => $request->input('title'),
+        //             'main_point' => $request->input('main_point'),
+        //             'body' => $request->input('body'),
+        //             'photo' =>$imageName,
+        //             'category_id' =>$request->input('category_id'),
+        //             'related_news' =>$request->input('related_news'),
+        //             'user_id' => 1,
+        //             'recordstatus' => 1
+        //         ]);
+
     }
 
 
@@ -118,7 +103,6 @@ class PostController extends Controller
     public function show_related($id) {
 
         $related_news = Post::select('related_news','category_id')->where('id',$id)->get();
-                
         if($related_news[0]["related_news"] != null) {
             $sql = "select * from posts where id in(".$related_news[0]["related_news"].")";
             $news = DB::select($sql);
@@ -130,6 +114,7 @@ class PostController extends Controller
         $latest = Post::select('*')->where('category_id',$related_news[0]["category_id"])->orderBy('created_at','DESC')->limit('5')->get();
 
         $data = array("related_news"=>$news, "latest_news" => $latest);
+        return $data;
 
         return response()->json($data);
     }
@@ -155,45 +140,60 @@ class PostController extends Controller
      */
     public function update($id, Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'main_point' => 'required',
-            'category_id' => 'required',
-            'related_news' => 'required',
-            'body' => 'required',
-        ],[
-            'title.required' => 'ニュースの題名が必須です。',
-            'main_point.required' => 'ニュースの主な情報が必須です。',
-            'category_id.required' => 'ニュースのカテゴリーが必須です。',
-            'related_news.required' => 'ニュースのカテゴリーが必須です。',
-            'body.required' => 'ニュースの内容が必須です。',
-        ]);
-        if(is_object($request->photo)){
-            $imageName = $request->photo->getClientOriginalName();
-            // $request->photo->move(public_path('/upload/news'), $imageName);
-            $imageName = str_replace(' ', '', $imageName);
-            $request->photo->move('upload/news/', $imageName);
-        }else {
-            $imageName =$request->photo;
-        }
-
-        $formData = array(
-            'title' => $request->input('title'),
-            'main_point' => $request->input('main_point'),
-            'body' => $request->input('body'),
-            'photo' => $imageName,
-            'category_id' =>$request->input('category_id'),
-            'related_news' =>$request->input('related_news'),
-            'user_id' => 1,
-            'recordstatus' => 1
-        );
         $post = Post::find($id);
-        if(is_object($request->photo)){
-            $file= $post->photo;
-            $filename = '/upload/news/'.$file;
-            \File::delete($filename);
+        if($request->old_photo == ' ' || $request->old_photo == null ){
+            if(is_object($request->photo)) {
+                $file= $post->photo;
+                $filename = './upload/news/'.$file;
+                \File::delete($filename);
+                $imageName = $request->photo->getClientOriginalName();
+                $imageName = str_replace(' ', '', $imageName);
+                $request->photo->move('upload/news/', $imageName);
+            }
+            else {
+                $file= $post->photo;
+                $imageName = $file;
+            }
         }
-        $post->update($formData);
+        else {
+            if(is_object($request->photo)) {
+                $file= $post->photo;
+                $filename ='./upload/news/'.$file;
+                \File::delete($filename);
+                $imageName = $request->photo->getClientOriginalName();
+                $imageName = str_replace(' ', '', $imageName);
+                $request->photo->move('upload/news/', $imageName);
+            }
+
+            else {
+                $file= $post->photo;
+                $filename ='./upload/news/'.$file;
+                \File::delete($filename);
+                $imageName = '';
+            }
+        }
+        // $formData = array(
+        //     'title' => $request->input('title'),
+        //     'main_point' => $request->input('main_point'),
+        //     'body' => $request->input('body'),
+        //     'photo' => $imageName,
+        //     'category_id' =>$request->input('category_id'),
+        //     'related_news' =>$request->input('related_news'),
+        //     'user_id' => 1,
+        //     'recordstatus' => 1
+        // );
+            $post->title = $request->input('title');
+            $post->main_point = $request->input('main_point');
+            $post->body=$request->input('body');
+            $post->photo = $imageName;
+            $post->category_id=$request->input('category_id');
+            $post->related_news=$request->input('related_news');
+            $post->user_id = 1;
+            $post->recordstatus=1;
+            $post->save();
+
+
+        //$post->update($formData);
         return response()->json('The news successfully updated');
     }
 
@@ -207,10 +207,12 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $file= $post->photo;
-        $filename = '/upload/news/'.$file;
+        $filename = './upload/news/'.$file;
         \File::delete($filename);
         $post->delete();
-        return response()->json('The news post successfully deleted');
+        $posts = Post::all()->toArray();
+        return array_reverse($posts);
+        // return response()->json('The news post successfully deleted');
     }
 
     public function search(Request $request)
@@ -241,5 +243,14 @@ class PostController extends Controller
         $posts = Post::where("category_id",$cat_id)->orderBy('created_at','DESC')->get();
         return $posts;
     }
+
+    // public function searchPost($search_word) {
+    //     // $sql = "SELECT GROUP_CONCAT(post.id) as id , GROUP_CONCAT(post.title) as title, GROUP_CONCAT(post.photo) as photo, cate.name as name, post.category_id as cat_id from posts post join categories cate on cate.id = post.category_id where post.title LIKe '%{$search_word}%' group by post.category_id";
+    //     $sql = "SELECT categories.name, posts.title, posts.id as pid, posts.photo
+    //     FROM posts INNER JOIN categories ON categories.id = posts.category_id
+    //     WHERE posts.title LIKe '%{$search_word}%'";
+    //     $posts = DB::select($sql);
+    //     return $posts;
+    // }
 
 }

@@ -84,7 +84,6 @@
   import hospitalSearch from './components/hospitalSearch.vue'
   import nursingSearch from './components/nursingSearch.vue'
   import jobSearch from './components/jobSearch.vue'
-  import profile from './components/Profile.vue'
    export default {
     components: {
       relatedNews,
@@ -92,7 +91,7 @@
       nursingSearch,
       jobSearch,
       ads,
-      profile
+      profile,
     },
      mounted() {
             $(document).ready(function() {

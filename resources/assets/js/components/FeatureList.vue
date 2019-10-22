@@ -1,17 +1,17 @@
 <template>
   <div class="row">
     <div class="col-12">
-      <div class="row m-b-10" v-if="this.features.length !== 0">
+      <div class="row m-b-10" v-if="norecord!== 0">
         <div class="col-md-12">
           <router-link to="/specialfeature" class="float-right main-bg-color create-btn all-btn">
-            <i class="fas fa-plus-circle"></i> 新しいカテゴリを作成
+            <i class="fas fa-plus-circle"></i> 特殊機能を作成
           </router-link>
         </div>
       </div>
       <!--card-->
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="col-md-12 scrolldiv">
-          <div v-if="!this.features.length" class="card card-default card-wrap">
+          <div v-if="norecord ===0" class="card card-default card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -23,7 +23,7 @@
             </a>
           </div>
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">Feature List Search</h4>
+            <h4 class="main-color m-b-10">特徴一覧検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <input
@@ -36,20 +36,19 @@
               </div>
             </div>
             <hr />
-            <h5 class="header">Feature List</h5>
-            <div class="col-md-12 scrolldiv">
+            <h5 class="header">特徴一覧</h5>
+            <div class="col-md-12 pad-free scrolldiv">
               <div
                 v-if="!this.features.length"
                 class="container-fuid"
-                style="padding-top:30px; height:700px; text-align:center "
-              >No Record Data</div>
+                style="padding-top:30px; height:700px; text-align:center ">No Record Data</div>
               <div v-else class="container-fuid">
-                <table class="table table-hover">
-                  <thead>
+                <table class="table table-hover custom-table">
+                  <thead style="background-color:rgb(183, 218, 210);">
                     <tr>
-                      <th>Feature Name</th>
-                      <th>Short Name</th>
-                      <th>Type</th>
+                      <th>機能名</th>
+                      <th>縮小</th>
+                      <th>種類</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -58,7 +57,7 @@
                       <th>{{feature.name}}</th>
                       <th>{{feature.short_name}}</th>
                       <th>{{feature.type}}</th>
-                      <th>
+                      <th class="text-right">
                         <!-- <button class="btn btn-sm btn-primary all-btn" v-if="getUser.status == 1">Approved</button> -->
                         <router-link
                           :to="{name:'specialfeature', params:{id : feature.id}}"
@@ -87,32 +86,64 @@
 export default {
   data() {
     return {
-      features: []
+      features: [],
+      norecord:0,
     };
   },
 
   created() {
     this.axios.get("/api/feature/featurelist").then(response => {
       this.features = response.data;
+      this.norecord = this.features.length;
     });
   },
   methods: {
     deleteFeature(id) {
-      if (confirm("Are you sure you want to delete?")) {
-        this.axios.delete(`/api/feature/delete/${id}`).then(response => {
-          alert("Delete Successfully!");
-          let i = this.features.map(item => item.id).indexOf(id); // find index of your object
-          this.features.splice(i, 1);
-        });
-      }
+      this.$swal({
+        title: "確認",
+        text: "削除よろしいでしょうか",
+        type: "warning",
+        width: 350,
+        height: 200,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#b1abab",
+        cancelButtonTextColor: "#000",
+        confirmButtonText: "削除",
+        cancelButtonText: "キャンセル",
+        confirmButtonClass: "all-btn",
+        cancelButtonClass: "all-btn"
+      }).then(response => {
+        this.axios
+          .delete(`/api/feature/delete/${id}`)
+          .then(response => {
+              this.features = response.data;
+              this.norecord=this.features.length;
+            //   alert("Delete Successfully!");
+            // let i = this.features.map(item => item.id).indexOf(id); // find index of your object
+            // this.features.splice(i, 1);
+            this.$swal({
+              title: "削除された",
+              text: "ファイルが削除されました。",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#dc3545"
+            });
+          })
+          .catch(() => {
+            this.$swal("Failed", "wrong");
+          });
+      });
     },
 
     searchFeature() {
       var search_word = $("#search-item").val();
       let fd = new FormData();
       fd.append("search_word", search_word);
-      this.axios.post("/api/Feature/search", fd).then(response => {
-        this.categories = response.data;
+      this.axios.post("/api/feature/search", fd).then(response => {
+        this.features = response.data;
       });
     }
   }

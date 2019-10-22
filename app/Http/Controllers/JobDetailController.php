@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use DB;
 use Illuminate\Http\Request;
 class JobDetailController extends Controller
 {
@@ -46,8 +47,14 @@ class JobDetailController extends Controller
      */
     public function show($id)
     {
+        $query = "SELECT jobs.* ,customers.type_id, 
+        (CASE customers.type_id WHEN '2' THEN CONCAT((500000+jobs.id),'-',LPAD(jobs.id, 4, '0')) ELSE CONCAT((200000+jobs.id),'-',LPAD(jobs.id, 4, '0')) END) as jobid
+        FROM `jobs`
+        JOIN customers ON jobs.customer_id = customers.id
+        WHERE jobs.id = $id";
+        $selectedJob = DB::select($query);
         
-        return Job::findOrFail($id);
+        return $selectedJob;
     }
 
     /**

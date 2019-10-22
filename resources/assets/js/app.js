@@ -7,16 +7,14 @@
 
 
 require('./bootstrap');
-require('es6-promise/auto');
 // window.Vue = require('vue');
 
 // import App from './App.vue';
-// import 'es6-promise/auto';
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 
-import {routes} from './route';
+import {routes} from './route'; 
 import * as VueGoogleMaps from "vue2-google-maps";
 // import Vue from 'vue';
 import Autocomplete from 'vuejs-auto-complete';
@@ -35,7 +33,24 @@ import VueCarousel from '@chenfengyuan/vue-carousel';
 Vue.component(VueCarousel.name, VueCarousel);
 
 
+//vue slick
+import Slick from 'vue-slick';
+Vue.use(Slick);
 
+//pano
+// import Pano from 'vue-pano';
+// Vue.use(Pano);
+
+
+//vue-pannellum
+import VuePannellum from '../../../resources/assets/js/components/vue-pannellum.vue'
+Vue.use(VuePannellum);
+Vue.component('VPannellumn', VuePannellum)
+
+
+//vue Panorama 
+import Panorama from 'vuejs-panorama';
+Vue.use(Panorama);
 
 //vue vuetify
 // import Vuetify from "vuetify";
@@ -52,6 +67,8 @@ import CKEditor from '@ckeditor/ckeditor5-vue';
 Vue.use( CKEditor );
 //end editor
 
+import ReadMore from 'vue-read-more';
+Vue.use(ReadMore);
 
 window.events = new Vue();
 window.flash = function(message) {
