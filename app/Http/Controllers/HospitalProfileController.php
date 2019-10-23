@@ -72,6 +72,7 @@ class HospitalProfileController extends Controller
             $min_max = DB::select($sql);
             $nur->minmax = $min_max;
         }
+        
         return $fav_nursing;
     }
 

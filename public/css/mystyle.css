@@ -6033,8 +6033,6 @@ ul.test>li:before {
     justify-content: center;
     width: 1424px;
 }
-
-
 /*slick carousel*/
 
 #fav-history-page .card-carousel-wrapper {
@@ -6075,6 +6073,7 @@ ul.test>li:before {
     transition: transform 150ms linear;
 }
 
+
 #fav-history-page .card-carousel--nav__left[disabled],
 .card-carousel--nav__right[disabled] {
     opacity: 0.2;
@@ -6101,6 +6100,7 @@ ul.test>li:before {
     display: flex;
     transition: transform 150ms ease-out;
     transform: translatex(0px);
+    margin-left: 48px;
 }
 
 #fav-history-page .card-carousel-cards .card-carousel--card {
@@ -6183,65 +6183,6 @@ ul.test>li:before {
     border-radius: 2px;
     background: white;
     box-shadow: -0px -0px 0px #004977;
-<<<<<<< HEAD
-  }
-      .da {
-          width: 104px;
-      }
-      
-      .da1 {
-          width: 37px;
-      }
-      
-      .bd1 {
-          border-top: 1px solid rgba(0, 0, 0, 0.125);
-          border-style: dashed;
-          border-left: none;
-          border-right: none;
-          border-bottom: none;
-      }
-      
-      .bd2 {
-          border: 1px solid rgba(0, 0, 0, 0.125);
-          min-height: 100px;
-      }
-      
-      .bd3 {
-          border: 1px solid rgba(0, 0, 0, 0.125);
-      }
-      
-      .che {
-          size: 45%;
-          width: 25px;
-          height: 25px;
-          margin-left: 149px;
-          margin-top: 9px;
-      }
-      
-      .che1 {
-          margin-left: 30px;
-          width: 25px;
-          height: 25px;
-          margin-top: 9px;
-      }
-      
-      .im {
-          width: 200px;
-          height: 150px;
-      }
-      
-      .tx1 {
-          margin-left: 56px;
-          margin-bottom: -4px;
-          margin-top: -31px;
-      }
-      
-      .m-b-3 {
-          margin-bottom: 3px;
-      }
-      
-      /* .bd {
-=======
 }
 
 .da {
@@ -6297,7 +6238,6 @@ ul.test>li:before {
 
 
 /* .bd {
->>>>>>> b1f5b7ea514aa51bc923fe51b90bb82a24d0e999
           border-bottom: none;
       } */
 
