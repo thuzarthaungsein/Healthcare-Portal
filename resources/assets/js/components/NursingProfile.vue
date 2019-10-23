@@ -4,7 +4,7 @@
             <div class="col-md-12 pad-free">
                 <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">名前<span class="error">*</span></label>
+                            <label class="heading-lbl col-2 pad-free">事業者名前<span class="error">*</span></label>
                             <input type="text" class="form-control customer-name col-10 float-right" id="btn" placeholder="名前" v-model="customer_info.name">
                     </div>
                     <div class="form-group form-group-wrapper">
