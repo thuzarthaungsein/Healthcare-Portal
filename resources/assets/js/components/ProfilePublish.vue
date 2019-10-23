@@ -128,7 +128,7 @@
                                                 <font>入居時</font>
                                             </th>
                                             <td>
-                                                <font class="cash-lbl">{{cust.moving_in}}</font>
+                                                <font class="cash-lbl">{{cust.moving_in_from}} 円 ~ {{cust.moving_in_to}} 円</font>
                                             </td>
                                         </tr>
                                         <tr>
@@ -136,7 +136,7 @@
                                                 <font>月額</font>
                                             </th>
                                             <td>
-                                                <font class="cash-lbl">{{cust.per_month}}</font>
+                                                <font class="cash-lbl">{{cust.per_month_from}} 円 ~ {{cust.per_month_to}} 円</font>
                                             </td>
                                         </tr>
                                         <tr>
