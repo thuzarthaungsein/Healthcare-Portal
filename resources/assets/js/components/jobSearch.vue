@@ -969,7 +969,7 @@
                       <div class="job-header">
                         <h5 class="job-tit"><a :href="job.jobid">{{job.name}}</a></h5>
                         <div class="clearfix">
-                          <p class="job_status">正職員</p>
+                          <p class="job_status">{{job.employment_status}}</p>
                           <p class="job_id">求人NO.{{job.jobnum}}</p>
                         </div>
                       </div>
@@ -996,8 +996,8 @@
                           </div> -->
                           <table  class="table table-bordered  table-sm">
                             <tr>
-                              <td><span class="job_ico"><i class="fa fa-map-marker"></i></span>アクセス</td>
-                              <td>{{job.access}}</td>
+                              <td><span class="job_ico"><i class="fa fa-map-marker"></i></span>最寄り駅</td>
+                              <td>{{job.nearest_station}}</td>
                             </tr>
                             <tr>
                               <td><span class="job_ico">&#xa5;</span>給料</td>
@@ -1008,7 +1008,7 @@
                               <td> {{job.working_hours}} / {{job.holidays}} </td>
                             </tr>
                             <tr>
-                              <td><span class="job_ico">特</span>特別な条件</td>
+                              <td><span class="job_ico"><i class="fa fa-briefcase"></i></span>特別な条件</td>
                               <td> {{job.allowances}} </td>
                             </tr>
                           </table>
