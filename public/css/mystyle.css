@@ -2042,8 +2042,8 @@ ul.sub-ul li {
     margin-bottom: 10px;
 }
 
-.secondary-bg-color {
-    background-color: #ff9563 !important;
+.orange-bg-color {
+    background-color: #d2571c !important;
 }
 
 .white-bg-color {
@@ -3290,7 +3290,7 @@ div.b {
 /* End Job Offer Detail */
 
 
-/* job offer */
+/* job offer list */
 
 .joboffer-header {
     margin-bottom: 20px;
@@ -3319,7 +3319,7 @@ div.b {
 }
 
 
-/* End job offer */
+/* End job offer list */
 
 
 /*For Ads */
@@ -5963,7 +5963,13 @@ button.confirmed {
 /* job-detail */
 
 .job-detail .form-right {
-    padding: 15px 30px;
+    padding: 10px;
+}
+
+.form-wrap .form-left {
+    background: #f5f5f5;
+    background: #f5f5f2;
+    padding: 10px 10px 0px 10px;
 }
 
 
@@ -6727,14 +6733,13 @@ ul.test>li:before {
 /*for Job*/
 
 .job-title-color {
-    background-color: #828282;
-}
-
-.jobid {
-    padding: 5px 10px;
-    font-size: 13px;
-    color: #0e775d;
-    text-align: center;
-    border-radius: 20px;
-    border: 1px solid #b7dad2;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #4d2200;
+    background: url(/images/survey.png) no-repeat 0 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #d2571c;
+    color: #d2571c;
+    letter-spacing: 1px;
 }
