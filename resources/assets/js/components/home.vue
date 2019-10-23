@@ -77,7 +77,15 @@ export default {
 
                 
                 this.l_storage_nus_fav.push(1);
+                this.l_storage_nus_fav.push(2);
                 this.l_storage_nus_fav.push(3);
+                this.l_storage_nus_fav.push(4);
+                this.l_storage_nus_fav.push(5);
+                this.l_storage_nus_fav.push(6);
+                this.l_storage_nus_fav.push(7);
+                this.l_storage_nus_fav.push(8);
+                this.l_storage_nus_fav.push(9);
+                this.l_storage_nus_fav.push(10);
 
                 this.l_storage_nus_history.push(1);
                 this.l_storage_nus_history.push(3);
