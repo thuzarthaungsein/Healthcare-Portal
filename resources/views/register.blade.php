@@ -33,7 +33,7 @@
                 <div class="">
                     <div class="row">
                         <div class="col-12">
-                            <form method="post" action="{{ url('register/store') }}" enctype="multipart/form-data">
+                            <form id="testsubmit" method="post" action="{{ url('register/store') }}" enctype="multipart/form-data" onsubmit="return validateForm()" >
                                 @csrf
                                 <div class="input-group mb-3 inputfile">
                                     <label class="col-4 col-lg-3 control-label">ロゴを添付</label>
@@ -64,7 +64,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" name="password" onkeyup="isPasswordSame()" value="" id="pwd" required placeholder="パスワード">
+                                    <input type="password" class="form-control" name="password" onkeyup="password_validate()" value="" id="pwd" required placeholder="パスワード">
 
                                 </div>
                                 <div class="input-group mb-3">
@@ -72,11 +72,11 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" name="comfirm_password" id="confirm_pwd" onkeyup="isPasswordSame()" value="" required placeholder="パスワードを認証">
+                                    <input type="password" class="form-control" name="comfirm_password" id="confirm_pwd" onkeyup="password_validate()" value="" required placeholder="パスワードを認証">
                                     <br>
                                     
                                 </div>
-                                <div class="error" style="padding-left: 162px;margin-bottom: 18px;display: none;">Password not match.</div>
+                                <div class="error" id="passworderror" style="padding-left: 162px;margin-bottom: 18px;display: none;">Password not match.</div>
                                 <div class="input-group mb-3">
                                     <label class="col-4 col-lg-3 control-label">タイプを選択</label>
                                     <div class="input-group-append">
@@ -94,7 +94,7 @@
                                     <div class="input-group-append " id="nursing">
 
                                     </div>
-                                    <div class="nurse_type_error error" style="margin-bottom: 6px;margin-left: 210px;display: none;">Required</div>
+                                    <div class="error" id="radioerror" style="margin-bottom: 6px;margin-left: 210px;">Required</div>
                                 </div>
                                 <div class="input-group mb-3">
                                     <label class="col-4 col-lg-3 control-label">都道府県選択</label>
@@ -141,7 +141,7 @@
                                     <div class="form-group row float-right">
                                         <div class="col-12">
                                             <button class="btn btn-danger register_btn">キャンセル</button>
-                                            <button type="submit" class="btn register_btn" style="background: #4db197;">作成</button>
+                                            <button type="submit" class="btn register_btn" id="sub_btn" style="background: #4db197;">作成</button>
                                             <!-- <a class="btn btn-danger register_btn">キャンセル</a>
                                                  <a class="btn register_btn" >作成</a> -->
                                         </div>
@@ -197,17 +197,13 @@
                         $('.showHideAction').removeClass('hide').addClass('show');
                     });
                 }, 5000);
+
             });
 
-            function isPasswordSame() {
-                var pwd = $('#pwd').val();
-                var confirm_pwd = $('#confirm_pwd').val();
-                if(pwd != confirm_pwd) {
-                    $('.error').css("display","block");
+            function validateForm() {
+                if(window.pwd_same == false ||  window.nur_type == false) {
+                    return false;
                 }
-                else {
-                    $('.error').css("display","none");
-                }    
             }
 
             $('#type').on('change', function() {
@@ -229,6 +225,7 @@
                     $('#showHideActionNursing').removeClass('show').addClass('hide');
                     $('#nursing').empty();
                 }
+                chooseNursingType();
             });
 
             $('#cities').on('change', function(e) {
@@ -244,12 +241,32 @@
             });
 
             function chooseNursingType() {
-                var nur_type = $('.nursing_type').is(':checked');
-                if(nur_type) {
-                    $('.nurse_type_error').css("display", "none");
+                if($("#type option:selected").val() == 3) {
+                    window.nur_type = $('.nursing_type').is(':checked');
+                    if($('.nursing_type').is(':checked')) {
+                        $('#radioerror').css("display", "none");
+                    }
+                    else {
+                        $('#radioerror').css("display", "block");
+                        window.nur_type = false;
+                    }
+                }
+                else{
+                    window.nur_type = true;
+                }
+            }
+
+            function password_validate() {
+                var pwd = $('#pwd').val();
+                var confirm_pwd = $('#confirm_pwd').val();
+                window.pwd_same = false;
+                var nursing_type_exist = false;
+                if(pwd != confirm_pwd) {
+                    $('#passworderror').css("display","block");
                 }
                 else {
-                    $('.nurse_type_error').css("display", "block");
+                    $('#passworderror').css("display","none");
+                    window.pwd_same = true;
                 }
             }
         </script>

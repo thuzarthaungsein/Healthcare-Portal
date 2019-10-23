@@ -26,6 +26,11 @@ class JobApplyController extends Controller
 
     }
 
+    public function getJobapplies($jobs_id){
+        $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id WHERE job_applies.job_id = $jobs_id";
+        $jobapply = DB::select($sql);
+        return $jobapply;
+    }
 
     /**
      * Show the form for creating a new resource.
