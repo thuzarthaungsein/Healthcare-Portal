@@ -87,23 +87,28 @@
                                 <label class="heading-lbl col-2 pad-free">入居時 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                     <div class="row">
-                                        <div class="col-md-5">
-                                            <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
+                                        <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
+                                            <input type="text"  class="form-control col-10 nursing-moving-in-f float-left white-bg-color m-r-10" v-model="nursing_info.moving_in_from"> 円
                                         </div>
-                                        <div class="col-md-1">
-                                            
-                                        </div>
-                                        <div class="col-md-5">
-                                            <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
+                                       
+                                        <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
+                                            <input type="text"  class="form-control col-10 nursing-moving-in-t float-left white-bg-color m-r-10" v-model="nursing_info.moving_in_to"> 円
                                         </div>
                                     </div>
-                                    
                                 </div>                                
                             </div>
                             <div class="form-group">
                                 <label class="heading-lbl col-2 pad-free">月額 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
-                                        <input type="text"  class="form-control col-10 nursing-per-month float-left white-bg-color" v-model="nursing_info.per_month">
+                                    <div class="row">
+                                        <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
+                                            <input type="text"  class="form-control col-10 nursing-per-month-f float-left white-bg-color m-r-10" v-model="nursing_info.per_month_from"> 円
+                                        </div>
+                                       
+                                        <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
+                                            <input type="text"  class="form-control col-10 nursing-per-month-t float-left white-bg-color m-r-10" v-model="nursing_info.per_month_to"> 円
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">                        
@@ -863,8 +868,10 @@ export default {
                 var customer_address = $('#city').val();
 
                 // var access = $('.transporation-access').val();
-                var moving_in = $('.nursing-moving-in').val();
-                var per_month = $('.nursing-per-month').val();
+                var moving_in_from = $('.nursing-moving-in-f').val();
+                var moving_in_to = $('.nursing-moving-in-t').val();
+                var per_month_from = $('.nursing-per-month-f').val();
+                var per_month_to = $('.nursing-per-month-t').val();
                 var method = $('.nursing-payment-method').val();
                 var business_entity = $('.business-entity').val();
                 var date_of_establishment = $('.date-of-establishment').val();
@@ -980,7 +987,7 @@ export default {
                         acceptance.push({id:id,type:type});
                 });
 
-                this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in:moving_in,per_month:per_month,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in_from:moving_in_from,moving_in_to:moving_in_to,per_month_from:per_month_from,per_month_to:per_month_to,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
