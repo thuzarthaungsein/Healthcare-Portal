@@ -2371,7 +2371,9 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 
 /* profilepublish css start */
-
+#datepickerbox .mx-calendar-icon {
+    height: auto !important;
+}
 #header {
     padding: 30px 0;
     height: 92px;

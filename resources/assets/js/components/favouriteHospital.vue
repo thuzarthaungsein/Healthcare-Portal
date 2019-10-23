@@ -18,9 +18,7 @@
         </div>
         <div class="row m-0">
             
-            <form @submit.prevent="add" class="col-md-12 pad-free">
-                 <label class="btn all-btn secondary-bg-color hos-btn2">
-                    <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
+            <form @submit.prevent="add" class="col-md-12 pad-free">                 
                 <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
                     <div class="row">
                         <div class="card-carousel-wrapper">
@@ -39,23 +37,21 @@
                                                             <br>
                                                             <br>
 
-                                                            <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" >{{hos_profile.name}}</router-link>
+                                                            <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
 
                                                         </td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <div style="width:250px;">
-                                                                <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>
-                                                                <label class="btn all-btn secondary-bg-color hos-btn">
-                                                                    <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>資料請求</label>
-                                                            </div>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id" style="word-wrap: break-word;">
+                                                            <p style="width:250px;">
+                                                                <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>                                                                
+                                                            </p>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <div style="width:250px;"> <a href="#" target="_blank">{{hos_profile.website}}</a></div>
+                                                            <div style="width:250px;"> <a :href="hos_profile.website" target="_blank" style="width:250px;">{{hos_profile.website}}</a></div>
                                                         </td>
                                                     </tr>
                                                     
@@ -85,7 +81,10 @@
 
                                                       <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <div style="width:250px;">{{hos_profile.subject}}</div>
+                                                            <dl>
+                                                                <dt style="text-align:left;">診療科目</dt>
+                                                                <dd style="width:250px;" v-for="subject in hos_profile.sub" :key="subject.id">{{ subject.name }}</dd>
+                                                            </dl>
                                                         </td>
                                                     </tr>
 
@@ -99,7 +98,7 @@
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <div style="width:250px;">
                                                                 <ul class="fac_container">
-                                        <li v-for="feature in hos_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                        <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                     </ul>
                                                             </div>
                                                         </td>

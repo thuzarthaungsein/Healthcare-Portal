@@ -4,7 +4,7 @@
             <div class="col-md-12 pad-free">
                 <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">名前<span class="error">*</span></label>
+                            <label class="heading-lbl col-2 pad-free">事業者名前<span class="error">*</span></label>
                             <input type="text" class="form-control customer-name col-10 float-right" id="btn" placeholder="名前" v-model="customer_info.name">
                     </div>
                     <div class="form-group form-group-wrapper">
@@ -282,7 +282,11 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">開設年月日</td>
-                                                    <td ><textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea></td>
+                                                    
+                                                    <td >
+                                                        <date-picker class="box date-of-establishment" v-model="nursing_info.date_of_establishment" id="datepickerbox" valueType="format" style="margin-left:11px;"></date-picker>
+                                                        <!-- <textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea> -->
+                                                    </td>
                                                         <!-- <td> <quill-editor  class="date-of-establishment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.date_of_establishment"/></td> -->
                                             </tr>
                                             <tr>
@@ -573,6 +577,7 @@ import {quillEditor} from 'vue-quill-editor'
 import {Button, Input,Select} from 'iview'
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import GoogleMap from './GoogleMap.vue'
+import DatePicker from 'vue2-datepicker';
 
 export default {
         components: {
@@ -580,7 +585,8 @@ export default {
                 Button,
                 Input,
                 Select,
-                quillEditor
+                quillEditor,
+                DatePicker
         },
 
        data() {
@@ -874,7 +880,7 @@ export default {
                 var per_month_to = $('.nursing-per-month-t').val();
                 var method = $('.nursing-payment-method').val();
                 var business_entity = $('.business-entity').val();
-                var date_of_establishment = $('.date-of-establishment').val();
+                var date_of_establishment = $('.date-of-establishment input').val();
                 var land_right_form = $('.land-right-form').val();
                 var building_right_form = $('.building-right-form').val();
                 var site_area = $('.site-area').val();
