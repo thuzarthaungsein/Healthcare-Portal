@@ -372,8 +372,8 @@ body {
 }
 
 .h-color0 span {
-    border-left: 5px solid #37b4bd;
-    color: #37b4bd;
+    border-left: 5px solid #63b7ff;
+    color: #63b7ff;
 }
 
 .h-color1 span {
@@ -397,7 +397,7 @@ body {
 }
 
 .bordertop-color0 {
-    border-top: 1px dashed #37b4bd;
+    border-top: 1px dashed #63b7ff;
 }
 
 .bordertop-color1 {
@@ -829,7 +829,7 @@ cursor: pointer;
 }
 
 
-/* .info {
+.info {
     width: 100%;
     height: 120px;
     position: absolute;
@@ -837,7 +837,7 @@ cursor: pointer;
     background-color: #2a2d2cb0;
     color: #fff;
     text-align: justify !important;
-} */
+}
 
 .info div {
     padding: 10px 10px 0px 10px;
@@ -1243,7 +1243,7 @@ textarea {
 }
 
 .multi-step {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-align: center;
     font-size: 15px;
     font-weight: bold;
@@ -5786,7 +5786,7 @@ button.confirmed {
 }
 
 .form-wrap {
-    padding-bottom: 100px;
+    padding-bottom: 10px;
 }
 
 .form-wrap .form-tit {
@@ -6301,7 +6301,7 @@ ul.test>li:before {
     margin-bottom: 20px;
     padding: 20px 20px 50px 20px;
     height: 100%;
-    border: 1px solid #d2571c;
+    border: 1px solid #828282;
     border-radius: 5px;
 }
 
@@ -6332,7 +6332,7 @@ ul.test>li:before {
 }
 
 .job-tit a {
-    color: #d2571c;
+    color: #111;
     letter-spacing: 1px;
 }
 
@@ -6374,7 +6374,7 @@ ul.test>li:before {
 
 .job-content .detail-btn .btn {
     width: 25%;
-    background: #d2571c;
+    background: #828282;
     color: #fff;
 }
 
@@ -6698,10 +6698,24 @@ ul.test>li:before {
     padding-bottom: 10px;
     font-size: 20px;
     color: #4d2200;
-    background: url(/images/survey.png) no-repeat 0 0px;
+    background: url(/images/icons8-survey-job.png) no-repeat 0 0px;
     margin-bottom: 8px;
-    border-bottom: 1px solid #d2571c;
-    color: #d2571c;
+    border-bottom: 1px solid #828282;
+    color: #111;
+    font-weight: bolds;
+    letter-spacing: 1px;
+
+}
+.job-apply-color{
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #4d2200;
+    background: url(/images/google-forms-24.png) no-repeat 0 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #828282;
+    color: #111;
+    font-weight: bolds;
     letter-spacing: 1px;
 
 }
