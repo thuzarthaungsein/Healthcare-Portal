@@ -305,7 +305,7 @@
                   <div class="toBeToggled" id="toBeToggled">
 
                     <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
-                      <label class="form-check-label" :for="township.id">
+                      <label class="form-check-label" >
                         <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @click="getCheck($event)">
                         {{township.township_name}}
                       </label>
@@ -328,11 +328,12 @@
                 <th>特長</th>
                 <td>
                   <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
-                    <label class="form-check-label" :for="feature.id">
-                      <input class="form-check-input" type="checkbox" :id="feature.id" v-model="specialfeatureID" :value="feature.id" @click="features($event)">
+                    <label class="form-check-label" >
+                      <input type="checkbox" :id="feature.id" v-model="specialfeatureID" :value="feature.id" @click="features($event)">
                       {{feature.name}}
                     </label>
                   </div>
+
 
                 </td>
               </tr>
@@ -340,7 +341,7 @@
                 <th>Subjects</th>
                 <td>
                   <div class="form-check form-check-inline col-sm-2" v-for="subject in subjects" :key="subject.id">
-                    <label class="form-check-label" :for="subject.id">
+                    <label class="form-check-label" >
                       <input class="form-check-input" type="checkbox" :id="subject.id" v-model="subjectID" :value="subject.id">
                       {{subject.name}}
                     </label>
@@ -392,24 +393,49 @@
                                 <td> Closed_day : {{hos.closed_day}}</td>
                               </tr>
                               <h2> SpecialFeature </h2>
-                              <tr v-for="(spe,index) in specialfeatures" :key="index+'-'+spe.name+'-'+hos.id"> 
-                                <td v-if="spe.customer_id == hos.customer_id">
+                              <span v-for="(spe,index) in specialfeatures" :key="index+'-'+spe.name+'-'+hos.id"> 
+                                <span v-if="spe.customer_id == hos.customer_id" class="feature_list">
                                   {{spe.name}}
-                                 </td>
-                              </tr>
+                                </span>
+                              </span>
                               <h2> Subject </h2>
                               <tr v-for="(sub,index) in subject" :key="index+'-'+sub.name+'-'+hos.id"> 
                                 <td v-if="sub.customer_id == hos.customer_id">
                                   {{sub.name}}
                                  </td>
                               </tr>
+     
                               <h2> Schedule </h2>
-                              <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
+                              <!-- <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
                                 <td v-if="hos.customer_id == time.customer_id" >
                                   {{time.mon}} / {{time.tue}} / {{time.wed}} / {{time.thu}} / {{time.fri}} / {{time.sat}} / {{time.sun}} / {{time.part}}
                                 </td>
-                              </tr>
+                              </tr> -->
+
+                              <table>
+                              <thead >
+                                  <tr >
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Saturday</th>
+                                    <th>Sunday</th> 
+                                    <th>Part</th>
+                                  </tr>
+                                </thead>
+                                <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
+                                  <tr v-if="hos.customer_id == time.customer_id">
+                                    <td>{{time.mon}}</td>
+                                    <td>{{time.tue}}</td>
+                                    <td>{{time.wed}}</td> 
+                                    <td>{{time.sat}}</td>
+                                    <td>{{time.sun}}</td>
+                                    <td>{{time.part}}</td>
+                                  </tr>
+                                </tbody>
+                            </table>
                           </table>
+                     
                         </div>  
                       </div>
                     </div>

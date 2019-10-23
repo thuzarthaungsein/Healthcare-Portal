@@ -244,6 +244,7 @@ class SearchMapController extends Controller
         //for city
         $id = $_GET['id'];
        
+       
 
         
         //to check if township is check or not 
@@ -288,7 +289,7 @@ class SearchMapController extends Controller
             $empstatus = implode(',',$empstatus);  
         }
 
-        return $empstatus;
+       
       
 
         //return response()->json(['town'=>$townshipID,'occ'=>$occupationID,'emp'=>$empstatus]);
@@ -297,7 +298,7 @@ class SearchMapController extends Controller
             $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
             Join townships as t on t.id = c.townships_id 
             where t.city_id =".$id;
-
+          
             $job_data = DB::select($query);
         }
         else if($townshipID != '0'  && $occupationID == '0' && $empstatus == '0'  )
@@ -377,6 +378,7 @@ class SearchMapController extends Controller
         else if($townshipID == '0' && $occupationID == '0' && $empstatus != '0')
         {  
             $empstatus = explode(',',$empstatus);  
+           
 
             if(count($empstatus) == 4){
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
@@ -400,6 +402,7 @@ class SearchMapController extends Controller
             }
        
             $job_data = DB::select($query);
+           
         }
         else if($townshipID == '0' && $occupationID != '0' && $empstatus == '0')
         {  
