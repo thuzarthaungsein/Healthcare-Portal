@@ -104,64 +104,130 @@ class SearchMapController extends Controller
          if($townshipID == '0' && $specialfeatureID == '0' &&  $subjectID == '0')
          { 
            
-             $query = "SELECT h.*,c.* from customers as c join hospital_profiles as h on h.customer_id = c.id   join townships as t on t.id = c.townships_id 
-                        join cities as ci on ci.id = t.city_id where ci.id = " . $id ;
-
-             $hos_data = DB::select($query);
-            
+            $query = " SELECT h.id as hos_id, c.id as cus_id, h.*,c.*, group_concat(Distinct spe.name order by spe.id) As SpecialFeatureName,
+                        group_concat(Distinct sub.name order by sub.id) As SubjectName
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                        where ci.id = " . $id ." group by c.id" ;
+          
+            $hos_data = DB::select($query);
+         
+           
             
          }
          else if($townshipID != '0' && $specialfeatureID == '0' &&  $subjectID == '0')
          {
-             $query = "SELECT h.*,c.* from customers as c  join hospital_profiles as h on h.customer_id = c.id   join townships as t on t.id = c.townships_id 
-                       join cities as ci on ci.id = t.city_id where ci.id = " .$id." and  t.id in (". $townshipID .") ";
+              $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*, group_concat(Distinct spe.name order by spe.id) As SpecialFeatureName,
+                        group_concat(Distinct sub.name order by sub.id) As SubjectName
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                        where ci.id = " .$id." and  t.id in (". $townshipID .")  group by c.id";
              $hos_data = DB::select($query);
+            
             
          }
          else if($townshipID != '0' && $specialfeatureID != '0' &&  $subjectID == '0')
          {
-            $query = "SELECT h.*,c.* from customers as c  join hospital_profiles as h on h.customer_id = c.id   join townships as t on t.id = c.townships_id 
-                      join cities as ci on ci.id = t.city_id join special_features_junctions as spej on spej.customer_id = c.id join special_features as spe on spe.id = spej.special_feature_id
-                      where ci.id = 1 and  t.id in (". $townshipID .") and spe.id in (". $specialfeatureID .")";
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*, group_concat(Distinct spe.name order by spe.id) As SpecialFeatureName,
+                        group_concat(Distinct sub.name order by sub.id) As SubjectName
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = " .$id." and  t.id in (". $townshipID .") and spe.id in (". $specialfeatureID .")  group by c.id";
             $hos_data = DB::select($query);
          }
          else if($townshipID != '0' && $specialfeatureID == '0' &&  $subjectID != '0')
          {
-            $query = "SELECT h.*,c.* from customers as c join hospital_profiles as h on h.customer_id = c.id join townships as t on t.id = c.townships_id 
-                      join cities as ci on ci.id = t.city_id join subject_junctions as subj on subj.customer_id = c.id join subjects as sub on sub.id = subj.subject_id
-                      where ci.id = ". $id ." and  t.id in (". $townshipID . ") and sub.id in (". $subjectID . ")";
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*, group_concat(Distinct spe.name order by spe.id) As SpecialFeatureName,
+                        group_concat(Distinct sub.name order by sub.id) As SubjectName
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = ". $id ." and  t.id in (". $townshipID . ") and sub.id in (". $subjectID . ")  group by c.id";
             $hos_data = DB::select($query);
          }
          else if($townshipID == '0' && $specialfeatureID != '0' &&  $subjectID == '0')
          {
-           $query = "SELECT h.*,c.* from customers as c join hospital_profiles as h on h.customer_id = c.id join townships as t on t.id = c.townships_id 
-                     join cities as ci on ci.id = t.city_id join special_features_junctions as spej on spej.customer_id = c.id join special_features as spe on spe.id = spej.special_feature_id
-                     where ci.id = " .$id . " and   spe.id in (" .$specialfeatureID .")";
+           $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*, group_concat(Distinct spe.name order by spe.id) As SpecialFeatureName,
+                        group_concat(Distinct sub.name order by sub.id) As SubjectName
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                     where ci.id = " .$id . " and   spe.id in (" .$specialfeatureID .")  group by c.id";
            $hos_data = DB::select($query);
          }
          else if($townshipID == '0' && $specialfeatureID == '0' &&  $subjectID != '0')
          {
-            $query = "SELECT h.*,c.* from customers as c join hospital_profiles as h on h.customer_id = c.id  join townships as t on t.id = c.townships_id 
-                      join cities as ci on ci.id = t.city_id join subject_junctions as subj on subj.customer_id = c.id join subjects as sub on sub.id = subj.subject_id 
-                      where ci.id = ". $id ." and sub.id in (" . $subjectID .")";
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*, group_concat(Distinct spe.name order by spe.id) As SpecialFeatureName,
+                        group_concat(Distinct sub.name order by sub.id) As SubjectName
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = ". $id ." and sub.id in (" . $subjectID .") group by c.id";
             $hos_data = DB::select($query);
             
          }
          else if($townshipID == '0' && $specialfeatureID != '0' &&  $subjectID != '0')
          {
-            $query = "SELECT h.*,c.* from customers as c join hospital_profiles as h on h.customer_id = c.id join townships as t on t.id = c.townships_id 
-                      join cities as ci on ci.id = t.city_id join special_features_junctions as spej on spej.customer_id = c.id join special_features as spe on spe.id = spej.special_feature_id
-                      join subject_junctions as subj on subj.customer_id = c.id  join subjects as sub on sub.id = subj.subject_id
-                      where ci.id = ". $id . " and  spe.id in (" . $specialfeatureID . ")  and sub.id in (". $subjectID .")";
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*, group_concat(Distinct spe.name order by spe.id) As SpecialFeatureName,
+                        group_concat(Distinct sub.name order by sub.id) As SubjectName
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = ". $id . " and  spe.id in (" . $specialfeatureID . ")  and sub.id in (". $subjectID .") group by c.id";
             $hos_data = DB::select($query);
             
          }
          else if($townshipID != '0' && $specialfeatureID != '0' &&  $subjectID != '0')
          {
-            $query = "SELECT h.*,c.* from customers as c join hospital_profiles as h on h.customer_id = c.id join townships as t on t.id = c.townships_id 
-                      join cities as ci on ci.id = t.city_id join special_features_junctions as spej on spej.customer_id = c.id join special_features as spe on spe.id = spej.special_feature_id
-                      join subject_junctions as subj on subj.customer_id = c.id join subjects as sub on sub.id = subj.subject_id
-                      where ci.id = " . $id ." and  t.id in (". $townshipID . ") and spe.id in (" . $specialfeatureID . ")  and sub.id in (" .$subjectID . ")";
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*, group_concat(Distinct spe.name order by spe.id) As SpecialFeatureName,
+                        group_concat(Distinct sub.name order by sub.id) As SubjectName
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = " . $id ." and  t.id in (". $townshipID . ") and spe.id in (" . $specialfeatureID . ")  and sub.id in (" .$subjectID . ") group by c.id";
             $hos_data = DB::select($query);
          }
          
@@ -179,6 +245,18 @@ class SearchMapController extends Controller
         //  where ci.id = 1 
         //  group by c.id;
     
+
+        // SELECT h.id as hos_id, c.id as cus_id, h.*,c.*, group_concat(Distinct spe.name ) As SpecialFeatureName,
+        //                 group_concat(Distinct sub.name order by sub.id) As SubjectName
+        //                 from customers as c 
+        //                 join hospital_profiles as h on h.customer_id = c.id 
+        //                 join townships as t on t.id = c.townships_id 
+        //                 join cities as ci on ci.id = t.city_id
+        //                 join special_features_junctions as spej on spej.customer_id = c.id 
+        //                 join special_features as spe on spe.id = spej.special_feature_id
+        //                 join subject_junctions as subj on subj.customer_id = c.id
+        //                 join subjects as sub on sub.id = subj.subject_id
+        //                 where ci.id = 1 and spe.id in (1) group by c.id  
       
 
     }

@@ -39,7 +39,6 @@
 
 
     
-<<<<<<< HEAD
 <div>
     Dear admin,
     Job Description
@@ -64,5 +63,3 @@
     実行可能日 : {{$getComment->workable_day}}  <br>
     リマーク  : {{$getComment->remark}}  <br>
 </div>
-=======
->>>>>>> 6cfbd5b9d21afd654561c5591cc3a86151ef6c1b

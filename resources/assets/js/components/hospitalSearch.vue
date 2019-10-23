@@ -365,10 +365,17 @@
 
             </tbody>
           </table>
-           <div id="hos_detail" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
-              <div class="card-header bg-success text-center pad"  >{{hos.access}}</div>
-                <div class="card-body bg-danger">
-                    <table  class="table table-bordered table-sm">
+           <div id="hos_detail" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="(group,cusid) in hos_data" :key="cusid">
+              <div class="card-header bg-success text-center pad"  >{{cusid}}</div>
+                <div class="card-body bg-success">
+                 Customer id = {{group[0].customer_id}}
+                  <div v-for="(g,index) in group" :key="index">
+                    {{g.special_name}}
+                  </div>
+                  <!-- <div v-for="(g,index) in hos_data[cusid]" :key="index">
+                    {{g.special_name}}
+                  </div> -->
+                    <!-- <table  class="table table-bordered table-sm">
                       <tr>
                         <td>Name</td>
                         <td>{{hos.id}}</td>
@@ -382,7 +389,7 @@
                         <td> {{hos.access}} </td>
                       </tr>
                       
-                    </table>
+                    </table> -->
                         <!-- <router-link :to="{name: 'job_details', params:{id:hos.id}}" class="btn btn all-btn secondary-bg-color white">詳細を見る</router-link> -->
 
                 </div>
@@ -455,9 +462,10 @@
                 subjectID:this.subjectID
             },
           }).then((response)=>{
-      
-            this.hos_data = this.groupBy(response.data,"id");
-            console.log(this.hos_data);
+         
+          
+            this.hos_data = this.response.data;
+            console.log(this.response.data);
           
           })
         

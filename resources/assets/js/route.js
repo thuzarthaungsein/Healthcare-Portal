@@ -2,6 +2,7 @@ import home from "./components/home.vue";
 import Newsdetails from "./components/Newsdetails.vue";
 import hospitalSearch from "./components/hospitalSearch.vue";
 import JobApply from "./components/JobApply.vue";
+import jobapplylist from "./components/jobapplylist.vue";
 import customerlist from "./components/customerlist.vue";
 import JobSearchListComponent from "./components/JobSearchListComponent.vue";
 import JobOfferComponent from "./components/JobOfferComponent.vue";
@@ -12,8 +13,7 @@ import categorylist from "./components/categorylist.vue";
 import createcategory from "./components/createcategory.vue";
 import stationlist from "./components/stationlist.vue";
 import createstation from "./components/createstation.vue";
-import editstation from "./components/editstation.vue";
-
+import editstation from "./components/editstation.vue"; 
 import FacilitiesListComponent from "./components/FacilitiesListComponent.vue";
 import CreateFacilityComponent from "./components/CreateFacilityComponent.vue";
 import custedit from "./components/custedit.vue";
@@ -356,6 +356,11 @@ export const routes = [
     name: 'occupationlist',
     path: '/occupationlist',
     component: occupationlist
+  },
+  {
+    name:'jobapplylist',
+    path:'/jobapplylist',
+    component:jobapplylist
   },
 ];
 

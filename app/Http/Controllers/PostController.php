@@ -39,21 +39,32 @@ class PostController extends Controller
         }else {
             $imageName =$request->photo;
         }
+        $post = new Post() ;
+            $post->title = $request->input('title');
+            $post->main_point = $request->input('main_point');
+            $post->body=$request->input('body');
+            $post->photo = $imageName;
+            $post->category_id=$request->input('category_id');
+            $post->related_news=$request->input('related_news');
+            $post->user_id = 1;
+            $post->recordstatus=1;
 
-        $post = new Post([
-                    'title' => $request->input('title'),
-                    'main_point' => $request->input('main_point'),
-                    'body' => $request->input('body'),
-                    'photo' =>$imageName,
-                    'category_id' =>$request->input('category_id'),
-                    'related_news' =>$request->input('related_news'),
-                    'user_id' => 1,
-                    'recordstatus' => 1
-                ]);
+            $post->save();
 
-        $post->save();
+        return response()->json('The New successfully added');
 
-        // return response()->json('The New successfully added');
+
+        // $post = new Post([
+        //             'title' => $request->input('title'),
+        //             'main_point' => $request->input('main_point'),
+        //             'body' => $request->input('body'),
+        //             'photo' =>$imageName,
+        //             'category_id' =>$request->input('category_id'),
+        //             'related_news' =>$request->input('related_news'),
+        //             'user_id' => 1,
+        //             'recordstatus' => 1
+        //         ]);
+
     }
 
 
@@ -153,6 +164,7 @@ class PostController extends Controller
                 $imageName = str_replace(' ', '', $imageName);
                 $request->photo->move('upload/news/', $imageName);
             }
+
             else {
                 $file= $post->photo;
                 $filename ='./upload/news/'.$file;
@@ -160,19 +172,28 @@ class PostController extends Controller
                 $imageName = '';
             }
         }
-        $formData = array(
-            'title' => $request->input('title'),
-            'main_point' => $request->input('main_point'),
-            'body' => $request->input('body'),
-            'photo' => $imageName,
-            'category_id' =>$request->input('category_id'),
-            'related_news' =>$request->input('related_news'),
-            'user_id' => 1,
-            'recordstatus' => 1
-        );
+        // $formData = array(
+        //     'title' => $request->input('title'),
+        //     'main_point' => $request->input('main_point'),
+        //     'body' => $request->input('body'),
+        //     'photo' => $imageName,
+        //     'category_id' =>$request->input('category_id'),
+        //     'related_news' =>$request->input('related_news'),
+        //     'user_id' => 1,
+        //     'recordstatus' => 1
+        // );
+            $post->title = $request->input('title');
+            $post->main_point = $request->input('main_point');
+            $post->body=$request->input('body');
+            $post->photo = $imageName;
+            $post->category_id=$request->input('category_id');
+            $post->related_news=$request->input('related_news');
+            $post->user_id = 1;
+            $post->recordstatus=1;
+            $post->save();
 
 
-        $post->update($formData);
+        //$post->update($formData);
         return response()->json('The news successfully updated');
     }
 
@@ -190,7 +211,7 @@ class PostController extends Controller
         \File::delete($filename);
         $post->delete();
         $posts = Post::all()->toArray();
-        return $posts;
+        return array_reverse($posts);
         // return response()->json('The news post successfully deleted');
     }
 
@@ -223,13 +244,13 @@ class PostController extends Controller
         return $posts;
     }
 
-    public function searchPost($search_word) {
-        // $sql = "SELECT GROUP_CONCAT(post.id) as id , GROUP_CONCAT(post.title) as title, GROUP_CONCAT(post.photo) as photo, cate.name as name, post.category_id as cat_id from posts post join categories cate on cate.id = post.category_id where post.title LIKe '%{$search_word}%' group by post.category_id";
-        $sql = "SELECT categories.name, posts.title, posts.id as pid, posts.photo
-        FROM posts INNER JOIN categories ON categories.id = posts.category_id
-        WHERE posts.title LIKe '%{$search_word}%'";
-        $posts = DB::select($sql);
-        return $posts;
-    }
+    // public function searchPost($search_word) {
+    //     // $sql = "SELECT GROUP_CONCAT(post.id) as id , GROUP_CONCAT(post.title) as title, GROUP_CONCAT(post.photo) as photo, cate.name as name, post.category_id as cat_id from posts post join categories cate on cate.id = post.category_id where post.title LIKe '%{$search_word}%' group by post.category_id";
+    //     $sql = "SELECT categories.name, posts.title, posts.id as pid, posts.photo
+    //     FROM posts INNER JOIN categories ON categories.id = posts.category_id
+    //     WHERE posts.title LIKe '%{$search_word}%'";
+    //     $posts = DB::select($sql);
+    //     return $posts;
+    // }
 
 }

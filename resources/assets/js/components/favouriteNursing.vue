@@ -229,7 +229,7 @@
         <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
         <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
             <div class="row">
-                <div class="card-carousel-wrapper">
+                <div class="card-carousel-wrapper carousel-wrap">
 
                     <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
                     <div class="card-carousel">
@@ -328,8 +328,8 @@
                     custname: '',
                     payment_name: [],
                     currentOffset: 0,
-                    windowSize: 1,
-                    paginationFactor: 220,
+                    windowSize: 4,
+                    paginationFactor: 350,
 
                 };
             },

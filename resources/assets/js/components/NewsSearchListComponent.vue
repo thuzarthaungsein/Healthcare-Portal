@@ -93,16 +93,20 @@ export default {
         event.target.src = "images/noimage.jpg"
     },
     searchCategory: function() {
-        this.status = 1;
+        if($('#search-word').val() == ''){
+            window.location.reload();
+        }
+        else {
+            this.status = 1;
+            var  search = $('#search-word').val();
+            this.search_word = search;
 
-        var  search = $('#search-word').val();
-        this.search_word = search;
-
-        this.axios
-            .post('/api/news/search/'+this.search_word)
-            .then(response=>{
-               this.post_groups = this.groupBy(response.data, 'name');
-            });
+            this.axios
+                .post('/api/news/search/'+this.search_word)
+                .then(response=>{
+                this.post_groups = this.groupBy(response.data, 'name');
+                });
+        }
     }
   }
 

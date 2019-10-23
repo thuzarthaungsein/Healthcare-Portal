@@ -26,9 +26,9 @@ Route::group(['middleware' => ['auth']], function() {
 // public route api start
     Route::get('gethospitalsearch','SearchMapController@getHospitalSearch');
     Route::post('getmap/{id}','SearchMapController@getMap');
-    Route::get('getjobsearch','SearchMapController@getJobSearch');   
+    Route::get('getjobsearch','SearchMapController@getJobSearch');
     Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
-    
+
     Route::get('getCity','SearchMapController@getCity');
 
 // public route api end
@@ -138,7 +138,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('update/{id}', 'PostController@update');
         Route::delete('delete/{id}', 'PostController@delete');
         Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
-        
+
     });
     // End News
 
@@ -222,6 +222,9 @@ Route::get('job_details', 'JobDetailController@index');
 Route::get('featurelist', 'SpecialFeatureController@index');
 
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
+Route::post('feature/update/{id}','SpecialFeaturesJunctionsController@update');
+Route::post('subject_junctions/update/{id}','SubjectJunctionsController@update');
+
 Route::get('facility/{type}/{id}','FacilityController@getFacilitybyProfileType');
 Route::get('clinical-subject/{id}','SubjectController@getHospitalClinicalSubject');
 Route::get('station/{id}','StationController@getStationbyCustomerId');
@@ -266,8 +269,7 @@ Route::post('posts', 'HomeController@getPosts');
 Route::post('get_latest_post', 'HomeController@getLatestPost');
 Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 Route::post('search', 'HomeController@search');
-Route::get('get_latest_posts_by_catId', 'HomeController@getLatestPostsByAllCatId');
-
+Route::get('get_latest_posts_by_catId/{searchword}', 'HomeController@getLatestPostsByAllCatId');
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
@@ -276,6 +278,7 @@ Route::get('relatednews/{id}', 'PostController@show_related');
 Route::post('news_list/search', 'PostController@search');
 
 Route::post('jobapply','JobApplyController@store');
+Route::get('jobapplylist','JobApplyController@index');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
 
@@ -288,7 +291,7 @@ Route::post('favHospital/{local_sto}', 'HospitalProfileController@getFavouriteHo
 Route::post('nursing_history/{local_sto}', 'CustomerProfileContoller@getNursingHistory');
 Route::post('nursing_fav/{local_sto}', 'HospitalProfileController@getFavouriteNursing');
 
-Route::post('news/search/{searchword}', 'PostController@searchPost');
+// Route::post('news/search/{searchword}', 'PostController@searchPost');
 
 Route::group(['prefix' => 'hospital'], function () {
     Route::post('postList/{postal}', 'HospitalProfileController@getPostalList');
