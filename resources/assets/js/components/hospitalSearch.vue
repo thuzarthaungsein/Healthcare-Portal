@@ -362,48 +362,62 @@
                   <input type="button" id="search" name="search" value="Search"  @click="search"/>
                 </td>
               </tr>
-
             </tbody>
           </table>
-           <div id="hos_detail" class="card col-md-12 pad-free" style="margin-top:20px;" v-for="(group,cusid) in hos_data" :key="cusid">
-              <div class="card-header bg-success text-center pad"  >{{cusid}}</div>
-                <div class="card-body bg-success">
-                 Customer id = {{group[0].customer_id}}
-                  <div v-for="(g,index) in group" :key="index">
-                    {{g.special_name}}
-                  </div>
-                  <!-- <div v-for="(g,index) in hos_data[cusid]" :key="index">
-                    {{g.special_name}}
-                  </div> -->
-                    <!-- <table  class="table table-bordered table-sm">
-                      <tr>
-                        <td>Name</td>
-                        <td>{{hos.id}}</td>
-                      </tr>
-                      <tr>
-                        <td> Address </td>
-                        <td> {{hos.congestion}}</td>
-                      </tr>
-                      <tr>
-                        <td>Working hours / days / holiday details</td>
-                        <td> {{hos.access}} </td>
-                      </tr>
-                      
-                    </table> -->
-                        <!-- <router-link :to="{name: 'job_details', params:{id:hos.id}}" class="btn btn all-btn secondary-bg-color white">詳細を見る</router-link> -->
-
-                </div>
-              
-           
-            </div>
-
         </div>
-      </div>
-      <!-- <div class="col-md-2 p-l-0">
-        <asidebar></asidebar>
-      </div>-->
+               <div class=" col-12">
+                 <div class="row">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
+                     <div class="job-content">
+                      <div class="job-body row  clearfix">  
+                        <div class="col-4 job-img">
+                          <img src="/upload/news/nursing.JPG"  alt="">
+                        </div>
+                        <div class="col-8 job-box">       
+                          <table  class="table table-bordered  table-sm">
+                            <h2> Hospital </h2>
+                              <tr>
+                                <td>Name : {{hos.name}}</td>
+                              </tr>
+                               <tr>
+                                <td> Email : {{hos.email}}</td>
+                              </tr>
+                                <tr>
+                                <td> Phone : {{hos.phone}}</td>
+                              </tr>
+                                <tr>
+                                <td> Address : {{hos.address}}</td>
+                              </tr>
+                              <tr>
+                                <td> Closed_day : {{hos.closed_day}}</td>
+                              </tr>
+                              <h2> SpecialFeature </h2>
+                              <tr v-for="(spe,index) in specialfeatures" :key="index+'-'+spe.name+'-'+hos.id"> 
+                                <td v-if="spe.customer_id == hos.customer_id">
+                                  {{spe.name}}
+                                 </td>
+                              </tr>
+                              <h2> Subject </h2>
+                              <tr v-for="(sub,index) in subject" :key="index+'-'+sub.name+'-'+hos.id"> 
+                                <td v-if="sub.customer_id == hos.customer_id">
+                                  {{sub.name}}
+                                 </td>
+                              </tr>
+                              <h2> Schedule </h2>
+                              <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
+                                <td v-if="hos.customer_id == time.customer_id" >
+                                  {{time.mon}} / {{time.tue}} / {{time.wed}} / {{time.thu}} / {{time.fri}} / {{time.sat}} / {{time.sun}} / {{time.part}}
+                                </td>
+                              </tr>
+                          </table>
+                        </div>  
+                      </div>
+                    </div>
+                  </div>
+                </div>        
+              </div>
+      </div>  
     </div>
-
   </div>
 </template>
 
@@ -418,6 +432,7 @@
     data() {
       return {
         id: '',
+        timetable:[],
         hos_data:[],
         townshipID: [],
         township_id: [],
@@ -426,11 +441,13 @@
         getTownships: [],
         specialfeatureID:[],
         special_features: [],
+        specialfeatures:[],
         fac_types: [],
         fac_id: [],
         medical_acceptance: [],
         subjectID:[],
         subjects: [],
+        subject:[],
         toggleCheck: true,
         toggleCheck_1: false,
       }
@@ -463,13 +480,14 @@
             },
           }).then((response)=>{
          
-          
-            this.hos_data = this.response.data;
-            console.log(this.response.data);
+            this.hos_data = response.data.hospital;
+            this.timetable = response.data.timetable;
+            this.specialfeatures = response.data.specialfeature;
+            this.subject = response.data.subject;
           
           })
         
-          // window.scrollTo({ top : 1000, behavior: 'smooth' });
+        
         },
       
         groupBy(array, key){

@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="row">
         
-          <div class="col-sm-11 map-wrap">
+          <div class="col-sm-11 map-wrap" id="searchMap">
             <div class="divisions">
               <div class="row">
                 <div class="col-sm-2 hokkaido-box">
@@ -340,7 +340,7 @@
               </div>
             </div>
 
-            <div class="map">
+            <div class="map" >
               <svg
                 class="map_svg"
                 viewBox="88 220 400 420"
@@ -908,9 +908,10 @@
           </div>
               
         </div>
-
-
-        <div class="row mt-5" id="scroll-map">
+      <div>
+          <button class="btn btn-sm btn-outline-info select" id="showSearchMap" @click="showSearchMap">Search With Map</button>
+      </div>
+        <div class="row">
             <div class="col-sm-12 col-md-12">
                 <div id="mymap" class="select"></div>
             </div>
@@ -1106,6 +1107,7 @@
 import asidebar from "./aside.vue";
 import { eventBus } from '../event-bus.js';
 import json from '../google-map-kml/converted.json';
+// import json from '../google-map-kml/jp_cities.json';
 export default {
   
     name: "mymap",
@@ -1156,6 +1158,11 @@ export default {
     closeInfoWindow() {
       this.infoBoxOpen = false;
     },
+    showSearchMap(){
+      $('#searchMap').removeClass('select');
+      $('#showSearchMap').addClass('select');
+      
+    },
       getStateClick(e){
        
           if(e.target.tagName === 'A' || e.target.tagName ==='path'){
@@ -1165,6 +1172,8 @@ export default {
           .then((response)=>{
             // console.log(response.data.getCity[0]['latitude'])
           $('.select').removeClass('select');
+          $('#searchMap').addClass('select');
+          $('#showSearchMap').removeClass('select');
           this.cities = response.data.city
           this.getCity = response.data.getCity
           this.getTownships = response.data.getTownships
@@ -1185,6 +1194,7 @@ export default {
           const lat = response.data.getCity[0]['latitude']
           const lng = response.data.getCity[0]['longitude']
           const result = json.features
+          
           const coordinates = []
           for (var i = 0; i < result.length; i++) {
             if(result[i].Name == theCity){
@@ -1192,7 +1202,9 @@ export default {
             }
            
           }
+          
             var coordinate = coordinates.reduce((acc,val) => acc.concat(val),[]);
+            console.log(coordinates)
             var data = {
               type: "Feature",
               geometry: {
@@ -1206,6 +1218,7 @@ export default {
               zoom: 6,
               mapTypeId: google.maps.MapTypeId.ROADMAP,
             };
+           
             var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
             map.data.addGeoJson(data);
             map.data.setStyle({
@@ -1224,18 +1237,17 @@ export default {
                infoWindowContent.push(['<div class="info_content">' + multibusiness[i] +'</div>'])
             } 
             var infoWindow = new google.maps.InfoWindow(), marker, i;
+            const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
             for( i = 0; i < this.markers.length; i++ ) {
+              var k = alphabet[i];
               var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-              bounds.extend(position);
-              var icon = {
-                    url: "/google-map/marker-1.png", // url
-                    scaledSize: new google.maps.Size(30, 35), // scaled size
-                };
+              bounds.extend(position);  
               marker = new google.maps.Marker({
                   position: position,
                   map: map,
-                  icon: icon,
+                  icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + k + '|FF0000|000000',
                   zoom: 6,
+                 
                   title: markers[i][0]
               });
               google.maps.event.addListener(marker, 'click', (function(marker, i) {
