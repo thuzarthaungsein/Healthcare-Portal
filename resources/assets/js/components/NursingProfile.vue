@@ -84,19 +84,30 @@
                                 <label class="heading-lbl" style="border-left: 5px solid #f9793c;padding-left: 5px;">費用</label>
                             </div>
                             <div class="form-group">
-                                <label class="heading-lbl col-2 pad-free">入居時<span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">入居時 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
-                                    <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
+                                        </div>
+                                        <div class="col-md-1">
+                                            
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
+                                        </div>
+                                    </div>
+                                    
                                 </div>                                
                             </div>
                             <div class="form-group">
-                                <label class="heading-lbl col-2 pad-free">月額<span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">月額 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                         <input type="text"  class="form-control col-10 nursing-per-month float-left white-bg-color" v-model="nursing_info.per_month">
                                 </div>
                             </div>
                             <div class="form-group">                        
-                                <label class="heading-lbl col-2 pad-free">支払い方法<span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">支払い方法 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                     <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
                                     <div class="col-2 float-right">
