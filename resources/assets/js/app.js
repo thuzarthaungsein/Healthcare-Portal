@@ -69,6 +69,13 @@ Vue.use(CKEditor);
 import ReadMore from 'vue-read-more';
 Vue.use(ReadMore);
 
+
+//vuejs loading
+import VueLoading from 'vuejs-loading-plugin'
+Vue.use(VueLoading,{
+    text: 'Sending'
+})
+
 window.events = new Vue();
 window.flash = function(message) {
     window.events.$emit('flash', message);

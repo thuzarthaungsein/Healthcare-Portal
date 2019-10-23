@@ -3,42 +3,24 @@
   <div id="app">
 
     <div v-if="type == 'nursing'" id="nursingView">
-    <!--panorama-->    
-                <div class="col-12 detail_profile_left pad-free">
-                        <div class="thumbnail-img" style="padding:0px;border:none;">
-                            <div class="card-carousel">
-                            <div class="card-img">
-                                <!-- <div id="panorama"></div>           -->                              
-                           
-                                <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" 
-                                            class="pannellum"                                          
-                                            :auto-load="true"
-                                            :show-zoom="true"
-                                            :show-fullscreen="true"
-                                            :auto-rotate="isAutoRotationOn"
-                                            :orientation="isOrientationOn"
-                                            :compass="true"
-                                            :hfov= "120"></Pannellum>    
-                           
-                            </div>     
-                                              
-                            <div  class="thumbnails">
-                                    <div
-
-                                        v-for="(image,index) in  panoimages"
-
-                                        :key="image.id"
-
-                                        :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"                                      
-
-                                        @click="activatePanoImage(index)" >
-                                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
-                                    </div>
-                            </div>
-                        </div>
+        <!--panorama-->    
+        <div class="col-12 detail_profile_left pad-free">
+            <div class="thumbnail-img" style="padding:0px;border:none;">
+                <div class="card-carousel">
+                <div class="card-img">
+                    <!-- <div id="panorama"></div>           -->                              
+                    <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>    
+                </div>     
+                                    
+                <div  class="thumbnails">
+                    <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
+                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
                     </div>
-                </div>                   
-            <!--end panorama-->
+                </div>
+            </div>
+            </div>
+        </div>                   
+        <!--end panorama-->
 
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
             <!-- <div class="row col-12 m-t-10">
@@ -46,45 +28,31 @@
             </div> -->
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
-
                 情報
-
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
-
                 特長
-
             </button>
 
             <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn"  @click="activate(3)" :class="{ active : active_el == 3 }">
-
                 費用
-
             </button>
 
             <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn"  @click="activate(4)" :class="{ active : active_el == 4 }">
-
                 施設概要
-
             </button>
 
             <button v-scroll-to="{ el: '#element5' }" class="top-fixed-btn"  @click="activate(5)" :class="{ active : active_el == 5 }">
-
                 地図
-
             </button>
 
             <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn"  @click="activate(6)" :class="{ active : active_el == 6 }">
-
                 ロコミ
-
             </button>
 
             <!-- <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn"  @click="activate(7)" :class="{ active : active_el == 7 }">
-
                 求人応募
-
             </button> -->
 
             </div>
@@ -92,12 +60,9 @@
 
 
             <div class="row m-lr-0 ele p-t-65" id="element1">
-
                  <h5 class="profile_header">情報</h5>
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">                     
-
                     <!--for slideimage-->
-
                     <div class="col-sm-5 detail_profile_left">
 
                            <div class="thumbnail-img">
@@ -127,53 +92,28 @@
                                 </div>
 
                                 <div class="row col-12">
-
                                     <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
-
                                     <div class="row col-12 m-b-10">
-
-                                         <p>{{activeImageDescription}}</p>
-
+                                        <p>{{activeImageDescription}}</p>
                                     </div>
-
                                 </div>
 
                                 <div class="thumbnails">
-
-                                    <div
-
-                                        v-for="(image,index) in  images"
-
-                                        :key="image.id"
-
-                                        :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
-
-                                        @click="activateImage(index)" >
+                                    <div v-for="(image,index) in  images" :key="image.id" :class="['thumbnail-image', (activeImage == index) ? 'active' : '']" @click="activateImage(index)" >
                                         <img  :src ="'/upload/nursing_profile/' + image.photo">
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
-
 
                         <!-- <div  v-for="image in  images"  :key="image.id">
 
-
-
                         </div> -->
-
                     </div>
 
                     <!--end for slide image-->
-
                     <!--for address-->
-
                      <div class="col-sm-7 detail_profile_right">
-
                         <div class="row col-12 pro-heading">
                              <div class="col-12 pad-free">
                                  <h5 class="font15rem font-weight-bold"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
