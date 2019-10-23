@@ -16,7 +16,7 @@
       <div class="col-sm-10 offset-1">
         <!-- <img src="/images/img1.jpg" class="img-responsive" style="width:150px;"> -->
         
-        <div class="form-wrap mt-3">
+        <div class="form-wrap mt-3 mb-3">
           <div class="form-group m-0 row bd">
             <div class="col-md-2 col-sm-12 form-left">
               <label><span class="job_ico"><i class="fa fa-file"></i></span>仕事内容</label>
@@ -83,7 +83,11 @@
             <div class="col-md-12 text-center">
               <!-- <button type="button" class="btn btn-warning btn-width white">戻る</button> -->
               <!-- <span class="btn main-bg-color white all-btn" @click="jobApply()">確認画面へ進む</span> -->
-              <router-link :to="{name: 'jobapply', params: { job_id: job_id }}" class="btn orange-bg-color white all-btn width17">この案件に応募</router-link>
+              <router-link :to="{name: 'jobapply', params: { job_id: job_id }}" class="btn 
+              
+              
+              
+              white all-btn width17" style="background-color:#828282;">この案件に応募</router-link>
             </div>
           </div>
         </div>

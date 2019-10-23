@@ -857,7 +857,7 @@
 
          
           <div class="col-12 jobselect"> 
-             <h5 class="profile_header" style="border-left: 5px solid #ff9563;">現在の検索条件</h5>      
+             <h5 class="profile_header" style="border-left: 5px solid #828282;">現在の検索条件</h5>      
             <table class="table table-bordered col-12 ">
               <tbody>
                 <tr>

@@ -1,12 +1,25 @@
 <template>
   <div>
-    <div class="col-md-12 scrolldiv4">
-      <div class="row">
-        <div class="col-12 text-center p-3 jt1 mb-4">
+    <div class="tab-content job-detail">
+      <div class="col-md-12 pad-free m-b-20">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+              <router-link to="/" class="router-link-active">ホーム</router-link>
+          </li>
+          <li aria-current="page" class="breadcrumb-item active">仕事詳細</li>
+        </ol>
+      </nav>
+    </div>
+      
+        <!-- <div class="col-12 text-center p-3 jt1 mb-4">
           <h4>求人応募フォーム</h4>
+        </div> -->
+        <div class="col-12 m-b-10">
+          <h4 class="job-apply-color">求人応募フォーム</h4>         
         </div>
-      </div>
-      <div class="col-md-12 register_box" v-if="type == 'register'">
+      
+      <div class="col-md-12 register_box mt-3" v-if="type == 'register'">
         <ul class="multi-step">
           <li class="active">1.必要事項のご入力</li>
           <li class="no-active">2.内容のご確認</li>
