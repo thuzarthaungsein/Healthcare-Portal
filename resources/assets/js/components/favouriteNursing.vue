@@ -172,7 +172,7 @@
                                     <hr>
                                     <strong>最寄り駅</strong>
                                     <br>
-                                    <span>{{access}}</span>
+                                    <p v-html="access"></p>
                                 </div>
                                 <div class="modal-body">
 
@@ -282,7 +282,7 @@
                                                     <tr v-if="tran_show || address_show">
                                                         <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                             <div v-if="address_show" style="width:250px;">{{nur_profile.township_name}} {{nur_profile.city_name}}</div>
-                                                            <div class="list-group-item bd1" v-if="tran_show" style="height:100px;width:250px;">{{nur_profile.access }}</div>
+                                                            <div class="list-group-item bd1" v-if="tran_show" style="width:250px;"><p v-html="nur_profile.access"></p></div>
                                                             <div class="list-group-item bd1" v-if="tran_show || address_show" style="height:50px;width:250px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
                                                         </td>
                                                     </tr>
