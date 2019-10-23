@@ -5794,7 +5794,11 @@ button.confirmed {
 
 .form-wrap .form-tit {
     position: relative;
-    margin: 30px 0 50px 0;
+    margin: 30px 0 40px 0;
+}
+.require-txt{
+    position: relative;
+    margin: 0 0 30px 0;
 }
 
 .form-wrap .form-tit:before {
@@ -6050,7 +6054,7 @@ ul.test>li:before {
 #fav-history-page .card-carousel {
     display: flex;
     justify-content: center;
-    width: 1424px;
+    width: 1336px;
 }
 
 
@@ -6067,7 +6071,7 @@ ul.test>li:before {
 #fav-history-page .card-carousel-comment {
     display: flex;
     justify-content: center;
-    width: 1145px;
+    /* width: 1145px; */
 }
 
 #fav-history-page .card-carousel-comment .card {
@@ -6125,7 +6129,7 @@ ul.test>li:before {
 #fav-history-page .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
     cursor: pointer;
-    box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08);
+    /* box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08); */
     background-color: #fff;
     border-radius: 4px;
     z-index: 3;
