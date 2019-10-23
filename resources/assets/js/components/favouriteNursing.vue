@@ -1,45 +1,45 @@
 <template>
-    <div>        
-            <div class="col-12 scrolldiv2 pb-5 tab-content">
-                <div class="row col-12">
-                    <div class="col-md-12">
-                        <div class="col-md-12 fav-his-header">
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
-                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                    <path d="M0,172v-172h172v172z" fill="none"></path>
-                                    <g id="original-icon" fill="#c40000" opacity="0" visibility="hidden">
-                                        <path d="M50.16667,78.83333h107.5v14.33333h-107.5zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h107.5v14.33333h-107.5zM21.5,75.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,118.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,32.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75z"></path>
+    <div>
+        <div class="col-12 scrolldiv2 pb-5 tab-content">
+            <div class="row col-12">
+                <div class="col-md-12">
+                    <div class="col-md-12 fav-his-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                <g id="original-icon" fill="#c40000" opacity="0" visibility="hidden">
+                                    <path d="M50.16667,78.83333h107.5v14.33333h-107.5zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h107.5v14.33333h-107.5zM21.5,75.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,118.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM21.5,32.25c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75z"></path>
+                                </g>
+                                <g id="subtracted-icon" fill="#c40000">
+                                    <path d="M50.16667,78.83333h107.5l0,10.81336c-1.5126,0.69131 -2.92913,1.65951 -4.17264,2.90462l-0.6155,0.61535h-102.71186zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h24.29256c-1.88479,4.7147 -1.16582,10.22759 2.1569,14.33333h-26.44946zM32.25,86c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,129c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,43c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM123.60062,122.43755l-0.6045,-0.60422l1.20887,0z"></path>
+                                </g>
+                                <g>
+                                    <g id="Filled_3_" fill="#c40000">
+                                        <path d="M123.60062,162.99169l-35.82908,-35.82908l10.13652,-10.13652l25.69256,25.69256l40.02993,-40.02993l10.13652,10.13652z"></path>
                                     </g>
-                                    <g id="subtracted-icon" fill="#c40000">
-                                        <path d="M50.16667,78.83333h107.5l0,10.81336c-1.5126,0.69131 -2.92913,1.65951 -4.17264,2.90462l-0.6155,0.61535h-102.71186zM50.16667,35.83333h107.5v14.33333h-107.5zM50.16667,121.83333h24.29256c-1.88479,4.7147 -1.16582,10.22759 2.1569,14.33333h-26.44946zM32.25,86c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,129c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM32.25,43c0,5.93706 -4.81294,10.75 -10.75,10.75c-5.93706,0 -10.75,-4.81294 -10.75,-10.75c0,-5.93706 4.81294,-10.75 10.75,-10.75c5.93706,0 10.75,4.81294 10.75,10.75zM123.60062,122.43755l-0.6045,-0.60422l1.20887,0z"></path>
-                                    </g>
-                                    <g>
-                                        <g id="Filled_3_" fill="#c40000">
-                                            <path d="M123.60062,162.99169l-35.82908,-35.82908l10.13652,-10.13652l25.69256,25.69256l40.02993,-40.02993l10.13652,10.13652z"></path>
-                                        </g>
-                                        <g id="Filled_3_" fill="#000000" opacity="0">
-                                            <path d="M183.90358,122.96087l-50.16644,50.16644c-2.79579,2.80295 -6.46615,4.20085 -10.13652,4.20085c-3.67037,0 -7.34073,-1.39789 -10.13652,-4.20085l-35.82908,-35.82908c-5.59874,-5.59874 -5.59874,-14.67429 0,-20.27304l10.13652,-10.13652c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l15.55604,15.54887l29.89341,-29.88624c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l10.13652,10.13652c5.59874,5.59874 5.59874,14.67429 0,20.27304z"></path>
-                                        </g>
+                                    <g id="Filled_3_" fill="#000000" opacity="0">
+                                        <path d="M183.90358,122.96087l-50.16644,50.16644c-2.79579,2.80295 -6.46615,4.20085 -10.13652,4.20085c-3.67037,0 -7.34073,-1.39789 -10.13652,-4.20085l-35.82908,-35.82908c-5.59874,-5.59874 -5.59874,-14.67429 0,-20.27304l10.13652,-10.13652c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l15.55604,15.54887l29.89341,-29.88624c5.59157,-5.59874 14.68146,-5.59874 20.27304,0l10.13652,10.13652c5.59874,5.59874 5.59874,14.67429 0,20.27304z"></path>
                                     </g>
                                 </g>
-                            </svg>
-                            &nbsp; <span class="font-weight-bold">お気に入り</span>
-                        </div>
+                            </g>
+                        </svg>
+                        &nbsp; <span class="font-weight-bold">お気に入り</span>
                     </div>
-                    <div class="col-12">                        
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <router-link to="/">ホーム</router-link>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">介護のお気に入り</li>
-                            </ol>
-                        </nav>                        
-                    </div>
-                    
-                    <!--compare box-->
-                    <div class="row col-12">
-                        <div class="col-md-11" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
+                </div>
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <router-link to="/">ホーム</router-link>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">介護のお気に入り</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!--compare box-->
+                <div class="row col-12">
+                    <div class="col-md-11" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
                         <dl class="itemBox favnur" id="bd" v-if="!iscompare">
                             <dt>比較する項目</dt>
                             <dd>比較する項目が選べます</dd>
@@ -245,9 +245,9 @@
             <!--end compare box-->
             <!--result-->
             <div class="col-12">
-             <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
-                        <input type="checkbox" @change="checkAll()" class="check-all-btn" />
-                        <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる
+                <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
+                    <input type="checkbox" @change="checkAll()" class="check-all-btn" />
+                    <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる
                 </label>
                 <div style="margin-top: 20px;" id="fav-history-page">
                     <div class="col-12">
@@ -260,65 +260,101 @@
                                         <div class="card-carousel--card">
                                             <!-- <div class="card-carousel--card--footer"> -->
 
-                                                <table class="table table-bordered">
-                                                    <tr>
+                                            <table class="table table-bordered">
+                                                <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <img class="img-fluid" v-bind:src="'/images/' + nur_profile.logo" alt style="width: 250px; margin-bottom: 15px;" />
                                                         <br>
                                                         <div style="width: 250px">
-                                                            <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}">{{nur_profile.name}}</router-link>
-                                                        </div>                                                        
-                                                        
+                                                            <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}" class="pseudolink">{{nur_profile.name}}</router-link>
+                                                        </div>
+
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
                                                         <label class="btn all-btn secondary-bg-color hos-btn">
-                                                        <input type="checkbox" value="documentation" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle()"> 
-                                                        <span class="checkmark"></span>資料請求</label>
+                                                            <input type="checkbox" value="documentation" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle()">
+                                                            <span class="checkmark"></span>資料請求</label>
                                                     </td>
-                                                </tr>                                                    
-                                                    <tr v-if="tran_show || address_show">
-                                                        <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                            <div v-if="address_show" style="width:250px;">{{nur_profile.township_name}} {{nur_profile.city_name}}</div>
-                                                            <div class="list-group-item bd1" v-if="tran_show" style="width:250px;"><p v-html="nur_profile.access"></p></div>
-                                                            <div class="list-group-item bd1" v-if="tran_show || address_show" style="height:50px;width:250px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr v-if="entry_show || month_show">
-                                                        <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                            <div v-if="month_show" style="color:#ff6117;font-size:large;width:250px;height:60px;"><strong>{{nur_profile.per_month}}</strong></div>
-                                                            <div class="list-group-item bd1" v-if="entry_show" style="width:250px;height:100px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in}}</strong></div>
-                                                            <div class="list-group-item bd1" v-if="entry_show || month_show" style="height:50px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr v-if="condition_show">
-                                                        <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                           <div style="width:250px">{{nur_profile.occupancy_condition }}</div>
-                                                        </td>                                                        
-                                                    </tr> 
-                                                    <tr v-if="special_show">
-                                                        <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                            <div class="bd3" style="width:250px;">
-                                                                <ul class="fac_container m-t-8 m-b-15 m-l-8">
-                                                                    <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </td>    
-                                                    </tr> 
-                                                    <tr v-if="capacity_show">
-                                                        <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                            <div v-if="nur_profile.nursing_staff != null" style="width:250px;">{{nur_profile.nursing_staff }} 人</div>
-                                                            <div v-else style="width:250px;">-人</div>
-                                                        </td>
-                                                    </tr> 
-                                                    <tr v-if="opening_show">
-                                                        <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                            <div v-if="opening_show" style="width:250px;">{{nur_profile.date_of_establishment }}</div> 
-                                                        </td>
-                                                    </tr>                                        
-                                                </table>                                                
+                                                </tr>
+                                                <tr v-if="address_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <div v-if="address_show" style="width:250px;">{{nur_profile.township_name}} {{nur_profile.city_name}}</div>
+                                                    </td>
+                                                </tr>
+                                                <tr v-if="tran_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">交通手段</dt>
+                                                            <dd v-if="tran_show" style="width:250px;">
+                                                                <p v-html="nur_profile.access"></p>
+                                                            </dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr v-if="address_show || tran_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <div v-if="tran_show || address_show" style="width:250px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
+                                                    </td>
+                                                </tr>
+                                                <tr v-if="entry_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">入居時の費用</dt>
+                                                            <dd style="width:250px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in}}</strong></dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr v-if="month_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">月額の費用</dt>
+                                                            <dd style="color:#ff6117;font-size:large;width:250px;"><strong>{{nur_profile.per_month}}</strong></dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr v-if="month_show || entry_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <div style="width:250px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
+                                                    </td>
+                                                </tr>
+                                                <tr v-if="condition_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">入居条件</dt>
+                                                            <dd style="width:250px">{{nur_profile.occupancy_condition }}</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr v-if="special_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <div class="bd3" style="width:250px;">
+                                                            <ul class="fac_container m-t-8 m-b-15 m-l-8">
+                                                                <li v-for="feature in nur_profile.special" :key="feature.id">{{ feature.short_name }}</li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr v-if="capacity_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">定員</dt>
+                                                            <dd v-if="nur_profile.capacity != null" style="width:250px;">{{nur_profile.capacity }} </dd>
+                                                            <dd v-else style="width:250px;">-人</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr v-if="opening_show">
+                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">開設日</dt>
+                                                            <dd v-if="opening_show" style="width:250px;">{{nur_profile.date_of_establishment }}</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                             <!-- </div> -->
                                         </div>
                                     </div>
@@ -330,11 +366,9 @@
                 </div>
             </div>
             <!--end result-->
-                    
 
-               
-            </div>
-        
+        </div>
+
         <button type="button" class="btn btn-success mt-5 float-right" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
     </div>
 </template>
@@ -394,9 +428,9 @@
                     atHeadOfList() {
                         return this.currentOffset === 0;
                     },
-                isdisable: function() {
-                    return this.disableBtn;
-                }
+                    isdisable: function() {
+                        return this.disableBtn;
+                    }
             },
 
             created() {
@@ -413,7 +447,6 @@
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
 
-                
             },
 
             methods: {
@@ -463,13 +496,13 @@
                                 console.log('fav', this.fav_nursing)
 
                                 for (var i = 0; i < this.fav_nursing.length; i++) {
-                            var j = this.fav_nursing[i].id;
-                            if (this.document_status[j] == true) {
-                                this.disableBtn = false;
-                            } else {
-                                this.disableBtn = true;
-                            }
-                        }
+                                    var j = this.fav_nursing[i].id;
+                                    if (this.document_status[j] == true) {
+                                        this.disableBtn = false;
+                                    } else {
+                                        this.disableBtn = true;
+                                    }
+                                }
 
                             });
                     },
@@ -491,7 +524,7 @@
                         });
                     },
                     checkAll() {
-                            this.disableBtn = false;
+                        this.disableBtn = false;
                         if ($('.check-all-btn').is(":checked")) {
                             $('.checkbox1').prop("checked", true);
                             $('.checkbox2').prop("checked", true);
