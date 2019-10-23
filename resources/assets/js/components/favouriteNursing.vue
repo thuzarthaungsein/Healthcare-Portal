@@ -247,7 +247,7 @@
             <div class="col-12">
                 <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
                     <input type="checkbox" @change="checkAll()" class="check-all-btn" />
-                    <span class="checkmark"></span>すべての見学予約・資料請求にチェックを入れる
+                    <span class="checkmark"></span>すべての資料請求にチェックを入れる
                 </label>
                 <div style="margin-top: 20px;" id="fav-history-page">
                     <div class="col-12">
