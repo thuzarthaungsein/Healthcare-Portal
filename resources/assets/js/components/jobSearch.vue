@@ -914,25 +914,25 @@
 
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label" >
-                    <input class="form-check-input" value="Full" v-model="empstatus" type="checkbox">
+                    <input class="form-check-input" value="正職員" v-model="empstatus" type="checkbox">
                     正社員(正職員)
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label" >
-                    <input class="form-check-input" value="ContractEmployee" v-model="empstatus" type="checkbox">
+                    <input class="form-check-input" value="契約社員" v-model="empstatus" type="checkbox">
                     契約社員(職員)
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" value="Part" v-model="empstatus" type="checkbox">
+                    <input class="form-check-input" value="非常勤" v-model="empstatus" type="checkbox">
                     非常勤。パート
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" value="Other" v-model="empstatus" type="checkbox">
+                    <input class="form-check-input" value="その他" v-model="empstatus" type="checkbox">
                     その他
                     </label>
                   </div>

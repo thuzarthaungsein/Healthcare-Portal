@@ -124,23 +124,31 @@
                             <table class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>入居時</font>
                                             </th>
                                             <td>
-                                                <font class="cash-lbl">{{cust.moving_in}}</font>
+                                                <font class="cash-lbl">
+                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}} 円 
+                                                    ~ 
+                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}} 円
+                                                </font>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>月額</font>
                                             </th>
                                             <td>
-                                                <font class="cash-lbl">{{cust.per_month}}</font>
+                                                <font class="cash-lbl">
+                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}} 円 
+                                                    ~ 
+                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}} 円
+                                                </font>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>住所</font>
                                             </th>
                                             <td>
@@ -148,7 +156,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>電話</font>
                                             </th>
                                             <td>
@@ -156,21 +164,21 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>アクセス　</font>
                                             </th>
                                             <td>
                                                 <p v-html="cust.access"></p>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th width="250" class="custom-bg-color">
+                                        <!-- <tr>
+                                            <th width="200" class="custom-bg-color">
                                                 <font>駅</font>
                                             </th>
                                             <td>
                                                 <font>Nearest Station</font>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                             </table>
 
@@ -727,7 +735,7 @@
                                     </tr>   
                                     <tr>
                                         <td width="250" class="custom-bg-color"> アクセス</td>
-                                        <td>{{m.access}}</td>
+                                        <td><p v-html="m.access"></p></td>
                                     </tr>  
                                     <tr>
                                         <td width="250" class="custom-bg-color">住所 </td>
@@ -985,14 +993,14 @@
                                             <p v-html="cust.access"></p>
                                         </td>
                                     </tr>
-                                     <tr>
+                                     <!-- <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>駅 </font>
                                         </th>
                                         <td>
                                             <font>Nearest Station</font>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                      <!-- <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>費用 </font>
@@ -1313,7 +1321,7 @@
                                     </tr>   
                                     <tr>
                                         <td width="250" class="custom-bg-color"> アクセス</td>
-                                        <td>{{m.access}}</td>
+                                        <td><p v-html="m.access"></p></td>
                                     </tr>  
                                     <tr>
                                         <td width="250" class="custom-bg-color"> 混雑状況</td>
