@@ -900,9 +900,8 @@
                   <th>職種</th>
                   <td>
                       <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
-                        <label class="form-check-label" :for="occupation.id">
+                        <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID">
-
                         {{occupation.name}}
                         </label>
                       </div>
