@@ -49,27 +49,12 @@
                     />
                     <input type="hidden" class="form-contrl" id="customer-id" v-model="customer_id" />
                   </div>
-                  <!-- <div class="col-6 row align-items-baseline">
-                    <div class="col-md-3">
-                      <label for="selectBox col-form-label">カテゴリー</label>
-                    </div>
-                    <div class="col-md-9">
-                      <select class="form-control" id="selectBox" @change="searchbyCategory()">
-                        <option selected="selected" value>全て</option>
-                        <option
-                          v-for="category in categories"
-                          :key="category.id"
-                          v-bind:value="category.id"
-                        >{{category.name}}</option>
-                      </select>
-                    </div>
-                  </div>-->
                 </div>
               </div>
             </div>
             <hr />
             <h5 class="header">求人採用一覧</h5>
-            <table class="table table-hover custom-table">
+            <!-- <table class="table table-hover custom-table">
               <thead style="background-color:rgb(183, 218, 210);">
                 <tr>
                   <th>施設種別</th>
@@ -88,7 +73,7 @@
                   </th>
                   <th>{{job.employment_status}}</th>
                   <th class="text-right">
-                    <!-- <button class="btn btn-sm btn-primary all-btn" v-if="getUser.status == 1">Approved</button> -->
+                   
                     <small>
                       <router-link
                         :to="{name: 'joboffercreate', params:{id:job.id}}"
@@ -101,17 +86,38 @@
                    <router-link
                         :to="{name: 'jobapplylist', params:{id:job.id}}"
                         class="btn edit-borderbtn">jobapplylist</router-link>
-                        <!-- <button class="btn edit-borderbtn" @click="jobConfirm(job.id)">Jobapply</button> -->
-                    <!-- <button class="btn edit-borderbtn" @click="jobConfirm(job.id)" >JobApply</button> -->
+                       
                   </th>
                 </tr>
               </tbody>
-            </table>
-            <!-- <div class="card card-default m-b-20" v-for="job in jobs" :key="job.id">
-              <div class="card-body">
+            </table> -->
+            <div class="card card-default m-b-20" v-for="job in jobs" :key="job.id">
+              <div class="card-body joboffer-body">
                 <div class="row">
-                  <div class="col-md-9 m-t-8">
-                    <label>
+                  <div class="col-md-12 m-t-8">
+                    <div class="joboffer-header">
+                        <h5 class="joboffer-tit clearfix"> 
+                            <router-link :to="{name: 'job_details', params:{id:job.id}}">{{job.title}}</router-link>
+                            <span class="job_id">求人NO.{{job.job_number}}</span>
+                        </h5> 
+                    </div>
+                    
+                    <div class="joboffer-body">
+                        
+                        <p class="mb-2"><span class="text-orange"><span class="job_ico">&#xa5;</span>給料 :</span><span class=""> {{job.salary}}</span></p>
+                        <p class="mb-2"><span class="text-orange"><span class="job_ico">★</span> スキル :</span><span class=""> {{job.skills}}</span></p>
+                        <ul class="btn-list mt-4">
+                            <li>
+                                <router-link :to="{name: 'joboffercreate', params:{id:job.id}}" class="btn edit-borderbtn">編集</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name: 'jobapplylist', params:{id:job.id}}" class="btn confirm-borderbtn confirmed">求人応募一覧へ</router-link>
+                            </li>
+                            <li><a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a></li>                       
+                        </ul>                  
+                    </div>
+                    
+                    <!-- <label>
                       <strong>Title :</strong>
                       {{job.title}}
                     </label>
@@ -134,11 +140,11 @@
                     </small> &nbsp;
                     <small>
                       <a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a>
-                    </small>
+                    </small> -->
                   </div>
                 </div>
               </div>
-            </div>-->
+            </div>
           </div>
         </div>
       </div>
