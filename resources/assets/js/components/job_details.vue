@@ -10,7 +10,7 @@
     </div>
     <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">
       <div class="col-12">
-        <h4 class="h_4 header">{{jobDetail.title}} <label class="jobid float-right">求人番号: {{jobDetail.jobid}}</label></h4> 
+        <h4 class="job-title-color">{{jobDetail.title}} <label class="job_id" style="color:#000;">求人番号: {{jobDetail.jobid}}</label></h4> 
         
       </div>
       <div class="col-sm-10 offset-1">

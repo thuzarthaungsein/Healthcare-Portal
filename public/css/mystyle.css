@@ -6690,15 +6690,13 @@ ul.test>li:before {
 }
 /*for Job*/
 .job-title-color{
-    background-color: #828282;
-
-}
-.jobid{
-    padding: 5px 10px;
-    font-size: 13px;
-    color: #0e775d;
-    text-align: center;
-    border-radius: 20px;
-    border: 1px solid #b7dad2;
+    padding-left: 40px;
+    font-size: 20px;
+    color: #4d2200;
+    background: url(/images/survey.png) no-repeat 0 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #d2571c;
+    color: #d2571c;
+    letter-spacing: 1px;
 
 }
