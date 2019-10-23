@@ -18,120 +18,99 @@
         </div>
         <div class="row m-0">
             
-            <form @submit.prevent="add" class="col-md-12 pad-free">
-                <div class="row m-0">
-                    <div v-for="hos_profile in fav_hospital" :key="hos_profile.id" class="col-lg-12 pt-3 bd">
-                        <div class="row m-0">
-                            <h5 class="m-b-10 col-12 hos-tit">
-                                <!-- <a href="#">{{hos_profile.name}}</a> -->
-                                <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" >{{hos_profile.name}}</router-link>
-                            </h5>
-                            <div class="col-lg-2 col-md-12 mb-5">
-                                <div class="hos-img list-logo">
-                                    <img v-bind:src="'/images/' + hos_profile.logo" alt style />
-                                </div>
-                                <button class="btn btn-danger all-btn hos-btn" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>
-                            </div>
-                            <div class="col-lg-7 col-md-12 mb-4">
-                                <div class="row list-wrap">
-                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <p>
-                                            <strong>公式サイト</strong>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                        <p>
-                                            <a href="#" target="_blank">{{hos_profile.website}}</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row list-wrap">
-                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <p>
-                                            <strong>Medical Departement</strong>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                        <p>{{hos_profile.medical_department}}</p>
-                                    </div>
-                                </div>
-                                <div class="row list-wrap">
-                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <p>
-                                            <strong>電話番号</strong>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                        <p>{{hos_profile.phone}}</p>
-                                    </div>
-                                </div>
-                                <div class="row list-wrap">
-                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <p>
-                                            <strong>交通アクセス</strong>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                        <p>{{hos_profile.access}}</p>
-                                    </div>
-                                </div>
-                                <div class="row list-wrap">
-                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <p>
-                                            <strong>メールアドレス</strong>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                        <p>{{hos_profile.email}}</p>
-                                    </div>
-                                </div>
-                                    <!-- <div class="row list-wrap">
-                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <p>
-                                            <strong>Details</strong>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                        <p>{{hos_profile.details_info}}</p>
-                                    </div>
-                                </div> -->
-                                    <div class="row list-wrap">
-                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <p>
-                                            <strong>診療科目</strong>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                        <p>{{hos_profile.subject}}</p>
-                                    </div>
-                                </div>
-                                <!-- <div class="row list-wrap">
-                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <p>
-                                            <strong>Occupancy Condition</strong>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                        <p>{{hos_profile.occupancy_condition}}</p>
-                                    </div>
-                                </div>                                             -->
-                                    <div class="row list-wrap">
-                                        <div class="col-lg-3 col-md-4 col-sm-12">
-                                            <p>
-                                                <strong>住所</strong>
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-9 col-md-8 col-sm-12">
-                                            <p>{{hos_profile.township_name}}, {{hos_profile.city_name}}</p>
-                                        </div>                                                    
-                                </div>
-                                </div>
-                                <div class="col-lg-3 col-md-12">
-                                    <ul class="fac_container">
-                                        <li v-for="feature in hos_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+            <form @submit.prevent="add" class="col-md-12 pad-free">                 
+                <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
+                    <div class="row">
+                        <div class="card-carousel-wrapper">
+
+                            <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+                            <div class="card-carousel">
+                                <div class="card-carousel--overflow-container">
+                                    <div class="card-carousel-cards col-3" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
+                                        <div class="card-carousel--card">
+                                            <div class="card-carousel--card--footer">
+
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <img class="img-fluid" v-bind:src="'/images/' + hos_profile.logo" alt style="width: 250px" />
+                                                            <br>
+                                                            <br>
+
+                                                            <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id" style="word-wrap: break-word;">
+                                                            <p style="width:250px;">
+                                                                <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>                                                                
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <div style="width:250px;"> <a :href="hos_profile.website" target="_blank" style="width:250px;">{{hos_profile.website}}</a></div>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <div style="width:250px;">{{hos_profile.medical_department}}</div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <div style="width:250px;">{{hos_profile.phone}}</div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <div style="width:250px;">{{hos_profile.access}}</div>
+                                                        </td>
+                                                    </tr>
+
+                                                     <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <div style="width:250px;">{{hos_profile.email}}</div>
+                                                        </td>
+                                                    </tr>
+
+                                                      <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <dl>
+                                                                <dt style="text-align:left;">診療科目</dt>
+                                                                <dd style="width:250px;" v-for="subject in hos_profile.sub" :key="subject.id">{{ subject.name }}</dd>
+                                                            </dl>
+                                                        </td>
+                                                    </tr>
+
+                                                     <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <div style="width:250px;">{{hos_profile.township_name}}, {{hos_profile.city_name}}</div>
+                                                        </td>
+                                                    </tr>
+
+                                                     <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <div style="width:250px;">
+                                                                <ul class="fac_container">
+                                        <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                     </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                        </div>
                                     </div>
-                            
+                                </div>
+                            </div>
+                            <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
                         </div>
                     </div>
                 </div>
@@ -148,47 +127,74 @@
         data() {
             return {
                 errors: [],
-                fav_hospital: [],
-                local_sto: "",
-                post_list: [],
-                city_list: [],
-                post: "",
-                selectedCity: "",
-                zipStreet: "",
-                zipPref: "",
-                selectedValue: 0,
-                fav_email: [],
-                arr_email: [],
-                type: 'nursing',
-                specialfeature: []
+               fav_hospital: [],
+               local_sto: "",
+               post_list: [],
+               city_list: [],
+               post: "",
+               selectedCity: "",
+               zipStreet: "",
+               zipPref: "",
+               selectedValue: 0,
+               fav_email: [],
+               arr_email: [],
+               type: 'nursing',
+               specialfeature: [],
+               currentOffset: 0,
+               windowSize: 5,
+               paginationFactor: 267,
             };
         },
+          computed: {
+                atEndOfList() {
+                        return this.currentOffset <= (this.paginationFactor * -1) * (this.fav_hospital.length - this.windowSize);
+                    },
+                    atHeadOfList() {
+                        return this.currentOffset === 0;
+                    },
+            },
         created() {
             this.local_sto = localStorage.getItem("hospital_fav");
             this.getAllFavourite(this.local_sto);
         },
         methods: {
-           
-                deleteLocalSto: function(id) {
-                    if (confirm("Are you sure you want to delete?")) {
-                        alert('Delete Successfully!');
-                    }
-                    var l_sto = this.local_sto;
-                    var l_sto_arr = l_sto.split(",");
-                    var rm_id = id.toString();
-                    var index = l_sto_arr.indexOf(rm_id);
-                    if (index > -1) {
-                        l_sto_arr.splice(index, 1);
-                        var new_local = l_sto_arr.toString();
-                        localStorage.setItem('hospital_fav', new_local);
-                        this.local_sto = localStorage.getItem("hospital_fav");
-                        if (this.local_sto) {
-                            this.getAllFavourite(this.local_sto);
-                        } else {
-                            window.location.reload();
+
+                 moveCarousel(direction) {
+                        // Find a more elegant way to express the :style. consider using props to make it truly generic
+                        if (direction === 1 && !this.atEndOfList) {
+                            this.currentOffset -= this.paginationFactor;
+                        } else if (direction === -1 && !this.atHeadOfList) {
+                            this.currentOffset += this.paginationFactor;
                         }
-                    }
-                },
+                    },
+           
+               deleteLocalSto: function(id) {
+                        if (confirm("Are you sure you want to delete?")) {
+                            alert('Delete Successfully!');
+                            var l_sto = this.local_sto;
+                            var l_sto_arr = l_sto.split(",");
+                            var rm_id = id.toString();
+                            var index = l_sto_arr.indexOf(rm_id);
+                            if (index > -1) {
+                                l_sto_arr.splice(index, 1);
+                                var new_local = l_sto_arr.toString();
+                                localStorage.setItem('hospital_fav', new_local);
+                                this.local_sto = localStorage.getItem("hospital_fav");
+                                if (this.local_sto) {
+                                    this.getAllFavourite(this.local_sto);
+                                } else {
+                                    // window.location.reload();
+                                    this.$router.push({
+                                        name: 'home',
+                                        params: {
+                                            page: 'subtab3'
+                                        }
+                                    });
+                                }
+                            }
+                        }
+
+                    },
                 getAllFavourite: function(local_storage) {
                     this.axios
                         .post('/api/favHospital/' + local_storage)

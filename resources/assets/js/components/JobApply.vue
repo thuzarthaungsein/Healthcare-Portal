@@ -76,13 +76,14 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
+              <!-- <input
                 type="text"
                 class="form-control box"
                 placeholder="○○日○○月○○○○年"
                 id="birthday"
                 v-model="jobApply.birthday"
-              />
+              /> -->
+              <date-picker class="box" v-model="jobApply.birthday" valueType="format"  style="margin-left: 11px;"></date-picker>
             </div>
           </div>
           <div class="form-group m-0 row bd">
@@ -433,8 +434,10 @@
   </div>
 </template>
 <script>
+import DatePicker from 'vue2-datepicker';
 
 export default {
+  components: { DatePicker },
   data() {
     return {
       errors: {

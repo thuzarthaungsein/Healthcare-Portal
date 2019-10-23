@@ -18,6 +18,7 @@
                     <!--inputform--> 
                     <form class="col-md-12 form-wrap">
                         <h5 class="form-tit">資料請求される方について</h5>
+                        <p class="require-txt"><span class="error sp1">必須</span> のついた項目は全て入力してくださいますようお願いいたします。</p>
                         <div class="form-group m-0 row bd">
                             <div class="col-md-3 col-sm-12 form-left"><label>お名前 <span class="error sp1">必須</span></label></div>
                             <div class="col-md-9 col-sm-12 form-right">
@@ -94,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group m-0 row bd">
+                        <div class="form-group m-0 row bd-all">
                             <div class="col-md-3 col-sm-12 form-left"><label>メールアドレス <span class="error sp1">必須</span></label></div>
                             <div class="col-md-9 col-sm-12 form-right">
                             <div class="form-group row pl-3">
@@ -106,12 +107,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group m-0 row bd-all">
+                        <!-- <div class="form-group m-0 row bd-all">
                             <div class="col-md-3 col-sm-12 form-left"><label>プレゼントのご希望:</label></div>
                             <div class="col-md-9 col-sm-12 form-right pl-4">
                                 <input type="checkbox" id="present"  name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="aggreBtn">「早分かり用語集」プレゼントを希望する
                             </div>
-                        </div>
+                        </div> -->
                         <div class="mt-4 submit txt-err" v-if="btn_disable">   
                             <div class="error">※未入力の必須項目がございます</div>
                         </div> 
@@ -119,7 +120,7 @@
                         <div class="btn-list mt-2  clearfix">
                             <ul>
                                 <li class="m-r-15"><router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link></li>
-                                <li> <button type="button" class="btn news-post-btn all-btn submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
+                                <li> <button type="button" class="submit1 btn main-bg-color continue submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
                             </ul>  
                         </div>
                         <!--next_form-->
@@ -318,7 +319,7 @@
                     fav_mail: [{}],
                     fav_id: [{}],
                     fav_name: [{}],
-                    arr_reserve: [{}],
+                    // arr_reserve: [{}],
                     arr_document: [{}],
                     selectedValue: 0,
                 },
@@ -329,7 +330,7 @@
                 all_mail: [],
                 bk_data: [],
                 bk_postal: 0,
-                reservation: [],
+                // reservation: [],
                 documentation: [],
                 btn_disable: false,
                 comment_focus: false,
@@ -394,14 +395,14 @@
             },
             add() {
                 this.all_mail = JSON.parse(localStorage.getItem("item"));
-                this.reservation = JSON.parse(localStorage.getItem("reserve"));
+                // this.reservation = JSON.parse(localStorage.getItem("reserve"));
                 this.documentation = JSON.parse(localStorage.getItem("document"));
                 for (var i = 0; i < this.all_mail.length; i++) {
                     this.comments.fav_mail.push(this.all_mail[i].email);
                     this.comments.fav_id.push(this.all_mail[i].id);
                     this.comments.fav_name.push(this.all_mail[i].name);
                 }
-                this.comments.arr_reserve = this.reservation;
+                // this.comments.arr_reserve = this.reservation;
                 this.comments.arr_document = this.documentation;
                 localStorage.setItem("inputValue", JSON.stringify(this.comments));
                 var data = JSON.parse(localStorage.getItem("inputValue"));
