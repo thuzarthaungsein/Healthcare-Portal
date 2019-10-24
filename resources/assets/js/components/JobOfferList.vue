@@ -22,7 +22,7 @@
       </nav>
       <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
         <div class="col-md-12 scrolldiv">
-          <div v-if="!this.jobs.length" class="card card-default m-b-20 card-wrap">
+         <div v-if="!this.jobs.length" class="card card-default m-b-20 card-wrap">
             <p class="record-ico">
               <i class="fa fa-exclamation"></i>
             </p>
@@ -30,7 +30,7 @@
             <p class="record-txt01">表示するデータありません</p>
             <p>表示するデータありません‼新しいデータを作成してください。</p>
             <a href="/joboffercreate" class="main-bg-color create-btn all-btn">
-              <i class="fas fa-plus-circle"></i> 新しい投稿を作成
+              <i cl ass="fas fa-plus-circle"></i> 新しい投稿を作成
             </a>
           </div>
 
@@ -73,7 +73,7 @@
                   </th>
                   <th>{{job.employment_status}}</th>
                   <th class="text-right">
-                   
+
                     <small>
                       <router-link
                         :to="{name: 'joboffercreate', params:{id:job.id}}"
@@ -86,7 +86,7 @@
                    <router-link
                         :to="{name: 'jobapplylist', params:{id:job.id}}"
                         class="btn edit-borderbtn">jobapplylist</router-link>
-                       
+
                   </th>
                 </tr>
               </tbody>
@@ -96,14 +96,17 @@
                 <div class="row">
                   <div class="col-md-12 m-t-8">
                     <div class="joboffer-header">
-                        <h5 class="joboffer-tit clearfix"> 
-                            <router-link :to="{name: 'job_details', params:{id:job.id}}">{{job.title}}</router-link>
+                        <h5 class="joboffer-tit clearfix">
+                            <router-link :to="{name: 'job_details', params:{id:job.id}}">{{job.title}} </router-link>
+                            <!-- <span class="job_id">jobapplylistcount{{job.count}}</span> -->
+                            <span class="text-orange"><span class="job_count">{{job.count}}数</span></span>
+
                             <span class="job_id">求人NO.{{job.job_number}}</span>
-                        </h5> 
+                        </h5>
                     </div>
-                    
+
                     <div class="joboffer-body">
-                        
+
                         <p class="mb-2"><span class="text-orange"><span class="job_ico">&#xa5;</span>給料 :</span><span class=""> {{job.salary}}</span></p>
                         <p class="mb-2"><span class="text-orange"><span class="job_ico">★</span> スキル :</span><span class=""> {{job.skills}}</span></p>
                         <ul class="btn-list mt-4">
@@ -113,10 +116,10 @@
                             <li>
                                 <router-link :to="{name: 'jobapplylist', params:{id:job.id}}" class="btn confirm-borderbtn confirmed">求人応募一覧へ</router-link>
                             </li>
-                            <li><a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a></li>                       
-                        </ul>                  
+                            <li><a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a></li>
+                        </ul>
                     </div>
-                    
+
                     <!-- <label>
                       <strong>Title :</strong>
                       {{job.title}}
@@ -153,22 +156,33 @@
 </template>
 <script>
 export default {
+    //  mounted(){
+
+    //     this.count = this.countJobapplylist()
+
+    // },
   data() {
     return {
       jobs: [],
-      customer_id: ""
+      customer_id: "",
+      count:"",
+      job_id: []
     };
   },
   created() {
     this.axios.get("/api/job/index").then(response => {
       this.jobs = response.data.profilejob;
       this.customer_id = response.data.user;
+      console.log(this.jobs)
+
     });
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)
     });
+    his.countJobapplylist(this.job_id);
   },
   methods: {
+
     deleteJob(id) {
       this.$swal({
         title: "確認",
