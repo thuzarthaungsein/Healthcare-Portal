@@ -1063,7 +1063,31 @@ export default {
 
     search()
     {
-      window.scrollTo({ top : 1000, behavior: 'smooth' });
+       if(this.townshipID == null || this.townshipID == '')
+          {
+            this.townshipID[0] = 0;
+          }
+          if(this.occupationID == null || this.occupationID == '')
+          {
+            this.occupationID[0] = 0;
+          }
+          if(this.empstatus == null || this.empstatus == '')
+          {
+            this.empstatus[0] = 0;
+          }
+
+          this.axios.get('api/getjobsearch',{
+            params:{
+                id: this.id,
+                townshipID:this.townshipID,
+                occupationID:this.occupationID,
+                empstatus:this.empstatus
+            },
+          }).then((response)=>{
+
+            this.job_data = response.data;
+
+          })
     },
 
     toggleContent4() {
@@ -1097,31 +1121,7 @@ export default {
 
         if(e.target.tagName == 'BUTTON')
         {
-            if(this.townshipID == null || this.townshipID == '')
-          {
-            this.townshipID[0] = 0;
-          }
-          if(this.occupationID == null || this.occupationID == '')
-          {
-            this.occupationID[0] = 0;
-          }
-          if(this.empstatus == null || this.empstatus == '')
-          {
-            this.empstatus[0] = 0;
-          }
-
-          this.axios.get('api/getjobsearch',{
-            params:{
-                id: this.id,
-                townshipID:this.townshipID,
-                occupationID:this.occupationID,
-                empstatus:this.empstatus
-            },
-          }).then((response)=>{
-
-            this.job_data = response.data;
-
-          })
+           
         }
 
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
