@@ -1189,7 +1189,7 @@ export default {
             for(var i=0;i<this.markers.length;i++){
               mmarker.push([this.markers[i]['business_entity'],this.markers[i]['lat'],this.markers[i]['lng']])
               multibusiness.push(this.markers[i]['business_entity'])
-            }
+            } 
           const theCity = response.data.getCity[0]['city_eng']
           const lat = response.data.getCity[0]['latitude']
           const lng = response.data.getCity[0]['longitude']
