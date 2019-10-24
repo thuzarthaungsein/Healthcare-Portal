@@ -83,22 +83,23 @@
         }
         #homeBtn{
             position: fixed;
-            top: 78px;
-            left: 40px;
+            top: 177px;
+            left: -1px;
             z-index: 99;
-            font-size: 18px;
+            font-size: 14px;
             border: none;
             outline: none;
-            background-color: red;
-            color: transparent;
+            background-color: #ff6117;
+            color: #fff;
             cursor: pointer;
-            border: 1px solid #dadce0;
-            border-radius: 50%;
+            border: 1px solid #e66527;
+            border-radius: 30px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
             box-sizing: border-box;
-            width: 50px;
-            height: 50px;
-            background: url(../images/home-24.png) no-repeat center;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+            padding: 10px 20px;
+            /* background: url(../images/home-24.png) no-repeat center; */
+            box-shadow: 0 9px 10px -10px #d2571c;
         }
     </style>
 <!-- link for editor -->
@@ -108,7 +109,7 @@
 
 <body>
     <button onclick="topFunction()" id="myBtn">Top</button>
-    <button onclick="homeBtn()" id="homeBtn">Home</button>
+    <button id="homeBtn"><i class="fa fa-home"></i> ホーム</button>
 <div id="app">
 
     <div class="main-content pad-free">
@@ -801,7 +802,8 @@
                 }
 
             }
-            $(".top-ad-slider").html(top_ad);     
+            $(".top-ad-slider").html(top_ad);
+            // jssor_1_slider_init();
             $(".side-ad-slider").html(side_ad);
             // jssor_slider2_init();
         }

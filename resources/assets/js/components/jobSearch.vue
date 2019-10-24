@@ -965,14 +965,13 @@
               </tbody>
             </table>
             </div>  
-
             
               <div class=" col-12">
                 <div class="row">
                    <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.jobid">
                      <div class="job-content">
                       <div class="job-header">
-                        <h5 class="job-tit" :to="job.jobid">
+                        <h5 class="job-tit">
                           {{job.name}}
                           </h5>
                         <div class="clearfix">
@@ -985,22 +984,6 @@
                           <img src="/upload/news/nursing.JPG"  alt="">
                         </div>
                         <div class="col-8 job-box">
-                          <!-- <div class="row mb-2">
-                            <div class="col-3 job-left"><span class="job_ico"><i class="fa fa-map-marker"></i></span>アクセス</div>
-                            <div class="col-9">{{job.access}}</div>
-                          </div>
-                          <div class="row mb-2">
-                            <div class="col-3 job-left"><span class="job_ico">&#xa5;</span>【給料】</div>
-                            <div class="col-9">{{job.salary}}</div>
-                          </div>
-                          <div class="row mb-2">
-                            <div class="col-3 job-left"><span class="job_ico"><i class="fa fa-clock-o"></i></span>勤務時間/日/休日の詳細</div>
-                            <div class="col-9">{{job.working_hours}} / {{job.holidays}} </div>
-                          </div>
-                          <div class="row mb-2">
-                            <div class="col-3 job-left"><span class="job_ico">&#xa5;</span>特別な条件</div>
-                            <div class="col-9">{{job.working_hours}} / {{job.holidays}} </div>
-                          </div> -->
                           <table  class="table table-bordered  table-sm">
                             <tr>
                               <td><span class="job_ico"><i class="fa fa-map-marker"></i></span>最寄り駅</td>

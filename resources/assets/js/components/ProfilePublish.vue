@@ -129,9 +129,9 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}} 円 
-                                                    ~ 
-                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}} 円
+                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円 
+                                                     ~  
+                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
                                         </tr>
@@ -141,9 +141,9 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}} 円 
-                                                    ~ 
-                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}} 円
+                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}}円 
+                                                     ~  
+                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
                                         </tr>
@@ -251,42 +251,30 @@
                             <div class="row" >
                                 <div class="col-md-12" >
 
-                                    <table class="table table-bordered cost_table">
+                                    <table class="table table-bordered cost_table main-cost-table">
 
                                         <thead>
 
                                             <tr>
-
-                                                <th>入居にかかる費用(費用)</th>
-
-                                                <th>居室タイプ(タイプ)</th>
-
-                                                <th>月額料金 (毎月 )</th>
-
-                                                <th>広さ(エリア )</th>
-
+                                                <th>プラン名 / 居室詳細</th>
+                                                <th>入居時費用</th>
+                                                <th>月額費用</th>
                                                 <th></th>
-
                                             </tr>
 
                                         </thead>
 
                                         <tbody>
                                         <tr v-for="cost in method_payment" :key="cost.id">
-
-                                            <td>{{cost.expense_moving}}</td>
-
-                                            <td>{{cost.living_room_type}}</td>
-
-
-                                            <td>{{cost.monthly_fees}}</td>
-
-                                            <td>{{cost.area}}</td>
-
                                             <td>
-
+                                                <h5 class="method-name">{{cost.payment_name}}</h5>
+                                                <span class="room-type"> {{cost.living_room_type}} </span>  
+                                                {{cost.area}}
+                                            </td>
+                                            <td><span class="cash-lbl-mini">{{cost.expense_moving}}</span></td>                                          
+                                            <td><span class="cash-lbl-mini">{{cost.monthly_fees}}</span></td>
+                                            <td style="padding-top:15px;">
                                                 <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >詳しくはこちら</span>
-
                                             </td>
                                         </tr>
                                         </tbody>
@@ -302,14 +290,15 @@
                                 </div> -->
 
                                 <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
+                                    <label class="cost_heading_lbl m-b-15">{{cost.payment_name}}</label>
                                     <div class="col-md-12 pad-free">
-                                        <label class="cost_heading_lbl">入居にかかる費用(Expense Moving)</label>
+                                        <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 入居にかかる費用</label>
                                         <table id="costDetails" class="table table-condensed cost_table">
                                             <tbody>
                                                 <tr>
-                                                    <th width="300">入居一時金または(deposit)</th>
-                                                    <td>{{cost.deposit}}</td>
-                                                    <th width="300">その他（使途）(other)</th>
+                                                    <th width="300">入居一時金または</th>
+                                                    <td><span class="cash-lbl-mini">{{cost.deposit}}</span></td>
+                                                    <th width="300">その他（使途）</th>
                                                     <td>{{cost.other_use}}</td>
                                                 </tr>
                                             </tbody>
@@ -317,32 +306,32 @@
                                     </div>
 
                                     <div class="col-md-12 pad-free">
-                                        <label class="cost_heading_lbl">月額費用(Monthly Cost)</label>
+                                        <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 月額費用</label>
                                         <table class="table table-condensed cost_table">
                                             <tbody>
 
                                                 <tr>
-                                                    <th width="300">賃料 (rent)</th>
-                                                    <td>{{cost.rent}}</td>
+                                                    <th width="300">賃料</th>
+                                                    <td><span class="cash-lbl-mini">{{cost.rent}}</span></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <th>管理費(admin_expense)</th>
-                                                    <td>{{cost.admin_expense}}</td>
+                                                    <th>管理費</th>
+                                                    <td><span class="cash-lbl-mini">{{cost.admin_expense}}</span></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <th>食費 (food_expense)</th>
-                                                    <td>{{cost.food_expense}}</td>
+                                                    <th>食費 </th>
+                                                    <td><span class="cash-lbl-mini">{{cost.food_expense}}</span></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <th>介護上乗せ金（生活サービス費(nursing care)</th>
-                                                    <td>{{cost.nurse_care_surcharge}}</td>
+                                                    <th>介護上乗せ金（生活サービス費</th>
+                                                    <td><span class="cash-lbl-mini">{{cost.nurse_care_surcharge}}</span></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <th>その他 (other monthly cost)</th>
+                                                    <th>その他 </th>
                                                     <td>{{cost.other_monthly_cost}}</td>
                                                 </tr>
 
@@ -352,13 +341,13 @@
                                     </div>
 
                                     <div class="col-md-12 pad-free">
-                                        <label class="cost_heading_lbl">返還金について(refund system)</label>
+                                        <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 返還金について</label>
                                         <table class="table table-condensed cost_table">
                                             <tbody>
 
                                                 <tr>
 
-                                                    <th width="300">返還制度 (refund)</th>
+                                                    <th width="300">返還制度</th>
 
                                                     <td>{{cost.refund_system}}</td>
 
@@ -366,7 +355,7 @@
 
                                                 <tr>
 
-                                                    <th>償却期間(Depreciation)</th>
+                                                    <th>償却期間</th>
 
                                                     <td>{{cost.depreciation_period}}</td>
 
@@ -374,7 +363,7 @@
 
                                                 <tr>
 
-                                                    <th>初期償却(InitialDepreciation)</th>
+                                                    <th>初期償却</th>
 
                                                     <td>{{cost.initial_deprecration}}</td>
 
@@ -382,7 +371,7 @@
 
                                                 <tr>
 
-                                                    <th>その他メッセージ(other message)</th>
+                                                    <th>その他メッセージ</th>
 
                                                     <td>{{cost.other_message_refund}}</td>
 
@@ -1413,6 +1402,7 @@ export default {
                         that.index = current;
                     }
                 },
+                images: [],
                 panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
                 changelinktitle:'内容を見る',
                 currentOffset: 0,
@@ -1816,6 +1806,20 @@ export default {
     font-size: 1.14em;
 
 }
+.cost_heading_lbl_mini{
+    /* border-left: 5px solid rgb(249, 121, 60); */
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.cost_heading_lbl_mini i{
+    padding: 0px 10px;
+    border-radius: 3px;
+    /* background: #fbaa84; */
+    color: #d2571c;
+    font-size: 1em;
+}
 
 .cost_table th{
 
@@ -1823,7 +1827,7 @@ export default {
 
     padding: 8px 10px;
 
-    text-align: center;
+    /* text-align: center; */
 
     background: #f0f0f0;
 
@@ -1849,6 +1853,9 @@ export default {
 
     background: #fff;
 
+}
+.main-cost-table td{
+    padding: 10px !important;
 }
 
 .cost_btnwrapper{
@@ -2159,6 +2166,30 @@ export default {
 
 }
 
+.room-type {
+    background: #fdd6c3;
+    color: #333333;
+    padding: 3px 5px 3px 7px;
+    border-radius: 3px;
+    margin-right: 7px;
+    font-weight: bold;
+}
 
+.method-name {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.cash-lbl-mini {
+    font-size: 1.4em !important;
+    color: #ff6117;
+    font-weight: bold;
+}
+
+.cash-unit {
+    color: #333;
+    font-size: 0.8em;
+}
 
 </style>

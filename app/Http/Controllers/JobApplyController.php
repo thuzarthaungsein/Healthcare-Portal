@@ -20,9 +20,9 @@ class JobApplyController extends Controller
     {
             // $jobapplies = JobApply::all()->toArray();
             // return $jobapplies;
-            $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id";
-            $jobapplies = DB::select($sql);
-            return $jobapplies;
+            // $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id";
+            // $jobapplies = DB::select($sql);
+            // return $jobapplies;
 
     }
 
