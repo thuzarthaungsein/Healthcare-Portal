@@ -249,6 +249,7 @@
                     <input type="checkbox" @change="checkAll()" class="check-all-btn" />
                     <span class="checkmark"></span>すべての資料請求にチェックを入れる
                 </label>
+                <button type="button" class="btn btn-success float-right" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
                 <div style="margin-top: 20px;" id="fav-history-page">
                     <div class="col-12">
                         <div class="card-carousel-wrapper">
