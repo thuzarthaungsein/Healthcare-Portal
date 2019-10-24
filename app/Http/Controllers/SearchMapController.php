@@ -239,14 +239,9 @@ class SearchMapController extends Controller
 
     public function getJobSearch()
     {
-
-        
         //for city
         $id = $_GET['id'];
        
-       
-
-        
         //to check if township is check or not 
         $townshipID = $_GET['townshipID'];    
         if($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
@@ -288,10 +283,6 @@ class SearchMapController extends Controller
         } else{ 
             $empstatus = implode(',',$empstatus);  
         }
-
-       
-      
-
         
         if($townshipID == '0' && $occupationID == '0' &&  $empstatus == '0')
         { 

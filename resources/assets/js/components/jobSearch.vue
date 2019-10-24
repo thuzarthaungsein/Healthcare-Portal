@@ -960,7 +960,6 @@
               </tbody>
             </table>
             </div>  
-
             
               <div class=" col-12">
                 <div class="row">
