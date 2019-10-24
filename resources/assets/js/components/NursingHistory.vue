@@ -96,7 +96,7 @@
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <div style="width:250px;">
                                                                 <ul class="fac_container">
-                                        <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                        <li v-for="feature in nur_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                     </ul>
                                                             </div>
                                                         </td>

@@ -456,7 +456,7 @@ body {
     position: absolute;
     pointer-events: none;
     border-color: rgba(204, 102, 51, 0);
-    
+
     border-width: 10px;
     left: 50%;
     margin-left: -10px;
@@ -2738,7 +2738,7 @@ ul.main-tab li:after {
     text-align: center;
     border-radius: 20px;
     border: 1px solid #b7dad2;
-   
+
 }
 
 .link-span {
@@ -5626,6 +5626,11 @@ button.confirmed {
     line-height: 2em;
     height: 2em;
 }
+.nocard-wrap {
+    height: 500px;
+    padding-top: 130px;
+    text-align: center;
+}
 
 .card-wrap {
     height: 550px;
@@ -5643,10 +5648,30 @@ button.confirmed {
     line-height: 80px;
     vertical-align: middle;
 }
+.nouser-ico{
+    border: 1px solid #6c757df7;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto 10px;
+    line-height: 80px;
+    vertical-align: middle;
+}
+.nouser-ico img {
+    height: 40px;
+    width:40px;
+}
 
 .record-ico i {
     font-size: 28px;
     color: #ff9563;
+}
+.nouser-txt01{
+    font-size: 30px;
+    color: #a5a5a5;
+    font-weight: bold;
+    margin: 20px 0;
 }
 
 .record-txt01 {
@@ -6377,6 +6402,26 @@ ul.test>li:before {
     margin-right: 8px;
     color: #d2571c;
 }
+.job_count{
+    /* border-radius: 50%;
+    background: #f9d7c6;
+    color: #bd440a;
+    display: inline-block; */
+    /* border: 1px solid #dc3545 !important;
+    color: #dc3545;
+    background: #fff;
+    box-shadow: none !important;
+    min-width: 60px; */
+    display: inline-block;
+    background: #e66527;
+    color: #fff;
+    padding: 4px 15px 3px;
+    border-radius: 3px;
+    margin: 0 5px 5px 0;
+    letter-spacing: normal;
+    font-size: 0.857em;
+}
+
 
 .job-tit {
     margin-bottom: 10px;

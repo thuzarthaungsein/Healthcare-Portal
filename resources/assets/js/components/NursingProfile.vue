@@ -612,7 +612,7 @@ export default {
                 fac_list: [],
                 feature_list:[],
                 medical_acceptance:[],
-                customer_info:[], nursing_info:[], staff_info:[],
+                customer_info:[],customer_info_push:[], nursing_info:[], staff_info:[], staff_info_push:[],
                 acceptance: [],
 
                 img_arr:[],img_list:[],
@@ -932,8 +932,8 @@ export default {
                 },
 
             createProfile() {
-                this.customer_info = [];
-                this.staff_info = [];
+                this.customer_info_push = [];
+                this.staff_info_push = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
@@ -973,9 +973,9 @@ export default {
                 var min_num_staff = $('.min-num-staff').val();
                 var num_staff = $('.num-staff').val();
                 // var nursing_remarks = $('.nursing-remarks').val();
-                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
+                this.customer_info_push.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
-                this.staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
+                this.staff_info_push.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
                
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
@@ -1126,10 +1126,10 @@ export default {
                         }) ;
                 }
 
-                if(this.customer_info.length > 0) {
+                if(this.customer_info_push.length > 0) {
                         // check
                         this.axios
-                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
+                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
                                 .then((response) => {
                                    
                                 }).catch(error=>{
@@ -1142,9 +1142,9 @@ export default {
                         }) ;
                 }
 
-                if(this.staff_info.length > 0) {
+                if(this.staff_info_push.length > 0) {
                         this.axios
-                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info)
+                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info_push)
                                 .then((response) => {
                                         console.log(response.data);
 
@@ -1183,7 +1183,7 @@ export default {
                         }) ;
                 }
 
-                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info  != 'error' && this.staff_info  != 'error' &&  acceptance!= 'error') {
+                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info_push  != 'error' && this.staff_info_push  != 'error' &&  acceptance!= 'error') {
                         alert('Nursing Profile is Succcessfully Updated');
                 }
             }

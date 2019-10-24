@@ -49,7 +49,7 @@
         "vue-slick": "^1.1.15",
         "vue-sweetalert": "^0.1.18",
         "vue-template-compiler": "^2.6.10",
-        "vue2-datepicker": "^2.13.1",
+        "vue2-datepicker": "^2.13.2",
         "vue2-editor": "^2.10.2",
         "vue2-google-maps": "^0.10.7",
         "vuejs-auto-complete": "^0.9.0",
