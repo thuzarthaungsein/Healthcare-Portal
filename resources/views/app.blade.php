@@ -81,6 +81,25 @@
             width: 100%;
             height: 400px;            
         }
+        #homeBtn{
+            position: fixed;
+            top: 78px;
+            left: 40px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: transparent;
+            cursor: pointer;
+            border: 1px solid #dadce0;
+            border-radius: 50%;
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            background: url(../images/home-24.png) no-repeat center;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+        }
     </style>
 <!-- link for editor -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
@@ -89,6 +108,7 @@
 
 <body>
     <button onclick="topFunction()" id="myBtn">Top</button>
+    <button onclick="homeBtn()" id="homeBtn">Home</button>
 <div id="app">
 
     <div class="main-content pad-free">

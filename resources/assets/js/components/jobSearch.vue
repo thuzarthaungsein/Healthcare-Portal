@@ -869,7 +869,7 @@
                     <button @click="toggleContent4" class="btn col-3 seemore-btn">
                       <i class="fa" aria-hidden="true"></i>
                           <!-- <em>{{city.city_name}}</em> -->
-                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> collapse Township</span>
+                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> 都道府県を閉じる </span>
                     </button>
 
                     <div  class="toBeToggled4" id="toBeToggled4">
@@ -911,7 +911,7 @@
                   </td>
                 </tr>
                 <tr class="toBeToggled1 ShowHide">
-                  <th>雇用形態</th>
+                  <th style="padding:10px;">雇用形態</th>
                   <td>
                   <div class="form-check form-check-inline col-sm-2">
                     <label class="form-check-label control control--checkbox" style="padding-left:5px;">
@@ -1105,12 +1105,12 @@ export default {
             if (this.toggleCheck == true) {
                 $('#close6').empty();
                 $("#toBeToggled4").slideToggle();
-                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> Collapse Township');
+                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> 都道府県を閉じる');
 
             } else {
                 $('#close6').empty();
                 $("#toBeToggled4").slideToggle();
-                $('#close6').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+                $('#close6').append('<i class="fas fa-arrow-circle-down"></i> 都道府県を開く');
             }
         },
         ShowHide4() {
@@ -1319,7 +1319,7 @@ table > tbody > tr th{
   background-color: #eeeeee;
   text-align:right;
   width:140px;
-  /* padding:25px; */
+  padding:25px;
 }
 
 </style>

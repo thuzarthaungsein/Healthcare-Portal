@@ -1368,6 +1368,7 @@ export default {
                     {  position: { lat: 0, lng: 0 }  },
                 ],
                 am_arr:[],
+                images:[],
                 pm_arr:[],
                 active_el:0,
                 width: '',
