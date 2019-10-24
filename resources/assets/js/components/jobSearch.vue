@@ -900,9 +900,8 @@
                   <th>職種</th>
                   <td>
                       <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
-                        <label class="form-check-label" :for="occupation.id">
-                        <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" >
-
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID">
                         {{occupation.name}}
                         </label>
                       </div>
@@ -967,7 +966,9 @@
                    <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
                      <div class="job-content">
                       <div class="job-header">
-                        <h5 class="job-tit"><a :href="job.jobid">{{job.name}}</a></h5>
+                        <h5 class="job-tit" :to="job.jobid">
+                          {{job.name}}
+                          </h5>
                         <div class="clearfix">
                           <p class="job_status">{{job.employment_status}}</p>
                           <p class="job_id">求人NO.{{job.jobnum}}</p>
@@ -1062,7 +1063,31 @@ export default {
 
     search()
     {
-      window.scrollTo({ top : 1000, behavior: 'smooth' });
+       if(this.townshipID == null || this.townshipID == '')
+          {
+            this.townshipID[0] = 0;
+          }
+          if(this.occupationID == null || this.occupationID == '')
+          {
+            this.occupationID[0] = 0;
+          }
+          if(this.empstatus == null || this.empstatus == '')
+          {
+            this.empstatus[0] = 0;
+          }
+
+          this.axios.get('api/getjobsearch',{
+            params:{
+                id: this.id,
+                townshipID:this.townshipID,
+                occupationID:this.occupationID,
+                empstatus:this.empstatus
+            },
+          }).then((response)=>{
+
+            this.job_data = response.data;
+
+          })
     },
 
     toggleContent4() {
@@ -1096,31 +1121,7 @@ export default {
 
         if(e.target.tagName == 'BUTTON')
         {
-            if(this.townshipID == null || this.townshipID == '')
-          {
-            this.townshipID[0] = 0;
-          }
-          if(this.occupationID == null || this.occupationID == '')
-          {
-            this.occupationID[0] = 0;
-          }
-          if(this.empstatus == null || this.empstatus == '')
-          {
-            this.empstatus[0] = 0;
-          }
-
-          this.axios.get('api/getjobsearch',{
-            params:{
-                id: this.id,
-                townshipID:this.townshipID,
-                occupationID:this.occupationID,
-                empstatus:this.empstatus
-            },
-          }).then((response)=>{
-
-            this.job_data = response.data;
-
-          })
+           
         }
 
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){

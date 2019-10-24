@@ -96,11 +96,13 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right pl-4">
-              <label>
+              <label class="control control--radio">
                 <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Male" /> 女性
+                <div class="control__indicator"></div>
               </label>
-              <label>
+              <label class="control control--radio">
                 <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Female" /> 男性
+                <div class="control__indicator"></div>
               </label>
             </div>
           </div>
@@ -255,8 +257,9 @@
                 <router-link to="/termsAndConditions" target="_blank">「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。
               </label>
               <br />
-              <label class="ml-4">
+              <label class="ml-4 control control--checkbox">
                 <input type="checkbox" v-model="jobApply.terms" /> 同意する
+                <div class="control__indicator"></div>
               </label>
               <div v-if="errors.terms" class="text-danger ml-4">{{ errors.terms }}</div>
             </div>
@@ -523,7 +526,9 @@ export default {
       }
     },
     apply() {
+     
     this.$loading(true);
+
       // $("#loader").css("display", "block");
       this.axios
         .post("/api/jobapply", this.jobApply)

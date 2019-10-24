@@ -106,7 +106,7 @@ class SearchMapController extends Controller
         }
       
 
-        //return response()->json(['town'=>$townshipID,'occ'=>$occupationID,'emp'=>$empstatus]);
+        
         if($townshipID == '0' && $occupationID == '0' &&  $empstatus == '0')
         { 
             $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
