@@ -14,7 +14,7 @@
                                     
                 <div  class="thumbnails">
                     <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
-                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
+                        <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
                     </div>
                 </div>
             </div>
@@ -400,13 +400,23 @@
                     <div class="col-md-12">
                         <label class="cost_heading_lbl">フォトアルバム</label>
                         <div class="row">
-                            <div v-for="(image) in  images" :key="image.id" class="col-md-2">
-                                <img  :src ="'/upload/hospital_profile/' + image.photo" style="width:100%;border:7px solid #eee;">
+                            <div v-for="(image) in  images" :key="image.id" class="col-sm-4 col-md-4 col-lg-3">
+                                <img  :src ="'/upload/nursing_profile/' + image.photo" style="width:100%;border:7px solid #eee;" class="img-responsive">
                                 <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
-                                <!-- <span>{{image.description}}</span> -->
+                                <!-- <span>{{image.photo}}</span> -->
                             </div>
                         </div>
-                        
+                    </div>
+
+                    <div class="col-md-12 m-t-15 m-b-15">
+                        <label class="cost_heading_lbl">動画</label>
+                        <div class="row">
+                            <div v-for="(image) in  images" :key="image.id" class="col-sm-4 col-md-4 col-lg-3">
+                                <img  :src ="'/upload/nursing_profile/' + image.photo" style="width:100%;border:7px solid #eee;" class="img-responsive">
+                                <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                <!-- <span>{{image.photo}}</span> -->
+                            </div>
+                        </div>
                     </div>
 
             </div>
@@ -801,7 +811,7 @@
                             <div class="card-img">
                                 <!-- <div id="panorama"></div>           -->                              
                            
-                                <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" 
+                                <Pannellum  :src="'/upload/hospital_profile/Imagepanorama/' + currentPanoImage" 
                                             class="pannellum"                                          
                                             :auto-load="true"
                                             :show-zoom="true"
@@ -1572,6 +1582,7 @@ export default {
           },
 
           computed: {
+          
 
               currentPanoImage() {
               
