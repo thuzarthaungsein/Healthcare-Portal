@@ -6836,7 +6836,7 @@ ul.test>li:before {
   }
   .control {
     position: relative;
-    padding-left: 30px;
+    padding-left: 20px;
     margin-left: 10px;
     /* margin-bottom: 15px;
     cursor: pointer;
@@ -6909,3 +6909,23 @@ ul.test>li:before {
     background: #d2571c;
   }
 /*end for custom checkbox and radio*/
+/*for date time picker*/
+.mx-calendar-content .cell {    
+    border-radius: 3px;
+}
+.mx-panel-date td.today {
+    color: #c1470c !important;
+}
+.mx-calendar-content .cell:hover {
+    background-color: #e8b9a2 !important;
+}
+.mx-calendar-header {
+    background: #d2571c !important;
+    color: #fff !important;
+    border-radius: 3px !important;
+}
+.mx-calendar-content .cell.actived {
+    color: #fff !important;
+    background-color: #d2571c !important;
+}
+/*end for date time picker*/
