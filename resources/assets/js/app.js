@@ -73,7 +73,7 @@ Vue.use(ReadMore);
 //vuejs loading
 import VueLoading from 'vuejs-loading-plugin'
 Vue.use(VueLoading,{
-    text: 'Sending'
+    text: '送信中'
 })
 
 window.events = new Vue();
