@@ -12,39 +12,45 @@ class CustomerProfileContoller extends Controller
     }
 
     function getHospitalHistory($local_sto) {
-        $query = "SELECT hospital_profiles.* , customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
+        $query = "SELECT hospital_profiles.* , group_concat(special_features_junctions.special_feature_id) AS special, group_concat(subject_junctions.subject_id) AS sub, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
                     JOIN customers ON hospital_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
                     JOIN cities ON townships.city_id = cities.id
-                    WHERE hospital_profiles.id IN (" . $local_sto . ")";
+                    JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
+                    JOIN subject_junctions ON subject_junctions.customer_id = customers.id
+                    WHERE hospital_profiles.id IN (" . $local_sto . ") GROUP BY customers.id";
         $hos_histories = DB::select($query);
         foreach($hos_histories as $hos) {
-            $sfeature = $hos->special_features;
+            $sfeature = $hos->special;
             if($sfeature != null){
                 $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
                 $specialfeature = DB::select($sql);
-                // $fea_arr = explode(",", $hos->special_features);
-                $hos->special_features = $specialfeature;
-            }
-            
+                $hos->special = $specialfeature;
+            }  
+            $subject = $hos->sub;
+            if($subject != null){
+                $sql = "SELECT name FROM subjects WHERE id IN(".$subject.")";
+                $subjects = DB::select($sql);
+                $hos->sub = $subjects;
+            }          
         }
         return $hos_histories;
     }
 
     function getNursingHistory($local_sto) {
-        $query = "SELECT nursing_profiles.*, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
+        $query = "SELECT nursing_profiles.*, group_concat(special_features_junctions.special_feature_id) AS special, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
                     JOIN customers ON nursing_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
                     JOIN cities ON townships.city_id = cities.id
-                    WHERE nursing_profiles.id IN (" . $local_sto . ")";
+                    JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
+                    WHERE nursing_profiles.id IN (" . $local_sto . ") GROUP BY customers.id";
         $nur_histories = DB::select($query);
         foreach($nur_histories as $nur) {
-            $sfeature = $nur->special_features;
+            $sfeature = $nur->special;
             if($sfeature != null){
                 $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
                 $specialfeature = DB::select($sql);
-                // $fea_arr = explode(",", $nur->special_features);
-                $nur->special_features = $specialfeature;
+                $nur->special = $specialfeature;
             }
         }
         return $nur_histories;

@@ -22,9 +22,7 @@
                         <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
                     </ol>
                 </nav>
-            </div>
-            <label class="btn all-btn secondary-bg-color hos-btn2">
-                <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
+            </div>            
             <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
                 <div class="row">
                     <div class="card-carousel-wrapper">
@@ -52,60 +50,58 @@
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <div style="width:250px;">
                                                             <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>
-                                                            <label class="btn all-btn secondary-bg-color hos-btn">
-                                                                <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>資料請求</label>
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;"> <a href="#" target="_blank">{{hos_profile.website}}</a></div>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id" style="word-wrap: break-word;">
+                                                        <div style="width:250px;"> <a :href="hos_profile.website" target="_blank">{{hos_profile.website}}</a></div>
                                                     </td>
                                                 </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.medical_department}}</div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.phone}}</div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.access}}</div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.email}}</div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.subject}}</div>
-                                                    </td>
-                                                </tr>
-
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <div style="width:250px;">{{hos_profile.township_name}}, {{hos_profile.city_name}}</div>
                                                     </td>
                                                 </tr>
-
+                                                <tr>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">アクセス</dt>
+                                                            <dd style="width:250px;" v-html="hos_profile.access"></dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">電話番号</dt>
+                                                            <dd style="width:250px;">{{hos_profile.phone}}</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <div style="width:250px;">
                                                             <ul class="fac_container">
-                                                                <li v-for="feature in hos_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                                                <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                             </ul>
                                                         </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">診療科目</dt>
+                                                            <dd v-for="sub in hos_profile.sub" :key="sub.id" style="width:250px;">{{sub.name}}</dd>
+                                                        </dl>
+                                                    </td>
+                                                    </tr>
+                                                <tr>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">医療部</dt>
+                                                            <dd style="width:250px;">{{hos_profile.medical_department}}</dd>
+                                                        </dl>
                                                     </td>
                                                 </tr>
                                             </table>
