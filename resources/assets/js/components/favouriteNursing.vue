@@ -1,7 +1,17 @@
 <template>
     <div>
-        <div class="col-12 scrolldiv2 pb-5 tab-content">
+        <div class="col-12 scrolldiv2 pb-5 tab-content" id="favouriteNursing"> 
             <div class="row col-12">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <router-link to="/">ホーム</router-link>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">介護のお気に入り</li>
+                        </ol>
+                    </nav>
+                </div>
                 <div class="col-md-12">
                     <div class="col-md-12 fav-his-header">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
@@ -25,16 +35,6 @@
                         </svg>
                         &nbsp; <span class="font-weight-bold">お気に入り</span>
                     </div>
-                </div>
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <router-link to="/">ホーム</router-link>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">介護のお気に入り</li>
-                        </ol>
-                    </nav>
                 </div>
 
                 <!--compare box-->
@@ -245,10 +245,15 @@
             <!--end compare box-->
             <!--result-->
             <div class="col-12">
-                <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
-                    <input type="checkbox" @change="checkAll()" class="check-all-btn" />
-                    <span class="checkmark"></span>すべての資料請求にチェックを入れる
-                </label>
+                <div class="clearfix">
+                    <div class="float-right" style="margin-right:45px;">
+                        <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary mr-2 float-left" >
+                            <input type="checkbox" @change="checkAll()" class="check-all-btn" />
+                            <span class="checkmark"></span>すべての資料請求にチェックを入れる
+                        </label>
+                        <button type="button" class="btn btn-success  float-left" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
+                    </div>
+                </div>        
                 <div style="margin-top: 20px;" id="fav-history-page">
                     <div class="col-12">
                         <div class="card-carousel-wrapper">
@@ -274,7 +279,7 @@
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
-                                                        <label class="btn all-btn secondary-bg-color hos-btn">
+                                                        <label class="btn all-btn res-btn hos-btn">
                                                             <input type="checkbox" value="documentation" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle()">
                                                             <span class="checkmark"></span>資料請求</label>
                                                     </td>
