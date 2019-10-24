@@ -44,7 +44,7 @@ class JobController extends Controller
     {
         $occupationlist = Occupations::select('id','name')->get()->toArray();
 
-        return response()->json($occupationlist);    
+        return response()->json($occupationlist);
     }
 
     public function getSkill()
@@ -55,7 +55,7 @@ class JobController extends Controller
     }
     public function store(Request $request)
     {
-     
+
         $request->validate([
             'title' => 'required',
             'description' =>'required',
@@ -161,7 +161,7 @@ class JobController extends Controller
         }
         $job->title =$request->input('title');
         $job->customer_id= 1;
-        
+
         $job->description = $request->input('description');
         $job->skills = $string;
         $job->location = $request->input('location');

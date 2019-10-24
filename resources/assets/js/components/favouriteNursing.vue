@@ -20,7 +20,7 @@
                     </ol>
                 </nav>
             </div>
-        
+
             <div class="col-md-11" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
                 <dl class="itemBox favnur" id="bd" v-if="!iscompare">
                     <dt>比較する項目</dt>
@@ -50,7 +50,7 @@
                     <dd v-if="opening_check" class="da">、開設日</dd> -->
                 </dl>
             </div>
-            
+
             <div class="modal fade bd-example-modal-lg mycheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
@@ -129,7 +129,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-md-1">
                 <button class="btn news-post-btn all-btn hos-btn m-t-10" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">変更する</button>
             </div>
@@ -223,8 +223,8 @@
                 <div v-if="opening_show" class="list-group-item list-group-item-action" style="height:70px;">開設日</div>
 
             </div> -->
-                
-                
+
+
         <label class="btn all-btn secondary-bg-color hos-btn2">
         <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
         <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
@@ -237,10 +237,10 @@
                             <div class="card-carousel-cards col-3" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
                                 <div class="card-carousel--card" v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                     <div class="card-carousel--card--footer">
-                                       
+
 
                                         <div class="list-group-item list-group-item-action" style="height:340px;width:300px;margin-bottom:0px;"><img class="img-fluid" v-bind:src="'/images/' + nur_profile.logo" alt style />
-                                            
+
                                             <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}">{{nur_profile.name}}</router-link>
                                             <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
                                             <label class="btn all-btn secondary-bg-color hos-btn">
@@ -267,7 +267,7 @@
                                         <div class="list-group-item list-group-item-action" v-else style="">-人</div>
                                         </div>
                                         <div v-if="opening_show" class="list-group-item list-group-item-action" style="">{{nur_profile.date_of_establishment }}</div>
-                              
+
                                 </div>
                             </div>
                         </div>

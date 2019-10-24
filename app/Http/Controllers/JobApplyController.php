@@ -20,9 +20,9 @@ class JobApplyController extends Controller
     {
             // $jobapplies = JobApply::all()->toArray();
             // return $jobapplies;
-            $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id";
-            $jobapplies = DB::select($sql);
-            return $jobapplies;
+            // $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id";
+            // $jobapplies = DB::select($sql);
+            // return $jobapplies;
 
     }
 
@@ -30,6 +30,14 @@ class JobApplyController extends Controller
         $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id WHERE job_applies.job_id = $jobs_id";
         $jobapply = DB::select($sql);
         return $jobapply;
+    }
+    public function countJobapply($id){
+        // $jobapplies = JobApply::where('job_id',$id)->count();
+        //return $jobapplies;
+        // $jobapplies =  DB::table('job_applies')->join('jobs','job_applies.job_id','=','jobs.id')
+        //                    ->where('job_applies.job_id','=',$id)->count();
+        // return $jobapplies;
+        return $id;
     }
 
     /**

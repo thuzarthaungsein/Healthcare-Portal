@@ -278,7 +278,7 @@ Route::get('relatednews/{id}', 'PostController@show_related');
 Route::post('news_list/search', 'PostController@search');
 
 Route::post('jobapply','JobApplyController@store');
-Route::get('jobapplyall','JobApplyController@index');
+Route::post('jobapplyall/{jobId}','JobApplyController@countJobapply');
 Route::get('jobapplylist/{jobs_id}','JobApplyController@getJobapplies');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
