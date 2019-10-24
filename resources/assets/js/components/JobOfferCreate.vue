@@ -230,21 +230,21 @@
                 <label for="neareststation">雇用形態:</label>
                 <br />
                 <label>
-                  <input type="radio" value="ContractEmployee" v-model="joboffer.employmentstatus" />
+                  <input type="radio" value="契約社員" v-model="joboffer.employmentstatus" />
                   契約社員 &nbsp;&nbsp;
                 </label>
                 <label>
-                  <input type="radio" value="Part" v-model="joboffer.employmentstatus" />
+                  <input type="radio" value="非常勤" v-model="joboffer.employmentstatus" />
                   非常勤 &nbsp;&nbsp;
                 </label>
 
                 <label>
-                  <input type="radio" value="Full" v-model="joboffer.employmentstatus" />
+                  <input type="radio" value="正職員" v-model="joboffer.employmentstatus" />
                   正職員 &nbsp;&nbsp;
                 </label>
 
                 <label>
-                  <input type="radio" value="Other" v-model="joboffer.employmentstatus" />
+                  <input type="radio" value="その他" v-model="joboffer.employmentstatus" />
                   その他
                 </label>
               </div>
