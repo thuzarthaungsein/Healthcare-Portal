@@ -372,8 +372,8 @@ body {
 }
 
 .h-color0 span {
-    border-left: 5px solid #37b4bd;
-    color: #37b4bd;
+    border-left: 5px solid #63b7ff;
+    color: #63b7ff;
 }
 
 .h-color1 span {
@@ -397,7 +397,7 @@ body {
 }
 
 .bordertop-color0 {
-    border-top: 1px dashed #37b4bd;
+    border-top: 1px dashed #63b7ff;
 }
 
 .bordertop-color1 {
@@ -829,7 +829,7 @@ cursor: pointer;
 }
 
 
-/* .info {
+.info {
     width: 100%;
     height: 120px;
     position: absolute;
@@ -837,7 +837,7 @@ cursor: pointer;
     background-color: #2a2d2cb0;
     color: #fff;
     text-align: justify !important;
-} */
+}
 
 .info div {
     padding: 10px 10px 0px 10px;
@@ -1243,7 +1243,7 @@ textarea {
 }
 
 .multi-step {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-align: center;
     font-size: 15px;
     font-weight: bold;
@@ -2045,8 +2045,8 @@ ul.sub-ul li {
     margin-bottom: 10px;
 }
 
-.secondary-bg-color {
-    background-color: #ff9563 !important;
+.orange-bg-color {
+    background-color: #d2571c !important;
 }
 
 .white-bg-color {
@@ -3132,7 +3132,6 @@ background-color: #f5f5f5;
 }
 
 
-
 /* End Create News */
 
 
@@ -3305,6 +3304,38 @@ div.b {
 
 
 /* End Job Offer Detail */
+
+
+/* job offer list */
+
+.joboffer-header {
+    margin-bottom: 20px;
+}
+
+.joboffer-body {
+    letter-spacing: 1.5px;
+}
+
+.joboffer-tit a {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #111;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.text-orange {
+    color: #d2571c;
+}
+
+.btn-list li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 8px;
+}
+
+
+/* End job offer list */
 
 
 /*For Ads */
@@ -5802,7 +5833,7 @@ button.confirmed {
 }
 
 .form-wrap {
-    padding-bottom: 100px;
+    padding-bottom: 10px;
 }
 
 .form-wrap .form-tit {
@@ -5952,7 +5983,13 @@ button.confirmed {
 /* job-detail */
 
 .job-detail .form-right {
-    padding: 15px 30px;
+    padding: 10px;
+}
+
+.form-wrap .form-left {
+    background: #f5f5f5;
+    background: #f5f5f2;
+    padding: 10px 10px 0px 10px;
 }
 
 
@@ -6317,7 +6354,7 @@ ul.test>li:before {
     margin-bottom: 20px;
     padding: 20px 20px 50px 20px;
     height: 100%;
-    border: 1px solid #d2571c;
+    border: 1px solid #828282;
     border-radius: 5px;
 }
 
@@ -6348,7 +6385,7 @@ ul.test>li:before {
 }
 
 .job-tit a {
-    color: #d2571c;
+    color: #111;
     letter-spacing: 1px;
 }
 
@@ -6390,7 +6427,7 @@ ul.test>li:before {
 
 .job-content .detail-btn .btn {
     width: 25%;
-    background: #d2571c;
+    background: #828282;
     color: #fff;
 }
 
@@ -6668,57 +6705,162 @@ ul.test>li:before {
     opacity: .75;
     color: black;
 }
+
+
 /*Loading */
 
 .loading-screen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 300;
-  flex-direction: column;
-  user-select: none;
-  background-color: rgba(255, 255, 255, 0.5) !important;
-  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    flex-direction: column;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.5) !important;
 }
+
 .loading-circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  border: 2px solid transparent;
-  border-left-color: #d2571c !important;
-  animation: circleanimation .45s linear infinite
-  
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    border-left-color: #d2571c !important;
+    animation: circleanimation .45s linear infinite
 }
+
 .loading-text {
-  margin-top: 15px;
-  color: #808080;
-  font-size: 12px;
-  text-align: center;
-}
-@keyframes circleanimation {
-  from {
-    transform: rotateZ(0deg);
-  }
-  to {
-    transform: rotateZ(360deg);
-  }
-}
-/*for Job*/
-.job-title-color{
-    background-color: #828282;
-
-}
-.jobid{
-    padding: 5px 10px;
-    font-size: 13px;
-    color: #0e775d;
+    margin-top: 15px;
+    color: #808080;
+    font-size: 12px;
     text-align: center;
-    border-radius: 20px;
-    border: 1px solid #b7dad2;
+}
+
+@keyframes circleanimation {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+
+/*for Job*/
+
+.job-title-color {
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #4d2200;
+    background: url(/images/icons8-survey-job.png) no-repeat 0 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #828282;
+    color: #111;
+    font-weight: bolds;
+    letter-spacing: 1px;
 
 }
+.job-apply-color{
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #4d2200;
+    background: url(/images/google-forms-24.png) no-repeat 0 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #828282;
+    color: #111;
+    font-weight: bolds;
+    letter-spacing: 1px;
+}
+/*for custom checkbox and radio*/
+.control-group {
+    display: inline-block;
+    vertical-align: top;
+    background: #fff;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 200px;
+    height: 210px;
+    margin: 10px;
+  }
+  .control {
+    position: relative;
+    padding-left: 30px;
+    margin-left: 10px;
+    /* margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 18px; */
+  }
+  .control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  .control__indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background: #e6e6e6;
+    border:1px solid #5d5957;
+    border-radius: 3px;
+  }
+  .control--radio .control__indicator {
+    border-radius: 50%;
+  }
+  .control:hover input ~ .control__indicator,
+  .control input:focus ~ .control__indicator {
+    background: #ccc;
+  }
+  .control input:checked ~ .control__indicator {
+    background: #d2571c;
+    border: 1px solid #d2571c;
+  }
+  .control:hover input:not([disabled]):checked ~ .control__indicator,
+  .control input:checked:focus ~ .control__indicator {
+    background: #d2571c;
+  }
+  .control input:disabled ~ .control__indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .control__indicator:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+  .control input:checked ~ .control__indicator:after {
+    display: block;
+  }
+  .control--checkbox .control__indicator:after {
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .control--checkbox input:disabled ~ .control__indicator:after {
+    border-color: #d2571c;
+  }
+  .control--radio .control__indicator:after {
+    left: 4px;
+    top: 4px;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: #fff;
+  }
+  .control--radio input:disabled ~ .control__indicator:after {
+    background: #d2571c;
+  }
+/*end for custom checkbox and radio*/
