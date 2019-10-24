@@ -68,7 +68,7 @@ class SearchMapController extends Controller
         if($townshipID[0] == '0' && count($townshipID) == 1) //get param value of jobsearch.vue and if value is 0 and count =1 , this condition is "No Check"
         {
             $townshipID = '0';
-        }else if($townshipID[0] == '0' && count($townshipID > 1)){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+        }else if($townshipID[0] == '0' && count($townshipID) > 1){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
             unset($townshipID[0]);
             $townshipID = implode(',',$townshipID);
         } else{
@@ -82,7 +82,7 @@ class SearchMapController extends Controller
         if($occupationID[0] == '0' && count($occupationID) == 1)
         {
              $occupationID = '0';
-        }else if($occupationID[0] == '0' && count($occupationID > 1)){
+        }else if($occupationID[0] == '0' && count($occupationID) > 1){
              unset($occupationID[0]);
              $occupationID = implode(',',$occupationID);
         } else{
@@ -97,7 +97,7 @@ class SearchMapController extends Controller
         if($empstatus[0] === '0' && count($empstatus) === 1)
         {       
             $empstatus = '0';
-        } else if($empstatus[0] === '0' && count($empstatus > 1)){
+        } else if($empstatus[0] === '0' && count($empstatus) > 1){
            
             unset($empstatus[0]);
             $empstatus = implode(',',$empstatus);   
