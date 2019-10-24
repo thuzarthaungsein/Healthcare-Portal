@@ -782,7 +782,7 @@
 
             }
             $(".top-ad-slider").html(top_ad);
-            jssor_1_slider_init();
+            // jssor_1_slider_init();
             $(".side-ad-slider").html(side_ad);
             // jssor_slider2_init();
         }
