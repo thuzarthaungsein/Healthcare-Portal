@@ -69,7 +69,7 @@ class SearchMapController extends Controller
         if($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
         {
             $townshipID = '0';
-        }else if($townshipID[0] == '0' && count($townshipID > 1)){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+        }else if($townshipID[0] == '0' && count($townshipID) > 1){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
             unset($townshipID[0]);
             $townshipID = implode(',',$townshipID);
         } else{
@@ -81,7 +81,7 @@ class SearchMapController extends Controller
         if($specialfeatureID[0] == '0' && count($specialfeatureID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
         {
             $specialfeatureID = '0';
-        }else if($specialfeatureID[0] == '0' && count($specialfeatureID > 1)){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+        }else if($specialfeatureID[0] == '0' && count($specialfeatureID) > 1){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
             unset($specialfeatureID[0]);
             $specialfeatureID = implode(',',$specialfeatureID);
         } else{
@@ -93,7 +93,7 @@ class SearchMapController extends Controller
          if($subjectID[0] == '0' && count($subjectID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
          {
              $subjectID = '0';
-         }else if($subjectID[0] == '0' && count($subjectID > 1)){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+         }else if($subjectID[0] == '0' && count($subjectID) > 1){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
              unset($subjectID[0]);
              $subjectID = implode(',',$subjectID);
          } else{
