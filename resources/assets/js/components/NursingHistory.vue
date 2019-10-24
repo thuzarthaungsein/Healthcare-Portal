@@ -130,8 +130,8 @@ export default {
 
       specialfeature: [],
       currentOffset: 0,
-      windowSize: 1,
-      paginationFactor: 220,
+      windowSize: 5,
+      paginationFactor: 267,
     };
   },
 
