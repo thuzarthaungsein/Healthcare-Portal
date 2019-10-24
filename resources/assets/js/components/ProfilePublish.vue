@@ -1582,6 +1582,7 @@ export default {
           },
 
           computed: {
+          
 
               currentPanoImage() {
               
