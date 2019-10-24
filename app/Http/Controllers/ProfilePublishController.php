@@ -62,7 +62,7 @@ class ProfilePublishController extends Controller
         $facility = NursingProfile::where('customer_id',$cusid)->get();
         $comedical = Cooperate_Medical::where('customer_id',$cusid)->get();
 
-        $sql = "SELECT method_payment.* from method_payment INNER JOIN customers ON method_payment.customer_id= customers.id";
+        $sql = "SELECT method_payment.* from method_payment INNER JOIN customers ON method_payment.customer_id= customers.id WHERE method_payment.customer_id=$cusid";
         $cost = DB::select($sql);
 
         //forshow all medical acceptance

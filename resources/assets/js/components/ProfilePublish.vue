@@ -124,23 +124,31 @@
                             <table class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>入居時</font>
                                             </th>
                                             <td>
-                                                <font class="cash-lbl">{{cust.moving_in}}</font>
+                                                <font class="cash-lbl">
+                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}} 円 
+                                                    ~ 
+                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}} 円
+                                                </font>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>月額</font>
                                             </th>
                                             <td>
-                                                <font class="cash-lbl">{{cust.per_month}}</font>
+                                                <font class="cash-lbl">
+                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}} 円 
+                                                    ~ 
+                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+' 万' }}  {{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}} 円
+                                                </font>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>住所</font>
                                             </th>
                                             <td>
@@ -148,7 +156,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>電話</font>
                                             </th>
                                             <td>
@@ -156,21 +164,21 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>アクセス　</font>
                                             </th>
                                             <td>
                                                 <p v-html="cust.access"></p>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th width="250" class="custom-bg-color">
+                                        <!-- <tr>
+                                            <th width="200" class="custom-bg-color">
                                                 <font>駅</font>
                                             </th>
                                             <td>
                                                 <font>Nearest Station</font>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                             </table>
 
@@ -240,9 +248,7 @@
                     </div>
                     <div v-if="method_payment.length > 0" class="col-md-12">
                         <div class="cost_tb">
-
                             <div class="row" >
-
                                 <div class="col-md-12" >
 
                                     <table class="table table-bordered cost_table">
@@ -295,136 +301,112 @@
 
                                 </div> -->
 
-
-                                    <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
-
-                                    <table id="costDetails" class="table table-condensed cost_table">
-
-                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
-
-                                        <tbody>
-
-                                            <tr>
-
-                                                <th width="300">入居一時金または(deposit)</th>
-
+                                <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
+                                    <div class="col-md-12 pad-free">
+                                        <label class="cost_heading_lbl">入居にかかる費用(Expense Moving)</label>
+                                        <table id="costDetails" class="table table-condensed cost_table">
+                                            <tbody>
+                                                <tr>
+                                                    <th width="300">入居一時金または(deposit)</th>
                                                     <td>{{cost.deposit}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th>その他（使途）(other)</th>
-
+                                                    <th width="300">その他（使途）(other)</th>
                                                     <td>{{cost.other_use}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                                            </tr>
+                                    <div class="col-md-12 pad-free">
+                                        <label class="cost_heading_lbl">月額費用(Monthly Cost)</label>
+                                        <table class="table table-condensed cost_table">
+                                            <tbody>
 
-                                        </tbody>
+                                                <tr>
+                                                    <th width="300">賃料 (rent)</th>
+                                                    <td>{{cost.rent}}</td>
+                                                </tr>
 
-                                    </table>
+                                                <tr>
+                                                    <th>管理費(admin_expense)</th>
+                                                    <td>{{cost.admin_expense}}</td>
+                                                </tr>
 
-                                    <table class="table table-condensed cost_table">
+                                                <tr>
+                                                    <th>食費 (food_expense)</th>
+                                                    <td>{{cost.food_expense}}</td>
+                                                </tr>
 
-                                            <label class="cost_heading_lbl">月額費用(Monthly Cost)</label>
+                                                <tr>
+                                                    <th>介護上乗せ金（生活サービス費(nursing care)</th>
+                                                    <td>{{cost.nurse_care_surcharge}}</td>
+                                                </tr>
 
-                                        <tbody>
+                                                <tr>
+                                                    <th>その他 (other monthly cost)</th>
+                                                    <td>{{cost.other_monthly_cost}}</td>
+                                                </tr>
 
-                                            <tr>
+                                            </tbody>
 
-                                                <th width="300">賃料 (rent)</th>
+                                        </table>
+                                    </div>
 
-                                                <td>{{cost.rent}}</td>
+                                    <div class="col-md-12 pad-free">
+                                        <label class="cost_heading_lbl">返還金について(refund system)</label>
+                                        <table class="table table-condensed cost_table">
+                                            <tbody>
 
-                                            </tr>
+                                                <tr>
 
-                                            <tr>
+                                                    <th width="300">返還制度 (refund)</th>
 
-                                                <th>管理費(admin_expense)</th>
+                                                    <td>{{cost.refund_system}}</td>
 
-                                                <td>{{cost.admin_expense}}</td>
+                                                </tr>
 
-                                            </tr>
+                                                <tr>
 
-                                            <tr>
+                                                    <th>償却期間(Depreciation)</th>
 
-                                                <th>食費 (food_expense)</th>
+                                                    <td>{{cost.depreciation_period}}</td>
 
-                                                <td>{{cost.food_expense}}</td>
+                                                </tr>
 
-                                            </tr>
+                                                <tr>
 
-                                            <tr>
+                                                    <th>初期償却(InitialDepreciation)</th>
 
-                                                <th>介護上乗せ金（生活サービス費(nursing care)</th>
+                                                    <td>{{cost.initial_deprecration}}</td>
 
-                                                <td>{{cost.nurse_care_surcharge}}</td>
+                                                </tr>
 
-                                            </tr>
+                                                <tr>
 
-                                            <tr>
+                                                    <th>その他メッセージ(other message)</th>
 
-                                                <th>その他 (other monthly cost)</th>
+                                                    <td>{{cost.other_message_refund}}</td>
 
-                                                <td>{{cost.other_monthly_cost}}</td>
+                                                </tr>
 
-                                            </tr>
-
-                                        </tbody>
-
-                                    </table>
-
-                                    <table class="table table-condensed cost_table">
-
-                                            <label class="cost_heading_lbl" style="width: 100%;">返還金について(refund system)</label>
-
-                                        <tbody>
-
-                                            <tr>
-
-                                                <th width="300">返還制度 (refund)</th>
-
-                                                <td>{{cost.refund_system}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th>償却期間(Depreciation)</th>
-
-                                                <td>{{cost.depreciation_period}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th>初期償却(InitialDepreciation)</th>
-
-                                                <td>{{cost.initial_deprecration}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th>その他メッセージ(other message)</th>
-
-                                                <td>{{cost.other_message_refund}}</td>
-
-                                            </tr>
-
-                                        </tbody>
-
-                                    </table>
-
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
 
-
                             </div>
-
-
-
                         </div>
+                    </div>
 
+                    <div class="col-md-12">
+                        <label class="cost_heading_lbl">フォトアルバム</label>
+                        <div class="row">
+                            <div v-for="(image) in  images" :key="image.id" class="col-md-2">
+                                <img  :src ="'/upload/hospital_profile/' + image.photo" style="width:100%;border:7px solid #eee;">
+                                <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                <!-- <span>{{image.description}}</span> -->
+                            </div>
+                        </div>
+                        
                     </div>
 
             </div>
@@ -727,7 +709,7 @@
                                     </tr>   
                                     <tr>
                                         <td width="250" class="custom-bg-color"> アクセス</td>
-                                        <td>{{m.access}}</td>
+                                        <td><p v-html="m.access"></p></td>
                                     </tr>  
                                     <tr>
                                         <td width="250" class="custom-bg-color">住所 </td>
@@ -985,14 +967,14 @@
                                             <p v-html="cust.access"></p>
                                         </td>
                                     </tr>
-                                     <tr>
+                                     <!-- <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>駅 </font>
                                         </th>
                                         <td>
                                             <font>Nearest Station</font>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                      <!-- <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>費用 </font>
@@ -1313,7 +1295,7 @@
                                     </tr>   
                                     <tr>
                                         <td width="250" class="custom-bg-color"> アクセス</td>
-                                        <td>{{m.access}}</td>
+                                        <td><p v-html="m.access"></p></td>
                                     </tr>  
                                     <tr>
                                         <td width="250" class="custom-bg-color"> 混雑状況</td>
@@ -1815,7 +1797,7 @@ export default {
 
     border-left: 5px solid rgb(249, 121, 60);
 
-    padding-left: 5px;
+    padding: 5px 10px;
 
     font-weight: bold;
 
@@ -1849,7 +1831,7 @@ export default {
 
     padding: 8px 10px;
 
-    text-align: center;
+    /* text-align: center; */
 
     line-height: 1.7;
 

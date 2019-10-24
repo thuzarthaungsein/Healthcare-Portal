@@ -18,53 +18,51 @@ class HospitalProfileController extends Controller
      */
     public function index()
     {
-        // $test = value;
-        // foreach($test as $test){
-        //     $favourite_list = HospitalProfile::where('id',$test)->get();
-        // }
-        
-        // return response()->json(array_reverse($favourite_list));
+       
     }
 
     function getFavouriteHospital($local_sto) {
-        $query = "SELECT hospital_profiles.* ,customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
+        $query = "SELECT hospital_profiles.* , group_concat(special_features_junctions.special_feature_id) AS special, group_concat(subject_junctions.subject_id) AS sub, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
                     JOIN customers ON hospital_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
                     JOIN cities ON townships.city_id = cities.id
-                    WHERE hospital_profiles.id IN (" . $local_sto . ")";
+                    JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
+                    JOIN subject_junctions ON subject_junctions.customer_id = customers.id
+                    WHERE hospital_profiles.id IN (" . $local_sto . ") GROUP BY customers.id";
         $fav_hospital = DB::select($query);
         foreach($fav_hospital as $fav) {
-            $sfeature = $fav->special_features;
+            $sfeature = $fav->special;
             if($sfeature != null){
                 $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
                 $specialfeature = DB::select($sql);
-                // $fea_arr = explode(",", $fav->special_features);
-                $fav->special_features = $specialfeature;
+                $fav->special = $specialfeature;
+            }
+            $subject = $fav->sub;
+            if($subject != null){
+                $sql = "SELECT name FROM subjects WHERE id IN (".$subject.")";
+                $subjects = DB::select($sql);
+                $fav->sub = $subjects;
             }
         }
         return $fav_hospital;
     }
 
     function getFavouriteNursing($local_sto) {
-        $query = "SELECT nursing_profiles.* ,'' AS payment_method, staffs.nursing_staff,customers.name, customers.email, customers.address, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
+        $query = "SELECT nursing_profiles.* , group_concat(special_features_junctions.special_feature_id) AS special,'' AS payment_method, customers.name, customers.email, customers.address, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
                     LEFT JOIN customers ON nursing_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
-                    LEFT JOIN staffs ON staffs.customer_id = nursing_profiles.customer_id
                     JOIN cities ON townships.city_id = cities.id
-                    WHERE nursing_profiles.id IN (" . $local_sto . ")";
+                    JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
+                    WHERE nursing_profiles.id IN (" . $local_sto . ") GROUP BY customers.id";
         $fav_nursing = DB::select($query);
         foreach($fav_nursing as $nur) {
-            $sfeature = $nur->special_features;
+            $sfeature = $nur->special;
             $cId = $nur->customer_id;
             if($sfeature != null){
                 $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
                 $specialfeature = DB::select($sql);
-                // $fea_arr = explode(",", $nur->special_features);
-                $nur->special_features = $specialfeature;
-            }
-            // $sql = "SELECT * FROM acceptance_transactions WHERE customer_id = $cId";
-            // $accept_type = DB::select($sql);
-            // $nur->medical = $accept_type;
+                $nur->special = $specialfeature;
+            }            
             $sql = "SELECT * FROM method_payment WHERE customer_id = $cId";
             $payment = DB::select($sql);
             $nur->payment_method = $payment;

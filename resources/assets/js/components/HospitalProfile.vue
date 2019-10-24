@@ -1412,7 +1412,7 @@ export default {
                      this.isRotate4 = !this.isRotate4;
             },
             Create_Profile () {
-
+                    this.customer_info = [];
 
                     var name = $('.customer-name').val();
                     var email = $('.customer-email').val();

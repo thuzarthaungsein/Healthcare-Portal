@@ -16,6 +16,72 @@
       </nav>
     </div>
 
+    <!--modal-->
+       <div class="modal fade bd-example-modal-google googlecheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">交通アクセス／{{custname}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button class="btn btn-secondary">閉じる&times;</button>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <GmapMap id="googlemap" ref="map" :center="center" :zoom="10">
+                                        <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
+                                    </GmapMap>
+                                </div>
+                                <div class="modal-body">
+                                    <strong>住所</strong>
+                                    <br>
+                                    <span>{{address}}</span>
+                                    <hr>
+                                    <strong>最寄り駅</strong>
+                                    <br>
+                                    <p v-html="access"></p>
+                                </div>
+                                <div class="modal-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <!--monthly cost and expense cost -->
+                    <div class="modal fade bd-example-modal-cost costcheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">料金プラン（3件）／</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button class="btn btn-secondary">閉じる&times;</button>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">プラン名／居室詳細</th>
+                                                <th scope="col">入居時費用</th>
+                                                <th scope="col">月額費用</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody v-for="payment in payment_name" :key="payment.id">
+                                            <tr>
+                                                <td>【増税対応済】{{payment.payment_name}}
+                                                    <br>
+                                                    <small>[{{payment.living_room_type}}] {{payment.area}}</small>
+                                                </td>
+                                                <td style="font-size:large;color:#ff6117;">{{payment.expense_moving}}</td>
+                                                <td style="font-size:large;color:#ff6117;">{{payment.monthly_fees}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end monthly cost -->
     <label class="btn all-btn secondary-bg-color hos-btn2">
                     <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
                 <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
@@ -55,6 +121,12 @@
                                                             <div style="width:250px;"> <a href="#" target="_blank">{{nur_profile.website}}</a></div>
                                                         </td>
                                                     </tr>
+
+                                                    <tr>
+                                                    <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
+                                                        <div style="width:250px;">{{nur_profile.township_name}} {{nur_profile.city_name}}</div>
+                                                    </td>
+                                                </tr>
                                                     
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
@@ -63,34 +135,49 @@
                                                     </tr>
 
                                                     <tr>
+                                                    <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
+                                                        <div style="width:250px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">入居時の費用</dt>
+                                                            <dd style="width:250px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in}}</strong></dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+
+                                                 <tr>
+                                                    <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">月額の費用</dt>
+                                                            <dd style="color:#ff6117;font-size:large;width:250px;"><strong>{{nur_profile.per_month}}</strong></dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+
+                                                 <tr>
+                                                    <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
+                                                        <div style="width:250px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
+                                                    </td>
+                                                </tr>
+
+                                                    <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <div style="width:250px;">{{nur_profile.email}}</div>
                                                         </td>
                                                     </tr>
 
-                                                <!-- <tr>
+                                                 <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                        <div style="width:250px;">{{nur_profile.subject}}</div>
+                                                        <dl>
+                                                            <dt style="text-align:left;">入居条件</dt>
+                                                            <dd style="width:250px">{{nur_profile.occupancy_condition }}</dd>
+                                                        </dl>
                                                     </td>
-                                                </tr> -->
-
-                                                    <tr>
-                                                        <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <div style="width:250px;">{{nur_profile.occupancy_condition}}</div>
-                                                        </td>
-                                                    </tr>
-
-                                                     <tr>
-                                                        <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <div style="width:250px;">{{nur_profile.township_name}}, {{nur_profile.city_name}}</div>
-                                                        </td>
-                                                    </tr>
-
-                                                      <tr>
-                                                        <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <div style="width:250px;">{{nur_profile.subject}}</div>
-                                                        </td>
-                                                    </tr>
+                                                </tr>
 
                                                      <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
@@ -101,6 +188,26 @@
                                                             </div>
                                                         </td>
                                                     </tr>
+
+                                                    <tr>
+                                                    <td v-for="nur_profile in nur_profiles" :key="nur_profile.id" >
+                                                        <dl>
+                                                            <dt style="text-align:left;">定員</dt>
+                                                            <dd v-if="nur_profile.capacity != null" style="width:250px;">{{nur_profile.capacity }} </dd>
+                                                            <dd v-else style="width:250px;">-人</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">開設日</dt>
+                                                            <dd style="width:250px;">{{nur_profile.date_of_establishment }}</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+
                                                 </table>
 
                                             </div>
@@ -121,13 +228,27 @@ export default {
   data() {
     return {
       nur_profiles: [],
+      modal_btn: false,
 
       local_sto: "",
 
       type: "nursing",
 
-      specialfeature: [],
-
+       iscompare: false,
+                    markers: [{
+                        position: {
+                            lat: 0.0,
+                            lng: 0.0
+                        }
+                    }],
+                    center: {
+                        lat: 0,
+                        lng: 0
+                    },
+      address: '',
+      access: '',
+      custname: '',
+      payment_name: [],
       specialfeature: [],
       currentOffset: 0,
       windowSize: 5,
@@ -166,7 +287,7 @@ export default {
                             this.currentOffset += this.paginationFactor;
                         }
                     },
-     deleteLocalSto: function(id) {
+   deleteLocalSto: function(id) {
                         if (confirm("Are you sure you want to delete?")) {
                             alert('Delete Successfully!');
                             var l_sto = this.local_sto;
@@ -191,7 +312,6 @@ export default {
                                 }
                             }
                         }
-
                     },
     // changeRoute(){
 
@@ -207,7 +327,32 @@ export default {
         .then(response => {
           this.nur_profiles = response.data;
         });
-    }
+    },
+
+     googlemap: function(id) {
+                        $('.googlecheck').css('display', 'block');
+                        for (var i = 0; i < this.nur_profiles.length; i++) {
+                            if (this.nur_profiles[i].id == id) {
+                                this.address = this.nur_profiles[i].address;
+                                this.access = this.nur_profiles[i].access;
+                                this.markers[0]['position']['lat'] = this.nur_profiles[i].latitude;
+                                this.markers[0]['position']['lng'] = this.nur_profiles[i].longitude;
+                                this.center['lat'] = this.nur_profiles[i].latitude;
+                                this.center['lng'] = this.nur_profiles[i].longitude;
+                                this.custname = this.nur_profiles[i].name;
+                            }
+                        }
+                    },
+       monthlyCost: function(id) {
+                        $('.costcheck').css('display', 'block');
+                        for (var i = 0; i < this.nur_profiles.length; i++) {
+                            if (this.nur_profiles[i].id == id) {
+                                this.payment_name = this.nur_profiles[i].payment_method;
+                            }
+                        }
+                    }
+
+    
   }
 };
 </script>
