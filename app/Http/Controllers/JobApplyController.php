@@ -31,14 +31,6 @@ class JobApplyController extends Controller
         $jobapply = DB::select($sql);
         return $jobapply;
     }
-    public function countJobapply($id){
-        // $jobapplies = JobApply::where('job_id',$id)->count();
-        //return $jobapplies;
-        // $jobapplies =  DB::table('job_applies')->join('jobs','job_applies.job_id','=','jobs.id')
-        //                    ->where('job_applies.job_id','=',$id)->count();
-        // return $jobapplies;
-        return $id;
-    }
 
     /**
      * Show the form for creating a new resource.

@@ -101,7 +101,7 @@
                    <router-link
                         :to="{name: 'jobapplylist', params:{id:job.id}}"
                         class="btn edit-borderbtn">jobapplylist</router-link>
-                        <p>count:{{count}}</p>
+                        <p>count:{{job.count}}</p>
                         <!-- <button class="btn edit-borderbtn" @click="jobConfirm(job.id)">Jobapply</button> -->
                     <!-- <button class="btn edit-borderbtn" @click="jobConfirm(job.id)" >JobApply</button> -->
                   </th>
@@ -165,24 +165,15 @@ export default {
     this.axios.get("/api/job/index").then(response => {
       this.jobs = response.data.profilejob;
       this.customer_id = response.data.user;
-      for(var i =0; i<this.jobs.length; i++){
-          this.job_id[i] = this.jobs[i].id;
-      }
+      console.log(this.jobs)
+
     });
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)
     });
-    console.log(this.jobs)
-    this.countJobapplylist(this.job_id);
+    his.countJobapplylist(this.job_id);
   },
   methods: {
-       countJobapplylist: function(jobId)
-    {
-      axios.post('/api/jobapplyall/' + jobId)
-        .then((response)=>{
-          this.count = response.data;
-        });
-    },
 
     deleteJob(id) {
       this.$swal({
