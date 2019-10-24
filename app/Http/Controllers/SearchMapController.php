@@ -9,7 +9,7 @@ class SearchMapController extends Controller
 {
     public function getMap(Request $request, $id){
       
-      
+     
         // return $id;
         $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng , n.feature, n.business_entity
                   from customers As c  Join townships As t on t.id =  c.townships_id 
@@ -41,6 +41,8 @@ class SearchMapController extends Controller
                                  'occupations'=>$occupations]);
     }
 
+
+
     public  function getMapTownship($id)
     {
       
@@ -52,20 +54,197 @@ class SearchMapController extends Controller
            
        
             return response()->json($nus_latlng);
-      
-       
+         
     } 
 
- 
-    public function getJobSearch()
+    public function getHospitalSearch()
     {
+        
         //for city
         $id = $_GET['id'];
 
         
         //to check if township is check or not 
         $townshipID = $_GET['townshipID'];    
-        if($townshipID[0] == '0' && count($townshipID) == 1) //get param value of jobsearch.vue and if value is 0 and count =1 , this condition is "No Check"
+        if($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
+        {
+            $townshipID = '0';
+        }else if($townshipID[0] == '0' && count($townshipID) > 1){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+            unset($townshipID[0]);
+            $townshipID = implode(',',$townshipID);
+        } else{
+            $townshipID = implode(',',$townshipID); // this condition is when array[0] has no '0'
+        }
+
+        //to check if specialfeature is check or not 
+        $specialfeatureID = $_GET['specialfeatureID'];    
+        if($specialfeatureID[0] == '0' && count($specialfeatureID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
+        {
+            $specialfeatureID = '0';
+        }else if($specialfeatureID[0] == '0' && count($specialfeatureID) > 1){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+            unset($specialfeatureID[0]);
+            $specialfeatureID = implode(',',$specialfeatureID);
+        } else{
+            $specialfeatureID = implode(',',$specialfeatureID); // this condition is when array[0] has no '0'
+        }
+
+         //to check if subject is check or not 
+         $subjectID = $_GET['subjectID'];    
+         if($subjectID[0] == '0' && count($subjectID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
+         {
+             $subjectID = '0';
+         }else if($subjectID[0] == '0' && count($subjectID) > 1){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+             unset($subjectID[0]);
+             $subjectID = implode(',',$subjectID);
+         } else{
+             $subjectID = implode(',',$subjectID); // this condition is when array[0] has no '0'
+         }
+
+
+         if($townshipID == '0' && $specialfeatureID == '0' &&  $subjectID == '0')
+         { 
+           
+            $query = " SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                        where ci.id = " . $id ." group by c.id" ;
+          
+            $hos_data = DB::select($query);
+         
+            
+         }
+         else if($townshipID != '0' && $specialfeatureID == '0' &&  $subjectID == '0')
+         {
+              $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                        where ci.id = " .$id." and  t.id in (". $townshipID .")  group by c.id";
+             $hos_data = DB::select($query);
+            
+            
+         }
+         else if($townshipID != '0' && $specialfeatureID != '0' &&  $subjectID == '0')
+         {
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = " .$id." and  t.id in (". $townshipID .") and spe.id in (". $specialfeatureID .")  group by c.id";
+            $hos_data = DB::select($query);
+         }
+         else if($townshipID != '0' && $specialfeatureID == '0' &&  $subjectID != '0')
+         {
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = ". $id ." and  t.id in (". $townshipID . ") and sub.id in (". $subjectID . ")  group by c.id";
+            $hos_data = DB::select($query);
+         }
+         else if($townshipID == '0' && $specialfeatureID != '0' &&  $subjectID == '0')
+         {
+           $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                     where ci.id = " .$id . " and   spe.id in (" .$specialfeatureID .")  group by c.id";
+           $hos_data = DB::select($query);
+         }
+         else if($townshipID == '0' && $specialfeatureID == '0' &&  $subjectID != '0')
+         {
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = ". $id ." and sub.id in (" . $subjectID .") group by c.id";
+            $hos_data = DB::select($query);
+            
+         }
+         else if($townshipID == '0' && $specialfeatureID != '0' &&  $subjectID != '0')
+         {
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = ". $id . " and  spe.id in (" . $specialfeatureID . ")  and sub.id in (". $subjectID .") group by c.id";
+            $hos_data = DB::select($query);
+            
+         }
+         else if($townshipID != '0' && $specialfeatureID != '0' &&  $subjectID != '0')
+         {
+            $query = "SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
+                        from customers as c 
+                        join hospital_profiles as h on h.customer_id = c.id 
+                        join townships as t on t.id = c.townships_id 
+                        join cities as ci on ci.id = t.city_id
+                        join special_features_junctions as spej on spej.customer_id = c.id 
+                        join special_features as spe on spe.id = spej.special_feature_id
+                        join subject_junctions as subj on subj.customer_id = c.id
+                        join subjects as sub on sub.id = subj.subject_id
+                      where ci.id = " . $id ." and  t.id in (". $townshipID . ") and spe.id in (" . $specialfeatureID . ")  and sub.id in (" .$subjectID . ") group by c.id";
+            $hos_data = DB::select($query);
+         }
+
+         $spe_query = "SELECT spe.*,spej.customer_id from  special_features as spe join special_features_junctions as spej on spe.id = spej.special_feature_id";
+         $specialfeature = DB::select($spe_query);
+         $sub_query = "SELECT sub.*,subj.customer_id from  subjects as sub join subject_junctions as subj on sub.id = subj.subject_id";
+         $subject = DB::select($sub_query);
+         $timetable = DB::table('schedule')->get();
+      
+         return response()->json(array("hospital"=>$hos_data,"timetable"=>$timetable,"specialfeature"=>$specialfeature,"subject"=>$subject));
+    
+    }
+
+    public function getSpecialFeatures($hos_data)
+    {
+          
+    }
+
+    public function getJobSearch()
+    {
+        //for city
+        $id = $_GET['id'];
+       
+        //to check if township is check or not 
+        $townshipID = $_GET['townshipID'];    
+        if($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
         {
             $townshipID = '0';
         }else if($townshipID[0] == '0' && count($townshipID) > 1){ //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
@@ -104,15 +283,13 @@ class SearchMapController extends Controller
         } else{ 
             $empstatus = implode(',',$empstatus);  
         }
-      
-
         
         if($townshipID == '0' && $occupationID == '0' &&  $empstatus == '0')
         { 
             $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
             Join townships as t on t.id = c.townships_id 
             where t.city_id =".$id;
-
+          
             $job_data = DB::select($query);
         }
         else if($townshipID != '0'  && $occupationID == '0' && $empstatus == '0'  )
@@ -192,6 +369,7 @@ class SearchMapController extends Controller
         else if($townshipID == '0' && $occupationID == '0' && $empstatus != '0')
         {  
             $empstatus = explode(',',$empstatus);  
+           
 
             if(count($empstatus) == 4){
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
@@ -215,6 +393,7 @@ class SearchMapController extends Controller
             }
        
             $job_data = DB::select($query);
+           
         }
         else if($townshipID == '0' && $occupationID != '0' && $empstatus == '0')
         {  
@@ -254,7 +433,7 @@ class SearchMapController extends Controller
        
 
         return response()->json($job_data);
-      
+         
 
     }
  
