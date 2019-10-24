@@ -992,7 +992,7 @@ p.p_2>a {
     border-radius: 1px;
     border: 1px s#ffffff;
     width: 100%;
-    padding: 7px 10px;
+    padding: 8px 10px;
     margin-bottom: 20px;
 }
 
@@ -1712,6 +1712,9 @@ ul.sub-ul li {
     font-size: 15px;
 }
 
+.mx-input {
+    background: #f5f5f5 !important;
+}
 
 /*End Terms & conditions */
 
@@ -2368,7 +2371,9 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 
 /* profilepublish css start */
-
+#datepickerbox .mx-calendar-icon {
+    height: auto !important;
+}
 #header {
     padding: 30px 0;
     height: 92px;
@@ -5791,7 +5796,11 @@ button.confirmed {
 
 .form-wrap .form-tit {
     position: relative;
-    margin: 30px 0 50px 0;
+    margin: 30px 0 40px 0;
+}
+.require-txt{
+    position: relative;
+    margin: 0 0 30px 0;
 }
 
 .form-wrap .form-tit:before {
@@ -6047,7 +6056,7 @@ ul.test>li:before {
 #fav-history-page .card-carousel {
     display: flex;
     justify-content: center;
-    width: 1424px;
+    width: 1336px;
 }
 
 
@@ -6064,7 +6073,7 @@ ul.test>li:before {
 #fav-history-page .card-carousel-comment {
     display: flex;
     justify-content: center;
-    width: 1145px;
+    /* width: 1145px; */
 }
 
 #fav-history-page .card-carousel-comment .card {
@@ -6122,7 +6131,7 @@ ul.test>li:before {
 #fav-history-page .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
     cursor: pointer;
-    box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08);
+    /* box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08); */
     background-color: #fff;
     border-radius: 4px;
     z-index: 3;

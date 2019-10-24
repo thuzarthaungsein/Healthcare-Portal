@@ -1413,8 +1413,12 @@ export default {
                      this.isRotate4 = !this.isRotate4;
             },
             Create_Profile () {
+<<<<<<< HEAD
                     // this.customer_info = [];
                     // this.staff_info = [];
+=======
+                    this.customer_info = [];
+>>>>>>> 0281c588988b513755c24bf50af351748c461449
 
                     var name = $('.customer-name').val();
                     var email = $('.customer-email').val();
