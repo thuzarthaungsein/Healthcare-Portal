@@ -551,12 +551,12 @@
 
                         <div class="row col-12 pad-free">
                             <div class="col-md-12">
-                            <h5 class="profile_header col-md-12"> 職員体制 {{customer.name}}</h5>
+                            <h5 class="profile_header col-md-12"> 協力医療機関 {{customer.name}}</h5>
                             </div>
                             <div v-if="cooperate_medical.length>0" class="col-md-12">
 
                                 <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
-
+                                    <label class="cost_heading_lbl_mini"><i class="fas fa-university"></i> {{comedical.name}}</label>
                                     <table border="1" class="table table-bordered">
 
                                         <tbody>
