@@ -966,7 +966,9 @@
                    <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
                      <div class="job-content">
                       <div class="job-header">
-                        <h5 class="job-tit"><a :href="job.jobid">{{job.name}}</a></h5>
+                        <h5 class="job-tit" :to="job.jobid">
+                          {{job.name}}
+                          </h5>
                         <div class="clearfix">
                           <p class="job_status">{{job.employment_status}}</p>
                           <p class="job_id">求人NO.{{job.jobnum}}</p>

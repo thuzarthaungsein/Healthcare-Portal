@@ -6831,7 +6831,7 @@ ul.test>li:before {
   }
   .control--checkbox .control__indicator:after {
     left: 4px;
-    top: 0px;
+    top: 1px;
     width: 5px;
     height: 10px;
     border: solid #fff;
