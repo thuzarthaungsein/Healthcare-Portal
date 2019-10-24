@@ -249,6 +249,7 @@
                     <input type="checkbox" @change="checkAll()" class="check-all-btn" />
                     <span class="checkmark"></span>すべての資料請求にチェックを入れる
                 </label>
+                <button type="button" class="btn btn-success float-right" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
                 <div style="margin-top: 20px;" id="fav-history-page">
                     <div class="col-12">
                         <div class="card-carousel-wrapper">
@@ -524,38 +525,47 @@
                         });
                     },
                     checkAll() {
-                        this.disableBtn = false;
-                        if ($('.check-all-btn').is(":checked")) {
-                            $('.checkbox1').prop("checked", true);
-                            $('.checkbox2').prop("checked", true);
-                        } else {
-                            $('.checkbox1').prop("checked", false);
-                            $('.checkbox2').prop("checked", false);
-                        }
-                        for (var i = 0; i < this.fav_nursing.length; i++) {
-                            var j = this.fav_nursing[i].id;
-                            if ($('.check-all-btn').is(":checked")) {
-                                this.document_status[j] = true;
-                                // this.reserv_status[j] = true;
-                            } else {
-                                this.document_status[j] = false;
-                                // this.reserv_status[j] = false;
-                            }
-                        }
-                    },
-                    checkSingle() {
-                        this.disableBtn = false;
-                        for (var i = 0; i < this.fav_nursing.length; i++) {
-                            var j = this.fav_nursing[i].id;
-                            if (this.document_status[j] == true) {
-                                $('.check-all-btn').prop("checked", true);
-                            } else if (this.document_status[j] == false) {
-                                $('.check-all-btn').prop("checked", false);
-                            } else {
-                                $('.check-all-btn').prop("checked", false);
-                            }
-                        }
-                    },
+                           this.disableBtn = false;
+                       if ($('.check-all-btn').is(":checked")) {
+                           $('.checkbox1').prop("checked", true);
+                           $('.checkbox2').prop("checked", true);
+                       } else {
+                           $('.checkbox1').prop("checked", false);
+                           $('.checkbox2').prop("checked", false);
+                            this.disableBtn = true;
+                       }
+                       for (var i = 0; i < this.fav_nursing.length; i++) {
+                           var j = this.fav_nursing[i].id;
+                           if ($('.check-all-btn').is(":checked")) {
+                               this.document_status[j] = true;
+                               // this.reserv_status[j] = true;
+                           } else {
+                               this.document_status[j] = false;
+                               // this.reserv_status[j] = false;
+                           }
+                       }
+                   },
+                   checkSingle() {
+                       this.disableBtn = false;
+                       for (var i = 0; i < this.fav_nursing.length; i++) {
+                           var j = this.fav_nursing[i].id;
+                           if (this.document_status[j]) {
+                                this.check = true;
+                               $('.check-all-btn').prop("checked", true);
+                               this.disableBtn = false;
+                           }
+                           else  if(!this.document_status[j] && this.check == true) {
+                                 $('.check-all-btn').prop("checked", false);
+                                 this.disableBtn = false;
+                                 this.check = false;
+                           }
+                            else if(!this.document_status[j] && this.check == false){
+                                   $('.check-all-btn').prop("checked", false);
+                                    this.disableBtn = true;
+                                    this.check = false;
+                           }
+                       }
+                   },
                     itemCompare() {
                         $('.mycheck').css('display', 'block');
 
