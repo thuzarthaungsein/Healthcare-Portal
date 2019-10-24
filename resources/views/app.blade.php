@@ -781,8 +781,7 @@
                 }
 
             }
-            $(".top-ad-slider").html(top_ad);
-            jssor_1_slider_init();
+            $(".top-ad-slider").html(top_ad);     
             $(".side-ad-slider").html(side_ad);
             // jssor_slider2_init();
         }

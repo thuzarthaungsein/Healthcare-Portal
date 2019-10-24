@@ -875,10 +875,11 @@
                     <div  class="toBeToggled4" id="toBeToggled4">
 
                       <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
-                        <label class="form-check-label" >
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                          <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)">
 
                         {{township.township_name}}
+                        <div class="control__indicator"></div>
                         </label>
                       </div>
 
@@ -900,10 +901,11 @@
                   <th>職種</th>
                   <td>
                       <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
-                        <label class="form-check-label">
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                         <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" >
 
                         {{occupation.name}}
+                        <div class="control__indicator"></div>
                         </label>
                       </div>
                   </td>
@@ -911,29 +913,32 @@
                 <tr class="toBeToggled1 ShowHide">
                   <th>雇用形態</th>
                   <td>
-
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label" >
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                     <input class="form-check-input" value="正職員" v-model="empstatus" type="checkbox">
                     正社員(正職員)
+                    <div class="control__indicator"></div>
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label" >
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                     <input class="form-check-input" value="契約社員" v-model="empstatus" type="checkbox">
                     契約社員(職員)
+                    <div class="control__indicator"></div>
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                     <input class="form-check-input" value="非常勤" v-model="empstatus" type="checkbox">
                     非常勤。パート
+                    <div class="control__indicator"></div>
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                     <input class="form-check-input" value="その他" v-model="empstatus" type="checkbox">
                     その他
+                    <div class="control__indicator"></div>
                     </label>
                   </div>
 
@@ -964,7 +969,7 @@
             
               <div class=" col-12">
                 <div class="row">
-                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.jobid">
                      <div class="job-content">
                       <div class="job-header">
                         <h5 class="job-tit" :to="job.jobid">
