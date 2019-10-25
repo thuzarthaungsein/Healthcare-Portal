@@ -363,7 +363,7 @@
           </div>
         </div>
         <!-- nursing list -->
-        <div class="row" id="fav-history-page">
+        <div class="row" id="nrusing-search">
           <div class="card-carousel-wrapper">
             <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
             <div class="card-carousel">
@@ -414,7 +414,7 @@
                                   </tr>
                                   <tr>
                                     <td>Website</td>
-                                    <td>{{item.website}}</td>
+                                    <td><a :href="'http://'+ item.website" target="_blank">{{item.website}}</a></td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -670,7 +670,7 @@
         checkarr: [],
         currentOffset: 0,
         windowSize: 3,
-        paginationFactor: 220,
+        paginationFactor: 410,
         nursingList: [],
         alphabet: []
 
@@ -702,6 +702,7 @@
 
       },
       moveCarousel(direction) {
+
         // Find a more elegant way to express the :style. consider using props to make it truly generic
         if (direction === 1 && !this.atEndOfList) {
           this.currentOffset -= this.paginationFactor;
@@ -827,7 +828,7 @@
                               '</tr>' +
                             '<tr>' +
                             '<td>Website</td>' +
-                            '<td>' + item[i]['website'] + '</td>' +
+                            '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
                             '</tr>' +
                             '</tbody>' +
                           '</table>' +
@@ -1008,7 +1009,8 @@
     }
   };
 </script>
-<style>
+
+<style scoped>
   .path {
     cursor: pointer;
   }
@@ -1248,10 +1250,150 @@
   }
 
 
+  #nrusing-search .card-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 40px;
+    color: #666a73;
+  }
 
+  #nrusing-search .card-carousel {
+    display: flex;
+    justify-content: center;
+    width: 1359px;
+  }
 
+  #nrusing-search .card-carousel--overflow-container {
+    overflow: hidden;
+  }
 
+  #nrusing-search .card-carousel--nav__left,
+  #nrusing-search .card-carousel--nav__right {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top: 2px solid #42b883;
+    border-right: 2px solid #42b883;
+    margin: 0 10px;
+    transition: transform 150ms linear;
+  }
 
-  
- 
+  #nrusing-search .card-carousel--nav__left[disabled],
+  #nrusing-search .card-carousel--nav__right[disabled] {
+    opacity: 0.2;
+    border-color: black;
+  }
+
+  #nrusing-search .card-carousel--nav__left {
+    transform: rotate(-135deg);
+  }
+
+  #nrusing-search .card-carousel--nav__left:active {
+    transform: rotate(-135deg) scale(0.9);
+  }
+
+  #nrusing-search .card-carousel--nav__right {
+    transform: rotate(45deg);
+  }
+
+  #nrusing-search .card-carousel--nav__right:active {
+    transform: rotate(45deg) scale(0.9);
+  }
+
+  #nrusing-search .card-carousel-cards {
+    display: flex;
+    transition: transform 150ms ease-out;
+    transform: translatex(0px);
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card {
+    margin: 0 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: #fff;
+    border-radius: 4px;
+    z-index: 3;
+    margin-bottom: 2px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card:first-child {
+    margin-left: 0;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card:last-child {
+    margin-right: 0;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card img {
+    vertical-align: bottom;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    transition: opacity 150ms linear;
+    user-select: none;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card img:hover {
+    opacity: 0.5;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card--footer {
+    border-top: 0;
+    padding: 7px 15px;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card--footer p {
+    padding: 3px 0;
+    margin: 0;
+    margin-bottom: 2px;
+    font-size: 19px;
+    font-weight: 500;
+    color: #2c3e50;
+    user-select: none;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 6px;
+    background: rgba(40, 44, 53, 0.06);
+    display: inline-block;
+    position: relative;
+    margin-left: 4px;
+    color: #666a73;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
+    content: "";
+    float: left;
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-color: transparent rgba(40, 44, 53, 0.06) transparent transparent;
+    border-style: solid;
+    border-width: 12px 12px 12px 0;
+  }
+
+ #nrusing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -1px;
+    float: left;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: white;
+    box-shadow: -0px -0px 0px #004977;
+  }
 </style>
+
