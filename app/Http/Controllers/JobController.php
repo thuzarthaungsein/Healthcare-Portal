@@ -53,9 +53,22 @@ class JobController extends Controller
 
         return $job;
     }
+    public function getTownshipId($city_name)
+    {
+        $query = "SELECT id  FROM `townships`
+                    WHERE township_name = " . $city_name;
+
+        $township_id = DB::select($query);
+        return $township_id;
+    }
+
+       
+
+
+
     public function store(Request $request)
     {
-     
+    
         $request->validate([
             'title' => 'required',
             'description' =>'required',
@@ -164,6 +177,8 @@ class JobController extends Controller
         
         $job->description = $request->input('description');
         $job->skills = $string;
+        // $job->city_id = $request->input('city_id');
+        // $job->street_address = $request->input('str_address');
         $job->location = $request->input('location');
         $job->nearest_station = $request->input('nearest_station');
         $job->employment_status = $request->employmentstatus;
@@ -174,12 +189,27 @@ class JobController extends Controller
         $job->holidays = $request->input('holidays');
         $job->user_id = 1;
         $job->recordstatus = 1;
+        $job->zipcode_id = $request->input('zipcode_id');
 
-
-        $job ->save();
+        // $query = "SELECT townships.id FROM `townships` INNER JOIN zipcode on townships.township_name = zipcode.city
+        //     WHERE zipcode.id = " . $request->input('zipcode_id');
+        // $tid = DB::select($query);
+        
+        // $infos = DB::table('jobs')
+        // ->join('customers', 'customers.id', '=', 'jobs.customer_id')
+        // ->select('jobs.*','customers.email')
+        // ->where('jobs.id', '=', $jobapply->job_id)
+        // ->get();
+        $tid = DB::table('townships')
+             ->join('zipcode','zipcode.city','=','townships.township_name')
+             ->select('townships.id')
+              ->where('zipcode.id','=',$request->input('zipcode_id'))
+              ->value('id');
+        $job->township_id = $tid;
+       
+        $job->save();
         return $job;
     }
-
 
     public function show(Job $job)
     {
