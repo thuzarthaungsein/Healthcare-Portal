@@ -7045,7 +7045,7 @@ ul.test>li:before {
   }
 /*end for custom checkbox and radio*/
 /*for date time picker*/
-.mx-calendar-content .cell {    
+.mx-calendar-content .cell {
     border-radius: 3px;
 }
 .mx-panel-date td.today {

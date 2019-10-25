@@ -3,7 +3,7 @@
     <div class="row" id="hos">
       <div class="col-md-12">
         <div class="row">
-        
+
           <div class="col-sm-11 map-wrap" id="searchMap">
             <div class="divisions">
               <div class="row">
@@ -350,7 +350,7 @@
                 mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586"
                 width="100%"
                 height="730"
-                
+
               >
                 <path
                   id="1"
@@ -906,7 +906,7 @@
               </svg>
             </div>
           </div>
-              
+
         </div>
       <div>
           <button class="btn btn-sm btn-outline-info select" id="showSearchMap" @click="showSearchMap">Search With Map</button>
@@ -931,13 +931,13 @@
                   <div v-if="show">
                     <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
                       <label class="form-check-label" :for="township.id">
-                      <input class="form-check-input"  type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)"> 
+                      <input class="form-check-input"  type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)">
                       {{township.township_name}}
                       </label>
                     </div>
                   </div>
             </div>
-        
+
             <div class="col-sm-2 left-div-1">費用</div>
             <div class="col-sm-10">
               <hr>
@@ -1029,19 +1029,19 @@
               <div  class="row pl-3 pt-3" v-if="showOne">
                 <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                   <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox"> 
+                  <input class="form-check-input" type="checkbox">
                     自立
                   </label>
                 </div>
                 <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                   <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox"> 
+                  <input class="form-check-input" type="checkbox">
                     要支援
                   </label>
                 </div>
                 <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                   <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox"> 
+                  <input class="form-check-input" type="checkbox">
                     要介護
                   </label>
                 </div>
@@ -1053,7 +1053,7 @@
               <hr>
               <div class="form-check form-check-inline col-sm-2"  v-for="features in special_features" :key="features.id">
                 <label class="form-check-label" :for="features.id">
-                <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)"> 
+                <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)">
                 {{features.name}}
                 </label>
               </div>
@@ -1064,7 +1064,7 @@
               <hr>
               <div class="form-check form-check-inline col-sm-2"  v-for="fac_type in fac_types" :key="fac_type.id">
                 <label class="form-check-label" :for="fac_type.id">
-                <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id"> 
+                <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id">
                 {{fac_type.description}}
                 </label>
               </div>
@@ -1075,12 +1075,12 @@
               <hr>
                 <div class="form-check form-check-inline col-sm-2"  v-for="medical in medical_acceptance" :key="medical.id">
                   <label class="form-check-label" :for="medical.id">
-                  <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id" > 
+                  <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id" >
                     {{medical.name}}
                   </label>
                 </div>
             </div>
-           
+
             <div class="col-sm-2 left-div-2"></div>
             <div class="col-sm-10">
             <button @click="showOne = !showOne" class="btn btn-link mt-2">
@@ -1091,13 +1091,13 @@
         </div>
 
 
-          
+
       </div>
       <!-- <div class="col-md-2 p-l-0">
         <asidebar></asidebar>
       </div>-->
     </div>
-    
+
   </div>
 </template>
 
@@ -1109,14 +1109,14 @@ import { eventBus } from '../event-bus.js';
 import json from '../google-map-kml/converted.json';
 // import json from '../google-map-kml/jp_cities.json';
 export default {
-  
+
     name: "mymap",
     components: {
       asidebar
     },
-   
+
     data(){
-      
+
       return{
 
         map:null,
@@ -1124,15 +1124,15 @@ export default {
         selectedLocation: null,
         infoBoxOpen: false,
         places: [],
-        id:'',    
+        id:'',
         townshipID:[],
         township_id:[],
         cities:[],
         getCity:[],
         getTownships:[],
-        special_features:[], 
+        special_features:[],
         fac_types:[],
-        fac_id:[],      
+        fac_id:[],
         medical_acceptance:[],
         show : false,
         showOne: true,
@@ -1143,14 +1143,14 @@ export default {
   mounted() {
 
 
-      
 
-     
-   
+
+
+
   },
 
   methods:{
-   
+
     openInfoWindow(marker) {
       this.selectedLocation = marker;
       this.infoBoxOpen = true;
@@ -1161,10 +1161,10 @@ export default {
     showSearchMap(){
       $('#searchMap').removeClass('select');
       $('#showSearchMap').addClass('select');
-      
+
     },
       getStateClick(e){
-       
+
           if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
           const id = e.target.id;
@@ -1179,30 +1179,30 @@ export default {
           this.getTownships = response.data.getTownships
           this.special_features= response.data.special_features
           this.fac_types= response.data.fac_types
-          this.medical_acceptance= response.data.medical_acceptance 
+          this.medical_acceptance= response.data.medical_acceptance
           this.markers = response.data.nus_latlng;
           this.id = id
           this.markers = response.data.nus_latlng;
-          
+
           var mmarker = new Array();
           var multibusiness = new Array();
             for(var i=0;i<this.markers.length;i++){
               mmarker.push([this.markers[i]['business_entity'],this.markers[i]['lat'],this.markers[i]['lng']])
               multibusiness.push(this.markers[i]['business_entity'])
-            } 
+            }
           const theCity = response.data.getCity[0]['city_eng']
           const lat = response.data.getCity[0]['latitude']
           const lng = response.data.getCity[0]['longitude']
           const result = json.features
-          
+
           const coordinates = []
           for (var i = 0; i < result.length; i++) {
             if(result[i].Name == theCity){
              coordinates.push(result[i].geometry['coordinates'])
             }
-           
+
           }
-          
+
             var coordinate = coordinates.reduce((acc,val) => acc.concat(val),[]);
             console.log(coordinates)
             var data = {
@@ -1211,14 +1211,14 @@ export default {
                 "type": "Polygon",
                 "coordinates": coordinate
               },
-              
+
             };
             var mapProp = {
               center: new google.maps.LatLng(lat, lng),
               zoom: 6,
               mapTypeId: google.maps.MapTypeId.ROADMAP,
             };
-           
+
             var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
             map.data.addGeoJson(data);
             map.data.setStyle({
@@ -1230,24 +1230,24 @@ export default {
               })
 
             var bounds = new google.maps.LatLngBounds();
-            var markers = mmarker; 
+            var markers = mmarker;
             var infoWindowContent = new Array();
             for(var i = 0;i<multibusiness.length;i++)
             {
                infoWindowContent.push(['<div class="info_content">' + multibusiness[i] +'</div>'])
-            } 
+            }
             var infoWindow = new google.maps.InfoWindow(), marker, i;
             const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
             for( i = 0; i < this.markers.length; i++ ) {
               var k = alphabet[i];
               var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-              bounds.extend(position);  
+              bounds.extend(position);
               marker = new google.maps.Marker({
                   position: position,
                   map: map,
                   icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + k + '|FF0000|000000',
                   zoom: 6,
-                 
+
                   title: markers[i][0]
               });
               google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -1264,7 +1264,7 @@ export default {
               })(marker, i));
               var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
               google.maps.event.removeListener(boundsListener);
-              }); 
+              });
           }
       })
 
@@ -1292,11 +1292,11 @@ export default {
 
            if(this.townshipID.length>0)
            {
-            
+
               this.axios.post('/api/getmaptownship/'+this.townshipID+'')
               .then((response)=>{
                 this.markers = response.data;
-                
+
                 var mmarker = new Array();
                 var multibusiness = new Array();
                   for(var i=0;i<this.markers.length;i++){
@@ -1313,12 +1313,12 @@ export default {
                 };
                 var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
                 var bounds = new google.maps.LatLngBounds();
-                var markers = mmarker; 
+                var markers = mmarker;
                 var infoWindowContent = new Array();
                 for(var i = 0;i<multibusiness.length;i++)
                 {
                   infoWindowContent.push(['<div class="info_content">' + multibusiness[i] +'</div>'])
-                } 
+                }
                 var infoWindow = new google.maps.InfoWindow(), marker, i;
                 for( i = 0; i < this.markers.length; i++ ) {
                   var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
@@ -1348,15 +1348,15 @@ export default {
                   google.maps.event.removeListener(boundsListener);
                   });
               }
-                
+
            });
          }
          else{
            this.markers = '';
          }
-          
-        
-       
+
+
+
       },
       features(e){
         if(e.target.checked){
@@ -1459,14 +1459,14 @@ span:hover::before {
   display: inline-block;
 }
 
-[data-toggle="collapse"] .fa:before {  
+[data-toggle="collapse"] .fa:before {
   content: "\f139";
 }
 
 [data-toggle="collapse"].collapsed .fa:before {
   content: "\f13a";
 }
- 
+
 
 .left-div {
   text-align: end;
@@ -1484,7 +1484,7 @@ span:hover::before {
   padding: 10px 20px 10px 40px;
   border-left: 10px solid brown;
   border-radius: 0px 0px 0px 5px;
-  
+
 }
 .row-div{
   background: radial-gradient(ellipse at center, rgb(255, 240, 223) 0%, rgba(242,234,225,0.58) 100%);
