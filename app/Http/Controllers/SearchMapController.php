@@ -17,13 +17,17 @@ class SearchMapController extends Controller
                   where t.city_id =".$id." order BY n.id ASC LIMIT 26";
         $nus_latlng = DB::select($query);
 
-        $nursing_profile = DB::table('nursing_profiles')
-                           ->join('customers','customers.id','=','nursing_profiles.customer_id')
-                           ->select('customers.*','nursing_profiles.*')
-                           ->limit(26)
-                           ->orderBy('nursing_profiles.id','asc')
-                           ->get();
-    
+
+        $nursing = "SELECT n.*,c.* 
+                    FROM customers AS c 
+                    JOIN townships AS t 
+                    ON t.id = c.townships_id 
+                    JOIN nursing_profiles AS n 
+                    ON n.customer_id = c.id
+                    WHERE t.city_id=".$id."
+                    order BY n.id ASC LIMIT 26 ";
+        $nursing_profile = DB::select($nursing);
+        $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
         $title = $request->title;
         $mapid = $request->id;
 
@@ -45,7 +49,8 @@ class SearchMapController extends Controller
                                  'subjects'=>$subjects,
                                  'nus_latlng' => $nus_latlng,
                                  'occupations'=>$occupations,
-                                 'nursing_profile'=>$nursing_profile]);
+                                 'nursing_profile'=>$nursing_profile,
+                                 'alphabet'=>$alphabet]);
     }
 
     public  function getMapTownship($id)

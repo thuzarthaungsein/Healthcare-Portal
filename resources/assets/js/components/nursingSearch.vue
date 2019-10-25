@@ -3,7 +3,7 @@
     <div class="row" id="hos">
       <div class="col-md-12">
         <div class="row">
-
+          <!-- search map and path -->
           <div class="col-sm-11 map-wrap" id="searchMap">
             <div class="divisions">
               <div class="row">
@@ -287,8 +287,8 @@
               </svg>
             </div>
           </div>
-
         </div>
+        <!-- search city , township  -->
         <div class="row" style="justify-content:space-between">
           <div class="col-sm-3 col-md-3">
             <div class="card">
@@ -309,45 +309,45 @@
             <div class="card">
               <div class="card-header">Filter by price</div>
               <div class="card-body" style="background-color:#f4f1eb">
-              <div class="">
-								<select name="" id="" class="form-control custom-select">
-									<option data-price-type="" value="">▼入居一時金</option>
-									<option data-price-type="" value="0">一時金なし</option>
-									<option data-price-type="" value="50">50万円以下</option>
-									<option data-price-type="" value="100">100万円以下</option>
-									<option data-price-type="" value="200">200万円以下</option>
-									<option data-price-type="" value="300">300万円以下</option>
-									<option data-price-type="" value="400">400万円以下</option>
-									<option data-price-type="" value="500">500万円以下</option>
-									<option data-price-type="" value="600">600万円以下</option>
-									<option data-price-type="" value="700">700万円以下</option>
-									<option data-price-type="" value="800">800万円以下</option>
-									<option data-price-type="" value="900">900万円以下</option>
-									<option data-price-type="" value="1000">1,000万円以下</option>
-									<option data-price-type="" value="2000">2,000万円以下</option>
-									<option data-price-type="" value="3000">3,000万円以下</option>
-									<option data-price-type="more" value="3000">3,000万円以上</option>
-								</select>
-								<select name="" id="" class="form-control  mt-1 custom-select">
-									<option data-price-type="" value="">▼月額利用料</option>
-									<option data-price-type="" value="10">10万円以下</option>
-									<option data-price-type="" value="12">12万円以下</option>
-									<option data-price-type="" value="14">14万円以下</option>
-									<option data-price-type="" value="16">16万円以下</option>
-									<option data-price-type="" value="18">18万円以下</option>
-									<option data-price-type="" value="20">20万円以下</option>
-									<option data-price-type="" value="22">22万円以下</option>
-									<option data-price-type="" value="24">24万円以下</option>
-									<option data-price-type="" value="26">26万円以下</option>
-									<option data-price-type="" value="28">28万円以下</option>
-									<option data-price-type="" value="30">30万円以下</option>
-									<option data-price-type="" value="35">35万円以下</option>
-									<option data-price-type="" value="40">40万円以下</option>
-									<option data-price-type="" value="45">45万円以下</option>
-									<option data-price-type="" value="50">50万円以下</option>
-									<option data-price-type="more" value="50">50万円以上</option>
-								</select>
-							</div>
+                <div class="">
+                  <select name="" id="" class="form-control custom-select">
+                    <option data-price-type="" value="">▼入居一時金</option>
+                    <option data-price-type="" value="0">一時金なし</option>
+                    <option data-price-type="" value="50">50万円以下</option>
+                    <option data-price-type="" value="100">100万円以下</option>
+                    <option data-price-type="" value="200">200万円以下</option>
+                    <option data-price-type="" value="300">300万円以下</option>
+                    <option data-price-type="" value="400">400万円以下</option>
+                    <option data-price-type="" value="500">500万円以下</option>
+                    <option data-price-type="" value="600">600万円以下</option>
+                    <option data-price-type="" value="700">700万円以下</option>
+                    <option data-price-type="" value="800">800万円以下</option>
+                    <option data-price-type="" value="900">900万円以下</option>
+                    <option data-price-type="" value="1000">1,000万円以下</option>
+                    <option data-price-type="" value="2000">2,000万円以下</option>
+                    <option data-price-type="" value="3000">3,000万円以下</option>
+                    <option data-price-type="more" value="3000">3,000万円以上</option>
+                  </select>
+                  <select name="" id="" class="form-control  mt-1 custom-select">
+                    <option data-price-type="" value="">▼月額利用料</option>
+                    <option data-price-type="" value="10">10万円以下</option>
+                    <option data-price-type="" value="12">12万円以下</option>
+                    <option data-price-type="" value="14">14万円以下</option>
+                    <option data-price-type="" value="16">16万円以下</option>
+                    <option data-price-type="" value="18">18万円以下</option>
+                    <option data-price-type="" value="20">20万円以下</option>
+                    <option data-price-type="" value="22">22万円以下</option>
+                    <option data-price-type="" value="24">24万円以下</option>
+                    <option data-price-type="" value="26">26万円以下</option>
+                    <option data-price-type="" value="28">28万円以下</option>
+                    <option data-price-type="" value="30">30万円以下</option>
+                    <option data-price-type="" value="35">35万円以下</option>
+                    <option data-price-type="" value="40">40万円以下</option>
+                    <option data-price-type="" value="45">45万円以下</option>
+                    <option data-price-type="" value="50">50万円以下</option>
+                    <option data-price-type="more" value="50">50万円以上</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -356,14 +356,42 @@
             <button class="btn btn-outline-info select" id="showSearchMap" @click="showSearchMap">Search With Map</button>
           </div>
         </div>
-
+        <!-- google map  -->
         <div class="row">
           <div class="col-sm-12 col-md-12">
             <div id="mymap" class="select"></div>
           </div>
         </div>
-        <div class="row row-div select mt-3">
+        <!-- nursing list -->
+        <div class="row" id="fav-history-page">
+          <div class="card-carousel-wrapper">
+            <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+            <div class="card-carousel">
+              <div class="card-carousel--overflow-container">
+                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
+                  <div class="" v-for="item in nursingList">
 
+                    <div class="card">
+                      <div class="image">
+                      <img id="mapMarker" src=""  width="10%" >
+                       
+                      </div>
+                      <div class="text">
+                        <div class="fab">&#43;</div>
+                        <h3>Descrição da funcionalidade deve vir abaixo do título do caso de uso.</h3>
+                        <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.</p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row row-div select mt-3">
           <div class="col-2 left-div">地域</div>
           <div class="col-10">
             <select id="select" class="form-control col-3 custom-select mt-2" v-model="id">
@@ -376,7 +404,7 @@
             <hr>
             <div v-if="show">
               <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
-                <label class="form-check-label" :for="township.id">
+                <label class="form-check-label" >
                   <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)">
                   {{township.township_name}}
                 </label>
@@ -498,7 +526,7 @@
           <div class="col-sm-10" v-if="showOne">
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="features in special_features" :key="features.id">
-              <label class="form-check-label" :for="features.id">
+              <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)">
                 {{features.name}}
               </label>
@@ -509,7 +537,7 @@
           <div class="col-sm-10" v-if="showOne">
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
-              <label class="form-check-label" :for="fac_type.id">
+              <label class="form-check-label" >
                 <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id">
                 {{fac_type.description}}
               </label>
@@ -520,7 +548,7 @@
           <div class="col-sm-10 mb-4" v-if="showOne">
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="medical in medical_acceptance" :key="medical.id">
-              <label class="form-check-label" :for="medical.id">
+              <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id">
                 {{medical.name}}
               </label>
@@ -584,18 +612,26 @@
         show: false,
         showOne: true,
         checkarr: [],
+        currentOffset: 0,
+        windowSize: 3,
+        paginationFactor: 220,
+        nursingList: [],
+        alphabet:[]
 
       }
     },
     mounted() {
 
-
-
-
-
-
     },
-
+    computed: {
+      atEndOfList() {
+        console.log(this.nursingList)
+        return this.currentOffset <= (this.paginationFactor * -1) * (this.nursingList.length - this.windowSize);
+      },
+      atHeadOfList() {
+        return this.currentOffset === 0;
+      },
+    },
     methods: {
 
       openInfoWindow(marker) {
@@ -610,6 +646,14 @@
         $('#showSearchMap').addClass('select');
 
       },
+      moveCarousel(direction) {
+        // Find a more elegant way to express the :style. consider using props to make it truly generic
+        if (direction === 1 && !this.atEndOfList) {
+          this.currentOffset -= this.paginationFactor;
+        } else if (direction === -1 && !this.atHeadOfList) {
+          this.currentOffset += this.paginationFactor;
+        }
+      },
       getStateClick(e) {
 
         if (e.target.tagName === 'A' || e.target.tagName === 'path') {
@@ -617,7 +661,7 @@
           const id = e.target.id;
           this.axios.post('/api/getmap/' + id + '')
             .then((response) => {
-              console.log(response.data.nursing_profile)
+              // console.log(response.data.nursing_profile)
               $('.select').removeClass('select');
               $('#searchMap').addClass('select');
               $('#showSearchMap').removeClass('select');
@@ -628,6 +672,7 @@
               this.fac_types = response.data.fac_types
               this.medical_acceptance = response.data.medical_acceptance
               this.markers = response.data.nus_latlng;
+              this.nursingList = response.data.nursing_profile
               this.id = id
               this.markers = response.data.nus_latlng;
 
@@ -651,7 +696,7 @@
               }
 
               var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
-              console.log(coordinates)
+              // console.log(coordinates)
               var data = {
                 type: "Feature",
                 geometry: {
@@ -684,7 +729,7 @@
               }
               var infoWindow = new google.maps.InfoWindow(),
                 marker, i;
-              const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+              const alphabet = response.data.alphabet;
               for (i = 0; i < this.markers.length; i++) {
                 var k = alphabet[i];
                 var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
@@ -714,7 +759,18 @@
                 var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
                   google.maps.event.removeListener(boundsListener);
                 });
+                // console.log($('#mapMarker'));
+                $('#mapMarker').src = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + k + "|FF0000|000000' />";
+                console.log($('#mapMarker').src)
+
               }
+
+              
+
+
+
+
+
             })
 
         } else if (e.target.tagName === 'OPTION') {
@@ -798,6 +854,7 @@
                   google.maps.event.removeListener(boundsListener);
                 });
               }
+              
 
             });
         } else {
@@ -995,5 +1052,69 @@
   #mymap {
     width: 100%;
     height: 700px;
+  }
+
+
+  .card {
+    display: inline-block;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
+    margin: 20px;
+    position: relative;
+    margin-bottom: 50px;
+    transition: all .2s ease-in-out;
+  }
+
+  .card:hover {
+    /*box-shadow: 0 5px 22px 0 rgba(0,0,0,.25);*/
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin-bottom: 54px;
+  }
+
+  .image {
+    height: 200px;
+    opacity: .7;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+  }
+
+  .image:hover,
+  .card:hover .image {
+    height: 200px;
+    opacity: 1;
+  }
+
+  .text {
+    background: #FFF;
+    padding: 20px;
+    min-height: 200px;
+  }
+
+  .text p {
+    margin-bottom: 0px;
+  }
+
+  .fab {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: -50px;
+    right: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, .3);
+    color: #fff;
+    font-size: 48px;
+    line-height: 48px;
+    text-align: center;
+    background: #0066A2;
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+  }
+
+  .fab:hover {
+    background: #549D3C;
+    cursor: pointer;
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
   }
 </style>

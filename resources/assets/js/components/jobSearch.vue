@@ -875,7 +875,7 @@
                     <div  class="toBeToggled4" id="toBeToggled4">
 
                       <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
-                        <label class="form-check-label" :for="township.id">
+                        <label class="form-check-label">
                          <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)">
 
                         {{township.township_name}}
@@ -900,7 +900,7 @@
                   <th>職種</th>
                   <td>
                       <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
-                        <label class="form-check-label" :for="occupation.id">
+                        <label class="form-check-label" >
                         <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" >
 
                         {{occupation.name}}
