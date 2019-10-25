@@ -1,9 +1,9 @@
 
 <template>
     <div>
-        <div class="col-12 scrolldiv4">
+        <div class="tab-content job-detail">
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12 pad-free m-b-20">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><span @click="changeRoute()" class="link-span">介護のお気に入り</span></li>
@@ -49,9 +49,21 @@
                         <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>性別 <span class="error sp1">必須</span></label></div>
                                 <div class="col-md-9 col-sm-12 form-right pl-4">
-                                    <input type="radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦
+                                    <label class="control control--radio">
+                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <!-- <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦 -->
+                                         <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="control control--radio">
+                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="control control--radio">
+                                       <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦
+                                        <div class="control__indicator"></div>
+                                    </label>
+
                                 </div>
                             </div>
                         <div class="form-group m-0 row bd">
