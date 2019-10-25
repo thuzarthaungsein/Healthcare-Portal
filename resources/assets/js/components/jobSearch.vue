@@ -46,7 +46,7 @@
                             id="7"
                             data-info="Fukushima"
                             class="path Fukushima card-text"
-                          >福島県</a>
+                            >福島県</a>
                         </span>
                       </p>
                     </div>
@@ -857,7 +857,7 @@
 
          
           <div class="col-12 jobselect"> 
-             <h5 class="profile_header" style="border-left: 5px solid #ff9563;">現在の検索条件</h5>      
+             <h5 class="profile_header" style="border-left: 5px solid #828282;">現在の検索条件</h5>      
             <table class="table table-bordered col-12 ">
               <tbody>
                 <tr>
@@ -869,16 +869,17 @@
                     <button @click="toggleContent4" class="btn col-3 seemore-btn">
                       <i class="fa" aria-hidden="true"></i>
                           <!-- <em>{{city.city_name}}</em> -->
-                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> collapse Township</span>
+                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> 都道府県を閉じる </span>
                     </button>
 
                     <div  class="toBeToggled4" id="toBeToggled4">
 
                       <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
-                        <label class="form-check-label" :for="township.id">
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                          <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)">
 
                         {{township.township_name}}
+                        <div class="control__indicator"></div>
                         </label>
                       </div>
 
@@ -900,40 +901,44 @@
                   <th>職種</th>
                   <td>
                       <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
-                        <label class="form-check-label" :for="occupation.id">
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                         <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" >
 
                         {{occupation.name}}
+                        <div class="control__indicator"></div>
                         </label>
                       </div>
                   </td>
                 </tr>
                 <tr class="toBeToggled1 ShowHide">
-                  <th>雇用形態</th>
+                  <th style="padding:10px;">雇用形態</th>
                   <td>
-
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label" >
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                     <input class="form-check-input" value="正職員" v-model="empstatus" type="checkbox">
                     正社員(正職員)
+                    <div class="control__indicator"></div>
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label" >
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                     <input class="form-check-input" value="契約社員" v-model="empstatus" type="checkbox">
                     契約社員(職員)
+                    <div class="control__indicator"></div>
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                     <input class="form-check-input" value="非常勤" v-model="empstatus" type="checkbox">
                     非常勤。パート
+                    <div class="control__indicator"></div>
                     </label>
                   </div>
                   <div class="form-check form-check-inline col-sm-2">
-                    <label class="form-check-label">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                     <input class="form-check-input" value="その他" v-model="empstatus" type="checkbox">
                     その他
+                    <div class="control__indicator"></div>
                     </label>
                   </div>
 
@@ -960,16 +965,17 @@
               </tbody>
             </table>
             </div>  
-
             
               <div class=" col-12">
                 <div class="row">
-                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.id">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.jobid">
                      <div class="job-content">
                       <div class="job-header">
-                        <h5 class="job-tit"><a :href="job.jobid">{{job.name}}</a></h5>
+                        <h5 class="job-tit">
+                          <router-link :to="{name: 'job_details', params:{id:job.jobid}}">{{job.title}}</router-link>
+                          </h5>
                         <div class="clearfix">
-                          <p class="job_status">正職員</p>
+                          <p class="job_status">{{job.employment_status}}</p>
                           <p class="job_id">求人NO.{{job.jobnum}}</p>
                         </div>
                       </div>
@@ -978,26 +984,10 @@
                           <img src="/upload/news/nursing.JPG"  alt="">
                         </div>
                         <div class="col-8 job-box">
-                          <!-- <div class="row mb-2">
-                            <div class="col-3 job-left"><span class="job_ico"><i class="fa fa-map-marker"></i></span>アクセス</div>
-                            <div class="col-9">{{job.access}}</div>
-                          </div>
-                          <div class="row mb-2">
-                            <div class="col-3 job-left"><span class="job_ico">&#xa5;</span>【給料】</div>
-                            <div class="col-9">{{job.salary}}</div>
-                          </div>
-                          <div class="row mb-2">
-                            <div class="col-3 job-left"><span class="job_ico"><i class="fa fa-clock-o"></i></span>勤務時間/日/休日の詳細</div>
-                            <div class="col-9">{{job.working_hours}} / {{job.holidays}} </div>
-                          </div>
-                          <div class="row mb-2">
-                            <div class="col-3 job-left"><span class="job_ico">&#xa5;</span>特別な条件</div>
-                            <div class="col-9">{{job.working_hours}} / {{job.holidays}} </div>
-                          </div> -->
                           <table  class="table table-bordered  table-sm">
                             <tr>
-                              <td><span class="job_ico"><i class="fa fa-map-marker"></i></span>アクセス</td>
-                              <td>{{job.access}}</td>
+                              <td><span class="job_ico"><i class="fa fa-map-marker"></i></span>最寄り駅</td>
+                              <td>{{job.nearest_station}}</td>
                             </tr>
                             <tr>
                               <td><span class="job_ico">&#xa5;</span>給料</td>
@@ -1008,7 +998,7 @@
                               <td> {{job.working_hours}} / {{job.holidays}} </td>
                             </tr>
                             <tr>
-                              <td><span class="job_ico">特</span>特別な条件</td>
+                              <td><span class="job_ico"><i class="fa fa-briefcase"></i></span>特別な条件</td>
                               <td> {{job.allowances}} </td>
                             </tr>
                           </table>
@@ -1061,8 +1051,36 @@ export default {
   methods:{
 
     search()
-    {
-      window.scrollTo({ top : 1000, behavior: 'smooth' });
+    {  
+       
+        if(this.townshipID == null || this.townshipID == '')
+        {
+          this.townshipID[0] = 0;
+        }
+        if(this.occupationID == null || this.occupationID == '')
+        {
+          this.occupationID[0] = 0;
+        }
+        if(this.empstatus == null || this.empstatus == '')
+        {
+          this.empstatus[0] = 0;
+        }
+    
+        this.axios.get('api/getjobsearch',{
+          params:{
+              id: this.id,
+              townshipID:this.townshipID,
+              occupationID:this.occupationID,
+              empstatus:this.empstatus
+          },
+        }).then((response)=>{
+    
+          this.job_data = response.data;
+         
+      
+        })
+        
+         // window.scrollTo({ top : 1000, behavior: 'smooth' });
     },
 
     toggleContent4() {
@@ -1070,12 +1088,12 @@ export default {
             if (this.toggleCheck == true) {
                 $('#close6').empty();
                 $("#toBeToggled4").slideToggle();
-                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> Collapse Township');
+                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> 都道府県を閉じる');
 
             } else {
                 $('#close6').empty();
                 $("#toBeToggled4").slideToggle();
-                $('#close6').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+                $('#close6').append('<i class="fas fa-arrow-circle-down"></i> 都道府県を開く');
             }
         },
         ShowHide4() {
@@ -1094,34 +1112,6 @@ export default {
 
       getStateClick(e){
 
-        if(e.target.tagName == 'BUTTON')
-        {
-            if(this.townshipID == null || this.townshipID == '')
-          {
-            this.townshipID[0] = 0;
-          }
-          if(this.occupationID == null || this.occupationID == '')
-          {
-            this.occupationID[0] = 0;
-          }
-          if(this.empstatus == null || this.empstatus == '')
-          {
-            this.empstatus[0] = 0;
-          }
-
-          this.axios.get('api/getjobsearch',{
-            params:{
-                id: this.id,
-                townshipID:this.townshipID,
-                occupationID:this.occupationID,
-                empstatus:this.empstatus
-            },
-          }).then((response)=>{
-
-            this.job_data = response.data;
-
-          })
-        }
 
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
@@ -1312,7 +1302,7 @@ table > tbody > tr th{
   background-color: #eeeeee;
   text-align:right;
   width:140px;
-  /* padding:25px; */
+  padding:25px;
 }
 
 </style>

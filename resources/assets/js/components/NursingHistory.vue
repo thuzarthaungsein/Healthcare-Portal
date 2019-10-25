@@ -1,23 +1,21 @@
 <template>
-  <div class="col-12 scrolldiv2 pb-3 tab-content">
+  <div class="col-12 scrolldiv2 pb-3 tab-content" id="nursing">
     <div class="col-12">
-      <div class="col-md-12 fav-his-header">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#c40000"><path d="M86,15.0472l-78.83333,70.9528h21.5v64.5h59.44694c-1.3545,-4.54367 -2.11361,-9.3525 -2.11361,-14.33333h-43v-63.14225l43,-38.6888l57.61328,51.66439h21.22006zM136.19466,100.24935c-19.78717,0 -35.83333,16.04617 -35.83333,35.83333c0,19.78717 16.04617,35.83333 35.83333,35.83333c19.78717,0 35.83333,-16.04617 35.83333,-35.83333c0,-19.78717 -16.04617,-35.83333 -35.83333,-35.83333zM150.89193,119.24382l10.02213,10.03613l-28.30274,28.30274l-21.13606,-21.13607l10.02213,-10.03613l11.11393,11.11393z"></path></g></g></svg>
-        &nbsp;<span class="font-weight-bold"> 最近見た施設</span>
-      </div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <router-link to="/">ホーム</router-link>
           </li>
-
           <li class="breadcrumb-item active" aria-current="page">介護の歴史</li>
         </ol>
       </nav>
+      <div class="col-md-12 fav-his-header">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#c40000"><path d="M86,15.0472l-78.83333,70.9528h21.5v64.5h59.44694c-1.3545,-4.54367 -2.11361,-9.3525 -2.11361,-14.33333h-43v-63.14225l43,-38.6888l57.61328,51.66439h21.22006zM136.19466,100.24935c-19.78717,0 -35.83333,16.04617 -35.83333,35.83333c0,19.78717 16.04617,35.83333 35.83333,35.83333c19.78717,0 35.83333,-16.04617 35.83333,-35.83333c0,-19.78717 -16.04617,-35.83333 -35.83333,-35.83333zM150.89193,119.24382l10.02213,10.03613l-28.30274,28.30274l-21.13606,-21.13607l10.02213,-10.03613l11.11393,11.11393z"></path></g></g></svg>
+        &nbsp;<span class="font-weight-bold"> 最近見た施設</span>
+      </div>  
     </div>
 
-    <label class="btn all-btn secondary-bg-color hos-btn2">
-                    <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
+           
                 <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
                     <div class="row">
                         <div class="card-carousel-wrapper">
@@ -36,7 +34,7 @@
                                                             <br>
                                                             <br>
 
-                                                            <router-link :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'hospital'}}" >{{nur_profile.name}}</router-link>
+                                                            <router-link class="pseudolink" :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'hospital'}}" >{{nur_profile.name}}</router-link>
 
                                                         </td>
                                                     </tr>
@@ -44,15 +42,15 @@
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <div style="width:250px;">
-                                                                <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
-                                                                <label class="btn all-btn secondary-bg-color hos-btn">
+                                                                <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
+                                                                <label class="btn all-btn res-btn hos-btn">
                                                                     <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>資料請求</label>
                                                             </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <div style="width:250px;"> <a href="#" target="_blank">{{nur_profile.website}}</a></div>
+                                                            <div style="width:250px;"> <a :href="nur_profile.website" target="_blank">{{nur_profile.website}}</a></div>
                                                         </td>
                                                     </tr>
                                                     
@@ -96,7 +94,7 @@
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <div style="width:250px;">
                                                                 <ul class="fac_container">
-                                        <li v-for="feature in nur_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                        <li v-for="feature in nur_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                     </ul>
                                                             </div>
                                                         </td>

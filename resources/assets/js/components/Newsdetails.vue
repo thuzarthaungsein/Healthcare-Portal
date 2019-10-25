@@ -8,16 +8,16 @@
           <i @click="changeRoute" class="fas fa-newspaper"></i> ニュース
         </a>
       </li>
+      <li role="presentation" class="subtab3 nav-item">
+        <a @click="changeRoute($event,'nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link">
+          <i class="fas fa-user-md"></i> 介護施設検索
+        </a>
+      </li>
       <li role="presentation" class="subtab2 nav-item">
         <a @click="changeRoute($event,'hospital')" href="#tab2" role="tab" data-toggle="tab" class="nav-link">
           <i class="fas fa-briefcase-medical"></i> 病院検索
         </a>
-      </li>
-      <li role="presentation" class="subtab3 nav-item">
-        <a @click="changeRoute($event,'nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-user-md"></i> 介護検索
-        </a>
-      </li>
+      </li>      
       <li role="presentation" class="subtab5 nav-item">
         <a @click="changeRoute($event,'job')" href="#tab4" role="tab" data-toggle="tab" class="nav-link">
           <i class="fas fa-users"></i> 求人検索
@@ -160,12 +160,12 @@
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane fade" id="tab2">
-        <hospitalSearch></hospitalSearch>
-      </div>
       <div role="tabpanel" class="tab-pane fade" id="tab3">
         <nursingSearch></nursingSearch>
-      </div>     
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="tab2">
+        <hospitalSearch></hospitalSearch>
+      </div>           
       <div role="tabpanel" class="tab-pane fade" id="tab4">
         <jobSearch></jobSearch>
       </div>
@@ -227,14 +227,14 @@ export default {
       });
     },
     changeRoute(e,tab){
-        console.log(tab);
+        console.log(e.target.hash);
         $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');                        
         $('#navtab').addClass(tab+'-tabColor');
         $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');                        
         $('.tab-content').addClass(tab+'-borderColor'); 
-        if(tab == 'news'){
+        // if(tab == 'news'){
           this.$router.push({name:'home',params:{page:e.target.hash}});
-        }        
+        // }       
     },
   }
 };
