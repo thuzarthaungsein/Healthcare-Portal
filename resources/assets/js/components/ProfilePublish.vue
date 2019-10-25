@@ -14,7 +14,7 @@
                                     
                 <div  class="thumbnails">
                     <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
-                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
+                        <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
                     </div>
                 </div>
             </div>
@@ -124,23 +124,31 @@
                             <table class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>入居時</font>
                                             </th>
                                             <td>
-                                                <font class="cash-lbl">{{cust.moving_in}}</font>
+                                                <font class="cash-lbl">
+                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円 
+                                                     ~  
+                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
+                                                </font>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>月額</font>
                                             </th>
                                             <td>
-                                                <font class="cash-lbl">{{cust.per_month}}</font>
+                                                <font class="cash-lbl">
+                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}}円 
+                                                     ~  
+                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
+                                                </font>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>住所</font>
                                             </th>
                                             <td>
@@ -148,7 +156,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>電話</font>
                                             </th>
                                             <td>
@@ -156,21 +164,21 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="250" class="custom-bg-color">
+                                            <th width="200" class="custom-bg-color">
                                                 <font>アクセス　</font>
                                             </th>
                                             <td>
                                                 <p v-html="cust.access"></p>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th width="250" class="custom-bg-color">
+                                        <!-- <tr>
+                                            <th width="200" class="custom-bg-color">
                                                 <font>駅</font>
                                             </th>
                                             <td>
                                                 <font>Nearest Station</font>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                             </table>
 
@@ -240,47 +248,33 @@
                     </div>
                     <div v-if="method_payment.length > 0" class="col-md-12">
                         <div class="cost_tb">
-
                             <div class="row" >
-
                                 <div class="col-md-12" >
 
-                                    <table class="table table-bordered cost_table">
+                                    <table class="table table-bordered cost_table main-cost-table">
 
                                         <thead>
 
                                             <tr>
-
-                                                <th>入居にかかる費用(費用)</th>
-
-                                                <th>居室タイプ(タイプ)</th>
-
-                                                <th>月額料金 (毎月 )</th>
-
-                                                <th>広さ(エリア )</th>
-
+                                                <th>プラン名 / 居室詳細</th>
+                                                <th>入居時費用</th>
+                                                <th>月額費用</th>
                                                 <th></th>
-
                                             </tr>
 
                                         </thead>
 
                                         <tbody>
                                         <tr v-for="cost in method_payment" :key="cost.id">
-
-                                            <td>{{cost.expense_moving}}</td>
-
-                                            <td>{{cost.living_room_type}}</td>
-
-
-                                            <td>{{cost.monthly_fees}}</td>
-
-                                            <td>{{cost.area}}</td>
-
                                             <td>
-
+                                                <h5 class="method-name">{{cost.payment_name}}</h5>
+                                                <span class="room-type"> {{cost.living_room_type}} </span>  
+                                                {{cost.area}}
+                                            </td>
+                                            <td><span class="cash-lbl-mini">{{cost.expense_moving}}</span></td>                                          
+                                            <td><span class="cash-lbl-mini">{{cost.monthly_fees}}</span></td>
+                                            <td style="padding-top:15px;">
                                                 <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >詳しくはこちら</span>
-
                                             </td>
                                         </tr>
                                         </tbody>
@@ -295,136 +289,123 @@
 
                                 </div> -->
 
-
-                                    <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
-
-                                    <table id="costDetails" class="table table-condensed cost_table">
-
-                                        <label class="cost_heading_lbl" style="width:100%;">入居にかかる費用(Expense Moving)</label>
-
-                                        <tbody>
-
-                                            <tr>
-
-                                                <th width="300">入居一時金または(deposit)</th>
-
-                                                    <td>{{cost.deposit}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th>その他（使途）(other)</th>
-
+                                <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
+                                    <label class="cost_heading_lbl m-b-15">{{cost.payment_name}}</label>
+                                    <div class="col-md-12 pad-free">
+                                        <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 入居にかかる費用</label>
+                                        <table id="costDetails" class="table table-condensed cost_table">
+                                            <tbody>
+                                                <tr>
+                                                    <th width="300">入居一時金または</th>
+                                                    <td><span class="cash-lbl-mini">{{cost.deposit}}</span></td>
+                                                    <th width="300">その他（使途）</th>
                                                     <td>{{cost.other_use}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                                            </tr>
+                                    <div class="col-md-12 pad-free">
+                                        <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 月額費用</label>
+                                        <table class="table table-condensed cost_table">
+                                            <tbody>
 
-                                        </tbody>
+                                                <tr>
+                                                    <th width="300">賃料</th>
+                                                    <td><span class="cash-lbl-mini">{{cost.rent}}</span></td>
+                                                </tr>
 
-                                    </table>
+                                                <tr>
+                                                    <th>管理費</th>
+                                                    <td><span class="cash-lbl-mini">{{cost.admin_expense}}</span></td>
+                                                </tr>
 
-                                    <table class="table table-condensed cost_table">
+                                                <tr>
+                                                    <th>食費 </th>
+                                                    <td><span class="cash-lbl-mini">{{cost.food_expense}}</span></td>
+                                                </tr>
 
-                                            <label class="cost_heading_lbl">月額費用(Monthly Cost)</label>
+                                                <tr>
+                                                    <th>介護上乗せ金（生活サービス費</th>
+                                                    <td><span class="cash-lbl-mini">{{cost.nurse_care_surcharge}}</span></td>
+                                                </tr>
 
-                                        <tbody>
+                                                <tr>
+                                                    <th>その他 </th>
+                                                    <td>{{cost.other_monthly_cost}}</td>
+                                                </tr>
 
-                                            <tr>
+                                            </tbody>
 
-                                                <th width="300">賃料 (rent)</th>
+                                        </table>
+                                    </div>
 
-                                                <td>{{cost.rent}}</td>
+                                    <div class="col-md-12 pad-free">
+                                        <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 返還金について</label>
+                                        <table class="table table-condensed cost_table">
+                                            <tbody>
 
-                                            </tr>
+                                                <tr>
 
-                                            <tr>
+                                                    <th width="300">返還制度</th>
 
-                                                <th>管理費(admin_expense)</th>
+                                                    <td>{{cost.refund_system}}</td>
 
-                                                <td>{{cost.admin_expense}}</td>
+                                                </tr>
 
-                                            </tr>
+                                                <tr>
 
-                                            <tr>
+                                                    <th>償却期間</th>
 
-                                                <th>食費 (food_expense)</th>
+                                                    <td>{{cost.depreciation_period}}</td>
 
-                                                <td>{{cost.food_expense}}</td>
+                                                </tr>
 
-                                            </tr>
+                                                <tr>
 
-                                            <tr>
+                                                    <th>初期償却</th>
 
-                                                <th>介護上乗せ金（生活サービス費(nursing care)</th>
+                                                    <td>{{cost.initial_deprecration}}</td>
 
-                                                <td>{{cost.nurse_care_surcharge}}</td>
+                                                </tr>
 
-                                            </tr>
+                                                <tr>
 
-                                            <tr>
+                                                    <th>その他メッセージ</th>
 
-                                                <th>その他 (other monthly cost)</th>
+                                                    <td>{{cost.other_message_refund}}</td>
 
-                                                <td>{{cost.other_monthly_cost}}</td>
+                                                </tr>
 
-                                            </tr>
-
-                                        </tbody>
-
-                                    </table>
-
-                                    <table class="table table-condensed cost_table">
-
-                                            <label class="cost_heading_lbl" style="width: 100%;">返還金について(refund system)</label>
-
-                                        <tbody>
-
-                                            <tr>
-
-                                                <th width="300">返還制度 (refund)</th>
-
-                                                <td>{{cost.refund_system}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th>償却期間(Depreciation)</th>
-
-                                                <td>{{cost.depreciation_period}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th>初期償却(InitialDepreciation)</th>
-
-                                                <td>{{cost.initial_deprecration}}</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <th>その他メッセージ(other message)</th>
-
-                                                <td>{{cost.other_message_refund}}</td>
-
-                                            </tr>
-
-                                        </tbody>
-
-                                    </table>
-
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
 
-
                             </div>
-
-
-
                         </div>
+                    </div>
 
+                    <div class="col-md-12">
+                        <label class="cost_heading_lbl">フォトアルバム</label>
+                        <div class="row">
+                            <div v-for="(image) in  images" :key="image.id" class="col-sm-4 col-md-4 col-lg-3">
+                                <img  :src ="'/upload/nursing_profile/' + image.photo" style="width:100%;border:7px solid #eee;" class="img-responsive">
+                                <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                <!-- <span>{{image.photo}}</span> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 m-t-15 m-b-15">
+                        <label class="cost_heading_lbl">動画</label>
+                        <div class="row">
+                            <div v-for="(image) in  images" :key="image.id" class="col-sm-4 col-md-4 col-lg-3">
+                                <img  :src ="'/upload/nursing_profile/' + image.photo" style="width:100%;border:7px solid #eee;" class="img-responsive">
+                                <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                <!-- <span>{{image.photo}}</span> -->
+                            </div>
+                        </div>
                     </div>
 
             </div>
@@ -570,12 +551,12 @@
 
                         <div class="row col-12 pad-free">
                             <div class="col-md-12">
-                            <h5 class="profile_header col-md-12"> 職員体制 {{customer.name}}</h5>
+                            <h5 class="profile_header col-md-12"> 協力医療機関 {{customer.name}}</h5>
                             </div>
                             <div v-if="cooperate_medical.length>0" class="col-md-12">
 
                                 <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
-
+                                    <label class="cost_heading_lbl_mini"><i class="fas fa-university"></i> {{comedical.name}}</label>
                                     <table border="1" class="table table-bordered">
 
                                         <tbody>
@@ -727,7 +708,7 @@
                                     </tr>   
                                     <tr>
                                         <td width="250" class="custom-bg-color"> アクセス</td>
-                                        <td>{{m.access}}</td>
+                                        <td><p v-html="m.access"></p></td>
                                     </tr>  
                                     <tr>
                                         <td width="250" class="custom-bg-color">住所 </td>
@@ -819,7 +800,7 @@
                             <div class="card-img">
                                 <!-- <div id="panorama"></div>           -->                              
                            
-                                <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" 
+                                <Pannellum  :src="'/upload/hospital_profile/Imagepanorama/' + currentPanoImage" 
                                             class="pannellum"                                          
                                             :auto-load="true"
                                             :show-zoom="true"
@@ -985,14 +966,14 @@
                                             <p v-html="cust.access"></p>
                                         </td>
                                     </tr>
-                                     <tr>
+                                     <!-- <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>駅 </font>
                                         </th>
                                         <td>
                                             <font>Nearest Station</font>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                      <!-- <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>費用 </font>
@@ -1313,7 +1294,7 @@
                                     </tr>   
                                     <tr>
                                         <td width="250" class="custom-bg-color"> アクセス</td>
-                                        <td>{{m.access}}</td>
+                                        <td><p v-html="m.access"></p></td>
                                     </tr>  
                                     <tr>
                                         <td width="250" class="custom-bg-color"> 混雑状況</td>
@@ -1376,6 +1357,7 @@ export default {
                     {  position: { lat: 0, lng: 0 }  },
                 ],
                 am_arr:[],
+                images:[],
                 pm_arr:[],
                 active_el:0,
                 width: '',
@@ -1420,6 +1402,7 @@ export default {
                         that.index = current;
                     }
                 },
+                images: [],
                 panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
                 changelinktitle:'内容を見る',
                 currentOffset: 0,
@@ -1590,6 +1573,7 @@ export default {
           },
 
           computed: {
+          
 
               currentPanoImage() {
               
@@ -1815,12 +1799,26 @@ export default {
 
     border-left: 5px solid rgb(249, 121, 60);
 
-    padding-left: 5px;
+    padding: 5px 10px;
 
     font-weight: bold;
 
     font-size: 1.14em;
 
+}
+.cost_heading_lbl_mini{
+    /* border-left: 5px solid rgb(249, 121, 60); */
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.cost_heading_lbl_mini i{
+    padding: 0px 10px;
+    border-radius: 3px;
+    /* background: #fbaa84; */
+    color: #d2571c;
+    font-size: 1em;
 }
 
 .cost_table th{
@@ -1829,7 +1827,7 @@ export default {
 
     padding: 8px 10px;
 
-    text-align: center;
+    /* text-align: center; */
 
     background: #f0f0f0;
 
@@ -1849,12 +1847,15 @@ export default {
 
     padding: 8px 10px;
 
-    text-align: center;
+    /* text-align: center; */
 
     line-height: 1.7;
 
     background: #fff;
 
+}
+.main-cost-table td{
+    padding: 10px !important;
 }
 
 .cost_btnwrapper{
@@ -2165,6 +2166,30 @@ export default {
 
 }
 
+.room-type {
+    background: #fdd6c3;
+    color: #333333;
+    padding: 3px 5px 3px 7px;
+    border-radius: 3px;
+    margin-right: 7px;
+    font-weight: bold;
+}
 
+.method-name {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.cash-lbl-mini {
+    font-size: 1.4em !important;
+    color: #ff6117;
+    font-weight: bold;
+}
+
+.cash-unit {
+    color: #333;
+    font-size: 0.8em;
+}
 
 </style>

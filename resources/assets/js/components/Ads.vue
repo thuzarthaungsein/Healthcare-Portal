@@ -69,12 +69,12 @@
 </template>
 <script>
     export default {
-        mounted() {
-            $(document).ready(function() {
-                jssor_1_slider_init();
+        // mounted() {
+        //     $(document).ready(function() {
+        //             jssor_1_slider_init();
 
-            });
-        }
+        //         });
+        // }
 
     }
 </script>

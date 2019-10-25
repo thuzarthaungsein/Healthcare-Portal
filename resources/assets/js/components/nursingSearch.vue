@@ -371,16 +371,74 @@
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
                   <div class="" v-for="item in nursingList">
 
-                    <div class="card">
-                      <div class="image">
+                    <div class="card_1">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th class="text-left text-danger">{{item.num_rooms}}</th>
+                            <th class="text-right">{{item.date_of_establishment}}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td colspan="2"><div class="item-fav"><i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加</div></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" class="text-left">
+                              <span class="item-name">{{item.name}}</span> <br>
+                              <span>{{item.city_name}} <i class="fas fa-angle-double-right"></i> {{item.township_name}}</span>
+                              
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" style="background-color:#ff6117">
+                              {{item.type_name}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <img :src="'/images/'+item.logo" alt="image" width="150px"/>
+                            </td>
+                            <td>
+                              <table class="table table-bordered">
+                                <tbody>
+                                  <tr>
+                                    <td>Address</td>
+                                    <td>{{item.address}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Phone</td>
+                                    <td>{{item.phone}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Website</td>
+                                    <td>{{item.website}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><div style="background-color:#ff6117;padding:10px">Moving In</div></td>
+                            <td><div style="background-color:#ff6117;padding:10px">Per Month</div></td>
+                          </tr>
+                          <tr>
+                            <td>{{item.moving_in_to}}</td>
+                            <td>{{item.per_month_to}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+
+                      <!-- <div class="image">
                       <img id="mapMarker" src=""  width="10%" >
-                       
                       </div>
                       <div class="text">
                         <div class="fab">&#43;</div>
                         <h3>Descrição da funcionalidade deve vir abaixo do título do caso de uso.</h3>
                         <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.</p>
-                      </div>
+                      </div> -->
                     </div>
 
                   </div>
@@ -404,7 +462,7 @@
             <hr>
             <div v-if="show">
               <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
-                <label class="form-check-label" >
+                <label class="form-check-label">
                   <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)">
                   {{township.township_name}}
                 </label>
@@ -537,7 +595,7 @@
           <div class="col-sm-10" v-if="showOne">
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
-              <label class="form-check-label" >
+              <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id">
                 {{fac_type.description}}
               </label>
@@ -616,7 +674,7 @@
         windowSize: 3,
         paginationFactor: 220,
         nursingList: [],
-        alphabet:[]
+        alphabet: []
 
       }
     },
@@ -673,15 +731,17 @@
               this.medical_acceptance = response.data.medical_acceptance
               this.markers = response.data.nus_latlng;
               this.nursingList = response.data.nursing_profile
+              // console.log(this.markers)
               this.id = id
-              this.markers = response.data.nus_latlng;
+  
 
               var mmarker = new Array();
-              var multibusiness = new Array();
+              var item = [];
               for (var i = 0; i < this.markers.length; i++) {
                 mmarker.push([this.markers[i]['business_entity'], this.markers[i]['lat'], this.markers[i]['lng']])
-                multibusiness.push(this.markers[i]['business_entity'])
+                item.push(this.markers[i])
               }
+
               const theCity = response.data.getCity[0]['city_eng']
               const lat = response.data.getCity[0]['latitude']
               const lng = response.data.getCity[0]['longitude']
@@ -724,9 +784,37 @@
               var bounds = new google.maps.LatLngBounds();
               var markers = mmarker;
               var infoWindowContent = new Array();
-              for (var i = 0; i < multibusiness.length; i++) {
-                infoWindowContent.push(['<div class="info_content">' + multibusiness[i] + '</div>'])
+
+              for (var i = 0; i < item.length; i++) {
+                infoWindowContent.push([
+                  '<div id="info_content">'
+                  +'<div class="card_1">'
+                  +'<table class="table">'
+                    +'<thead>'
+                    +'<tr>'
+                      +'<td class="text-left text-danger">'+item[i]['num_rooms']
+                      +'</td>'
+                      +'<td class="text-left">'+item[i]['date_of_establishment']
+                      +'</td>'
+                    +'</tr>'
+                    +'</thead>'
+                    +'<tbody>'
+                      +'<tr>'
+                        +'<td colspan="2"><div class="item-fav"><i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加</div></td>'
+                      +'</tr>'
+                        +'<tr>'
+                          +'<td colspan="2" class="text-left">'
+                            +'<span class="item-name">'+item[i]['name']+'</span> <br>'
+                            +'<span>'+item[i]['city_name']+'<i class="fas fa-angle-double-right"></i>'+item[i]['township_name']+'</span>'
+                          +'</td>'
+                        +'</tr>'
+                    +'</tbody>'
+                  +'</table>'
+                  +'</div>'
+                  +'</div>'
+                  ])
               }
+              
               var infoWindow = new google.maps.InfoWindow(),
                 marker, i;
               const alphabet = response.data.alphabet;
@@ -761,11 +849,11 @@
                 });
                 // console.log($('#mapMarker'));
                 $('#mapMarker').src = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + k + "|FF0000|000000' />";
-                console.log($('#mapMarker').src)
+                // console.log($('#mapMarker').src)
 
               }
 
-              
+
 
 
 
@@ -854,7 +942,7 @@
                   google.maps.event.removeListener(boundsListener);
                 });
               }
-              
+
 
             });
         } else {
@@ -1055,19 +1143,19 @@
   }
 
 
-  .card {
+  .card_1 {
     display: inline-block;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
     margin: 20px;
     position: relative;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     transition: all .2s ease-in-out;
   }
 
-  .card:hover {
+  .card_1:hover {
     /*box-shadow: 0 5px 22px 0 rgba(0,0,0,.25);*/
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    margin-bottom: 54px;
+    /* margin-bottom: 54px; */
   }
 
   .image {
@@ -1078,7 +1166,7 @@
   }
 
   .image:hover,
-  .card:hover .image {
+  .card_1:hover .image {
     height: 200px;
     opacity: 1;
   }
@@ -1116,5 +1204,30 @@
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
+  }
+
+.item-fav {
+    font-weight: bold;
+    color: #3C3C3C;
+    border: 2px solid #192E47;
+    background: #E9E5E1;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2RjZGNkYyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
+    background-image: -moz-linear-gradient(top, #ffffff, #dcdcdc);
+    background-image: -webkit-linear-gradient(top, #ffffff, #dcdcdc);
+    background-image: linear-gradient(to bottom, #ffffff, #dcdcdc);
+    -moz-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    width: 100%;
+    line-height: 2.2;
+  }
+
+.item-name{
+    font-size: 20px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px;
   }
 </style>

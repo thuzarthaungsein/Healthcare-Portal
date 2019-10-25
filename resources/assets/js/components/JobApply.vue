@@ -1,12 +1,25 @@
 <template>
   <div>
-    <div class="col-md-12 scrolldiv4">
-      <div class="row">
-        <div class="col-12 text-center p-3 jt1 mb-4">
+    <div class="tab-content job-detail">
+      <div class="col-md-12 pad-free m-b-20">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+              <router-link to="/" class="router-link-active">ホーム</router-link>
+          </li>
+          <li aria-current="page" class="breadcrumb-item active">仕事詳細</li>
+        </ol>
+      </nav>
+    </div>
+      
+        <!-- <div class="col-12 text-center p-3 jt1 mb-4">
           <h4>求人応募フォーム</h4>
+        </div> -->
+        <div class="col-12 m-b-10">
+          <h4 class="job-apply-color">求人応募フォーム</h4>         
         </div>
-      </div>
-      <div class="col-md-12 register_box" v-if="type == 'register'">
+      
+      <div class="col-md-12 register_box mt-3" v-if="type == 'register'">
         <ul class="multi-step">
           <li class="active">1.必要事項のご入力</li>
           <li class="no-active">2.内容のご確認</li>
@@ -63,13 +76,14 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
+              <!-- <input
                 type="text"
                 class="form-control box"
                 placeholder="○○日○○月○○○○年"
                 id="birthday"
                 v-model="jobApply.birthday"
-              />
+              /> -->
+              <date-picker class="box" v-model="jobApply.birthday" valueType="format"  style="margin-left: 11px;"></date-picker>
             </div>
           </div>
           <div class="form-group m-0 row bd">
@@ -82,11 +96,13 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right pl-4">
-              <label>
+              <label class="control control--radio">
                 <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Male" /> 女性
+                <div class="control__indicator"></div>
               </label>
-              <label>
+              <label class="control control--radio">
                 <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Female" /> 男性
+                <div class="control__indicator"></div>
               </label>
             </div>
           </div>
@@ -241,8 +257,9 @@
                 <router-link to="/termsAndConditions" target="_blank">「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。
               </label>
               <br />
-              <label class="ml-4">
+              <label class="ml-4 control control--checkbox">
                 <input type="checkbox" v-model="jobApply.terms" /> 同意する
+                <div class="control__indicator"></div>
               </label>
               <div v-if="errors.terms" class="text-danger ml-4">{{ errors.terms }}</div>
             </div>
@@ -420,8 +437,10 @@
   </div>
 </template>
 <script>
+import DatePicker from 'vue2-datepicker';
 
 export default {
+  components: { DatePicker },
   data() {
     return {
       errors: {
@@ -507,7 +526,9 @@ export default {
       }
     },
     apply() {
+     
     this.$loading(true);
+
       // $("#loader").css("display", "block");
       this.axios
         .post("/api/jobapply", this.jobApply)
