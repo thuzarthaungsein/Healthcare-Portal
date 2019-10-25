@@ -1,7 +1,17 @@
 <template>
     <div>
-        <div class="col-12 scrolldiv2 pb-5 tab-content">
+        <div class="col-12 scrolldiv2 pb-5 tab-content" id="nursing"> 
             <div class="row col-12">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <router-link to="/">ホーム</router-link>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">介護のお気に入り</li>
+                        </ol>
+                    </nav>
+                </div>
                 <div class="col-md-12">
                     <div class="col-md-12 fav-his-header">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
@@ -26,26 +36,16 @@
                         &nbsp; <span class="font-weight-bold">お気に入り</span>
                     </div>
                 </div>
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <router-link to="/">ホーム</router-link>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">介護のお気に入り</li>
-                        </ol>
-                    </nav>
-                </div>
 
                 <!--compare box-->
-                <div class="row col-12">
-                    <div class="col-md-11" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <div class="row col-12 mt-2 mb-4">
+                    <div class="col-md-11 compare-wrap" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
                         <dl class="itemBox favnur" id="bd" v-if="!iscompare">
                             <dt>比較する項目</dt>
                             <dd>比較する項目が選べます</dd>
                         </dl>
                         <dl class="itemBox favnur" id="bd" v-else>
-                            <dt class="da">比較する項目</dt>
+                            <dt class="pr-4">比較する項目</dt>
                             <dd>
                                 <ul class="test">
                                     <li v-if="address_check">住所</li>
@@ -148,8 +148,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-1">
-                        <button class="btn news-post-btn all-btn hos-btn m-t-10" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">変更する</button>
+                    <div class="col-md-1 fav-update-wrap">
+                        <button class="fav-update-btn" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">変更する</button>
                     </div>
                     <div class="modal fade bd-example-modal-google googlecheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
                         <div class="modal-dialog modal-xl" role="document">
@@ -245,16 +245,24 @@
             <!--end compare box-->
             <!--result-->
             <div class="col-12">
-                <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary">
-                    <input type="checkbox" @change="checkAll()" class="check-all-btn" />
-                    <span class="checkmark"></span>すべての資料請求にチェックを入れる
-                </label>
-                <button type="button" class="btn btn-success float-right" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
+                <div class="clearfix">
+                    <div class="float-right" style="margin-right:45px;">
+                        <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary mr-2 float-left" >
+                            <input type="checkbox" @change="checkAll()" class="check-all-btn" />
+                            <span class="checkmark"></span>すべての資料請求にチェックを入れる
+                        </label>
+                        <button type="button" class="btn btn-success  float-left" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
+                    </div>
+                </div>        
                 <div style="margin-top: 20px;" id="fav-history-page">
                     <div class="col-12">
                         <div class="card-carousel-wrapper">
 
-                            <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+                            <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                                <div class="nav-content mr-2">
+                                    <div class="card-carousel--nav__left"></div>
+                                </div>
+                            </div>
                             <div class="card-carousel">
                                 <div class="card-carousel--overflow-container">
                                     <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
@@ -274,8 +282,8 @@
                                                 </tr>
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
-                                                        <label class="btn all-btn secondary-bg-color hos-btn">
+                                                        <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
+                                                        <label class="btn all-btn res-btn hos-btn">
                                                             <input type="checkbox" value="documentation" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle()">
                                                             <span class="checkmark"></span>資料請求</label>
                                                     </td>
@@ -361,7 +369,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
+                            
+                            <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
+                                <div class="nav-content ml-2">
+                                   <div class="card-carousel--nav__right"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
