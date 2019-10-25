@@ -1,7 +1,16 @@
 <template>
     <div>
-
-        <div class="col-12 scrolldiv2 pb-3 tab-content">
+        <div class="col-12 scrolldiv2 pb-3 tab-content" id="hospital">
+            <div class="col-12 pl-0">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <router-link to="/">ホーム</router-link>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
+                    </ol>
+                </nav>
+            </div>
             <div class="col-12">
                 <div class="col-md-12 fav-his-header">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
@@ -14,22 +23,16 @@
                     </svg>
                     &nbsp;<span class="font-weight-bold"> 最近見た施設</span>
                 </div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <router-link to="/">ホーム</router-link>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
-                    </ol>
-                </nav>
-            </div>
-            <label class="btn all-btn secondary-bg-color hos-btn2">
-                <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
+            </div>            
             <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
                 <div class="row">
                     <div class="card-carousel-wrapper">
 
-                        <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+                        <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                            <div class="nav-content mr-2">
+                                <div class="card-carousel--nav__left"></div>
+                            </div>
+                        </div>
                         <div class="card-carousel">
                             <div class="card-carousel--overflow-container">
                                 <div class="card-carousel-cards col-3" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
@@ -43,7 +46,7 @@
                                                         <br>
                                                         <br>
 
-                                                        <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}">{{hos_profile.name}}</router-link>
+                                                        <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
 
                                                     </td>
                                                 </tr>
@@ -52,62 +55,122 @@
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <div style="width:250px;">
                                                             <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>
-                                                            <label class="btn all-btn secondary-bg-color hos-btn">
-                                                                <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>資料請求</label>
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;"> <a href="#" target="_blank">{{hos_profile.website}}</a></div>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id" style="word-wrap: break-word;">
+                                                        <div style="width:250px;"> <a :href="hos_profile.website" target="_blank">{{hos_profile.website}}</a></div>
                                                     </td>
                                                 </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.medical_department}}</div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.phone}}</div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.access}}</div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.email}}</div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">{{hos_profile.subject}}</div>
-                                                    </td>
-                                                </tr>
-
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <div style="width:250px;">{{hos_profile.township_name}}, {{hos_profile.city_name}}</div>
                                                     </td>
                                                 </tr>
-
+                                                <tr>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">アクセス</dt>
+                                                            <dd style="width:250px;" v-html="hos_profile.access"></dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">電話番号</dt>
+                                                            <dd style="width:250px;">{{hos_profile.phone}}</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <div style="width:250px;">
                                                             <ul class="fac_container">
-                                                                <li v-for="feature in hos_profile.special_features" :key="feature.id">{{ feature.short_name }}</li>
+                                                                <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                             </ul>
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">診療科目</dt>
+                                                            <dd v-for="sub in hos_profile.sub" :key="sub.id" style="width:250px;">{{sub.name}}</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                        <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                            <dl>
+                                                                <dt style="text-align:left;">専門医</dt>
+                                                                <dd v-if="hos_profile.specialist != null">{{hos_profile.specialist}}</dd>
+                                                                <dd v-else>-</dd>
+                                                            </dl>
+                                                        </td>
+                                                    </tr>
+                                                <tr>
+                                                    <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                        <dl>
+                                                            <dt style="text-align:left;">医療部</dt>
+                                                            <dd style="width:250px;">{{hos_profile.medical_department}}</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                        <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
+                                                            <dl>
+                                                                <dt style="text-align:left;">診療時間</dt>
+                                                            </dl>
+                                                            <table class="table table-bordered">
+                                                                <thead>
+                                                                    <tr class="first-row">
+                                                                        <th>日付</th>
+                                                                        <th>午前</th>
+                                                                        <th>午後</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">月</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.mon}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.mon}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">火</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.tue}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.tue}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">水</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.wed}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.wed}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">木</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.thu}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.thu}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">金</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.fri}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.fri}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">土</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.sat}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.sat}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">日</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.sun}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.sun}}</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
                                             </table>
 
                                         </div>
@@ -115,7 +178,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
+                        <div class="nav-box"@click="moveCarousel(1)" :disabled="atEndOfList">
+                            <div class="nav-content ml-2">
+                            <div class="card-carousel--nav__right"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -201,3 +268,18 @@
             }
     };
 </script>
+<style>
+    .first-row {
+        color: #fff;
+        background-color: #a2a7a1;
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        text-align: center;
+        padding: 10px;
+        font-size: 100%;
+    }
+    
+    .second-row {
+        background-color: #eff7ec;
+    }
+</style>

@@ -19,7 +19,14 @@ class JobController extends Controller
 
         $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
                            ->join('jobs','jobs.customer_id','=','customers.id')
-                           ->where('jobs.customer_id','=',1)->get();
+                           ->leftJoin('job_applies','job_applies.job_id','=','jobs.id')
+                           ->where('jobs.customer_id','=',auth()->user()->customer_id)->groupBy('jobs.id')->get();
+        foreach($profilejob as $jobs){
+            $job_id = $jobs->id;
+            $jobapplies =  DB::table('job_applies')->join('jobs','job_applies.job_id','=','jobs.id')
+                           ->where('job_applies.job_id','=',$job_id)->count();
+            $jobs->count = $jobapplies;
+        }
         return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
 
     }
@@ -44,7 +51,7 @@ class JobController extends Controller
     {
         $occupationlist = Occupations::select('id','name')->get()->toArray();
 
-        return response()->json($occupationlist);    
+        return response()->json($occupationlist);
     }
 
     public function getSkill()
@@ -55,7 +62,7 @@ class JobController extends Controller
     }
     public function store(Request $request)
     {
-     
+
         $request->validate([
             'title' => 'required',
             'description' =>'required',
@@ -161,7 +168,7 @@ class JobController extends Controller
         }
         $job->title =$request->input('title');
         $job->customer_id= 1;
-        
+
         $job->description = $request->input('description');
         $job->skills = $string;
         $job->location = $request->input('location');

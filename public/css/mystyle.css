@@ -459,7 +459,7 @@ body {
     position: absolute;
     pointer-events: none;
     border-color: rgba(204, 102, 51, 0);
-    
+
     border-width: 10px;
     left: 50%;
     margin-left: -10px;
@@ -2744,6 +2744,7 @@ ul.main-tab li:after {
     text-align: center;
     border-radius: 20px;
     border: 1px solid #b7dad2;
+    <<<<<<< HEAD=======>>>>>>>c9488aacd718a7fbf06eaa6494e560fbb319aeaf
 }
 
 .link-span {
@@ -5351,122 +5352,6 @@ body::-webkit-scrollbar-thumb {
     display: none !important;
 }
 
-@media only screen and (max-width: 1300px) {
-    .adslist-card {
-        height: auto;
-    }
-    .ads-img {
-        display: block;
-        float: none;
-        max-width: 100%;
-        width: auto;
-        margin: 0 auto;
-    }
-    .today .adslist-card .smallads-title {
-        top: 7px;
-    }
-    .hokkaido-box,
-    .kanto-box {
-        right: -10%;
-        max-width: 165px;
-    }
-    .tokai-box {
-        right: -10%;
-    }
-    .shikoku-box {
-        right: 22%;
-    }
-    .okinawa-box {
-        left: -1%;
-    }
-    .kinki-box,
-    .chugoku-box {
-        left: -1%;
-    }
-    .chugoku-box {
-        max-width: 230px;
-    }
-    .hokuriku-box {
-        left: 28%;
-    }
-    /* #v-pills-tab li a {
-
-        display: block;
-
-        padding: 0;
-
-    } */
-    .sub-title>.ads-title {
-        position: unset;
-        margin: 10px 0 30px;
-    }
-    .job-img {
-        max-width: 80% !important;
-        margin: 0 auto 20px;
-        flex: unset;
-    }
-    .job-box {
-        max-width: 100% !important;
-        flex: unset;
-    }
-    .compare-wrap {
-        max-width: 82%;
-    }
-    .fav-update-wrap {
-        max-width: 19%;
-        flex: 0 0 18%;
-    }
-}
-
-@media only screen and (max-width: 990px) {
-    .pc {
-        display: none !important;
-    }
-    .sp {
-        display: block !important;
-    }
-    .navbar-brand img {
-        max-width: 200px;
-    }
-    .sp-nav {
-        padding: 20px 40px;
-    }
-    .sp-nav li {
-        list-style: none;
-        border-bottom: 1px solid #fff;
-    }
-    .nav-link {
-        padding: 0.5rem 0;
-    }
-    .router-link-exact-active {
-        border-left: 0px;
-        background-color: transparent;
-    }
-    .ads-img {
-        float: left;
-        display: block;
-        margin: 0 auto;
-    }
-    .today .adslist-card .smallads-title {
-        top: 7px;
-    }
-    .hos-btn {
-        width: 50%;
-        margin: 10px auto 0;
-    }
-    .hos-img {
-        height: auto;
-        line-height: unset;
-        border: 0;
-        border-bottom: 0;
-        background-color: transparent;
-    }
-    .hos-img img {
-        width: auto;
-        max-width: 100%;
-    }
-}
-
 
 /*  Start CommentList */
 
@@ -5639,6 +5524,12 @@ button.confirmed {
     height: 2em;
 }
 
+.nocard-wrap {
+    height: 500px;
+    padding-top: 130px;
+    text-align: center;
+}
+
 .card-wrap {
     height: 550px;
     padding-top: 90px;
@@ -5656,9 +5547,32 @@ button.confirmed {
     vertical-align: middle;
 }
 
+.nouser-ico {
+    border: 1px solid #6c757df7;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto 10px;
+    line-height: 80px;
+    vertical-align: middle;
+}
+
+.nouser-ico img {
+    height: 40px;
+    width: 40px;
+}
+
 .record-ico i {
     font-size: 28px;
     color: #ff9563;
+}
+
+.nouser-txt01 {
+    font-size: 30px;
+    color: #a5a5a5;
+    font-weight: bold;
+    margin: 20px 0;
 }
 
 .record-txt01 {
@@ -5936,6 +5850,7 @@ button.confirmed {
 }
 
 #nursing .res-btn {
+    position: relative;
     background: #ff9563;
 }
 
@@ -5943,7 +5858,8 @@ button.confirmed {
     vertical-align: middle;
 }
 
-#nursing .hos-btn {
+#nursing .hos-btn,
+#hospital .hos-btn {
     width: 70%;
     margin: 0 auto;
     margin-bottom: 5px;
@@ -5960,7 +5876,7 @@ button.confirmed {
 }
 
 .compare-wrap {
-    padding-right: 0;
+    padding: 0;
 }
 
 .compare-wrap dl.favnur {
@@ -5990,8 +5906,76 @@ button.confirmed {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
+.profile_wd {
+    width: 239px;
+}
+
+.profile_price {
+    width: 239px;
+    font-size: large;
+    color: #ff6117;
+    line-height: 1;
+}
+
+.price_tbl thead th {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    background: #f0f0f0;
+    color: #000;
+    line-height: 1.7;
+    vertical-align: top;
+    min-width: 100px;
+}
+
+.price_tbl h5 {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.price_tbl .room_type span {
+    background: #fdd6c3;
+    color: #333333;
+    padding: 3px 5px 3px 7px;
+    border-radius: 3px;
+    margin: 0 7px;
+    font-weight: bold;
+}
+
+.expense_txt {
+    font-size: 1.4em;
+    color: #ff6117;
+    font-weight: bold;
+}
+
 
 /*End  nursing */
+
+
+/* hospital */
+
+#hospital .pseudolink {
+    color: #63b7ff;
+}
+
+#hospital .fac_container li {
+    color: #63b7ff;
+    border: 1px solid #63b7ff;
+}
+
+#hospital .nav-content {
+    border: 2px solid #63b7ff;
+    background: #c3ecff40 !important;
+}
+
+#hospital .card-carousel--nav__left,
+.card-carousel--nav__right {
+    border-top: 5px solid #4f97d5 !important;
+    border-right: 5px solid #4f97d5 !important;
+}
+
+
+/* End  hospital */
 
 
 /* .active {
@@ -6189,6 +6173,7 @@ ul.test>li:before {
     display: flex;
     justify-content: center;
     width: 1336px;
+    overflow-x: auto;
 }
 
 
@@ -6487,6 +6472,26 @@ ul.test>li:before {
     line-height: 1.8;
     margin-right: 8px;
     color: #d2571c;
+}
+
+.job_count {
+    /* border-radius: 50%;
+    background: #f9d7c6;
+    color: #bd440a;
+    display: inline-block; */
+    /* border: 1px solid #dc3545 !important;
+    color: #dc3545;
+    background: #fff;
+    box-shadow: none !important;
+    min-width: 60px; */
+    display: inline-block;
+    background: #e66527;
+    color: #fff;
+    padding: 4px 15px 3px;
+    border-radius: 3px;
+    margin: 0 5px 5px 0;
+    letter-spacing: normal;
+    font-size: 0.857em;
 }
 
 .job-tit {
@@ -6906,7 +6911,7 @@ ul.test>li:before {
 
 .control {
     position: relative;
-    padding-left: 30px;
+    padding-left: 20px;
     margin-left: 10px;
     /* margin-bottom: 15px;
     cursor: pointer;
@@ -6994,3 +6999,151 @@ ul.test>li:before {
 
 
 /*end for custom checkbox and radio*/
+
+
+/*for date time picker*/
+
+.mx-calendar-content .cell {
+    border-radius: 3px;
+}
+
+.mx-panel-date td.today {
+    color: #c1470c !important;
+}
+
+.mx-calendar-content .cell:hover {
+    background-color: #e8b9a2 !important;
+}
+
+.mx-calendar-header {
+    background: #d2571c !important;
+    color: #fff !important;
+    border-radius: 3px !important;
+}
+
+.mx-calendar-content .cell.actived {
+    color: #fff !important;
+    background-color: #d2571c !important;
+}
+
+
+/*end for date time picker*/
+
+@media only screen and (max-width: 1300px) {
+    .adslist-card {
+        height: auto;
+    }
+    .ads-img {
+        display: block;
+        float: none;
+        max-width: 100%;
+        width: auto;
+        margin: 0 auto;
+    }
+    .today .adslist-card .smallads-title {
+        top: 7px;
+    }
+    .hokkaido-box,
+    .kanto-box {
+        right: -10%;
+        max-width: 165px;
+    }
+    .tokai-box {
+        right: -10%;
+    }
+    .shikoku-box {
+        right: 22%;
+    }
+    .okinawa-box {
+        left: -1%;
+    }
+    .kinki-box,
+    .chugoku-box {
+        left: -1%;
+    }
+    .chugoku-box {
+        max-width: 230px;
+    }
+    .hokuriku-box {
+        left: 28%;
+    }
+    /* #v-pills-tab li a {
+
+        display: block;
+
+        padding: 0;
+
+    } */
+    .sub-title>.ads-title {
+        position: unset;
+        margin: 10px 0 30px;
+    }
+    .job-img {
+        max-width: 80% !important;
+        margin: 0 auto 20px;
+        flex: unset;
+    }
+    .job-box {
+        max-width: 100% !important;
+        flex: unset;
+    }
+    .compare-wrap {
+        max-width: 82%;
+    }
+    .fav-update-wrap {
+        max-width: 19%;
+        flex: 0 0 18%;
+    }
+    #fav-history-page .card-carousel {
+        overflow-x: auto;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .pc {
+        display: none !important;
+    }
+    .sp {
+        display: block !important;
+    }
+    .navbar-brand img {
+        max-width: 200px;
+    }
+    .sp-nav {
+        padding: 20px 40px;
+    }
+    .sp-nav li {
+        list-style: none;
+        border-bottom: 1px solid #fff;
+    }
+    .nav-link {
+        padding: 0.5rem 0;
+    }
+    .router-link-exact-active {
+        border-left: 0px;
+        background-color: transparent;
+    }
+    .ads-img {
+        float: left;
+        display: block;
+        margin: 0 auto;
+    }
+    .today .adslist-card .smallads-title {
+        top: 7px;
+    }
+    .hos-btn {
+        width: 50%;
+        margin: 10px auto 0;
+    }
+    .hos-img {
+        height: auto;
+        line-height: unset;
+        border: 0;
+        border-bottom: 0;
+        background-color: transparent;
+    }
+    .hos-img img {
+        width: auto;
+        max-width: 100%;
+    }
+}

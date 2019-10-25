@@ -4,7 +4,7 @@
         <!--menu tabs-->
         <ul class="nav nav-tabs news-tabColor" role="tablist" id="navtab">
         <li role="presentation"  class="subtab1 nav-item" :class="subtab1active"><a @click="changeRoute('news')" href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
-        <li role="presentation"  class="subtab3 nav-item" :class="subtab3active"><a @click="changeRoute('nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護検索</a></li>
+        <li role="presentation"  class="subtab3 nav-item" :class="subtab3active"><a @click="changeRoute('nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護施設検索</a></li>
         <li role="presentation"  class="subtab2 nav-item" :class="subtab2active"><a @click="changeRoute('hospital')" href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
         <li role="presentation"  class="subtab5 nav-item" :class="subtab4active"><a @click="changeRoute('job')" href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
