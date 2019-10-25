@@ -99,7 +99,8 @@
             box-sizing: border-box;
             padding: 10px 20px;
             /* background: url(../images/home-24.png) no-repeat center; */
-            box-shadow: 0 9px 10px -10px #d2571c;
+            /* box-shadow: 0 9px 10px -10px #d2571c; */
+            box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
             text-decoration: none;
         }
         #homeBtn i.fa {
@@ -248,7 +249,7 @@
 
                 <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;カテゴ一覧</router-link></li>
 
-                <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li>
+                <!-- <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li> -->
 
                 <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;&nbsp;施設一覧</router-link></li>
                 <li><router-link to="/typelist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;&nbsp;事業者 タイプ</router-link></li>
@@ -524,7 +525,7 @@
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
 
-                    <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li>
+                    <!-- <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li> -->
 
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;施設一覧</router-link></li>
                     <li><router-link to="/typelist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;事業者 タイプ</router-link></li>

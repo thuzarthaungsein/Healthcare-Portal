@@ -286,20 +286,20 @@ class SearchMapController extends Controller
 
         if ($townshipID == '0' && $occupationID == '0' &&  $empstatus == '0') {
             $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-            Join townships as t on t.id = c.townships_id 
-            where t.city_id =" . $id;
-
+            Join townships as t on t.id = j.township_id 
+            where t.city_id =".$id;
+          
             $job_data = DB::select($query);
         } else if ($townshipID != '0'  && $occupationID == '0' && $empstatus == '0') {
             $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-            Join townships as t on t.id = c.townships_id  
-            where t.city_id =" . $id . " and t.id in (" . $townshipID . ")";
+            Join townships as t on t.id = j.township_id  
+            where t.city_id =" .$id. " and t.id in (".$townshipID.")";
 
             $job_data = DB::select($query);
         } else if ($townshipID != '0' && $occupationID != '0' && $empstatus == '0') {
             $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-            Join townships as t on t.id = c.townships_id 
-            where t.city_id =" . $id . " and t.id in (" . $townshipID . ") and j.occupation_id in (" . $occupationID . ")";
+            Join townships as t on t.id = j.township_id 
+            where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.")";
 
             $job_data = DB::select($query);
         } else if ($townshipID != '0' && $occupationID == '0' && $empstatus != '0') {
@@ -307,21 +307,25 @@ class SearchMapController extends Controller
 
             if (count($empstatus) == 4) {
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and t.id in (" . $townshipID . ") and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "' or j.employment_status = '" . $empstatus[2] . "' or j.employment_status = '" . $empstatus[3] . "'";
-            } else if (count($empstatus) == 3) {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
+            }
+            else if(count($empstatus) == 3)
+            {
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and t.id in (" . $townshipID . ") and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "' or j.employment_status = '" . $empstatus[2] . "'";
-            } else if (count($empstatus) == 2) {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'" ;
+            }
+            else if(count($empstatus) == 2){
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and t.id in (" . $townshipID . ") and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "'";
-            } else {
-
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'" ;
+            }
+            else  {
+ 
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and t.id in (" . $townshipID . ") and j.employment_status = '" . $empstatus[0] . "'";
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.employment_status = '".$empstatus[0] ."'";
             }
 
             $job_data = DB::select($query);
@@ -330,20 +334,23 @@ class SearchMapController extends Controller
 
             if (count($empstatus) == 4) {
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and j.occupation_id in (" . $occupationID . ")  and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "' or j.employment_status = '" . $empstatus[2] . "' or j.employment_status = '" . $empstatus[3] . "'";
-            } else if (count($empstatus) == 3) {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
+            }
+            else if(count($empstatus) == 3){
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and j.occupation_id in (" . $occupationID . ")  and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "' or j.employment_status = '" . $empstatus[2] . "'";
-            } else if (count($empstatus) == 2) {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'";
+            }
+            else if(count($empstatus) == 2){
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and j.occupation_id in (" . $occupationID . ")  and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "'";
-            } else {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'";
+            }
+            else{
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and j.occupation_id in (" . $occupationID . ")  and j.employment_status = '" . $empstatus[0] . "'";
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and j.employment_status = '". $empstatus[0] ."'";
             }
 
 
@@ -354,27 +361,30 @@ class SearchMapController extends Controller
 
             if (count($empstatus) == 4) {
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "' or j.employment_status = '" . $empstatus[2] . "' or j.employment_status = '" . $empstatus[3] . "'";
-            } else if (count($empstatus) == 3) {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
+            }
+            else if(count($empstatus) == 3){
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "' or j.employment_status = '" . $empstatus[2] . "'";
-            } else if (count($empstatus) == 2) {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'";
+            }
+            else if(count($empstatus) == 2){
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "'";
-            } else {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'";
+            }
+            else{
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and j.employment_status = '" . $empstatus[0] . "'";
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and j.employment_status = '". $empstatus[0] ."'";
             }
 
             $job_data = DB::select($query);
         } else if ($townshipID == '0' && $occupationID != '0' && $empstatus == '0') {
             $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-            Join townships as t on t.id = c.townships_id 
-            where t.city_id =" . $id . " and j.occupation_id in (" . $occupationID . ")";
+            Join townships as t on t.id = j.township_id 
+            where t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")";
 
             $job_data = DB::select($query);
         } else if ($townshipID != '0' && $occupationID != '0' && $empstatus != '0') {
@@ -382,20 +392,23 @@ class SearchMapController extends Controller
 
             if (count($empstatus) == 4) {
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and t.id in (" . $townshipID . ") and j.occupation_id in (" . $occupationID . ") and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "' or j.employment_status = '" . $empstatus[2] . "' or j.employment_status = '" . $empstatus[3] . "'";
-            } else if (count($empstatus) == 3) {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."'" ;
+            }
+            else if(count($empstatus) == 3){
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and t.id in (" . $townshipID . ") and j.occupation_id in (" . $occupationID . ") and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "' or j.employment_status = '" . $empstatus[2] . "'";
-            } else if (count($empstatus) == 2) {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."'";
+            }
+            else if(count($empstatus) == 2){
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and t.id in (" . $townshipID . ") and j.occupation_id in (" . $occupationID . ") and j.employment_status = '" . $empstatus[0] . "' or j.employment_status = '" . $empstatus[1] . "'";
-            } else {
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."'";
+            }
+            else{
                 $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum from customers As c  Join nursing_profiles As n on n.customer_id = c.id Join hospital_profiles As h on h.customer_id = c.id Join jobs as j on j.customer_id = c.id 
-                Join townships as t on t.id = c.townships_id 
-                where t.city_id =" . $id . " and t.id in (" . $townshipID . ") and j.occupation_id in (" . $occupationID . ") and j.employment_status = '" . $empstatus[0] . "'";
+                Join townships as t on t.id = j.township_id 
+                where t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and j.employment_status = '". $empstatus[0] ."'";
             }
 
             $job_data = DB::select($query);

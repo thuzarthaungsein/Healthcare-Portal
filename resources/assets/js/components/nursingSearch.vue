@@ -1068,6 +1068,11 @@
     transition: transform 150ms ease-out;
     transform: translatex(0px);
   }
+  .card-carousel--card:hover {
+    /*box-shadow: 0 5px 22px 0 rgba(0,0,0,.25);*/
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    /* margin-bottom: 54px; */
+  }
 
   .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
