@@ -73,7 +73,7 @@
                                         <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
                                             <div class="card-body news-post">
                                                 <div class="row">
-                                                    <div class="col-md-3" >
+                                                    <div class="col-md-3 pad-free" >
                                                         <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news">
                                                     </div>
                                                     <div class="col-md-9">
