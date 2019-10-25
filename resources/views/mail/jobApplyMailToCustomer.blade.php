@@ -5,13 +5,13 @@
         [サイト名]より求人への応募がありました。
 
 
-        【求人タイトル】
+        【 {{$getComment->job_title}} 】
         xxxxxx
         [求人番号]
 
         【ご応募された方の情報】
         お名前：{{$getComment->first_name}}
-        ふりがな：
+        ふりがな：{{$getComment->last_name}}
         生年月日：{{$getComment->birthday}}
         性別：{{$getComment->gender}}
         郵便番号：{{$getComment->postal}}
