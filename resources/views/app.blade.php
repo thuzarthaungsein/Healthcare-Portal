@@ -90,16 +90,24 @@
             border: none;
             outline: none;
             background-color: #ff6117;
-            color: #fff;
+            color: #fff!important;
             cursor: pointer;
             border: 1px solid #e66527;
-            border-radius: 30px;
-            border-top-left-radius: 0px;
-            border-bottom-left-radius: 0px;
+            border-radius: 30px !important;
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
             box-sizing: border-box;
             padding: 10px 20px;
             /* background: url(../images/home-24.png) no-repeat center; */
-            box-shadow: 0 9px 10px -10px #d2571c;
+            /* box-shadow: 0 9px 10px -10px #d2571c; */
+            box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            text-decoration: none;
+        }
+        #homeBtn i.fa {
+            color: white!important;
+        }
+        #homeBtn:hover {
+            background: #fbaa84;
         }
     </style>
 <!-- link for editor -->
@@ -109,9 +117,11 @@
 
 <body>
     <button onclick="topFunction()" id="myBtn">Top</button>
-    <button id="homeBtn"><i class="fa fa-home"></i> ホーム</button>
+    
 <div id="app">
-
+@if(!Auth::check())
+    <router-link to="/" id="homeBtn"><i class="fa fa-home"></i> ホーム </router-link>
+@endif
     <div class="main-content pad-free">
 
         <flash message=""></flash>
@@ -239,7 +249,7 @@
 
                 <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;カテゴ一覧</router-link></li>
 
-                <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li>
+                <!-- <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li> -->
 
                 <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;&nbsp;施設一覧</router-link></li>
                 <li><router-link to="/typelist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;&nbsp;事業者 タイプ</router-link></li>
@@ -515,7 +525,7 @@
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴ一覧</router-link></li>
 
-                    <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li>
+                    <!-- <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li> -->
 
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;施設一覧</router-link></li>
                     <li><router-link to="/typelist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;事業者 タイプ</router-link></li>

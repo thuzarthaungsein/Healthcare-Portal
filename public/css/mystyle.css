@@ -2744,7 +2744,6 @@ ul.main-tab li:after {
     text-align: center;
     border-radius: 20px;
     border: 1px solid #b7dad2;
-    <<<<<<< HEAD=======>>>>>>>c9488aacd718a7fbf06eaa6494e560fbb319aeaf
 }
 
 .link-span {
@@ -5397,10 +5396,13 @@ button.confirmed {
 .fac_container li {
     padding: 5px 10px;
     font-size: 13px;
-    color: #0e775d;
+    /* color: #0e775d; */
+    color: #ff9563;
     text-align: center;
     border-radius: 20px;
-    border: 1px solid #b7dad2;
+    /* border: 2px solid #b7dad2; */
+    border: 2px solid #ff9563;
+    font-weight: bold;
 }
 
 .page-1 {
@@ -5660,10 +5662,6 @@ button.confirmed {
     font-size: 0.9em;
 }
 
-.jt1 {
-    background-color: #b7dad2;
-}
-
 
 /* start .profile */
 
@@ -5842,11 +5840,13 @@ button.confirmed {
 #nursing .pseudolink {
     color: #ff9563;
     line-height: 10px;
+    font-weight: bold;
 }
 
 #nursing .fac_container li {
     border: 1px solid #ff9563;
     color: #ff9563;
+    font-weight: bold;
 }
 
 #nursing .res-btn {
@@ -6001,7 +6001,7 @@ button.confirmed {
 }
 
 .jt1 {
-    background-color: #b7dad2;
+    background-color: #ffe2d5;
 }
 
 .eg-txt {

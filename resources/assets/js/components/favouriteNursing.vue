@@ -458,6 +458,14 @@
                 this.month_show = true;
                 this.entry_check = true;
                 this.entry_show = true;
+                this.condition_check = true;
+                this.condition_show = true;
+                this.special_check = true;
+                this.special_show = true;
+                this.capacity_check = true;
+                this.capacity_show = true;
+                this.opening_check = true;
+                this.opening_show = true;
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
 
@@ -655,3 +663,8 @@
             }
     };
 </script>
+<style>
+.card-carousel dt {
+    padding: 0px 10px 10px 10px;
+}
+</style>

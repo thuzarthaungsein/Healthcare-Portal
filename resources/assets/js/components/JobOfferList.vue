@@ -179,7 +179,7 @@ export default {
     this.axios.get("/api/user").then(response => {
       //     console.log(response.data.id)
     });
-    his.countJobapplylist(this.job_id);
+    // this.countJobapplylist(this.job_id);
   },
   methods: {
 
