@@ -8,9 +8,8 @@
                     {{$getComment->first_name}}&nbsp;&nbsp;様
                     <p style="margin-top:10px;">以下の求人へ応募が完了いたしました。</p>                    
 	            </h5>
-	            <p style="text-align:left;margin:2px;color:#3e4348;font-size: 16px;color:#d2571c;font-weight:bold;">◎【{{$getComment->job_title}}】</p>
-                    <p style="text-align:left;margin:2px;color:#a5a5a5;font-size: 12px;"> xxxxxxxxxxxxxxxx</p>
-                    <p style="text-align:left;margin:2px;color:#3e4348;font-size: 12px;"> 【求人番号】</p>
+	            <p style="text-align:left;margin:2px;color:#3e4348;font-size: 16px;color:#d2571c;font-weight:bold;"><span style="font-size:18px;">◎</span>{{$getComment->job_title}}</p>                   
+                    <p style="text-align:left;margin:2px;color:#3e4348;font-size: 12px;padding-left:10px;"> 【求人番号: {{$getComment->jobnum}}】</p>
                     <p style="text-align: left;margin: 0px;">
                     ***********************************************************************************************************************************</p>
                     <p style="text-align:left;margin:2px;color:#3e4348;font-size: 16px;">◎【ご応募された方の情報】</p>  
@@ -23,7 +22,7 @@
                             </tr>
                             <tr>
                               <td style="padding:10px;text-align:right;font-weight:bold;">ふりがな：</td>
-                              <td style="padding:10px;text-align:left;"> </td>
+                              <td style="padding:10px;text-align:left;">{{$getComment->last_name}}</td>
                             </tr>
                             <tr>
                               <td style="padding:10px;text-align:right;font-weight:bold;">生年月日：</td>
@@ -39,19 +38,19 @@
                             </tr>
                             <tr>
                               <td style="padding:10px;text-align:right;font-weight:bold;"> 都道府県：</td>
-                              <td style="padding:10px;text-align:left;"> </td>
+                              <td style="padding:10px;text-align:left;">{{$getComment->city_name}}</td>
                             </tr>
                             <tr>
                               <td style="padding:10px;text-align:right;font-weight:bold;"> 市区町村、番地（建物名)：</td>
-                              <td style="padding:10px;text-align:left;">{{$getComment->home_address}} </td>
+                              <td style="padding:10px;text-align:left;">{{$getComment->home_address}}</td>
                             </tr>
                             <tr>
                               <td style="padding:10px;text-align:right;font-weight:bold;">電話番号：</td>
-                              <td style="padding:10px;text-align:left;">{{$getComment->phone}} </td>
+                              <td style="padding:10px;text-align:left;">{{$getComment->phone}}</td>
                             </tr>
                             <tr>
                               <td style="padding:10px;text-align:right;font-weight:bold;"> メールアドレス：</td>
-                              <td style="padding:10px;text-align:left;">{{$getComment->email}} </td>
+                              <td style="padding:10px;text-align:left;">{{$getComment->email}}</td>
                             </tr>
                             <tr>
                               <td style="padding:10px;text-align:right;font-weight:bold;"> ご希望等：</td>
@@ -75,3 +74,4 @@
 	        </div>
 	    </div>
 </div>
+  

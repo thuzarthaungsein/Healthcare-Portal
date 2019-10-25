@@ -5771,11 +5771,6 @@ button.confirmed {
     font-size: 0.9em;
 }
 
-.jt1 {
-    background-color: #b7dad2;
-}
-
-
 /* start .profile */
 
 .fixed-nav {
@@ -5953,11 +5948,13 @@ button.confirmed {
 #nursing .pseudolink {
     color: #ff9563;
     line-height: 10px;
+    font-weight: bold;
 }
 
 #nursing .fac_container li {
     border: 1px solid #ff9563;
     color: #ff9563;
+    font-weight: bold;
 }
 
 #nursing .res-btn {
@@ -6042,7 +6039,7 @@ button.confirmed {
 }
 
 .jt1 {
-    background-color: #b7dad2;
+    background-color: #ffe2d5;
 }
 
 .eg-txt {

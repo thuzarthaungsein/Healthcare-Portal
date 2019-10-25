@@ -352,7 +352,7 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">居室区分・間取り等</td>
-                                                    <td ><textarea class="form-control white-bg-color room-floor" :options="editorOption"  v-model="nursing_info.room_floor"></textarea></td>
+                                                    <td><textarea class="form-control white-bg-color room-floor" :options="editorOption"  v-model="nursing_info.room_floor"></textarea></td>
                                                         <!-- <td > <quill-editor  class="room-floor" ref="myQuilEditor" :options="editorOption"  v-model="nursing_info.room_floor"/></td> -->
                                             </tr>
                                             <tr>
@@ -378,12 +378,21 @@
                     <tr>
                         <td style="border:none;">
                             <div class="form-group">
-                                <label class="heading-lbl col-2 pad-free">協力医療機関<span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">協力医療機関 <span class="error">*</span></label>
                                 <div class="col-10 pad-free float-right">
-                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
+                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()">
+                                            <i class="fas fa-plus-circle"></i> 加算</span>
+                                              
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
                                         <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                          
+                                            <div class="clearfix" style="margin-bottom:30px;">
+                                                 <span :class="'float-right btn btn all-btn main-bg-color changeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
+                                                        <i :id="'icon' + cooperate.id" class="fa fa-minus-circle"></i> 
+                                                 </span>       
+                                            </div>
+                                             
                                             <div class="form-group">
                                                 <label class="col-2 pad-free">名前 :</label>
                                                 <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
@@ -434,9 +443,9 @@
                                             <div class="col-md-12 accept-box">
                                                 {{medical.name}} {{medical.id}}
                                                 <div class="float-right">
-                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.accept_checked" v-bind:value="'accept-'+medical.id"> <i class="fas fa-check green"></i></label>
-                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.unaccept_checked" v-bind:value="'unaccept-'+medical.id"> <i class="fas fa-times red"></i></label>
-                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.negotiate_checked" v-bind:value="'negotiate-'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                    <label ><input type="radio"  class="medical-acceptance custom-radio" :name="'medical'+medical.id" :checked="medical.accept_checked" v-bind:value="'accept-'+medical.id"> <i class="fas fa-check green"></i></label>
+                                                    <label ><input type="radio" class="medical-acceptance custom-radio " :name="'medical'+medical.id" :checked="medical.unaccept_checked" v-bind:value="'unaccept-'+medical.id"> <i class="fas fa-times red"></i></label>
+                                                    <label ><input type="radio" class="medical-acceptance custom-radio" :name="'medical'+medical.id" :checked="medical.negotiate_checked" v-bind:value="'negotiate-'+medical.id"> <i class="fas fa-adjust blue"></i></label>
                                                 </div>
                                             </div>
                                         </div>

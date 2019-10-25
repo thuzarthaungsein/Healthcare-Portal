@@ -275,9 +275,8 @@
                                                         <img class="img-fluid" v-bind:src="'/images/' + nur_profile.logo" alt style="width: 250px; margin-bottom: 15px;" />
                                                         <br>
                                                         <div style="width: 250px">
-                                                            <router-link :to="{name: 'profile', params: {cusid:1, type: 'nursing'}}" class="pseudolink">{{nur_profile.name}}</router-link>
+                                                            <router-link :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nur_profile.name}}</router-link>
                                                         </div>
-
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -305,7 +304,7 @@
                                                 </tr>
                                                 <tr v-if="address_show || tran_show">
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <div v-if="tran_show || address_show" style="width:250px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
+                                                        <div v-if="tran_show || address_show" style="width:250px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i> 地図・交通アクセス</span></div>
                                                     </td>
                                                 </tr>
                                                 <tr v-if="entry_show">
@@ -326,7 +325,7 @@
                                                 </tr>
                                                 <tr v-if="month_show || entry_show">
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <div style="width:250px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
+                                                        <div style="width:250px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i> 料金プランの詳細</span></div>
                                                     </td>
                                                 </tr>
                                                 <tr v-if="condition_show">
@@ -458,6 +457,14 @@
                 this.month_show = true;
                 this.entry_check = true;
                 this.entry_show = true;
+                this.condition_check = true;
+                this.condition_show = true;
+                this.special_check = true;
+                this.special_show = true;
+                this.capacity_check = true;
+                this.capacity_show = true;
+                this.opening_check = true;
+                this.opening_show = true;
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
 
@@ -655,3 +662,8 @@
             }
     };
 </script>
+<style>
+.card-carousel dt {
+    padding: 0px 10px 10px 10px;
+}
+</style>
