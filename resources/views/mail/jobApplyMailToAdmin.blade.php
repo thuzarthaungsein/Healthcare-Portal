@@ -1,9 +1,11 @@
-    <!-- <div>
-        Dear admin,
-        job_title : {{$getComment->job_title}}  <br>
+<!-- <div>
+    Dear admin,
+    job_title : {{$getComment->job_title}}  <br>
 
-        Successfully applied!
-    </div> -->
+    Successfully applied!
+</div> -->
+
+
 
     <pre>
         [施設名」([施設No])様
@@ -36,10 +38,7 @@
         TEL：03-6911-???? FAX：03-6911-????
 
     </pre>
-
-
-    
-<div>
+    <div>
     Dear admin,
     Job Description
     job_title : {{$getComment->job_title}}  <br>
@@ -63,3 +62,6 @@
     実行可能日 : {{$getComment->workable_day}}  <br>
     リマーク  : {{$getComment->remark}}  <br>
 </div>
+
+    
+

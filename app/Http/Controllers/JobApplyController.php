@@ -97,7 +97,7 @@ class JobApplyController extends Controller
                 $customer_mail = $info->email;
             }
 
-            $admin_email = 'softguide.sawnwaiyannaing@gmail.com';
+            $admin_email = 'mawutmoneoo@gmail.com';
              $jobapply->save();
              $jobapply->job_title = $job_title;
              $jobapply->job_description = $job_description;
