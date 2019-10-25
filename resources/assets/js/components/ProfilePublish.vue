@@ -1896,6 +1896,7 @@ export default {
 }
 .thumbnails {
     display: inline-block;
+    text-align: left;
     /* justify-content: space-evenly;
     flex-direction: row; */
     /* overflow:auto; */
@@ -1905,14 +1906,19 @@ export default {
     display: inline-block;   
     cursor: pointer;
     margin-bottom: -1px;
-    width: 20%;
-    float:left;
+    /* width: 10%;
+    float:left; */
 }
 .thumbnail-image > img {
     /* width:  100px;
     height: auto;
     transition: all 250ms;
     vertical-align: bottom; */
+    vertical-align: bottom;
+    width: 51px;
+    height: 38px;
+    max-width: 51px;
+    border: 3px solid transparent;
 }
 
 .thumbnail-image:hover > img,
