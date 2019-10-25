@@ -369,9 +369,9 @@
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                  <div class="" v-for="item in nursingList">
+                  <div class="card-carousel--card" v-for="item in nursingList">
+                    <div class="">
 
-                    <div class="card_1">
                       <table class="table">
                         <thead>
                           <tr>
@@ -381,13 +381,15 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td colspan="2"><div class="item-fav"><i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加</div></td>
+                            <td colspan="2">
+                              <div class="item-fav"><i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加</div>
+                            </td>
                           </tr>
                           <tr>
                             <td colspan="2" class="text-left">
                               <span class="item-name">{{item.name}}</span> <br>
                               <span>{{item.city_name}} <i class="fas fa-angle-double-right"></i> {{item.township_name}}</span>
-                              
+
                             </td>
                           </tr>
                           <tr>
@@ -397,7 +399,7 @@
                           </tr>
                           <tr>
                             <td>
-                              <img :src="'/images/'+item.logo" alt="image" width="150px"/>
+                              <img :src="'/images/'+item.logo" alt="image" width="150px" />
                             </td>
                             <td>
                               <table class="table table-bordered">
@@ -419,8 +421,12 @@
                             </td>
                           </tr>
                           <tr>
-                            <td><div style="background-color:#ff6117;padding:10px">Moving In</div></td>
-                            <td><div style="background-color:#ff6117;padding:10px">Per Month</div></td>
+                            <td>
+                              <div style="background-color:#ff6117;padding:10px">Moving In</div>
+                            </td>
+                            <td>
+                              <div style="background-color:#ff6117;padding:10px">Per Month</div>
+                            </td>
                           </tr>
                           <tr>
                             <td>{{item.moving_in_to}}</td>
@@ -431,22 +437,14 @@
 
 
 
-                      <!-- <div class="image">
-                      <img id="mapMarker" src=""  width="10%" >
-                      </div>
-                      <div class="text">
-                        <div class="fab">&#43;</div>
-                        <h3>Descrição da funcionalidade deve vir abaixo do título do caso de uso.</h3>
-                        <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.</p>
-                      </div> -->
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
-
+            <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
           </div>
+
         </div>
 
         <div class="row row-div select mt-3">
@@ -683,7 +681,6 @@
     },
     computed: {
       atEndOfList() {
-        console.log(this.nursingList)
         return this.currentOffset <= (this.paginationFactor * -1) * (this.nursingList.length - this.windowSize);
       },
       atHeadOfList() {
@@ -731,9 +728,9 @@
               this.medical_acceptance = response.data.medical_acceptance
               this.markers = response.data.nus_latlng;
               this.nursingList = response.data.nursing_profile
-              // console.log(this.markers)
+              console.log(this.nursingList)
               this.id = id
-  
+
 
               var mmarker = new Array();
               var item = [];
@@ -787,34 +784,80 @@
 
               for (var i = 0; i < item.length; i++) {
                 infoWindowContent.push([
-                  '<div id="info_content">'
-                  +'<div class="card_1">'
-                  +'<table class="table">'
-                    +'<thead>'
-                    +'<tr>'
-                      +'<td class="text-left text-danger">'+item[i]['num_rooms']
-                      +'</td>'
-                      +'<td class="text-left">'+item[i]['date_of_establishment']
-                      +'</td>'
-                    +'</tr>'
-                    +'</thead>'
-                    +'<tbody>'
-                      +'<tr>'
-                        +'<td colspan="2"><div class="item-fav"><i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加</div></td>'
-                      +'</tr>'
-                        +'<tr>'
-                          +'<td colspan="2" class="text-left">'
-                            +'<span class="item-name">'+item[i]['name']+'</span> <br>'
-                            +'<span>'+item[i]['city_name']+'<i class="fas fa-angle-double-right"></i>'+item[i]['township_name']+'</span>'
-                          +'</td>'
-                        +'</tr>'
-                    +'</tbody>'
-                  +'</table>'
-                  +'</div>'
-                  +'</div>'
-                  ])
+                  '<div id="info_content">' +
+                    '<div class="">' +
+                      '<table class="table">' +
+                        '<thead>' +
+                          '<tr>' +
+                            '<td class="text-left text-danger">' + item[i]['num_rooms'] +
+                            '</td>' +
+                            '<td class="text-right">' + item[i]['date_of_establishment'] +
+                            '</td>' +
+                          '</tr>' +
+                        '</thead>' +
+                        '<tbody>' +
+                          '<tr>' +
+                            '<td colspan="2"><button class="item-fav-infowindow"> <i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 </span> </button></td>' +
+                          '</tr>' +
+                          '<tr>' +
+                          '<td colspan="2" class="text-left">' +
+                            '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
+                            '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right"></i> ' + item[i]['township_name'] + '</span>' +
+                          '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td colspan="2" style="background: linear-gradient(135deg, rgba(255,151,76,1) 0%, rgba(255,92,10,0.59) 100%);">' +
+                            item[i]['type_name'] +
+                            +'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td>' +
+                         '<img src="/images/' + item[i]['logo'] + '" alt="image" width="150px"/>' +
+                        '</td>' +
+                        '<td>' +
+                          '<table class="table table-bordered">' +
+                            '<tbody>' +
+                              '<tr>' +
+                                '<td>Address</td>' +
+                                '<td>' + item[i]['address'] + '</td>' +
+                              '</tr>' +
+                            '<tr>' +
+                              '<td>Phone</td>' +
+                              '<td>' + item[i]['phone'] + '</td>' +
+                              '</tr>' +
+                            '<tr>' +
+                            '<td>Website</td>' +
+                            '<td>' + item[i]['website'] + '</td>' +
+                            '</tr>' +
+                            '</tbody>' +
+                          '</table>' +
+                        '</td>' +
+                        '</tr>' +
+                        ' <tr>' +
+                        '<td colspan="2">' +
+                          '<div class="row text-center">' +
+                            '<div class="col-sm-6">' +
+                              '<div class="moveing-in">Moving In</div>' +
+                            '</div>' +
+                            '<div class="col-sm-6">' +
+                              '<div class="per-month">Per Month</div>' +
+                            '</div>' +
+                            '<div class="col-sm-6">' +
+                              '<div class="moveing-in-item">' + item[i]['moving_in_to'] + '</div>' +
+                            '</div>' +
+                            '<div class="col-sm-6">' +
+                              '<div class="per-month-item">' + item[i]['per_month_to'] + '</div>' +
+                            '</div>' +
+                          '</div>' +
+                        '</td>' +
+                        '</tr>' +
+                        '</tbody>' +
+                      '</table>' +
+                    '</div>' +
+                  '</div>'
+                ])
               }
-              
+
               var infoWindow = new google.maps.InfoWindow(),
                 marker, i;
               const alphabet = response.data.alphabet;
@@ -965,269 +1008,146 @@
     }
   };
 </script>
-
-
-<style scoped>
-  .path {
-    cursor: pointer;
+<style>
+  .card-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 40px;
+    color: #666a73;
   }
 
-  .selected {
-    fill: #5c5959;
-    stroke: #111;
-    stroke-width: 2px;
-    stroke-linejoin: round;
-    color: #f27a24 !important;
-    font-weight: bold;
+  .card-carousel {
+    display: flex;
+    justify-content: center;
+    width: 640px;
   }
 
-  .path {
-    -moz-transition-property: opacity;
-    -o-transition-property: opacity;
-    -webkit-transition-property: opacity;
-    transition-property: opacity;
-    -moz-transition-duration: 0.5s;
-    -o-transition-duration: 0.5s;
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
-    -moz-transition-timing-function: ease;
-    -o-transition-timing-function: ease;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -moz-transition: fill 0.75s;
-    -o-transition: fill 0.75s;
-    -webkit-transition: fill 0.75s;
-    transition: fill 0.75s;
-  }
-
-  .path:hover,
-  .path:focus {
-    cursor: pointer;
-  }
-
-  .path:hover,
-  .path:hover .path,
-  .path:focus,
-  .path:focus .path {
-    color: #000;
-  }
-
-  .path:hover,
-  a:hover {
-    fill: #20487c !important;
-    stroke: #002868 !important;
-    stroke-width: 2px;
-    stroke-linejoin: round;
-    cursor: pointer;
-  }
-
-  .select {
-    display: none;
-  }
-
-  span.tooltip {
-    padding: 0px 5px;
-    position: relative;
-    background: #ffbb99;
-    cursor: pointer;
-  }
-
-  .tooltip-info {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  span.tooltip::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    top: 1.5em;
-    font-size: 0.9em;
-    padding: 1px 5px;
-    display: none;
-    color: white;
-    background: rgba(0, 0, 0, 0.75);
-    border-radius: 4px;
-    transition: opacity 0.1s ease-out;
-    z-index: 99;
-    text-align: left;
-  }
-
-  span:hover::before {
-    display: inline-block;
-  }
-
-  [data-toggle="collapse"] .fa:before {
-    content: "\f139";
-  }
-
-  [data-toggle="collapse"].collapsed .fa:before {
-    content: "\f13a";
-  }
-
-
-  .left-div {
-    text-align: end;
-    padding: 10px 20px 10px 40px;
-    border-radius: 5px 0px 0px;
-    border-left: 10px solid brown;
-  }
-
-  .left-div-1 {
-    text-align: end;
-    padding: 10px 20px 10px 40px;
-    border-left: 10px solid brown;
-  }
-
-  .left-div-2 {
-    text-align: end;
-    padding: 10px 20px 10px 40px;
-    border-left: 10px solid brown;
-    border-radius: 0px 0px 0px 5px;
-
-  }
-
-  .row-div {
-    background: radial-gradient(ellipse at center, rgb(255, 240, 223) 0%, rgba(242, 234, 225, 0.58) 100%);
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 10px;
-  }
-
-  .toBeToggled2 {
-    display: block;
-  }
-
-  .toBeToggled1 {
-    display: none;
-  }
-
-  .table th,
-  .table td {
-    border-top: none !important;
-  }
-
-  table>tbody>tr th {
-    background-color: #e8e7e7;
-    text-align: right;
-    width: 140px;
-    padding: 25px;
-  }
-
-  label {
-    color: black !important;
-  }
-
-  .vue-map-container {
-    height: 640px;
-  }
-
-  .infoWindow {}
-
-  .justBlock {
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    text-align: center;
-    background-color: #bada55;
-    color: darkgreen;
-    font-family: sans-serif;
-    /* &:hover {
-    cursor:pointer;
-  } */
-  }
-
-  #mymap {
-    width: 100%;
-    height: 700px;
-  }
-
-
-  .card_1 {
-    display: inline-block;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
-    margin: 20px;
-    position: relative;
-    /* margin-bottom: 50px; */
-    transition: all .2s ease-in-out;
-  }
-
-  .card_1:hover {
-    /*box-shadow: 0 5px 22px 0 rgba(0,0,0,.25);*/
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    /* margin-bottom: 54px; */
-  }
-
-  .image {
-    height: 200px;
-    opacity: .7;
+  .card-carousel--overflow-container {
     overflow: hidden;
-    transition: all .2s ease-in-out;
   }
 
-  .image:hover,
-  .card_1:hover .image {
-    height: 200px;
-    opacity: 1;
-  }
-
-  .text {
-    background: #FFF;
-    padding: 20px;
-    min-height: 200px;
-  }
-
-  .text p {
-    margin-bottom: 0px;
-  }
-
-  .fab {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    position: absolute;
-    margin-top: -50px;
-    right: 20px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, .3);
-    color: #fff;
-    font-size: 48px;
-    line-height: 48px;
-    text-align: center;
-    background: #0066A2;
-    -webkit-transition: -webkit-transform .2s ease-in-out;
-    transition: transform .2s ease-in-out;
-  }
-
-  .fab:hover {
-    background: #549D3C;
+  .card-carousel--nav__left,
+  .card-carousel--nav__right {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top: 2px solid #42b883;
+    border-right: 2px solid #42b883;
     cursor: pointer;
-    -ms-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+    margin: 0 10px;
+    transition: transform 150ms linear;
   }
 
-.item-fav {
-    font-weight: bold;
-    color: #3C3C3C;
-    border: 2px solid #192E47;
-    background: #E9E5E1;
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2RjZGNkYyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-    background-size: 100%;
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
-    background-image: -moz-linear-gradient(top, #ffffff, #dcdcdc);
-    background-image: -webkit-linear-gradient(top, #ffffff, #dcdcdc);
-    background-image: linear-gradient(to bottom, #ffffff, #dcdcdc);
-    -moz-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-    width: 100%;
-    line-height: 2.2;
+  .card-carousel--nav__left[disabled],
+  .card-carousel--nav__right[disabled] {
+    opacity: 0.2;
+    border-color: black;
   }
 
-.item-name{
-    font-size: 20px;
-    font-weight: bolder;
-    text-shadow: 1px 1px 2px;
+  .card-carousel--nav__left {
+    transform: rotate(-135deg);
+  }
+
+  .card-carousel--nav__left:active {
+    transform: rotate(-135deg) scale(0.9);
+  }
+
+  .card-carousel--nav__right {
+    transform: rotate(45deg);
+  }
+
+  .card-carousel--nav__right:active {
+    transform: rotate(45deg) scale(0.9);
+  }
+
+  .card-carousel-cards {
+    display: flex;
+    transition: transform 150ms ease-out;
+    transform: translatex(0px);
+  }
+
+  .card-carousel-cards .card-carousel--card {
+    margin: 0 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08);
+    background-color: #fff;
+    border-radius: 4px;
+    z-index: 3;
+    margin-bottom: 2px;
+  }
+
+  .card-carousel-cards .card-carousel--card:first-child {
+    margin-left: 0;
+  }
+
+  .card-carousel-cards .card-carousel--card:last-child {
+    margin-right: 0;
+  }
+
+  .card-carousel-cards .card-carousel--card img {
+    vertical-align: bottom;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    transition: opacity 150ms linear;
+    user-select: none;
+  }
+
+  .card-carousel-cards .card-carousel--card img:hover {
+    opacity: 0.5;
+  }
+
+  .card-carousel-cards .card-carousel--card--footer {
+    border-top: 0;
+    padding: 7px 15px;
+  }
+
+  .card-carousel-cards .card-carousel--card--footer p {
+    padding: 3px 0;
+    margin: 0;
+    margin-bottom: 2px;
+    font-size: 19px;
+    font-weight: 500;
+    color: #2c3e50;
+    user-select: none;
+  }
+
+  .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 6px;
+    background: rgba(40, 44, 53, 0.06);
+    display: inline-block;
+    position: relative;
+    margin-left: 4px;
+    color: #666a73;
+  }
+
+  .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
+    content: "";
+    float: left;
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-color: transparent rgba(40, 44, 53, 0.06) transparent transparent;
+    border-style: solid;
+    border-width: 12px 12px 12px 0;
+  }
+
+  .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -1px;
+    float: left;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: white;
+    box-shadow: -0px -0px 0px #004977;
   }
 </style>
