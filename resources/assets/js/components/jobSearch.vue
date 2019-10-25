@@ -972,7 +972,7 @@
                      <div class="job-content">
                       <div class="job-header">
                         <h5 class="job-tit">
-                          {{job.name}}
+                          {{job.title}}
                           </h5>
                         <div class="clearfix">
                           <p class="job_status">{{job.employment_status}}</p>
