@@ -971,9 +971,17 @@ export default {
        
                 var panorama = document.getElementsByClassName('gallery-area-panorama');
                 var count = 0;
+                var status = 0;
                 for(var i = 0; i< panorama.length; i++) {
                         var preview = document.getElementsByClassName('preview-panorama');
-                        var file = document.getElementsByClassName('nursing-panorama')[0].files[i];
+                        if(document.getElementById('preview-panorama'+i)) {
+                                if(status == 0) { var j = i; } else { var j = i+1; }
+                                
+                        } else {
+                                if(status == 0) { var j = i+1; } else { var j = i+2; }
+                                status = 1;
+                        }
+                        var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
                         if(file && i<preview.length) {
                                 var file_name = file.name;
                                         let fd = new FormData();
@@ -991,7 +999,6 @@ export default {
                                 
                         } 
                         else {
-                                alert(count);
                                 var file_name = panorama[count].getElementsByClassName('already-panorama')[0].value;
                                 count = count + 1;
                         }
