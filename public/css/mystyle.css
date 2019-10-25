@@ -5512,10 +5512,13 @@ button.confirmed {
 .fac_container li {
     padding: 5px 10px;
     font-size: 13px;
-    color: #0e775d;
+    /* color: #0e775d; */
+    color: #ff9563;
     text-align: center;
     border-radius: 20px;
-    border: 1px solid #b7dad2;
+    /* border: 2px solid #b7dad2; */
+    border: 2px solid #ff9563;
+    font-weight: bold;
 }
 
 .page-1 {
