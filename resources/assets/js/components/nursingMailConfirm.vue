@@ -364,9 +364,11 @@ export default {
   },
   methods: {
     add() {
-      axios
+        this.$loading(true);
+     this.axios
         .post("/api/nurse/add", this.comments)
         .then(response => {
+        this.$loading(false);
           alert("Mail Sent Successfully !");
           location.href = "favouriteNursing";
         })

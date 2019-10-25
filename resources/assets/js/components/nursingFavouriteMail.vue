@@ -15,7 +15,7 @@
                     </nav>
                 </div>
                 <div class="col-12">
-                    <!--inputform--> 
+                    <!--inputform-->
                     <form class="col-md-12 form-wrap">
                         <h5 class="form-tit">資料請求される方について</h5>
                         <p class="require-txt"><span class="error sp1">必須</span> のついた項目は全て入力してくださいますようお願いいたします。</p>
@@ -44,10 +44,10 @@
                         </div>
                         <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>性別 <span class="error sp1">必須</span></label></div>
-                                <div class="col-md-9 col-sm-12 form-right pl-4">                                           
+                                <div class="col-md-9 col-sm-12 form-right pl-4">
                                     <input type="radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦  
+                                    <input type="radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦
                                 </div>
                             </div>
                         <div class="form-group m-0 row bd">
@@ -113,15 +113,15 @@
                                 <input type="checkbox" id="present"  name="present" value="早分かり用語集」プレゼントを希望する" v-model="comments.present" @change="aggreBtn">「早分かり用語集」プレゼントを希望する
                             </div>
                         </div> -->
-                        <div class="mt-4 submit txt-err" v-if="btn_disable">   
+                        <div class="mt-4 submit txt-err" v-if="btn_disable">
                             <div class="error">※未入力の必須項目がございます</div>
-                        </div> 
+                        </div>
 
                         <div class="btn-list mt-2  clearfix">
                             <ul>
                                 <li class="m-r-15"><router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link></li>
                                 <li> <button type="button" class="submit1 btn main-bg-color continue submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
-                            </ul>  
+                            </ul>
                         </div>
                         <!--next_form-->
                         <div class="m-t-30">
@@ -144,22 +144,22 @@
                             </div>
                             <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>お名前</label></div>
-                                <div class="col-md-9 col-sm-12 form-right">                                           
+                                <div class="col-md-9 col-sm-12 form-right">
                                     <input type="text" id="ttname" name="ttname" class="form-control float-left" placeholder="お名前を入力してください。"  v-model="comments.ttname">
-                                    <span class="eg-txt float-left">例）さがし　たろう</span>   
+                                    <span class="eg-txt float-left">例）さがし　たろう</span>
                                 </div>
                             </div>
                             <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>性別</label></div>
-                                <div class="col-md-9 col-sm-12 form-right pl-4">                                           
+                                <div class="col-md-9 col-sm-12 form-right pl-4">
                                     <input type="radio" id="sex" name="sex" value="男性"  v-model="comments.sex">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="radio" id="sex" name="sex" value="女性"    v-model="comments.sex">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="sex" name="sex" value="夫婦"   v-model="comments.sex">&nbsp;夫婦  
+                                    <input type="radio" id="sex" name="sex" value="夫婦"   v-model="comments.sex">&nbsp;夫婦
                                 </div>
                             </div>
                             <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>年齢</label></div>
-                                <div class="col-md-9 col-sm-12 form-right">                                           
+                                <div class="col-md-9 col-sm-12 form-right">
                                     <select class="form-control" id="years"  v-model="comments.years">
                                         <option value="">選択してください</option>
                                         <optgroup label="50代">
@@ -235,12 +235,12 @@
                                             <option value="109">109</option>
                                             <option value="110">110</option>
                                         </optgroup>
-                                    </select>   
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>介護度</label></div>
-                                <div class="col-md-9 col-sm-12 form-right">                                           
+                                <div class="col-md-9 col-sm-12 form-right">
                                     <select class="form-control" id="nursing"  v-model="comments.nursing">
                                         <option value="">選択してください</option>
                                         <option value="自立">自立</option>
@@ -250,47 +250,47 @@
                                         <option value="要介護4">要介護4</option>
                                         <option value="要介護5">要介護5</option>
                                         <option value="不明">不明</option>
-                                    </select>   
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>認知症</label></div>
-                                <div class="col-md-9 col-sm-12 form-right pl-4">                                           
+                                <div class="col-md-9 col-sm-12 form-right pl-4">
                                 <input type="radio" id="fect" name="fect" value="あり"  v-model="comments.fect">&nbsp;あり&nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="radio" id="fect" name="fect" value="なし"  v-model="comments.fect">&nbsp;なし&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="fect" name="fect" value="わからない"  v-model="comments.fect">&nbsp;わからない &nbsp;&nbsp;&nbsp;&nbsp; 
+                                    <input type="radio" id="fect" name="fect" value="わからない"  v-model="comments.fect">&nbsp;わからない &nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                             </div>
                             <!-- <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>認知症</label></div>
-                                <div class="col-md-9 col-sm-12 form-right pl-4">                                           
+                                <div class="col-md-9 col-sm-12 form-right pl-4">
                                     <input type="radio" id="desire" name="desire" value="できるだけ早く"  v-model="comments.desire">&nbsp;できるだけ早く<br>
                                     <input type="radio" id="desire" name="desire" value="３ヶ月以内"  v-model="comments.desire">&nbsp;３ヶ月以内<br>
                                     <input type="radio" id="desire" name="desire" value="半年以内"  v-model="comments.desire">&nbsp;半年以内<br>
                                     <input type="radio" id="desire" name="desire" value="1年以内"  v-model="comments.desire">&nbsp;1年以内<br>
-                                    <input type="radio" id="desire" name="desire" value="未定"  v-model="comments.desire">&nbsp;未定 
+                                    <input type="radio" id="desire" name="desire" value="未定"  v-model="comments.desire">&nbsp;未定
                                 </div>
                             </div> -->
                             <div class="form-group m-0 row bd-all">
                                 <div class="col-md-3 col-sm-12 form-left"><label>ご要望や、お困りごと、その他お問い合わせ</label></div>
-                                <div class="col-md-9 col-sm-12 form-right pl-4">                                           
+                                <div class="col-md-9 col-sm-12 form-right pl-4">
                                     <textarea name="hope" id="hope" class="form-control m-0"   v-model="comments.hope" ></textarea>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
-                        <div class="mt-4 col-sm-3 submit txt-err" v-if="btn_disable">   
+                        <div class="mt-4 col-sm-3 submit txt-err" v-if="btn_disable">
                             <div class="error">※未入力の必須項目がございます</div>
-                        </div> 
+                        </div>
                         <div class="btn-list  clearfix">
                             <ul>
                                 <li class="m-r-15"><router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link></li>
                                 <li> <button type="button" class="submit1 btn main-bg-color continue submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
-                            </ul>  
+                            </ul>
                         </div>
-                    </form>                                  
+                    </form>
                 </div>
             </div>
-        </div>      
+        </div>
     </div>
 </template>
 <script>
@@ -310,7 +310,7 @@
                     relation: '',
                     ttname: '',
                     sex: '',
-                    sex1: '', 
+                    sex1: '',
                     years: '',
                     nursing: '',
                     fect: '',
@@ -340,7 +340,7 @@
                 city_focus: false,
                 phone_focus: false,
                 mail_focus: false
-                
+
             }
         },
         computed: {
@@ -364,7 +364,7 @@
                     //  $('#error-msg').html('<div class="error"></div>');
                 }else{
                     this.btn_disable=true;
-                }            
+                }
         },
         methods: {
             getPostal: function(event) {
@@ -394,6 +394,7 @@
                 }
             },
             add() {
+                //this.$loading(true);
                 this.all_mail = JSON.parse(localStorage.getItem("item"));
                 // this.reservation = JSON.parse(localStorage.getItem("reserve"));
                 this.documentation = JSON.parse(localStorage.getItem("document"));
@@ -421,16 +422,16 @@
                 if(this.comments.name != ''){
                     this.comment_focus=false;
                 }else{
-                    this.comment_focus=true;  
-                    document.getElementById('tbname').style.backgroundColor = black;                  
-                }                
+                    this.comment_focus=true;
+                    document.getElementById('tbname').style.backgroundColor = black;
+                }
             },
             focusFuri: function(event) {
                 if(this.comments.furigana != ''){
                     this.furigana_focus=false;
                 }else{
-                    this.furigana_focus=true;                    
-                }                
+                    this.furigana_focus=true;
+                }
             },
             focusbdate: function(event) {
                 if(this.comments.bdate != ''){
@@ -443,29 +444,29 @@
                 if(this.comments.postal != ''){
                     this.postal_focus=false;
                 }else{
-                    this.postal_focus=true;                    
-                }                
+                    this.postal_focus=true;
+                }
             },
             focusCity: function(event) {
                 if(this.comments.city != ''){
                     this.city_focus=false;
                 }else{
-                    this.city_focus=true;                    
-                }                
+                    this.city_focus=true;
+                }
             },
             focusPhone: function(event) {
                 if(this.comments.phone != ''){
                     this.phone_focus=false;
                 }else{
-                    this.phone_focus=true;                    
-                }                
+                    this.phone_focus=true;
+                }
             },
             focusMail: function(event) {
                 if(this.comments.mail != ''){
                     this.mail_focus=false;
                 }else{
-                    this.mail_focus=true;                    
-                }                
+                    this.mail_focus=true;
+                }
             },
         }
     }
