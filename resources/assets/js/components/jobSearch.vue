@@ -1005,7 +1005,8 @@
                         </div>  
                       </div>
                       <div class="mt-4 detail-btn">
-                        <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn all-btn">詳細を見る</router-link>
+                        <span class="btn all-btn" @click="gotoJobdetail(job.jobid)">詳細を見る</span>
+                        <!-- <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn all-btn">詳細を見る</router-link> -->
                         </div>
                     </div>
                   </div>
@@ -1083,6 +1084,10 @@ export default {
          // window.scrollTo({ top : 1000, behavior: 'smooth' });
     },
 
+    gotoJobdetail(jid) {
+        this.$router.push({ name: 'job_details', params:{id:jid}});
+    },
+
     toggleContent4() {
         this.toggleCheck = !this.toggleCheck;
             if (this.toggleCheck == true) {
@@ -1111,8 +1116,6 @@ export default {
         },
 
       getStateClick(e){
-
-
         if(e.target.tagName === 'A' || e.target.tagName ==='path'){
 
           const id = e.target.id;
