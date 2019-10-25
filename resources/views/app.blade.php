@@ -15,6 +15,8 @@
 
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 
+<script src="path/to/vue-easy-lightbox.umd.min.js"></script>
+
 
 
 <!-- Scripts -->

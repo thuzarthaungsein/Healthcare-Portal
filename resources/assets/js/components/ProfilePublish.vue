@@ -1350,17 +1350,23 @@ $(document).scroll(function() {
 
 import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
+import VueEasyLightbox from 'vue-easy-lightbox'
+
 
 export default {
 
     components:{
         joboffer,        
-        Pannellum
+        Pannellum,
+        VueEasyLightbox
     },
     data() {
 
             var that = this;
-            return {              
+            return {
+                imgs: '',  // Img Url , string or Array
+                visible: false,
+                index: 0,   // default              
                 url: 'upload/nursing_profile/Imagepanorama/', 
                 isAutoRotationOn: true,
                 isOrientationOn: true,
