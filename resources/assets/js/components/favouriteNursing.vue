@@ -311,7 +311,7 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <dl>
                                                             <dt style="text-align:left;">入居時の費用</dt>
-                                                            <dd style="width:250px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in}}</strong></dd>
+                                                            <dd style="width:250px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in_from}}円~{{nur_profile.moving_in_to}}円</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -319,7 +319,7 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <dl>
                                                             <dt style="text-align:left;">月額の費用</dt>
-                                                            <dd style="color:#ff6117;font-size:large;width:250px;"><strong>{{nur_profile.per_month}}</strong></dd>
+                                                            <dd style="color:#ff6117;font-size:large;width:250px;"><strong>{{nur_profile.per_month_from}}円~{{nur_profile.per_month_to}}円</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -457,6 +457,14 @@
                 this.month_show = true;
                 this.entry_check = true;
                 this.entry_show = true;
+                this.condition_check = true;
+                this.condition_show = true;
+                this.special_check = true;
+                this.special_show = true;
+                this.capacity_check = true;
+                this.capacity_show = true;
+                this.opening_check = true;
+                this.opening_show = true;
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
 
