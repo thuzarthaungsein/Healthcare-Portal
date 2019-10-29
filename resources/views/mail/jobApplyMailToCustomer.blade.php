@@ -5,7 +5,7 @@
                 <a style="font-size: 40px;font-weight: bold;color: #d2571c;text-shadow: 3px 4px #ccc;">LOGO <span style="font-size: 30px; color: #f57e46;">HERE</span></a>
 
 	            <h5 style="color:#3e4348;font-size: 12px;margin-bottom: 30px;font-weight: bold;text-align: left;">
-                {{$getComment->cus_name}} 「施設番号」&nbsp;&nbsp;様
+                {{$getComment->cus_name}} ([施設No])&nbsp;&nbsp;様
                     <p style="margin-top:10px;">【サイト名】より求人への応募がありました。</p>                    
 	            </h5>
 	            <p style="text-align:left;margin:2px;color:#3e4348;font-size: 16px;color:#d2571c;font-weight:bold;"><span style="font-size:18px;">◎</span>{{$getComment->job_title}}</p>                   

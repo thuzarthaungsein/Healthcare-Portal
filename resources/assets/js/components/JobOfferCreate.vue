@@ -154,7 +154,46 @@
                 </div>
               </div>
               <div id="newlink"></div>-->
-
+              <div class="form-group">
+                <label for="location">
+                  郵便番号:
+                  <span class="error sp2">必須</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control box"
+                  id="postal"
+                  placeholder="165879"
+                  v-model="joboffer.postal"
+                  maxlength="7"
+                  v-on:keyup="getPostal"
+                />
+                <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+              </div>
+              <div class="form-group">
+                <label for="location">
+                  郵便番号:
+                  <span class="error sp2">必須</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control box"
+                  v-model="joboffer.pref"
+                />
+                <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+              </div>
+              <div class="form-group">
+                <label for="location">
+                  郵便番号:
+                  <span class="error sp2">必須</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control box"
+                  v-model="joboffer.str_address"
+                />
+                <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+              </div>
               <div class="form-group">
                 <label for="location">
                   勤務地:
@@ -402,7 +441,6 @@
               </div>
             </form>
           </div>
-
           <div class="col-sm-2"></div>
         </div>
       </div>
@@ -428,13 +466,9 @@ export default {
 
       joboffer: {
         title: "",
-
         customer_id: "",
-
         occupation_id: "",
-
         description: "",
-
         fields: [
           {
             skills: "",
@@ -442,27 +476,23 @@ export default {
             id: ""
           }
         ],
-
+        postal: "",
+        zipcode_id: "",
+        pref: "",
+        str_address: "",
+        township_id: "",
         location: "",
-
         nearest_station: "",
-
         employmentstatus: "",
-
         employment_status: [
           {
             pchecked: false,
-
             fchecked: false,
-
             echecked: false,
-
             cchecked: false,
-
             ochecked: false
           }
         ],
-
         salary: "",
 
         insurance: "",
@@ -497,15 +527,19 @@ export default {
         .get(`/api/job/edit/${this.$route.params.id}`)
 
         .then(response => {
-          this.joboffer.title = response.data.title;
+          console.log(response.data);
+          this.joboffer.title = response.data[0].title;
+          this.joboffer.postal = '0'+response.data[0].zip7_code;
+          this.joboffer.str_address = response.data[0].township;
+          this.joboffer.pref = response.data[0].cityname;
 
-          this.joboffer.customer_id = response.data.customer_id;
+          this.joboffer.customer_id = response.data[0].customer_id;
 
-          this.selectedValue = response.data.occupation_id;
+          this.selectedValue = response.data[0].occupation_id;
 
-          this.joboffer.description = response.data.description;
+          this.joboffer.description = response.data[0].description;
 
-          this.joboffer.fields.skills = response.data.skills;
+          this.joboffer.fields.skills = response.data[0].skills;
 
           let arr = [];
 
@@ -513,29 +547,29 @@ export default {
 
           this.createskill(arr);
 
-          this.joboffer.location = response.data.location;
+          this.joboffer.location = response.data[0].location;
 
-          this.joboffer.nearest_station = response.data.nearest_station;
+          this.joboffer.nearest_station = response.data[0].nearest_station;
 
-          this.joboffer.employmentstatus = response.data.employment_status;
+          this.joboffer.employmentstatus = response.data[0].employment_status;
 
           // this.ischeck = response.data.employment_status;
 
           // this.createCheck(this.ischeck);
 
-          this.joboffer.salary = response.data.salary;
+          this.joboffer.salary = response.data[0].salary;
 
-          this.joboffer.allowances = response.data.allowances;
+          this.joboffer.allowances = response.data[0].allowances;
 
-          this.joboffer.insurance = response.data.insurance;
+          this.joboffer.insurance = response.data[0].insurance;
 
-          this.joboffer.working_hours = response.data.working_hours;
+          this.joboffer.working_hours = response.data[0].working_hours;
 
-          this.joboffer.holidays = response.data.holidays;
+          this.joboffer.holidays = response.data[0].holidays;
 
-          this.joboffer.user_id = response.data.user_id;
+          this.joboffer.user_id = response.data[0].user_id;
 
-          this.joboffer.recordstatus = response.data.recordstatus;
+          this.joboffer.recordstatus = response.data[0].recordstatus;
           this.header = " 求人採用更新";
           this.subtitle = "更新";
           return this.header;
@@ -545,11 +579,42 @@ export default {
   },
 
   methods: {
+    getPostal: function(event) {
+      if (this.joboffer.postal.length > 4) {
+        var postal = this.joboffer.postal;
+        this.axios.post("/api/hospital/postList/" + postal).then(response => {
+          var post_data = response.data;
+          var length = response.data.length;
+          console.log(post_data[0]);
+          if (length > 0) {
+            var pref = post_data[0]["city_id"];
+            this.joboffer.zipcode_id = post_data[0]["id"];
+            if (post_data[0]["street"] == "") {
+              this.joboffer.pref = post_data[0]["pref"];
+              this.joboffer.str_address = post_data[0]["city"];
+              // this.joboffer.zipcode_id = post_data[0]["id"];
+            } else {
+              this.joboffer.str_address =
+                post_data[0]["pref"] +
+                " - " +
+                post_data[0]["city"] +
+                " - " +
+                post_data[0]["street"];
+            }
+          } else {
+            this.joboffer.city = "";
+            $("#jsErrorMessage").html(
+              '<div class="error">郵便番号の書式を確認してください。</div>'
+            );
+          }
+        });
+      }
+    },
+    
     add() {
       if (this.$route.params.id) {
         this.updateJob();
       } else {
-        console.log(this.joboffer);
         this.$swal({
           title: "確認",
           text: "作成よろしいでしょうか",
@@ -570,15 +635,6 @@ export default {
             .post("/api/job/add", this.joboffer)
 
             .then(response => {
-              (this.title = ""),
-                (this.description = ""),
-                (this.location = ""),
-                (this.salary = ""),
-                (this.working_hours = ""),
-                (this.employment_status = "");
-
-              console.log(response);
-
               this.$swal({
                 position: "top-end",
                 type: "success",
