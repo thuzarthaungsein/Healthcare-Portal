@@ -4,13 +4,8 @@
 
     <div v-if="type == 'nursing'" id="nursingView">
         <!--panorama-->    
-<<<<<<< HEAD
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <div class="thumbnail-img" style="padding:0px;border:none;">
-=======
-        <div class="col-12 detail_profile_left pad-free">
-            <div class="thumbnail-img" style="padding:0px;border:none;background-color:transparent;">
->>>>>>> 5a5b378ccb74dd8fdb43a8b3888a5e33b311003c
                 <div class="card-carousel">
                 <div class="card-img" >
                     <!-- <div id="panorama"></div>           -->                              
@@ -799,13 +794,8 @@
 
     <div v-if="type == 'hospital'" id="hospitalView">
        <!--panorama-->    
-<<<<<<< HEAD
                 <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
                         <div class="thumbnail-img" style="padding:0px;border:none;">
-=======
-                <div class="col-12 detail_profile_left pad-free">
-                        <div class="thumbnail-img" style="padding:0px;border:none;background-color:transparent;">
->>>>>>> 5a5b378ccb74dd8fdb43a8b3888a5e33b311003c
                             <div class="card-carousel">
                             <div class="card-img">
                                 <!-- <div id="panorama"></div>           -->                              
