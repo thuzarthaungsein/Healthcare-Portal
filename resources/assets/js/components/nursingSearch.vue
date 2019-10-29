@@ -289,18 +289,16 @@
           </div>
         </div>
         <!-- search city , township  -->
-        <div class="row" style="justify-content:space-between">
+        <div class="row select" id="filter" style="justify-content:space-between">
           <div class="col-sm-3 col-md-3">
             <div class="card">
               <div class="card-header">Filter by region</div>
               <div class="card-body " style="background-color:#f4f1eb">
-                <select id="select" class="form-control   custom-select" v-model="id">
-                  <option value="">Select City</option>
-                  <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
+                <select id="selectCity" class="form-control   custom-select"  v-model="id">
+                  <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
                 </select>
-                <select id="select" class="form-control mt-1 custom-select" v-model="id">
-                  <option value="">Select Township</option>
-                  <option v-for="selectTownship in getTownships" :value="selectTownship.id" :key="selectTownship.id">{{selectTownship.township_name}}</option>
+                <select id="selectTownship" class="form-control mt-1 custom-select" v-model="id" >
+                  <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_name}}</option>
                 </select>
               </div>
             </div>
@@ -359,62 +357,67 @@
         <!-- google map  -->
         <div class="row">
           <div class="col-sm-12 col-md-12">
-            <div id="mymap" class="select"></div>
+          <div id="holder" style="position: relative;">
+              <div class="overlay standard hidden">&nbsp</div>
+              <div id="mymap" class="select"></div>
+          </div>
           </div>
         </div>
         <!-- nursing list -->
-        <div class="row" id="fav-history-page">
+        <div class="row" id="nrusing-search">
           <div class="card-carousel-wrapper">
             <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                  <div class="card-carousel--card" v-for="item in nursingList" :key="item.id">
+                  <div class="card-carousel--card" v-for="items in nursingList" :key="items.nursing_id">
                     <div class="">
 
                       <table class="table">
                         <thead>
                           <tr>
-                            <th class="text-left text-danger">{{item.num_rooms}}</th>
-                            <th class="text-right">{{item.date_of_establishment}}</th>
+                            <th class="text-left text-danger">{{items.num_rooms}}</th>
+                            <th class="text-right">{{items.date_of_establishment}}</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td colspan="2">
-                              <div class="item-fav"><i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加</div>
+                            <td colspan="2" class="text-center">
+                              <div class="item-fav btn btn-sm">
+                                <i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加
+                              </div>
                             </td>
                           </tr>
                           <tr>
                             <td colspan="2" class="text-left">
-                              <span class="item-name">{{item.name}}</span> <br>
-                              <span>{{item.city_name}} <i class="fas fa-angle-double-right"></i> {{item.township_name}}</span>
+                              <span class="item-name">{{items.name}}</span> <br>
+                              <span>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</span>
 
                             </td>
                           </tr>
                           <tr>
                             <td colspan="2" style="background-color:#ff6117">
-                              {{item.type_name}}
+                              {{items.type_name}}
                             </td>
                           </tr>
                           <tr>
                             <td>
-                              <img :src="'/images/'+item.logo" alt="image" width="150px" />
+                              <img :src="'/images/'+items.logo" alt="image" width="150px" />
                             </td>
                             <td>
                               <table class="table table-bordered">
                                 <tbody>
                                   <tr>
                                     <td>Address</td>
-                                    <td>{{item.address}}</td>
+                                    <td>{{items.address}}</td>
                                   </tr>
                                   <tr>
                                     <td>Phone</td>
-                                    <td>{{item.phone}}</td>
+                                    <td>{{items.phone}}</td>
                                   </tr>
                                   <tr>
                                     <td>Website</td>
-                                    <td>{{item.website}}</td>
+                                    <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -429,8 +432,8 @@
                             </td>
                           </tr>
                           <tr>
-                            <td>{{item.moving_in_to}}</td>
-                            <td>{{item.per_month_to}}</td>
+                            <td>{{items.moving_in_to}}</td>
+                            <td>{{items.per_month_to}}</td>
                           </tr>
                         </tbody>
                       </table>
@@ -450,15 +453,15 @@
         <div class="row row-div select mt-3">
           <div class="col-2 left-div">地域</div>
           <div class="col-10">
-            <select id="select" class="form-control col-3 custom-select mt-2" v-model="id">
+            <!-- <select id="select" class="form-control col-3 custom-select mt-2" v-model="id">
               <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
             </select>
             <button @click="show = !show" class="btn btn-outline-primary mt-2">
               <span v-show="show"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
               <span v-show="!show"><i class="fas fa-arrow-circle-down"></i> Open Township</span>
-            </button>
+            </button> -->
             <hr>
-            <div v-if="show">
+            <div>
               <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
                 <label class="form-check-label">
                   <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)">
@@ -468,8 +471,8 @@
             </div>
           </div>
 
-          <div class="col-sm-2 left-div-1">費用</div>
-          <div class="col-sm-10">
+        <!-- <div class="col-sm-2 left-div-1">費用</div> -->
+          <!-- <div class="col-sm-10">
             <hr>
             <table class="text-center" width="50%">
               <tbody>
@@ -551,7 +554,7 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> -->
 
           <div class="col-sm-2 left-div-1" v-if="showOne"> 入居時の条件</div>
           <div class="col-sm-10" v-if="showOne">
@@ -655,10 +658,10 @@
         selectedLocation: null,
         infoBoxOpen: false,
         places: [],
-        id: '',
+        id: [],
         townshipID: [],
         township_id: [],
-        cities: [],
+        cities: '1',
         getCity: [],
         getTownships: [],
         special_features: [],
@@ -670,7 +673,7 @@
         checkarr: [],
         currentOffset: 0,
         windowSize: 3,
-        paginationFactor: 220,
+        paginationFactor: 410,
         nursingList: [],
         alphabet: []
 
@@ -699,9 +702,11 @@
       showSearchMap() {
         $('#searchMap').removeClass('select');
         $('#showSearchMap').addClass('select');
+        $('#filter').addClass('select');
 
       },
       moveCarousel(direction) {
+
         // Find a more elegant way to express the :style. consider using props to make it truly generic
         if (direction === 1 && !this.atEndOfList) {
           this.currentOffset -= this.paginationFactor;
@@ -711,15 +716,21 @@
       },
       getStateClick(e) {
 
-        if (e.target.tagName === 'A' || e.target.tagName === 'path') {
+        if (e.target.tagName === 'A' || e.target.tagName === 'path' || e.target.tagName === 'OPTION') {
 
-          const id = e.target.id;
+          if(e.target.id == ''){
+            var id = $('#selectCity').val();
+          }else{
+            var id = e.target.id;
+          }
           this.axios.post('/api/getmap/' + id + '')
             .then((response) => {
               // console.log(response.data.nursing_profile)
+              // $('#selectTownship').empty();
               $('.select').removeClass('select');
               $('#searchMap').addClass('select');
               $('#showSearchMap').removeClass('select');
+              $('#filter').removeClass('select');
               this.cities = response.data.city
               this.getCity = response.data.getCity
               this.getTownships = response.data.getTownships
@@ -728,7 +739,6 @@
               this.medical_acceptance = response.data.medical_acceptance
               this.markers = response.data.nus_latlng;
               this.nursingList = response.data.nursing_profile
-              console.log(this.nursingList)
               this.id = id
 
 
@@ -743,17 +753,17 @@
               const lat = response.data.getCity[0]['latitude']
               const lng = response.data.getCity[0]['longitude']
               const result = json.features
-
               const coordinates = []
               for (var i = 0; i < result.length; i++) {
                 if (result[i].Name == theCity) {
                   coordinates.push(result[i].geometry['coordinates'])
                 }
+                
 
               }
 
               var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
-              // console.log(coordinates)
+              console.log(coordinates)
               var data = {
                 type: "Feature",
                 geometry: {
@@ -827,7 +837,7 @@
                               '</tr>' +
                             '<tr>' +
                             '<td>Website</td>' +
-                            '<td>' + item[i]['website'] + '</td>' +
+                            '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
                             '</tr>' +
                             '</tbody>' +
                           '</table>' +
@@ -904,21 +914,7 @@
 
             })
 
-        } else if (e.target.tagName === 'OPTION') {
-          const id = this.id;
-          this.axios.post('/api/getmap/' + id + '')
-            .then((response) => {
-              $('.select').removeClass('select');
-              this.cities = response.data.city
-              this.getCity = response.data.getCity
-              this.getTownships = response.data.getTownships
-              this.special_features = response.data.special_features
-              this.fac_types = response.data.fac_types
-              this.medical_acceptance = response.data.medical_acceptance
-              this.markers = response.data.nus_latlng;
-              this.id = id
-            })
-        }
+        } 
       },
 
       googleMarker(marker) {
@@ -1008,7 +1004,8 @@
     }
   };
 </script>
-<style>
+
+<style scoped>
   .path {
     cursor: pointer;
   }
@@ -1182,7 +1179,26 @@
     width: 100%;
     height: 700px;
   }
+  /* #mymap {background: transparent url('/images/google/loading.jpg') no-repeat center center;} */
+div#holder {
+    position: relative;
+}
 
+.hidden {
+    display: none;
+}
+
+div.overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-repeat 50% 50%; }
 
   .card_1 {
     display: inline-block;
@@ -1248,10 +1264,149 @@
   }
 
 
+  #nrusing-search .card-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 40px;
+    color: #666a73;
+  }
 
+  #nrusing-search .card-carousel {
+    display: flex;
+    justify-content: center;
+    width: 1359px;
+  }
 
+  #nrusing-search .card-carousel--overflow-container {
+    overflow: hidden;
+  }
 
+  #nrusing-search .card-carousel--nav__left,
+  #nrusing-search .card-carousel--nav__right {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top: 2px solid #42b883;
+    border-right: 2px solid #42b883;
+    margin: 0 10px;
+    transition: transform 150ms linear;
+  }
 
-  
- 
+  #nrusing-search .card-carousel--nav__left[disabled],
+  #nrusing-search .card-carousel--nav__right[disabled] {
+    opacity: 0.2;
+    border-color: black;
+  }
+
+  #nrusing-search .card-carousel--nav__left {
+    transform: rotate(-135deg);
+  }
+
+  #nrusing-search .card-carousel--nav__left:active {
+    transform: rotate(-135deg) scale(0.9);
+  }
+
+  #nrusing-search .card-carousel--nav__right {
+    transform: rotate(45deg);
+  }
+
+  #nrusing-search .card-carousel--nav__right:active {
+    transform: rotate(45deg) scale(0.9);
+  }
+
+  #nrusing-search .card-carousel-cards {
+    display: flex;
+    transition: transform 150ms ease-out;
+    transform: translatex(0px);
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card {
+    margin: 0 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: #fff;
+    border-radius: 4px;
+    z-index: 3;
+    margin-bottom: 2px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card:first-child {
+    margin-left: 0;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card:last-child {
+    margin-right: 0;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card img {
+    vertical-align: bottom;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    transition: opacity 150ms linear;
+    user-select: none;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card img:hover {
+    opacity: 0.5;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card--footer {
+    border-top: 0;
+    padding: 7px 15px;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card--footer p {
+    padding: 3px 0;
+    margin: 0;
+    margin-bottom: 2px;
+    font-size: 19px;
+    font-weight: 500;
+    color: #2c3e50;
+    user-select: none;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 6px;
+    background: rgba(40, 44, 53, 0.06);
+    display: inline-block;
+    position: relative;
+    margin-left: 4px;
+    color: #666a73;
+  }
+
+  #nrusing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
+    content: "";
+    float: left;
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-color: transparent rgba(40, 44, 53, 0.06) transparent transparent;
+    border-style: solid;
+    border-width: 12px 12px 12px 0;
+  }
+
+ #nrusing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -1px;
+    float: left;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: white;
+    box-shadow: -0px -0px 0px #004977;
+  }
 </style>
