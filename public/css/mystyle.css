@@ -7150,4 +7150,7 @@ ul.test>li:before {
     padding: 6px;
     font-weight: bold;
 }
+#info_content table tr td {
+    border-top: 0px;
+}
   /* nursingSearch */
