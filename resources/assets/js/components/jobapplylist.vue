@@ -63,8 +63,21 @@
                 <hr/>
 
                 <h4 class="header">求人応募一覧</h4>
+                <div v-if="this.jobapplies == ''" class="card card-default m-b-20 nocard-wrap">
+                    <p class="nouser-ico">
+                    <!-- <i class="fa fa-user-times"></i> -->
+                     <img src="/images/user-male-30.png">
+                    </p>
+                    <!-- <img src="/images/user-male-30.png"> -->
+                    <p class="nouser-txt01">応募者がありません。</p>
 
-                <div class="col-12 jobdetail">
+                <div class="form-group mt-3 pb-5">
+                    <router-link class="btn main-bg-color white all-btn btn_custom" to="/jobofferlist">仕事一覧へ</router-link>
+                </div>
+
+            </div>
+
+                <div class="col-12" v-else>
 
                  <table class="table table-hover custom-table">
 
@@ -123,22 +136,19 @@
                  </table>
                  <div class="form-group mt-3 pb-5">
 
-                    <router-link class="btn main-bg-color white all-btn" to="/jobofferlist">仕事一覧へ</router-link>
+                    <router-link class="btn main-bg-color white all-btn btn_custom" to="/jobofferlist">仕事一覧へ</router-link>
 
                 </div>
 
                  </div>
 
-                 
+
 
             </div>
 
                 </div>
 
             </div>
-
-
-
             </div>
 
         </div>
@@ -167,20 +177,7 @@ export default {
 
           this.axios.get(`/api/jobapplylist/`+this.$route.params.id).then(response=>{
 
-              if(response.data == '') {
-
-                 $('.custom-table').hide();
-
-                 $('.jobdetail').append('<p> No Record data</p>');
-
-              } else {
-
-                this.jobapplies = response.data;
-
-              }
-
-
-
+             this.jobapplies = response.data;
           });
 
       }

@@ -10,7 +10,7 @@
       </li>
       <li role="presentation" class="subtab3 nav-item">
         <a @click="changeRoute($event,'nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-user-md"></i> 介護検索
+          <i class="fas fa-user-md"></i> 介護施設検索
         </a>
       </li>
       <li role="presentation" class="subtab2 nav-item">

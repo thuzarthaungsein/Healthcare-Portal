@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\HospitalProfile;
 use App\Gallery;
+use App\Schedule;
 use DB;
 use App\Medical;
 use App\Category;
@@ -22,7 +23,7 @@ class HospitalProfileController extends Controller
     }
 
     function getFavouriteHospital($local_sto) {
-        $query = "SELECT hospital_profiles.* , group_concat(special_features_junctions.special_feature_id) AS special, group_concat(subject_junctions.subject_id) AS sub, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
+        $query = "SELECT hospital_profiles.* , '' AS schedule_am, '' AS schedule_pm, group_concat(special_features_junctions.special_feature_id) AS special, group_concat(subject_junctions.subject_id) AS sub, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
                     JOIN customers ON hospital_profiles.customer_id = customers.id
                     JOIN townships ON townships.id = customers.townships_id
                     JOIN cities ON townships.city_id = cities.id
@@ -43,6 +44,13 @@ class HospitalProfileController extends Controller
                 $subjects = DB::select($sql);
                 $fav->sub = $subjects;
             }
+            $cId = $fav->customer_id;
+            $sql = "SELECT schedule.* FROM schedule WHERE schedule.customer_id = $cId AND schedule.part = 'am'";
+            $schedule_am = DB::select($sql);
+            $fav->schedule_am = $schedule_am;
+            $sql = "SELECT schedule.* FROM schedule WHERE schedule.customer_id = $cId AND schedule.part = 'pm'";
+            $schedule_pm = DB::select($sql);
+            $fav->schedule_pm = $schedule_pm;
         }
         return $fav_hospital;
     }
@@ -69,6 +77,8 @@ class HospitalProfileController extends Controller
             $sql = "SELECT MIN(monthly_fees) AS smallestCost, MAX(monthly_fees) AS largeCost FROM method_payment WHERE customer_id=$cId";
             $min_max = DB::select($sql);
             $nur->minmax = $min_max;
+
+            
         }
         
         return $fav_nursing;

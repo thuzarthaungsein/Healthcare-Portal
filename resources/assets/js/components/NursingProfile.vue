@@ -20,8 +20,13 @@
                             <input type="text" name="official-website" class="form-control website col-10 float-right" v-model="nursing_info.website">
                     </div>
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
-                            <div class="col-md-12">
+                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label> 
+                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
+                                    <i class="fas fa-plus-circle"></i> 加算</span>
+                                    <span class='changeGalleryLink btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryToggle" >
+                                        <i id="gallery" class="fa fa-minus-circle"></i> 
+                                   </span>
+                            <div id="changeGalleryLink"  class="col-md-12">
                                     <div class="row" id ="gallery-photo">
                                             <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                                                 <div class="col-md-12">
@@ -46,8 +51,12 @@
                     </div>
 
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
-                            <div class="col-md-12">
+                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()">
+                                    <i class="fas fa-plus-circle"></i> 加算</span>
+                                    <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryVideoToggle" >
+                                        <i id="video" class="fa fa-minus-circle"></i> 
+                                   </span>
+                            <div id="changeGalleryVideoLink" class="col-md-12">
                                     <div class="row" id="gallery-video">
                                             <div class="col-md-6 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
                                                 <div class="col-md-12">
@@ -124,9 +133,10 @@
                                             <div class="col-md-12 m-t-15 m-b-15">
                                                 <table class="table">
                                                     <tr>
+                                                         
                                                     <td colspan="2" class="text-right" style="border:none;!important">
-                                                        <span class="btn edit-borderbtn" style="min-width:0px;">
-                                                            <i class="fa fa-edit"></i> -
+                                                        <span :class="'btn btn all-btn main-bg-color changeLink'+payment.id" style="min-width: 0px;" @click="paymentToggle(payment.id)" >
+                                                            <i :id="'icon' + payment.id" class="fa fa-minus-circle"></i> 
                                                         </span>
                                                         <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
                                                         <i class="fa fa-trash"></i> 削除</a>
@@ -142,118 +152,120 @@
                                                     </tr>
                                                 </table>
                                             </div>
-                                            <div class="col-md-12">
-                                                <h3 class="title-lbl">料金概要</h3>
-                                                <table class="table">
-                                                    <tr>
-                                                    <th>入居時にかかる費用</th>
-                                                    <th>
-                                                            <input type="text" name="exp[]" class="form-control expense-moving white-bg-color" v-model="payment.expense_moving">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>居室タイプ</th>
-                                                    <th>
-                                                            <input type="text" name="exp[]" class="form-control living-room-type white-bg-color" v-model="payment.living_room_type">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>月額利用料</th>
-                                                    <th>
-                                                            <input type="text" name="exp[]" class="form-control monthly-fees white-bg-color" v-model="payment.monthly_fees">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>広さ</th>
-                                                    <th>
-                                                            <input type="text" name="exp[]" class="form-control area white-bg-color" v-model="payment.area">
-                                                    </th>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <h3 class="title-lbl">料金詳細</h3>
-                                                <table class="table">
-                                                    <tr>
-                                                    <th class="title-lbl">
-                                                            <span>入居にかかる費用</span>
-                                                    </th>
-                                                    <th>&nbsp;</th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>入居一時金または敷金</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control deposit white-bg-color" v-model="payment.deposit">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>その他（使途）</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control other-use white-bg-color" v-model="payment.other_use">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th class="title-lbl"><span>月額費用</span></th><th>&nbsp;</th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>賃料</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control rent white-bg-color" v-model="payment.rent">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>管理費</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control admin-expense white-bg-color" v-model="payment.admin_expense">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>食費</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control food-expense white-bg-color" v-model="payment.food_expense">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>介護上乗せ金（生活サービス費）</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control nurse-care-surcharge white-bg-color" v-model="payment.nurse_care_surcharge">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>その他</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control other-monthly-cost white-bg-color" v-model="payment.other_monthly_cost">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th class="title-lbl"><span>返還金について</span></th>
-                                                    <th>&nbsp;</th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>返還制度</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control refund-system white-bg-color" v-model="payment.refund_system">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>償却期間</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control depreciation-period white-bg-color" v-model="payment.depreciation_period">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>初期償却</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control initial-deprecration white-bg-color" v-model="payment.initial_deprecration">
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>その他メッセージ</th>
-                                                    <th>
-                                                            <input type="text" name="breakdown[]" class="form-control other-message-refund white-bg-color" v-model="payment.other_message_refund">
-                                                    </th>
-                                                    </tr>
-                                                </table>
+                                            <div class="col-md-12 " :id="'changeLink' + payment.id" >
+                                                <div class="col-md-12">
+                                                        <h3 class="title-lbl">料金概要</h3>
+                                                        <table class="table">
+                                                        <tr>
+                                                        <th>入居時にかかる費用</th>
+                                                        <th>
+                                                                <input type="text" name="exp[]" class="form-control expense-moving white-bg-color" v-model="payment.expense_moving">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>居室タイプ</th>
+                                                        <th>
+                                                                <input type="text" name="exp[]" class="form-control living-room-type white-bg-color" v-model="payment.living_room_type">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>月額利用料</th>
+                                                        <th>
+                                                                <input type="text" name="exp[]" class="form-control monthly-fees white-bg-color" v-model="payment.monthly_fees">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>広さ</th>
+                                                        <th>
+                                                                <input type="text" name="exp[]" class="form-control area white-bg-color" v-model="payment.area">
+                                                        </th>
+                                                        </tr>
+                                                        </table>
+                                                </div>
+                                                <div class="col-md-12">
+                                                        <h3 class="title-lbl">料金詳細</h3>
+                                                        <table class="table">
+                                                        <tr>
+                                                        <th class="title-lbl">
+                                                                <span>入居にかかる費用</span>
+                                                        </th>
+                                                        <th>&nbsp;</th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>入居一時金または敷金</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control deposit white-bg-color" v-model="payment.deposit">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>その他（使途）</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control other-use white-bg-color" v-model="payment.other_use">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th class="title-lbl"><span>月額費用</span></th><th>&nbsp;</th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>賃料</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control rent white-bg-color" v-model="payment.rent">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>管理費</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control admin-expense white-bg-color" v-model="payment.admin_expense">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>食費</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control food-expense white-bg-color" v-model="payment.food_expense">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>介護上乗せ金（生活サービス費）</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control nurse-care-surcharge white-bg-color" v-model="payment.nurse_care_surcharge">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>その他</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control other-monthly-cost white-bg-color" v-model="payment.other_monthly_cost">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th class="title-lbl"><span>返還金について</span></th>
+                                                        <th>&nbsp;</th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>返還制度</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control refund-system white-bg-color" v-model="payment.refund_system">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>償却期間</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control depreciation-period white-bg-color" v-model="payment.depreciation_period">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>初期償却</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control initial-deprecration white-bg-color" v-model="payment.initial_deprecration">
+                                                        </th>
+                                                        </tr>
+                                                        <tr>
+                                                        <th>その他メッセージ</th>
+                                                        <th>
+                                                                <input type="text" name="breakdown[]" class="form-control other-message-refund white-bg-color" v-model="payment.other_message_refund">
+                                                        </th>
+                                                        </tr>
+                                                        </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -340,7 +352,7 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">居室区分・間取り等</td>
-                                                    <td ><textarea class="form-control white-bg-color room-floor" :options="editorOption"  v-model="nursing_info.room_floor"></textarea></td>
+                                                    <td><textarea class="form-control white-bg-color room-floor" :options="editorOption"  v-model="nursing_info.room_floor"></textarea></td>
                                                         <!-- <td > <quill-editor  class="room-floor" ref="myQuilEditor" :options="editorOption"  v-model="nursing_info.room_floor"/></td> -->
                                             </tr>
                                             <tr>
@@ -366,12 +378,21 @@
                     <tr>
                         <td style="border:none;">
                             <div class="form-group">
-                                <label class="heading-lbl col-2 pad-free">協力医療機関<span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">協力医療機関 <span class="error">*</span></label>
                                 <div class="col-10 pad-free float-right">
-                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
+                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()">
+                                            <i class="fas fa-plus-circle"></i> 加算</span>
+                                              
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
                                         <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                          
+                                            <div class="clearfix" style="margin-bottom:30px;">
+                                                 <span :class="'float-right btn btn all-btn main-bg-color changeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
+                                                        <i :id="'icon' + cooperate.id" class="fa fa-minus-circle"></i> 
+                                                 </span>       
+                                            </div>
+                                             
                                             <div class="form-group">
                                                 <label class="col-2 pad-free">名前 :</label>
                                                 <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
@@ -422,9 +443,9 @@
                                             <div class="col-md-12 accept-box">
                                                 {{medical.name}} {{medical.id}}
                                                 <div class="float-right">
-                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.accept_checked" v-bind:value="'accept-'+medical.id"> <i class="fas fa-check green"></i></label>
-                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.unaccept_checked" v-bind:value="'unaccept-'+medical.id"> <i class="fas fa-times red"></i></label>
-                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.negotiate_checked" v-bind:value="'negotiate-'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                    <label ><input type="radio"  class="medical-acceptance custom-radio" :name="'medical'+medical.id" :checked="medical.accept_checked" v-bind:value="'accept-'+medical.id"> <i class="fas fa-check green"></i></label>
+                                                    <label ><input type="radio" class="medical-acceptance custom-radio " :name="'medical'+medical.id" :checked="medical.unaccept_checked" v-bind:value="'unaccept-'+medical.id"> <i class="fas fa-times red"></i></label>
+                                                    <label ><input type="radio" class="medical-acceptance custom-radio" :name="'medical'+medical.id" :checked="medical.negotiate_checked" v-bind:value="'negotiate-'+medical.id"> <i class="fas fa-adjust blue"></i></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -600,7 +621,7 @@ export default {
                 fac_list: [],
                 feature_list:[],
                 medical_acceptance:[],
-                customer_info:[], nursing_info:[], staff_info:[],
+                customer_info:[],customer_info_push:[], nursing_info:[], staff_info:[], staff_info_push:[],
                 acceptance: [],
 
                 img_arr:[],img_list:[],
@@ -725,6 +746,7 @@ export default {
 
         },
         methods: {
+              
                 onEditorBlur(quill) {
         console.log('editor blur!', quill)
       },
@@ -862,10 +884,65 @@ export default {
                         // console.log('editor change!', editor, html, text)
                         this.access_val = html
                 },
+                paymentToggle(id)
+                {
+                      var class_by_id = $('#icon'+id).attr('class');
+                      if(class_by_id == "fa fa-plus-circle")
+                      {     
+                                $('#icon'+id).removeClass("fa fa-plus-circle");
+                                $('.changeLink'+id).addClass("fa fa-minus-circle");    
+                                $('#changeLink'+id).show('medium');  
+                      }
+                      else {
+                         
+                                $('#icon'+id).removeClass("fa fa-minus-circle");
+                                $('.changeLink'+id).removeClass("fa fa-minus-circle");  
+                                $('#icon'+id).addClass("fa fa-plus-circle");  
+                                $('#changeLink'+id).hide('medium');        
+                      }
+    
+                },
+                galleryToggle()
+                {
+
+                      var class_by_id = $('#gallery').attr('class');
+                     
+                      if(class_by_id == "fa fa-plus-circle")
+                      {     
+                                $('#gallery').removeClass("fa fa-plus-circle");
+                                $('.changeGalleryLink').addClass("fa fa-minus-circle");    
+                                $('#changeGalleryLink').show('medium');  
+                      }
+                      else {
+                         
+                                $('#gallery').removeClass("fa fa-minus-circle");
+                                $('.changeGalleryLink').removeClass("fa fa-minus-circle");  
+                                $('#gallery').addClass("fa fa-plus-circle");  
+                                $('#changeGalleryLink').hide('medium');        
+                      }
+                },
+                galleryVideoToggle()
+                {
+                       var class_by_id = $('#video').attr('class');
+                      
+                      if(class_by_id == "fa fa-plus-circle")
+                      {     
+                                $('#video').removeClass("fa fa-plus-circle");
+                                $('.changeGalleryVideoLink').addClass("fa fa-minus-circle");    
+                                $('#changeGalleryVideoLink').show('medium');  
+                      }
+                      else {
+                         
+                                $('#video').removeClass("fa fa-minus-circle");
+                                $('.changeGalleryVideoLink').removeClass("fa fa-minus-circle");  
+                                $('#video').addClass("fa fa-plus-circle");  
+                                $('#changeGalleryVideoLink').hide('medium');        
+                      }  
+                },
 
             createProfile() {
-                this.customer_info = [];
-                this.staff_info = [];
+                this.customer_info_push = [];
+                this.staff_info_push = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
@@ -905,9 +982,9 @@ export default {
                 var min_num_staff = $('.min-num-staff').val();
                 var num_staff = $('.num-staff').val();
                 // var nursing_remarks = $('.nursing-remarks').val();
-                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
+                this.customer_info_push.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
-                this.staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
+                this.staff_info_push.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
                
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
@@ -1058,10 +1135,10 @@ export default {
                         }) ;
                 }
 
-                if(this.customer_info.length > 0) {
+                if(this.customer_info_push.length > 0) {
                         // check
                         this.axios
-                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
+                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
                                 .then((response) => {
                                    
                                 }).catch(error=>{
@@ -1074,9 +1151,9 @@ export default {
                         }) ;
                 }
 
-                if(this.staff_info.length > 0) {
+                if(this.staff_info_push.length > 0) {
                         this.axios
-                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info)
+                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info_push)
                                 .then((response) => {
                                         console.log(response.data);
 
@@ -1115,7 +1192,7 @@ export default {
                         }) ;
                 }
 
-                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info  != 'error' && this.staff_info  != 'error' &&  acceptance!= 'error') {
+                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info_push  != 'error' && this.staff_info_push  != 'error' &&  acceptance!= 'error') {
                         alert('Nursing Profile is Succcessfully Updated');
                 }
             }
