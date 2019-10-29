@@ -10,7 +10,15 @@
         </div> -->
         <div class="col-12 pad-free m-b-20">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <!-- <router-link to="/">ホーム</router-link> -->
+                    <router-link to="/" >ホーム</router-link>
+                </li>
+                <!-- <li class="breadcrumb-item active" aria-current="page">rrr</li> -->
+                <li class="breadcrumb-item"><span>介護のお気に入り</span></li>
+            </ol>
+            <!-- <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <span @click="changeRoute()" class="link-span">介護のお気に入り</span>
               </li>
@@ -18,17 +26,17 @@
                 <a href="/">必要項目のご入力</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">入力内容のご確認</li>
-            </ol>
+            </ol> -->
           </nav>
         </div>
         <div class="col-12 m-b-10">
-            <h4 class="nursing-info">入力内容のご確認</h4>
+            <h4 class="nursing-info">資料請求される方について</h4>
         </div>
          <div class="col-md-12 confirm_box" v-if="type == 'confirm'">
             <div id="loader"></div>
                 <ul class="multi-step">
-                    <li class="active">1.必要事項のご入力</li>
-                    <li class="active">2.内容のご確認</li>
+                    <li class="active">1.お客様情報のご入力</li>
+                    <li class="active">2.入力内容のご確認</li>
                     <li>3.送信完了</li>
                 </ul>
           <form class="col-md-12 form-wrap" @submit.prevent="add" method="post">

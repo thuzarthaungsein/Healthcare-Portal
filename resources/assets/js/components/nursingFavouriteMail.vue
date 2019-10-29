@@ -5,9 +5,18 @@
             <div class="row">
                 <div class="col-md-12 pad-free m-b-20">
                     <nav aria-label="breadcrumb">
+                        <!-- <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><span @click="changeRoute()" class="link-span">ホーム</span></li>
+                            <li class="breadcrumb-item"><a href="/">介護のお気に入り一覧</a></li>
+                            <li class="breadcrumb-item active">資料請求</li>
+                        </ol> -->
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><span @click="changeRoute()" class="link-span">介護のお気に入り</span></li>
-                            <li class="breadcrumb-item active">必要項目のご入力</li>
+                            <li class="breadcrumb-item">
+                                <!-- <router-link to="/">ホーム</router-link> -->
+                                <router-link to="/" >ホーム</router-link>
+                            </li>
+                            <!-- <li class="breadcrumb-item active" aria-current="page">rrr</li> -->
+                           <li class="breadcrumb-item"><span>介護のお気に入り</span></li>
                         </ol>
                     </nav>
                 </div>
@@ -16,8 +25,8 @@
                 </div>
                 <div class="col-md-12 register_box mt-3" v-if="type == 'register'">
                     <ul class="multi-step">
-                        <li class="active">1.必要事項のご入力</li>
-                        <li class="no-active">2.内容のご確認</li>
+                        <li class="active">1.お客様情報のご入力</li>
+                        <li class="no-active">2.入力内容のご確認</li>
                         <li>3.送信完了</li>
                     </ul>
                     <!--inputform-->
