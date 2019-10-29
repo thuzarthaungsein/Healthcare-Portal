@@ -352,14 +352,34 @@
                   給与:
                   <span class="error sp2">必須</span>
                 </label>
-                <input
-                  type="text"
+                <div class="row form-group">
+                  <select v-model="joboffer.salary_type" class="form-control col-md-4">
+                    <option v-bind:value='-1'>選択 </option>
+                    <option value='1'>時給</option>
+                    <option value="2">日給</option>
+                    <option value="3">月給</option>
+                  </select>
+                  <input
+                    type="text"
+                    class="form-control col-md-4"
+                    v-model="joboffer.salary"
+                    name="salary"
+                    placeholder="給与を入力してください。"
+                  />
+                  <span v-if="errors.salary" class="error">{{errors.salary[0]}}</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="salary_remark">Salary Remark:</label>
+                <textarea
+                  name="salary_remark"
                   class="form-control"
-                  v-model="joboffer.salary"
-                  name="salary"
-                  placeholder="給与を入力してください。"
-                />
-                <span v-if="errors.salary" class="error">{{errors.salary[0]}}</span>
+                  cols="50"
+                  rows="5"
+                  v-model="joboffer.salary_remark"
+                  placeholder="諸手当を入力してください。"
+                ></textarea>
               </div>
 
               <!-- <div class="form-group row">
@@ -493,7 +513,9 @@ export default {
             ochecked: false
           }
         ],
+        salary_type: '-1',
         salary: "",
+        salary_remark: '',
 
         insurance: "",
 
@@ -556,8 +578,9 @@ export default {
           // this.ischeck = response.data.employment_status;
 
           // this.createCheck(this.ischeck);
-
+          this.joboffer.salary_type = response.data[0].salary_type;
           this.joboffer.salary = response.data[0].salary;
+          this.joboffer.salary_remark = response.data[0].salary_remark;
 
           this.joboffer.allowances = response.data[0].allowances;
 
@@ -694,6 +717,29 @@ export default {
       }
     },
 
+    // onBlurNumber(e) {
+    //   this.joboffer.salary = this.thousandSeprator(this.joboffer.salary);
+    // },
+    // thousandSeprator(amount) {
+    //   if (amount !== '' || amount !== undefined || amount !== 0 || amount !== '0' || amount !== null) {
+    //       return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    //   } else {
+    //       return amount;
+    //   }
+    // },
+
+    // my_function (event) {
+    // 	// const char = String.fromCharCode(event.keyCode);
+    // 	// if (!/[0-9]/.test(char)) {
+    //   // 	event.preventDefault();
+    //   // }
+
+    //   var keyCode = event.key;
+    //   if ( (keyCode != 8 || keyCode ==32 ) && (keyCode < 48 || keyCode > 57)) { 
+    //     console.log(keyCode);
+    //     return false;
+    //   }  
+    // },
     // createCheck: function(check) {
 
     //     this.joboffer.employment_status.shift()

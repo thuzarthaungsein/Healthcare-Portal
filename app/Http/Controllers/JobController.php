@@ -188,7 +188,9 @@ class JobController extends Controller
         $job->location = $request->input('location');
         $job->nearest_station = $request->input('nearest_station');
         $job->employment_status = $request->employmentstatus;
+        $job->salary_type = $request->input('salary_type');
         $job->salary = $request->input('salary');
+        $job->salary_remark = $request->input('salary_remark');
         $job->allowances = $request->input('allowances');
         $job->insurance = $request->input('insurance');
         $job->working_hours = $request->input('working_hours');
