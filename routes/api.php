@@ -234,6 +234,7 @@ Route::get('hospital-vgallery/{id}','GalleryController@getVideobyCustomerId');
 
 Route::get('nursing-pgallery/{id}','GalleryController@getPhotobyCustomerId');
 Route::get('nursing-vgallery/{id}','GalleryController@getVideobyCustomerId');
+Route::get('nursing-panorrama-gallery/{id}','GalleryController@getPanoramabyCustomerId');
 Route::post('nursing/movephoto','NursingProfileController@movePhoto');
 Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
 
