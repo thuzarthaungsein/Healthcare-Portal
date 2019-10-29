@@ -71,7 +71,7 @@
                 </form>
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links d-margin">
-						<span><a href="{{ url('password/reset') }}">パスワードを忘れる ?</a></span>
+						<span><a href="{{ url('password/reset') }}">パスワードをお忘れですか？</a></span>
 
 					</div>
 				</div>
