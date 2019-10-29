@@ -80,6 +80,7 @@ class HospitalProfileController extends Controller
 
             
         }
+        
         return $fav_nursing;
     }
 

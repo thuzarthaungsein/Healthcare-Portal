@@ -308,6 +308,8 @@ Route::group(['prefix' => 'comments'], function () {
     Route::get('comfirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
+    Route::post('search','CommentController@search');
+    Route::get('comment_list','CommentController@list');
 });
 
 Route::group(['prefix' => 'nurse'], function () {

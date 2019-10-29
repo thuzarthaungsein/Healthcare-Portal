@@ -6225,8 +6225,6 @@ ul.test>li:before {
     justify-content: center;
     width: 1336px;
 }
-
-
 /*slick carousel*/
 
 #fav-history-page .card-carousel-wrapper {
@@ -6320,6 +6318,7 @@ ul.test>li:before {
     display: flex;
     transition: transform 150ms ease-out;
     transform: translatex(0px);
+    margin-left: 48px;
 }
 
 #fav-history-page .card-carousel-cards .card-carousel--card {
