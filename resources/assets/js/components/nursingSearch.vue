@@ -369,7 +369,7 @@
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                  <div class="card-carousel--card" v-for="item in nursingList">
+                  <div class="card-carousel--card" v-for="item in nursingList" :key="item.id">
                     <div class="">
 
                       <table class="table">
@@ -1396,4 +1396,3 @@
     box-shadow: -0px -0px 0px #004977;
   }
 </style>
-

@@ -326,6 +326,14 @@ $('#save_value').click(function(){
     }
 }
 
+function closeBtnPreview(indx) {
+  if(confirm("Are you sure you want to delete?"))
+  {
+      var panorama_preview = document.getElementById('preview-panorama'+indx);
+      panorama_preview.parentNode.removeChild(panorama_preview);
+  }
+}
+
 
   // function closebtn(){
   //   swal({
