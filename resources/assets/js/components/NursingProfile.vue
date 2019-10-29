@@ -21,10 +21,10 @@
                     </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">フォトアルバム</label> 
-                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
+                                    <span class="galleryadd btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
                                     <span class='changeGalleryLink btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryToggle" >
-                                        <i id="gallery" class="fa fa-minus-circle"></i> 
+                                        <i id="gallery" class="fas fa-sort-down"></i> 
                                    </span>
                             <div id="changeGalleryLink"  class="col-md-12">
                                     <div class="row" id ="gallery-photo">
@@ -51,10 +51,10 @@
                     </div>
 
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()">
+                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="galleryvideo btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
                                     <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryVideoToggle" >
-                                        <i id="video" class="fa fa-minus-circle"></i> 
+                                        <i id="video" class="fas fa-sort-down"></i> 
                                    </span>
                             <div id="changeGalleryVideoLink" class="col-md-12">
                                     <div class="row" id="gallery-video">
@@ -136,7 +136,7 @@
                                                          
                                                     <td colspan="2" class="text-right" style="border:none;!important">
                                                         <span :class="'btn btn all-btn main-bg-color changeLink'+payment.id" style="min-width: 0px;" @click="paymentToggle(payment.id)" >
-                                                            <i :id="'icon' + payment.id" class="fa fa-minus-circle"></i> 
+                                                            <i :id="'icon' + payment.id" class="fas fa-sort-down"></i> 
                                                         </span>
                                                         <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
                                                         <i class="fa fa-trash"></i> 削除</a>
@@ -389,7 +389,7 @@
                                           
                                             <div class="clearfix" style="margin-bottom:30px;">
                                                  <span :class="'float-right btn btn all-btn main-bg-color changeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
-                                                        <i :id="'icon' + cooperate.id" class="fa fa-minus-circle"></i> 
+                                                        <i :id="'icon' + cooperate.id" class="fas fa-sort-down"></i> 
                                                  </span>       
                                             </div>
                                              
@@ -748,7 +748,7 @@ export default {
         methods: {
               
                 onEditorBlur(quill) {
-        console.log('editor blur!', quill)
+        console.log('editor blur  !', quill)
       },
       onEditorFocus(quill) {
         console.log('editor focus!', quill)
@@ -887,17 +887,17 @@ export default {
                 paymentToggle(id)
                 {
                       var class_by_id = $('#icon'+id).attr('class');
-                      if(class_by_id == "fa fa-plus-circle")
+                      if(class_by_id == "fas fa-sort-down animate rotate")
                       {     
-                                $('#icon'+id).removeClass("fa fa-plus-circle");
-                                $('.changeLink'+id).addClass("fa fa-minus-circle");    
+                                $('#icon'+id).removeClass("fas fa-sort-down animate rotate");
+                                $('.changeLink'+id).addClass("fas fa-sort-down");    
                                 $('#changeLink'+id).show('medium');  
                       }
                       else {
                          
-                                $('#icon'+id).removeClass("fa fa-minus-circle");
-                                $('.changeLink'+id).removeClass("fa fa-minus-circle");  
-                                $('#icon'+id).addClass("fa fa-plus-circle");  
+                                $('#icon'+id).removeClass("fas fa-sort-down");
+                                $('.changeLink'+id).removeClass("fas fa-sort-down");  
+                                $('#icon'+id).addClass("fas fa-sort-down animate rotate");  
                                 $('#changeLink'+id).hide('medium');        
                       }
     
@@ -907,37 +907,61 @@ export default {
 
                       var class_by_id = $('#gallery').attr('class');
                      
-                      if(class_by_id == "fa fa-plus-circle")
+                      if(class_by_id == "fas fa-sort-down animate rotate")
                       {     
-                                $('#gallery').removeClass("fa fa-plus-circle");
-                                $('.changeGalleryLink').addClass("fa fa-minus-circle");    
+                                $('#gallery').removeClass("fas fa-sort-down animate rotate");
+                                $('.changeGalleryLink').addClass("fas fa-sort-down");    
                                 $('#changeGalleryLink').show('medium');  
+                                $('.galleryadd').show();
                       }
                       else {
-                         
-                                $('#gallery').removeClass("fa fa-minus-circle");
-                                $('.changeGalleryLink').removeClass("fa fa-minus-circle");  
-                                $('#gallery').addClass("fa fa-plus-circle");  
-                                $('#changeGalleryLink').hide('medium');        
+
+                              
+                                $('#gallery').removeClass("fas fa-sort-down");
+                                $('.changeGalleryLink').removeClass("fas fa-sort-down");  
+                                $('#gallery').addClass("fas fa-sort-down animate rotate");  
+                                $('#changeGalleryLink').hide('medium');   
+                                 $('.galleryadd').show(); 
+                                      $('.galleryadd').hide();    
                       }
                 },
                 galleryVideoToggle()
                 {
                        var class_by_id = $('#video').attr('class');
                       
-                      if(class_by_id == "fa fa-plus-circle")
+                      if(class_by_id == "fas fa-sort-down animate rotate")
                       {     
-                                $('#video').removeClass("fa fa-plus-circle");
-                                $('.changeGalleryVideoLink').addClass("fa fa-minus-circle");    
+                                $('#video').removeClass("fas fa-sort-down animate rotate");
+                                $('.changeGalleryVideoLink').addClass("fas fa-sort-down");    
                                 $('#changeGalleryVideoLink').show('medium');  
+                                 $('.galleryvideo').show();
                       }
                       else {
                          
-                                $('#video').removeClass("fa fa-minus-circle");
-                                $('.changeGalleryVideoLink').removeClass("fa fa-minus-circle");  
-                                $('#video').addClass("fa fa-plus-circle");  
-                                $('#changeGalleryVideoLink').hide('medium');        
+                                $('#video').removeClass("fas fa-sort-down");
+                                $('.changeGalleryVideoLink').removeClass("fas fa-sort-down");  
+                                $('#video').addClass("fas fa-sort-down animate rotate");  
+                                $('#changeGalleryVideoLink').hide('medium');    
+                                $('.galleryvideo').hide();    
                       }  
+                },
+                cooperateToggle(id)
+                {
+                      var class_by_id = $('#cooperate'+id).attr('class');
+                      if(class_by_id == "fas fa-sort-down animate rotate")
+                      {     
+                                $('#icon'+id).removeClass("fas fa-sort-down animate rotate");
+                                $('.changeLink'+id).addClass("fas fa-sort-down");    
+                                $('#changeLink'+id).show('medium');  
+                      }
+                      else {
+                         
+                                $('#icon'+id).removeClass("fas fa-sort-down");
+                                $('.changeLink'+id).removeClass("fas fa-sort-down");  
+                                $('#icon'+id).addClass("fas fa-sort-down animate rotate");  
+                                $('#changeLink'+id).hide('medium');        
+                      }
+    
                 },
 
             createProfile() {
