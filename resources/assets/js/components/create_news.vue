@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label> カテゴリー:<span class="error">*</span></label>
+                                <label> 関連ニュース:<span class="error">*</span></label>
                                 <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                         {{category.name}}
@@ -73,7 +73,7 @@
                                         <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
                                             <div class="card-body news-post">
                                                 <div class="row">
-                                                    <div class="col-md-3" >
+                                                    <div class="col-md-3 pad-free" >
                                                         <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news">
                                                     </div>
                                                     <div class="col-md-9">

@@ -2,6 +2,20 @@
     <div class="card profile m-t-22 " style="border:none;">
         <form class="col-md-12 form-class">
             <div class="col-md-12 pad-free">
+                
+                <div class="col-md-12 m-lr-0">
+                        <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">Panorama</h4></div>
+                        <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
+                        <div class="row col-md-12 pad-free panorama">
+                        <!-- <div > -->
+                                <div class="col-sm-3 col-md-3 mt-2 gallery-area-panorama" v-bind:id="'x-panorama'+indx" v-for="(img,indx) in panorama_arr" :key="img.id">
+                                        <input type="hidden" class="already-panorama" v-model="img.photo">
+                                        <span class='img-close-btn' v-on:click="closeBtnMethod(indx)">X</span>
+                                        <img :src="'/upload/nursing_profile/Imagepanorama/'+ img.photo" class="img-fluid" alt="profile"  id="already-panorama">
+                                </div>
+                        </div>
+                </div>
+
                 <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">事業者名前<span class="error">*</span></label>
@@ -626,6 +640,7 @@ export default {
 
                 img_arr:[],img_list:[],
                 video_arr:[],video_list:[],
+                panorama_arr:[],panorama_list:[], tmp_list:[],
                 gallery_list:[],
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
@@ -727,6 +742,12 @@ export default {
                 });
 
                 this.axios
+                .get('/api/nursing-panorrama-gallery/'+this.cusid)
+                .then(response=>{
+                        this.panorama_arr = response.data;
+                });
+
+                this.axios
                 .get('/api/nursing-vgallery/'+this.cusid)
                 .then(response=>{
                         this.video_arr = response.data;
@@ -779,6 +800,20 @@ export default {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
                 document.getElementById('already-photo'+indx).src= URL.createObjectURL(event.target.files[0]);
             },
+
+            preview_panorama() {
+                for(var i=0; i< event.target.files.length; i++) {
+                        $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
+                }
+            },
+           closeBtnMethod: function(indx) {
+                        if(confirm("Are you sure you want to delete?"))
+                        {
+                            var panorama_x = document.getElementById('x-panorama'+indx);
+                            panorama_x.parentNode.removeChild(panorama_x);
+                        }
+                    },
+        
 
             DeltArr(indx,type) {
                     var arr_list = [];
@@ -1018,6 +1053,7 @@ export default {
                                         let fd = new FormData();
                                         fd.append('file' ,file )
                                         fd.append('photo' ,file_name )
+                                        fd.append('type', 'photo')
                                         this.axios.post('/api/nursing/movephoto', fd)
                                                 .then(response => {
                                                 }).catch(error=>{
@@ -1031,8 +1067,43 @@ export default {
                         }
                         this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
-                //console.log(this.img_list);
-
+       
+                var panorama = document.getElementsByClassName('gallery-area-panorama');
+                var count = 0;
+                var status = 0;
+                for(var i = 0; i< panorama.length; i++) {
+                        var preview = document.getElementsByClassName('preview-panorama');
+                        if(document.getElementById('preview-panorama'+i)) {
+                                if(status == 0) { var j = i; } else { var j = i+1; }
+                                
+                        } else {
+                                if(status == 0) { var j = i+1; } else { var j = i+2; }
+                                status = 1;
+                        }
+                        var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
+                        if(file && i<preview.length) {
+                                var file_name = file.name;
+                                        let fd = new FormData();
+                                        fd.append('file' ,file )
+                                        fd.append('photo' ,file_name )
+                                        fd.append('type', 'panorama')
+                                        this.axios.post('/api/nursing/movephoto', fd)
+                                                .then(response => {
+                                                }).catch(error=>{
+                                                        console.log(error);
+                                                if(error.response.status == 422){
+                                                        this.errors = error.response.data.errors
+                                                }
+                                        })
+                                
+                        } 
+                        else {
+                                var file_name = panorama[count].getElementsByClassName('already-panorama')[0].value;
+                                count = count + 1;
+                        }
+                        this.panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
+                }
+               
                 var video = document.getElementsByClassName('gallery-area-video');
                 for(var i = 0; i< video.length; i++) {
                         this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
@@ -1097,7 +1168,8 @@ export default {
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
-                this.gallery_list = this.img_list.concat(this.video_list);
+                this.tmp_list = this.img_list.concat(this.video_list);
+                this.gallery_list = this.tmp_list.concat(this.panorama_list);
 
                 if(this.gallery_list.length > 0) {
                         this.axios
@@ -1168,7 +1240,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-                                this.customer_info = 'error';
+                                this.save_customer_info = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
@@ -1184,7 +1256,7 @@ export default {
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-                                        this.staff_info = 'error';
+                                        this.save_staff_info = 'error';
                                         this.errors = error.response.data.errors
                                 }
                         }) ;

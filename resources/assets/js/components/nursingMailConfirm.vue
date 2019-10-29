@@ -2,9 +2,12 @@
   <div>
     <div class="col-12 scrolldiv4">
       <div class="row">
-        <div class="col-12 text-center p-3 jt1 mb-4">
+        <!-- <div class="col-12 text-center p-3 jt1 mb-4">
           <h4>入力内容のご確認</h4>
-        </div>
+        </div> -->
+         <!-- <div class="col-12 m-b-10">
+            <h4 class="job-apply-color">入力内容のご確認</h4>
+        </div> -->
         <div class="col-12">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -18,10 +21,18 @@
             </ol>
           </nav>
         </div>
-        <div class="col-12">
+        <div class="col-12 m-b-10">
+            <h4 class="job-apply-color">入力内容のご確認</h4>
+        </div>
+         <div class="col-md-12 confirm_box" v-if="type == 'confirm'">
+            <div id="loader"></div>
+                <ul class="multi-step">
+                    <li class="active">1.必要事項のご入力</li>
+                    <li class="active">2.内容のご確認</li>
+                    <li>3.送信完了</li>
+                </ul>
           <form class="col-md-12 form-wrap" @submit.prevent="add" method="post">
             <div class="mb-5">
-              <h3 class="form-tit">確認内容</h3>
               <p class="require-txt">ご入力いただいた内容に誤りがないかどうか、ご確認ください。
               <br>こちらの内容でよろしければ、「上記内容を送信する」ボタンを押してください。</p>
               <div class="form-group m-0 row bd">
@@ -302,6 +313,26 @@
             </div>
           </form>
         </div>
+         <div class="col-md-12 confirm_box" v-if="type == 'completed'">
+            <ul class="multi-step">
+            <li class="active">1.必要事項のご入力</li>
+            <li class="active">2.内容のご確認</li>
+            <li class="active">3.送信完了</li>
+            </ul>
+            <div class="text-center">
+            <h3>入力内容は送信されました‼</h3>
+            <br />
+            <p>この度は「探しっくす」をご利用いただきましてありがとうございました。</p>
+            <p>ご見学の日程等の詳細、お申込みいただいた資料の送付およびお問い合わせいただいた内容につきましては、各施設よりご対応させていただきます。</p>
+            <p>今後ともどうぞよろしくお願い申し上げます。</p>
+            <br />
+            <br />
+            <router-link class="btn btn-info all-btn width17" to="/">ホームへ戻る</router-link>
+            </div>
+
+            <br />
+            <br />
+      </div>
       </div>
     </div>
   </div>
@@ -311,6 +342,7 @@ export default {
   props: ["favmail"],
   data() {
     return {
+    type:'confirm',
       comments: {
         name: "",
         furigana: "",
@@ -364,11 +396,14 @@ export default {
   },
   methods: {
     add() {
-      axios
+        this.$loading(true);
+     this.axios
         .post("/api/nurse/add", this.comments)
         .then(response => {
-          alert("Mail Sent Successfully !");
-          location.href = "favouriteNursing";
+        this.$loading(false);
+        //   alert("Mail Sent Successfully !");
+        //   location.href = "favouriteNursing";
+          this.type="completed";
         })
         .catch(error => {
           if (error.response.status == 422) {

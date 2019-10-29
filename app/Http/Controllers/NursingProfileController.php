@@ -34,7 +34,12 @@ class NursingProfileController extends Controller
     public function movePhoto(Request $request) {
         $request = $request->all();
 
-        $destination = 'upload/nursing_profile/'.$request['photo'];
+        if($request['type'] == 'photo') {
+            $destination = 'upload/nursing_profile/'.$request['photo'];
+        }
+        if($request['type'] == 'panorama') {
+            $destination = 'upload/nursing_profile/Imagepanorama/'.$request['photo'];
+        }
         $upload_img = move_uploaded_file($request['file'], $destination);
     }
 
