@@ -1866,7 +1866,7 @@ export default {
 .thumbnail-img{
     width: 100%;
     padding: 20px;
-    line-height: 150px;
+    /* line-height: 150px; */
     vertical-align: middle;
     border: 1px solid #b7dad2;
     border-bottom: 1px solid #b7dad2;
@@ -1895,7 +1895,7 @@ export default {
     height: 100%;
 }
 .thumbnails {
-    display: inline-block;
+    /* display: inline-block; */
     text-align: left;
     /* justify-content: space-evenly;
     flex-direction: row; */
@@ -1916,8 +1916,8 @@ export default {
     vertical-align: bottom; */
     vertical-align: bottom;
     width: 51px;
-    height: 38px;
-    max-width: 51px;
+    height: 36px;
+    max-width: 55px;
     border: 3px solid transparent;
 }
 
@@ -1928,7 +1928,7 @@ export default {
 }
 .card-img {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .card-img > img {
     display: block;
