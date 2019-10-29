@@ -100,7 +100,7 @@ export default {
         this.axios
           .delete(`/api/facility/delete/${id}`)
           .then(response => {
-              this.facilities= response.data;  
+            this.facilities= response.data;  
             this.norecord= this.facilities.length;
             //alert('Delete Successfully!');
             // let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object

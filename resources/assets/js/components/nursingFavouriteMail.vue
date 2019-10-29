@@ -42,7 +42,8 @@
                         <div class="form-group m-0 row bd">
                             <div class="col-md-3 col-sm-12 form-left"> <label>生年月日 <span class="error sp1">必須</span></label></div>
                             <div class="col-md-9 col-sm-12 form-right">
-                                <input type="text" id="bdate" name="bdate" class="form-control float-left" placeholder="生年月日を入力してください。" v-model="comments.bdate" @change="aggreBtn" @focusout="focusbdate"/>
+                                <!-- <input type="text" id="bdate" name="bdate" class="form-control float-left" placeholder="生年月日を入力してください。" v-model="comments.bdate" @change="aggreBtn" @focusout="focusbdate"/> -->
+                                <date-picker class="box" valueType="format" v-model="comments.bdate" style="margin-left: 11px;" @change="aggreBtn" @focusout="focusbdate"></date-picker>
                                 <span class="error m-l-30" v-if="bdate_focus">※入力は必須です。</span>
                             </div>
                         </div>
@@ -298,7 +299,9 @@
     </div>
 </template>
 <script>
+import DatePicker from 'vue2-datepicker';
     export default {
+        components: { DatePicker },
        data() {
             return {
                 type:'register',
