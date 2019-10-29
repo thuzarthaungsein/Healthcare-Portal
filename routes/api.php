@@ -320,7 +320,7 @@ Route::group(['prefix' => 'nurse'], function () {
 });
 
 Route::group(['prefix' => 'new'], function () {
-    Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
+    // Route::post('getPostsByCatId/{id}/{search_word}', 'PostController@getPostById');
 });
 
 Route::get('cost','ProfilePublishController@getCost');
