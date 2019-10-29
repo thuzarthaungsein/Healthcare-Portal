@@ -46,9 +46,9 @@
                     </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">フォトアルバム</label> 
-                                    <span class="galleryadd btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
+                                    <span class="galleryadd btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
-                                    <span class='changeGalleryLink btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryToggle" >
+                                    <span class='changeGalleryLink btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryToggle" >
                                         <i id="gallery" class="fas fa-sort-down"></i> 
                                    </span>
                             <div id="changeGalleryLink"  class="col-md-12">
@@ -76,9 +76,9 @@
                     </div>
 
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="galleryvideo btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()">
+                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="galleryvideo btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryVideoAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
-                                    <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryVideoToggle" >
+                                    <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryVideoToggle" >
                                         <i id="video" class="fas fa-sort-down"></i> 
                                    </span>
                             <div id="changeGalleryVideoLink" class="col-md-12">
@@ -404,16 +404,16 @@
                         <td style="border:none;">
                             <div class="form-group">
                                 <label class="heading-lbl col-2 pad-free">協力医療機関 <span class="error">*</span></label>
-                                <div class="col-10 pad-free float-right">
+                                <div class="col-10 pad-free float-right ">
                                     <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()">
                                             <i class="fas fa-plus-circle"></i> 加算</span>
                                               
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
-                                        <div class="col-md-12 pad-free m-t-20 gallery-area-payment" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                        <div class="col-md-12 m-t-30 m-b-20 gallery-area-payment" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
                                           
                                             <div class="clearfix" style="margin-bottom:30px;">
-                                                   <span :class="'float-right btn btn all-btn main-bg-color cooperateChangeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
+                                                   <span :class="'float-right btn all-btn main-bg-color cooperateChangeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
                                                         <i :id="'cooperate' + cooperate.id" class="fas fa-sort-down"></i> 
                                                 </span>    
 
@@ -445,7 +445,7 @@
                                             </tr>
                                             </table>
                                             <div class="clearfix">
-                                                <a class="mr-auto text-danger btn delete-borderbtn float-right" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
+                                                <a class="mr-auto text-danger btn delete-borderbtn float-right m-b-20" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
                                             </div>
                                              </div>
                                            
@@ -1005,6 +1005,7 @@ export default {
                                 $('#cooperate'+id).removeClass("fas fa-sort-down animate rotate");
                                 $('.cooperateChangeLink'+id).addClass("fas fa-sort-down");    
                                 $('#cooperateChangeLink'+id).show('medium');  
+   
                       }
                       else {
                          
