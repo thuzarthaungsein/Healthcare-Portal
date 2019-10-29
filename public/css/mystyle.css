@@ -6943,6 +6943,21 @@ ul.test>li:before {
     font-weight: bolds;
     letter-spacing: 1px;
 }
+/* start nursing information */
+.nursing-info{
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #4d2200;
+    background: url(/images/informations.png) no-repeat 0 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #828282;
+    color: #111;
+    font-weight: bolds;
+    letter-spacing: 1px;
+}
+
+/* end nursing information */
 
 
 /*for custom checkbox and radio*/

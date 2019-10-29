@@ -12,7 +12,7 @@
                     </nav>
                 </div>
                 <div class="col-12 m-b-10">
-                    <h4 class="job-apply-color">資料請求される方について</h4>
+                    <h4 class="nursing-info">資料請求される方について</h4>
                 </div>
                 <div class="col-md-12 register_box mt-3" v-if="type == 'register'">
                     <ul class="multi-step">
@@ -136,7 +136,7 @@
                         <div class="btn-list mt-2  clearfix">
                             <ul>
                                 <li class="m-r-15"><router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link></li>
-                                <li> <button type="button" class="submit1 btn main-bg-color continue submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
+                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
                             </ul>
                         </div>
                         <!--next_form-->
@@ -168,9 +168,19 @@
                             <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>性別</label></div>
                                 <div class="col-md-9 col-sm-12 form-right pl-4">
-                                    <input type="radio" id="sex" name="sex" value="男性"  v-model="comments.sex">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="sex" name="sex" value="女性"    v-model="comments.sex">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="sex" name="sex" value="夫婦"   v-model="comments.sex">&nbsp;夫婦
+                                     <label class=" control control--radio">
+                                        <input type="radio" class="custom-radio" id="sex" name="sex" value="男性"  v-model="comments.sex">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="control__indicator"></div>
+                                     </label>
+                                    <label class="control control--radio">
+                                         <input type="radio" class="custom-radio" id="sex" name="sex" value="女性"    v-model="comments.sex">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
+                                          <div class="control__indicator"></div>
+                                    </label>
+                                   <label class="control control--radio">
+                                       <input type="radio" class="custom-radio" id="sex" name="sex" value="夫婦"   v-model="comments.sex">&nbsp;夫婦
+                                       <div class="control__indicator"></div>
+                                   </label>
+
                                 </div>
                             </div>
                             <div class="form-group m-0 row bd">
@@ -272,9 +282,18 @@
                             <div class="form-group m-0 row bd">
                                 <div class="col-md-3 col-sm-12 form-left"><label>認知症</label></div>
                                 <div class="col-md-9 col-sm-12 form-right pl-4">
-                                <input type="radio" id="fect" name="fect" value="あり"  v-model="comments.fect">&nbsp;あり&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="fect" name="fect" value="なし"  v-model="comments.fect">&nbsp;なし&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" id="fect" name="fect" value="わからない"  v-model="comments.fect">&nbsp;わからない &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label class="control control--radio">
+                                        <input type="radio" class="custom-radio" id="fect" name="fect" value="あり"  v-model="comments.fect">&nbsp;あり&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="control control--radio">
+                                         <input type="radio" class="custom-radio" id="fect" name="fect" value="なし"  v-model="comments.fect">&nbsp;なし&nbsp;&nbsp;&nbsp;&nbsp;
+                                         <div class="control__indicator"></div>
+                                    </label>
+                                   <label class="control control--radio">
+                                    <input type="radio" class="custom-radio" id="fect" name="fect" value="わからない"  v-model="comments.fect">&nbsp;わからない &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <div class="control__indicator"></div>
+                                    </label>
                                 </div>
                             </div>
                             <!-- <div class="form-group m-0 row bd">
@@ -300,7 +319,7 @@
                         <div class="btn-list  clearfix">
                             <ul>
                                 <li class="m-r-15"><router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link></li>
-                                <li> <button type="button" class="submit1 btn main-bg-color continue submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
+                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
                             </ul>
                         </div>
                     </form>

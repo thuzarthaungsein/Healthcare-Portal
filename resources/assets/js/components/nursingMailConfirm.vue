@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-12 scrolldiv4">
+    <div class="tab-content job-detail">
       <div class="row">
         <!-- <div class="col-12 text-center p-3 jt1 mb-4">
           <h4>入力内容のご確認</h4>
@@ -8,7 +8,7 @@
          <!-- <div class="col-12 m-b-10">
             <h4 class="job-apply-color">入力内容のご確認</h4>
         </div> -->
-        <div class="col-12">
+        <div class="col-12 pad-free m-b-20">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
@@ -22,7 +22,7 @@
           </nav>
         </div>
         <div class="col-12 m-b-10">
-            <h4 class="job-apply-color">入力内容のご確認</h4>
+            <h4 class="nursing-info">入力内容のご確認</h4>
         </div>
          <div class="col-md-12 confirm_box" v-if="type == 'confirm'">
             <div id="loader"></div>
@@ -33,8 +33,12 @@
                 </ul>
           <form class="col-md-12 form-wrap" @submit.prevent="add" method="post">
             <div class="mb-5">
-              <p class="require-txt">ご入力いただいた内容に誤りがないかどうか、ご確認ください。
-              <br>こちらの内容でよろしければ、「上記内容を送信する」ボタンを押してください。</p>
+              <p class="require-txt">
+                    <span style="color: red; font-weight: bold; font-size: 15px;">※</span>
+                    ご入力いただいた内容に誤りがないかどうか、ご確認ください。<br/>
+                    <span style="color: red; font-weight: bold; font-size: 15px;">※</span>
+                    こちらの内容でよろしければ、「上記内容を送信する」ボタンを押してください。
+                </p>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
                   お名前
