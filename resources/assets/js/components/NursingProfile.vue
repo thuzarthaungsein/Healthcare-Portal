@@ -415,12 +415,9 @@
                                             <div class="clearfix" style="margin-bottom:30px;">
                                                    <span :class="'float-right btn all-btn main-bg-color cooperateChangeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
                                                         <i :id="'cooperate' + cooperate.id" class="fas fa-sort-down"></i> 
-                                                </span>    
-
-                                                  
+                                                </span>                 
                                             </div>
                                             
-                                           
                                             <div class="form-group">
                                                 <label class="col-2 pad-free">名前 :</label>
                                                 <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
@@ -448,7 +445,6 @@
                                                 <a class="mr-auto text-danger btn delete-borderbtn float-right m-b-20" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
                                             </div>
                                              </div>
-                                           
                                         </div>
                                     </div>
                                 </div>
