@@ -20,12 +20,17 @@ class JobApplyController extends Controller
     {
             // $jobapplies = JobApply::all()->toArray();
             // return $jobapplies;
-            $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id";
-            $jobapplies = DB::select($sql);
-            return $jobapplies;
+            // $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id";
+            // $jobapplies = DB::select($sql);
+            // return $jobapplies;
 
     }
 
+    public function getJobapplies($jobs_id){
+        $sql = "SELECT job_applies.* from job_applies INNER JOIN jobs ON job_applies.job_id= jobs.id WHERE job_applies.job_id = $jobs_id";
+        $jobapply = DB::select($sql);
+        return $jobapply;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -74,13 +79,27 @@ class JobApplyController extends Controller
             $jobapply->email = $request->email;
             $jobapply->skill = $string;
             $jobapply->remark = $request->remark;
-
+          
+           
+           
             //  return $jobapply;
-            $infos = DB::table('jobs')
-                            ->join('customers', 'customers.id', '=', 'jobs.customer_id')
-                            ->select('jobs.*','customers.email')
-                            ->where('jobs.id', '=', $jobapply->job_id)
-                            ->get();
+            // $infos = DB::table('jobs')
+            //                 ->join('customers', 'customers.id', '=', 'jobs.customer_id')
+            //                 ->join('townships','townships.customer_id','=','customers.id')
+            //                 ->join('cities','cities.id','=','townships.city_id')
+            //                 ->select('jobs.*','customers.email', 'customer.id')
+            //                 ->where('jobs.id', '=', $jobapply->job_id)
+            //                 ->get();
+
+
+
+             $query = "SELECT j.*,c.email,c.name as cus_name,ci.city_name as city_name,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum
+                        from customers as c join jobs as j on c.id = j.customer_id join townships as t on t.id = c.townships_id join cities as ci on ci.id = t.city_id 
+                        where j.id = " . $jobapply->job_id;
+
+            $infos = DB::select($query);    
+          
+
             foreach($infos as $info) {
                 $job_title = $info->title;
                 $job_description = $info->description;
@@ -90,9 +109,12 @@ class JobApplyController extends Controller
                 $job_salary = $info->salary;
                 $job_working_hours = $info->working_hours;
                 $customer_mail = $info->email;
+                $customer_name = $info->cus_name;
+                $jobnum = $info->jobnum;
+                $city_name = $info->city_name;
             }
 
-            $admin_email = 'softguide.sawnwaiyannaing@gmail.com';
+            $admin_email = 'thuzar@management-partners.co.jp';
              $jobapply->save();
              $jobapply->job_title = $job_title;
              $jobapply->job_description = $job_description;
@@ -101,6 +123,9 @@ class JobApplyController extends Controller
              $jobapply->job_employment_status = $job_employment_status;
              $jobapply->job_salary = $job_salary;
              $jobapply->job_working_hours = $job_working_hours;
+             $jobapply->cus_name = $customer_name;
+             $jobapply->jobnum = $jobnum;
+             $jobapply->city_name = $city_name;
              \Mail::to($customer_mail)->send(new jobApplyMailToCustomer($jobapply));
              \Mail::to($jobapply->email)->send(new jobApplyMailToUser($jobapply));
              \Mail::to($admin_email)->send(new jobApplyMailToAdmin($jobapply));

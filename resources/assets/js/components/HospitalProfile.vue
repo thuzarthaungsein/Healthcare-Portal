@@ -119,7 +119,7 @@
 
                 <div class="col-md-12">
 
-                  <input type="text" name="url" placeholder="url" class="form-control m-b-15 video-url white-bg-color" v-model="video.url" />
+                  <input type="text" name="url" placeholder="url" class="form-control m-b-15 video-url white-bg-color" v-model="video.photo" />
 
                 </div>
 
@@ -914,7 +914,7 @@
 
                 >
 
-                  <i class="fas fa-sort-down animate"  :class="{'rotate': isRotate3}"></i>
+                  <i class="fas fa-sort-down animate"  :class  ="{'rotate': isRotate3}"></i>
 
                 </span>
 
@@ -1294,7 +1294,8 @@ export default {
                         schedule_arr:[],shedule_am:[],shedule_pm:[],
                         schedule_list:[],
                         customer_info:[],
-                        hospital_info:[],
+                        save_customer_info:[],
+                        hospital_info:[],  save_hospital_info:[], 
                         chek_feature : [],
                         subjects:[],
                         city: '',
@@ -1412,19 +1413,14 @@ export default {
                      this.isRotate4 = !this.isRotate4;
             },
             Create_Profile () {
-                    this.img_list = [];
-                    this.video_list = [];
-                    this.gallery_list = [];
                     this.customer_info = [];
-                    this.hospital_info = [];
-                    this.chek_feature = [];
 
                     var name = $('.customer-name').val();
                     var email = $('.customer-email').val();
                     var phone = $('.customer-phone').val();
                     var address = $('#city').val();
-      
-                    this.customer_info.push({name:name,email:email,phone:phone,address:address});
+                    this.save_customer_info.push({name:name,email:email,phone:phone,address:address});
+
                     var access = $('.access').val();
                     var subject = $('.subject').val();
                     var specialist = $('.specialist').val();
@@ -1455,7 +1451,7 @@ export default {
                         }
                     var video = document.getElementsByClassName('gallery-area-video');
                         for(var i = 0; i< video.length; i++) {
-                           this.video_list.push({type:"video",photo:video[i].getElementsByClassName('url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
+                           this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
                         }
                      this.gallery_list = this.img_list.concat(this.video_list);
 
@@ -1488,38 +1484,38 @@ export default {
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                       this.hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       this.save_hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,facilities:facilities});
-                        // if(this.gallery_list.length > 0) {
-                        //         this.axios
-                        //                 .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
-                        //                         .then((response) => {
-                        //                         }).catch(error=>{
-                        //                         if(error.response.status == 422){
-                        //                           this.gallery_list = 'error';
-                        //                         this.errors = error.response.data.errors
-                        //                 }
-                        //         }) ;
-                        // }
-                        if(this.customer_info.length > 0) {
+                        if(this.gallery_list.length > 0) {
                                 this.axios
-                                        .post(`/api/customer/profile/${this.id}`,this.customer_info)
+                                        .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
                                                 .then((response) => {
-    
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                  this.customer_info = 'error';
+                                                  this.gallery_list = 'error';
                                                   this.errors = error.response.data.errors
                                         }
                                 }) ;
                         }
-                        if(this.hospital_info.length > 0) {
+                        if(this.save_customer_info.length > 0) {
                                 this.axios
-                                        .post(`/api/hospital/profile/${this.id}`,this.hospital_info)
+                                        .post(`/api/customer/profile/${this.id}`,this.save_customer_info)
+                                                .then((response) => {
+    
+                                                }).catch(error=>{
+                                                if(error.response.status == 422){
+                                                  this.save_customer_info = 'error';
+                                                  this.errors = error.response.data.errors
+                                        }
+                                }) ;
+                        }
+                        if(this.save_hospital_info.length > 0) {
+                                this.axios
+                                        .post(`/api/hospital/profile/${this.id}`,this.save_hospital_info)
                                                 .then((response) => {
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                  this.hospital_info = 'error';
+                                                  this.save_hospital_info = 'error';
                                                   this.errors = error.response.data.errors
                                         }
                                 }) ;

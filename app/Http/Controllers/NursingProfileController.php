@@ -34,7 +34,12 @@ class NursingProfileController extends Controller
     public function movePhoto(Request $request) {
         $request = $request->all();
 
-        $destination = 'upload/nursing_profile/'.$request['photo'];
+        if($request['type'] == 'photo') {
+            $destination = 'upload/nursing_profile/'.$request['photo'];
+        }
+        if($request['type'] == 'panorama') {
+            $destination = 'upload/nursing_profile/Imagepanorama/'.$request['photo'];
+        }
         $upload_img = move_uploaded_file($request['file'], $destination);
     }
 
@@ -115,8 +120,10 @@ class NursingProfileController extends Controller
         $nursing->access = $request[0]['access'];
         $nursing->business_entity = $request[0]['business_entity'];
         $nursing->website = $request[0]['website'];
-        $nursing->moving_in = $request[0]['moving_in'];
-        $nursing->per_month = $request[0]['per_month'];
+        $nursing->moving_in_from = $request[0]['moving_in_from'];
+        $nursing->moving_in_to = $request[0]['moving_in_to'];
+        $nursing->per_month_from = $request[0]['per_month_from'];
+        $nursing->per_month_to = $request[0]['per_month_to'];
         $nursing->feature = $request[0]['feature'];
         $nursing->method = $request[0]['method'];
         $nursing->date_of_establishment = $request[0]['date_of_establishment'];

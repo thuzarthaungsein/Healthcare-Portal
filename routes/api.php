@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 // public route api start
-
+    Route::get('gethospitalsearch','SearchMapController@getHospitalSearch');
     Route::post('getmap/{id}','SearchMapController@getMap');
     Route::get('getjobsearch','SearchMapController@getJobSearch');
     Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
@@ -234,6 +234,7 @@ Route::get('hospital-vgallery/{id}','GalleryController@getVideobyCustomerId');
 
 Route::get('nursing-pgallery/{id}','GalleryController@getPhotobyCustomerId');
 Route::get('nursing-vgallery/{id}','GalleryController@getVideobyCustomerId');
+Route::get('nursing-panorrama-gallery/{id}','GalleryController@getPanoramabyCustomerId');
 Route::post('nursing/movephoto','NursingProfileController@movePhoto');
 Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
 
@@ -278,7 +279,7 @@ Route::get('relatednews/{id}', 'PostController@show_related');
 Route::post('news_list/search', 'PostController@search');
 
 Route::post('jobapply','JobApplyController@store');
-Route::get('jobapplylist','JobApplyController@index');
+Route::get('jobapplylist/{jobs_id}','JobApplyController@getJobapplies');
 Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
 
@@ -319,7 +320,7 @@ Route::group(['prefix' => 'nurse'], function () {
 });
 
 Route::group(['prefix' => 'new'], function () {
-    Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
+    // Route::post('getPostsByCatId/{id}/{search_word}', 'PostController@getPostById');
 });
 
 Route::get('cost','ProfilePublishController@getCost');

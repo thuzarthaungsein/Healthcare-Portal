@@ -305,9 +305,11 @@
                   <div class="toBeToggled" id="toBeToggled">
 
                     <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
-                      <label class="form-check-label" :for="township.id">
-                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID[township.id]" @click="getCheck($event)">
+                      <!-- <label class="form-check-label" > -->
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @click="getCheck($event)">
                         {{township.township_name}}
+                        <div class="control__indicator"></div>
                       </label>
                     </div>
 
@@ -327,22 +329,27 @@
               <tr class="toBeToggled1 ShowHide1">
                 <th>特長</th>
                 <td>
-                  <div class="form-check form-check-inline col-sm-2" v-for="features in special_features" :key="features.id">
-                    <label class="form-check-label" :for="features.id">
-                      <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)">
-                      {{features.name}}
+                  <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
+                    <!-- <label class="form-check-label" > -->
+                     <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                      <input  class="form-check-input" type="checkbox" :id="feature.id" v-model="specialfeatureID" :value="feature.id" @click="features($event)">
+                      {{feature.name}}
+                      <div class="control__indicator"></div>
                     </label>
                   </div>
+
 
                 </td>
               </tr>
               <tr class="toBeToggled1 ShowHide1">
-                <th>Subjects</th>
+                <th>医科</th>
                 <td>
                   <div class="form-check form-check-inline col-sm-2" v-for="subject in subjects" :key="subject.id">
-                    <label class="form-check-label" :for="subject.id">
-                      <input class="form-check-input" type="checkbox" :id="subject.id" :value="subject.id">
+                    <!-- <label class="form-check-label" > -->
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                      <input class="form-check-input" type="checkbox" :id="subject.id" v-model="subjectID" :value="subject.id">
                       {{subject.name}}
+                      <div class="control__indicator"></div>
                     </label>
                   </div>
 
@@ -359,20 +366,90 @@
               </tr>
               <tr class="text-center">
                 <td colspan="2">
-                  <input type="button" id="save_value" name="save_value" value="Save" />
+                  <input type="button" id="search" name="search" value="Search"  @click="search"/>
                 </td>
               </tr>
-
             </tbody>
           </table>
-
         </div>
-      </div>
-      <!-- <div class="col-md-2 p-l-0">
-        <asidebar></asidebar>
-      </div>-->
-    </div>
+               <div class=" col-12">
+                 <div class="row">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
+                     <div class="job-content">
+                      <div class="job-body row  clearfix">
+                        <div class="col-4 job-img">
+                          <img src="/upload/news/nursing.JPG"  alt="">
+                        </div>
+                        <div class="col-8 job-box">
+                          <table  class="table table-bordered  table-sm">
+                            <h2> Hospital </h2>
+                              <tr>
+                                <td>Name : {{hos.name}}</td>
+                              </tr>
+                               <tr>
+                                <td> Email : {{hos.email}}</td>
+                              </tr>
+                                <tr>
+                                <td> Phone : {{hos.phone}}</td>
+                              </tr>
+                                <tr>
+                                <td> Address : {{hos.address}}</td>
+                              </tr>
+                              <tr>
+                                <td> Closed_day : {{hos.closed_day}}</td>
+                              </tr>
+                              <h2> SpecialFeature </h2>
+                              <span v-for="(spe,index) in specialfeatures" :key="index+'-'+spe.name+'-'+hos.id">
+                                <span v-if="spe.customer_id == hos.customer_id" class="feature_list">
+                                  {{spe.name}}
+                                </span>
+                              </span>
+                              <h2> Subject </h2>
+                              <tr v-for="(sub,index) in subject" :key="index+'-'+sub.name+'-'+hos.id">
+                                <td v-if="sub.customer_id == hos.customer_id">
+                                  {{sub.name}}
+                                 </td>
+                              </tr>
 
+                              <h2> Schedule </h2>
+                              <!-- <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
+                                <td v-if="hos.customer_id == time.customer_id" >
+                                  {{time.mon}} / {{time.tue}} / {{time.wed}} / {{time.thu}} / {{time.fri}} / {{time.sat}} / {{time.sun}} / {{time.part}}
+                                </td>
+                              </tr> -->
+
+                              <table>
+                              <thead >
+                                  <tr >
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Saturday</th>
+                                    <th>Sunday</th>
+                                    <th>Part</th>
+                                  </tr>
+                                </thead>
+                                <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
+                                  <tr v-if="hos.customer_id == time.customer_id">
+                                    <td>{{time.mon}}</td>
+                                    <td>{{time.tue}}</td>
+                                    <td>{{time.wed}}</td>
+                                    <td>{{time.sat}}</td>
+                                    <td>{{time.sun}}</td>
+                                    <td>{{time.part}}</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                          </table>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -383,24 +460,81 @@
     components: {
       asidebar
     },
+
     data() {
       return {
         id: '',
+        timetable:[],
+        hos_data:[],
         townshipID: [],
         township_id: [],
         cities: [],
         getCity: [],
         getTownships: [],
+        specialfeatureID:[],
         special_features: [],
+        specialfeatures:[],
         fac_types: [],
         fac_id: [],
         medical_acceptance: [],
+        subjectID:[],
         subjects: [],
+        subject:[],
         toggleCheck: true,
         toggleCheck_1: false,
       }
     },
+
     methods: {
+
+        search()
+        {
+
+          if(this.townshipID == null || this.townshipID == '')
+          {
+            this.townshipID[0] = 0;
+          }
+          if(this.specialfeatureID == null || this.specialfeatureID == '')
+          {
+            this.specialfeatureID[0] = 0;
+          }
+          if(this.subjectID == null || this.subjectID == '')
+          {
+            this.subjectID[0] = 0;
+          }
+
+          this.axios.get('api/gethospitalsearch',{
+            params:{
+                id: this.id,
+                townshipID:this.townshipID,
+                specialfeatureID:this.specialfeatureID,
+                subjectID:this.subjectID
+            },
+          }).then((response)=>{
+
+            this.hos_data = response.data.hospital;
+            this.timetable = response.data.timetable;
+            this.specialfeatures = response.data.specialfeature;
+            this.subject = response.data.subject;
+
+          })
+
+
+        },
+
+        groupBy(array, key){
+
+            const result = {}
+            array.forEach(item => {
+            if (!result[item[key]]){
+            result[item[key]] = []
+            }
+            result[item[key]].push(item)
+            })
+            return result
+        },
+
+
       toggleContent() {
         this.toggleCheck = !this.toggleCheck;
         if (this.toggleCheck == true) {
@@ -428,6 +562,7 @@
         }
       },
       getStateClick(e) {
+
         if (e.target.tagName === 'A' || e.target.tagName === 'path') {
 
           const id = e.target.id;
@@ -439,7 +574,8 @@
               this.getTownships = response.data.getTownships
               this.special_features = response.data.special_features
               this.subjects = response.data.subjects
-              this.id = id
+              this.id = id;
+
             })
         } else if (e.target.tagName === 'SELECT' || e.target.tagName === 'OPTION') {
           const id = this.id;
@@ -451,7 +587,8 @@
               this.getTownships = response.data.getTownships
               this.special_features = response.data.special_features
               this.subjects = response.data.subjects
-              this.id = id
+              this.id = id;
+
             })
         }
       },
@@ -462,7 +599,6 @@
       },
       features(e) {
         if (e.target.checked) {
-          alert('1');
         }
       },
       getStateHover(e) {

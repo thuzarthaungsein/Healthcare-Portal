@@ -1,18 +1,19 @@
 <template>
 <div>
+        <!-- <adsSlider></adsSlider> -->
         <!--menu tabs-->
         <ul class="nav nav-tabs news-tabColor" role="tablist" id="navtab">
         <li role="presentation"  class="subtab1 nav-item" :class="subtab1active"><a @click="changeRoute('news')" href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
+        <li role="presentation"  class="subtab3 nav-item" :class="subtab3active"><a @click="changeRoute('nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護施設検索</a></li>
         <li role="presentation"  class="subtab2 nav-item" :class="subtab2active"><a @click="changeRoute('hospital')" href="#tab2" role="tab" data-toggle="tab" class="nav-link" :class="subtab2active"><i class="fas fa-briefcase-medical"></i> 病院検索</a></li>
-        <li role="presentation"  class="subtab3 nav-item" :class="subtab3active"><a @click="changeRoute('nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link" :class="subtab3active"><i class="fas fa-user-md"></i> 介護検索</a></li>
         <li role="presentation"  class="subtab5 nav-item" :class="subtab4active"><a @click="changeRoute('job')" href="#tab4" role="tab" data-toggle="tab" class="nav-link" :class="subtab4active"><i class="fas fa-users"></i> 求人検索</a></li>
         </ul>
         <!--end menu tabs-->
         <!-- Tab panes -->
               <div class="tab-content tab-content1 tabs upper-tab" id="upper-tab">
                <div role="tabpanel"  class="tab-pane" id="tab1" :class="{active:subtab1active, fade:fade1}"> <News></News> </div>
-                <div role="tabpanel" class="tab-pane" id="tab2" :class="{active:subtab2active, fade:fade2}"><hospitalSearch></hospitalSearch></div>
-                <div role="tabpanel" class="tab-pane" id="tab3" :class="{active:subtab3active, fade:fade3}"><nursingSearch></nursingSearch></div>
+               <div role="tabpanel" class="tab-pane" id="tab3" :class="{active:subtab3active, fade:fade3}"><nursingSearch></nursingSearch></div>
+                <div role="tabpanel" class="tab-pane" id="tab2" :class="{active:subtab2active, fade:fade2}"><hospitalSearch></hospitalSearch></div>                
                 <div role="tabpanel" class="tab-pane" id="tab4" :class="{active:subtab4active, fade:fade4}"><jobSearch></jobSearch></div>
               </div>
             <!--end Tab panes-->
@@ -25,6 +26,7 @@ import News from "./News.vue";
 import hospitalSearch from "./hospitalSearch.vue";
 import nursingSearch from "./nursingSearch.vue";
 import jobSearch from "./jobSearch.vue";
+import adsSlider from "./ads_slider.vue";
 // import ProfilePublish from './ProfilePublish.vue'
 
 export default {
@@ -32,7 +34,8 @@ export default {
      News,
      hospitalSearch,
      nursingSearch,
-     jobSearch
+     jobSearch,
+     adsSlider
     },
      mounted() {
                 // console.log[l_storage_hos_history];
@@ -74,10 +77,7 @@ export default {
 
                 
                 this.l_storage_nus_fav.push(1);
-                this.l_storage_nus_fav.push(2);
                 this.l_storage_nus_fav.push(3);
-                this.l_storage_nus_fav.push(4);
-                this.l_storage_nus_fav.push(5);
 
                 this.l_storage_nus_history.push(1);
                 this.l_storage_nus_history.push(3);
@@ -106,32 +106,44 @@ export default {
                                        this.subtab3active = 'active';
                                }
                                else if(this.$route.params.page == '#tab2'){
+                                   this.changeRoute('hospital');
                                         this.fade1 = false;
                                         this.fade2 = false;
                                         this.fade3 = false;
                                         this.fade4 = false;
                                         this.subtab2active = 'active';
+
+                                        
                                }
                                else if(this.$route.params.page == '#tab3'){
+                                   this.changeRoute('nursing');
                                         this.fade1 = false;
                                         this.fade2 = false;
                                         this.fade3 = false;
                                         this.fade4 = false;
                                         this.subtab3active = 'active';
+
+                                        
                                }
                                else if(this.$route.params.page == '#tab4'){
+                                   this.changeRoute('job');
                                         this.fade1 = false;
                                         this.fade2 = false;
                                         this.fade3 = false;
                                         this.fade4 = false;
                                         this.subtab4active = 'active';
+
+                                        
                                }
                                else if(this.$route.params.page == '#tab1'){
+                                   this.changeRoute('news');
                                         this.fade1 = false;
                                         this.fade2 = false;
                                         this.fade3 = false;
                                         this.fade4 = false;
                                         this.subtab1active = 'active';
+
+                                        
                                }
 
                         }
@@ -230,4 +242,5 @@ export default {
 .nursing-borderColor {
         border: 1px solid #ff9563 !important;
 }
+
 </style>

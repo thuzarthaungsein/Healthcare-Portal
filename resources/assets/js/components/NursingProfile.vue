@@ -1,10 +1,35 @@
 <template>
+
     <div class="card profile m-t-22 " style="border:none;">
+        <!-- <span style="position:fixed;right:50px;" class="btn secondary-bg-color all-btn" @click="createProfile()">作成</span> -->
         <form class="col-md-12 form-class">
             <div class="col-md-12 pad-free">
+                
+                <div class="col-md-12 m-lr-0 pad-free">
+                    <div class="form-group form-group-wrapper">
+                        <label class="heading-lbl col-2 pad-free">Panorama<span class="error">*</span></label>
+                        <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
+
+                        <div class="row col-md-12 pad-free panorama panorama-box">
+                        <!-- <div > -->
+                                <div class="col-sm-3 col-md-3 mt-2 gallery-area-panorama" v-bind:id="'x-panorama'+indx" v-for="(img,indx) in panorama_arr" :key="img.id">
+                                        <input type="hidden" class="already-panorama" v-model="img.photo">
+                                        <span class='img-close-btn' v-on:click="closeBtnMethod(indx)">X</span>
+                                        <img :src="'/upload/nursing_profile/Imagepanorama/'+ img.photo" class="img-fluid" alt="profile"  id="already-panorama">
+                                </div>
+                        </div>
+                    </div>
+                        <!-- <div class="row col-md-12 text-center">
+                            <label class="h_4 next-title"> Panorama</label>
+                            <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
+                        </div>
+                         -->
+                        
+                </div>
+
                 <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">名前<span class="error">*</span></label>
+                            <label class="heading-lbl col-2 pad-free">事業者名前<span class="error">*</span></label>
                             <input type="text" class="form-control customer-name col-10 float-right" id="btn" placeholder="名前" v-model="customer_info.name">
                     </div>
                     <div class="form-group form-group-wrapper">
@@ -20,8 +45,13 @@
                             <input type="text" name="official-website" class="form-control website col-10 float-right" v-model="nursing_info.website">
                     </div>
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
-                            <div class="col-md-12">
+                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label> 
+                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
+                                    <i class="fas fa-plus-circle"></i> 加算</span>
+                                    <span class='changeGalleryLink btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryToggle" >
+                                        <i id="gallery" class="fa fa-minus-circle"></i> 
+                                   </span>
+                            <div id="changeGalleryLink"  class="col-md-12">
                                     <div class="row" id ="gallery-photo">
                                             <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                                                 <div class="col-md-12">
@@ -46,8 +76,12 @@
                     </div>
 
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
-                            <div class="col-md-12">
+                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()">
+                                    <i class="fas fa-plus-circle"></i> 加算</span>
+                                    <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryVideoToggle" >
+                                        <i id="video" class="fa fa-minus-circle"></i> 
+                                   </span>
+                            <div id="changeGalleryVideoLink" class="col-md-12">
                                     <div class="row" id="gallery-video">
                                             <div class="col-md-6 gallery-area-video" v-bind:id="'video'+indx" v-for="(video,indx) in video_arr" :key="video.id">
                                                 <div class="col-md-12">
@@ -84,52 +118,69 @@
                                 <label class="heading-lbl" style="border-left: 5px solid #f9793c;padding-left: 5px;">費用</label>
                             </div>
                             <div class="form-group">
-                                <label class="heading-lbl col-2 pad-free">入居時<span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">入居時 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
-                                    <input type="text"  class="form-control col-10 nursing-moving-in float-left white-bg-color" v-model="nursing_info.moving_in">
+                                    <div class="row">
+                                        <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
+                                            <input type="text"  class="form-control col-10 nursing-moving-in-f float-left white-bg-color m-r-10" v-model="nursing_info.moving_in_from"> 円
+                                        </div>
+                                       
+                                        <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
+                                            <input type="text"  class="form-control col-10 nursing-moving-in-t float-left white-bg-color m-r-10" v-model="nursing_info.moving_in_to"> 円
+                                        </div>
+                                    </div>
                                 </div>                                
                             </div>
                             <div class="form-group">
-                                <label class="heading-lbl col-2 pad-free">月額<span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">月額 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
-                                        <input type="text"  class="form-control col-10 nursing-per-month float-left white-bg-color" v-model="nursing_info.per_month">
+                                    <div class="row">
+                                        <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
+                                            <input type="text"  class="form-control col-10 nursing-per-month-f float-left white-bg-color m-r-10" v-model="nursing_info.per_month_from"> 円
+                                        </div>
+                                       
+                                        <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
+                                            <input type="text"  class="form-control col-10 nursing-per-month-t float-left white-bg-color m-r-10" v-model="nursing_info.per_month_to"> 円
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">                        
-                                <label class="heading-lbl col-2 pad-free">支払い方法<span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">支払い方法 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                     <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
                                     <div class="col-2 float-right">
-                                            <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
+                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
                                     </div>
                                     <div class="col-md-12 pad-free m-t-50" id="gallery-payment">
-                                            <!-- test -->
+                                        <!-- test -->
                                         <div class="pad-free col-md-12 gallery-area-payment" v-bind:id="'payment'+indx" v-for="(payment,indx) in payment_arr" :key="payment.id">
-                                                <div class="col-md-12 m-t-15 m-b-15">
+                                            <div class="col-md-12 m-t-15 m-b-15">
                                                 <table class="table">
-                                                        <tr>
-                                                        <td colspan="2" class="text-right" style="border:none;!important">
-                                                                <span class="btn edit-borderbtn" style="min-width:0px;">
-                                                                <i class="fa fa-edit"></i> 編集
-
-                                                                </span>
-                                                                <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
-                                                                        <i class="fa fa-trash"></i> 削除</a>
-                                                        </td>
-                                                        </tr>
-                                                        <tr>
-                                                        <th>
-                                                                <label class="title-lbl">タイプ名</label>
-                                                        </th>
-                                                        <th>
-                                                                <input type="text" name="method[]" class="form-control payment-name white-bg-color" v-model="payment.payment_name">
-                                                        </th>
-                                                        </tr>
+                                                    <tr>
+                                                         
+                                                    <td colspan="2" class="text-right" style="border:none;!important">
+                                                        <span :class="'btn btn all-btn main-bg-color changeLink'+payment.id" style="min-width: 0px;" @click="paymentToggle(payment.id)" >
+                                                            <i :id="'icon' + payment.id" class="fa fa-minus-circle"></i> 
+                                                        </span>
+                                                        <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
+                                                        <i class="fa fa-trash"></i> 削除</a>
+                                                    </td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th>
+                                                        <label class="title-lbl">タイプ名</label>
+                                                    </th>
+                                                    <th>
+                                                        <input type="text" name="method[]" class="form-control payment-name white-bg-color" v-model="payment.payment_name">
+                                                    </th>
+                                                    </tr>
                                                 </table>
-                                                </div>
+                                            </div>
+                                            <div class="col-md-12 " :id="'changeLink' + payment.id" >
                                                 <div class="col-md-12">
-                                                <h3 class="title-lbl">料金概要</h3>
-                                                <table class="table">
+                                                        <h3 class="title-lbl">料金概要</h3>
+                                                        <table class="table">
                                                         <tr>
                                                         <th>入居時にかかる費用</th>
                                                         <th>
@@ -154,11 +205,11 @@
                                                                 <input type="text" name="exp[]" class="form-control area white-bg-color" v-model="payment.area">
                                                         </th>
                                                         </tr>
-                                                </table>
+                                                        </table>
                                                 </div>
                                                 <div class="col-md-12">
-                                                <h3 class="title-lbl">料金詳細</h3>
-                                                <table class="table">
+                                                        <h3 class="title-lbl">料金詳細</h3>
+                                                        <table class="table">
                                                         <tr>
                                                         <th class="title-lbl">
                                                                 <span>入居にかかる費用</span>
@@ -238,8 +289,9 @@
                                                                 <input type="text" name="breakdown[]" class="form-control other-message-refund white-bg-color" v-model="payment.other_message_refund">
                                                         </th>
                                                         </tr>
-                                                </table>
+                                                        </table>
                                                 </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -266,7 +318,11 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">開設年月日</td>
-                                                    <td ><textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea></td>
+                                                    
+                                                    <td >
+                                                        <date-picker class="box date-of-establishment" v-model="nursing_info.date_of_establishment" id="datepickerbox" valueType="format" style="margin-left:11px;"></date-picker>
+                                                        <!-- <textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea> -->
+                                                    </td>
                                                         <!-- <td> <quill-editor  class="date-of-establishment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.date_of_establishment"/></td> -->
                                             </tr>
                                             <tr>
@@ -321,7 +377,7 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">居室区分・間取り等</td>
-                                                    <td ><textarea class="form-control white-bg-color room-floor" :options="editorOption"  v-model="nursing_info.room_floor"></textarea></td>
+                                                    <td><textarea class="form-control white-bg-color room-floor" :options="editorOption"  v-model="nursing_info.room_floor"></textarea></td>
                                                         <!-- <td > <quill-editor  class="room-floor" ref="myQuilEditor" :options="editorOption"  v-model="nursing_info.room_floor"/></td> -->
                                             </tr>
                                             <tr>
@@ -347,12 +403,21 @@
                     <tr>
                         <td style="border:none;">
                             <div class="form-group">
-                                <label class="heading-lbl col-2 pad-free">協力医療機関<span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">協力医療機関 <span class="error">*</span></label>
                                 <div class="col-10 pad-free float-right">
-                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
+                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()">
+                                            <i class="fas fa-plus-circle"></i> 加算</span>
+                                              
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
                                         <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                          
+                                            <div class="clearfix" style="margin-bottom:30px;">
+                                                 <span :class="'float-right btn btn all-btn main-bg-color changeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
+                                                        <i :id="'icon' + cooperate.id" class="fa fa-minus-circle"></i> 
+                                                 </span>       
+                                            </div>
+                                             
                                             <div class="form-group">
                                                 <label class="col-2 pad-free">名前 :</label>
                                                 <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
@@ -403,9 +468,9 @@
                                             <div class="col-md-12 accept-box">
                                                 {{medical.name}} {{medical.id}}
                                                 <div class="float-right">
-                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.accept_checked" v-bind:value="'accept-'+medical.id"> <i class="fas fa-check green"></i></label>
-                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.unaccept_checked" v-bind:value="'unaccept-'+medical.id"> <i class="fas fa-times red"></i></label>
-                                                    <label><input type="radio" class="medical-acceptance" :name="'medical'+medical.id" :checked="medical.negotiate_checked" v-bind:value="'negotiate-'+medical.id"> <i class="fas fa-adjust blue"></i></label>
+                                                    <label ><input type="radio"  class="medical-acceptance custom-radio" :name="'medical'+medical.id" :checked="medical.accept_checked" v-bind:value="'accept-'+medical.id"> <i class="fas fa-check green"></i></label>
+                                                    <label ><input type="radio" class="medical-acceptance custom-radio " :name="'medical'+medical.id" :checked="medical.unaccept_checked" v-bind:value="'unaccept-'+medical.id"> <i class="fas fa-times red"></i></label>
+                                                    <label ><input type="radio" class="medical-acceptance custom-radio" :name="'medical'+medical.id" :checked="medical.negotiate_checked" v-bind:value="'negotiate-'+medical.id"> <i class="fas fa-adjust blue"></i></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -557,6 +622,7 @@ import {quillEditor} from 'vue-quill-editor'
 import {Button, Input,Select} from 'iview'
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import GoogleMap from './GoogleMap.vue'
+import DatePicker from 'vue2-datepicker';
 
 export default {
         components: {
@@ -564,7 +630,8 @@ export default {
                 Button,
                 Input,
                 Select,
-                quillEditor
+                quillEditor,
+                DatePicker
         },
 
        data() {
@@ -579,11 +646,12 @@ export default {
                 fac_list: [],
                 feature_list:[],
                 medical_acceptance:[],
-                customer_info:[], nursing_info:[], staff_info:[],
+                customer_info:[],customer_info_push:[], nursing_info:[], staff_info:[], staff_info_push:[],
                 acceptance: [],
 
                 img_arr:[],img_list:[],
                 video_arr:[],video_list:[],
+                panorama_arr:[],panorama_list:[], tmp_list:[],
                 gallery_list:[],
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
@@ -657,7 +725,6 @@ export default {
                 .get('/api/staffinfo/'+this.cusid)
                 .then(response=>{
                         this.staff_info = response.data;
-
                 });
 
                 this.axios
@@ -686,6 +753,12 @@ export default {
                 });
 
                 this.axios
+                .get('/api/nursing-panorrama-gallery/'+this.cusid)
+                .then(response=>{
+                        this.panorama_arr = response.data;
+                });
+
+                this.axios
                 .get('/api/nursing-vgallery/'+this.cusid)
                 .then(response=>{
                         this.video_arr = response.data;
@@ -705,6 +778,7 @@ export default {
 
         },
         methods: {
+              
                 onEditorBlur(quill) {
         console.log('editor blur!', quill)
       },
@@ -737,6 +811,20 @@ export default {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
                 document.getElementById('already-photo'+indx).src= URL.createObjectURL(event.target.files[0]);
             },
+
+            preview_panorama() {
+                for(var i=0; i< event.target.files.length; i++) {
+                        $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
+                }
+            },
+           closeBtnMethod: function(indx) {
+                        if(confirm("Are you sure you want to delete?"))
+                        {
+                            var panorama_x = document.getElementById('x-panorama'+indx);
+                            panorama_x.parentNode.removeChild(panorama_x);
+                        }
+                    },
+        
 
             DeltArr(indx,type) {
                     var arr_list = [];
@@ -842,17 +930,65 @@ export default {
                         // console.log('editor change!', editor, html, text)
                         this.access_val = html
                 },
+                paymentToggle(id)
+                {
+                      var class_by_id = $('#icon'+id).attr('class');
+                      if(class_by_id == "fa fa-plus-circle")
+                      {     
+                                $('#icon'+id).removeClass("fa fa-plus-circle");
+                                $('.changeLink'+id).addClass("fa fa-minus-circle");    
+                                $('#changeLink'+id).show('medium');  
+                      }
+                      else {
+                         
+                                $('#icon'+id).removeClass("fa fa-minus-circle");
+                                $('.changeLink'+id).removeClass("fa fa-minus-circle");  
+                                $('#icon'+id).addClass("fa fa-plus-circle");  
+                                $('#changeLink'+id).hide('medium');        
+                      }
+    
+                },
+                galleryToggle()
+                {
+
+                      var class_by_id = $('#gallery').attr('class');
+                     
+                      if(class_by_id == "fa fa-plus-circle")
+                      {     
+                                $('#gallery').removeClass("fa fa-plus-circle");
+                                $('.changeGalleryLink').addClass("fa fa-minus-circle");    
+                                $('#changeGalleryLink').show('medium');  
+                      }
+                      else {
+                         
+                                $('#gallery').removeClass("fa fa-minus-circle");
+                                $('.changeGalleryLink').removeClass("fa fa-minus-circle");  
+                                $('#gallery').addClass("fa fa-plus-circle");  
+                                $('#changeGalleryLink').hide('medium');        
+                      }
+                },
+                galleryVideoToggle()
+                {
+                       var class_by_id = $('#video').attr('class');
+                      
+                      if(class_by_id == "fa fa-plus-circle")
+                      {     
+                                $('#video').removeClass("fa fa-plus-circle");
+                                $('.changeGalleryVideoLink').addClass("fa fa-minus-circle");    
+                                $('#changeGalleryVideoLink').show('medium');  
+                      }
+                      else {
+                         
+                                $('#video').removeClass("fa fa-minus-circle");
+                                $('.changeGalleryVideoLink').removeClass("fa fa-minus-circle");  
+                                $('#video').addClass("fa fa-plus-circle");  
+                                $('#changeGalleryVideoLink').hide('medium');        
+                      }  
+                },
 
             createProfile() {
-
-                this.img_list = [];
-                this.video_list = [];
-                this.cooperate_list = [];
-                this.payment_list = [];
-                this.customer_info = [];
-                this.staff_info = [];
-                this.acceptance = [];
-                this.chek_feature = [];
+                this.customer_info_push = [];
+                this.staff_info_push = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
@@ -860,11 +996,13 @@ export default {
                 var customer_address = $('#city').val();
 
                 // var access = $('.transporation-access').val();
-                var moving_in = $('.nursing-moving-in').val();
-                var per_month = $('.nursing-per-month').val();
+                var moving_in_from = $('.nursing-moving-in-f').val();
+                var moving_in_to = $('.nursing-moving-in-t').val();
+                var per_month_from = $('.nursing-per-month-f').val();
+                var per_month_to = $('.nursing-per-month-t').val();
                 var method = $('.nursing-payment-method').val();
                 var business_entity = $('.business-entity').val();
-                var date_of_establishment = $('.date-of-establishment').val();
+                var date_of_establishment = $('.date-of-establishment input').val();
                 var land_right_form = $('.land-right-form').val();
                 var building_right_form = $('.building-right-form').val();
                 var site_area = $('.site-area').val();
@@ -890,9 +1028,9 @@ export default {
                 var min_num_staff = $('.min-num-staff').val();
                 var num_staff = $('.num-staff').val();
                 // var nursing_remarks = $('.nursing-remarks').val();
-                this.customer_info.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
+                this.customer_info_push.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
-                this.staff_info.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
+                this.staff_info_push.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
                
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
@@ -902,6 +1040,7 @@ export default {
                                         let fd = new FormData();
                                         fd.append('file' ,file )
                                         fd.append('photo' ,file_name )
+                                        fd.append('type', 'photo')
                                         this.axios.post('/api/nursing/movephoto', fd)
                                                 .then(response => {
                                                 }).catch(error=>{
@@ -915,8 +1054,43 @@ export default {
                         }
                         this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
-                //console.log(this.img_list);
-
+       
+                var panorama = document.getElementsByClassName('gallery-area-panorama');
+                var count = 0;
+                var status = 0;
+                for(var i = 0; i< panorama.length; i++) {
+                        var preview = document.getElementsByClassName('preview-panorama');
+                        if(document.getElementById('preview-panorama'+i)) {
+                                if(status == 0) { var j = i; } else { var j = i+1; }
+                                
+                        } else {
+                                if(status == 0) { var j = i+1; } else { var j = i+2; }
+                                status = 1;
+                        }
+                        var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
+                        if(file && i<preview.length) {
+                                var file_name = file.name;
+                                        let fd = new FormData();
+                                        fd.append('file' ,file )
+                                        fd.append('photo' ,file_name )
+                                        fd.append('type', 'panorama')
+                                        this.axios.post('/api/nursing/movephoto', fd)
+                                                .then(response => {
+                                                }).catch(error=>{
+                                                        console.log(error);
+                                                if(error.response.status == 422){
+                                                        this.errors = error.response.data.errors
+                                                }
+                                        })
+                                
+                        } 
+                        else {
+                                var file_name = panorama[count].getElementsByClassName('already-panorama')[0].value;
+                                count = count + 1;
+                        }
+                        this.panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
+                }
+               
                 var video = document.getElementsByClassName('gallery-area-video');
                 for(var i = 0; i< video.length; i++) {
                         this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
@@ -977,11 +1151,12 @@ export default {
                         acceptance.push({id:id,type:type});
                 });
 
-                this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in:moving_in,per_month:per_month,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
+                this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in_from:moving_in_from,moving_in_to:moving_in_to,per_month_from:per_month_from,per_month_to:per_month_to,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
-                this.gallery_list = this.img_list.concat(this.video_list);
+                this.tmp_list = this.img_list.concat(this.video_list);
+                this.gallery_list = this.tmp_list.concat(this.panorama_list);
 
                 if(this.gallery_list.length > 0) {
                         this.axios
@@ -1043,33 +1218,33 @@ export default {
                         }) ;
                 }
 
-                if(this.customer_info.length > 0) {
+                if(this.customer_info_push.length > 0) {
                         // check
                         this.axios
-                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info)
+                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
                                 .then((response) => {
                                    
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-                                this.customer_info = 'error';
+                                this.save_customer_info = 'error';
                                 this.errors = error.response.data.errors
 
                                 }
                         }) ;
                 }
 
-                if(this.staff_info.length > 0) {
+                if(this.staff_info_push.length > 0) {
                         this.axios
-                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info)
+                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info_push)
                                 .then((response) => {
                                         console.log(response.data);
 
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
-                                        this.staff_info = 'error';
-                                        this.errors = error.response.data.errors
+                                        this.save_staff_info = 'error';
+                                        this.errors = error.response.data.error
                                 }
                         }) ;
                 }
@@ -1100,7 +1275,7 @@ export default {
                         }) ;
                 }
 
-                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info  != 'error' && this.staff_info  != 'error' &&  acceptance!= 'error') {
+                if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info_push  != 'error' && this.staff_info_push  != 'error' &&  acceptance!= 'error') {
                         alert('Nursing Profile is Succcessfully Updated');
                 }
             }
@@ -1111,6 +1286,13 @@ export default {
 
  <style>
   .quill-editor{
-          background-color: #fff;
+    background-color: #fff;
+  }
+  .panorama-box {
+    padding: 10px 10px 20px 0px;
+    border: 1px solid #dee2e6;
+    /* border-radius: 5px; */
+    margin: 0px;
+    margin-bottom: 15px;
   }
  </style>

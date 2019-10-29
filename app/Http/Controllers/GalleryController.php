@@ -28,4 +28,12 @@ class GalleryController extends Controller
                             ->toArray();
         return $video_list;
     }
+
+    public function getPanoramabyCustomerId($customer_id) {
+        $panorama_list = Gallery::where("customer_id",$customer_id)
+                            ->where('type','=', 'panorama')
+                            ->get()
+                            ->toArray();
+        return $panorama_list;
+    }
 }

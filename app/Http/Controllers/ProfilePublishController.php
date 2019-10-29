@@ -18,6 +18,9 @@ use App\Schedule;
 use App\Facility;
 use App\Subject;
 use App\Gallery;
+use App\SpecialFeaturesJunctions;
+use App\SubjectJunctions;
+
 
 class ProfilePublishController extends Controller
 {
@@ -59,7 +62,7 @@ class ProfilePublishController extends Controller
         $facility = NursingProfile::where('customer_id',$cusid)->get();
         $comedical = Cooperate_Medical::where('customer_id',$cusid)->get();
 
-        $sql = "SELECT method_payment.* from method_payment INNER JOIN customers ON method_payment.customer_id= customers.id";
+        $sql = "SELECT method_payment.* from method_payment INNER JOIN customers ON method_payment.customer_id= customers.id WHERE method_payment.customer_id=$cusid";
         $cost = DB::select($sql);
 
         //forshow all medical acceptance
@@ -105,24 +108,26 @@ class ProfilePublishController extends Controller
     }
 
     public function getSpecialfeature($type,$cusid){
-        if($type == 'hospital'){
-            $sfeature=HospitalProfile::select('special_features')->where('customer_id',$cusid)->value('special_features');
+        $sfeature = SpecialFeaturesJunctions::where('customer_id',$cusid)->get()->toArray();
+        
+        if($sfeature != null){
+            for($indx = 0; $indx<count($sfeature); $indx++) {
+                $sql[] = special_feature::find($sfeature[$indx]['special_feature_id']);
+            }
         }
         else{
-            $sfeature=NursingProfile::select('special_features')->where('customer_id',$cusid)->value('special_features');
+            $sql = '';
         }
-
-        $sql = "SELECT * FROM special_features WHERE id IN (".$sfeature.")";
-        $specialfeature = DB::select($sql);
-        return response()->json($specialfeature);
+        return response()->json($sql);
     }
 
     public function getSubject($cusid){
-        $sub = HospitalProfile::select('subject')->where('customer_id',$cusid)->value('subject');
+        $sub = SubjectJunctions::where('customer_id',$cusid)->get()->toArray();
         
         if($sub != null){
-            $query="SELECT * FROM subjects WHERE id IN (".$sub.")";
-            $subject = DB::select($query);
+            for($indx = 0; $indx<count($sub); $indx++) {
+                $subject[] = Subject::find($sub[$indx]['subject_id']);
+            }
         }
         else{
             $subject = '';

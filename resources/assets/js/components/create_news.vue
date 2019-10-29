@@ -56,14 +56,20 @@
 
                             </div>
 
-                            <div class="form-group">
-                                <label> カテゴリー:<span class="error">*</span></label>
+                            <div class="row col-md-12">
+                                <label> 関連ニュース:<span class="error">*</span></label>
+                                <div class="col-md-4">
+                                
                                 <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                         {{category.name}}
                                     </option>
                                 </select>
                                 <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="search" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
+                                </div>
                             </div>
 
                             <div class="row col-md-12">
@@ -73,7 +79,7 @@
                                         <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
                                             <div class="card-body news-post">
                                                 <div class="row">
-                                                    <div class="col-md-3" >
+                                                    <div class="col-md-3 pad-free" >
                                                         <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news">
                                                     </div>
                                                     <div class="col-md-9">
@@ -125,6 +131,7 @@
                         name: ''
                     },
                     category_id_1: '1',
+                    search_word:'',
                     related_news: [],
                     checkedNews: [],
                     upload_img: null,
@@ -179,11 +186,19 @@
                     },
                     getPostsByCatId: function() {
                         var cat_id = this.category_id_1;
-                        this.axios
-                        .post('/api/new/getPostsByCatId/' + cat_id)
-                        .then(response => {
+                        if(this.search_word == '') {
+                            var search_word = this.search_word;
+                        }  else {
+                            var search_word = $('#search-word').val();
+                        }
+
+                        let fd = new FormData();
+                        fd.append("search_word", search_word);
+                        fd.append("selected_category", cat_id);
+                        this.axios.post("/api/news_list/search", fd).then(response => {
                             this.related_news = response.data;
                         });
+                        this.search_word = '1';
                     },
                 checkValidate() {
                     if (this.news.title) {

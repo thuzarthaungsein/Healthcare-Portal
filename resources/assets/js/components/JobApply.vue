@@ -1,19 +1,31 @@
 <template>
   <div>
-    <div class="col-md-12 scrolldiv4">
-      <div class="row">
-        <div class="col-12 text-center p-3 jt1 mb-4">
+    <div class="tab-content job-detail">
+      <div class="col-md-12 pad-free m-b-20">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+              <router-link to="/" class="router-link-active">ホーム</router-link>
+          </li>
+          <li aria-current="page" class="breadcrumb-item active">仕事詳細</li>
+        </ol>
+      </nav>
+    </div>
+
+        <!-- <div class="col-12 text-center p-3 jt1 mb-4">
           <h4>求人応募フォーム</h4>
+        </div> -->
+        <div class="col-12 m-b-10">
+          <h4 class="job-apply-color">求人応募フォーム</h4>
         </div>
-      </div>
-      <div class="col-md-12 register_box" v-if="type == 'register'">
+
+      <div class="col-md-12 register_box mt-3" v-if="type == 'register'">
         <ul class="multi-step">
-          <li class="active">必要事項のご入力</li>
-          <li class="no-active">内容のご確認</li>
-          <li>送信完了</li>
+          <li class="active">1.必要事項のご入力</li>
+          <li class="no-active">2.内容のご確認</li>
+          <li>3.送信完了</li>
         </ul>
         <form class="col-md-12 form-wrap">
-          <input type="hidden" v-model="jobApply.job_id" />
           <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
               <label for="first_name">
@@ -64,13 +76,14 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
+              <!-- <input
                 type="text"
                 class="form-control box"
                 placeholder="○○日○○月○○○○年"
                 id="birthday"
                 v-model="jobApply.birthday"
-              />
+              /> -->
+              <date-picker class="box" v-model="jobApply.birthday" valueType="format"  style="margin-left: 11px;"></date-picker>
             </div>
           </div>
           <div class="form-group m-0 row bd">
@@ -83,11 +96,13 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right pl-4">
-              <label>
+              <label class="control control--radio">
                 <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Male" /> 女性
+                <div class="control__indicator"></div>
               </label>
-              <label>
+              <label class="control control--radio">
                 <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Female" /> 男性
+                <div class="control__indicator"></div>
               </label>
             </div>
           </div>
@@ -117,7 +132,7 @@
             <div class="col-md-3 col-sm-12 form-left">
               <label for="str_address">
                 <strong>
-                  Prefecture
+                  県
                   <span class="error sp1">必須</span>
                 </strong>
               </label>
@@ -242,8 +257,9 @@
                 <router-link to="/termsAndConditions" target="_blank">「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。
               </label>
               <br />
-              <label class="ml-4">
+              <label class="ml-4 control control--checkbox">
                 <input type="checkbox" v-model="jobApply.terms" /> 同意する
+                <div class="control__indicator"></div>
               </label>
               <div v-if="errors.terms" class="text-danger ml-4">{{ errors.terms }}</div>
             </div>
@@ -251,7 +267,7 @@
           <div class="text-center mt-4 pb-5">
             <span
               :disabled="isDisabled"
-              class="btn main-bg-color white all-btn"
+              class="btn main-bg-color white all-btn width17"
               @click="checkValidate()"
             >確認画面へ進む</span>
           </div>
@@ -261,9 +277,9 @@
       <div class="col-md-12 confirm_box" v-if="type == 'confirm'">
         <div id="loader"></div>
         <ul class="multi-step">
-          <li class="active">必要事項のご入力</li>
-          <li class="active">内容のご確認</li>
-          <li>送信完了</li>
+          <li class="active">1.必要事項のご入力</li>
+          <li class="active">2.内容のご確認</li>
+          <li>3.送信完了</li>
         </ul>
         <form class="col-md-10 offset-md-1 form-wrap">
           <div class="form-group m-0 row bd">
@@ -320,15 +336,15 @@
           <div class="form-group m-0 row bd">
             <div class="col-sm-3 form-left">
               <label for="str_address">
-                <strong>Prefecture :</strong>
+                <strong>県</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.pref }}</span>
+              <span class="pl-4">{{ jobApply.pref }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-left">
               <label for="str_address">
                 <strong>住所 :</strong>
               </label>
@@ -364,7 +380,7 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span>{{ jobApply.email }}</span>
+              <span class="pl-4">{{ jobApply.email }}</span>
             </div>
           </div>
           <!-- <div class="form-group m-0 row bd">
@@ -377,8 +393,8 @@
               <span class="pl-4">{{ jobApply.skill }}</span>
             </div>
           </div> -->
-          <div class="form-group m-0 row bd">
-            <div class="col-sm-3">
+          <div class="form-group m-0 row bd-all">
+            <div class="col-sm-3 form-left">
               <label for="remark">
                 <strong>リマーク</strong>
               </label>
@@ -389,8 +405,8 @@
           </div>
 
           <div class="text-center mt-4 pb-5">
-            <span class="btn btn-danger white all-btn" @click="editUserInfo()">入力画面へ戻る</span>
-            <span class="btn main-bg-color white all-btn" @click="apply()">登録する</span>
+            <span class="btn btn-danger white all-btn width17" @click="editUserInfo()">入力画面へ戻る</span>
+            <span class="btn main-bg-color white all-btn width17" @click="apply()">応募する</span>
           </div>
           <br />
           <!-- <div v-if="success" class="alert alert-success mt-3">Apply sent!</div> -->
@@ -400,9 +416,9 @@
       </div>
       <div class="col-md-12 confirm_box" v-if="type == 'completed'">
         <ul class="multi-step">
-          <li class="active">必要事項のご入力</li>
-          <li class="active">内容のご確認</li>
-          <li class="active">送信完了</li>
+          <li class="active">1.必要事項のご入力</li>
+          <li class="active">2.内容のご確認</li>
+          <li class="active">3.送信完了</li>
         </ul>
         <div class="text-center">
           <h3>入力内容は送信されました‼</h3>
@@ -411,7 +427,7 @@
           <p>今後ともどうぞよろしくお願い申し上げます。</p>
           <br />
           <br />
-          <router-link class="btn btn-info all-btn" to="/">ホームへ戻る</router-link>
+          <router-link class="btn btn-info all-btn width17" to="/">ホームへ戻る</router-link>
         </div>
 
         <br />
@@ -421,7 +437,10 @@
   </div>
 </template>
 <script>
+import DatePicker from 'vue2-datepicker';
+
 export default {
+  components: { DatePicker },
   data() {
     return {
       errors: {
@@ -507,11 +526,15 @@ export default {
       }
     },
     apply() {
+
+    this.$loading(true);
+
       // $("#loader").css("display", "block");
       this.axios
         .post("/api/jobapply", this.jobApply)
         .then(response => {
           // alert("Successful Apply");
+          this.$loading(false);
           // $("#loader").css("display", "none");
           this.jobApply = response.data;
           this.errors.email = this.jobApply;
