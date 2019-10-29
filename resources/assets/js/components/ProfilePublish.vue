@@ -4,17 +4,17 @@
 
     <div v-if="type == 'nursing'" id="nursingView">
         <!--panorama-->    
-        <div class="col-12 detail_profile_left pad-free">
+        <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <div class="thumbnail-img" style="padding:0px;border:none;">
                 <div class="card-carousel">
-                <div class="card-img">
+                <div class="card-img" >
                     <!-- <div id="panorama"></div>           -->                              
-                    <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>    
+                    <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>    
                 </div>     
                                     
                 <div  class="thumbnails">
                     <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
-                        <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
+                        <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image.photo">
                     </div>
                 </div>
             </div>
@@ -824,7 +824,7 @@
                                         :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"                                      
 
                                         @click="activatePanoImage(index)" >
-                                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
+                                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image.photo">
                                     </div>
                             </div>
                         </div>
@@ -1403,7 +1403,8 @@ export default {
                     }
                 },
                 images: [],
-                panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
+                // panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
+                panoimages:[],
                 changelinktitle:'内容を見る',
                 currentOffset: 0,
                 windowSize: 1,
@@ -1462,11 +1463,11 @@ export default {
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
 
                     this.images = response.data.images;
+                    this.panoimages = response.data.panoimages;
+                    // console.log(this.panoimages);return;
 
                     if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
-
                     {
-
                          this.center['lat'] = 35.6803997;
 
                          this.center['lng'] = 139.76901739;
@@ -1516,7 +1517,9 @@ export default {
 
                     this.center['lng'] = response.data.hoslatlong[0]['longitude'];
 
-                     this.images = response.data.images;
+                    this.images = response.data.images;
+
+                    this.panoimages = response.data.panoimages;
 
                     if(response.data.hoslatlong[0]['latitude'] == 0 && response.data.hoslatlong[0]['longitude'] == 0)
 
@@ -1577,15 +1580,8 @@ export default {
 
               currentPanoImage() {
               
-                if(this.panoimages.length > 0) {                     
-
-                    return this.panoimages[this.activePanoImage];
-
-                }
-
-                else{
-               
-                    return 'no-image-big.jpg';
+                if(this.panoimages.length > 0) {    
+                    return this.panoimages[this.activePanoImage].photo;
 
                 }
 
@@ -1621,7 +1617,6 @@ export default {
         },
         methods: {
               activatePanoImage(imageIndex) {
-  
                 this.activePanoImage = imageIndex;                    
           
             },
