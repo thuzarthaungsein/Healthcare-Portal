@@ -1,6 +1,6 @@
 <div style="width:800px;margin-left:auto;margin-right:auto">
 <!-- Hi, This is : {{ $getCustomer->email }} -->
-<div style="background-color: ##f5f5f5;text-align: center; margin-top: 45px;">
+<div style="background-color: #fff9ec;text-align: center; margin-top: 45px;">
 	        <div style="padding: 60px;">
 
 	            <img src="{{asset('/images/trust_growth.png')}}" alt="LOGO" width="400">
