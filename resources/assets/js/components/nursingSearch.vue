@@ -358,7 +358,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-12">
           <div id="holder" style="position: relative;">
-              <div class="overlay standard hidden">&nbsp</div>
+              <div class="overlay standard hidden">&nbsp;</div>
               <div id="mymap" class="select"></div>
           </div>
           </div>
