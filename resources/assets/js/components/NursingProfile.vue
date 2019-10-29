@@ -254,7 +254,7 @@
                                                         <th class="title-lbl"><span>返還金について</span></th>
                                                         <th>&nbsp;</th>
                                                         </tr>
-                                                        <tr>
+                                                        <tr>      
                                                         <th>返還制度</th>
                                                         <th>
                                                                 <input type="text" name="breakdown[]" class="form-control refund-system white-bg-color" v-model="payment.refund_system">
@@ -399,18 +399,22 @@
                                               
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
-                                        <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                        <div class="col-md-12 pad-free m-t-20 gallery-area-payment" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
                                           
                                             <div class="clearfix" style="margin-bottom:30px;">
-                                                 <span :class="'float-right btn btn all-btn main-bg-color changeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
-                                                        <i :id="'icon' + cooperate.id" class="fas fa-sort-down"></i> 
-                                                 </span>       
+                                                   <span :class="'float-right btn btn all-btn main-bg-color cooperateChangeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
+                                                        <i :id="'cooperate' + cooperate.id" class="fas fa-sort-down"></i> 
+                                                </span>    
+
+                                                  
                                             </div>
-                                             
+                                            
+                                           
                                             <div class="form-group">
                                                 <label class="col-2 pad-free">名前 :</label>
                                                 <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
                                             </div>
+                                              <div :id="'cooperateChangeLink' + cooperate.id">
                                             <table class="table table-bordered">
                                             <tr>
                                                 <th class="width15 title-bg">診療科目</th>
@@ -432,6 +436,8 @@
                                             <div class="clearfix">
                                                 <a class="mr-auto text-danger btn delete-borderbtn float-right" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
                                             </div>
+                                             </div>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -985,16 +991,16 @@ export default {
                       var class_by_id = $('#cooperate'+id).attr('class');
                       if(class_by_id == "fas fa-sort-down animate rotate")
                       {     
-                                $('#icon'+id).removeClass("fas fa-sort-down animate rotate");
-                                $('.changeLink'+id).addClass("fas fa-sort-down");    
-                                $('#changeLink'+id).show('medium');  
+                                $('#cooperate'+id).removeClass("fas fa-sort-down animate rotate");
+                                $('.cooperateChangeLink'+id).addClass("fas fa-sort-down");    
+                                $('#cooperateChangeLink'+id).show('medium');  
                       }
                       else {
                          
-                                $('#icon'+id).removeClass("fas fa-sort-down");
-                                $('.changeLink'+id).removeClass("fas fa-sort-down");  
-                                $('#icon'+id).addClass("fas fa-sort-down animate rotate");  
-                                $('#changeLink'+id).hide('medium');        
+                                $('#cooperate'+id).removeClass("fas fa-sort-down");
+                                $('.cooperateChangeLink'+id).removeClass("fas fa-sort-down");  
+                                $('#cooperate'+id).addClass("fas fa-sort-down animate rotate");  
+                                $('#cooperateChangeLink'+id).hide('medium');        
                       }
     
                 },
