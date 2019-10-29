@@ -4,8 +4,13 @@
 
     <div v-if="type == 'nursing'" id="nursingView">
         <!--panorama-->    
+<<<<<<< HEAD
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <div class="thumbnail-img" style="padding:0px;border:none;">
+=======
+        <div class="col-12 detail_profile_left pad-free">
+            <div class="thumbnail-img" style="padding:0px;border:none;background-color:transparent;">
+>>>>>>> 5a5b378ccb74dd8fdb43a8b3888a5e33b311003c
                 <div class="card-carousel">
                 <div class="card-img" >
                     <!-- <div id="panorama"></div>           -->                              
@@ -98,11 +103,11 @@
                                     </div>
                                 </div>
 
-                                <div class="thumbnails">
-                                    <div v-for="(image,index) in  images" :key="image.id" :class="['thumbnail-image', (activeImage == index) ? 'active' : '']" @click="activateImage(index)" >
+                                <ul class="thumbnails">
+                                    <li v-for="(image,index) in  images" :key="image.id" :class="['thumbnail-image', (activeImage == index) ? 'active' : '']" @click="activateImage(index)" >
                                         <img  :src ="'/upload/nursing_profile/' + image.photo">
-                                    </div>
-                                </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
@@ -794,8 +799,13 @@
 
     <div v-if="type == 'hospital'" id="hospitalView">
        <!--panorama-->    
+<<<<<<< HEAD
                 <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
                         <div class="thumbnail-img" style="padding:0px;border:none;">
+=======
+                <div class="col-12 detail_profile_left pad-free">
+                        <div class="thumbnail-img" style="padding:0px;border:none;background-color:transparent;">
+>>>>>>> 5a5b378ccb74dd8fdb43a8b3888a5e33b311003c
                             <div class="card-carousel">
                             <div class="card-img">
                                 <!-- <div id="panorama"></div>           -->                              
@@ -1714,92 +1724,53 @@ export default {
 .pannellum{
     height: 500px;
 }
-
-
 .first-row{
-
     color: #fff;
-
     background-color: #a2a7a1;
-
     border-bottom: 1px solid #ccc;
-
     border-right: 1px solid #ccc;
-
     text-align: center;
-
     padding: 10px;
-
     font-size: 100%;
-
 }
-
 .second-row{
-
     background-color: #eff7ec;
-
 }
-
 .cost_tb{
 
     /* border: 1px solid #ccc; */
-
     border-left: 0px;
-
      border-bottom: 0px;
-
     padding-bottom: 1px;
-
      background: #fff;
-
      /* padding: 10px; */
-
     /* padding-bottom: 20px; */
 
 }
 
 .cost_table{
-
     width: 100%;
-
     /* height: 81px; */
-
     float: left;
-
     border-bottom: 1px solid #ccc;
-
     /* margin-top: 15px; */
-
 }
 
 /* .cost_table label {
-
     border-left: 6px solid #b7dad2;
-
     padding-left: 10px;
-
     margin-bottom: 10px;
-
     font-size:14px;
-
     line-height: 1.3;
-
      margin-top: 30px;
-
     padding-top: 2px;
-
 } */
 
 .cost_heading_lbl{
-
     border-left: 5px solid rgb(249, 121, 60);
-
     padding: 5px 10px;
-
     font-weight: bold;
-
     font-size: 1.14em;
-
 }
 .cost_heading_lbl_mini{
     /* border-left: 5px solid rgb(249, 121, 60); */
@@ -1817,35 +1788,21 @@ export default {
 }
 
 .cost_table th{
-
     border: 1px solid #ccc;
-
     padding: 8px 10px;
-
     /* text-align: center; */
-
     background: #f0f0f0;
-
     color: #000;
-
     line-height: 1.7;
-
     vertical-align: top;
-
     min-width: 100px;
-
 }
 
 .cost_table td{
-
     border: 1px solid #ccc;
-
     padding: 8px 10px;
-
     /* text-align: center; */
-
     line-height: 1.7;
-
     background: #fff;
 
 }
@@ -1854,62 +1811,37 @@ export default {
 }
 
 .cost_btnwrapper{
-
     float: right;
-
     width: 158px;
-
     text-align: center;
-
     align-self: center;
-
     /* padding-top: 21px; */
-
 }
 
 .aa th:last-child, .aa td:last-child {
-
     width: 108px;
-
     font-size: 88.2%;
-
     white-space: nowrap;
-
 }
 
 
 
 .comment-wrapper{
-
     background-color: #fff;
-
     padding: 5px;
-
 }
-
 .comment-title{
-
     background-size: 29px;
-
     color: #3fc8d6;
-
     display: block;
-
     font-size: 16px;
-
     font-weight: 700;
-
     padding-bottom: 10px;
-
 }
 
 .card-text{
-
     color: #777;
-
 }
-
-
 .comment-ico a {
  font-size: 13px;
  color: #111;
@@ -1937,205 +1869,103 @@ export default {
 } */
 
 .thumbnail-img{
-
     width: 100%;
-
     padding: 20px;
-
-    line-height: 150px;
-
+    /* line-height: 150px; */
     vertical-align: middle;
-
     border: 1px solid #b7dad2;
-
     border-bottom: 1px solid #b7dad2;
-
     background-color: #f5f5f2;
-
     margin: 0 auto 20px;
-
     text-align: center;
-
 }
 
 .thumbnail-img img {
-
     width: 100%;
-
 }
-
-
-
 .card-carousel {
-
     user-select: none;
-
     position: relative;
-
 }
-
-
-
 .progressbar {
-
     display: block;
-
     width: 100%;
-
     height: 5px;
-
     position: absolute;
-
     background-color: rgba(221, 221, 221, 0.25);
-
     z-index: 1;
-
 }
-
-
-
 .progressbar > div {
-
     background-color: rgba(255, 255, 255, 0.52);
-
     height: 100%;
-
 }
-
-
-
 .thumbnails {
-
-    display: flex;
-
-    justify-content: space-evenly;
-
-    flex-direction: row;
-
+    /* display: inline-block; */
+    text-align: left;
+    /* justify-content: space-evenly;
+    flex-direction: row; */
+    /* overflow:auto; */
+   
 }
-
-
-
 .thumbnail-image {
-
-    display: flex;
-
-    align-items: center;
-
+    display: inline-block;   
     cursor: pointer;
-
-    padding: 2px;
-
+    margin-bottom: -1px;
+    /* width: 10%;
+    float:left; */
 }
-
-
-
 .thumbnail-image > img {
-
-    width: 100%;
-
+    /* width:  100px;
     height: auto;
-
     transition: all 250ms;
-
+    vertical-align: bottom; */
+    vertical-align: bottom;
+    width: 51px;
+    height: 36px;
+    max-width: 55px;
+    border: 3px solid transparent;
 }
-
-
 
 .thumbnail-image:hover > img,
-
 .thumbnail-image.active > img {
-
     opacity: 0.6;
-
     box-shadow: 2px 2px 6px 1px rgba(0,0,0, 0.5);
-
 }
-
-
-
 .card-img {
-
     position: relative;
-
-    margin-bottom: 20px;
-
+    margin-bottom: 10px;
 }
-
-
-
 .card-img > img {
-
     display: block;
-
     margin: 0 auto;
-
 }
-
-
-
 .actions {
-
     font-size: 1.5em;
-
     height: 40px;
-
     position: absolute;
-
     top: 50%;
-
     margin-top: -20px;
-
     width: 100%;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     color: #585858;
-
 }
-
-
 
 .actions > span {
-
     cursor: pointer;
-
     transition: all 250ms;
-
 }
-
-
-
 .actions > span.prev {
-
     margin-left: 5px;
-
 }
-
-
-
 .actions > span.next {
-
     margin-right: 5px;
-
 }
-
-
-
 .actions > span:hover {
-
     color: #eee;
-
 }
-
-
-
 .changeLink {
-
     color: #000;
     font-weight: bold;
     cursor: pointer;
@@ -2144,9 +1974,6 @@ export default {
     border-radius: 5px;
     background-color: #ffc;
 }
-
-
-
 .changeLink:hover {
     color: #f9793c;
     border: 1px solid #68ec37;
@@ -2158,7 +1985,6 @@ export default {
     cursor: not-allowed!important;
     pointer-events: none;
     background: none !important;
-
 }
 
 .room-type {
