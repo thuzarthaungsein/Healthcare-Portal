@@ -801,7 +801,7 @@
                                 <!-- <div id="panorama"></div>           -->                              
                            
                                 <Pannellum  :src="'/upload/hospital_profile/Imagepanorama/' + currentPanoImage" 
-                                            class="pannellum"                                          
+                                            class="pannellum" 
                                             :auto-load="true"
                                             :show-zoom="true"
                                             :show-fullscreen="true"
