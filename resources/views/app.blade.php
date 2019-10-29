@@ -752,6 +752,7 @@
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="path/to/vue-easy-lightbox.umd.min.js"></script>
 
 <script type="text/javascript">
 
