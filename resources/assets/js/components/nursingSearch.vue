@@ -763,7 +763,7 @@
               }
 
               var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
-              console.log(coordinates)
+              // console.log(coordinates)
               var data = {
                 type: "Feature",
                 geometry: {
@@ -871,6 +871,7 @@
               var infoWindow = new google.maps.InfoWindow(),
                 marker, i;
               const alphabet = response.data.alphabet;
+              console.log(this.markers)
               for (i = 0; i < this.markers.length; i++) {
                 var k = alphabet[i];
                 var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
