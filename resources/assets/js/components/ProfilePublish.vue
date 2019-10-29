@@ -5,7 +5,7 @@
     <div v-if="type == 'nursing'" id="nursingView">
         <!--panorama-->    
         <div class="col-12 detail_profile_left pad-free">
-            <div class="thumbnail-img" style="padding:0px;border:none;">
+            <div class="thumbnail-img" style="padding:0px;border:none;background-color:transparent;">
                 <div class="card-carousel">
                 <div class="card-img">
                     <!-- <div id="panorama"></div>           -->                              
@@ -795,7 +795,7 @@
     <div v-if="type == 'hospital'" id="hospitalView">
        <!--panorama-->    
                 <div class="col-12 detail_profile_left pad-free">
-                        <div class="thumbnail-img" style="padding:0px;border:none;">
+                        <div class="thumbnail-img" style="padding:0px;border:none;background-color:transparent;">
                             <div class="card-carousel">
                             <div class="card-img">
                                 <!-- <div id="panorama"></div>           -->                              
