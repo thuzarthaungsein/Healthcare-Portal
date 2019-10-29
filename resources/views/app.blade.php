@@ -108,6 +108,7 @@
         }
         #homeBtn:hover {
             background: #fbaa84;
+            border-color: #fbaa84;
         }
     </style>
 <!-- link for editor -->
