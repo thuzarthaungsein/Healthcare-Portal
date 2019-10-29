@@ -1244,7 +1244,7 @@ export default {
 
                                 if(error.response.status == 422){
                                         this.save_staff_info = 'error';
-                                        this.errors = error.response.data.errors
+                                        this.errors = error.response.data.error
                                 }
                         }) ;
                 }
