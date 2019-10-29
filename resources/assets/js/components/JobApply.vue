@@ -11,14 +11,14 @@
         </ol>
       </nav>
     </div>
-      
+
         <!-- <div class="col-12 text-center p-3 jt1 mb-4">
           <h4>求人応募フォーム</h4>
         </div> -->
         <div class="col-12 m-b-10">
-          <h4 class="job-apply-color">求人応募フォーム</h4>         
+          <h4 class="job-apply-color">求人応募フォーム</h4>
         </div>
-      
+
       <div class="col-md-12 register_box mt-3" v-if="type == 'register'">
         <ul class="multi-step">
           <li class="active">1.必要事項のご入力</li>
@@ -519,14 +519,14 @@ export default {
       }
     },
     apply() {
-     
+
     this.$loading(true);
 
       // $("#loader").css("display", "block");
       this.axios
         .post("/api/jobapply", this.jobApply)
         .then(response => {
-          // alert("Successful Apply");          
+          // alert("Successful Apply");
           this.$loading(false);
           // $("#loader").css("display", "none");
           this.jobApply = response.data;
