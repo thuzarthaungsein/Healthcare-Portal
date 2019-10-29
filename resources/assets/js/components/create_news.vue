@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label> カテゴリー:<span class="error">*</span></label>
+                                <label> 関連ニュース:<span class="error">*</span></label>
                                 <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                         {{category.name}}
