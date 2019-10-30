@@ -305,7 +305,7 @@ Route::group(['prefix' => 'comments'], function () {
     Route::post('add', 'CommentController@store');
     Route::get('edit/{id}', 'CommentController@edit');
     Route::get('comment', 'CommentController@index');
-    Route::get('comfirm/{id}','CommentController@confirm');
+    Route::get('confirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
     Route::post('search','CommentController@search');

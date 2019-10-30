@@ -113,17 +113,13 @@ class CommentController extends Controller
     public function confirm($id)
      {
 
-            // $comment =Comment::find($id);
-            // $comment->status =1;
-            // $comment->save();
-            // $comment =Comment::all()->toArray();
-            // $data = array("comments"=> $comment, "success", "Comment successfully confirmed");
-            // return response()->json($data);
+            $comment =Comment::find($id);
+            $comment->status =1;
+            $comment->save();
+            $comment =Comment::all()->toArray();
+            $data = array("comments"=> $comment, "success", "Comment successfully confirmed");
+            return response()->json($data);
 
-            $comment = Comment::find($id);
-            $comment->delete();
-            $comments = Comment::all()->toArray();
-            return array_reverse($comments);
     }
 
     public function list()
