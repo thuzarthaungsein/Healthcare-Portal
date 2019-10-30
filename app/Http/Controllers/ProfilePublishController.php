@@ -36,7 +36,7 @@ class ProfilePublishController extends Controller
 
     public function hospitalProfile($cusid)
     {
-        $hospital = HospitalProfile::where('customer_id',$cusid)->get();        
+        $hospital = HospitalProfile::where('customer_id',$cusid)->get();
 
         //for hospital map
         $hoslatlong =  DB::table('customers') ->select('customers.address','hospital_profiles.*')
@@ -60,15 +60,15 @@ class ProfilePublishController extends Controller
                 $videos[$i]['photo'] = $videos[$i]['photo'];
             }
         }
-        
+
         return response()->json(array("hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"images"=>$images,"videos"=>$videos,"facility_list"=>$facility_list,"facility"=>$facility));
     }
 
     public function nursingProfile($cusid)
     {
-        
+
         $feature = NursingProfile::select('feature')->where('customer_id',$cusid)->get();
-       
+
         $method = NursingProfile::select('method')->where('customer_id',$cusid)->get();
         $facility = NursingProfile::where('customer_id',$cusid)->get();
         $comedical = Cooperate_Medical::where('customer_id',$cusid)->get();
@@ -89,12 +89,12 @@ class ProfilePublishController extends Controller
          //for nursing map
         $nurselatlong =  DB::table('customers') ->select('customers.address','nursing_profiles.*')
                              ->join('nursing_profiles','nursing_profiles.customer_id','=','customers.id')
-                             ->where('nursing_profiles.customer_id','=',$cusid)->get();       
+                             ->where('nursing_profiles.customer_id','=',$cusid)->get();
 
         //for image slide show
         $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
 
-        $panoimages = Gallery::where('customer_id',$cusid)->where('type','panorama')->select()->get();
+        $panoimages = Gallery::where('customer_id',$cusid)->where('type','panorama')->select()->orderBy('id','desc')->get();
         $videos = Gallery::where('customer_id',$cusid)->where('type','video')->select()->get()->toArray();
         for($i=0;$i<count($videos);$i++) {
             $first_arr = explode('v=',$videos[$i]['photo']);
@@ -145,7 +145,7 @@ class ProfilePublishController extends Controller
 
     public function getSpecialfeature($type,$cusid){
         $sfeature = SpecialFeaturesJunctions::where('customer_id',$cusid)->get()->toArray();
-        
+
         if($sfeature != null){
             for($indx = 0; $indx<count($sfeature); $indx++) {
                 $sql[] = special_feature::find($sfeature[$indx]['special_feature_id']);
@@ -159,7 +159,7 @@ class ProfilePublishController extends Controller
 
     public function getSubject($cusid){
         $sub = SubjectJunctions::where('customer_id',$cusid)->get()->toArray();
-        
+
         if($sub != null){
             for($indx = 0; $indx<count($sub); $indx++) {
                 $subject[] = Subject::find($sub[$indx]['subject_id']);
@@ -168,7 +168,7 @@ class ProfilePublishController extends Controller
         else{
             $subject = '';
         }
-        
+
         return response()->json($subject);
     }
 

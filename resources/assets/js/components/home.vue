@@ -13,7 +13,7 @@
               <div class="tab-content tab-content1 tabs upper-tab" id="upper-tab">
                <div role="tabpanel"  class="tab-pane" id="tab1" :class="{active:subtab1active, fade:fade1}"> <News></News> </div>
                <div role="tabpanel" class="tab-pane" id="tab3" :class="{active:subtab3active, fade:fade3}"><nursingSearch></nursingSearch></div>
-                <div role="tabpanel" class="tab-pane" id="tab2" :class="{active:subtab2active, fade:fade2}"><hospitalSearch></hospitalSearch></div>                
+                <div role="tabpanel" class="tab-pane" id="tab2" :class="{active:subtab2active, fade:fade2}"><hospitalSearch></hospitalSearch></div>
                 <div role="tabpanel" class="tab-pane" id="tab4" :class="{active:subtab4active, fade:fade4}"><jobSearch></jobSearch></div>
               </div>
             <!--end Tab panes-->
@@ -58,8 +58,41 @@ export default {
             }
         },
         created() {
-            this.start();
-       
+                this.start();
+                console.log(localStorage.getItem("hospital_fav"));
+                console.log(localStorage.getItem("nursing_fav"));
+                console.log(localStorage.getItem("nursing_history"));
+                console.log(localStorage.getItem("hospital_history"));
+
+                // Push data
+                this.l_storage_hos_fav.push(2);
+                this.l_storage_hos_fav.push(4);
+
+                this.l_storage_hos_history.push(2);
+                this.l_storage_hos_history.push(4);
+
+
+                this.l_storage_nus_fav.push(1);
+                this.l_storage_nus_fav.push(2);
+                this.l_storage_nus_fav.push(3);
+                this.l_storage_nus_fav.push(4);
+                this.l_storage_nus_fav.push(5);
+                this.l_storage_nus_fav.push(6);
+                this.l_storage_nus_fav.push(7);
+                this.l_storage_nus_fav.push(8);
+                this.l_storage_nus_fav.push(9);
+                this.l_storage_nus_fav.push(10);
+                this.l_storage_nus_fav.push(11);
+
+
+                this.l_storage_nus_history.push(1);
+                this.l_storage_nus_history.push(3);
+
+                localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
+                localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
+                localStorage.setItem("nursing_history", this.l_storage_nus_history);
+                localStorage.setItem("hospital_history", this.l_storage_hos_history);
+
             this.getAllCat();
             this.getPostByFirstCat();
             this.getLatestPostByFirstCatID();
@@ -67,7 +100,7 @@ export default {
         },
         methods: {
             start() {
-                    
+
                 if(this.$route.params.page) {
                         //console.log(this.$route.params.page)
                         if(this.$route.params.page == 'subtab2') {
@@ -86,7 +119,7 @@ export default {
                                 this.fade4 = false;
                                 this.subtab2active = 'active';
 
-                                
+
                         }
                         else if(this.$route.params.page == '#tab3'){
                             this.changeRoute('nursing');
@@ -96,7 +129,7 @@ export default {
                                 this.fade4 = false;
                                 this.subtab3active = 'active';
 
-                                
+
                         }
                         else if(this.$route.params.page == '#tab4'){
                             this.changeRoute('job');
@@ -106,7 +139,7 @@ export default {
                                 this.fade4 = false;
                                 this.subtab4active = 'active';
 
-                                
+
                         }
                         else if(this.$route.params.page == '#tab1'){
                             this.changeRoute('news');
@@ -116,7 +149,7 @@ export default {
                                 this.fade4 = false;
                                 this.subtab1active = 'active';
 
-                                
+
                         }
 
                 }
@@ -168,10 +201,10 @@ export default {
             },
             changeRoute(tab){
                     // $('[class^="-tabColor"]').removeClass();
-                    $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');                        
+                    $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
                     $('#navtab').addClass(tab+'-tabColor');
-                    $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');                        
-                    $('#upper-tab').addClass(tab+'-borderColor');                        
+                    $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+                    $('#upper-tab').addClass(tab+'-borderColor');
                 // console.log(e.target.tagName);
                 //this.$router.push({name:'home'});
             },
