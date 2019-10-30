@@ -129,7 +129,7 @@
                                                     
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <div style="width:250px;">{{nur_profile.access}}</div>
+                                                            <div style="width:250px;"><p v-html="nur_profile.access"></p></div>
                                                         </td>
                                                     </tr>
 

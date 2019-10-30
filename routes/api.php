@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-// use App\NursingProfile;
+use App\NursingProfile;
+use App\HospitalProfile;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,21 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {  
-    // $sql = NursingProfile::$request->user()->customer_id;
-    return $request->user();
+    if($request->user()->type_id == 2){
+        $lat_lng = HospitalProfile::select('id','latitude','longitude')->where('customer_id', $request->user()->customer_id)->get();
+    }
+    else {
+        $lat_lng = NursingProfile::select('id','latitude','longitude')->where('customer_id', $request->user()->customer_id)->get();
+    }    
+    
+    return response()->json(array("user"=>$request->user(), "lat_lng"=>$lat_lng));
 });
 
 Route::group(['middleware' => ['auth']], function() {
 
 });
+
+
 
 
 
@@ -32,6 +41,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
 
     Route::get('getCity','SearchMapController@getCity');
+    Route::get('profile_view/{cusid}/{type}','ProfilePublishController@getCustomerLatLng');
 
 // public route api end
 

@@ -172,12 +172,13 @@ class JobController extends Controller
         // }
 
         $job = new Job();
-        if($request->occupation_id != null)
-        {
-            $job->occupation_id = $request->occupation_id;
-        }else{
-            $job->occupation_id = 0;
-        }
+        // if($request->occupation_id != null)
+        // {
+        //     $job->occupation_id = $request->occupation_id;
+        // }else{
+        //     $job->occupation_id = 0;
+        // }
+        $job->occupation_id = $request->occupation_id;
         $job->title =$request->input('title');
         $job->customer_id= auth()->user()->customer_id;
 
@@ -188,7 +189,9 @@ class JobController extends Controller
         $job->location = $request->input('location');
         $job->nearest_station = $request->input('nearest_station');
         $job->employment_status = $request->employmentstatus;
+        $job->salary_type = $request->input('salary_type');
         $job->salary = $request->input('salary');
+        $job->salary_remark = $request->input('salary_remark');
         $job->allowances = $request->input('allowances');
         $job->insurance = $request->input('insurance');
         $job->working_hours = $request->input('working_hours');
@@ -228,7 +231,7 @@ class JobController extends Controller
     {
 
         // $job = Job::find($id);
-        $sql = "SELECT jobs.*, zipcode.id, zipcode.zip7_code, zipcode.pref as cityname, zipcode.city as township, zipcode.street from jobs inner join zipcode on jobs.zipcode_id = zipcode.id WHERE jobs.id = $id";
+        $sql = "SELECT jobs.*, zipcode.id as zip_id, zipcode.zip7_code, zipcode.pref as cityname, zipcode.city as township, zipcode.street from jobs inner join zipcode on jobs.zipcode_id = zipcode.id WHERE jobs.id = $id";
         $job = DB::select($sql);
 
         return response()->json($job);

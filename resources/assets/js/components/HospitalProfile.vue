@@ -1294,7 +1294,7 @@ export default {
                         schedule_arr:[],shedule_am:[],shedule_pm:[],
                         schedule_list:[],
                         customer_info:[],
-                        save_customer_info:[],
+                        customer_info_push:[],
                         hospital_info:[],  save_hospital_info:[], 
                         chek_feature : [],
                         subjects:[],
@@ -1348,7 +1348,7 @@ export default {
                 .then(response=>{
                         this.fac_list = response.data;
                 });
-                quill.editor.disable()
+                // quill.editor.disable()
         },
         methods: {
             scheduletogglediv() {
@@ -1419,7 +1419,7 @@ export default {
                     var email = $('.customer-email').val();
                     var phone = $('.customer-phone').val();
                     var address = $('#city').val();
-                    this.save_customer_info.push({name:name,email:email,phone:phone,address:address});
+                    this.customer_info_push.push({name:name,email:email,phone:phone,address:address}); 
 
                     var access = $('.access').val();
                     var subject = $('.subject').val();
@@ -1497,14 +1497,14 @@ export default {
                                         }
                                 }) ;
                         }
-                        if(this.save_customer_info.length > 0) {
+                        if(this.customer_info_push.length > 0) {
                                 this.axios
-                                        .post(`/api/customer/profile/${this.id}`,this.save_customer_info)
+                                        .post(`/api/customer/profile/${this.id}`,this.customer_info_push)
                                                 .then((response) => {
     
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
-                                                  this.save_customer_info = 'error';
+                                                  this.customer_info_push = 'error';
                                                   this.errors = error.response.data.errors
                                         }
                                 }) ;
