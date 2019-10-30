@@ -49,8 +49,16 @@ class ProfilePublishController extends Controller
         $facility = Facility::whereIn('id',$hosfacility)->select('description','id')->get();
         //for image slide show
         $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
+
+        $videos = Gallery::where('customer_id',$cusid)->where('type','video')->select()->get()->toArray();
+        // print_r($videos);exit;
+        for($i=0;$i<count($videos);$i++) {
+            $first_arr = explode('v=',$videos[$i]['photo']);
+            $second_arr = explode('&list',$first_arr[1]);
+            $videos[$i]['photo'] = $second_arr[0];
+        }
         
-        return response()->json(array("hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"images"=>$images,"facility_list"=>$facility_list,"facility"=>$facility));
+        return response()->json(array("hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"images"=>$images,"videos"=>$videos,"facility_list"=>$facility_list,"facility"=>$facility));
     }
 
     public function nursingProfile($cusid)

@@ -1272,6 +1272,18 @@
                 </div>
 
             </div>
+            
+            <!-- Hospital Video -->
+                <div class="col-md-12 m-t-15 m-b-15">
+                        <label class="cost_heading_lbl">動画</label>
+                        <div class="row">
+                            <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
+                                <iframe  :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe >
+                                <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
+                            </div>
+                        </div>
+                    </div>
+            <!-- End -->
 
             <div class="row ele m-lr-0" id="element3">
 
@@ -1358,6 +1370,7 @@ export default {
                 ],
                 am_arr:[],
                 images:[],
+                videos:[],
                 pm_arr:[],
                 active_el:0,
                 width: '',
@@ -1446,7 +1459,7 @@ export default {
                     console.log(this.nusfacilities);
 
                     this.cooperate_medical = response.data.comedical;
-
+                
                     this.medical_acceptance = response.data.medicalacceptance;
 
                     this.medical = response.data.medical;
@@ -1520,7 +1533,9 @@ export default {
 
                     this.images = response.data.images;
 
-                    this.panoimages = response.data.panoimages;
+                    this.videos = response.data.videos;
+
+                    // this.panoimages = response.data.panoimages;
 
                     if(response.data.hoslatlong[0]['latitude'] == 0 && response.data.hoslatlong[0]['longitude'] == 0)
 

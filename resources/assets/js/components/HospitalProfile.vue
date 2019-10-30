@@ -1348,7 +1348,7 @@ export default {
                 .then(response=>{
                         this.fac_list = response.data;
                 });
-                quill.editor.disable()
+                // quill.editor.disable()
         },
         methods: {
             scheduletogglediv() {
