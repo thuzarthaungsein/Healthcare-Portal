@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-12 scrolldiv4">
+    <div class="tab-content job-detail">
       <div class="row">
         <!-- <div class="col-12 text-center p-3 jt1 mb-4">
           <h4>入力内容のご確認</h4>
@@ -8,9 +8,17 @@
          <!-- <div class="col-12 m-b-10">
             <h4 class="job-apply-color">入力内容のご確認</h4>
         </div> -->
-        <div class="col-12">
+        <div class="col-12 pad-free m-b-20">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <!-- <router-link to="/">ホーム</router-link> -->
+                    <router-link to="/" >ホーム</router-link>
+                </li>
+                <!-- <li class="breadcrumb-item active" aria-current="page">rrr</li> -->
+                <li class="breadcrumb-item"><span>介護のお気に入り</span></li>
+            </ol>
+            <!-- <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <span @click="changeRoute()" class="link-span">介護のお気に入り</span>
               </li>
@@ -18,23 +26,27 @@
                 <a href="/">必要項目のご入力</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">入力内容のご確認</li>
-            </ol>
+            </ol> -->
           </nav>
         </div>
         <div class="col-12 m-b-10">
-            <h4 class="job-apply-color">入力内容のご確認</h4>
+            <h4 class="nursing-info">資料請求される方について</h4>
         </div>
          <div class="col-md-12 confirm_box" v-if="type == 'confirm'">
             <div id="loader"></div>
                 <ul class="multi-step">
-                    <li class="active">1.必要事項のご入力</li>
-                    <li class="active">2.内容のご確認</li>
+                    <li class="active">1.お客様情報のご入力</li>
+                    <li class="active">2.入力内容のご確認</li>
                     <li>3.送信完了</li>
                 </ul>
           <form class="col-md-12 form-wrap" @submit.prevent="add" method="post">
             <div class="mb-5">
-              <p class="require-txt">ご入力いただいた内容に誤りがないかどうか、ご確認ください。
-              <br>こちらの内容でよろしければ、「上記内容を送信する」ボタンを押してください。</p>
+              <p class="require-txt">
+                    <span style="color: red; font-weight: bold; font-size: 15px;">※</span>
+                    ご入力いただいた内容に誤りがないかどうか、ご確認ください。<br/>
+                    <span style="color: red; font-weight: bold; font-size: 15px;">※</span>
+                    こちらの内容でよろしければ、「上記内容を送信する」ボタンを押してください。
+                </p>
               <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
                   お名前

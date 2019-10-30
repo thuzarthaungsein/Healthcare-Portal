@@ -13,12 +13,12 @@ class CustomerProfileContoller extends Controller
 
     function getHospitalHistory($local_sto) {
         $query = "SELECT hospital_profiles.* , group_concat(special_features_junctions.special_feature_id) AS special, group_concat(subject_junctions.subject_id) AS sub, '' AS schedule_am, '' AS schedule_pm, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `hospital_profiles`
-                    JOIN customers ON hospital_profiles.customer_id = customers.id
-                    JOIN townships ON townships.id = customers.townships_id
-                    JOIN cities ON townships.city_id = cities.id
-                    JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
-                    JOIN subject_junctions ON subject_junctions.customer_id = customers.id
-                    WHERE hospital_profiles.id IN (" . $local_sto . ") GROUP BY customers.id";
+                LEFT JOIN customers ON hospital_profiles.customer_id = customers.id
+                LEFT JOIN townships ON townships.id = customers.townships_id
+                LEFT JOIN cities ON townships.city_id = cities.id
+                LEFT JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
+                LEFT JOIN subject_junctions ON subject_junctions.customer_id = customers.id
+                WHERE hospital_profiles.id IN (" . $local_sto . ") GROUP BY customers.id";
         $hos_histories = DB::select($query);
         foreach($hos_histories as $hos) {
             $sfeature = $hos->special;
