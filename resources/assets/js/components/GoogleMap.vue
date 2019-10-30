@@ -94,8 +94,7 @@ export default {
       }];
     this.new_lat = Number(localStorage.getItem('lat_num'));
     this.new_long = Number(localStorage.getItem('lng_num'));
-console.log(localStorage.getItem('lat_num'));
-console.log(localStorage.getItem('lng_num'));
+
     this.center = { lat: Number(localStorage.getItem('lat_num')), lng: Number(localStorage.getItem('lng_num')) }
     
     $('#gmap-search').css({'display':'none'});

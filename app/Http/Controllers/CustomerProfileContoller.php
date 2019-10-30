@@ -46,10 +46,10 @@ class CustomerProfileContoller extends Controller
 
     function getNursingHistory($local_sto) {
         $query = "SELECT nursing_profiles.*, group_concat(special_features_junctions.special_feature_id) AS special, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
-                    JOIN customers ON nursing_profiles.customer_id = customers.id
-                    JOIN townships ON townships.id = customers.townships_id
-                    JOIN cities ON townships.city_id = cities.id
-                    JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
+                    LEFT JOIN customers ON nursing_profiles.customer_id = customers.id
+                    LEFT JOIN townships ON townships.id = customers.townships_id
+                    LEFT JOIN cities ON townships.city_id = cities.id
+                    LEFT JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
                     WHERE nursing_profiles.id IN (" . $local_sto . ") GROUP BY customers.id";
         $nur_histories = DB::select($query);
         foreach($nur_histories as $nur) {

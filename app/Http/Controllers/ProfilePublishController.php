@@ -129,6 +129,19 @@ class ProfilePublishController extends Controller
         $customer = DB::select($sql);
         return $customer;
     }
+    public function getCustomerLatLng($cusid,$type)
+    {
+        // $customer = Customer::where('id',$cusid)->get();
+        if($type == 'hospital'){
+            $type = 'hospital_profiles';
+        }
+        else{
+            $type = 'nursing_profiles';
+        }
+        $sql = "SELECT $type.latitude,$type.longitude,$type.id as pro_id from customers inner join $type on customers.id = $type.customer_id where customers.id = $cusid";
+        $customer = DB::select($sql);
+        return $customer;
+    }
 
     public function getSpecialfeature($type,$cusid){
         $sfeature = SpecialFeaturesJunctions::where('customer_id',$cusid)->get()->toArray();
