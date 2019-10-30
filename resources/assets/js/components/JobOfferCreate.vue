@@ -353,7 +353,7 @@
                   <span class="error sp2">必須</span>
                 </label>
                 <div class="row form-group">
-                  <select v-model="joboffer.salary_type" class="form-control col-md-4">
+                  <select v-model="joboffer.salary_type" class="form-control col-md-4 joboffer-salary-type">
                     <option v-bind:value='-1'>選択 </option>
                     <option value='1'>時給</option>
                     <option value="2">日給</option>
@@ -361,7 +361,7 @@
                   </select>
                   <input
                     type="text"
-                    class="form-control col-md-4"
+                    class="form-control col-md-4 joboffer-salary"
                     v-model="joboffer.salary"
                     name="salary"
                     placeholder="給与を入力してください。"
