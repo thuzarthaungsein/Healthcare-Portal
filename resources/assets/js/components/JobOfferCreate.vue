@@ -365,6 +365,7 @@
                     v-model="joboffer.salary"
                     name="salary"
                     placeholder="給与を入力してください。"
+                    v-on:keydown="isNumber"
                   />
                   <span v-if="errors.salary" class="error">{{errors.salary[0]}}</span>
                 </div>
@@ -715,6 +716,14 @@ export default {
           id: arr[i]
         });
       }
+    },
+
+    isNumber: function(event) {
+          if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+             && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+          {
+            event.preventDefault();
+          }
     },
 
     // onBlurNumber(e) {
