@@ -83,7 +83,10 @@ class ProfilePublishController extends Controller
         //for image slide show
         $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
 
-        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff, "nurselatlong"=>$nurselatlong,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"images"=>$images));
+        $panoimages = Gallery::where('customer_id',$cusid)->where('type','panorama')->select()->get();
+        // print_r($panoimages);exit;
+
+        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff, "nurselatlong"=>$nurselatlong,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"images"=>$images,"panoimages"=>$panoimages));
     }
 
     public function getComment($cusid)

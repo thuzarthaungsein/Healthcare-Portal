@@ -27,7 +27,7 @@ class SearchMapController extends Controller
         $nus_latlng = DB::select($query);
 
 
-        $nursing = "SELECT n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
+        $nursing = "SELECT n.id as nursing_id, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
                     FROM customers AS c 
                     JOIN townships AS t 
                     ON t.id = c.townships_id 

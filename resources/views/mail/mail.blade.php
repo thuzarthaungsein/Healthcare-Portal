@@ -3,7 +3,7 @@
 <div style="background-color: ##f5f5f5;text-align: center; margin-top: 45px;">
 	        <div style="padding: 60px;">
 
-	            <img src="{{asset('/images/trust_growth.png')}}" alt="LOGO" width="400">
+			<a style="font-size: 40px;font-weight: bold;color: #d2571c;text-shadow: 3px 4px #ccc;">LOGO <span style="font-size: 30px; color: #f57e46;">HERE</span></a>
 
 	            <h5 style="color:#3e4348;font-size: 33.8px;margin-bottom: 30px;font-weight: bold;text-align: center;">
                 メールアドレスを確認してください

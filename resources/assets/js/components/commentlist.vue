@@ -48,7 +48,7 @@
                     <!-- <button class="'btn btn all-btn main-bg-color changeLink'+payment.id" type="button" @click="commentToggle(comment.id)"><span  :id="'icon' + comment.id"  class="fa fa-angle-down"></span></button> -->
                     <button :class="'btn btn all-btn main-bg-color changeLink'+comment.id" style="min-width: 0px;" @click="commentToggle(comment.id)" >
                                                             <i :id="'icon' + comment.id" class="fa fa-angle-down"></i> 見る</button>
-                    <button class="btn btn-secondary all-btn confirmed" v-if="comment.status != 0">確認しました。</button>
+                    <button class="btn-secondary all-btn confirmed" v-if="comment.status != 0" style="padding:5px;border-radius:3px;">確認しました。</button>
                     <button class="btn btn-info all-btn" v-else @click="commentConfirm(comment.id)">確認してください。</button>
                     <button class="btn btn-danger all-btn" @click="deleteComment(comment.id)">削除</button>
                   </div>

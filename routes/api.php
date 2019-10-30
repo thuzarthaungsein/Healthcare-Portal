@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+// use App\NursingProfile;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {  
+    // $sql = NursingProfile::$request->user()->customer_id;
     return $request->user();
 });
 
@@ -322,7 +324,7 @@ Route::group(['prefix' => 'nurse'], function () {
 });
 
 Route::group(['prefix' => 'new'], function () {
-    Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
+    // Route::post('getPostsByCatId/{id}/{search_word}', 'PostController@getPostById');
 });
 
 Route::get('cost','ProfilePublishController@getCost');
