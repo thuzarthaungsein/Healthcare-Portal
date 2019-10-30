@@ -336,14 +336,9 @@
               <div class="form-group">
                 <label for="salary">職業:</label>
 
-                <select v-model="selectedValue" class="form-control" @change="getParent()">
+                <select v-model="joboffer.occupation_id" class="form-control">
                   <option value="0">なし</option>
-
-                  <option
-                    v-for="occupation in OccupationList"
-                    :key="occupation.id"
-                    v-bind:value="occupation.id"
-                  >{{occupation.name}}</option>
+                  <option v-for="occupation in OccupationList" :key="occupation.id" :value="occupation.id">{{occupation.name}}</option>
                 </select>
               </div>
 
@@ -352,14 +347,35 @@
                   給与:
                   <span class="error sp2">必須</span>
                 </label>
-                <input
-                  type="text"
+                <div class="row form-group">
+                  <select v-model="joboffer.salary_type" class="form-control col-md-4 joboffer-salary-type">
+                    <option v-bind:value='-1'>選択 </option>
+                    <option value='時給'>時給</option>
+                    <option value="日給">日給</option>
+                    <option value="月給">月給</option>
+                  </select>
+                  <input
+                    type="text"
+                    class="form-control col-md-4 joboffer-salary"
+                    v-model="joboffer.salary"
+                    name="salary"
+                    placeholder="給与を入力してください。"
+                    v-on:keydown="isNumber"
+                  />
+                  <span v-if="errors.salary" class="error">{{errors.salary[0]}}</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="salary_remark">Salary Remark:</label>
+                <textarea
+                  name="salary_remark"
                   class="form-control"
-                  v-model="joboffer.salary"
-                  name="salary"
-                  placeholder="給与を入力してください。"
-                />
-                <span v-if="errors.salary" class="error">{{errors.salary[0]}}</span>
+                  cols="50"
+                  rows="5"
+                  v-model="joboffer.salary_remark"
+                  placeholder="諸手当を入力してください。"
+                ></textarea>
               </div>
 
               <!-- <div class="form-group row">
@@ -458,16 +474,12 @@ export default {
       subtitle: "作成する",
       errors: [],
 
-      OccupationList: {
-        id: "",
-
-        name: ""
-      },
+      OccupationList: { id: "", name: "" },
 
       joboffer: {
         title: "",
         customer_id: "",
-        occupation_id: "",
+        occupation_id: 0,
         description: "",
         fields: [
           {
@@ -493,7 +505,9 @@ export default {
             ochecked: false
           }
         ],
+        salary_type: '-1',
         salary: "",
+        salary_remark: '',
 
         insurance: "",
 
@@ -536,6 +550,7 @@ export default {
           this.joboffer.customer_id = response.data[0].customer_id;
 
           this.selectedValue = response.data[0].occupation_id;
+          this.joboffer.occupation_id = response.data[0].occupation_id;
 
           this.joboffer.description = response.data[0].description;
 
@@ -556,8 +571,9 @@ export default {
           // this.ischeck = response.data.employment_status;
 
           // this.createCheck(this.ischeck);
-
+          this.joboffer.salary_type = response.data[0].salary_type;
           this.joboffer.salary = response.data[0].salary;
+          this.joboffer.salary_remark = response.data[0].salary_remark;
 
           this.joboffer.allowances = response.data[0].allowances;
 
@@ -611,6 +627,7 @@ export default {
     },
     
     add() {
+        console.log(this.joboffer);
       if (this.$route.params.id) {
         this.updateJob();
       } else {
@@ -663,9 +680,9 @@ export default {
       }
     },
 
-    getParent: function() {
-      this.joboffer.occupation_id = this.selectedValue;
-    },
+    // getParent: function() {
+    //   this.joboffer.occupation_id = this.selectedValue;
+    // },
 
     addRow: function() {
       this.joboffer.fields.push({
@@ -693,6 +710,37 @@ export default {
       }
     },
 
+    isNumber: function(event) {
+          if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+             && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+          {
+            event.preventDefault();
+          }
+    },
+
+    // onBlurNumber(e) {
+    //   this.joboffer.salary = this.thousandSeprator(this.joboffer.salary);
+    // },
+    // thousandSeprator(amount) {
+    //   if (amount !== '' || amount !== undefined || amount !== 0 || amount !== '0' || amount !== null) {
+    //       return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    //   } else {
+    //       return amount;
+    //   }
+    // },
+
+    // my_function (event) {
+    // 	// const char = String.fromCharCode(event.keyCode);
+    // 	// if (!/[0-9]/.test(char)) {
+    //   // 	event.preventDefault();
+    //   // }
+
+    //   var keyCode = event.key;
+    //   if ( (keyCode != 8 || keyCode ==32 ) && (keyCode < 48 || keyCode > 57)) { 
+    //     console.log(keyCode);
+    //     return false;
+    //   }  
+    // },
     // createCheck: function(check) {
 
     //     this.joboffer.employment_status.shift()
