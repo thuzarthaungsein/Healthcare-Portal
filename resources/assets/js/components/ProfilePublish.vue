@@ -1418,6 +1418,7 @@ export default {
         },
 
         created(){
+            console.log(this.cusid);
           this.activePanoImage = 0;
             
             if(this.type != undefined && this.cusid!= undefined){

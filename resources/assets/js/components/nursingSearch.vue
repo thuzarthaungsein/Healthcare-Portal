@@ -738,6 +738,7 @@
               this.fac_types = response.data.fac_types
               this.medical_acceptance = response.data.medical_acceptance
               this.markers = response.data.nus_latlng;
+              console.log(this.markers)
               this.nursingList = response.data.nursing_profile
               this.id = id
 

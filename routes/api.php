@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+// use App\NursingProfile;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {  
+    // $sql = NursingProfile::$request->user()->customer_id;
     return $request->user();
 });
 
