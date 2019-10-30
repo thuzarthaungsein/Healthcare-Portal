@@ -49,8 +49,19 @@ class ProfilePublishController extends Controller
         $facility = Facility::whereIn('id',$hosfacility)->select('description','id')->get();
         //for image slide show
         $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
+
+        $videos = Gallery::where('customer_id',$cusid)->where('type','video')->select()->get()->toArray();
+        for($i=0;$i<count($videos);$i++) {
+            $first_arr = explode('v=',$videos[$i]['photo']);
+            if(count($first_arr)>1) {
+                $second_arr = explode('&list',$first_arr[1]);
+                $videos[$i]['photo'] = $second_arr[0];
+            } else {
+                $videos[$i]['photo'] = $videos[$i]['photo'];
+            }
+        }
         
-        return response()->json(array("hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"images"=>$images,"facility_list"=>$facility_list,"facility"=>$facility));
+        return response()->json(array("hoslatlong"=>$hoslatlong,"hospital"=>$hospital,"images"=>$images,"videos"=>$videos,"facility_list"=>$facility_list,"facility"=>$facility));
     }
 
     public function nursingProfile($cusid)
@@ -84,9 +95,18 @@ class ProfilePublishController extends Controller
         $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
 
         $panoimages = Gallery::where('customer_id',$cusid)->where('type','panorama')->select()->get();
-        // print_r($panoimages);exit;
+        $videos = Gallery::where('customer_id',$cusid)->where('type','video')->select()->get()->toArray();
+        for($i=0;$i<count($videos);$i++) {
+            $first_arr = explode('v=',$videos[$i]['photo']);
+            if(count($first_arr)>1) {
+                $second_arr = explode('&list',$first_arr[1]);
+                $videos[$i]['photo'] = $second_arr[0];
+            } else {
+                $videos[$i]['photo'] = $videos[$i]['photo'];
+            }
+        }
 
-        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff, "nurselatlong"=>$nurselatlong,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"images"=>$images,"panoimages"=>$panoimages));
+        return response()->json(array("feature"=>$feature,"facility"=>$facility,"comedical"=>$comedical,"medicalacceptance"=>$medicalacceptance,"staff"=>$staff, "nurselatlong"=>$nurselatlong,"cost"=>$cost,"medical"=>$medical,"method"=>$method,"images"=>$images,"panoimages"=>$panoimages,"videos"=>$videos));
     }
 
     public function getComment($cusid)
