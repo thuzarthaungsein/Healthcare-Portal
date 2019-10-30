@@ -19,6 +19,7 @@
             <span v-if="!loginuser"><i class="fas fa-home"></i></span>
           </label>
         </li>
+        <span style=" position: fixed; right: 12%; " class="btn fav-item fav-color all-btn">Add</span>
       </ul>
 
       <div class="tab-content nursing-borderColor tab-content1 tabs">
@@ -32,6 +33,7 @@
           </div>
         </form>
       </div>
+      
     </div>
 
     <div v-if="type == 'hospital'">
@@ -66,6 +68,7 @@
           </div>
         </form>
       </div>
+      <span style=" position: fixed; right: 12%; " class="btn fav-item fav-color all-btn">Add</span>
     </div>
   </div>
 </template>
@@ -137,8 +140,6 @@ export default {
         this.type = localStorage.getItem("cusType");
         this.cusid = Number(localStorage.getItem("cusId"));
 
-        console.log(localStorage.getItem("nursing_history"));
-
         this.axios.get(`/api/profile_view/${this.cusid}/${this.type}`).then(response => {
             localStorage.setItem("lat_num", response.data[0].latitude);
             localStorage.setItem("lng_num", response.data[0].longitude);
@@ -148,11 +149,11 @@ export default {
                     var hos_his_arr = JSON.parse("[" + localStorage.getItem("hospital_history") + "]");
                     hos_his_arr.push(response.data[0].pro_id);
                     hos_his_arr = [...new Set(hos_his_arr)]; 
-                    localStorage.setItem("nursing_history", hos_his_arr);               
+                    localStorage.setItem("hospital_history", hos_his_arr);               
                 }
                 else{
                     var hos_his_arr = [response.data[0].pro_id];
-                    localStorage.setItem("nursing_history", hos_his_arr);
+                    localStorage.setItem("hospital_history", hos_his_arr);
                 }
             }
             else{
@@ -166,7 +167,6 @@ export default {
                     var nus_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("nursing_history", nus_his_arr);
                 }
-                console.log(localStorage.getItem("nursing_history"));
             }
         });
     })
