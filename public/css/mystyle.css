@@ -1855,7 +1855,9 @@ ul.sub-ul li {
 .pad-10 {
     padding: 10px !important;
 }
-
+.pad-r-10{
+    padding-right: 10px;
+}
 .m-0 {
     margin: 0px;
 }
@@ -2741,10 +2743,10 @@ ul.main-tab li:after {
     padding: 5px 10px;
     margin: 0 0 10px 3px;
     font-size: 13px;
-    color: #0e775d;
+    color: #ff9563;
     text-align: center;
     border-radius: 20px;
-    border: 1px solid #b7dad2;
+    border: 1px solid #ff9563;
 }
 
 .link-span {
@@ -6551,8 +6553,9 @@ ul.test>li:before {
 }
 
 .job-tit a {
-    color: #111;
+    color: #828282;
     letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .job_status {
@@ -6596,8 +6599,81 @@ ul.test>li:before {
     background: #828282;
     color: #fff;
 }
-
-
+/*hospital search*/
+.hos-content{
+    position: relative;
+    margin-bottom: 20px;
+    padding: 20px 20px 20px 20px;
+    height: 100%;
+    border: 1px solid #63b7ff;
+    border-radius: 5px;
+}
+.hos-title{
+    width: 900px;
+    padding-right: 10px;
+    vertical-align: top;
+}
+.hos-title a {
+    color: #63b7ff ;
+    letter-spacing: 1px;
+    font-weight: bold;
+    overflow: hidden;
+    
+}
+.hos_status{
+    float: left;
+    padding: 0 5px;
+    margin-right: 10px;
+    background: #63b7ff;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 3px;
+}
+.hos_phone{
+    background: #c40000;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #fff!important;
+    position: absolute;
+    right: 15px;
+    top: 65px;    
+    border: 1px solid #c40000; 
+    
+}
+.circle-phone{
+    background: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ffffff;
+    vertical-align: middle;
+    /* line-height: 1.8; */
+    margin-right: 8px;
+    color: #c40000;
+}
+.first-hos-row{
+    color: #fff;
+    background-color: #a2a7a1;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+}
+.second-hos-row{
+    background-color: #eff7ec;
+}
+.hos-content .detail-btn .btn {
+    width: 16%;
+    background: #63b7ff;
+    color: #fff;
+    padding: 10px;
+}
+.hos-body table td:first-child {
+    
+    background: #f9f9f9;
+}
 /* .slick-slider */
 
 .slick-slider {

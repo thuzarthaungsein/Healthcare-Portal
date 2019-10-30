@@ -914,7 +914,7 @@
 
                 >
 
-                  <i class="fas fa-sort-down animate"  :class="{'rotate': isRotate3}"></i>
+                  <i class="fas fa-sort-down animate"  :class  ="{'rotate': isRotate3}"></i>
 
                 </span>
 

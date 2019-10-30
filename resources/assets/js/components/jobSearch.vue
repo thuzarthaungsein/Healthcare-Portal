@@ -1298,9 +1298,7 @@ span:hover::before {
 .toBeToggled1 {
     display: none;
 }
-table{
-  border-top:none !important;
-}
+
 table > tbody > tr th{
   background-color: #eeeeee;
   text-align:right;
