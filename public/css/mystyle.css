@@ -6052,7 +6052,8 @@ button.confirmed {
 }
 
 .jt1 {
-    background-color: #ffe2d5;
+    /* background-color: #ffe2d5; */
+    /* background-color: #f57e46; */
 }
 
 .eg-txt {
@@ -7153,3 +7154,41 @@ ul.test>li:before {
     border-top: 0px;
 }
   /* nursingSearch */
+  /*commentform*/
+    .comform
+    {
+       background-color: #e2d9d96b;
+       padding: 22px;
+       border-radius: 10px;
+       width: 920px;
+       margin: auto;
+       background: url(https://www.sagasix.jp/images/support/consultation/bg_check.gif) repeat center top;
+       border: 1px solid #dad3d2;
+       border-radius: 7px;
+       padding: 30px;
+       position: relative;
+       overflow: visible;
+    }
+   .title_comment{
+    margin-left: -15px;
+    margin-right: -15px;
+    padding:2px;
+   }
+   .comment-apply-color {
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #4d2200;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #828282;
+    color: #111;
+    font-weight: bolds;
+    letter-spacing: 1px;
+}
+.com_ic
+{
+    margin-left: -34px;
+    font-size: 29px;
+    color: #d2571c;
+}
+  /*commentform*/
