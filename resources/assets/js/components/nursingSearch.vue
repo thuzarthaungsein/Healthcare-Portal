@@ -358,7 +358,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-12">
           <div id="holder" style="position: relative;">
-              <div class="overlay standard hidden">&nbsp</div>
+              <div class="overlay standard hidden">&nbsp;</div>
               <div id="mymap" class="select"></div>
           </div>
           </div>
@@ -621,9 +621,12 @@
               <span v-show="!showOne"><i class="fas fa-arrow-circle-down"></i> Open</span>
             </button>
           </div>
+
+            <div class="col-sm-6 left-div-6"></div>
+            <div class="col-sm-6 m-b-20">
+                <input type="button" value="Search" name="search" @click="search">
+            </div>
         </div>
-
-
 
       </div>
       <!-- <div class="col-md-2 p-l-0">
@@ -691,7 +694,9 @@
       },
     },
     methods: {
-
+      search(){
+        alert(this.id);
+      },
       openInfoWindow(marker) {
         this.selectedLocation = marker;
         this.infoBoxOpen = true;
@@ -715,7 +720,7 @@
         }
       },
       getStateClick(e) {
-
+       
         if (e.target.tagName === 'A' || e.target.tagName === 'path' || e.target.tagName === 'OPTION') {
 
           if(e.target.id == ''){
@@ -905,15 +910,7 @@
                 // console.log($('#mapMarker').src)
 
               }
-
-
-
-
-
-
-
             })
-
         } 
       },
 
@@ -921,7 +918,8 @@
         console.log(google.maps.Animation.BOUNCE)
       },
       getCheck(e) {
-
+      
+alert(this.id);
         if (this.townshipID.length > 0) {
 
           this.axios.post('/api/getmaptownship/' + this.townshipID + '')

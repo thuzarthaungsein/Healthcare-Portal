@@ -83,6 +83,21 @@ class SearchMapController extends Controller
         return response()->json($nus_latlng);
     }
 
+    public function getNursingSearch()
+    {
+            // select f.*,n.fac_type from nursing_profiles as n 
+            // join customers as c on c.id = n.customer_id
+            // join townships as t on t.id = c.townships_id
+            // join cities as ci on ci.id = t.city_id
+            // join fac_types as f on f.id = n.fac_type 
+            // join special_features_junctions as spej on spej.customer_id = n.customer_id  
+            // join special_features as spe on spe.id = spej.special_feature_id
+            // join acceptance_transactions as acct on acct.customer_id = n.customer_id
+            // join medical_acceptance as med on med.id = acct.medical_acceptance_id
+            // where ci.id = 1 and t.id = 1 and n.fac_type = 2 and spe.id in (2) and med.id in (7)
+            // group by n.customer_id
+    }
+
     public function getHospitalSearch()
     {
 
@@ -235,6 +250,7 @@ class SearchMapController extends Controller
 
         return response()->json(array("hospital" => $hos_data, "timetable" => $timetable, "specialfeature" => $specialfeature, "subject" => $subject));
     }
+
 
     public function getSpecialFeatures($hos_data)
     { }
