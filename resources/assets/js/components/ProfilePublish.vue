@@ -12,7 +12,7 @@
                     <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>
                 </div>
                 <div class="col-12" id="pano-slider-page">
-                <div class="card-carousel-wrapper">
+                    <div class="card-carousel-wrapper">
 
                             <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
                                 <div class="nav-content mr-2">
@@ -21,7 +21,7 @@
                             </div>
                             <div class="card-carousel">
                                 <div class="card-carousel--overflow-container">
-                                    <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
+                                    <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + panocurrentOffset + 'px' + ')'}">
                                         <div class="card-carousel--card">
                                            <!-- <div class="card-carousel--card--footer"> -->
 
@@ -41,14 +41,8 @@
                                    <div class="card-carousel--nav__right"></div>
                                 </div>
                             </div>
+                        </div>
                     </div>
-                    </div>
-
-                <!-- <div  class="thumbnails">
-                    <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
-                        <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
-                    </div>
-                </div> -->
             </div>
             </div>
         </div>
@@ -845,8 +839,40 @@
                                             ></Pannellum>
 
                             </div>
+                             <div class="col-12" id="pano-slider-page">
+                    <div class="card-carousel-wrapper">
 
-                            <div  class="thumbnails">
+                            <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                                <div class="nav-content mr-2">
+                                    <div class="card-carousel--nav__left"></div>
+                                </div>
+                            </div>
+                            <div class="card-carousel">
+                                <div class="card-carousel--overflow-container">
+                                    <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + panocurrentOffset + 'px' + ')'}">
+                                        <div class="card-carousel--card">
+                                           <!-- <div class="card-carousel--card--footer"> -->
+
+											<div class="thumbnails-pano">
+                                                <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
+                                                    <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
+                                                </div>
+                                            </div>
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
+                                <div class="nav-content ml-2">
+                                   <div class="card-carousel--nav__right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                            <!-- <div  class="thumbnails">
                                     <div
 
                                         v-for="(image,index) in  panoimages"
@@ -858,7 +884,7 @@
                                         @click="activatePanoImage(index)" >
                                         <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
                                     </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1438,9 +1464,9 @@ export default {
                 panoimages:['examplepano.jpg','download (1).jpg','download (2).jpg','office.jpeg','pano3.jpg','alma.jpg','download (2).jpg','office.jpeg','examplepano.jpg','download (1).jpg','examplepano.jpg','download (1).jpg','download (2).jpg','office.jpeg','pano3.jpg','alma.jpg','download (2).jpg','office.jpeg','examplepano.jpg','download (1).jpg'],
                 // panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg','pano3.jpg'],
                 changelinktitle:'内容を見る',
-                currentOffset: 0,
+                panocurrentOffset: 0,
                 windowSize: 13,
-                paginationFactor:99.7,
+                paginationFactor:103,
 
             };
         },
@@ -1606,11 +1632,10 @@ export default {
 
           computed: {
                     atEndOfList() {
-                        return this.currentOffset <= (this.paginationFactor * -1) * (this.panoimages.length - this.windowSize);
+                        return this.panocurrentOffset <= (this.paginationFactor * -1) * (this.panoimages.length - this.windowSize);
                     },
                     atHeadOfList() {
-                        return this.currentOffset === 0;
-                        // return this.currentOffset <= (this.paginationFactor * 1) * (this.panoimages.length - this.windowSize);
+                        return this.panocurrentOffset === 0;
                     },
               currentPanoImage() {
 
@@ -1660,9 +1685,9 @@ export default {
                 moveCarousel(direction) {
       // Find a more elegant way to express the :style. consider using props to make it truly generic
                     if (direction === 1 && !this.atEndOfList) {
-                        this.currentOffset -= this.paginationFactor;
+                        this.panocurrentOffset -= this.paginationFactor;
                     } else if (direction === -1 && !this.atHeadOfList) {
-                        this.currentOffset += this.paginationFactor;
+                        this.panocurrentOffset += this.paginationFactor;
                     }
                 },
                 activatePanoImage(imageIndex) {
