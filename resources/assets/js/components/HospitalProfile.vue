@@ -1419,7 +1419,7 @@ export default {
                     var email = $('.customer-email').val();
                     var phone = $('.customer-phone').val();
                     var address = $('#city').val();
-                    this.customer_info_push.push({name:name,email:email,phone:phone,address:address});
+                    this.customer_info_push.push({name:name,email:email,phone:phone,address:address}); 
 
                     var access = $('.access').val();
                     var subject = $('.subject').val();
