@@ -1,7 +1,8 @@
 <template>
-  <div class="search-map" @click="getStateClick" @mouseover="getStateHover">
+  <div class="search-map"  @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
+        <div @click="getStateClick">
         <div class="row">
           <!-- search map and path -->
           <div class="col-sm-11 map-wrap" id="searchMap">
@@ -288,6 +289,7 @@
             </div>
           </div>
         </div>
+
         <!-- search city , township  -->
         <div class="row select" id="filter" style="justify-content:space-between">
           <div class="col-sm-3 col-md-3">
@@ -354,6 +356,7 @@
             <button class="btn btn-outline-info select" id="showSearchMap" @click="showSearchMap">Search With Map</button>
           </div>
         </div>
+      </div>
         <!-- google map  -->
         <div class="row">
           <div class="col-sm-12 col-md-12">
@@ -363,6 +366,7 @@
           </div>
           </div>
         </div>
+
         <!-- nursing list -->
         <div class="row" id="nrusing-search">
           <div class="card-carousel-wrapper">
@@ -370,8 +374,8 @@
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                  <div class="card-carousel--card" v-for="items in nursingList" :key="items.nursing_id">
-                    <div class="">
+                  <div id="items.alphabet" class="card-carousel--card el"  v-for="items in nursingList" :key="items.nursing_id">
+                    <div class="MarkerHover" :id="items.alphabet">
 
                       <table class="table">
                         <thead>
@@ -385,6 +389,7 @@
                             <td colspan="2" class="text-center">
                               <div class="item-fav btn btn-sm">
                                 <i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加
+                                <img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|FF0000|000000'" alt="">
                               </div>
                             </td>
                           </tr>
@@ -450,16 +455,10 @@
 
         </div>
 
+        <!-- query list -->
         <div class="row row-div select mt-3">
           <div class="col-2 left-div">地域</div>
           <div class="col-10">
-            <!-- <select id="select" class="form-control col-3 custom-select mt-2" v-model="id">
-              <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
-            </select>
-            <button @click="show = !show" class="btn btn-outline-primary mt-2">
-              <span v-show="show"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
-              <span v-show="!show"><i class="fas fa-arrow-circle-down"></i> Open Township</span>
-            </button> -->
             <hr>
             <div>
               <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
@@ -470,91 +469,6 @@
               </div>
             </div>
           </div>
-
-        <!-- <div class="col-sm-2 left-div-1">費用</div> -->
-          <!-- <div class="col-sm-10">
-            <hr>
-            <table class="text-center" width="50%">
-              <tbody>
-                <tr>
-                  <td>入居時</td>
-                  <td>
-                    <select class="form-control custom-select" name="" id="">
-                      <option value="" selected="selected">下限なし</option>
-                      <option value="0">0円</option>
-                      <option value="500000">50万円</option>
-                      <option value="1000000">100万円</option>
-                      <option value="2000000">200万円</option>
-                      <option value="3000000">300万円</option>
-                      <option value="4000000">400万円</option>
-                      <option value="5000000">500万円</option>
-                      <option value="6000000">600万円</option>
-                      <option value="7000000">700万円</option>
-                      <option value="8000000">800万円</option>
-                      <option value="9000000">900万円</option>
-                      <option value="10000000">1,000万円</option>
-                      <option value="20000000">2,000万円</option>
-                      <option value="30000000">3,000万円</option>
-                    </select>
-                  </td>
-                  <td>～</td>
-                  <td>
-                    <select class="form-control custom-select" name="" id="">
-                      <option value="" selected="selected">上限なし</option>
-                      <option value="0">0円</option>
-                      <option value="500000">50万円</option>
-                      <option value="1000000">100万円</option>
-                      <option value="2000000">200万円</option>
-                      <option value="3000000">300万円</option>
-                      <option value="4000000">400万円</option>
-                      <option value="5000000">500万円</option>
-                      <option value="6000000">600万円</option>
-                      <option value="7000000">700万円</option>
-                      <option value="8000000">800万円</option>
-                      <option value="9000000">900万円</option>
-                      <option value="10000000">1,000万円</option>
-                      <option value="20000000">2,000万円</option>
-                      <option value="30000000">3,000万円</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>月額</td>
-                  <td>
-                    <select class="form-control custom-select" name="" id="">
-                      <option value="" selected="selected">下限なし</option>
-                      <option value="0">0円</option>
-                      <option value="100000">10万円</option>
-                      <option value="150000">15万円</option>
-                      <option value="200000">20万円</option>
-                      <option value="250000">25万円</option>
-                      <option value="300000">30万円</option>
-                      <option value="350000">35万円</option>
-                      <option value="400000">40万円</option>
-                      <option value="450000">45万円</option>
-                      <option value="500000">50万円</option>
-                    </select>
-                  </td>
-                  <td>～</td>
-                  <td>
-                    <select class="form-control custom-select" name="" id="">
-                      <option value="" selected="selected">上限なし</option>
-                      <option value="0">0円</option>
-                      <option value="100000">10万円</option>
-                      <option value="150000">15万円</option>
-                      <option value="200000">20万円</option>
-                      <option value="250000">25万円</option>
-                      <option value="300000">30万円</option>
-                      <option value="350000">35万円</option>
-                      <option value="400000">40万円</option>
-                      <option value="450000">45万円</option>
-                      <option value="500000">50万円</option>
-                    </select>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div> -->
 
           <div class="col-sm-2 left-div-1" v-if="showOne"> 入居時の条件</div>
           <div class="col-sm-10" v-if="showOne">
@@ -715,7 +629,6 @@
         }
       },
       getStateClick(e) {
-
         if (e.target.tagName === 'A' || e.target.tagName === 'path' || e.target.tagName === 'OPTION') {
 
           if(e.target.id == ''){
@@ -737,7 +650,8 @@
               this.special_features = response.data.special_features
               this.fac_types = response.data.fac_types
               this.medical_acceptance = response.data.medical_acceptance
-              this.markers = response.data.nus_latlng;
+              this.markers = response.data.nursing_profile;
+
               this.nursingList = response.data.nursing_profile
               this.id = id
 
@@ -758,8 +672,6 @@
                 if (result[i].Name == theCity) {
                   coordinates.push(result[i].geometry['coordinates'])
                 }
-                
-
               }
 
               var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
@@ -770,7 +682,6 @@
                   "type": "Polygon",
                   "coordinates": coordinate
                 },
-
               };
               var mapProp = {
                 center: new google.maps.LatLng(lat, lng),
@@ -807,7 +718,10 @@
                         '</thead>' +
                         '<tbody>' +
                           '<tr>' +
-                            '<td colspan="2"><button class="item-fav-infowindow"> <i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 </span> </button></td>' +
+                            '<td colspan="2"><button class="item-fav-infowindow">'+
+                            '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+
+                            '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|FF0000|000000" alt="">'+
+                            '</span> </button></td>' +
                           '</tr>' +
                           '<tr>' +
                           '<td colspan="2" class="text-left">' +
@@ -867,11 +781,11 @@
                   '</div>'
                 ])
               }
-
-              var infoWindow = new google.maps.InfoWindow(),
-                marker, i;
+              $('.el').click(function(){
+                alert('1')
+              })
+              var infoWindow = new google.maps.InfoWindow(),marker, i;
               const alphabet = response.data.alphabet;
-              console.log(this.markers)
               for (i = 0; i < this.markers.length; i++) {
                 var k = alphabet[i];
                 var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
@@ -901,23 +815,31 @@
                 var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
                   google.maps.event.removeListener(boundsListener);
                 });
-                // console.log($('#mapMarker'));
-                $('#mapMarker').src = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + k + "|FF0000|000000' />";
-                // console.log($('#mapMarker').src)
+
+                
+              
 
               }
-
-
-
-
-
-
-
             })
-
         } 
       },
+      MarkerHover(index){
+        var marker = this.markers
+        for (var i = 0; i < marker.length; i++) {
+          google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
 
+                  return function() {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                    setTimeout(function() {
+                      marker.setAnimation(null);
+                    }, 750);
+                  }
+                })(marker, i));
+
+              }
+      
+
+      },
       googleMarker(marker) {
         console.log(google.maps.Animation.BOUNCE)
       },
