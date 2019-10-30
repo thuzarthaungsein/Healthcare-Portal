@@ -355,9 +355,9 @@
                 <div class="row form-group">
                   <select v-model="joboffer.salary_type" class="form-control col-md-4 joboffer-salary-type">
                     <option v-bind:value='-1'>選択 </option>
-                    <option value='1'>時給</option>
-                    <option value="2">日給</option>
-                    <option value="3">月給</option>
+                    <option value='時給'>時給</option>
+                    <option value="日給">日給</option>
+                    <option value="月給">月給</option>
                   </select>
                   <input
                     type="text"
