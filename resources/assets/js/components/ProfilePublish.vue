@@ -400,10 +400,9 @@
                     <div class="col-md-12 m-t-15 m-b-15">
                         <label class="cost_heading_lbl">動画</label>
                         <div class="row">
-                            <div v-for="(image) in  images" :key="image.id" class="col-sm-4 col-md-4 col-lg-3">
-                                <img  :src ="'/upload/nursing_profile/' + image.photo" style="width:100%;border:7px solid #eee;" class="img-responsive">
-                                <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
-                                <!-- <span>{{image.photo}}</span> -->
+                            <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
+                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
+                                <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
                             </div>
                         </div>
                     </div>
@@ -1278,7 +1277,7 @@
                         <label class="cost_heading_lbl">動画</label>
                         <div class="row">
                             <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
-                                <iframe  :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe >
+                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
                                 <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
                             </div>
                         </div>
@@ -1478,6 +1477,7 @@ export default {
 
                     this.images = response.data.images;
                     this.panoimages = response.data.panoimages;
+                    this.videos = response.data.videos;
                     // console.log(this.panoimages);return;
 
                     if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
