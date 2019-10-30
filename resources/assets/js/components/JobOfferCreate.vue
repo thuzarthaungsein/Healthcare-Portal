@@ -527,9 +527,9 @@ export default {
         .get(`/api/job/edit/${this.$route.params.id}`)
 
         .then(response => {
-          console.log(response.data);
           this.joboffer.title = response.data[0].title;
           this.joboffer.postal = '0'+response.data[0].zip7_code;
+          this.joboffer.zipcode_id = response.data[0].zip_id;
           this.joboffer.str_address = response.data[0].township;
           this.joboffer.pref = response.data[0].cityname;
 
@@ -585,7 +585,6 @@ export default {
         this.axios.post("/api/hospital/postList/" + postal).then(response => {
           var post_data = response.data;
           var length = response.data.length;
-          console.log(post_data[0]);
           if (length > 0) {
             var pref = post_data[0]["city_id"];
             this.joboffer.zipcode_id = post_data[0]["id"];

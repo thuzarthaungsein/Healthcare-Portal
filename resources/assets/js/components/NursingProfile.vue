@@ -696,11 +696,7 @@ export default {
         },
         
         created(){
-            if(localStorage.getItem('lat_num')){
-                localStorage.removeItem('lat_num');
-                localStorage.removeItem('lng_num');
-            }
-               
+                          
                 if(this.type != undefined && this.cusid!= undefined){
                         localStorage.setItem('cusType',this.type);
                         localStorage.setItem('cusId',this.cusid);

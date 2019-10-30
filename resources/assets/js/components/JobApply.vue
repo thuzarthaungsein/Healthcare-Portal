@@ -132,7 +132,7 @@
             <div class="col-md-3 col-sm-12 form-left">
               <label for="str_address">
                 <strong>
-                  県
+                  都道府県
                   <span class="error sp1">必須</span>
                 </strong>
               </label>
@@ -227,7 +227,7 @@
             <div class="col-md-3 col-sm-12 form-left">
               <label for="remark">
                 <strong>
-                  リマーク
+                  ご希望等
                   <span class="error sp1">必須</span>
                 </strong>
               </label>
@@ -336,7 +336,7 @@
           <div class="form-group m-0 row bd">
             <div class="col-sm-3 form-left">
               <label for="str_address">
-                <strong>県</strong>
+                <strong>都道府県</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
@@ -396,7 +396,7 @@
           <div class="form-group m-0 row bd-all">
             <div class="col-sm-3 form-left">
               <label for="remark">
-                <strong>リマーク</strong>
+                <strong>ご希望等</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">

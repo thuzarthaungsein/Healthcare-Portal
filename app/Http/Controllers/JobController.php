@@ -228,7 +228,7 @@ class JobController extends Controller
     {
 
         // $job = Job::find($id);
-        $sql = "SELECT jobs.*, zipcode.id, zipcode.zip7_code, zipcode.pref as cityname, zipcode.city as township, zipcode.street from jobs inner join zipcode on jobs.zipcode_id = zipcode.id WHERE jobs.id = $id";
+        $sql = "SELECT jobs.*, zipcode.id as zip_id, zipcode.zip7_code, zipcode.pref as cityname, zipcode.city as township, zipcode.street from jobs inner join zipcode on jobs.zipcode_id = zipcode.id WHERE jobs.id = $id";
         $job = DB::select($sql);
 
         return response()->json($job);
