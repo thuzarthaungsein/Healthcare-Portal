@@ -86,7 +86,7 @@ export default {
                 localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
                 localStorage.setItem("nursing_history", this.l_storage_nus_history);
                 localStorage.setItem("hospital_history", this.l_storage_hos_history);
-                
+
             this.getAllCat();
             this.getPostByFirstCat();
             this.getLatestPostByFirstCatID();
