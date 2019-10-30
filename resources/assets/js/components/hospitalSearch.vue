@@ -366,7 +366,7 @@
               </tr>
               <tr class="text-center">
                 <td colspan="2">
-                  <input type="button" id="search" name="search" value="Search"  @click="search"/>
+                  <input type="button" id="search" name="search" value="検索"  @click="search"/>
                 </td>
               </tr>
             </tbody>

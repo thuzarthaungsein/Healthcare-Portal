@@ -4,13 +4,15 @@
 
     <div v-if="type == 'nursing'" id="nursingView">
         <!--panorama-->
-        <div class="col-12 detail_profile_left pad-free">
-            <div class="thumbnail-img" style="padding:0px;border:none;background-color:transparent;">
+        <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
+            <div class="thumbnail-img" style="padding:0px;border:none;">
                 <div class="card-carousel">
-                <div class="card-img">
+                <div class="card-img" >
                     <!-- <div id="panorama"></div>           -->
-                    <Pannellum  :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>
+                    <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>
                 </div>
+
+
                 <div class="col-12" id="pano-slider-page">
                     <div class="card-carousel-wrapper">
 
@@ -25,9 +27,14 @@
                                         <div class="card-carousel--card">
                                            <!-- <div class="card-carousel--card--footer"> -->
 
-											<div class="thumbnails-pano">
+											<!-- <div class="thumbnails-pano">
                                                 <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
                                                     <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
+                                                </div>
+                                            </div> -->
+                                            <div  class="thumbnails-pano">
+                                                <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
+                                                    <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image.photo">
                                                 </div>
                                             </div>
                                         <!-- </div> -->
@@ -426,10 +433,9 @@
                     <div class="col-md-12 m-t-15 m-b-15">
                         <label class="cost_heading_lbl">動画</label>
                         <div class="row">
-                            <div v-for="(image) in  images" :key="image.id" class="col-sm-4 col-md-4 col-lg-3">
-                                <img  :src ="'/upload/nursing_profile/' + image.photo" style="width:100%;border:7px solid #eee;" class="img-responsive">
-                                <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
-                                <!-- <span>{{image.photo}}</span> -->
+                            <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
+                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
+                                <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
                             </div>
                         </div>
                     </div>
@@ -820,8 +826,8 @@
 
     <div v-if="type == 'hospital'" id="hospitalView">
        <!--panorama-->
-                <div class="col-12 detail_profile_left pad-free">
-                        <div class="thumbnail-img" style="padding:0px;border:none;background-color:transparent;">
+                <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
+                        <div class="thumbnail-img" style="padding:0px;border:none;">
                             <div class="card-carousel">
                             <div class="card-img">
                                 <!-- <div id="panorama"></div>           -->
@@ -882,7 +888,7 @@
                                         :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"
 
                                         @click="activatePanoImage(index)" >
-                                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image">
+                                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image.photo">
                                     </div>
                             </div> -->
                         </div>
@@ -1331,6 +1337,18 @@
 
             </div>
 
+            <!-- Hospital Video -->
+                <div class="col-md-12 m-t-15 m-b-15">
+                        <label class="cost_heading_lbl">動画</label>
+                        <div class="row">
+                            <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
+                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
+                                <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
+                            </div>
+                        </div>
+                    </div>
+            <!-- End -->
+
             <div class="row ele m-lr-0" id="element3">
 
                  <h5 class="profile_header col-md-12"> 地図 </h5>
@@ -1416,6 +1434,7 @@ export default {
                 ],
                 am_arr:[],
                 images:[],
+                videos:[],
                 pm_arr:[],
                 active_el:0,
                 width: '',
@@ -1461,8 +1480,8 @@ export default {
                     }
                 },
                 images: [],
-                panoimages:['examplepano.jpg','download (1).jpg','download (2).jpg','office.jpeg','pano3.jpg','alma.jpg','download (2).jpg','office.jpeg','examplepano.jpg','download (1).jpg','examplepano.jpg','download (1).jpg','download (2).jpg','office.jpeg','pano3.jpg','alma.jpg','download (2).jpg','office.jpeg','examplepano.jpg','download (1).jpg'],
-                // panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg','pano3.jpg'],
+                // panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
+                panoimages:[],
                 changelinktitle:'内容を見る',
                 panocurrentOffset: 0,
                 windowSize: 13,
@@ -1477,6 +1496,7 @@ export default {
         },
 
         created(){
+            console.log(this.cusid);
           this.activePanoImage = 0;
 
             if(this.type != undefined && this.cusid!= undefined){
@@ -1520,11 +1540,12 @@ export default {
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
 
                     this.images = response.data.images;
+                    this.panoimages = response.data.panoimages;
+                    this.videos = response.data.videos;
+                    // console.log(this.panoimages);return;
 
                     if(response.data.nurselatlong[0]['latitude'] == 0 && response.data.nurselatlong[0]['longitude'] == 0)
-
                     {
-
                          this.center['lat'] = 35.6803997;
 
                          this.center['lng'] = 139.76901739;
@@ -1574,7 +1595,11 @@ export default {
 
                     this.center['lng'] = response.data.hoslatlong[0]['longitude'];
 
-                     this.images = response.data.images;
+                    this.images = response.data.images;
+
+                    this.videos = response.data.videos;
+
+                    // this.panoimages = response.data.panoimages;
 
                     if(response.data.hoslatlong[0]['latitude'] == 0 && response.data.hoslatlong[0]['longitude'] == 0)
 
@@ -1640,14 +1665,7 @@ export default {
               currentPanoImage() {
 
                 if(this.panoimages.length > 0) {
-
-                    return this.panoimages[this.activePanoImage];
-
-                }
-
-                else{
-
-                    return 'no-image-big.jpg';
+                    return this.panoimages[this.activePanoImage].photo;
 
                 }
 
@@ -1682,16 +1700,15 @@ export default {
 
         },
         methods: {
-                moveCarousel(direction) {
-      // Find a more elegant way to express the :style. consider using props to make it truly generic
-                    if (direction === 1 && !this.atEndOfList) {
-                        this.panocurrentOffset -= this.paginationFactor;
-                    } else if (direction === -1 && !this.atHeadOfList) {
-                        this.panocurrentOffset += this.paginationFactor;
-                    }
-                },
-                activatePanoImage(imageIndex) {
-
+            moveCarousel(direction) {
+                        // Find a more elegant way to express the :style. consider using props to make it truly generic
+                if (direction === 1 && !this.atEndOfList) {
+                    this.panocurrentOffset -= this.paginationFactor;
+                } else if (direction === -1 && !this.atHeadOfList) {
+                    this.panocurrentOffset += this.paginationFactor;
+                }
+            },
+              activatePanoImage(imageIndex) {
                 this.activePanoImage = imageIndex;
 
             },
@@ -1774,7 +1791,7 @@ export default {
 /*slider*/
     #pano-slider-page .card-carousel {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     width: 1336px;
 }
 
@@ -1801,7 +1818,7 @@ export default {
 
 #pano-slider-page .card-carousel--overflow-container {
     color: #000;
-    text-align: center;
+    text-align: left;
     overflow: hidden;
 }
 

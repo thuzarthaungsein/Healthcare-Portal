@@ -1718,6 +1718,12 @@ ul.sub-ul li {
     background: #f5f5f5 !important;
 }
 
+.joboffer-salary-type {
+    margin-left: 15px;
+}
+.joboffer-salary {
+    margin-left:  5px;
+}
 
 /*End Terms & conditions */
 
@@ -7164,5 +7170,8 @@ ul.test>li:before {
     text-align: center;
     padding: 6px;
     font-weight: bold;
+}
+#info_content table tr td {
+    border-top: 0px;
 }
   /* nursingSearch */

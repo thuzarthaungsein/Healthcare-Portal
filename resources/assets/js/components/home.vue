@@ -47,10 +47,6 @@ export default {
                 latest_post: [],
                 latest_post_all_cats: [],
 
-                l_storage_hos_history: [],
-                l_storage_nus_history: [],
-                l_storage_hos_fav: [],
-                l_storage_nus_fav: [],
                 subtab1active: '',
                 subtab2active: '',
                 subtab3active: '',
@@ -103,115 +99,115 @@ export default {
             this.getLatestPostFromAllCat();
         },
         methods: {
-                start() {
+            start() {
 
-                        if(this.$route.params.page) {
-                               //console.log(this.$route.params.page)
-                               if(this.$route.params.page == 'subtab2') {
-                                       this.fade2 = false;
-                                       this.subtab2active = 'active';
-                               }
-                               else if(this.$route.params.page == 'subtab3') {
-                                       this.fade3 = false;
-                                       this.subtab3active = 'active';
-                               }
-                               else if(this.$route.params.page == '#tab2'){
-                                   this.changeRoute('hospital');
-                                        this.fade1 = false;
-                                        this.fade2 = false;
-                                        this.fade3 = false;
-                                        this.fade4 = false;
-                                        this.subtab2active = 'active';
-
-
-                               }
-                               else if(this.$route.params.page == '#tab3'){
-                                   this.changeRoute('nursing');
-                                        this.fade1 = false;
-                                        this.fade2 = false;
-                                        this.fade3 = false;
-                                        this.fade4 = false;
-                                        this.subtab3active = 'active';
-
-
-                               }
-                               else if(this.$route.params.page == '#tab4'){
-                                   this.changeRoute('job');
-                                        this.fade1 = false;
-                                        this.fade2 = false;
-                                        this.fade3 = false;
-                                        this.fade4 = false;
-                                        this.subtab4active = 'active';
-
-
-                               }
-                               else if(this.$route.params.page == '#tab1'){
-                                   this.changeRoute('news');
-                                        this.fade1 = false;
-                                        this.fade2 = false;
-                                        this.fade3 = false;
-                                        this.fade4 = false;
-                                        this.subtab1active = 'active';
-
-
-                               }
-
+                if(this.$route.params.page) {
+                        //console.log(this.$route.params.page)
+                        if(this.$route.params.page == 'subtab2') {
+                                this.fade2 = false;
+                                this.subtab2active = 'active';
                         }
-                        else{
+                        else if(this.$route.params.page == 'subtab3') {
+                                this.fade3 = false;
+                                this.subtab3active = 'active';
+                        }
+                        else if(this.$route.params.page == '#tab2'){
+                            this.changeRoute('hospital');
                                 this.fade1 = false;
+                                this.fade2 = false;
+                                this.fade3 = false;
+                                this.fade4 = false;
+                                this.subtab2active = 'active';
+
+
+                        }
+                        else if(this.$route.params.page == '#tab3'){
+                            this.changeRoute('nursing');
+                                this.fade1 = false;
+                                this.fade2 = false;
+                                this.fade3 = false;
+                                this.fade4 = false;
+                                this.subtab3active = 'active';
+
+
+                        }
+                        else if(this.$route.params.page == '#tab4'){
+                            this.changeRoute('job');
+                                this.fade1 = false;
+                                this.fade2 = false;
+                                this.fade3 = false;
+                                this.fade4 = false;
+                                this.subtab4active = 'active';
+
+
+                        }
+                        else if(this.$route.params.page == '#tab1'){
+                            this.changeRoute('news');
+                                this.fade1 = false;
+                                this.fade2 = false;
+                                this.fade3 = false;
+                                this.fade4 = false;
                                 this.subtab1active = 'active';
+
+
                         }
 
+                }
+                else{
+                        this.fade1 = false;
+                        this.subtab1active = 'active';
+                }
 
-                //     this.$route.params.page? (this.$route.params.page == 'subtab2'? (this.subtab2active = 'active') : (this.subtab3active = 'active')) : (this.subtab1active = 'active');
-                },
-                getAllCat: function() {
-                     this.axios
-                        .get('/api/home')
-                        .then(response => {
-                                this.cats = response.data;
-                        });
-                },
-                getPostByFirstCat: function() {
-                         this.axios.get("/api/posts/1")
-                        .then(response => {
-                                this.posts = response.data;
-                        });
-                },
-                getPostByCatID: function(cat_id) {
-                        this.axios.get("/api/posts/" + cat_id)
-                        .then(response => {
-                                this.posts = response.data;
-                        });
-                },
-                getLatestPostByFirstCatID: function() {
-                        this.axios.get("/api/get_latest_post/1")
-                        .then(response => {
-                                this.latest_post = response.data;
-                        });
-                },
-                getLatestPostByCatID: function(cat_id) {
-                        this.axios.get("/api/get_latest_post/" + cat_id)
-                        .then(response => {
-                                this.latest_post = response.data;
-                        });
-                },
-                getLatestPostFromAllCat: function() {
-                        this.axios
-                        .get('/api/get_latest_post_all_cat')
-                        .then(response => {
-                                this.latest_post_all_cats = response.data;
-                        });
-                },
-                changeRoute(tab){
-                        // $('[class^="-tabColor"]').removeClass();
-                        $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
-                        $('#navtab').addClass(tab+'-tabColor');
-                        $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
-                        $('#upper-tab').addClass(tab+'-borderColor');
-                   // console.log(e.target.tagName);
-                    //this.$router.push({name:'home'});
-                },
+
+            //     this.$route.params.page? (this.$route.params.page == 'subtab2'? (this.subtab2active = 'active') : (this.subtab3active = 'active')) : (this.subtab1active = 'active');
+            },
+            getAllCat: function() {
+                    this.axios
+                    .get('/api/home')
+                    .then(response => {
+                            this.cats = response.data;
+                    });
+            },
+            getPostByFirstCat: function() {
+                        this.axios.get("/api/posts/1")
+                    .then(response => {
+                            this.posts = response.data;
+                    });
+            },
+            getPostByCatID: function(cat_id) {
+                    this.axios.get("/api/posts/" + cat_id)
+                    .then(response => {
+                            this.posts = response.data;
+                    });
+            },
+            getLatestPostByFirstCatID: function() {
+                    this.axios.get("/api/get_latest_post/1")
+                    .then(response => {
+                            this.latest_post = response.data;
+                    });
+            },
+            getLatestPostByCatID: function(cat_id) {
+                    this.axios.get("/api/get_latest_post/" + cat_id)
+                    .then(response => {
+                            this.latest_post = response.data;
+                    });
+            },
+            getLatestPostFromAllCat: function() {
+                    this.axios
+                    .get('/api/get_latest_post_all_cat')
+                    .then(response => {
+                            this.latest_post_all_cats = response.data;
+                    });
+            },
+            changeRoute(tab){
+                    // $('[class^="-tabColor"]').removeClass();
+                    $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+                    $('#navtab').addClass(tab+'-tabColor');
+                    $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+                    $('#upper-tab').addClass(tab+'-borderColor');
+                // console.log(e.target.tagName);
+                //this.$router.push({name:'home'});
+            },
         }
 
 }

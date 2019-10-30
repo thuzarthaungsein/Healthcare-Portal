@@ -160,7 +160,7 @@ class CustomerController extends Controller
                 'model_type'=> 'App\User',
                 'model_id'=> $lastid,
             );
-            if($getCustomer->type_id == 1){                
+            if($getCustomer->type_id == 2){                
                 \DB::table('hospital_profiles')->insert($insert);
             }else{
                 \DB::table('nursing_profiles')->insert($insert);
