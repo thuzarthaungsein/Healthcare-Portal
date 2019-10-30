@@ -1484,7 +1484,7 @@ export default {
                 panoimages:[],
                 changelinktitle:'内容を見る',
                 panocurrentOffset: 0,
-                windowSize: 13,
+                windowSize: 10,
                 paginationFactor:103,
 
             };
@@ -1792,7 +1792,8 @@ export default {
     #pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
-    width: 1336px;
+    /* width: 1336px; */
+    width:1033px;
 }
 
 
