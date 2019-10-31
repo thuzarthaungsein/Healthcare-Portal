@@ -12,7 +12,7 @@
       <div class="col-md-12">
           <div class="col-md-12 fav-his-header">
               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#c40000"><path d="M86,15.0472l-78.83333,70.9528h21.5v64.5h59.44694c-1.3545,-4.54367 -2.11361,-9.3525 -2.11361,-14.33333h-43v-63.14225l43,-38.6888l57.61328,51.66439h21.22006zM136.19466,100.24935c-19.78717,0 -35.83333,16.04617 -35.83333,35.83333c0,19.78717 16.04617,35.83333 35.83333,35.83333c19.78717,0 35.83333,-16.04617 35.83333,-35.83333c0,-19.78717 -16.04617,-35.83333 -35.83333,-35.83333zM150.89193,119.24382l10.02213,10.03613l-28.30274,28.30274l-21.13606,-21.13607l10.02213,-10.03613l11.11393,11.11393z"></path></g></g></svg>
-        &nbsp;<span class="font-weight-bold"> 最近見た施設</span>
+        &nbsp;<span class="font-weight-bold"> 最近見た施設リスト</span>
           </div>      
       </div>  
     </div>
@@ -83,8 +83,6 @@
                         </div>
                     </div>
                     <!-- end monthly cost -->
-    <label class="btn all-btn secondary-bg-color hos-btn2">
-                    <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>すべての資料請求にチェックを入れる</label>
                 <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
                     <div class="row">
                         <div class="card-carousel-wrapper">
@@ -114,9 +112,7 @@
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <div class="profile_wd">
-                                                                <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
-                                                                <label class="btn all-btn res-btn hos-btn">
-                                                                    <input type="checkbox" value="documentation" name="documentation" class="checkbox2"> <span class="checkmark"></span>資料請求</label>
+                                                                <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">最近見た施設リストから削除</button>                                                                
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -125,16 +121,26 @@
                                                             <div class="profile_wd"> <a :href="nur_profile.website" target="_blank">{{nur_profile.website}}</a></div>
                                                         </td>
                                                     </tr>
-
+                                                    <tr>
+                                                        <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
+                                                            <div style="width:250px;">{{nur_profile.email}}</div>
+                                                        </td>
+                                                    </tr>
                                                     <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                        <div style="width:250px;">{{nur_profile.township_name}} {{nur_profile.city_name}}</div>
+                                                        <dl>
+                                                            <dt style="text-align:left;">住所</dt>
+                                                            <dd style="width:250px;">{{nur_profile.township_name}} {{nur_profile.city_name}}</dd>
+                                                        </dl>
                                                     </td>
                                                 </tr>
                                                     
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <div style="width:250px;"><p v-html="nur_profile.access"></p></div>
+                                                            <dl>
+                                                                <dt style="text-align:left;">交通アクセス</dt>
+                                                                <dd style="width:250px;"><p v-html="nur_profile.access"></p></dd>
+                                                            </dl>
                                                         </td>
                                                     </tr>
 
@@ -148,7 +154,7 @@
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                         <dl>
                                                             <dt style="text-align:left;">入居時の費用</dt>
-                                                            <dd style="width:250px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in}}</strong></dd>
+                                                            <dd style="width:250px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in_from}}円~{{nur_profile.moving_in_to}}円</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -157,7 +163,7 @@
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                         <dl>
                                                             <dt style="text-align:left;">月額の費用</dt>
-                                                            <dd style="color:#ff6117;font-size:large;width:250px;"><strong>{{nur_profile.per_month}}</strong></dd>
+                                                            <dd style="color:#ff6117;font-size:large;width:250px;"><strong>{{nur_profile.per_month_from}}円~{{nur_profile.per_month_to}}円</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -167,12 +173,6 @@
                                                         <div style="width:250px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
                                                     </td>
                                                 </tr>
-
-                                                    <tr>
-                                                        <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <div style="width:250px;">{{nur_profile.email}}</div>
-                                                        </td>
-                                                    </tr>
 
                                                  <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
@@ -186,6 +186,7 @@
                                                      <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <ul class="fac_container profile_wd">
+                                                                <h6 style="text-align:left;font-weight:bold;">特長</h6>
                                                                 <li v-for="feature in nur_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                             </ul>
                                                         </td>
