@@ -154,6 +154,7 @@ export default {
             return {
                 errors:[],
                 comments: {
+                        type:'confirm',
                         title: '',
                         comment:'',
                         email:'',
@@ -186,10 +187,21 @@ export default {
 
          methods: {
             add() {
-
+                  this.$loading(true);
                   this.axios.post('/api/comments/add', this.comments)
                     .then((response) => {
-                    alert('Mail Sent Successfully !')
+                        this.$loading(false);
+                        this.type="completed";
+                    this.name = ''
+                        this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '作成されました',
+                            showConfirmButton: false,
+                            timer: 1800,
+                            width: 250,
+                            height: 200,
+                        })
 
                      this.$router.push({name: 'commentlist'});
                     }).catch(error=>{

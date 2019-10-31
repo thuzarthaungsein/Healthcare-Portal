@@ -396,7 +396,7 @@ export default {
   },
   methods: {
     add() {
-        this.$loading(true);
+     this.$loading(true);
      this.axios
         .post("/api/nurse/add", this.comments)
         .then(response => {
