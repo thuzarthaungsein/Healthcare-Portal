@@ -71,7 +71,6 @@
               <label for="birthday">
                 <strong>
                   生年月日
-                  <span class="error sp1">必須</span>
                 </strong>
               </label>
             </div>
@@ -91,7 +90,6 @@
               <label for="gender">
                 <strong>
                   性別
-                  <span class="error sp1">必須</span>
                 </strong>
               </label>
             </div>
@@ -111,7 +109,6 @@
               <label for="postal">
                 <strong>
                   郵便番号
-                  <span class="error sp1">必須</span>
                 </strong>
               </label>
             </div>
@@ -132,8 +129,7 @@
             <div class="col-md-3 col-sm-12 form-left">
               <label for="str_address">
                 <strong>
-                  県
-                  <span class="error sp1">必須</span>
+                  都道府県
                 </strong>
               </label>
             </div>
@@ -161,6 +157,7 @@
                 id="str_address"
                 v-model="jobApply.str_address"
               />
+              <div v-if="errors.str_address" class="text-danger mt-2 ml-4">{{ errors.str_address }}</div>
             </div>
           </div>
           <div class="form-group m-0 row bd">
@@ -168,7 +165,6 @@
               <label for="home_address">
                 <strong>
                   番地以下
-                  <span class="error sp1">必須</span>
                 </strong>
               </label>
             </div>
@@ -227,8 +223,7 @@
             <div class="col-md-3 col-sm-12 form-left">
               <label for="remark">
                 <strong>
-                  リマーク
-                  <span class="error sp1">必須</span>
+                  ご希望等
                 </strong>
               </label>
             </div>
@@ -336,7 +331,7 @@
           <div class="form-group m-0 row bd">
             <div class="col-sm-3 form-left">
               <label for="str_address">
-                <strong>県</strong>
+                <strong>都道府県</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
@@ -396,7 +391,7 @@
           <div class="form-group m-0 row bd-all">
             <div class="col-sm-3 form-left">
               <label for="remark">
-                <strong>リマーク</strong>
+                <strong>ご希望等</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
@@ -406,7 +401,7 @@
 
           <div class="text-center mt-4 pb-5">
             <span class="btn btn-danger white all-btn width17" @click="editUserInfo()">入力画面へ戻る</span>
-            <span class="btn main-bg-color white all-btn width17" @click="apply()">登録する</span>
+            <span class="btn main-bg-color white all-btn width17" @click="apply()">応募する</span>
           </div>
           <br />
           <!-- <div v-if="success" class="alert alert-success mt-3">Apply sent!</div> -->
@@ -446,7 +441,6 @@ export default {
       errors: {
         first_name: "",
         last_name: "",
-        postal: "",
         phone: "",
         email: "",
         terms: ""
@@ -501,7 +495,6 @@ export default {
         this.axios.post("/api/hospital/postList/" + postal).then(response => {
           var post_data = response.data;
           var length = response.data.length;
-          console.log(post_data[0]["pref"]);
           if (length > 0) {
             var pref = post_data[0]["city_id"];
             if (post_data[0]["street"] == "") {
@@ -560,10 +553,10 @@ export default {
       } else {
         this.errors.last_name = "フリガナが必須です。";
       }
-      if (this.jobApply.postal) {
-        this.errors.postal = "";
+      if (this.jobApply.str_address) {
+        this.errors.str_address = "";
       } else {
-        this.errors.postal = "郵便番号が必須です。";
+        this.errors.str_address = "電話番号が必須です。";
       }
       if (this.jobApply.phone) {
         this.errors.phone = "";

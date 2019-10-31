@@ -1,12 +1,15 @@
 <template>
+
     <div class="card profile m-t-22 " style="border:none;">
+        <!-- <span style="position:fixed;right:50px;" class="btn secondary-bg-color all-btn" @click="createProfile()">作成</span> -->
         <form class="col-md-12 form-class">
             <div class="col-md-12 pad-free">
-                
-                <div class="col-md-12 m-lr-0">
-                        <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">Panorama</h4></div>
+                <div class="col-md-12 m-lr-0 pad-free">
+                    <div class="form-group form-group-wrapper">
+                        <label class="heading-lbl col-2 pad-free">Panorama<span class="error">*</span></label>
                         <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
-                        <div class="row col-md-12 pad-free panorama">
+
+                        <div class="row col-md-12 pad-free panorama panorama-box">
                         <!-- <div > -->
                                 <div class="col-sm-3 col-md-3 mt-2 gallery-area-panorama" v-bind:id="'x-panorama'+indx" v-for="(img,indx) in panorama_arr" :key="img.id">
                                         <input type="hidden" class="already-panorama" v-model="img.photo">
@@ -14,6 +17,13 @@
                                         <img :src="'/upload/nursing_profile/Imagepanorama/'+ img.photo" class="img-fluid" alt="profile"  id="already-panorama">
                                 </div>
                         </div>
+                    </div>
+                        <!-- <div class="row col-md-12 text-center">
+                            <label class="h_4 next-title"> Panorama</label>
+                            <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
+                        </div>
+                         -->
+                        
                 </div>
 
                 <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
@@ -555,7 +565,9 @@
                             <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
                             <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
                                 <div class="col-md-12">
-                                    <GoogleMap :address="customer_info.address"></GoogleMap>
+                                    
+                                    <GoogleMap :address="customer_info.address" :lat_num='nursing_info.latitude' :lng_num='nursing_info.longitude' v-if="nursing_info.latitude != 0"></GoogleMap>
+                                    <GoogleMap :address="customer_info.address" :lat_num='35.6803997' :lng_num='139.76901739' v-if="nursing_info.latitude == 0"></GoogleMap>
                                     <!-- <div class="form-group">
                                             <label>住所<span class="error">*</span></label>
                                             <quill-editor  ref="myQuilEditor"  name="address" :options="editorOption" @change="onCustomerAddressChange($event)" class="customer-address" v-model="customer_info.address"/>
@@ -684,7 +696,7 @@ export default {
         },
         
         created(){
-               
+                          
                 if(this.type != undefined && this.cusid!= undefined){
                         localStorage.setItem('cusType',this.type);
                         localStorage.setItem('cusId',this.cusid);
@@ -708,6 +720,21 @@ export default {
                 .get('/api/nursinginfo/'+this.cusid)
                 .then(response=>{
                         this.nursing_info = response.data;
+                        console.log(this.cusid);
+                        console.log(response.data);
+                        
+
+                        if(this.nursing_info.latitude == 0){
+                            console.log("0");
+                            localStorage.setItem('lat_num',35.6803997);
+                            localStorage.setItem('lng_num',139.76901739);
+                        }
+                        else{
+                            console.log(this.nursing_info.latitude);
+                            localStorage.setItem('lat_num',this.nursing_info.latitude);
+                            localStorage.setItem('lng_num',this.nursing_info.longitude);
+                        }
+                        
                 });
 
                 this.axios
@@ -1233,7 +1260,7 @@ export default {
 
                                 if(error.response.status == 422){
                                         this.save_staff_info = 'error';
-                                        this.errors = error.response.data.errors
+                                        this.errors = error.response.data.error
                                 }
                         }) ;
                 }
@@ -1275,6 +1302,13 @@ export default {
 
  <style>
   .quill-editor{
-          background-color: #fff;
+    background-color: #fff;
+  }
+  .panorama-box {
+    padding: 10px 10px 20px 0px;
+    border: 1px solid #dee2e6;
+    /* border-radius: 5px; */
+    margin: 0px;
+    margin-bottom: 15px;
   }
  </style>

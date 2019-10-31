@@ -251,7 +251,7 @@
                                 localStorage.setItem('hospital_history', new_local);
                                 this.local_sto = localStorage.getItem("hospital_history");
                                 if (this.local_sto) {
-                                    this.getAllFavourite(this.local_sto);
+                                    this.getAllCustomer(this.local_sto);
                                 } else {
                                     // window.location.reload();
                                     this.$router.push({

@@ -52,6 +52,13 @@ Vue.component('VPannellumn', VuePannellum)
 import Panorama from 'vuejs-panorama';
 Vue.use(Panorama);
 
+//profile_slider
+
+// import Lightbox from 'vue-easy-lightbox'
+// Vue.use(Lightbox)
+//import Vue from 'vue'
+
+
 //vue vuetify
 // import Vuetify from "vuetify";
 // import "vuetify/dist/vuetify.min.css";

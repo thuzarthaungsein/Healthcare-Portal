@@ -71,8 +71,6 @@ class registerController extends Controller
             'cities'=> 'required',
             'township'=> 'required',
             ]);
-            $type = 1;
-
             $type = 2;
 
             if($request->types == '3'){
