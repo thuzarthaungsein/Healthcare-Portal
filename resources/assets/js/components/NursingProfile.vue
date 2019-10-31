@@ -45,10 +45,10 @@
                     </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">フォトアルバム</label> 
-                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
+                                    <span class="galleryadd btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
-                                    <span class='changeGalleryLink btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryToggle" >
-                                        <i id="gallery" class="fa fa-minus-circle"></i> 
+                                    <span class='changeGalleryLink btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryToggle" >
+                                        <i id="gallery" class="fas fa-sort-down"></i> 
                                    </span>
                             <div id="changeGalleryLink"  class="col-md-12">
                                     <div class="row" id ="gallery-photo">
@@ -75,10 +75,10 @@
                     </div>
 
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()">
+                            <label class="heading-lbl col-2 pad-free">動画</label> <span class="galleryvideo btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryVideoAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
-                                    <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryVideoToggle" >
-                                        <i id="video" class="fa fa-minus-circle"></i> 
+                                    <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryVideoToggle" >
+                                        <i id="video" class="fas fa-sort-down"></i> 
                                    </span>
                             <div id="changeGalleryVideoLink" class="col-md-12">
                                     <div class="row" id="gallery-video">
@@ -160,7 +160,7 @@
                                                          
                                                     <td colspan="2" class="text-right" style="border:none;!important">
                                                         <span :class="'btn btn all-btn main-bg-color changeLink'+payment.id" style="min-width: 0px;" @click="paymentToggle(payment.id)" >
-                                                            <i :id="'icon' + payment.id" class="fa fa-minus-circle"></i> 
+                                                            <i :id="'icon' + payment.id" class="fas fa-sort-down"></i> 
                                                         </span>
                                                         <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
                                                         <i class="fa fa-trash"></i> 削除</a>
@@ -264,7 +264,7 @@
                                                         <th class="title-lbl"><span>返還金について</span></th>
                                                         <th>&nbsp;</th>
                                                         </tr>
-                                                        <tr>
+                                                        <tr>      
                                                         <th>返還制度</th>
                                                         <th>
                                                                 <input type="text" name="breakdown[]" class="form-control refund-system white-bg-color" v-model="payment.refund_system">
@@ -403,24 +403,25 @@
                         <td style="border:none;">
                             <div class="form-group">
                                 <label class="heading-lbl col-2 pad-free">協力医療機関 <span class="error">*</span></label>
-                                <div class="col-10 pad-free float-right">
+                                <div class="col-10 pad-free float-right ">
                                     <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()">
                                             <i class="fas fa-plus-circle"></i> 加算</span>
                                               
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
-                                        <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                        <div class="col-md-12 m-t-30 m-b-20 gallery-area-payment" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
                                           
                                             <div class="clearfix" style="margin-bottom:30px;">
-                                                 <span :class="'float-right btn btn all-btn main-bg-color changeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
-                                                        <i :id="'icon' + cooperate.id" class="fa fa-minus-circle"></i> 
-                                                 </span>       
+                                                   <span :class="'float-right btn all-btn main-bg-color cooperateChangeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
+                                                        <i :id="'cooperate' + cooperate.id" class="fas fa-sort-down"></i> 
+                                                </span>                 
                                             </div>
-                                             
+                                            
                                             <div class="form-group">
                                                 <label class="col-2 pad-free">名前 :</label>
                                                 <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
                                             </div>
+                                              <div :id="'cooperateChangeLink' + cooperate.id">
                                             <table class="table table-bordered">
                                             <tr>
                                                 <th class="width15 title-bg">診療科目</th>
@@ -440,8 +441,9 @@
                                             </tr>
                                             </table>
                                             <div class="clearfix">
-                                                <a class="mr-auto text-danger btn delete-borderbtn float-right" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
+                                                <a class="mr-auto text-danger btn delete-borderbtn float-right m-b-20" @click="DeltArr(indx,'cooperate')"> <i class="fa fa-trash"></i> 削除</a>
                                             </div>
+                                             </div>
                                         </div>
                                     </div>
                                 </div>
@@ -608,9 +610,12 @@
                     </tr>
                 </table>
                 <!-- end table 7 for 公式サイト -->
-                <div class="row col-2 col-offset-6 mx-auto">
-                    <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
+                <div style="position:fixed;width:100%;background:rgba(0,0,0,.7);left:0;right:0;bottom:0;padding:0 0 10px 0;">
+                    <div class="row col-2 col-offset-6 mx-auto">
+                        <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
+                    </div>
                 </div>
+                
             </div>
         </form>
     </div>
@@ -796,7 +801,7 @@ export default {
         methods: {
               
                 onEditorBlur(quill) {
-        console.log('editor blur!', quill)
+        console.log('editor blur  !', quill)
       },
       onEditorFocus(quill) {
         console.log('editor focus!', quill)
@@ -949,17 +954,17 @@ export default {
                 paymentToggle(id)
                 {
                       var class_by_id = $('#icon'+id).attr('class');
-                      if(class_by_id == "fa fa-plus-circle")
+                      if(class_by_id == "fas fa-sort-down animate rotate")
                       {     
-                                $('#icon'+id).removeClass("fa fa-plus-circle");
-                                $('.changeLink'+id).addClass("fa fa-minus-circle");    
+                                $('#icon'+id).removeClass("fas fa-sort-down animate rotate");
+                                $('.changeLink'+id).addClass("fas fa-sort-down");    
                                 $('#changeLink'+id).show('medium');  
                       }
                       else {
                          
-                                $('#icon'+id).removeClass("fa fa-minus-circle");
-                                $('.changeLink'+id).removeClass("fa fa-minus-circle");  
-                                $('#icon'+id).addClass("fa fa-plus-circle");  
+                                $('#icon'+id).removeClass("fas fa-sort-down");
+                                $('.changeLink'+id).removeClass("fas fa-sort-down");  
+                                $('#icon'+id).addClass("fas fa-sort-down animate rotate");  
                                 $('#changeLink'+id).hide('medium');        
                       }
     
@@ -969,37 +974,62 @@ export default {
 
                       var class_by_id = $('#gallery').attr('class');
                      
-                      if(class_by_id == "fa fa-plus-circle")
+                      if(class_by_id == "fas fa-sort-down animate rotate")
                       {     
-                                $('#gallery').removeClass("fa fa-plus-circle");
-                                $('.changeGalleryLink').addClass("fa fa-minus-circle");    
+                                $('#gallery').removeClass("fas fa-sort-down animate rotate");
+                                $('.changeGalleryLink').addClass("fas fa-sort-down");    
                                 $('#changeGalleryLink').show('medium');  
+                                $('.galleryadd').show();
                       }
                       else {
-                         
-                                $('#gallery').removeClass("fa fa-minus-circle");
-                                $('.changeGalleryLink').removeClass("fa fa-minus-circle");  
-                                $('#gallery').addClass("fa fa-plus-circle");  
-                                $('#changeGalleryLink').hide('medium');        
+
+                              
+                                $('#gallery').removeClass("fas fa-sort-down");
+                                $('.changeGalleryLink').removeClass("fas fa-sort-down");  
+                                $('#gallery').addClass("fas fa-sort-down animate rotate");  
+                                $('#changeGalleryLink').hide('medium');   
+                                 $('.galleryadd').show(); 
+                                      $('.galleryadd').hide();    
                       }
                 },
                 galleryVideoToggle()
                 {
                        var class_by_id = $('#video').attr('class');
                       
-                      if(class_by_id == "fa fa-plus-circle")
+                      if(class_by_id == "fas fa-sort-down animate rotate")
                       {     
-                                $('#video').removeClass("fa fa-plus-circle");
-                                $('.changeGalleryVideoLink').addClass("fa fa-minus-circle");    
+                                $('#video').removeClass("fas fa-sort-down animate rotate");
+                                $('.changeGalleryVideoLink').addClass("fas fa-sort-down");    
                                 $('#changeGalleryVideoLink').show('medium');  
+                                 $('.galleryvideo').show();
                       }
                       else {
                          
-                                $('#video').removeClass("fa fa-minus-circle");
-                                $('.changeGalleryVideoLink').removeClass("fa fa-minus-circle");  
-                                $('#video').addClass("fa fa-plus-circle");  
-                                $('#changeGalleryVideoLink').hide('medium');        
+                                $('#video').removeClass("fas fa-sort-down");
+                                $('.changeGalleryVideoLink').removeClass("fas fa-sort-down");  
+                                $('#video').addClass("fas fa-sort-down animate rotate");  
+                                $('#changeGalleryVideoLink').hide('medium');    
+                                $('.galleryvideo').hide();    
                       }  
+                },
+                cooperateToggle(id)
+                {
+                      var class_by_id = $('#cooperate'+id).attr('class');
+                      if(class_by_id == "fas fa-sort-down animate rotate")
+                      {     
+                                $('#cooperate'+id).removeClass("fas fa-sort-down animate rotate");
+                                $('.cooperateChangeLink'+id).addClass("fas fa-sort-down");    
+                                $('#cooperateChangeLink'+id).show('medium');  
+   
+                      }
+                      else {
+                         
+                                $('#cooperate'+id).removeClass("fas fa-sort-down");
+                                $('.cooperateChangeLink'+id).removeClass("fas fa-sort-down");  
+                                $('#cooperate'+id).addClass("fas fa-sort-down animate rotate");  
+                                $('#cooperateChangeLink'+id).hide('medium');        
+                      }
+    
                 },
 
             createProfile() {
