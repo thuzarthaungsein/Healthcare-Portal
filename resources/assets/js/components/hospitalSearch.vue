@@ -450,7 +450,8 @@
                     </thead>
                     <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
                       <tr v-if="hos.customer_id == time.customer_id" class="text-center">
-                        <td class="second-hos-row" style="width:8%;">{{time.part}}</td>
+                        <td class="second-hos-row" style="width:8%;" v-if="time.part == 'am'">午前</td>
+                        <td class="second-hos-row" style="width:8%;" v-if="time.part == 'pm'">午後</td>
                         <td style="width:10%;">{{time.mon}}</td>
                         <td style="width:10%;">{{time.tue}}</td>
                         <td style="width:10%;">{{time.wed}}</td>
