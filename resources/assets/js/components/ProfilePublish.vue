@@ -6,7 +6,7 @@
         <!--panorama-->
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <div class="thumbnail-img" style="padding:0px;border:none;">
-                <div class="card-carousel">
+                <div class="card-carousel" style="background:#fff;">
                 <div class="card-img" >
                     <!-- <div id="panorama"></div>           -->
                     <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>
