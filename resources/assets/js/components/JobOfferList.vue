@@ -8,7 +8,7 @@
             class="float-right main-bg-color create-btn all-btn"
             style="color: blue;"
           >
-            <i class="fas fa-plus-circle"></i> 新しい投稿を作成
+            <i class="fas fa-plus-circle"></i> 新しい求人票を作成
           </router-link>
         </div>
       </div>
