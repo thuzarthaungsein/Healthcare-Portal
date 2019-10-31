@@ -1,26 +1,26 @@
 <template>
 
-    <div class="card">
-        <div class="card-header">
-           <div class="card-title mt-2">
+    <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
+         <div class="col-md-12 scrolldiv">
+            <div class="container-fuid">
+                <div class="header">
                     User Reset Password
-           </div>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover DataTable">
+                </div>
+            </div>
+        <div class="col-md-12 pad-free scrolldiv">
+            <div class="container-fuid">
+                <table class="table table-hover custom-table">
                     <!-- <div v-if="!this.getReset.length" style="padding-top:30px; height:700px; text-align:center " >
 
                         No Record Data
 
                     </div> -->
-                    <div >
-                        <thead>
+                    <thead style="background-color:rgb(183, 218, 210);">
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Action</th>
+                            <th>名前</th>
+                            <th>メールアドレス</th>
+                            <th>パスワード</th>
+                            <th></th>
                         </tr>
                    </thead>
                     <tbody>
@@ -29,16 +29,17 @@
                             <th>{{getUser.name}}</th>
                             <th>{{getUser.email}}</th>
                             <th>{{getUser.password}}</th>
-                            <th>
+                            <th class="text-right">
                                 <!-- <button class="btn btn-sm btn-primary all-btn" v-if="getUser.status == 1">Approved</button> -->
-                                <button class="btn btn-sm btn-primary all-btn"  @click="approve(getUser.id)">Pedding</button>
+                                <button class="btn pending-borderbtn"  @click="approve(getUser.id)">Pedding</button>
                             </th>
                         </tr>
                    </tbody>
-                    </div>
 
 
-                </table>
+
+                    </table>
+                </div>
             </div>
         </div>
     </div>

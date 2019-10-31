@@ -2115,6 +2115,13 @@ ul.sub-ul li {
     box-shadow: none !important;
     min-width: 70px;
 }
+.pending-borderbtn {
+    border: 1px solid #d2571c !important;
+    color: #d2571c;
+    background: #fff;
+    box-shadow: none !important;
+    min-width: 70px;
+}
 
 .delete-borderbtn {
     border: 1px solid #dc3545 !important;
