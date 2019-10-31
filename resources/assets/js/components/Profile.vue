@@ -163,6 +163,9 @@ export default {
                     var hos_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("hospital_history", hos_his_arr);
                     $("#hos-his-local").html(hos_his_arr.length);   
+                    // if(hos_his_arr.length == 0){
+
+                    // }
                 }
                 if(localStorage.getItem("hospital_fav")){
                     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("hospital_fav") + "]");
