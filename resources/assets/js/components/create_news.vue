@@ -59,7 +59,7 @@
                             <div class="row col-md-12">
                                 <label> 関連ニュース:<span class="error">*</span></label>
                                 <div class="col-md-4">
-                                
+
                                 <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                         {{category.name}}

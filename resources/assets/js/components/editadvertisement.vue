@@ -32,11 +32,11 @@
                             <div class="form-group">
                                      <label>ロケーション : <span class="error">*</span></label><br/>
                                 <div class="col-sm-9" v-for="advertisements in advertisement.location" :key="advertisements.id">
-                                    <label class="form-check-label control control--checkbox"> 
+                                    <label class="form-check-label control control--checkbox">
                                         <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (240px*120px 300円)
                                         <div class="control__indicator"></div>
                                         </label><br/>
-                                    <label class="form-check-label control control--checkbox"> 
+                                    <label class="form-check-label control control--checkbox">
                                         <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(167px*100px 200円)
                                         <div class="control__indicator"></div>
                                     </label>
