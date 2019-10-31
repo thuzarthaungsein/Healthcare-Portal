@@ -467,13 +467,13 @@
                     </tbody>
                 </table>
                <span> <strong> 休診日：</strong>{{hos.closed_day}}</span>
-               <p><span style="color: red; font-weight: bold; font-size: 15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p>
+               <!-- <p><span style="color: red; font-weight: bold; font-size: 15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p> -->
                 <!--end schedule-->  
                                                 
                   </div>
                 </div>
                 
-                <div class="mt-4 detail-btn text-center"><span class="btn all-btn">詳細を見る</span></div>
+                <div class="mt-4 detail-btn text-center"><router-link :to="{name: 'profile', params: {cusid:hos.cus_id, type: 'hospital'}}" class="btn all-btn">詳細を見る</router-link></div>
               </div>
             </div>
           </div>
