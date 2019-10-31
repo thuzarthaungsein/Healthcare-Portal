@@ -19,8 +19,8 @@
             <span v-if="!loginuser"><i class="fas fa-home"></i></span>
           </label>
         </li>
-        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#333; font-weight:bold;" class="btn fav-item fav-color" v-if="!view_pro_id" @click="view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; 資料請求 . 見学リスト に 追加</span>
-        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#aaa; font-weight:bold;" class="btn fav-item fav-color" v-if="view_pro_id" @click="view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 資料請求 . 見学リスト に 追加</span>
+        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#333; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="!view_pro_id" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; 資料請求 . 見学リスト に 追加</span>
+        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#aaa; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="view_pro_id" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 資料請求 . 見学リスト に 追加</span>
       </ul>
 
       <div class="tab-content nursing-borderColor tab-content1 tabs">
@@ -56,6 +56,9 @@
             <span v-if="!loginuser"><i class="fas fa-home"></i></span>
           </label>
         </li>
+
+        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#333; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="!view_pro_id" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#aaa; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="view_pro_id" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
       </ul>
 
       <div class="tab-content hospital-borderColor tab-content1 tabs">
@@ -103,10 +106,12 @@ export default {
         l_storage_hos_fav: [],
         l_storage_nus_fav: [],
         view_pro_id: false,
+        pro_id:0,
     };
   },
   created() {
     this.axios.get('/api/user').then(response => {
+        this.pro_id = response.data.lat_lng[0].id;
         this.loginuser = true;
 
         localStorage.setItem("cusId", response.data.user.customer_id);
@@ -142,6 +147,7 @@ export default {
         this.cusid = Number(localStorage.getItem("cusId"));
 
         this.axios.get(`/api/profile_view/${this.cusid}/${this.type}`).then(response => {
+            this.pro_id = response.data[0].pro_id;
             localStorage.setItem("lat_num", response.data[0].latitude);
             localStorage.setItem("lng_num", response.data[0].longitude);
 
@@ -150,28 +156,35 @@ export default {
                     var hos_his_arr = JSON.parse("[" + localStorage.getItem("hospital_history") + "]");
                     hos_his_arr.push(response.data[0].pro_id);
                     hos_his_arr = [...new Set(hos_his_arr)]; 
-                    localStorage.setItem("hospital_history", hos_his_arr);               
+                    localStorage.setItem("hospital_history", hos_his_arr);       
+                    $("#hos-his-local").html(hos_his_arr.length);        
                 }
                 else{
                     var hos_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("hospital_history", hos_his_arr);
+                    $("#hos-his-local").html(hos_his_arr.length);   
+                }
+                if(localStorage.getItem("hospital_fav")){
+                    var nus_fav_arr = JSON.parse("[" + localStorage.getItem("hospital_fav") + "]");
+                    this.view_pro_id = nus_fav_arr.includes(response.data[0].pro_id);
                 }
             }
             else{
-                // this.view_pro_id = response.data[0].pro_id;
                 if(localStorage.getItem("nursing_history")) {
                     var nus_his_arr = JSON.parse("[" + localStorage.getItem("nursing_history") + "]");
                     nus_his_arr.push(response.data[0].pro_id);
                     nus_his_arr = [...new Set(nus_his_arr)]; 
-                    localStorage.setItem("nursing_history", nus_his_arr);               
+                    localStorage.setItem("nursing_history", nus_his_arr); 
+                    $("#nus-his-local").html(nus_his_arr.length);              
                 }
                 else{
                     var nus_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("nursing_history", nus_his_arr);
+                    $("#nus-his-local").html(nus_his_arr.length);   
                 }
 
                 if(localStorage.getItem("nursing_fav")){
-                    var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_history") + "]");
+                    var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
                     this.view_pro_id = nus_fav_arr.includes(response.data[0].pro_id);
                 }
             }
@@ -199,6 +212,40 @@ export default {
       //   document.getElementById("nursing-lbl").classList.add("dim-btn");
       //   document.getElementById("hospital-lbl").classList.remove("dim-btn");
       // }
+    },
+    favAddFun(status){
+        if(this.type == 'nursing'){
+            var locReplace = "nursing_fav";
+            var varReplace = "#nus-fav-local";
+        } 
+        else{
+            var locReplace = "hospital_fav";
+            var varReplace = "#hos-fav-local";
+        } 
+        
+        if(status == 'add'){
+            if(localStorage.getItem(locReplace)){
+                var fav_arr = JSON.parse("[" + localStorage.getItem(locReplace) + "]");
+                fav_arr.push(this.pro_id);
+                fav_arr = [...new Set(fav_arr)]; 
+                localStorage.setItem(locReplace, fav_arr); 
+                $(varReplace).html(fav_arr.length);
+            }
+            else{
+                var fav_arr = [this.pro_id];
+                localStorage.setItem(locReplace, fav_arr); 
+                $(varReplace).html(fav_arr.length);
+            }
+        }
+        else{
+            var fav_arr = JSON.parse("[" + localStorage.getItem(locReplace) + "]");
+            var index = fav_arr.indexOf(this.pro_id);
+            if (index > -1) {
+                fav_arr.splice(index, 1);
+                localStorage.setItem(locReplace, fav_arr); 
+            }
+            $(varReplace).html(fav_arr.length);
+        }
     },
     scrollTop(){
       $("html, body").animate({ scrollTop: 0 }, "slow");

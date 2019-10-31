@@ -106,7 +106,7 @@
                                                             <img class="profile_wd m-b-15" v-bind:src="'/images/' + nur_profile.logo" alt />
                                                             <br>
 
-                                                            <router-link class="pseudolink" :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'hospital'}}" >{{nur_profile.name}}</router-link>
+                                                            <router-link class="pseudolink" :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" >{{nur_profile.name}}</router-link>
 
                                                         </td>
                                                     </tr>

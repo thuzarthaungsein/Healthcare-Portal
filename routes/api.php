@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api start
     Route::get('gethospitalsearch','SearchMapController@getHospitalSearch');
+    Route::get('getnursingsearch','SearchMapController@getNursingSearch');
     Route::post('getmap/{id}','SearchMapController@getMap');
     Route::get('getjobsearch','SearchMapController@getJobSearch');
     Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
@@ -334,7 +335,7 @@ Route::group(['prefix' => 'nurse'], function () {
 });
 
 Route::group(['prefix' => 'new'], function () {
-    // Route::post('getPostsByCatId/{id}/{search_word}', 'PostController@getPostById');
+    Route::post('getPostsByCatId/{id}', 'PostController@getPostById');
 });
 
 Route::get('cost','ProfilePublishController@getCost');
