@@ -36,6 +36,7 @@ Vue.component(VueCarousel.name, VueCarousel);
 import Slick from 'vue-slick';
 Vue.use(Slick);
 
+
 //pano
 // import Pano from 'vue-pano';
 // Vue.use(Pano);
@@ -76,10 +77,15 @@ Vue.use(CKEditor);
 import ReadMore from 'vue-read-more';
 Vue.use(ReadMore);
 
+//start Light Gallery
+import Lightbox from 'vue-my-photos'
+Vue.use(Lightbox)
+    //end Light Gallery
+
 
 //vuejs loading
 import VueLoading from 'vuejs-loading-plugin'
-Vue.use(VueLoading,{
+Vue.use(VueLoading, {
     text: '送信中'
 })
 
