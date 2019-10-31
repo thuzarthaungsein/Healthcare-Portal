@@ -56,7 +56,7 @@
                                                     
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <div style="width:250px;">{{nur_profile.access}}</div>
+                                                            <div style="width:250px;"><p v-html="nur_profile.access"></p></div>
                                                         </td>
                                                     </tr>
 
@@ -177,7 +177,7 @@ export default {
                                 localStorage.setItem('nursing_history', new_local);
                                 this.local_sto = localStorage.getItem("nursing_history");
                                 if (this.local_sto) {
-                                    this.getAllFavourite(this.local_sto);
+                                    this.getAllCustomer(this.local_sto);
                                 } else {
                                     // window.location.reload();
                                     this.$router.push({

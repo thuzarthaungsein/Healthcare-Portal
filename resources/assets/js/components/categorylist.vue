@@ -82,9 +82,7 @@ export default {
     this.axios.get("/api/category/categories").then(response => {
       this.categories = response.data;
       this.norecord = this.categories.length;
-    });
-    this.axios.get("/api/user").then(response => {
-    });
+    });    
   },
   methods: {
     deleteCategory(id) {

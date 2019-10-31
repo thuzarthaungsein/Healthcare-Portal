@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="col-12 scrolldiv2 pb-5 tab-content" id="nursing"> 
+        <div class="col-12 scrolldiv2 pb-5 tab-content" id="nursing">
             <div class="row col-12">
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
@@ -253,7 +253,7 @@
                         </label>
                         <button type="button" class="btn btn-success  float-left" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
                     </div>
-                </div>        
+                </div>
                 <div style="margin-top: 20px;" id="fav-history-page">
                     <div class="col-12">
                         <div class="card-carousel-wrapper">
@@ -368,7 +368,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
                                 <div class="nav-content ml-2">
                                    <div class="card-carousel--nav__right"></div>
@@ -509,6 +509,8 @@
                         this.axios
                             .post('/api/nursing_fav/' + local_storage)
                             .then(response => {
+                                console.log(response);
+                                console.log(local_storage);
                                 this.fav_nursing = response.data;
                                 // for (var i = 0; i < this.fav_nursing.length; i++) {
                                 //     var j = this.fav_nursing[i].id;

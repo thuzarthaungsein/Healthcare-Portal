@@ -80,9 +80,6 @@ export default {
       this.stations = response.data;
       this.norecord = this.stations.length;
     });
-    this.axios.get("/api/user").then(response => {
-      // console.log(response);
-    });
   },
   methods: {
     deleteStation(id) {
