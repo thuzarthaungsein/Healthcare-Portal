@@ -138,7 +138,6 @@
 
                 &nbsp; <span class="font-weight-bold">お気に入り</span>
                 <div class="div1">
-                
                     <router-link to="/favouriteNursing">
                     <i class="fa fa-chevron-circle-right is-nur"></i>
                     <span style="color:#d2571c;">
@@ -792,10 +791,30 @@
 	            return false;
         }
 
-    $("#hos-his-local").html(localStorage.getItem("hospital_history").split(",").length);
-    $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
-    $("#hos-fav-local").html(localStorage.getItem("hospital_fav").split(",").length);
-    $("#nus-fav-local").html(localStorage.getItem("nursing_fav").split(",").length);
+    if(localStorage.getItem("hospital_history")){
+        $("#hos-his-local").html(localStorage.getItem("hospital_history").split(",").length);
+    }
+    else{
+        $("#hos-his-local").html(0);
+    }
+    if(localStorage.getItem("nursing_history")){
+        $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
+    }
+    else{
+        $("#nus-his-local").html(0);
+    }
+    if(localStorage.getItem("hospital_fav")){
+        $("#hos-fav-local").html(localStorage.getItem("hospital_fav").split(",").length);
+    }
+    else{
+        $("#hos-fav-local").html(0);
+    }
+    if(localStorage.getItem("nursing_fav")){
+        $("#nus-fav-local").html(localStorage.getItem("nursing_fav").split(",").length);
+    }
+    else{
+        $("#nus-fav-local").html(0);
+    }
 
     $('.DataTable').DataTable();
     var csrf = "{{ csrf_token() }}";

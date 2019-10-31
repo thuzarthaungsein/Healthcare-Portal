@@ -58,41 +58,7 @@ export default {
             }
         },
         created() {
-                this.start();
-                console.log(localStorage.getItem("hospital_fav"));
-                console.log(localStorage.getItem("nursing_fav"));
-                console.log(localStorage.getItem("nursing_history"));
-                console.log(localStorage.getItem("hospital_history"));
-
-                // Push data
-                this.l_storage_hos_fav.push(2);
-                this.l_storage_hos_fav.push(4);
-
-                this.l_storage_hos_history.push(2);
-                this.l_storage_hos_history.push(4);
-
-
-                this.l_storage_nus_fav.push(1);
-                this.l_storage_nus_fav.push(2);
-                this.l_storage_nus_fav.push(3);
-                this.l_storage_nus_fav.push(4);
-                this.l_storage_nus_fav.push(5);
-                this.l_storage_nus_fav.push(6);
-                this.l_storage_nus_fav.push(7);
-                this.l_storage_nus_fav.push(8);
-                this.l_storage_nus_fav.push(9);
-                this.l_storage_nus_fav.push(10);
-                this.l_storage_nus_fav.push(11);
-
-
-                this.l_storage_nus_history.push(1);
-                this.l_storage_nus_history.push(3);
-
-                localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
-                localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
-                localStorage.setItem("nursing_history", this.l_storage_nus_history);
-                localStorage.setItem("hospital_history", this.l_storage_hos_history);
-
+            this.start();
             this.getAllCat();
             this.getPostByFirstCat();
             this.getLatestPostByFirstCatID();

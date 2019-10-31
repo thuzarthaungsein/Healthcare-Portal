@@ -1405,7 +1405,7 @@ $(document).scroll(function() {
   var cur_pos = $(this).scrollTop();
 
   if (cur_pos >= 100) {
-      $('.fixed-nav').css("top" , "200px");
+      $('.fixed-nav').css("top" , "210px");
   } else {
       $('.fixed-nav').css("top" , "unset");
   }
