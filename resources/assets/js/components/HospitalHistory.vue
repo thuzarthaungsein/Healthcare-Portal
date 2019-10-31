@@ -178,7 +178,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="nav-box"@click="moveCarousel(1)" :disabled="atEndOfList">
+                        <div class="nav-box" @click="moveCarousel(1)" :disabled="atEndOfList">
                             <div class="nav-content ml-2">
                             <div class="card-carousel--nav__right"></div>
                             </div>
