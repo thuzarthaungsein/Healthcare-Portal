@@ -53,8 +53,8 @@ Vue.use(Panorama);
 
 //profile_slider
 
-import Lightbox from 'vue-easy-lightbox'
-Vue.use(Lightbox)
+// import Lightbox from 'vue-easy-lightbox'
+// Vue.use(Lightbox)
 //import Vue from 'vue'
 
 

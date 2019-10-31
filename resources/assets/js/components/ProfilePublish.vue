@@ -1415,8 +1415,6 @@ $(document).scroll(function() {
 
 import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
-import VueEasyLightbox from 'vue-easy-lightbox'
-
 
 export default {
 
