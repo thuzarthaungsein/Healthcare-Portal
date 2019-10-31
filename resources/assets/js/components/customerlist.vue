@@ -83,7 +83,7 @@
                         <!-- <button class="btn confirm-borderbtn" v-if="customer.status == 0">確認済</button> -->
                     
                         <button
-                          class="btn confirm-borderbtn"
+                          class="btn confirm-borderbtn" :id="'confirm-btn'+customer.id"
                           v-if="customer.status == 0"
                           @click="comfirm(customer.id)"
                         >確認</button>
@@ -137,9 +137,20 @@ export default {
       });
     },
     comfirm(id) {
+      this.$loading(true);
       this.axios.get(`/api/confirm/${id}`).then(response => {
         console.log(response);
-        flash("Successfully Send Mail.", "success");
+          this.$swal({
+              title: "確認",
+              text: "メールを送信しました",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#dc3545"
+            });
+          this.$loading(false);
+          $('#confirm-btn'+id).css('display','none');
       });
     },
 
