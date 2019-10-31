@@ -18,7 +18,9 @@ dd {
 
 
 /* li {
+
     list-style: none;
+
 } */
 
 body {
@@ -116,9 +118,13 @@ body {
 
 .typelabel {
     /* background: #118063;
+
     padding: 8px 15px;
+
     border-radius: 5px;
+
     color: white;
+
     width: 100px; */
     margin-bottom: 0px;
     cursor: pointer;
@@ -231,18 +237,28 @@ body {
 
 
 /* .profile .card-header {
+
     padding-top: 20px !important;
+
 } */
 
 
 /* #gallery,
+
 #gallery-video,
+
 #gallery-photo,
+
 #special-features {
+
     border-radius: 5px;
+
     padding: 20px;
+
     border: 1px solid #eee;
+
     margin-top: 15px;
+
 } */
 
 .gallery-area-photo,
@@ -289,6 +305,7 @@ body {
 
 .hos-fac-toggle-div {
     /* padding-top: 15px;
+
     border: 1px solid #eee; */
     border-radius: 5px;
     margin-top: 10px;
@@ -320,10 +337,15 @@ body {
     /* border-radius: 3px; */
     margin-top: 10px;
     /* border-left: 5px solid orange;
+
     /* background: #ffbe9f;
+
     color: #444 !important;
+
     padding: 10px 15px;
+
     border-radius: 3px;
+
     margin-top: 10px; */
 }
 
@@ -444,26 +466,83 @@ body {
 
 
 /* #hospitalView .pro-heading h5::after {
+
     border-top-color: #2981cc;
+
 }
+
 #nursingView .pro-heading h5::after {
+
     border-top-color: #d2571c;
+
 }
+
+
 
 .pro-heading h5::after {
+
     top: 100%;
+
     border: solid transparent;
+
     content: " ";
+
     height: 0;
+
     width: 0;
+
     position: absolute;
+
     pointer-events: none;
+
     border-color: rgba(204, 102, 51, 0);
 
+
+
     border-width: 10px;
+
     left: 50%;
+
     margin-left: -10px;
+
 } */
+
+
+/* lightbox */
+
+.lightbox {
+    z-index: 99999 !important;
+}
+
+.lightbox-image {
+    background-size: unset !important;
+}
+
+.lightbox-main {
+    width: 80% !important;
+    height: 80% !important;
+}
+
+.lightbox-close {
+    right: 15px !important;
+    font-size: 2rem !important;
+}
+
+.lightbox-arrow svg {
+    width: 40px !important;
+    height: 40px !important;
+    border: 2px solid #ffff;
+    line-height: 40px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.lightbox-arrow {
+    width: 7rem !important;
+}
+
+
+/*End lightbox */
 
 
 /* End Profile */
@@ -515,6 +594,8 @@ html {
     left: 0;
     bottom: 0.5%;
     /* top: 35%;
+
+
 
 width: 100%; */
 }
@@ -679,18 +760,25 @@ width: 100%; */
 
 
 /* .form-type-managed-file {
+
     position: relative;
+
     overflow: hidden;
+
 } */
 
 .inputfile>input[type="file"] {
     /* display: inline-block; */
     /* padding: 35px 0 0 0;
+
     height: 20px; */
     /* overflow: hidden; */
     /* -webkit-box-sizing: border-box;
+
     -moz-box-sizing: border-box;
+
     box-sizing: border-box;
+
     background-size: 60px 60px; */
     display: none;
 }
@@ -698,27 +786,51 @@ width: 100%; */
 
 /* #file {
 
+
+
 position: relative;
+
+
 
 top: 150px;
 
+
+
 font-family: calibri;
+
+
 
 width: 150px;
 
+
+
 padding: 10px;
+
+
 
 -webkit-border-radius: 5px;
 
+
+
 -moz-border-radius: 5px;
+
+
 
 border: 1px dashed #BBB;
 
+
+
 text-align: center;
+
+
 
 background-color: #DDD;
 
+
+
 cursor: pointer;
+
+
 
 } */
 
@@ -851,27 +963,43 @@ cursor: pointer;
 div.scroll2 {
     /* height: 350px;
 
+
+
     float: left;
 
+
+
     overflow-y: auto;
+
+
 
     scrollbar-width: thin; */
 }
 
 
 /* div.scroll, .home-scroll {
+
     height: 765px;
+
+
 
 float: left;
 
+
+
 overflow-y: auto;
 
+
+
 scrollbar-width: thin;
+
 }*/
 
 .scrolldiv {
     /* height: 550px;
+
     overflow-y: auto;
+
     scrollbar-width: thin;*/
     background: white;
     padding-top: 15px;
@@ -879,7 +1007,9 @@ scrollbar-width: thin;
 
 .scrolldiv2 {
     /* height: 700px;
+
     overflow-y: auto;
+
     scrollbar-width: thin;*/
     background: white;
     padding-top: 15px;
@@ -912,21 +1042,39 @@ scrollbar-width: thin;
 
 /* .sr-only {
 
+
+
 position: absolute;
+
+
 
 width: 1px;
 
+
+
 height: 1px;
+
+
 
 padding: 0;
 
+
+
 margin: -1px;
+
+
 
 overflow: hidden;
 
+
+
 clip: rect(0,0,0,0);
 
+
+
 border: 0;
+
+
 
 } */
 
@@ -1085,6 +1233,7 @@ p {
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
     z-index: 99;
     /* margin-left: 100px;
+
 margin-right: 100px; */
 }
 
@@ -1122,11 +1271,19 @@ margin-right: 100px; */
 
 /* .main-wrapper{
 
+
+
     padding: 10px 20px 20px 20px;
+
+
 
     background-color: #f5f5f5;
 
+
+
     height:100%;
+
+
 
 } */
 
@@ -1364,23 +1521,39 @@ textarea {
 
 
 /* .news-wrapper>ul>li.list-group-item {
+
     background-color: red !important;
+
 } */
 
 
 /* .news-wrapper >a:first-child{
 
+
+
     display: inline-block;
+
+
 
     margin-left: 0;
 
+
+
     margin-right: 2.1rem;
+
+
 
     padding: 0;
 
+
+
     vertical-align: top;
 
+
+
     width: 30rem;
+
+
 
 } */
 
@@ -1525,8 +1698,11 @@ div.b {
 
 
 /* .ads-card,
+
 .ads-card2 {
+
     width: 18rem;
+
 } */
 
 .ads-card2 .card-body {
@@ -1721,9 +1897,11 @@ ul.sub-ul li {
 .joboffer-salary-type {
     margin-left: 15px;
 }
+
 .joboffer-salary {
-    margin-left:  5px;
+    margin-left: 5px;
 }
+
 
 /*End Terms & conditions */
 
@@ -1763,7 +1941,11 @@ ul.sub-ul li {
     }
     /* .ads-card{
 
+
+
          width: 18rem;
+
+
 
     } */
     .smallads-title {
@@ -1980,7 +2162,11 @@ ul.sub-ul li {
 
 /* .m-r-2per{
 
+
+
     margin-right: 2% !important;
+
+
 
 } */
 
@@ -2203,6 +2389,8 @@ ul.sub-ul li {
     /* min-height: 350px !important; */
     /* max-height: 252px;
 
+
+
     min-height: 252px; */
     /* width: 49%; */
 }
@@ -2272,14 +2460,21 @@ li.userprofile-name>a {
 
 /* .router-link-active{
 
+
+
     color: #fff !important;
+
+
 
 } */
 
 
 /* .nav-tabs .nav-link:focus,
+
 .nav-tabs .nav-link:hover {
+
     border-color: transparent !important;
+
 } */
 
 a:hover {
@@ -2378,7 +2573,6 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 .custom-sidebar {
     /* height: 100vh;*/
     /* background: #b7dad2;  */
-    padding:10px;
 }
 
 
@@ -2610,7 +2804,11 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 /* .tab{
 
+
+
     height:743px;
+
+
 
 } */
 
@@ -2658,12 +2856,18 @@ ul.main-tab li:after {
 
 /* .tablink{
 
+
+
     color: #fff !important;
+
+
 
 } */
 
 
 /* .subtab1{
+
+
 
     background: #00b09b;
 
@@ -2671,15 +2875,31 @@ ul.main-tab li:after {
 
 
 
+
+
+
+
+
+
 }
+
+
 
 .subtab2{
 
+
+
     background: #ffdde1;
+
+
 
 }
 
+
+
 .subtab3{
+
+
 
     background: #4eb3de ;
 
@@ -2687,9 +2907,19 @@ ul.main-tab li:after {
 
 
 
+
+
+
+
+
+
 }
 
+
+
 .subtab4{
+
+
 
     background: #7586c6 ;
 
@@ -2697,11 +2927,27 @@ ul.main-tab li:after {
 
 
 
+
+
+
+
+
+
 }
+
+
 
 .subtab5{
 
+
+
     background: #ff9b53;  /
+
+
+
+
+
+
 
 
 
@@ -2732,6 +2978,8 @@ ul.main-tab li:after {
 .footer {
     font-size: 12px;
     /* padding-top: 15px;
+
+
 
     padding-bottom: 15px; */
     background: transparent;
@@ -2775,9 +3023,13 @@ ul.main-tab li:after {
 
 
 /* .divisions {
+
     position: absolute;
+
     top: 0;
+
     left: 0;
+
 } */
 
 .divisions span {
@@ -2810,25 +3062,45 @@ ul.main-tab li:after {
 
 
 /*
+
 .hokkaido-box .spanclass,
+
 .kanto-box .spanclass,
+
 .okinawa-box .spanclass {
+
     display: block;
+
     margin-right: 0;
+
     border-bottom: 1px solid #ddd;
+
 }
+
+
 
 .divisions .hokkaido-box .card-body,
+
 .divisions .kanto-box .card-body,
+
 .divisions .okinawa-box .card-body {
+
     padding: 0 !important;
+
 }
 
+
+
 .hokkaido-box .spanclass:last-child,
+
 .kanto-box .spanclass:last-child,
+
 .okinawa-box .spanclass:last-child {
+
     margin-bottom: 0;
+
     border-bottom: 0;
+
 } */
 
 .kanto-box {
@@ -3053,7 +3325,11 @@ screen and (min-width: 750px) {
     }
     /* .top-ad-slider .ads-img {
 
+
+
     background-color: #f5f5f5;
+
+
 
       }  */
 }
@@ -3081,7 +3357,11 @@ screen and (min-width: 750px) {
 
 /* body {
 
+
+
 background-color: #f5f5f5;
+
+
 
 } */
 
@@ -3168,17 +3448,31 @@ background-color: #f5f5f5;
 
 /* .news-wrapper >a:first-child{
 
+
+
 display: inline-block;
+
+
 
 margin-left: 0;
 
+
+
 margin-right: 2.1rem;
+
+
 
 padding: 0;
 
+
+
 vertical-align: top;
 
+
+
 width: 30rem;
+
+
 
 } */
 
@@ -3672,7 +3966,11 @@ div.b {
 
 /* .m-r-2per{
 
+
+
 margin-right: 2% !important;
+
+
 
 } */
 
@@ -3849,6 +4147,8 @@ margin-right: 2% !important;
     /* min-height: 350px !important; */
     /* max-height: 252px;
 
+
+
 min-height: 252px; */
     /* width: 49%; */
 }
@@ -3934,7 +4234,11 @@ li.userprofile-name>a {
 
 /* .router-link-active{
 
+
+
 color: #fff !important;
+
+
 
 } */
 
@@ -4231,9 +4535,8 @@ a:hover {
     position: fixed;
     top: 70px;
     width: 13%;
-    height: 90%;
+    height: 100%;
     background: transparent;
-    overflow-y:auto;
     /* box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1); */
 }
 
@@ -4433,7 +4736,11 @@ a:hover {
 
 /* .tab{
 
+
+
     height:743px;
+
+
 
 } */
 
@@ -4481,7 +4788,11 @@ ul.main-tab li:after {
 
 /* .tablink{
 
+
+
 color: #fff !important;
+
+
 
 } */
 
@@ -4542,6 +4853,8 @@ color: #fff !important;
     font-size: 12px;
     /* padding-top: 15px;
 
+
+
 padding-bottom: 15px; */
     background: transparent;
     text-align: center;
@@ -4569,9 +4882,13 @@ padding-bottom: 15px; */
 
 
 /* .divisions {
+
 position: absolute;
+
 top: 0;
+
 left: 0;
+
 } */
 
 .divisions span {
@@ -4604,25 +4921,45 @@ left: 0;
 
 
 /*
+
 .hokkaido-box .spanclass,
+
 .kanto-box .spanclass,
+
 .okinawa-box .spanclass {
+
 display: block;
+
 margin-right: 0;
+
 border-bottom: 1px solid #ddd;
+
 }
+
+
 
 .divisions .hokkaido-box .card-body,
+
 .divisions .kanto-box .card-body,
+
 .divisions .okinawa-box .card-body {
+
 padding: 0 !important;
+
 }
 
+
+
 .hokkaido-box .spanclass:last-child,
+
 .kanto-box .spanclass:last-child,
+
 .okinawa-box .spanclass:last-child {
+
 margin-bottom: 0;
+
 border-bottom: 0;
+
 } */
 
 .kanto-box {
@@ -4870,7 +5207,9 @@ screen and (min-width: 750px) {
         height: 120px;
     }
     /* .top-ad-slider .ads-img {
+
             font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+
         }  */
 }
 
@@ -5036,9 +5375,15 @@ body::-webkit-scrollbar-thumb {
 
 /* .top-ad-slider .ads-img {
 
+
+
     width: auto;
 
+
+
     margin-right: 13.2px;
+
+
 
 } */
 
@@ -5223,7 +5568,9 @@ body::-webkit-scrollbar-thumb {
 
 
 /* .fac_container>li:first-child {
+
         margin: 0;
+
     } */
 
 .hos-tit {
@@ -5353,136 +5700,16 @@ body::-webkit-scrollbar-thumb {
 
 /* .pc {
 
+
+
     display: block !important;
+
+
 
 } */
 
 .sp {
     display: none !important;
-}
-
-@media only screen and (max-width: 1300px) {
-    .adslist-card {
-        height: auto;
-
-    }
-    .ads-img {
-        display: block;
-        float: none;
-        max-width: 100%;
-        width: auto;
-        margin: 0 auto;
-    }
-    .today .adslist-card .smallads-title {
-        top: 7px;
-    }
-    .hokkaido-box,
-    .kanto-box {
-        right: -10%;
-        max-width: 165px;
-    }
-    .tokai-box {
-        right: -10%;
-    }
-    .shikoku-box {
-        right: 22%;
-    }
-    .okinawa-box {
-        left: -1%;
-    }
-    .kinki-box,
-    .chugoku-box {
-        left: -1%;
-    }
-    .chugoku-box {
-        max-width: 230px;
-    }
-    .hokuriku-box {
-        left: 28%;
-    }
-    /* #v-pills-tab li a {
-
-        display: block;
-
-        padding: 0;
-
-    } */
-    .sub-title>.ads-title {
-        position: unset;
-        margin: 10px 0 30px;
-    }
-    .job-img {
-        max-width: 80% !important;
-        margin: 0 auto 20px;
-        flex: unset;
-    }
-    .job-box {
-        max-width: 100% !important;
-        flex: unset;
-    }
-    .compare-wrap {
-        max-width: 82%;
-    }
-    .fav-update-wrap {
-        max-width: 19%;
-        flex: 0 0 18%;
-    }
-}
-/* @media screen and (max-height: px) , screen and (min-height: 500px){
-    .scrolladmin{
-        overflow-y: auto;
-        scrollbar-width: thin;
-        background: white;
-        padding-top: 15px;
-    }
-} */
-@media only screen and (max-width: 990px) {
-    .pc {
-        display: none !important;
-    }
-    .sp {
-        display: block !important;
-    }
-    .navbar-brand img {
-        max-width: 200px;
-    }
-    .sp-nav {
-        padding: 20px 40px;
-    }
-    .sp-nav li {
-        list-style: none;
-        border-bottom: 1px solid #fff;
-    }
-    .nav-link {
-        padding: 0.5rem 0;
-    }
-    .router-link-exact-active {
-        border-left: 0px;
-        background-color: transparent;
-    }
-    .ads-img {
-        float: left;
-        display: block;
-        margin: 0 auto;
-    }
-    .today .adslist-card .smallads-title {
-        top: 7px;
-    }
-    .hos-btn {
-        width: 50%;
-        margin: 10px auto 0;
-    }
-    .hos-img {
-        height: auto;
-        line-height: unset;
-        border: 0;
-        border-bottom: 0;
-        background-color: transparent;
-    }
-    .hos-img img {
-        width: auto;
-        max-width: 100%;
-    }
 }
 
 
@@ -5608,17 +5835,33 @@ button.confirmed {
 
 /* .swal2-icon.swal2-success{
 
+
+
     color: green;
+
+
 
 }
 
+
+
 .swal2-icon{
+
+
 
     width: 40px !important;
 
+
+
     height: 40px !important;
 
+
+
     margin: 5px auto 5px !important;
+
+
+
+
 
 
 
@@ -5659,6 +5902,7 @@ button.confirmed {
     line-height: 2em;
     height: 2em;
 }
+
 .nocard-wrap {
     height: 500px;
     padding-top: 130px;
@@ -5681,7 +5925,8 @@ button.confirmed {
     line-height: 80px;
     vertical-align: middle;
 }
-.nouser-ico{
+
+.nouser-ico {
     border: 1px solid #6c757df7;
     width: 80px;
     height: 80px;
@@ -5691,16 +5936,18 @@ button.confirmed {
     line-height: 80px;
     vertical-align: middle;
 }
+
 .nouser-ico img {
     height: 40px;
-    width:40px;
+    width: 40px;
 }
 
 .record-ico i {
     font-size: 28px;
     color: #ff9563;
 }
-.nouser-txt01{
+
+.nouser-txt01 {
     font-size: 30px;
     color: #a5a5a5;
     font-weight: bold;
@@ -5791,6 +6038,7 @@ button.confirmed {
     /* font-weight: normal; */
     font-size: 0.9em;
 }
+
 
 /* start .profile */
 
@@ -5979,6 +6227,7 @@ button.confirmed {
 }
 
 #nursing .res-btn {
+    position: relative;
     background: #ff9563;
 }
 
@@ -5986,7 +6235,8 @@ button.confirmed {
     vertical-align: middle;
 }
 
-#nursing .hos-btn {
+#nursing .hos-btn,
+#hospital .hos-btn {
     width: 70%;
     margin: 0 auto;
     margin-bottom: 5px;
@@ -6003,7 +6253,7 @@ button.confirmed {
 }
 
 .compare-wrap {
-    padding-right: 0;
+    padding: 0;
 }
 
 .compare-wrap dl.favnur {
@@ -6033,13 +6283,84 @@ button.confirmed {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
+.profile_wd {
+    width: 239px;
+}
+
+.profile_price {
+    width: 239px;
+    font-size: large;
+    color: #ff6117;
+    line-height: 1;
+}
+
+.price_tbl thead th {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    background: #f0f0f0;
+    color: #000;
+    line-height: 1.7;
+    vertical-align: top;
+    min-width: 100px;
+}
+
+.price_tbl h5 {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.price_tbl .room_type span {
+    background: #fdd6c3;
+    color: #333333;
+    padding: 3px 5px 3px 7px;
+    border-radius: 3px;
+    margin: 0 7px;
+    font-weight: bold;
+}
+
+.expense_txt {
+    font-size: 1.4em;
+    color: #ff6117;
+    font-weight: bold;
+}
+
 
 /*End  nursing */
 
 
+/* hospital */
+
+#hospital .pseudolink {
+    color: #63b7ff;
+}
+
+#hospital .fac_container li {
+    color: #63b7ff;
+    border: 1px solid #63b7ff;
+}
+
+#hospital .nav-content {
+    border: 2px solid #63b7ff;
+    background: #c3ecff40 !important;
+}
+
+#hospital .card-carousel--nav__left,
+#hospital .card-carousel--nav__right {
+    border-top: 5px solid #4f97d5 !important;
+    border-right: 5px solid #4f97d5 !important;
+}
+
+
+/* End  hospital */
+
+
 /* .active {
+
     color: red;
+
     font-weight: bold;
+
 } */
 
 
@@ -6233,7 +6554,10 @@ ul.test>li:before {
     display: flex;
     justify-content: center;
     width: 1336px;
+    overflow-x: auto;
 }
+
+
 /*slick carousel*/
 
 #fav-history-page .card-carousel-wrapper {
@@ -6261,7 +6585,7 @@ ul.test>li:before {
 }
 
 #fav-history-page .card-carousel--nav__left,
-.card-carousel--nav__right {
+#fav-history-page .card-carousel--nav__right {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -6276,9 +6600,13 @@ ul.test>li:before {
 
 
 /* #fav-history-page .card-carousel--nav__left[disabled],
+
 .card-carousel--nav__right[disabled] {
+
     opacity: 0.2;
+
     border-color: black;
+
 } */
 
 .nav-box[disabled] {
@@ -6465,7 +6793,9 @@ ul.test>li:before {
 
 
 /* .bd {
+
           border-bottom: none;
+
       } */
 
 .hh {
@@ -6531,15 +6861,23 @@ ul.test>li:before {
     margin-right: 8px;
     color: #d2571c;
 }
-.job_count{
+
+.job_count {
     /* border-radius: 50%;
+
     background: #f9d7c6;
+
     color: #bd440a;
+
     display: inline-block; */
     /* border: 1px solid #dc3545 !important;
+
     color: #dc3545;
+
     background: #fff;
+
     box-shadow: none !important;
+
     min-width: 60px; */
     display: inline-block;
     background: #e66527;
@@ -6550,7 +6888,6 @@ ul.test>li:before {
     letter-spacing: normal;
     font-size: 0.857em;
 }
-
 
 .job-tit {
     margin-bottom: 10px;
@@ -7025,8 +7362,11 @@ ul.test>li:before {
     font-weight: bolds;
     letter-spacing: 1px;
 }
+
+
 /* start nursing information */
-.nursing-info{
+
+.nursing-info {
     padding-left: 40px;
     padding-bottom: 10px;
     font-size: 20px;
@@ -7038,6 +7378,7 @@ ul.test>li:before {
     font-weight: bolds;
     letter-spacing: 1px;
 }
+
 
 /* end nursing information */
 
@@ -7061,7 +7402,9 @@ ul.test>li:before {
     padding-left: 20px;
     margin-left: 10px;
     /* margin-bottom: 15px;
+
     cursor: pointer;
+
     font-size: 18px; */
 }
 
@@ -7142,113 +7485,146 @@ ul.test>li:before {
 
 .control--radio input:disabled~.control__indicator:after {
     background: #d2571c;
-  }
+}
+
+
 /*end for custom checkbox and radio*/
+
+
 /*for date time picker*/
+
 .mx-calendar-content .cell {
     border-radius: 3px;
 }
+
 .mx-panel-date td.today {
     color: #c1470c !important;
 }
+
 .mx-calendar-content .cell:hover {
     background-color: #e8b9a2 !important;
 }
+
 .mx-calendar-header {
     background: #d2571c !important;
     color: #fff !important;
     border-radius: 3px !important;
 }
+
 .mx-calendar-content .cell.actived {
     color: #fff !important;
     background-color: #d2571c !important;
 }
+
+
 /*end for date time picker*/
 
+@media only screen and (max-width: 1300px) {
+    .adslist-card {
+        height: auto;
+    }
+    .ads-img {
+        display: block;
+        float: none;
+        max-width: 100%;
+        width: auto;
+        margin: 0 auto;
+    }
+    .today .adslist-card .smallads-title {
+        top: 7px;
+    }
+    .hokkaido-box,
+    .kanto-box {
+        right: -10%;
+        max-width: 165px;
+    }
+    .tokai-box {
+        right: -10%;
+    }
+    .shikoku-box {
+        right: 22%;
+    }
+    .okinawa-box {
+        left: -1%;
+    }
+    .kinki-box,
+    .chugoku-box {
+        left: -1%;
+    }
+    .chugoku-box {
+        max-width: 230px;
+    }
+    .hokuriku-box {
+        left: 28%;
+    }
+    /* #v-pills-tab li a {
 
 
 
+        display: block;
 
+
+
+        padding: 0;
+
+
+
+    } */
+    .sub-title>.ads-title {
+        position: unset;
+        margin: 10px 0 30px;
+    }
+    .job-img {
+        max-width: 80% !important;
+        margin: 0 auto 20px;
+        flex: unset;
+    }
+    .job-box {
+        max-width: 100% !important;
+        flex: unset;
+    }
+    .compare-wrap {
+        max-width: 82%;
+    }
+    .fav-update-wrap {
+        max-width: 19%;
+        flex: 0 0 18%;
+    }
+    #fav-history-page .card-carousel {
+        overflow-x: auto;
+    }
+}
 /* nursingSearch */
-.item-fav {
-    font-weight: bold;
-    color: #3C3C3C;
-    border: 2px solid #192E47;
-    background: #E9E5E1;
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2RjZGNkYyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-    background-size: 100%;
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
-    background-image: -moz-linear-gradient(top, #ffffff, #dcdcdc);
-    background-image: -webkit-linear-gradient(top, #ffffff, #dcdcdc);
-    background-image: linear-gradient(to bottom, #ffffff, #dcdcdc);
-    -moz-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-    width: 100%;
-    line-height: 2.2;
-  }
 
-  .item-fav-infowindow {
-    font-weight: bold;
-    color: #3C3C3C;
-    border: 2px solid #192E47;
-    background: #E9E5E1;
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2RjZGNkYyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-    background-size: 100%;
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
-    background-image: -moz-linear-gradient(top, #ffffff, #dcdcdc);
-    background-image: -webkit-linear-gradient(top, #ffffff, #dcdcdc);
-    background-image: linear-gradient(to bottom, #ffffff, #dcdcdc);
-    -moz-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-    width: 100%;
-    line-height: 2.2;
-    text-align: center;
-  }
-.info-font{
-    font-size: 10px;
-}
-.item-name{
-    font-size: 20px;
-    font-weight: bolder;
-    text-shadow: 1px 1px 2px;
-  }
-.gm-style-iw {
-    width: 500px;
-    background:radial-gradient(ellipse at center, rgb(183, 177, 174) 0%, rgba(162, 158, 157, 0.83) 41%, rgba(183, 180, 178, 0.69) 100%) !important;
-  }
-
-.moveing-in{
-    width: 120px;
-    height: 30px;
-    background: linear-gradient(135deg, rgba(255,151,76,1) 0%, rgba(255,92,10,0.59) 100%);
-    text-align: center;
-    padding: 6px;
-    font-weight: bold;
-}
-.per-month{
-    width: 120px;
-    height: 30px;
-    background: linear-gradient(135deg, rgba(255,151,76,1) 0%, rgba(255,92,10,0.59) 100%);
-    text-align: center;
-    padding: 6px;
-    font-weight: bold;
-}
-.moveing-in-item{
-    text-align: center;
-    padding: 6px;
-    font-weight: bold;
-}
-.per-month-item{
-    text-align: center;
-    padding: 6px;
-    font-weight: bold;
-}
 #info_content table tr td {
     border-top: 0px;
+}
+.search-border-dash{
+    border: 1px dashed #b7dad2;    
+    background: #f4f1eb;
+}
+.nurs-sub-heading{    
+    color: #ff9563;
+    font-weight: bold;
+    font-size: 18px;
+}
+/* end nursingSearch */
+
+
+/*commentform*/
+
+.comform {
+    background-color: #e2d9d96b;
+    padding: 22px;
+    border-radius: 10px;
+    width: 920px;
+    margin: auto;
+    background: url(https://www.sagasix.jp/images/support/consultation/bg_check.gif) repeat center top;
+    border: 1px solid #dad3d2;
+    border-radius: 7px;
+    padding: 30px;
+    position: relative;
+    overflow: visible;
 }
   /* nursingSearch */
   /*commentform*/
@@ -7268,9 +7644,10 @@ ul.test>li:before {
    .title_comment{
     margin-left: -15px;
     margin-right: -15px;
-    padding:2px;
-   }
-   .comment-apply-color {
+    padding: 2px;
+}
+
+.comment-apply-color {
     padding-left: 40px;
     padding-bottom: 10px;
     font-size: 20px;
@@ -7281,10 +7658,12 @@ ul.test>li:before {
     font-weight: bolds;
     letter-spacing: 1px;
 }
-.com_ic
-{
+
+.com_ic {
     margin-left: -34px;
     font-size: 29px;
     color: #d2571c;
 }
-  /*commentform*/
+
+
+/*commentform*/

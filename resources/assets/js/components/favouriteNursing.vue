@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="col-12 scrolldiv2 pb-5 tab-content" id="nursing">
-            <div class="row col-12">
-                <div class="col-12">
+        <div class="scrolldiv2 pb-5 tab-content" id="nursing"> 
+            <div class="row m-0">
+                <div class="col-12 pl-0">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
@@ -38,183 +38,185 @@
                 </div>
 
                 <!--compare box-->
-                <div class="row col-12 mt-2 mb-4">
-                    <div class="col-md-11 compare-wrap" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
-                        <dl class="itemBox favnur" id="bd" v-if="!iscompare">
-                            <dt>比較する項目</dt>
-                            <dd>比較する項目が選べます</dd>
-                        </dl>
-                        <dl class="itemBox favnur" id="bd" v-else>
-                            <dt class="pr-4">比較する項目</dt>
-                            <dd>
-                                <ul class="test">
-                                    <li v-if="address_check">住所</li>
-                                    <li v-if="tran_check">交通手段</li>
-                                    <li v-if="month_check">月額費用</li>
-                                    <li v-if="entry_check">入居一時金</li>
-                                    <li v-if="condition_check">入居条件</li>
-                                    <li v-if="special_check">特長</li>
-                                    <li v-if="capacity_check">定員</li>
-                                    <li v-if="opening_check">開設日</li>
-                                </ul>
-                            </dd>
-                            <!-- <dd v-if="tran_check" style="width: 84px;">、交通手段</dd>
-                    <dd v-if="month_check" style="width: 80px;">、月額費用</dd>
-                    <dd v-if="entry_check" style="width:100px;">、入居一時金</dd>
-                    <dd v-if="condition_check" style="width:80px;">、入居条件 </dd>
-                    <dd v-if="special_check" style="width: 51px;">、特長</dd>
-                    <dd v-if="medical_check" style="width: 135px;">、医療面の受け入れ</dd>
-                    <dd v-if="capacity_check" style="width:50px;">、定員</dd>
-                    <dd v-if="opening_check" class="da">、開設日</dd> -->
-                        </dl>
-                    </div>
+                <div class="col-12 mt-2 mb-4">
+                    <div class="row m-0">
+                        <div class="col-md-11 compare-wrap" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">
+                            <dl class="itemBox favnur" id="bd" v-if="!iscompare">
+                                <dt>比較する項目</dt>
+                                <dd>比較する項目が選べます</dd>
+                            </dl>
+                            <dl class="itemBox favnur" id="bd" v-else>
+                                <dt class="pr-4">比較する項目</dt>
+                                <dd>
+                                    <ul class="test">
+                                        <li v-if="address_check">住所</li>
+                                        <li v-if="tran_check">交通手段</li>
+                                        <li v-if="month_check">月額費用</li>
+                                        <li v-if="entry_check">入居一時金</li>
+                                        <li v-if="condition_check">入居条件</li>
+                                        <li v-if="special_check">特長</li>
+                                        <li v-if="capacity_check">定員</li>
+                                        <li v-if="opening_check">開設日</li>
+                                    </ul>
+                                </dd>
+                                <!-- <dd v-if="tran_check" style="width: 84px;">、交通手段</dd>
+                        <dd v-if="month_check" style="width: 80px;">、月額費用</dd>
+                        <dd v-if="entry_check" style="width:100px;">、入居一時金</dd>
+                        <dd v-if="condition_check" style="width:80px;">、入居条件 </dd>
+                        <dd v-if="special_check" style="width: 51px;">、特長</dd>
+                        <dd v-if="medical_check" style="width: 135px;">、医療面の受け入れ</dd>
+                        <dd v-if="capacity_check" style="width:50px;">、定員</dd>
+                        <dd v-if="opening_check" class="da">、開設日</dd> -->
+                            </dl>
+                        </div>
 
-                    <div class="modal fade bd-example-modal-lg mycheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">比較する項目を選ぶ</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <button class="btn btn-secondary">閉じる&times;</button>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <p>エリア</p>
+                        <div class="col-md-1 fav-update-wrap">
+                            <button class="fav-update-btn" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">変更する</button>
+                        </div>
+
+                        <div class="modal fade bd-example-modal-lg mycheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">比較する項目を選ぶ</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button class="btn btn-secondary">閉じる&times;</button>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <p>エリア</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>
+                                                    <input type="checkbox" value="address" v-model="address_check"> 住所
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>
+                                                    <input type="checkbox" v-model="tran_check"> 交通手段
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label>
-                                                <input type="checkbox" value="address" v-model="address_check"> 住所
-                                            </label>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <p>費用・条件</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>
+                                                    <input type="checkbox" v-model="month_check"> 月額費用
+                                                </label>
+                                                <br>
+                                                <label style="width:400px;">
+                                                    <input type="checkbox" v-model="condition_check"> 入居条件 （自立、要支援、要介護、認知症相談可）
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>
+                                                    <input type="checkbox" v-model="entry_check"> 入居一時金
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label>
-                                                <input type="checkbox" v-model="tran_check"> 交通手段
-                                            </label>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <p>サービス内容</p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <label>
+                                                    <input type="checkbox" v-model="special_check"> 特長 （24時間看護、職員体制、食事メニューの選択など）
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <p>施設情報</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>
+                                                    <input type="checkbox" v-model="capacity_check"> 定員
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>
+                                                    <input type="checkbox" v-model="opening_check"> 開設日
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <p>費用・条件</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label>
-                                                <input type="checkbox" v-model="month_check"> 月額費用
-                                            </label>
-                                            <br>
-                                            <label style="width:400px;">
-                                                <input type="checkbox" v-model="condition_check"> 入居条件 （自立、要支援、要介護、認知症相談可）
-                                            </label>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label>
-                                                <input type="checkbox" v-model="entry_check"> 入居一時金
-                                            </label>
-                                        </div>
+                                    <div class="modal-footer text-center">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button class="btn btn-secondary" @click="compareBtn()">比較する</button>
+                                        </button>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <p>サービス内容</p>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <label>
-                                                <input type="checkbox" v-model="special_check"> 特長 （24時間看護、職員体制、食事メニューの選択など）
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <p>施設情報</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label>
-                                                <input type="checkbox" v-model="capacity_check"> 定員
-                                            </label>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label>
-                                                <input type="checkbox" v-model="opening_check"> 開設日
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer text-center">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <button class="btn btn-secondary" @click="compareBtn()">比較する</button>
-                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-1 fav-update-wrap">
-                        <button class="fav-update-btn" @click="itemCompare()" data-toggle="modal" data-target=".bd-example-modal-lg">変更する</button>
-                    </div>
-                    <div class="modal fade bd-example-modal-google googlecheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
-                        <div class="modal-dialog modal-xl" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">交通アクセス／{{custname}}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <button class="btn btn-secondary">閉じる&times;</button>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <GmapMap id="googlemap" ref="map" :center="center" :zoom="10">
-                                        <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
-                                    </GmapMap>
-                                </div>
-                                <div class="modal-body">
-                                    <strong>住所</strong>
-                                    <br>
-                                    <span>{{address}}</span>
-                                    <hr>
-                                    <strong>最寄り駅</strong>
-                                    <br>
-                                    <p v-html="access"></p>
-                                </div>
-                                <div class="modal-body">
+                        <div class="modal fade bd-example-modal-google googlecheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
+                            <div class="modal-dialog modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">交通アクセス／{{custname}}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button class="btn btn-secondary">閉じる&times;</button>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <GmapMap id="googlemap" ref="map" :center="center" :zoom="10">
+                                            <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
+                                        </GmapMap>
+                                    </div>
+                                    <div class="modal-body">
+                                        <strong>住所</strong>
+                                        <br>
+                                        <span>{{address}}</span>
+                                        <hr>
+                                        <strong>最寄り駅</strong>
+                                        <br>
+                                        <p v-html="access"></p>
+                                    </div>
+                                    <div class="modal-body">
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!--monthly cost and expense cost -->
-                    <div class="modal fade bd-example-modal-cost costcheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
-                        <div class="modal-dialog modal-xl" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">料金プラン（3件）／</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <button class="btn btn-secondary">閉じる&times;</button>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">プラン名／居室詳細</th>
-                                                <th scope="col">入居時費用</th>
-                                                <th scope="col">月額費用</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody v-for="payment in payment_name" :key="payment.id">
-                                            <tr>
-                                                <td>【増税対応済】{{payment.payment_name}}
-                                                    <br>
-                                                    <small>[{{payment.living_room_type}}] {{payment.area}}</small>
-                                                </td>
-                                                <td style="font-size:large;color:#ff6117;">{{payment.expense_moving}}</td>
-                                                <td style="font-size:large;color:#ff6117;">{{payment.monthly_fees}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <!--monthly cost and expense cost -->
+                        <div class="modal fade bd-example-modal-cost costcheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
+                            <div class="modal-dialog modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">料金プラン（3件）／</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button class="btn btn-secondary">閉じる&times;</button>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-bordered  price_tbl">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">プラン名／居室詳細</th>
+                                                    <th scope="col">入居時費用</th>
+                                                    <th scope="col">月額費用</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody v-for="payment in payment_name" :key="payment.id">
+                                                <tr>
+                                                    <td><h5>【増税対応済】{{payment.payment_name}}</h5>
+                                                        <p class="room_type"><span>{{payment.living_room_type}}</span>{{payment.area}}</p>
+                                                    </td>
+                                                    <td class="expense_txt">{{payment.expense_moving}}</td>
+                                                    <td class="expense_txt">{{payment.monthly_fees}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- end monthly cost -->
                     </div>
-                    <!-- end monthly cost -->
                 </div>
 
                 <!-- <div class="list-group col-md-3">
@@ -258,21 +260,21 @@
                     <div class="col-12">
                         <div class="card-carousel-wrapper">
 
-                            <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
-                                <div class="nav-content mr-2">
-                                    <div class="card-carousel--nav__left"></div>
+                                <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                                    <div class="nav-content mr-2">
+                                        <div class="card-carousel--nav__left"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-carousel">
-                                <div class="card-carousel--overflow-container">
-                                    <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                                        <div class="card-carousel--card">
-                                            <!-- <div class="card-carousel--card--footer"> -->
+                                <div class="card-carousel">
+                                    <div class="card-carousel--overflow-container">
+                                        <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
+                                            <div class="card-carousel--card">
+                                                <!-- <div class="card-carousel--card--footer"> -->
 
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <img class="img-fluid" v-bind:src="'/images/' + nur_profile.logo" alt style="width: 250px; margin-bottom: 15px;" />
+                                                        <img class="img-fluid" v-bind:src="'/upload/customers/' + nur_profile.logo" alt style="width: 250px; margin-bottom: 15px;" />
                                                         <br>
                                                         <div style="width: 250px">
                                                             <router-link :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nur_profile.name}}</router-link>
@@ -378,6 +380,9 @@
                     </div>
                 </div>
             </div>
+            <!--end compare box-->
+            <!--result-->
+            
             <!--end result-->
 
         </div>
@@ -491,6 +496,7 @@
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
+                                $("#nus-fav-local").html(l_sto_arr.length); 
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_fav', new_local);
                                 this.local_sto = localStorage.getItem("nursing_fav");
