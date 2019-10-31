@@ -1,20 +1,24 @@
 <template>
- <div class="row">
-      <div class="col-12">
-          <div class="card ">
-                    <div class="card-header text-center jt1">
-                        <h4 style="padding-top: 20px;"> 口コミ作成 </h4>
-                    </div>
+ <div class="">
+     
+      <div class="col-12 col-lg-12 col-md-10 tab" >
+       
+          <div class="card title_comment" style="background:#fff4ee;">
+     
+                    <!-- <div class="card-header text-center jt1">
+                        <h4 style="padding-top: 20px;"><i class="	fa fa-comments" style="font-size:;"></i> 口コミ作成 </h4>
+                    </div> -->
+                       <div class="col-12 m-b-10 m-t-8"><h4 class="comment-apply-color" style="margin-left:5px;"><i class="fa fa-comments com_ic"></i> 口コミ作成</h4></div>
                     <div class="card-body ">
                         <div class="row">
-                         <div class="col-sm-8 offset-2">
-                                <form @submit.prevent ="add" class="m-t-16 sendEmail"  method="post">
+                         <div class="col-sm-9 offset-2">
+                                <form @submit.prevent ="add" class="m-t-16 sendEmail comform"  method="post">
                                         <div class="form-group row">
                                             <div class="col-sm-4 text-right">
                                                 <label for ="title"  ><strong> 口コミタイトル <span class="error sp1">必須</span></strong>   </label>
                                             </div>
                                              <div class="col-sm-8">
-                                                <input type="title"  class="form-control box" id="title"  name="title" v-model="comments.title">
+                                                <input type="title"  class="form-control box " id="title"  name="title" v-model="comments.title">
                                              </div>
                                         </div>
                                          <div class="form-group row">
@@ -25,14 +29,7 @@
                                                 </div>
                                          </div>
 
-                                         <div class="form-group row">
-                                                <div class="col-sm-4 text-right">
-                                                        <label for ="comment" ><strong> 口コミ内容 <span class="error sp1">必須</span></strong>  </label>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <textarea name="comment" id="comment" class="form-control" cols="50" rows="5" v-model="comments.comment"></textarea>
-                                                </div>
-                                        </div>
+                                       
                                         <div class="form-group row">
                                                 <div class="col-sm-4">
                                                 </div>
@@ -46,7 +43,7 @@
                                                         <label for ="email" ><strong> メールアドレス（半角英数字）<span class="error sp1">必須</span></strong>  </label>
                                                 </div>
                                                 <div class="col-sm-8">
-                                                      <input type="email"  class="form-control box" id="email"  name="email" v-model="comments.email">
+                                                      <input type="email"  class="form-control box " id="email"  name="email" v-model="comments.email">
                                                 </div>
                                         </div>
                                         <div class="form-group row">
@@ -62,9 +59,9 @@
                                                 <label for ="name"  ><strong> お名前 <span class="error sp1">必須</span></strong>   </label>
                                             </div>
                                              <div class="col-sm-8">
-                                                <input type="name" class="form-control box" id="name"  name="name" v-model="comments.name">
+                                                <input type="name" class="form-control box " id="name"  name="name" v-model="comments.name">
                                              </div>
-                                        </div>
+                                        </div><br>
 
 
                                          <div class="form-group row">
@@ -77,17 +74,17 @@
                                                     <option v-for="year in years" :key="year.id"  :value="year">{{ year }}</option>
                                                 </select>
                                              </div>
-                                        </div>
+                                        </div><br>
 
                                         <div class="form-group row">
                                             <div class="col-sm-4 text-right">
                                                 <label for ="gender"  ><strong> 性別 <span class="error sp1">必須</span></strong>   </label>
                                             </div>
                                              <div class="col-sm-8">
-                                                   <label> <input type="radio" class="custom-radio" v-model="comments.gender" value="0"  > 男性 </label>
-                                                   <label> <input type="radio" class="custom-radio" v-model="comments.gender" value="1" >女性 </label>
+                                                   <label class="control control--radio"> <input type="radio" class="custom-radio" v-model="comments.gender" value="0"  > 男性  <div class="control__indicator"></div></label>
+                                                   <label class="control control--radio"> <input type="radio" class="custom-radio" v-model="comments.gender" value="1" >女性  <div class="control__indicator"></div></label>
                                              </div>
-                                        </div>
+                                        </div><br>
 
 
                                         <div class="form-group row"  v-for="field in comments.fields" :key="field.id">
@@ -102,7 +99,17 @@
                                                  <input type="text" class="form-control box lnumericzip" value="secondzip" v-model="field.lzipcode" maxlength="4" v-on:keyup="CheckFirstZipcode" >
                                                   <span v-if="errors.lzipcode" class="error">{{errors.lzipcode[0]}}</span>
                                              </div>
+                                        </div><br>
+
+                                          <div class="form-group row">
+                                                <div class="col-sm-4 text-right">
+                                                        <label for ="comment" ><strong> 口コミ内容 <span class="error sp1">必須</span></strong>  </label>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <textarea name="comment" id="comment" class="form-control" cols="50" rows="5" v-model="comments.comment"></textarea>
+                                                </div>
                                         </div>
+                                        
                                         <div class="form-group row">
                                                 <div class="col-sm-4">
                                                 </div>
@@ -125,7 +132,9 @@
                                         <div class="form-group row">
                                             
                                             <div class="col-sm-12 text-center">
-                                                 <button class="btn news-post-btn btn-md all-btn"> 利用規約、個人情報の取り扱いについてに同意して確認する </button>
+                                                 <router-link class="btn btn-danger all-btn" to="/commentlist" > キャンセル </router-link>
+                                                 <!-- <button class="btn main-bg-color white all-btn"> 利用規約、個人情報の取り扱いについてに同意して確認する </button> -->
+                                                 <button class="btn main-bg-color white all-btn"> 確認 </button>
                                             </div>
                                             
                                         </div>
@@ -145,6 +154,7 @@ export default {
             return {
                 errors:[],
                 comments: {
+                        type:'confirm',
                         title: '',
                         comment:'',
                         email:'',
@@ -177,10 +187,21 @@ export default {
 
          methods: {
             add() {
-
+                  this.$loading(true);
                   this.axios.post('/api/comments/add', this.comments)
                     .then((response) => {
-                    alert('Mail Sent Successfully !')
+                        this.$loading(false);
+                        this.type="completed";
+                    this.name = ''
+                        this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '作成されました',
+                            showConfirmButton: false,
+                            timer: 1800,
+                            width: 250,
+                            height: 200,
+                        })
 
                      this.$router.push({name: 'commentlist'});
                     }).catch(error=>{
