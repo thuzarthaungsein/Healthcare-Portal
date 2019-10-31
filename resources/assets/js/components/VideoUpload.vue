@@ -28,21 +28,30 @@
                         </div>
                 </form>
         </div>
+
+        <!-- <youtube :video-id="videoId" :player-vars="{ autoplay: 1 }" player-width="1280" player-height="750" @playing="playing"></youtube> -->
+
+        <iframe width="1280" height="720" src="https://www.youtube.com/embed/lG0Ys-2d4MA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+
 </div>
 </template>
 
 <script>
+// import VueYoutube from 'vue-youtube'
+ 
+// Vue.use(VueYoutube)
 export default {
         data() {
             return {
                 type: 'video',
-                videos: []
+                videos: [],
+                videoId: 'lG0Ys-2d4MA',
             }
         },
         methods: {
 
                 onFileSelected(event) {  
-                this.file = event.target.files[0]
+                        this.file = event.target.files[0]
         
                 },
 
@@ -67,6 +76,12 @@ export default {
                             }
                         })
 
+                },
+                playVideo() {
+                        this.player.playVideo()
+                },
+                playing() {
+                        console.log('\o/ we are watching!!!')
                 }
         }
 }

@@ -58,28 +58,32 @@ class HospitalProfileController extends Controller
     function getFavouriteNursing($local_sto) {
         $query = "SELECT nursing_profiles.* , group_concat(special_features_junctions.special_feature_id) AS special,'' AS payment_method, customers.name, customers.email, customers.address, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
                     LEFT JOIN customers ON nursing_profiles.customer_id = customers.id
-                    JOIN townships ON townships.id = customers.townships_id
-                    JOIN cities ON townships.city_id = cities.id
-                    JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
+                    LEFT JOIN townships ON townships.id = customers.townships_id
+                    LEFT JOIN cities ON townships.city_id = cities.id
+                    LEFT JOIN special_features_junctions ON special_features_junctions.customer_id = customers.id
                     WHERE nursing_profiles.id IN (" . $local_sto . ") GROUP BY customers.id";
         $fav_nursing = DB::select($query);
         foreach($fav_nursing as $nur) {
-            $sfeature = $nur->special;
-            $cId = $nur->customer_id;
-            if($sfeature != null){
-                $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
-                $specialfeature = DB::select($sql);
-                $nur->special = $specialfeature;
-            }            
-            $sql = "SELECT * FROM method_payment WHERE customer_id = $cId";
-            $payment = DB::select($sql);
-            $nur->payment_method = $payment;
-            $sql = "SELECT MIN(monthly_fees) AS smallestCost, MAX(monthly_fees) AS largeCost FROM method_payment WHERE customer_id=$cId";
-            $min_max = DB::select($sql);
-            $nur->minmax = $min_max;
+            if($nur->special != null){
+                $sfeature = $nur->special;
+                $cId = $nur->customer_id;
+                if($sfeature != null){
+                    $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
+                    $specialfeature = DB::select($sql);
+                    $nur->special = $specialfeature;
+                }            
+                $sql = "SELECT * FROM method_payment WHERE customer_id = $cId";
+                $payment = DB::select($sql);
+                $nur->payment_method = $payment;
+                $sql = "SELECT MIN(monthly_fees) AS smallestCost, MAX(monthly_fees) AS largeCost FROM method_payment WHERE customer_id=$cId";
+                $min_max = DB::select($sql);
+                $nur->minmax = $min_max;
+            }
+            
 
             
         }
+        
         return $fav_nursing;
     }
 

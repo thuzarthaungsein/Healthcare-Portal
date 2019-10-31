@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailComment;
@@ -106,7 +107,8 @@ class CommentController extends Controller
 
         $comment = Comment::find($id);
         $comment->delete();
-        return response()->json('Comment successfully deleted');
+        $comments = Comment::all()->toArray();
+        return array_reverse($comments);
     }
     public function confirm($id)
      {
@@ -117,6 +119,28 @@ class CommentController extends Controller
             $comment =Comment::all()->toArray();
             $data = array("comments"=> $comment, "success", "Comment successfully confirmed");
             return response()->json($data);
+
+    }
+
+    public function list()
+    {
+
+        $comment_list = Comment::select('id','title')->get()->toArray();
+        return response()->json($comment_list);
+
+    }
+
+    public function search(Request $request) {
+        $request = $request->all();
+        $search_word = $request['search_word'];
+
+        $search_comment = Comment::query()
+                            ->where('title', 'LIKE', "%{$search_word}%")
+                            ->orderBy('id','DESC')
+                            ->get()
+                            ->toArray();
+        return $search_comment;
+
     }
 
 }
