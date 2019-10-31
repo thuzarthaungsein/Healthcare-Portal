@@ -23,7 +23,7 @@
                             <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
                         </div>
                          -->
-                        
+
                 </div>
 
                 <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
@@ -44,11 +44,11 @@
                             <input type="text" name="official-website" class="form-control website col-10 float-right" v-model="nursing_info.website">
                     </div>
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label> 
+                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
                                     <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
                                     <span class='changeGalleryLink btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryToggle" >
-                                        <i id="gallery" class="fa fa-minus-circle"></i> 
+                                        <i id="gallery" class="fa fa-minus-circle"></i>
                                    </span>
                             <div id="changeGalleryLink"  class="col-md-12">
                                     <div class="row" id ="gallery-photo">
@@ -78,7 +78,7 @@
                             <label class="heading-lbl col-2 pad-free">動画</label> <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
                                     <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color float-right' style="min-width: 0px;" @click="galleryVideoToggle" >
-                                        <i id="video" class="fa fa-minus-circle"></i> 
+                                        <i id="video" class="fa fa-minus-circle"></i>
                                    </span>
                             <div id="changeGalleryVideoLink" class="col-md-12">
                                     <div class="row" id="gallery-video">
@@ -103,7 +103,7 @@
                                 <td style="border:none;">
                                         <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
                                         <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
-                                        
+
                                 </td>
                         </tr>
 
@@ -123,12 +123,12 @@
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
                                             <input type="text"  class="form-control col-10 nursing-moving-in-f float-left white-bg-color m-r-10" v-model="nursing_info.moving_in_from"> 円
                                         </div>
-                                       
+
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
                                             <input type="text"  class="form-control col-10 nursing-moving-in-t float-left white-bg-color m-r-10" v-model="nursing_info.moving_in_to"> 円
                                         </div>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="heading-lbl col-2 pad-free">月額 <span class="error">*</span></label>
@@ -137,14 +137,14 @@
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
                                             <input type="text"  class="form-control col-10 nursing-per-month-f float-left white-bg-color m-r-10" v-model="nursing_info.per_month_from"> 円
                                         </div>
-                                       
+
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
                                             <input type="text"  class="form-control col-10 nursing-per-month-t float-left white-bg-color m-r-10" v-model="nursing_info.per_month_to"> 円
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">                        
+                            <div class="form-group">
                                 <label class="heading-lbl col-2 pad-free">支払い方法 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                     <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
@@ -157,10 +157,10 @@
                                             <div class="col-md-12 m-t-15 m-b-15">
                                                 <table class="table">
                                                     <tr>
-                                                         
+
                                                     <td colspan="2" class="text-right" style="border:none;!important">
                                                         <span :class="'btn btn all-btn main-bg-color changeLink'+payment.id" style="min-width: 0px;" @click="paymentToggle(payment.id)" >
-                                                            <i :id="'icon' + payment.id" class="fa fa-minus-circle"></i> 
+                                                            <i :id="'icon' + payment.id" class="fa fa-minus-circle"></i>
                                                         </span>
                                                         <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
                                                         <i class="fa fa-trash"></i> 削除</a>
@@ -317,7 +317,7 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">開設年月日</td>
-                                                    
+
                                                     <td >
                                                         <date-picker class="box date-of-establishment" v-model="nursing_info.date_of_establishment" id="datepickerbox" valueType="format" style="margin-left:11px;"></date-picker>
                                                         <!-- <textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea> -->
@@ -382,7 +382,7 @@
                                             <tr>
                                                     <td class="width15 title-bg">居室設備</td>
                                                     <td ><textarea class="form-control white-bg-color living-room-facilities" :options="editorOption" v-model="nursing_info.living_room_facilities"></textarea></td>
-                                                    
+
                                                         <!-- <td > <quill-editor  class="equipment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.equipment"/></td> -->
                                             </tr>
                                             <tr>
@@ -406,17 +406,17 @@
                                 <div class="col-10 pad-free float-right">
                                     <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()">
                                             <i class="fas fa-plus-circle"></i> 加算</span>
-                                              
+
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
                                         <div class="col-md-12 pad-free m-t-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
-                                          
+
                                             <div class="clearfix" style="margin-bottom:30px;">
                                                  <span :class="'float-right btn btn all-btn main-bg-color changeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
-                                                        <i :id="'icon' + cooperate.id" class="fa fa-minus-circle"></i> 
-                                                 </span>       
+                                                        <i :id="'icon' + cooperate.id" class="fa fa-minus-circle"></i>
+                                                 </span>
                                             </div>
-                                             
+
                                             <div class="form-group">
                                                 <label class="col-2 pad-free">名前 :</label>
                                                 <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
@@ -543,9 +543,10 @@
                                 <div class="col-md-10 float-right special-feature-toggle-div toggle-div m-t-10">
                                     <div class="row">
                                         <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
-                                            <label>
-                                                <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
+                                            <label  class="form-check-label control control--checkbox" style="padding-left:5px;">
+                                                <input type="checkbox" class="form-check-input"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
                                                 {{feat.name}}
+                                                 <div class="control__indicator"></div>
                                             </label>
                                         </div>
                                     </div>
@@ -565,7 +566,7 @@
                             <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
                             <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
                                 <div class="col-md-12">
-                                    
+
                                     <GoogleMap :address="customer_info.address" :lat_num='nursing_info.latitude' :lng_num='nursing_info.longitude' v-if="nursing_info.latitude != 0"></GoogleMap>
                                     <GoogleMap :address="customer_info.address" :lat_num='35.6803997' :lng_num='139.76901739' v-if="nursing_info.latitude == 0"></GoogleMap>
                                     <!-- <div class="form-group">
@@ -601,7 +602,7 @@
                                             <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                             <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" @change="onAccessEditorChange($event)" v-model="nursing_info.access"/>
                                     </div>
-                                        
+
                                 </div>
                             </div>
                         </td>
@@ -690,13 +691,13 @@ export default {
                 access_val: '',
           }
         },
-     
+
         mounted() {
         document.getElementById('btn_click').click();
         },
-        
+
         created(){
-                          
+
                 if(this.type != undefined && this.cusid!= undefined){
                         localStorage.setItem('cusType',this.type);
                         localStorage.setItem('cusId',this.cusid);
@@ -722,7 +723,7 @@ export default {
                         this.nursing_info = response.data;
                         console.log(this.cusid);
                         console.log(response.data);
-                        
+
 
                         if(this.nursing_info.latitude == 0){
                             console.log("0");
@@ -734,7 +735,7 @@ export default {
                             localStorage.setItem('lat_num',this.nursing_info.latitude);
                             localStorage.setItem('lng_num',this.nursing_info.longitude);
                         }
-                        
+
                 });
 
                 this.axios
@@ -794,7 +795,7 @@ export default {
 
         },
         methods: {
-              
+
                 onEditorBlur(quill) {
         console.log('editor blur!', quill)
       },
@@ -809,7 +810,7 @@ export default {
             nurseFacToggleDiv() {
                     $(".nurse-fac-toggle-div").toggle('medium');
                     this.isRotate1 = !this.isRotate1;
-                    
+
             },
 
             staffToggleDiv() {
@@ -840,7 +841,7 @@ export default {
                             panorama_x.parentNode.removeChild(panorama_x);
                         }
                     },
-        
+
 
             DeltArr(indx,type) {
                     var arr_list = [];
@@ -950,56 +951,56 @@ export default {
                 {
                       var class_by_id = $('#icon'+id).attr('class');
                       if(class_by_id == "fa fa-plus-circle")
-                      {     
+                      {
                                 $('#icon'+id).removeClass("fa fa-plus-circle");
-                                $('.changeLink'+id).addClass("fa fa-minus-circle");    
-                                $('#changeLink'+id).show('medium');  
+                                $('.changeLink'+id).addClass("fa fa-minus-circle");
+                                $('#changeLink'+id).show('medium');
                       }
                       else {
-                         
+
                                 $('#icon'+id).removeClass("fa fa-minus-circle");
-                                $('.changeLink'+id).removeClass("fa fa-minus-circle");  
-                                $('#icon'+id).addClass("fa fa-plus-circle");  
-                                $('#changeLink'+id).hide('medium');        
+                                $('.changeLink'+id).removeClass("fa fa-minus-circle");
+                                $('#icon'+id).addClass("fa fa-plus-circle");
+                                $('#changeLink'+id).hide('medium');
                       }
-    
+
                 },
                 galleryToggle()
                 {
 
                       var class_by_id = $('#gallery').attr('class');
-                     
+
                       if(class_by_id == "fa fa-plus-circle")
-                      {     
+                      {
                                 $('#gallery').removeClass("fa fa-plus-circle");
-                                $('.changeGalleryLink').addClass("fa fa-minus-circle");    
-                                $('#changeGalleryLink').show('medium');  
+                                $('.changeGalleryLink').addClass("fa fa-minus-circle");
+                                $('#changeGalleryLink').show('medium');
                       }
                       else {
-                         
+
                                 $('#gallery').removeClass("fa fa-minus-circle");
-                                $('.changeGalleryLink').removeClass("fa fa-minus-circle");  
-                                $('#gallery').addClass("fa fa-plus-circle");  
-                                $('#changeGalleryLink').hide('medium');        
+                                $('.changeGalleryLink').removeClass("fa fa-minus-circle");
+                                $('#gallery').addClass("fa fa-plus-circle");
+                                $('#changeGalleryLink').hide('medium');
                       }
                 },
                 galleryVideoToggle()
                 {
                        var class_by_id = $('#video').attr('class');
-                      
+
                       if(class_by_id == "fa fa-plus-circle")
-                      {     
+                      {
                                 $('#video').removeClass("fa fa-plus-circle");
-                                $('.changeGalleryVideoLink').addClass("fa fa-minus-circle");    
-                                $('#changeGalleryVideoLink').show('medium');  
+                                $('.changeGalleryVideoLink').addClass("fa fa-minus-circle");
+                                $('#changeGalleryVideoLink').show('medium');
                       }
                       else {
-                         
+
                                 $('#video').removeClass("fa fa-minus-circle");
-                                $('.changeGalleryVideoLink').removeClass("fa fa-minus-circle");  
-                                $('#video').addClass("fa fa-plus-circle");  
-                                $('#changeGalleryVideoLink').hide('medium');        
-                      }  
+                                $('.changeGalleryVideoLink').removeClass("fa fa-minus-circle");
+                                $('#video').addClass("fa fa-plus-circle");
+                                $('#changeGalleryVideoLink').hide('medium');
+                      }
                 },
 
             createProfile() {
@@ -1047,7 +1048,7 @@ export default {
                 this.customer_info_push.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
                 this.staff_info_push.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
-               
+
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
                         var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
@@ -1070,7 +1071,7 @@ export default {
                         }
                         this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
-       
+
                 var panorama = document.getElementsByClassName('gallery-area-panorama');
                 var count = 0;
                 var status = 0;
@@ -1078,7 +1079,7 @@ export default {
                         var preview = document.getElementsByClassName('preview-panorama');
                         if(document.getElementById('preview-panorama'+i)) {
                                 if(status == 0) { var j = i; } else { var j = i+1; }
-                                
+
                         } else {
                                 if(status == 0) { var j = i+1; } else { var j = i+2; }
                                 status = 1;
@@ -1098,15 +1099,15 @@ export default {
                                                         this.errors = error.response.data.errors
                                                 }
                                         })
-                                
-                        } 
+
+                        }
                         else {
                                 var file_name = panorama[count].getElementsByClassName('already-panorama')[0].value;
                                 count = count + 1;
                         }
                         this.panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
                 }
-               
+
                 var video = document.getElementsByClassName('gallery-area-video');
                 for(var i = 0; i< video.length; i++) {
                         this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
@@ -1146,7 +1147,7 @@ export default {
                var s_features =[];
                         $.each($("input[name='special-features']:checked"), function(){
                             s_features.push($(this).val());
-                        }); 
+                        });
                         this.chek_feature.push({special_feature_id:s_features});
 
                 // var chek_station=[];
@@ -1239,7 +1240,7 @@ export default {
                         this.axios
                                 .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
                                 .then((response) => {
-                                   
+
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
@@ -1269,7 +1270,7 @@ export default {
                         this.axios
                                 .post(`/api/acceptance/transactions/${this.cusid}`,acceptance)
                                 .then((response) => {
-                        
+
                                 }).catch(error=>{
                                         if(error.response.status == 422) {
                                                 acceptance = 'error';
@@ -1282,7 +1283,7 @@ export default {
                                 this.axios
                                         .post(`/api/feature/update/${this.cusid}`,this.chek_feature)
                                                 .then((response) => {
-                                                        
+
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
                                                   this.chek_feature = 'error';
