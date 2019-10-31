@@ -299,7 +299,7 @@
                   <button @click="toggleContent" class="btn btn-link">
                     <i class="fa" aria-hidden="true"></i>
                     <!-- <em>{{city.city_name}}</em> -->
-                    <span id="close"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                    <span id="close"><i class="fas fa-arrow-circle-up"></i> 市区町村を閉じる。</span>
                   </button>
 
                   <div class="toBeToggled" id="toBeToggled">
@@ -540,12 +540,12 @@
         if (this.toggleCheck == true) {
           $('#close').empty();
           $("#toBeToggled").slideDown();
-          $('#close').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
+          $('#close').append('<i class="fas fa-arrow-circle-up"></i> 市区町村を閉じる。');
 
         } else {
           $('#close').empty();
           $("#toBeToggled").slideUp();
-          $('#close').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+          $('#close').append('<i class="fas fa-arrow-circle-down"></i> 市区町村を開く。');
         }
       },
       ShowHide1() {
