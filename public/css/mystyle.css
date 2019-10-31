@@ -6624,7 +6624,7 @@ ul.test>li:before {
     letter-spacing: 1px;
     font-weight: bold;
     overflow: hidden;
-    
+
 }
 .hos_status{
     float: left;
@@ -6642,9 +6642,9 @@ ul.test>li:before {
     color: #fff!important;
     position: absolute;
     right: 15px;
-    top: 65px;    
-    border: 1px solid #c40000; 
-    
+    top: 65px;
+    border: 1px solid #c40000;
+
 }
 .circle-phone{
     background: #fff;
@@ -6677,7 +6677,7 @@ ul.test>li:before {
     padding: 10px;
 }
 .hos-body table td:first-child {
-    
+
     background: #f9f9f9;
 }
 /* .slick-slider */
@@ -7112,6 +7112,9 @@ ul.test>li:before {
     position: absolute;
     display: none;
 }
+.control--checkbox:hover {
+    cursor:pointer;
+}
 
 .control input:checked~.control__indicator:after {
     display: block;
@@ -7129,6 +7132,9 @@ ul.test>li:before {
 
 .control--checkbox input:disabled~.control__indicator:after {
     border-color: #d2571c;
+}
+.control--radio:hover {
+    cursor:pointer;
 }
 
 .control--radio .control__indicator:after {

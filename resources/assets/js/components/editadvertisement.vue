@@ -32,33 +32,17 @@
                             <div class="form-group">
                                      <label>ロケーション : <span class="error">*</span></label><br/>
                                 <div class="col-sm-9" v-for="advertisements in advertisement.location" :key="advertisements.id">
-                                    <label> <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (240px*120px 300円)</label><br/>
-                                    <label> <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(167px*100px 200円)</label>
+                                    <label class="form-check-label control control--checkbox"> 
+                                        <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (240px*120px 300円)
+                                        <div class="control__indicator"></div>
+                                        </label><br/>
+                                    <label class="form-check-label control control--checkbox"> 
+                                        <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(167px*100px 200円)
+                                        <div class="control__indicator"></div>
+                                    </label>
                                     <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
                                 </div>
                             </div>
-
-                            <!-- <div class="form-group" id="showimage">
-                                <label class="">メディア:<span class="error">*</span></label>
-                                <div class="custom-file">
-                                    <input type="file" ref="file" accept="image/*" @change="fileSelected" required>
-                                </div>
-                            </div>
-                            <div class="image_show" v-if="upload_img">
-                                <div class='col-md-2'>
-                                    <span class='img-close-btn' v-on:click="removeUpload()">X</span>
-                                    <img :src="upload_img" class='show-img'>
-                                </div>
-                            </div>
-                            <div class="form-group image_update" id="x-image">
-                                <div class="col-md-12" >
-                                    <div id='x-image' class='col-md-2'>
-                                        <span class='img-close-btn' v-on:click='closeBtnMethod(advertisement.photo)'>X</span>
-                                        <img :src="'/upload/advertisement/'+ advertisement.photo" class='show-img' alt="ads">
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="hidden" v-model="old_photo" > -->
                             <div class="form-group" style="display:none" id="showimage">
                                 <label>メディア : <span class="error">*</span></label><br/>
                                 <div class="custom-file">

@@ -542,7 +542,7 @@
 
                                 <div class="col-md-10 float-right special-feature-toggle-div toggle-div m-t-10">
                                     <div class="row">
-                                        <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
+                                        <div v-for="feat in feature_list" :key="feat.id" class="form-check form-check-inline col-sm-3">
                                             <label  class="form-check-label control control--checkbox" style="padding-left:5px;">
                                                 <input type="checkbox" class="form-check-input"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
                                                 {{feat.name}}
