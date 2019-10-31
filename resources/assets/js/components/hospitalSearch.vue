@@ -385,8 +385,13 @@
               <div id="job_detail" class="col-md-12 col-sm-12" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
                 <div class="hos-content">
                   <div class="job-header">
-                  <h5 class="hos-title"><a href="">{{hos.name}}</a></h5>  
-                  
+                  <h5 class="hos-title">
+                    
+                    
+                       <router-link :to="{name: 'profile', params: {cusid:hos.cus_id, type: 'hospital'}}">{{hos.name}}</router-link>
+                      
+                     </h5>  
+                   
                 </div>
                 <div class="clearfix m-b-20">
                     <span v-for="(sub,index) in subject" :key="index+'-'+sub.name+'-'+hos.id">
@@ -465,13 +470,13 @@
                     </tbody>
                 </table>
                <span> <strong> 休診日：</strong>{{hos.closed_day}}</span>
-               <p><span style="color: red; font-weight: bold; font-size: 15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p>
+               <!-- <p><span style="color: red; font-weight: bold; font-size: 15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p> -->
                 <!--end schedule-->  
                                                 
                   </div>
                 </div>
                 
-                <div class="mt-4 detail-btn text-center"><span class="btn all-btn">詳細を見る</span></div>
+                <div class="mt-4 detail-btn text-center"><router-link :to="{name: 'profile', params: {cusid:hos.cus_id, type: 'hospital'}}" class="btn all-btn">詳細を見る</router-link></div>
               </div>
             </div>
           </div>

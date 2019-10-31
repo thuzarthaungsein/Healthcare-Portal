@@ -5,7 +5,7 @@
         <div @click="getStateClick">
         <div class="row">
           <!-- search map and path -->
-          <div class="col-sm-11 map-wrap" id="searchMap">
+          <div class="col-sm-11 col-offset-1 map-wrap" style="margin:0 auto" id="searchMap">
             <div class="divisions">
               <div class="row">
                 <div class="col-sm-2 hokkaido-box">
@@ -292,9 +292,11 @@
 
         <!-- search city , township  -->
         <div class="row select" id="filter" style="justify-content:space-between">
-          <div class="col-sm-3 col-md-3">
+          <h5 class="profile_header" style="border-left: 5px solid #ff9563;">現在の検索条件</h5>
+          <div class="col-sm-5 col-md-5">
+            <div>Filter by region</div>
             <div class="card">
-              <div class="card-header">Filter by region</div>
+              
               <div class="card-body " style="background-color:#f4f1eb">
                 <select id="selectCity" class="form-control   custom-select"  v-model="id">
                   <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
@@ -305,9 +307,9 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3 col-md-3">
-            <div class="card">
-              <div class="card-header">Filter by price</div>
+          <div class="col-sm-5 col-md-5">
+            <div>Filter by price</div>
+            <div class="card">              
               <div class="card-body" style="background-color:#f4f1eb">
                 <div class="">
                   <select name="" id="" class="form-control custom-select">
@@ -352,13 +354,13 @@
             </div>
           </div>
 
-          <div class="col-sm-4 col-md-4">
-            <button class="btn btn-outline-info select" id="showSearchMap" @click="showSearchMap">Search With Map</button>
+          <div class="col-sm-2 col-md-2">
+            <button class="btn seemore-btn select" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</button>
           </div>
         </div>
       </div>
         <!-- google map  -->
-        <div class="row">
+        <div class="row m-t-10 m-b-10">
           <div class="col-sm-12 col-md-12">
           <div id="holder" style="position: relative;">
               <div class="overlay standard hidden">&nbsp;</div>
