@@ -6,7 +6,7 @@
         <!--panorama-->
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <div class="thumbnail-img" style="padding:0px;border:none;">
-                <div class="card-carousel">
+                <div class="card-carousel" style="background:#fff;">
                 <div class="card-img" >
                     <!-- <div id="panorama"></div>           -->
                     <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>
@@ -1484,7 +1484,7 @@ export default {
                 panoimages:[],
                 changelinktitle:'内容を見る',
                 panocurrentOffset: 0,
-                windowSize: 13,
+                windowSize: 10,
                 paginationFactor:103,
 
             };
@@ -1792,7 +1792,8 @@ export default {
     #pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
-    width: 1336px;
+    /* width: 1336px; */
+    width:1033px;
 }
 
 
