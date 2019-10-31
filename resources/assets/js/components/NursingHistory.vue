@@ -302,9 +302,11 @@ export default {
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
+                                $("#nus-his-local").html(l_sto_arr.length);
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_history', new_local);
                                 this.local_sto = localStorage.getItem("nursing_history");
+                               
                                 if (this.local_sto) {
                                     this.getAllCustomer(this.local_sto);
                                 } else {

@@ -496,6 +496,7 @@
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
+                                $("#nus-fav-local").html(l_sto_arr.length); 
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_fav', new_local);
                                 this.local_sto = localStorage.getItem("nursing_fav");
