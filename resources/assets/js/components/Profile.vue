@@ -56,6 +56,9 @@
             <span v-if="!loginuser"><i class="fas fa-home"></i></span>
           </label>
         </li>
+
+        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#333; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="!view_pro_id" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#aaa; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="view_pro_id" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
       </ul>
 
       <div class="tab-content hospital-borderColor tab-content1 tabs">
@@ -161,6 +164,10 @@ export default {
                     localStorage.setItem("hospital_history", hos_his_arr);
                     $("#hos-his-local").html(hos_his_arr.length);   
                 }
+                if(localStorage.getItem("hospital_fav")){
+                    var nus_fav_arr = JSON.parse("[" + localStorage.getItem("hospital_fav") + "]");
+                    this.view_pro_id = nus_fav_arr.includes(response.data[0].pro_id);
+                }
             }
             else{
                 if(localStorage.getItem("nursing_history")) {
@@ -177,7 +184,7 @@ export default {
                 }
 
                 if(localStorage.getItem("nursing_fav")){
-                    var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_history") + "]");
+                    var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
                     this.view_pro_id = nus_fav_arr.includes(response.data[0].pro_id);
                 }
             }
@@ -207,29 +214,38 @@ export default {
       // }
     },
     favAddFun(status){
-      if(status == 'add'){
-          if(localStorage.getItem("nursing_fav")){
-            var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
-            nus_fav_arr.push(this.pro_id);
-            nus_fav_arr = [...new Set(nus_fav_arr)]; 
-            localStorage.setItem("nursing_fav", nus_fav_arr); 
-            $("#nus-fav-local").html(nus_fav_arr.length);
-          }
+        if(this.type == 'nursing'){
+            var locReplace = "nursing_fav";
+            var varReplace = "#nus-fav-local";
+        } 
         else{
-            var nus_fav_arr = [this.pro_id];
-            localStorage.setItem("nursing_fav", nus_fav_arr); 
-            $("#nus-fav-local").html(nus_fav_arr.length);
+            var locReplace = "hospital_fav";
+            var varReplace = "#hos-fav-local";
+        } 
+        
+        if(status == 'add'){
+            if(localStorage.getItem(locReplace)){
+                var fav_arr = JSON.parse("[" + localStorage.getItem(locReplace) + "]");
+                fav_arr.push(this.pro_id);
+                fav_arr = [...new Set(fav_arr)]; 
+                localStorage.setItem(locReplace, fav_arr); 
+                $(varReplace).html(fav_arr.length);
+            }
+            else{
+                var fav_arr = [this.pro_id];
+                localStorage.setItem(locReplace, fav_arr); 
+                $(varReplace).html(fav_arr.length);
+            }
         }
-      }
-      else{
-        var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
-        var index = nus_fav_arr.indexOf(this.pro_id);
-        if (index > -1) {
-            nus_fav_arr.splice(index, 1);
-            localStorage.setItem("nursing_fav", nus_fav_arr); 
+        else{
+            var fav_arr = JSON.parse("[" + localStorage.getItem(locReplace) + "]");
+            var index = fav_arr.indexOf(this.pro_id);
+            if (index > -1) {
+                fav_arr.splice(index, 1);
+                localStorage.setItem(locReplace, fav_arr); 
+            }
+            $(varReplace).html(fav_arr.length);
         }
-        $("#nus-fav-local").html(nus_fav_arr.length);
-      }
     },
     scrollTop(){
       $("html, body").animate({ scrollTop: 0 }, "slow");
