@@ -476,32 +476,33 @@
             <div class="row pl-3 pt-3" v-if="showOne">
               <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox">
+                  <input class="form-check-input" :id="1" value="自立" v-model="MoveID" type="checkbox">
                   自立
                 </label>
               </div>
               <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox">
+                  <input class="form-check-input" :id="2" value="要支援" v-model="MoveID" type="checkbox">
                   要支援
                 </label>
               </div>
               <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox">
+                  <input class="form-check-input" :id="3" value="要介護" v-model="MoveID" type="checkbox">
                   要介護
                 </label>
               </div>
             </div>
           </div>
 
+
           <div class="col-sm-2 left-div-1" v-if="showOne">特長</div>
           <div class="col-sm-10" v-if="showOne">
             <hr>
-            <div class="form-check form-check-inline col-sm-2" v-for="features in special_features" :key="features.id">
+            <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)">
-                {{features.name}}
+                <input class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
+                {{feature.name}}
               </label>
             </div>
           </div>
@@ -511,7 +512,7 @@
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id">
+                <input class="form-check-input" type="checkbox" v-model="FacTypeID" :id="fac_type.id" :value="fac_type.id">
                 {{fac_type.description}}
               </label>
             </div>
@@ -522,7 +523,7 @@
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="medical in medical_acceptance" :key="medical.id">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id">
+                <input class="form-check-input" type="checkbox" v-model="MedicalAcceptanceID" :id="medical.id" :value="medical.id">
                 {{medical.name}}
               </label>
             </div>
@@ -535,9 +536,74 @@
               <span v-show="!showOne"><i class="fas fa-arrow-circle-down"></i> Open</span>
             </button>
           </div>
+
+            <div class="col-sm-6 left-div-6"></div>
+            <div class="col-sm-6 m-b-20">
+                <input type="button" value="Search" name="search" @click="search">
+            </div>
         </div>
 
+        <div class=" col-12">
+                 <div class="row">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
+                     <div class="job-content">
+                      <div class="job-body row  clearfix">
+                        <div class="col-4 job-img">
+                          <img src="/upload/news/nursing.JPG"  alt="">
+                        </div>
+                        <div class="col-8 job-box">
+                          <table  class="table table-bordered  table-sm">
+                              <h2> Nursing </h2>
+                              <tr>
+                                <td>Name : {{nus.name}}</td>
+                              </tr>
+                               <tr>
+                                <td> Email : {{nus.email}}</td>
+                              </tr>
+                                <tr>
+                                <td> Phone : {{nus.phone}}</td>
+                              </tr>
+                                <tr>
+                                <td> Address : {{nus.address}}</td>
+                              </tr>
+                              <tr>
+                                <td> Moving In : {{nus.moving_in}} </td>
+                               </tr>
+                           
+                                   
 
+                                <h2> Fac Type </h2>
+                              <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
+                                <span v-if="fac.id == nus.fac_type" class="feature_list">
+                                  {{fac.description}}
+                                </span>
+                              </span>
+                             
+                        
+                              <h2> SpecialFeature </h2>
+                              <span v-for="(spe,index) in specialfeature" :key="index+'-'+spe.name+'-'+nus.id">
+                                <span v-if="spe.customer_id == nus.customer_id" class="feature_list">
+                                  {{spe.name}}
+                                </span>
+                              </span>
+
+                               <h2> Medical Acceptance </h2>
+                              <span v-for="(med,index) in medicalacceptance" :key="index+'-'+med.name+'-'+nus.id">
+                                <span v-if="med.customer_id == nus.customer_id" class="feature_list">
+                                  {{med.name}}
+                                </span>
+                              </span>
+                             
+
+                            
+                          </table>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
       </div>
       <!-- <div class="col-md-2 p-l-0">
@@ -590,7 +656,14 @@
         paginationFactor: 410,
         nursingList: [],
         alphabet: [],
-
+        SpecialFeatureID:[],
+        MedicalAcceptanceID:[],
+        FacTypeID:[],
+        MoveID:[],
+        nus_data:[],
+        specialfeature:[],
+        medicalacceptance:[],
+        factype:[]
 
       }
     },
@@ -606,7 +679,48 @@
       },
     },
     methods: {
+      search(){
+    
+        if(this.townshipID == null || this.townshipID == '')
+        {
+          this.townshipID[0] = 0;
+        }
+        if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
+        {
+          this.SpecialFeatureID[0] = 0;
+        }
+        if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
+        {
+          this.MedicalAcceptanceID[0] = 0;
+        }
+         if(this.FacTypeID == null || this.FacTypeID == '')
+        {
+          this.FacTypeID[0] = 0;
+        }
+          if(this.MoveID == null || this.MoveID == '')
+        {
+          this.MoveID[0] = 0;
+        } 
 
+         this.axios.get('api/getnursingsearch',{
+          params:{
+              id: this.id,
+              townshipID:this.townshipID,
+              SpecialFeatureID:this.SpecialFeatureID,
+              MedicalAcceptanceID:this.MedicalAcceptanceID,
+              FacTypeID:this.FacTypeID,
+              MoveID:this.MoveID
+          },
+        }).then((response)=>{
+ 
+          this.nus_data = response.data.nursing;
+          this.specialfeature = response.data.specialfeature;
+          this.medicalacceptance = response.data.medicalacceptance;
+          this.factype = response.data.factype;
+        
+        })
+
+      },
       openInfoWindow(marker) {
         this.selectedLocation = marker;
         this.infoBoxOpen = true;
@@ -816,14 +930,13 @@
                 var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
                   google.maps.event.removeListener(boundsListener);
                 });
-
-                
-              
+                // console.log($('#mapMarker'));
+                $('#mapMarker').src = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + k + "|FF0000|000000' />";
+                // console.log($('#mapMarker').src)
 
               }
-              
             })
-        }
+        } 
       },
       MarkerHover(index){
         console.log(this.markers)
@@ -906,7 +1019,7 @@
       },
       features(e) {
         if (e.target.checked) {
-          alert('1');
+       
         }
       },
       getStateHover(e) {

@@ -385,7 +385,9 @@
               <div id="job_detail" class="col-md-12 col-sm-12" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
                 <div class="hos-content">
                   <div class="job-header">
-                  <h5 class="hos-title"><a href="">{{hos.name}}</a></h5>  
+                  <h5 class="hos-title">
+                    <router-link :to="{name: 'profile', params: {cusid:hos.customer_id, type: 'hospital'}}" class="pseudolink">{{hos.name}}</router-link>
+                </h5>  
                   
                 </div>
                 <div class="clearfix m-b-20">
