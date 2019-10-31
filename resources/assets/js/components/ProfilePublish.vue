@@ -767,7 +767,7 @@
 
 
                         <div class="col-12 comment-wrapper">
-
+                        
                             <div class="card" v-for="comment in comments" :key="comment.id">
 
                                 <!-- <div class="card-profile_header comment-title text-truncate">
@@ -785,6 +785,9 @@
                                         <i class="fas fa-comment"></i>
 
                                         {{comment.title}}
+                                        {{comment.created_date}}  
+                                        <!-- {{comment.created_time}}   -->
+                                        <!-- {{substr("comment.created_at", 0, 10)}} -->
 
                                     </div>
 
@@ -796,8 +799,8 @@
 
 
 
-                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more>
-
+                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more><br>
+                                        <div>{{comment.customer}}</div>
                                 </div>
 
                             </div>
@@ -1567,8 +1570,14 @@ export default {
                 });
 
                   this.axios.get('/api/profile/comment/'+this.cusid) .then(response => {
+                      console.log(response.data);
                       this.comments = response.data;
-
+                    // for ( var index=0; index<response.data.length; index++ ) {
+                        
+                    //     data = { "created_date": "1", "created_time": "Valid" };
+                    //     this.comments.push(data);
+                    //         // tempData.push( data );
+                    // }
                 });
 
                   this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
