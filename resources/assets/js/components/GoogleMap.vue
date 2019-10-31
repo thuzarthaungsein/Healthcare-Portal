@@ -54,6 +54,7 @@
               @click="center=m.position"
               @dragend="updateCoordinates"
             />
+            
           </GmapMap>
           
           <input type="hidden" name="new_lat" v-model="new_lat" id="new_lat">
@@ -69,12 +70,10 @@ export default {
   data () {
     return {
       status:'0',
-      markers: [
-        { position: { lat: 35.6803997, lng: 139.76901739 } }
-      ],
+      markers: [],
       addresses: [],
       places: [],
-      center: { lat: 35.6803997, lng: 139.76901739 },
+      center:{},
       selected: '',
       new_lat: '',
       new_long: '',
@@ -87,8 +86,16 @@ export default {
     }
   },
   created() { 
-    this.new_lat = 35.6803997;
-    this.new_long = 139.76901739;
+    this.markers = [{
+        position: {
+          lat: Number(localStorage.getItem('lat_num')),
+          lng: Number(localStorage.getItem('lng_num'))
+        }
+      }];
+    this.new_lat = Number(localStorage.getItem('lat_num'));
+    this.new_long = Number(localStorage.getItem('lng_num'));
+
+    this.center = { lat: Number(localStorage.getItem('lat_num')), lng: Number(localStorage.getItem('lng_num')) }
     
     $('#gmap-search').css({'display':'none'});
   },

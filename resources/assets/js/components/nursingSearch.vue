@@ -374,7 +374,7 @@
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                  <div id="items.alphabet" class="card-carousel--card el"  v-for="items in nursingList" :key="items.nursing_id">
+                  <div @mouseover="MarkerHover(items.alphabet)" class="card-carousel--card el"  v-for="items in nursingList" :key="items.nursing_id">
                     <div class="MarkerHover" :id="items.alphabet">
 
                       <table class="table">
@@ -589,7 +589,8 @@
         windowSize: 3,
         paginationFactor: 410,
         nursingList: [],
-        alphabet: []
+        alphabet: [],
+
 
       }
     },
@@ -659,7 +660,7 @@
               var mmarker = new Array();
               var item = [];
               for (var i = 0; i < this.markers.length; i++) {
-                mmarker.push([this.markers[i]['business_entity'], this.markers[i]['lat'], this.markers[i]['lng']])
+                mmarker.push([this.markers[i]['alphabet'], this.markers[i]['lat'], this.markers[i]['lng']])
                 item.push(this.markers[i])
               }
 
@@ -781,9 +782,7 @@
                   '</div>'
                 ])
               }
-              $('.el').click(function(){
-                alert('1')
-              })
+              const HoverMarkers = [];
               var infoWindow = new google.maps.InfoWindow(),marker, i;
               const alphabet = response.data.alphabet;
               for (i = 0; i < this.markers.length; i++) {
@@ -795,16 +794,18 @@
                   map: map,
                   icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + k + '|FF0000|000000',
                   zoom: 6,
-
                   title: markers[i][0]
                 });
+                HoverMarkers.push(marker)
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                   return function() {
                     infoWindow.setContent(infoWindowContent[i][0]);
                     infoWindow.open(map, marker);
                   }
                 })(marker, i));
+                
                 google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+                  
                   return function() {
                     marker.setAnimation(google.maps.Animation.BOUNCE);
                     setTimeout(function() {
@@ -820,24 +821,13 @@
               
 
               }
+              
             })
-        } 
+        }
       },
       MarkerHover(index){
-        var marker = this.markers
-        for (var i = 0; i < marker.length; i++) {
-          google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-
-                  return function() {
-                    marker.setAnimation(google.maps.Animation.BOUNCE);
-                    setTimeout(function() {
-                      marker.setAnimation(null);
-                    }, 750);
-                  }
-                })(marker, i));
-
-              }
-      
+        console.log(this.markers)
+        // var map = new google.maps.Map(document.getElementById("mymap"));
 
       },
       googleMarker(marker) {

@@ -19,6 +19,7 @@
             <span v-if="!loginuser"><i class="fas fa-home"></i></span>
           </label>
         </li>
+        <span style=" position: fixed; right: 12%; " class="btn fav-item fav-color all-btn">Add</span>
       </ul>
 
       <div class="tab-content nursing-borderColor tab-content1 tabs">
@@ -32,6 +33,7 @@
           </div>
         </form>
       </div>
+      
     </div>
 
     <div v-if="type == 'hospital'">
@@ -66,6 +68,7 @@
           </div>
         </form>
       </div>
+      <span style=" position: fixed; right: 12%; " class="btn fav-item fav-color all-btn">Add</span>
     </div>
   </div>
 </template>
@@ -90,42 +93,82 @@ export default {
   },
   data() {
     return {
-      type: null,
-      cusid: null,
-      btntype: "view",
-      width: "",
-      loginuser: true,
+        type: null,
+        cusid: null,
+        btntype: "view",
+        width: "",
+        loginuser: true,
+        l_storage_hos_history: [],
+        l_storage_nus_history: [],
+        l_storage_hos_fav: [],
+        l_storage_nus_fav: [],
     };
   },
   created() {
     this.axios.get('/api/user').then(response => {
-      this.loginuser = true;
-      
-      localStorage.setItem("cusId", response.data.customer_id);
-      if(response.data.type_id == 2){
-        localStorage.setItem("cusType", 'hospital');
-        this.type = 'hospital';
-      }
-      else{
-        localStorage.setItem("cusType", 'nursing');
-        this.type = 'nursing';
-      }
-            
-      this.cusid = response.data.customer_id;
-    }).catch((error) => {
-      this.loginuser = false;
+        this.loginuser = true;
 
-      if (this.$route.params.type) {
+        localStorage.setItem("cusId", response.data.user.customer_id);
+        localStorage.setItem("lat_num", response.data.lat_lng[0].latitude);
+        localStorage.setItem("lng_num", response.data.lat_lng[0].longitude);
+
+        // localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
+        // localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
+        // localStorage.setItem("nursing_history", this.l_storage_nus_history);
+        // localStorage.setItem("hospital_history", this.l_storage_hos_history);
+
+        if(response.data.user.type_id == 2){
+            localStorage.setItem("cusType", 'hospital');
+            this.type = 'hospital';
+        }
+        else{
+            localStorage.setItem("cusType", 'nursing');
+            this.type = 'nursing';
+        }            
+        this.cusid = response.data.user.customer_id;
+    }).catch((error) => {
+        
+        this.loginuser = false;
+        if (this.$route.params.type) {
         this.type = this.$route.params.type;
-        localStorage.setItem("cusType", this.type);
-      }
-      if (this.$route.params.cusid) {
+        localStorage.setItem("cusType", this.type);         
+        }
+        if (this.$route.params.cusid) {
         this.cusid = this.$route.params.cusid;
         localStorage.setItem("cusId", this.cusid);
-      }
+        }
+        this.type = localStorage.getItem("cusType");
+        this.cusid = Number(localStorage.getItem("cusId"));
 
-      this.type = localStorage.getItem("cusType");
-      this.cusid = Number(localStorage.getItem("cusId"));
+        this.axios.get(`/api/profile_view/${this.cusid}/${this.type}`).then(response => {
+            localStorage.setItem("lat_num", response.data[0].latitude);
+            localStorage.setItem("lng_num", response.data[0].longitude);
+
+            if(this.type == 'hospital'){
+                if(localStorage.getItem("hospital_history")) {
+                    var hos_his_arr = JSON.parse("[" + localStorage.getItem("hospital_history") + "]");
+                    hos_his_arr.push(response.data[0].pro_id);
+                    hos_his_arr = [...new Set(hos_his_arr)]; 
+                    localStorage.setItem("hospital_history", hos_his_arr);               
+                }
+                else{
+                    var hos_his_arr = [response.data[0].pro_id];
+                    localStorage.setItem("hospital_history", hos_his_arr);
+                }
+            }
+            else{
+                if(localStorage.getItem("nursing_history")) {
+                    var nus_his_arr = JSON.parse("[" + localStorage.getItem("nursing_history") + "]");
+                    nus_his_arr.push(response.data[0].pro_id);
+                    nus_his_arr = [...new Set(nus_his_arr)]; 
+                    localStorage.setItem("nursing_history", nus_his_arr);               
+                }
+                else{
+                    var nus_his_arr = [response.data[0].pro_id];
+                    localStorage.setItem("nursing_history", nus_his_arr);
+                }
+            }
+        });
     })
     
     this.scrollTop();   

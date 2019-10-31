@@ -110,10 +110,7 @@ export default {
   created() {
     this.axios.get("/api/customers").then(response => {
       this.customers = response.data;
-    });
-    this.axios.get("/api/user").then(response => {
-      //console.log(response)
-    });
+    });    
   },
   methods: {
     deleteCustomer(id) {
