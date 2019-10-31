@@ -1720,6 +1720,9 @@ export default {
                 $('.main-cost-table td').css({'background':'transparent'});
                 $('.cost'+a+' td').css({'background':'#ffe9df'});
             },
+            showLightbox: function(imageName) {
+                this.$refs.lightbox.show(imageName);
+            },
             moveCarousel(direction) {
                         // Find a more elegant way to express the :style. consider using props to make it truly generic
                 if (direction === 1 && !this.atEndOfList) {

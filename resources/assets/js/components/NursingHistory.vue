@@ -101,8 +101,7 @@
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <img class="img-fluid" v-bind:src="'/upload/customers/' + nur_profile.logo" alt style="width: 250px" />
-                                                            <br>
+                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/customers/' + nur_profile.logo" alt />
                                                             <br>
 
                                                             <router-link class="pseudolink" :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" >{{nur_profile.name}}</router-link>
@@ -304,9 +303,11 @@ export default {
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
+                                $("#nus-his-local").html(l_sto_arr.length);
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_history', new_local);
                                 this.local_sto = localStorage.getItem("nursing_history");
+                               
                                 if (this.local_sto) {
                                     this.getAllCustomer(this.local_sto);
                                 } else {

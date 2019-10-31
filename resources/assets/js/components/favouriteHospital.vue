@@ -55,8 +55,7 @@
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <img class="img-fluid" v-bind:src="'/upload/customers/' + hos_profile.logo" alt style="width: 250px" />
-                                                            <br>
+                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/customers/' + hos_profile.logo" alt  />
                                                             <br>
                                                             <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
                                                         </td>
@@ -262,6 +261,7 @@
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
+                                $("#hos-fav-local").html(l_sto_arr.length); 
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('hospital_fav', new_local);
                                 this.local_sto = localStorage.getItem("hospital_fav");
