@@ -1,7 +1,16 @@
 <template>
     <div>
-
-        <div class="col-12 scrolldiv2 pb-3 tab-content">
+        <div class="col-12 scrolldiv2 pb-3 tab-content" id="hospital">
+            <div class="col-12 pl-0">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <router-link to="/">ホーム</router-link>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
+                    </ol>
+                </nav>
+            </div>
             <div class="col-12">
                 <div class="col-md-12 fav-his-header">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
@@ -14,20 +23,16 @@
                     </svg>
                     &nbsp;<span class="font-weight-bold"> 最近見た施設</span>
                 </div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <router-link to="/">ホーム</router-link>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">病院の歴史</li>
-                    </ol>
-                </nav>
             </div>            
             <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
                 <div class="row">
                     <div class="card-carousel-wrapper">
 
-                        <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+                        <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                            <div class="nav-content mr-2">
+                                <div class="card-carousel--nav__left"></div>
+                            </div>
+                        </div>
                         <div class="card-carousel">
                             <div class="card-carousel--overflow-container">
                                 <div class="card-carousel-cards col-3" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
@@ -37,7 +42,7 @@
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <img class="img-fluid" v-bind:src="'/images/' + hos_profile.logo" alt style="width: 250px" />
+                                                        <img class="img-fluid" v-bind:src="'/upload/customers/' + hos_profile.logo" alt style="width: 250px" />
                                                         <br>
                                                         <br>
 
@@ -173,7 +178,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
+                        <div class="nav-box"@click="moveCarousel(1)" :disabled="atEndOfList">
+                            <div class="nav-content ml-2">
+                            <div class="card-carousel--nav__right"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

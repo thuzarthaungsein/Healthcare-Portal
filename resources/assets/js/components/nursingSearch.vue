@@ -5,7 +5,7 @@
         <div @click="getStateClick">
         <div class="row">
           <!-- search map and path -->
-          <div class="col-sm-11 map-wrap" id="searchMap">
+          <div class="col-sm-11 col-offset-1 map-wrap" style="margin:0 auto" id="searchMap">
             <div class="divisions">
               <div class="row">
                 <div class="col-sm-2 hokkaido-box">
@@ -292,25 +292,27 @@
 
         <!-- search city , township  -->
         <div class="row select" id="filter" style="justify-content:space-between">
-          <div class="col-sm-3 col-md-3">
-            <div class="card">
-              <div class="card-header">Filter by region</div>
-              <div class="card-body " style="background-color:#f4f1eb">
-                <select id="selectCity" class="form-control   custom-select"  v-model="id">
+          <h5 class="profile_header" style="border-left: 5px solid #ff9563;">現在の検索条件</h5>
+          <div class="col-sm-5 col-md-5">
+            <div><p class="nurs-sub-heading">地域で絞り込む</p></div>
+            <div class="card search-border-dash">
+              
+              <div class="card-body">
+                <select id="selectCity" class="form-control custom-select" style="background-color: #fff;" v-model="id">
                   <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
                 </select>
-                <select id="selectTownship" class="form-control mt-1 custom-select" v-model="id" >
+                <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" v-model="id" >
                   <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_name}}</option>
                 </select>
               </div>
             </div>
           </div>
-          <div class="col-sm-3 col-md-3">
-            <div class="card">
-              <div class="card-header">Filter by price</div>
-              <div class="card-body" style="background-color:#f4f1eb">
+          <div class="col-sm-5 col-md-5">
+            <div><p class="nurs-sub-heading">料金で絞り込む</p></div>
+            <div class="card search-border-dash">              
+              <div class="card-body">
                 <div class="">
-                  <select name="" id="" class="form-control custom-select">
+                  <select name="" id="" class="form-control custom-select" style="background-color: #fff;">
                     <option data-price-type="" value="">▼入居一時金</option>
                     <option data-price-type="" value="0">一時金なし</option>
                     <option data-price-type="" value="50">50万円以下</option>
@@ -328,7 +330,7 @@
                     <option data-price-type="" value="3000">3,000万円以下</option>
                     <option data-price-type="more" value="3000">3,000万円以上</option>
                   </select>
-                  <select name="" id="" class="form-control  mt-1 custom-select">
+                  <select name="" id="" class="form-control  mt-1 custom-select" style="background-color: #fff;">
                     <option data-price-type="" value="">▼月額利用料</option>
                     <option data-price-type="" value="10">10万円以下</option>
                     <option data-price-type="" value="12">12万円以下</option>
@@ -352,13 +354,13 @@
             </div>
           </div>
 
-          <div class="col-sm-4 col-md-4">
-            <button class="btn btn-outline-info select" id="showSearchMap" @click="showSearchMap">Search With Map</button>
+          <div class="col-sm-2 col-md-2 align-self-center">
+            <button class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</button>
           </div>
         </div>
       </div>
         <!-- google map  -->
-        <div class="row">
+        <div class="row m-t-10 m-b-10">
           <div class="col-sm-12 col-md-12">
           <div id="holder" style="position: relative;">
               <div class="overlay standard hidden">&nbsp;</div>
@@ -368,9 +370,13 @@
         </div>
 
         <!-- nursing list -->
-        <div class="row" id="nrusing-search">
+        <div class="row" id="nursing-search">
           <div class="card-carousel-wrapper">
-            <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+            <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+              <div class="nav-content mr-2">
+                  <div class="card-carousel--nav__left"></div>
+              </div>
+            </div>
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
@@ -450,7 +456,11 @@
                 </div>
               </div>
             </div>
-            <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
+            <div class="nav-box" @click="moveCarousel(1)" :disabled="atEndOfList">
+              <div class="nav-content ml-2">
+                  <div class="card-carousel--nav__right"></div>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -476,32 +486,33 @@
             <div class="row pl-3 pt-3" v-if="showOne">
               <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox">
+                  <input class="form-check-input" :id="1" value="自立" v-model="MoveID" type="checkbox">
                   自立
                 </label>
               </div>
               <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox">
+                  <input class="form-check-input" :id="2" value="要支援" v-model="MoveID" type="checkbox">
                   要支援
                 </label>
               </div>
               <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox">
+                  <input class="form-check-input" :id="3" value="要介護" v-model="MoveID" type="checkbox">
                   要介護
                 </label>
               </div>
             </div>
           </div>
 
+
           <div class="col-sm-2 left-div-1" v-if="showOne">特長</div>
           <div class="col-sm-10" v-if="showOne">
             <hr>
-            <div class="form-check form-check-inline col-sm-2" v-for="features in special_features" :key="features.id">
+            <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)">
-                {{features.name}}
+                <input class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
+                {{feature.name}}
               </label>
             </div>
           </div>
@@ -511,7 +522,7 @@
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id">
+                <input class="form-check-input" type="checkbox" v-model="FacTypeID" :id="fac_type.id" :value="fac_type.id">
                 {{fac_type.description}}
               </label>
             </div>
@@ -522,7 +533,7 @@
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="medical in medical_acceptance" :key="medical.id">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id">
+                <input class="form-check-input" type="checkbox" v-model="MedicalAcceptanceID" :id="medical.id" :value="medical.id">
                 {{medical.name}}
               </label>
             </div>
@@ -535,9 +546,74 @@
               <span v-show="!showOne"><i class="fas fa-arrow-circle-down"></i> Open</span>
             </button>
           </div>
+
+            <div class="col-sm-6 left-div-6"></div>
+            <div class="col-sm-6 m-b-20">
+                <input type="button" value="Search" name="search" @click="search">
+            </div>
         </div>
 
+        <div class=" col-12">
+                 <div class="row">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
+                     <div class="job-content">
+                      <div class="job-body row  clearfix">
+                        <div class="col-4 job-img">
+                          <img src="/upload/news/nursing.JPG"  alt="">
+                        </div>
+                        <div class="col-8 job-box">
+                          <table  class="table table-bordered  table-sm">
+                              <h2> Nursing </h2>
+                              <tr>
+                                <td>Name : {{nus.name}}</td>
+                              </tr>
+                               <tr>
+                                <td> Email : {{nus.email}}</td>
+                              </tr>
+                                <tr>
+                                <td> Phone : {{nus.phone}}</td>
+                              </tr>
+                                <tr>
+                                <td> Address : {{nus.address}}</td>
+                              </tr>
+                              <tr>
+                                <td> Moving In : {{nus.moving_in}} </td>
+                               </tr>
+                           
+                                   
 
+                                <h2> Fac Type </h2>
+                              <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
+                                <span v-if="fac.id == nus.fac_type" class="feature_list">
+                                  {{fac.description}}
+                                </span>
+                              </span>
+                             
+                        
+                              <h2> SpecialFeature </h2>
+                              <span v-for="(spe,index) in specialfeature" :key="index+'-'+spe.name+'-'+nus.id">
+                                <span v-if="spe.customer_id == nus.customer_id" class="feature_list">
+                                  {{spe.name}}
+                                </span>
+                              </span>
+
+                               <h2> Medical Acceptance </h2>
+                              <span v-for="(med,index) in medicalacceptance" :key="index+'-'+med.name+'-'+nus.id">
+                                <span v-if="med.customer_id == nus.customer_id" class="feature_list">
+                                  {{med.name}}
+                                </span>
+                              </span>
+                             
+
+                            
+                          </table>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
       </div>
       <!-- <div class="col-md-2 p-l-0">
@@ -590,7 +666,14 @@
         paginationFactor: 410,
         nursingList: [],
         alphabet: [],
-
+        SpecialFeatureID:[],
+        MedicalAcceptanceID:[],
+        FacTypeID:[],
+        MoveID:[],
+        nus_data:[],
+        specialfeature:[],
+        medicalacceptance:[],
+        factype:[]
 
       }
     },
@@ -606,7 +689,48 @@
       },
     },
     methods: {
+      search(){
+    
+        if(this.townshipID == null || this.townshipID == '')
+        {
+          this.townshipID[0] = 0;
+        }
+        if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
+        {
+          this.SpecialFeatureID[0] = 0;
+        }
+        if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
+        {
+          this.MedicalAcceptanceID[0] = 0;
+        }
+         if(this.FacTypeID == null || this.FacTypeID == '')
+        {
+          this.FacTypeID[0] = 0;
+        }
+          if(this.MoveID == null || this.MoveID == '')
+        {
+          this.MoveID[0] = 0;
+        } 
 
+         this.axios.get('api/getnursingsearch',{
+          params:{
+              id: this.id,
+              townshipID:this.townshipID,
+              SpecialFeatureID:this.SpecialFeatureID,
+              MedicalAcceptanceID:this.MedicalAcceptanceID,
+              FacTypeID:this.FacTypeID,
+              MoveID:this.MoveID
+          },
+        }).then((response)=>{
+ 
+          this.nus_data = response.data.nursing;
+          this.specialfeature = response.data.specialfeature;
+          this.medicalacceptance = response.data.medicalacceptance;
+          this.factype = response.data.factype;
+        
+        })
+
+      },
       openInfoWindow(marker) {
         this.selectedLocation = marker;
         this.infoBoxOpen = true;
@@ -816,14 +940,13 @@
                 var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
                   google.maps.event.removeListener(boundsListener);
                 });
-
-                
-              
+                // console.log($('#mapMarker'));
+                $('#mapMarker').src = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + k + "|FF0000|000000' />";
+                // console.log($('#mapMarker').src)
 
               }
-              
             })
-        }
+        } 
       },
       MarkerHover(index){
         console.log(this.markers)
@@ -906,7 +1029,7 @@
       },
       features(e) {
         if (e.target.checked) {
-          alert('1');
+       
         }
       },
       getStateHover(e) {
@@ -1177,7 +1300,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
   }
 
 
-  #nrusing-search .card-carousel-wrapper {
+  #nursing-search .card-carousel-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1185,18 +1308,18 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     color: #666a73;
   }
 
-  #nrusing-search .card-carousel {
+  #nursing-search .card-carousel {
     display: flex;
     justify-content: center;
     width: 1359px;
   }
 
-  #nrusing-search .card-carousel--overflow-container {
+  #nursing-search .card-carousel--overflow-container {
     overflow: hidden;
   }
 
-  #nrusing-search .card-carousel--nav__left,
-  #nrusing-search .card-carousel--nav__right {
+  #nursing-search .card-carousel--nav__left,
+  #nursing-search .card-carousel--nav__right {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -1208,35 +1331,35 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     transition: transform 150ms linear;
   }
 
-  #nrusing-search .card-carousel--nav__left[disabled],
-  #nrusing-search .card-carousel--nav__right[disabled] {
+  #nursing-search .card-carousel--nav__left[disabled],
+  #nursing-search .card-carousel--nav__right[disabled] {
     opacity: 0.2;
     border-color: black;
   }
 
-  #nrusing-search .card-carousel--nav__left {
+  #nursing-search .card-carousel--nav__left {
     transform: rotate(-135deg);
   }
 
-  #nrusing-search .card-carousel--nav__left:active {
+  #nursing-search .card-carousel--nav__left:active {
     transform: rotate(-135deg) scale(0.9);
   }
 
-  #nrusing-search .card-carousel--nav__right {
+  #nursing-search .card-carousel--nav__right {
     transform: rotate(45deg);
   }
 
-  #nrusing-search .card-carousel--nav__right:active {
+  #nursing-search .card-carousel--nav__right:active {
     transform: rotate(45deg) scale(0.9);
   }
 
-  #nrusing-search .card-carousel-cards {
+  #nursing-search .card-carousel-cards {
     display: flex;
     transition: transform 150ms ease-out;
     transform: translatex(0px);
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card {
+  #nursing-search .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     background-color: #fff;
@@ -1246,20 +1369,20 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card:hover {
+  #nursing-search .card-carousel-cards .card-carousel--card:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card:first-child {
+  #nursing-search .card-carousel-cards .card-carousel--card:first-child {
     margin-left: 0;
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card:last-child {
+  #nursing-search .card-carousel-cards .card-carousel--card:last-child {
     margin-right: 0;
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card img {
+  #nursing-search .card-carousel-cards .card-carousel--card img {
     vertical-align: bottom;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -1267,16 +1390,16 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     user-select: none;
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card img:hover {
+  #nursing-search .card-carousel-cards .card-carousel--card img:hover {
     opacity: 0.5;
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card--footer {
+  #nursing-search .card-carousel-cards .card-carousel--card--footer {
     border-top: 0;
     padding: 7px 15px;
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card--footer p {
+  #nursing-search .card-carousel-cards .card-carousel--card--footer p {
     padding: 3px 0;
     margin: 0;
     margin-bottom: 2px;
@@ -1286,7 +1409,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     user-select: none;
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
+  #nursing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
     font-size: 12px;
     font-weight: 300;
     padding: 6px;
@@ -1297,7 +1420,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     color: #666a73;
   }
 
-  #nrusing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
+  #nursing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
     content: "";
     float: left;
     position: absolute;
@@ -1310,7 +1433,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     border-width: 12px 12px 12px 0;
   }
 
- #nrusing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
+ #nursing-search .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
     content: "";
     position: absolute;
     top: 10px;
@@ -1321,5 +1444,25 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     border-radius: 2px;
     background: white;
     box-shadow: -0px -0px 0px #004977;
-  }
+}
+#nursing-search .nav-box[disabled] .card-carousel--nav__left,
+#nursing-search .nav-box[disabled] .card-carousel--nav__right {
+    border-top: 5px solid #000;
+    border-right: 5px solid #000;
+}
+#nursing-search .nav-box[disabled] .nav-content {
+    border: 2px solid #000;
+    background: #fff
+}
+
+.nav-content {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    background: #fffff4;
+    border: 2px solid #ff9563;
+    border-radius: 50%;
+    text-align: center;
+}
 </style>

@@ -1,7 +1,15 @@
 <template>
-
-    <div class="col-12 scrolldiv2 pb-3 tab-content">
-
+    <div class="col-12 scrolldiv2 pb-3 tab-content" id="hospital">
+        <div class="col-12 pl-0">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <router-link to="/">ホーム</router-link>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">病院のお気に入り</li>
+                </ol>
+            </nav>
+        </div>
         <div class="col-12">
             <div class="col-md-12 fav-his-header">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
@@ -25,14 +33,6 @@
                 </svg>
                 &nbsp; <span class="font-weight-bold">お気に入り</span>
             </div>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <router-link to="/">ホーム</router-link>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">病院のお気に入り</li>
-                </ol>
-            </nav>
         </div>
         <div class="row m-0">
 
@@ -41,7 +41,11 @@
                     <div class="row">
                         <div class="card-carousel-wrapper">
 
-                            <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+                            <div class="nav-box"  @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                                <div class="nav-content mr-2">
+                                    <div class="card-carousel--nav__left"></div>
+                                </div>
+                            </div>
                             <div class="card-carousel">
                                 <div class="card-carousel--overflow-container">
                                     <div class="card-carousel-cards col-3" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
@@ -51,34 +55,33 @@
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <img class="img-fluid" v-bind:src="'/images/' + hos_profile.logo" alt style="width: 250px" />
-                                                            <br>
+                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/customers/' + hos_profile.logo" alt  />
                                                             <br>
                                                             <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <p style="width:250px;">
+                                                            <p class="profile_wd">
                                                                 <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>
                                                             </p>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id" style="word-wrap: break-word;">
-                                                            <div style="width:250px;"> <a :href="hos_profile.website" target="_blank" style="width:250px;">{{hos_profile.website}}</a></div>
+                                                            <div class="profile_wd"> <a :href="hos_profile.website" target="_blank" class="profile_wd">{{hos_profile.website}}</a></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <div style="width:250px;">{{hos_profile.township_name}}, {{hos_profile.city_name}}</div>
+                                                            <div class="profile_wd">{{hos_profile.township_name}}, {{hos_profile.city_name}}</div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
                                                                 <dt style="text-align:left;">アクセス</dt>
-                                                                <dd style="width:250px;" v-html="hos_profile.access"></dd>
+                                                                <dd class="profile_wd" v-html="hos_profile.access"></dd>
                                                             </dl>
                                                         </td>
                                                     </tr>
@@ -86,13 +89,13 @@
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
                                                                 <dt style="text-align:left;">電話番号</dt>
-                                                                <dd style="width:250px;">{{hos_profile.phone}}</dd>
+                                                                <dd class="profile_wd">{{hos_profile.phone}}</dd>
                                                             </dl>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <div style="width:250px;">
+                                                            <div class="profile_wd">
                                                                 <ul class="fac_container">
                                                                     <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                                 </ul>
@@ -103,7 +106,7 @@
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
                                                                 <dt style="text-align:left;">診療科目</dt>
-                                                                <dd style="width:250px;" v-for="subject in hos_profile.sub" :key="subject.id">{{ subject.name }}</dd>
+                                                                <dd class="profile_wd" v-for="subject in hos_profile.sub" :key="subject.id">{{ subject.name }}</dd>
                                                             </dl>
                                                         </td>
                                                     </tr>
@@ -120,7 +123,7 @@
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
                                                                 <dt style="text-align:left;">医療部</dt>
-                                                                <dd style="width:250px;">{{hos_profile.medical_department}}</dd>
+                                                                <dd class="profile_wd">{{hos_profile.medical_department}}</dd>
                                                             </dl>
                                                         </td>
                                                     </tr>                                                    
@@ -184,7 +187,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
+                            <div class="nav-box" @click="moveCarousel(1)" :disabled="atEndOfList">
+                                <div class="nav-content ml-2">
+                                <div class="card-carousel--nav__right"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

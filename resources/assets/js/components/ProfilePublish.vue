@@ -298,7 +298,7 @@
                                         </thead>
 
                                         <tbody>
-                                        <tr v-for="cost in method_payment" :key="cost.id">
+                                        <tr v-for="(cost,index) in method_payment" :key="cost.id" @click="changeBg(cost.id,index)" :class="'cost'+index">
                                             <td>
                                                 <h5 class="method-name">{{cost.payment_name}}</h5>
                                                 <span class="room-type"> {{cost.living_room_type}} </span>
@@ -422,11 +422,12 @@
                     <div class="col-md-12">
                         <label class="cost_heading_lbl">フォトアルバム</label>
                         <div class="row">
-                            <div v-for="(image) in  images" :key="image.id" class="col-sm-4 col-md-4 col-lg-3">
-                                <img  :src ="'/upload/nursing_profile/' + image.photo" style="width:100%;border:7px solid #eee;" class="img-responsive">
+                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
+                                <img  :src ="'/upload/nursing_profile/' + image.name" style="width:100%;border:7px solid #eee;" class="img-responsive" @click="showLightbox(image.name)"  >
                                 <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
+                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir" :timeoutDuration="5000" />
                         </div>
                     </div>
 
@@ -1405,7 +1406,7 @@ $(document).scroll(function() {
   var cur_pos = $(this).scrollTop();
 
   if (cur_pos >= 100) {
-      $('.fixed-nav').css("top" , "200px");
+      $('.fixed-nav').css("top" , "210px");
   } else {
       $('.fixed-nav').css("top" , "unset");
   }
@@ -1415,12 +1416,14 @@ $(document).scroll(function() {
 
 import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
+import Lightbox from 'vue-my-photos'
 
 export default {
 
     components:{
         joboffer,
-        Pannellum
+        Pannellum,
+        Lightbox
     },
     data() {
 
@@ -1462,6 +1465,8 @@ export default {
                 activeImageTitle:'',
                 activeImageDescription:'',
                 index: 0,
+                light_images:[],
+                thumbnailDir: '/upload/nursing_profile/',
                 // cusid: 0,
                 // type: 0,
                 pageNum: 0,
@@ -1540,7 +1545,18 @@ export default {
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
 
                     this.images = response.data.images;
+
+                    for(var i=0; i<this.images.length; i++){
+                        this.light_images.push({
+                            'name': this.images[i]['photo'],
+                            'description': this.images[i]['description'],
+                            'id': this.images[i]['id'],
+                            'title': this.images[i]['title']
+                        })
+                    }
+
                     this.panoimages = response.data.panoimages;
+
                     this.videos = response.data.videos;
                     // console.log(this.panoimages);return;
 
@@ -1700,6 +1716,13 @@ export default {
 
         },
         methods: {
+            changeBg(ch,a) {
+                $('.main-cost-table td').css({'background':'transparent'});
+                $('.cost'+a+' td').css({'background':'#ffe9df'});
+            },
+            showLightbox: function(imageName) {
+                this.$refs.lightbox.show(imageName);
+            },
             moveCarousel(direction) {
                         // Find a more elegant way to express the :style. consider using props to make it truly generic
                 if (direction === 1 && !this.atEndOfList) {
@@ -2259,7 +2282,8 @@ export default {
 }
 
 .room-type {
-    background: #fdd6c3;
+    /* background: #fdd6c3; */
+    background: #fbaa84;
     color: #333333;
     padding: 3px 5px 3px 7px;
     border-radius: 3px;
@@ -2283,5 +2307,4 @@ export default {
     color: #333;
     font-size: 0.8em;
 }
-
 </style>
