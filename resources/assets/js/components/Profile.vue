@@ -19,6 +19,8 @@
             <span v-if="!loginuser"><i class="fas fa-home"></i></span>
           </label>
         </li>
+        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#333; font-weight:bold;" class="btn fav-item fav-color" v-if="!view_pro_id" @click="view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; 資料請求 . 見学リスト に 追加</span>
+        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#aaa; font-weight:bold;" class="btn fav-item fav-color" v-if="view_pro_id" @click="view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 資料請求 . 見学リスト に 追加</span>
       </ul>
 
       <div class="tab-content nursing-borderColor tab-content1 tabs">
@@ -32,6 +34,7 @@
           </div>
         </form>
       </div>
+      
     </div>
 
     <div v-if="type == 'hospital'">
@@ -99,6 +102,7 @@ export default {
         l_storage_nus_history: [],
         l_storage_hos_fav: [],
         l_storage_nus_fav: [],
+        view_pro_id: false,
     };
   },
   created() {
@@ -137,8 +141,6 @@ export default {
         this.type = localStorage.getItem("cusType");
         this.cusid = Number(localStorage.getItem("cusId"));
 
-        console.log(localStorage.getItem("nursing_history"));
-
         this.axios.get(`/api/profile_view/${this.cusid}/${this.type}`).then(response => {
             localStorage.setItem("lat_num", response.data[0].latitude);
             localStorage.setItem("lng_num", response.data[0].longitude);
@@ -148,14 +150,15 @@ export default {
                     var hos_his_arr = JSON.parse("[" + localStorage.getItem("hospital_history") + "]");
                     hos_his_arr.push(response.data[0].pro_id);
                     hos_his_arr = [...new Set(hos_his_arr)]; 
-                    localStorage.setItem("nursing_history", hos_his_arr);               
+                    localStorage.setItem("hospital_history", hos_his_arr);               
                 }
                 else{
                     var hos_his_arr = [response.data[0].pro_id];
-                    localStorage.setItem("nursing_history", hos_his_arr);
+                    localStorage.setItem("hospital_history", hos_his_arr);
                 }
             }
             else{
+                // this.view_pro_id = response.data[0].pro_id;
                 if(localStorage.getItem("nursing_history")) {
                     var nus_his_arr = JSON.parse("[" + localStorage.getItem("nursing_history") + "]");
                     nus_his_arr.push(response.data[0].pro_id);
@@ -166,7 +169,11 @@ export default {
                     var nus_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("nursing_history", nus_his_arr);
                 }
-                console.log(localStorage.getItem("nursing_history"));
+
+                if(localStorage.getItem("nursing_fav")){
+                    var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_history") + "]");
+                    this.view_pro_id = nus_fav_arr.includes(response.data[0].pro_id);
+                }
             }
         });
     })

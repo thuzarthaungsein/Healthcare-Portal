@@ -382,10 +382,10 @@
                         </div>
                         <div class="col-8 job-box">
                           <table  class="table table-bordered  table-sm">
-                            <h2> Hospital </h2>
-                              <tr>
-                                <td>Name : {{hos.name}}</td>
-                              </tr>
+                            <h2>
+                                <router-link :to="{name: 'profile', params: {cusid:hos.customer_id, type: 'hospital'}}" class="pseudolink">{{hos.name}}</router-link>
+                            </h2>
+                              
                                <tr>
                                 <td> Email : {{hos.email}}</td>
                               </tr>

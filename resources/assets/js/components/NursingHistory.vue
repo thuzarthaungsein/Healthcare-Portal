@@ -299,7 +299,7 @@ export default {
                                 localStorage.setItem('nursing_history', new_local);
                                 this.local_sto = localStorage.getItem("nursing_history");
                                 if (this.local_sto) {
-                                    this.getAllFavourite(this.local_sto);
+                                    this.getAllCustomer(this.local_sto);
                                 } else {
                                     // window.location.reload();
                                     this.$router.push({

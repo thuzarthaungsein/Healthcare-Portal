@@ -3,23 +3,56 @@
   <div id="app">
 
     <div v-if="type == 'nursing'" id="nursingView">
-        <!--panorama-->    
+        <!--panorama-->
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <div class="thumbnail-img" style="padding:0px;border:none;">
                 <div class="card-carousel">
                 <div class="card-img" >
-                    <!-- <div id="panorama"></div>           -->                              
-                    <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>    
-                </div>     
-                                    
-                <div  class="thumbnails">
-                    <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
-                        <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image.photo">
-                    </div>
+                    <!-- <div id="panorama"></div>           -->
+                    <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>
                 </div>
+
+
+                <div class="col-12" id="pano-slider-page">
+                    <div class="card-carousel-wrapper">
+
+                            <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                                <div class="nav-content mr-2">
+                                    <div class="card-carousel--nav__left"></div>
+                                </div>
+                            </div>
+                            <div class="card-carousel">
+                                <div class="card-carousel--overflow-container">
+                                    <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + panocurrentOffset + 'px' + ')'}">
+                                        <div class="card-carousel--card">
+                                           <!-- <div class="card-carousel--card--footer"> -->
+
+											<!-- <div class="thumbnails-pano">
+                                                <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
+                                                    <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
+                                                </div>
+                                            </div> -->
+                                            <div  class="thumbnails-pano">
+                                                <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
+                                                    <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image.photo">
+                                                </div>
+                                            </div>
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
+                                <div class="nav-content ml-2">
+                                   <div class="card-carousel--nav__right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
             </div>
-        </div>                   
+        </div>
         <!--end panorama-->
 
             <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
@@ -61,7 +94,7 @@
 
             <div class="row m-lr-0 ele p-t-65" id="element1">
                  <h5 class="profile_header">情報</h5>
-                 <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">                     
+                 <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
 
@@ -129,8 +162,8 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円 
-                                                     ~  
+                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円
+                                                     ~
                                                     {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
@@ -141,8 +174,8 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}}円 
-                                                     ~  
+                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}}円
+                                                     ~
                                                     {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
@@ -268,10 +301,10 @@
                                         <tr v-for="cost in method_payment" :key="cost.id">
                                             <td>
                                                 <h5 class="method-name">{{cost.payment_name}}</h5>
-                                                <span class="room-type"> {{cost.living_room_type}} </span>  
+                                                <span class="room-type"> {{cost.living_room_type}} </span>
                                                 {{cost.area}}
                                             </td>
-                                            <td><span class="cash-lbl-mini">{{cost.expense_moving}}</span></td>                                          
+                                            <td><span class="cash-lbl-mini">{{cost.expense_moving}}</span></td>
                                             <td><span class="cash-lbl-mini">{{cost.monthly_fees}}</span></td>
                                             <td style="padding-top:15px;">
                                                 <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >詳しくはこちら</span>
@@ -640,8 +673,8 @@
 
 
 
-                        <div class="row col-12">  
-                                <h5  class="profile_header col-12"> 職員体制 {{customer.name}}</h5>  
+                        <div class="row col-12">
+                                <h5  class="profile_header col-12"> 職員体制 {{customer.name}}</h5>
                             <div v-if="staff.length>0">
 
                                 <div v-for="st in staff" :key="st.id" class="col-md-12" >
@@ -704,17 +737,17 @@
                                     <tr>
                                         <td width="250" class="custom-bg-color"> 公式サイト</td>
                                         <td>{{m.website}}</td>
-                                    </tr>   
+                                    </tr>
                                     <tr>
                                         <td width="250" class="custom-bg-color"> アクセス</td>
                                         <td><p v-html="m.access"></p></td>
-                                    </tr>  
+                                    </tr>
                                     <tr>
                                         <td width="250" class="custom-bg-color">住所 </td>
                                         <td>{{m.address}}</td>
-                                    </tr>                          
+                                    </tr>
                                     </tbody>
-                                </table>                                
+                                </table>
                             </div>
 
                       </div>
@@ -792,15 +825,15 @@
 
 
     <div v-if="type == 'hospital'" id="hospitalView">
-       <!--panorama-->    
+       <!--panorama-->
                 <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
                         <div class="thumbnail-img" style="padding:0px;border:none;">
                             <div class="card-carousel">
                             <div class="card-img">
-                                <!-- <div id="panorama"></div>           -->                              
-                           
-                                <Pannellum  :src="'/upload/hospital_profile/Imagepanorama/' + currentPanoImage" 
-                                            class="pannellum" 
+                                <!-- <div id="panorama"></div>           -->
+
+                                <Pannellum  :src="'/upload/hospital_profile/Imagepanorama/' + currentPanoImage"
+                                            class="pannellum"
                                             :auto-load="true"
                                             :show-zoom="true"
                                             :show-fullscreen="true"
@@ -808,27 +841,59 @@
                                             :orientation="isOrientationOn"
                                             :compass="true"
                                             :hfov= "120"
-                                            
-                                            ></Pannellum>    
-                           
-                            </div>     
-                                              
-                            <div  class="thumbnails">
+
+                                            ></Pannellum>
+
+                            </div>
+                             <div class="col-12" id="pano-slider-page">
+                    <div class="card-carousel-wrapper">
+
+                            <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                                <div class="nav-content mr-2">
+                                    <div class="card-carousel--nav__left"></div>
+                                </div>
+                            </div>
+                            <div class="card-carousel">
+                                <div class="card-carousel--overflow-container">
+                                    <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + panocurrentOffset + 'px' + ')'}">
+                                        <div class="card-carousel--card">
+                                           <!-- <div class="card-carousel--card--footer"> -->
+
+											<div class="thumbnails-pano">
+                                                <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
+                                                    <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
+                                                </div>
+                                            </div>
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
+                                <div class="nav-content ml-2">
+                                   <div class="card-carousel--nav__right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                            <!-- <div  class="thumbnails">
                                     <div
 
                                         v-for="(image,index) in  panoimages"
 
                                         :key="image.id"
 
-                                        :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"                                      
+                                        :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"
 
                                         @click="activatePanoImage(index)" >
                                         <img  :src ="'upload/nursing_profile/Imagepanorama/' + image.photo">
                                     </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                </div>                   
+                </div>
             <!--end panorama-->
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
                 <!-- <div class="row col-12 m-t-10">
@@ -931,7 +996,7 @@
                     <!--end for slide image-->
 
                     <!--for address-->
-                    
+
 
                      <div class="col-sm-7 detail_profile_right">
 
@@ -994,7 +1059,7 @@
                                     </tr>
                                 </table>
                             </div>
-<!-- 
+<!--
                             <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
 
                             <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
@@ -1015,7 +1080,7 @@
 
                             </ul>
 
-                        </div>  
+                        </div>
 
                         <h5 class="header m-t-10">診療科目</h5>
 
@@ -1023,7 +1088,7 @@
                             <ul class="sub_container" v-for="sub in subjects" :key="sub.id">
                                 <li>{{sub.name}}</li>
 
-                            </ul>                             
+                            </ul>
 
                         </div>
 
@@ -1031,7 +1096,7 @@
                     <!--end for address-->
                 </div>
             <!--end ee-->
-                  
+
                 <h5 class="profile_header">情報 </h5>
 
                 <div class="row m-lr-0">
@@ -1042,7 +1107,7 @@
 
                     </div>
 
-                </div>                
+                </div>
 
                 <h5 class="profile_header">診療時間 </h5>
 
@@ -1110,7 +1175,7 @@
 
                             <th class="second-row text-center">午前</th>
 
-                            <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">{{amval}}</td>    
+                            <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">{{amval}}</td>
 
                         </tr>
 
@@ -1118,13 +1183,13 @@
 
                             <th class="second-row text-center">午後</th>
 
-                            <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">{{amval}}</td>    
+                            <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">{{amval}}</td>
 
                         </tr>
 
                     </tbody>
 
-                </table>                  
+                </table>
 
                 </div>
 
@@ -1132,7 +1197,7 @@
 
                     <div v-for="hospital in hospitals" :key="hospital.id">
 
-                        <p><strong class="font-weight-bold">休診日:</strong><font>{{hospital.closed_day}}</font> </p>                      
+                        <p><strong class="font-weight-bold">休診日:</strong><font>{{hospital.closed_day}}</font> </p>
 
                     </div>
 
@@ -1142,7 +1207,7 @@
 
                     <p><span style="color:red;font-weight:bold;font-size:15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p>
 
-                </div>                
+                </div>
 
                 </div>
 
@@ -1150,7 +1215,7 @@
 
                 <h5 class="profile_header">施設情報 </h5>
 
-                <div class="col-12">    
+                <div class="col-12">
 
                     <div class="row col-md-12">
 
@@ -1166,7 +1231,7 @@
 
                                 </p>
 
-                                
+
 
                                 <!-- <i class="fa fa-circle-o fa-stack-2x" v-if="fac.id === hosfacility.id"></i>  -->
 
@@ -1174,9 +1239,9 @@
 
                         </div>
 
-                    </div>              
+                    </div>
 
-                   
+
 
                 </div>
 
@@ -1192,7 +1257,7 @@
 
                         <div class="col-12 comment-wrapper">
 
-                            <div class="card" v-for="comment in comments" :key="comment.id">                                
+                            <div class="card" v-for="comment in comments" :key="comment.id">
 
                                 <div class="card-body">
 
@@ -1234,7 +1299,7 @@
 
                     <!-- <div class="col-md-12">タイトル:{{comment.title}}</div><br/>
 
-                                    
+
 
                     <div class="col-md-5">電子メールアドレス:{{comment.email}}</div>
 
@@ -1271,7 +1336,7 @@
                 </div>
 
             </div>
-            
+
             <!-- Hospital Video -->
                 <div class="col-md-12 m-t-15 m-b-15">
                         <label class="cost_heading_lbl">動画</label>
@@ -1302,11 +1367,11 @@
                                     <tr>
                                         <td width="250" class="custom-bg-color"> 公式サイト</td>
                                         <td>{{m.website}}</td>
-                                    </tr>   
+                                    </tr>
                                     <tr>
                                         <td width="250" class="custom-bg-color"> アクセス</td>
                                         <td><p v-html="m.access"></p></td>
-                                    </tr>  
+                                    </tr>
                                     <tr>
                                         <td width="250" class="custom-bg-color"> 混雑状況</td>
                                         <td>{{m.congestion}}</td>
@@ -1314,9 +1379,9 @@
                                     <tr>
                                         <td width="250" class="custom-bg-color">住所 </td>
                                         <td>{{m.address}}</td>
-                                    </tr>                          
+                                    </tr>
                                     </tbody>
-                                </table>                            
+                                </table>
                         </div>
 
                     </div>
@@ -1344,9 +1409,9 @@ $(document).scroll(function() {
   } else {
       $('.fixed-nav').css("top" , "unset");
   }
-                
+
 });
-  
+
 
 import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
@@ -1356,18 +1421,14 @@ import VueEasyLightbox from 'vue-easy-lightbox'
 export default {
 
     components:{
-        joboffer,        
-        Pannellum,
-        VueEasyLightbox
+        joboffer,
+        Pannellum
     },
     data() {
 
             var that = this;
             return {
-                imgs: '',  // Img Url , string or Array
-                visible: false,
-                index: 0,   // default              
-                url: 'upload/nursing_profile/Imagepanorama/', 
+                url: 'upload/nursing_profile/Imagepanorama/',
                 isAutoRotationOn: true,
                 isOrientationOn: true,
                 markers: [
@@ -1424,10 +1485,10 @@ export default {
                 // panoimages: ['examplepano.jpg','pano3.jpg','alma.jpg','examplepano.jpg','pano3.jpg','examplepano.jpg','examplepano.jpg','alma.jpg','pano3.jpg','examplepano.jpg','alma.jpg','examplepano.jpg',],
                 panoimages:[],
                 changelinktitle:'内容を見る',
-                currentOffset: 0,
-                windowSize: 1,
-                paginationFactor: 220,
-                
+                panocurrentOffset: 0,
+                windowSize: 13,
+                paginationFactor:103,
+
             };
         },
 
@@ -1439,7 +1500,7 @@ export default {
         created(){
             console.log(this.cusid);
           this.activePanoImage = 0;
-            
+
             if(this.type != undefined && this.cusid!= undefined){
                 localStorage.setItem('cusType',this.type);
                 localStorage.setItem('cusId',this.cusid);
@@ -1460,11 +1521,10 @@ export default {
                     this.method_payment = response.data.cost;
 
                     this.nusfacilities = response.data.facility;
-                    console.log('a');
                     console.log(this.nusfacilities);
 
                     this.cooperate_medical = response.data.comedical;
-                
+
                     this.medical_acceptance = response.data.medicalacceptance;
 
                     this.medical = response.data.medical;
@@ -1512,7 +1572,7 @@ export default {
                 });
 
                   this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
-                      
+
                       this.customer = response.data;
 
                 });
@@ -1586,7 +1646,7 @@ export default {
                         this.am_arr = response.data.am;
                         this.pm_arr = response.data.pm;
 
-                });                
+                });
             }
 
             var new_width = $("#content-all").width();
@@ -1598,17 +1658,21 @@ export default {
           },
 
           computed: {
-          
-
+                    atEndOfList() {
+                        return this.panocurrentOffset <= (this.paginationFactor * -1) * (this.panoimages.length - this.windowSize);
+                    },
+                    atHeadOfList() {
+                        return this.panocurrentOffset === 0;
+                    },
               currentPanoImage() {
-              
-                if(this.panoimages.length > 0) {    
+
+                if(this.panoimages.length > 0) {
                     return this.panoimages[this.activePanoImage].photo;
 
                 }
 
-            },         
-          
+            },
+
             currentImage() {
                 if(this.images) {
                     if(this.images.length > 0) {
@@ -1625,7 +1689,7 @@ export default {
                         return 'no-image-big.jpg';
 
                     }
-                }              
+                }
 
                 else{
 
@@ -1634,13 +1698,21 @@ export default {
                 }
 
             }
-              
+
 
         },
         methods: {
+            moveCarousel(direction) {
+                        // Find a more elegant way to express the :style. consider using props to make it truly generic
+                if (direction === 1 && !this.atEndOfList) {
+                    this.panocurrentOffset -= this.paginationFactor;
+                } else if (direction === -1 && !this.atHeadOfList) {
+                    this.panocurrentOffset += this.paginationFactor;
+                }
+            },
               activatePanoImage(imageIndex) {
-                this.activePanoImage = imageIndex;                    
-          
+                this.activePanoImage = imageIndex;
+
             },
 
               moveTo: function(index) {
@@ -1691,7 +1763,7 @@ export default {
 
             },
 
-           
+
 
              activate:function(el){
 
@@ -1699,27 +1771,12 @@ export default {
 
             },
 
-             moveCarousel(direction) {
 
-      // Find a more elegant way to express the :style. consider using props to make it truly generic
-
-      if (direction === 1 && !this.atEndOfList) {
-
-        this.currentOffset -= this.paginationFactor;
-
-      } else if (direction === -1 && !this.atHeadOfList) {
-
-        this.currentOffset += this.paginationFactor;
-
-      }
-
-    },
-
-    costConfirm(id){  
+    costConfirm(id){
 
         $('.changeLink').text("詳しくはこちら");
         $('.changeLink').removeClass("CloseBtn");
-        $('.changeLink'+id).text("選択中");  
+        $('.changeLink'+id).text("選択中");
         $('.changeLink'+id).addClass("CloseBtn");
         $('.closeChangeLink').hide('medium');
         $('#changeLink'+id).show('medium');
@@ -1732,7 +1789,193 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+/*slider*/
+    #pano-slider-page .card-carousel {
+    display: flex;
+    justify-content: left;
+    width: 1336px;
+}
+
+
+/*slick carousel*/
+
+#pano-slider-page .card-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 40px;
+    color: #666a73;
+}
+
+#pano-slider-page .card-carousel-comment {
+    display: flex;
+    justify-content: center;
+    /* width: 1145px; */
+}
+
+#pano-slider-page .card-carousel-comment .card {
+    margin: 0px 10px 0px 0px;
+}
+
+#pano-slider-page .card-carousel--overflow-container {
+    color: #000;
+    text-align: left;
+    overflow: hidden;
+}
+
+#pano-slider-page .card-carousel--nav__left,
+.card-carousel--nav__right {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-top: 5px solid #f9793c;
+    border-right: 5px solid #f9793c;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: transform 150ms linear;
+}
+
+
+ #pano-slider-page .card-carousel--nav__left[disabled],
+.card-carousel--nav__right[disabled] {
+    opacity: 0.2;
+    border-color: black;
+}
+
+.nav-box[disabled] {
+    opacity: 0.2;
+}
+
+#pano-slider-page .nav-box[disabled] .card-carousel--nav__left,
+#pano-slider-page .nav-box[disabled] .card-carousel--nav__right {
+    border-top: 5px solid #000;
+    border-right: 5px solid #000;
+}
+
+#pano-slider-page .nav-box[disabled] .nav-content {
+    border: 2px solid #000;
+    background: #fff
+}
+
+.nav-content {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    background: #fffff4;
+    border: 2px solid #ff9563;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#pano-slider-page .card-carousel--nav__left {
+    transform: rotate(-135deg);
+}
+
+#pano-slider-page .card-carousel--nav__left:active {
+    transform: rotate(-135deg) scale(0.9);
+}
+
+#pano-slider-page .card-carousel--nav__right {
+    transform: rotate(45deg);
+}
+
+#pano-slider-page .card-carousel--nav__right:active {
+    transform: rotate(45deg) scale(0.9);
+}
+
+#pano-slider-page .card-carousel-cards {
+    display: flex;
+    transition: transform 150ms ease-out;
+    transform: translatex(0px);
+}
+
+#pano-slider-page .card-carousel-cards .card-carousel--card {
+    margin: 0 10px;
+    cursor: pointer;
+    /* box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08); */
+    background-color: #fff;
+    border-radius: 4px;
+    z-index: 3;
+    margin-bottom: 2px;
+}
+
+#pano-slider-page .card-carousel-cards .card-carousel--card:first-child {
+    margin-left: 0;
+}
+
+#pano-slider-page .card-carousel-cards .card-carousel--card:last-child {
+    margin-right: 0;
+}
+
+#pano-slider-page .card-carousel-cards .card-carousel--card img {
+    vertical-align: bottom;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    transition: opacity 150ms linear;
+    user-select: none;
+}
+
+#pano-slider-page .card-carousel-cards .card-carousel--card img:hover {
+    opacity: 0.5;
+}
+
+/* #pano-slider-page .card-carousel-cards .card-carousel--card--footer {
+    border-top: 0;
+    padding: 7px 15px;
+}
+
+#pano-slider-page .card-carousel-cards .card-carousel--card--footer p {
+    padding: 3px 0;
+    margin: 0;
+    margin-bottom: 2px;
+    font-size: 19px;
+    font-weight: 500;
+    color: #2c3e50;
+    user-select: none;
+}
+
+#pano-slider-page .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 6px;
+    background: rgba(40, 44, 53, 0.06);
+    display: inline-block;
+    position: relative;
+    margin-left: 4px;
+    color: #666a73;
+}
+
+#pano-slider-page .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
+    content: "";
+    float: left;
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-color: transparent rgba(40, 44, 53, 0.06) transparent transparent;
+    border-style: solid;
+    border-width: 12px 12px 12px 0;
+}
+
+#pano-slider-page .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -1px;
+    float: left;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: white;
+    box-shadow: -0px -0px 0px #004977;
+} */
+
+/*Endslider*/
 .pannellum{
     height: 500px;
 }
@@ -1912,20 +2155,30 @@ export default {
     height: 100%;
 }
 .thumbnails {
-    /* display: inline-block; */
+    /* display: flex; */
     text-align: left;
     /* justify-content: space-evenly;
     flex-direction: row; */
     /* overflow:auto; */
-   
+
 }
 .thumbnail-image {
-    display: inline-block;   
+    display: inline-block;
     cursor: pointer;
     margin-bottom: -1px;
     /* width: 10%;
     float:left; */
 }
+.thumbnails-pano{
+    display: flex;
+    text-align: left;
+}
+.thumbnail-image-panorama {
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: -1px;
+}
+
 .thumbnail-image > img {
     /* width:  100px;
     height: auto;
@@ -1935,6 +2188,13 @@ export default {
     width: 51px;
     height: 36px;
     max-width: 55px;
+    border: 3px solid transparent;
+}
+.thumbnail-image-panorama >img{
+    vertical-align: bottom;
+    width: 103px;
+    height: 70px;
+    max-width: 103px;
     border: 3px solid transparent;
 }
 
