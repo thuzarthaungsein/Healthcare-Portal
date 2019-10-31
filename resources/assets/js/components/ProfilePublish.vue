@@ -6,7 +6,7 @@
         <!--panorama-->
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <div class="thumbnail-img" style="padding:0px;border:none;">
-                <div class="card-carousel">
+                <div class="card-carousel" style="background:#fff;">
                 <div class="card-img" >
                     <!-- <div id="panorama"></div>           -->
                     <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>
@@ -1200,17 +1200,17 @@
 
                     <div v-for="hospital in hospitals" :key="hospital.id">
 
-                        <p><strong class="font-weight-bold">休診日:</strong><font>{{hospital.closed_day}}</font> </p>
+                        <p><strong class="font-weight-bold">休診日: </strong><font>{{hospital.closed_day}}</font> </p>
 
                     </div>
 
                 </div>
 
-                <div class="row col-12">
+                <!-- <div class="row col-12">
 
                     <p><span style="color:red;font-weight:bold;font-size:15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p>
 
-                </div>
+                </div> -->
 
                 </div>
 
@@ -1408,7 +1408,7 @@ $(document).scroll(function() {
   var cur_pos = $(this).scrollTop();
 
   if (cur_pos >= 100) {
-      $('.fixed-nav').css("top" , "200px");
+      $('.fixed-nav').css("top" , "210px");
   } else {
       $('.fixed-nav').css("top" , "unset");
   }
@@ -1418,8 +1418,6 @@ $(document).scroll(function() {
 
 import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
-import VueEasyLightbox from 'vue-easy-lightbox'
-
 
 export default {
 
@@ -1489,7 +1487,7 @@ export default {
                 panoimages:[],
                 changelinktitle:'内容を見る',
                 panocurrentOffset: 0,
-                windowSize: 13,
+                windowSize: 10,
                 paginationFactor:103,
 
             };
@@ -1803,7 +1801,8 @@ export default {
     #pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
-    width: 1336px;
+    /* width: 1336px; */
+    width:1033px;
 }
 
 

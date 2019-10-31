@@ -1,7 +1,8 @@
 <template>
-  <div class="search-map" @click="getStateClick" @mouseover="getStateHover">
+  <div class="search-map"  @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
+        <div @click="getStateClick">
         <div class="row">
           <!-- search map and path -->
           <div class="col-sm-11 map-wrap" id="searchMap">
@@ -288,6 +289,7 @@
             </div>
           </div>
         </div>
+
         <!-- search city , township  -->
         <div class="row select" id="filter" style="justify-content:space-between">
           <div class="col-sm-3 col-md-3">
@@ -354,6 +356,7 @@
             <button class="btn btn-outline-info select" id="showSearchMap" @click="showSearchMap">Search With Map</button>
           </div>
         </div>
+      </div>
         <!-- google map  -->
         <div class="row">
           <div class="col-sm-12 col-md-12">
@@ -363,6 +366,7 @@
           </div>
           </div>
         </div>
+
         <!-- nursing list -->
         <div class="row" id="nrusing-search">
           <div class="card-carousel-wrapper">
@@ -370,8 +374,8 @@
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                  <div class="card-carousel--card" v-for="items in nursingList" :key="items.nursing_id">
-                    <div class="">
+                  <div @mouseover="MarkerHover(items.alphabet)" class="card-carousel--card el"  v-for="items in nursingList" :key="items.nursing_id">
+                    <div class="MarkerHover" :id="items.alphabet">
 
                       <table class="table">
                         <thead>
@@ -385,6 +389,7 @@
                             <td colspan="2" class="text-center">
                               <div class="item-fav btn btn-sm">
                                 <i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加
+                                <img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|FF0000|000000'" alt="">
                               </div>
                             </td>
                           </tr>
@@ -450,16 +455,10 @@
 
         </div>
 
+        <!-- query list -->
         <div class="row row-div select mt-3">
           <div class="col-2 left-div">地域</div>
           <div class="col-10">
-            <!-- <select id="select" class="form-control col-3 custom-select mt-2" v-model="id">
-              <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
-            </select>
-            <button @click="show = !show" class="btn btn-outline-primary mt-2">
-              <span v-show="show"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
-              <span v-show="!show"><i class="fas fa-arrow-circle-down"></i> Open Township</span>
-            </button> -->
             <hr>
             <div>
               <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
@@ -471,123 +470,39 @@
             </div>
           </div>
 
-        <!-- <div class="col-sm-2 left-div-1">費用</div> -->
-          <!-- <div class="col-sm-10">
-            <hr>
-            <table class="text-center" width="50%">
-              <tbody>
-                <tr>
-                  <td>入居時</td>
-                  <td>
-                    <select class="form-control custom-select" name="" id="">
-                      <option value="" selected="selected">下限なし</option>
-                      <option value="0">0円</option>
-                      <option value="500000">50万円</option>
-                      <option value="1000000">100万円</option>
-                      <option value="2000000">200万円</option>
-                      <option value="3000000">300万円</option>
-                      <option value="4000000">400万円</option>
-                      <option value="5000000">500万円</option>
-                      <option value="6000000">600万円</option>
-                      <option value="7000000">700万円</option>
-                      <option value="8000000">800万円</option>
-                      <option value="9000000">900万円</option>
-                      <option value="10000000">1,000万円</option>
-                      <option value="20000000">2,000万円</option>
-                      <option value="30000000">3,000万円</option>
-                    </select>
-                  </td>
-                  <td>～</td>
-                  <td>
-                    <select class="form-control custom-select" name="" id="">
-                      <option value="" selected="selected">上限なし</option>
-                      <option value="0">0円</option>
-                      <option value="500000">50万円</option>
-                      <option value="1000000">100万円</option>
-                      <option value="2000000">200万円</option>
-                      <option value="3000000">300万円</option>
-                      <option value="4000000">400万円</option>
-                      <option value="5000000">500万円</option>
-                      <option value="6000000">600万円</option>
-                      <option value="7000000">700万円</option>
-                      <option value="8000000">800万円</option>
-                      <option value="9000000">900万円</option>
-                      <option value="10000000">1,000万円</option>
-                      <option value="20000000">2,000万円</option>
-                      <option value="30000000">3,000万円</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>月額</td>
-                  <td>
-                    <select class="form-control custom-select" name="" id="">
-                      <option value="" selected="selected">下限なし</option>
-                      <option value="0">0円</option>
-                      <option value="100000">10万円</option>
-                      <option value="150000">15万円</option>
-                      <option value="200000">20万円</option>
-                      <option value="250000">25万円</option>
-                      <option value="300000">30万円</option>
-                      <option value="350000">35万円</option>
-                      <option value="400000">40万円</option>
-                      <option value="450000">45万円</option>
-                      <option value="500000">50万円</option>
-                    </select>
-                  </td>
-                  <td>～</td>
-                  <td>
-                    <select class="form-control custom-select" name="" id="">
-                      <option value="" selected="selected">上限なし</option>
-                      <option value="0">0円</option>
-                      <option value="100000">10万円</option>
-                      <option value="150000">15万円</option>
-                      <option value="200000">20万円</option>
-                      <option value="250000">25万円</option>
-                      <option value="300000">30万円</option>
-                      <option value="350000">35万円</option>
-                      <option value="400000">40万円</option>
-                      <option value="450000">45万円</option>
-                      <option value="500000">50万円</option>
-                    </select>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div> -->
-
           <div class="col-sm-2 left-div-1" v-if="showOne"> 入居時の条件</div>
           <div class="col-sm-10" v-if="showOne">
             <hr>
             <div class="row pl-3 pt-3" v-if="showOne">
               <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox">
+                  <input class="form-check-input" :id="1" value="自立" v-model="MoveID" type="checkbox">
                   自立
                 </label>
               </div>
               <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox">
+                  <input class="form-check-input" :id="2" value="要支援" v-model="MoveID" type="checkbox">
                   要支援
                 </label>
               </div>
               <div class="form-check form-check-inline col-sm-3" id="customCheck1">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox">
+                  <input class="form-check-input" :id="3" value="要介護" v-model="MoveID" type="checkbox">
                   要介護
                 </label>
               </div>
             </div>
           </div>
 
+
           <div class="col-sm-2 left-div-1" v-if="showOne">特長</div>
           <div class="col-sm-10" v-if="showOne">
             <hr>
-            <div class="form-check form-check-inline col-sm-2" v-for="features in special_features" :key="features.id">
+            <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" :id="features.id" :value="features.id" @click="features($event)">
-                {{features.name}}
+                <input class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
+                {{feature.name}}
               </label>
             </div>
           </div>
@@ -597,7 +512,7 @@
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" :id="fac_type.id" :value="fac_type.id">
+                <input class="form-check-input" type="checkbox" v-model="FacTypeID" :id="fac_type.id" :value="fac_type.id">
                 {{fac_type.description}}
               </label>
             </div>
@@ -608,7 +523,7 @@
             <hr>
             <div class="form-check form-check-inline col-sm-2" v-for="medical in medical_acceptance" :key="medical.id">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" :id="medical.id" :value="medical.id">
+                <input class="form-check-input" type="checkbox" v-model="MedicalAcceptanceID" :id="medical.id" :value="medical.id">
                 {{medical.name}}
               </label>
             </div>
@@ -621,9 +536,74 @@
               <span v-show="!showOne"><i class="fas fa-arrow-circle-down"></i> Open</span>
             </button>
           </div>
+
+            <div class="col-sm-6 left-div-6"></div>
+            <div class="col-sm-6 m-b-20">
+                <input type="button" value="Search" name="search" @click="search">
+            </div>
         </div>
 
+        <div class=" col-12">
+                 <div class="row">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
+                     <div class="job-content">
+                      <div class="job-body row  clearfix">
+                        <div class="col-4 job-img">
+                          <img src="/upload/news/nursing.JPG"  alt="">
+                        </div>
+                        <div class="col-8 job-box">
+                          <table  class="table table-bordered  table-sm">
+                              <h2> Nursing </h2>
+                              <tr>
+                                <td>Name : {{nus.name}}</td>
+                              </tr>
+                               <tr>
+                                <td> Email : {{nus.email}}</td>
+                              </tr>
+                                <tr>
+                                <td> Phone : {{nus.phone}}</td>
+                              </tr>
+                                <tr>
+                                <td> Address : {{nus.address}}</td>
+                              </tr>
+                              <tr>
+                                <td> Moving In : {{nus.moving_in}} </td>
+                               </tr>
+                           
+                                   
 
+                                <h2> Fac Type </h2>
+                              <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
+                                <span v-if="fac.id == nus.fac_type" class="feature_list">
+                                  {{fac.description}}
+                                </span>
+                              </span>
+                             
+                        
+                              <h2> SpecialFeature </h2>
+                              <span v-for="(spe,index) in specialfeature" :key="index+'-'+spe.name+'-'+nus.id">
+                                <span v-if="spe.customer_id == nus.customer_id" class="feature_list">
+                                  {{spe.name}}
+                                </span>
+                              </span>
+
+                               <h2> Medical Acceptance </h2>
+                              <span v-for="(med,index) in medicalacceptance" :key="index+'-'+med.name+'-'+nus.id">
+                                <span v-if="med.customer_id == nus.customer_id" class="feature_list">
+                                  {{med.name}}
+                                </span>
+                              </span>
+                             
+
+                            
+                          </table>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
       </div>
       <!-- <div class="col-md-2 p-l-0">
@@ -675,7 +655,15 @@
         windowSize: 3,
         paginationFactor: 410,
         nursingList: [],
-        alphabet: []
+        alphabet: [],
+        SpecialFeatureID:[],
+        MedicalAcceptanceID:[],
+        FacTypeID:[],
+        MoveID:[],
+        nus_data:[],
+        specialfeature:[],
+        medicalacceptance:[],
+        factype:[]
 
       }
     },
@@ -691,7 +679,48 @@
       },
     },
     methods: {
+      search(){
+    
+        if(this.townshipID == null || this.townshipID == '')
+        {
+          this.townshipID[0] = 0;
+        }
+        if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
+        {
+          this.SpecialFeatureID[0] = 0;
+        }
+        if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
+        {
+          this.MedicalAcceptanceID[0] = 0;
+        }
+         if(this.FacTypeID == null || this.FacTypeID == '')
+        {
+          this.FacTypeID[0] = 0;
+        }
+          if(this.MoveID == null || this.MoveID == '')
+        {
+          this.MoveID[0] = 0;
+        } 
 
+         this.axios.get('api/getnursingsearch',{
+          params:{
+              id: this.id,
+              townshipID:this.townshipID,
+              SpecialFeatureID:this.SpecialFeatureID,
+              MedicalAcceptanceID:this.MedicalAcceptanceID,
+              FacTypeID:this.FacTypeID,
+              MoveID:this.MoveID
+          },
+        }).then((response)=>{
+ 
+          this.nus_data = response.data.nursing;
+          this.specialfeature = response.data.specialfeature;
+          this.medicalacceptance = response.data.medicalacceptance;
+          this.factype = response.data.factype;
+        
+        })
+
+      },
       openInfoWindow(marker) {
         this.selectedLocation = marker;
         this.infoBoxOpen = true;
@@ -715,7 +744,6 @@
         }
       },
       getStateClick(e) {
-
         if (e.target.tagName === 'A' || e.target.tagName === 'path' || e.target.tagName === 'OPTION') {
 
           if(e.target.id == ''){
@@ -737,8 +765,8 @@
               this.special_features = response.data.special_features
               this.fac_types = response.data.fac_types
               this.medical_acceptance = response.data.medical_acceptance
-              this.markers = response.data.nus_latlng;
-              console.log(this.markers)
+              this.markers = response.data.nursing_profile;
+
               this.nursingList = response.data.nursing_profile
               this.id = id
 
@@ -746,7 +774,7 @@
               var mmarker = new Array();
               var item = [];
               for (var i = 0; i < this.markers.length; i++) {
-                mmarker.push([this.markers[i]['business_entity'], this.markers[i]['lat'], this.markers[i]['lng']])
+                mmarker.push([this.markers[i]['alphabet'], this.markers[i]['lat'], this.markers[i]['lng']])
                 item.push(this.markers[i])
               }
 
@@ -759,19 +787,16 @@
                 if (result[i].Name == theCity) {
                   coordinates.push(result[i].geometry['coordinates'])
                 }
-                
-
               }
 
               var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
-              console.log(coordinates)
+              // console.log(coordinates)
               var data = {
                 type: "Feature",
                 geometry: {
                   "type": "Polygon",
                   "coordinates": coordinate
                 },
-
               };
               var mapProp = {
                 center: new google.maps.LatLng(lat, lng),
@@ -808,7 +833,10 @@
                         '</thead>' +
                         '<tbody>' +
                           '<tr>' +
-                            '<td colspan="2"><button class="item-fav-infowindow"> <i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 </span> </button></td>' +
+                            '<td colspan="2"><button class="item-fav-infowindow">'+
+                            '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+
+                            '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|FF0000|000000" alt="">'+
+                            '</span> </button></td>' +
                           '</tr>' +
                           '<tr>' +
                           '<td colspan="2" class="text-left">' +
@@ -868,9 +896,8 @@
                   '</div>'
                 ])
               }
-
-              var infoWindow = new google.maps.InfoWindow(),
-                marker, i;
+              const HoverMarkers = [];
+              var infoWindow = new google.maps.InfoWindow(),marker, i;
               const alphabet = response.data.alphabet;
               for (i = 0; i < this.markers.length; i++) {
                 var k = alphabet[i];
@@ -881,16 +908,18 @@
                   map: map,
                   icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + k + '|FF0000|000000',
                   zoom: 6,
-
                   title: markers[i][0]
                 });
+                HoverMarkers.push(marker)
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                   return function() {
                     infoWindow.setContent(infoWindowContent[i][0]);
                     infoWindow.open(map, marker);
                   }
                 })(marker, i));
+                
                 google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+                  
                   return function() {
                     marker.setAnimation(google.maps.Animation.BOUNCE);
                     setTimeout(function() {
@@ -906,18 +935,14 @@
                 // console.log($('#mapMarker').src)
 
               }
-
-
-
-
-
-
-
             })
-
         } 
       },
+      MarkerHover(index){
+        console.log(this.markers)
+        // var map = new google.maps.Map(document.getElementById("mymap"));
 
+      },
       googleMarker(marker) {
         console.log(google.maps.Animation.BOUNCE)
       },
@@ -994,7 +1019,7 @@
       },
       features(e) {
         if (e.target.checked) {
-          alert('1');
+       
         }
       },
       getStateHover(e) {
