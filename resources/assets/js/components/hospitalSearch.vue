@@ -382,12 +382,9 @@
                 <div class="hos-content">
                   <div class="job-header">
                   <h5 class="hos-title">
-                    
-                    
-                       <router-link :to="{name: 'profile', params: {cusid:hos.cus_id, type: 'hospital'}}">{{hos.name}}</router-link>
-                      
-                     </h5>  
-                   
+                    <router-link :to="{name: 'profile', params: {cusid:hos.customer_id, type: 'hospital'}}" class="pseudolink">{{hos.name}}</router-link>
+                </h5>  
+                  
                 </div>
                 <div class="clearfix m-b-20">
                     <span v-for="(sub,index) in subject" :key="index+'-'+sub.name+'-'+hos.id">

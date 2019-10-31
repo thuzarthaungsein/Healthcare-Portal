@@ -86,10 +86,9 @@
                                              </div>
                                         </div><br>
 
-
                                         <div class="form-group row"  v-for="field in comments.fields" :key="field.id">
                                             <div class="col-sm-4 text-right">
-                                                <label for ="zipcode"  ><strong> 郵便番号(半角数字) <span class="error sp1">必須</span></strong>   </label>
+                                                <label for ="zipcode" ><strong> 郵便番号(半角数字) <span class="error sp1">必須</span></strong>   </label>
                                             </div>
                                              <div class="col-sm-4">
                                                  <input type="text" class="form-control box fnumericzip" value="firstzip" v-model="field.fzipcode" maxlength="3" v-on:keyup="CheckFirstZipcode" >
