@@ -298,7 +298,7 @@
                                         </thead>
 
                                         <tbody>
-                                        <tr v-for="cost in method_payment" :key="cost.id">
+                                        <tr v-for="(cost,index) in method_payment" :key="cost.id" @click="changeBg(cost.id,index)" :class="'cost'+index">
                                             <td>
                                                 <h5 class="method-name">{{cost.payment_name}}</h5>
                                                 <span class="room-type"> {{cost.living_room_type}} </span>
@@ -1700,6 +1700,10 @@ export default {
 
         },
         methods: {
+            changeBg(ch,a) {
+                $('.main-cost-table td').css({'background':'transparent'});
+                $('.cost'+a+' td').css({'background':'#ffe9df'});
+            },
             moveCarousel(direction) {
                         // Find a more elegant way to express the :style. consider using props to make it truly generic
                 if (direction === 1 && !this.atEndOfList) {
@@ -2259,7 +2263,8 @@ export default {
 }
 
 .room-type {
-    background: #fdd6c3;
+    /* background: #fdd6c3; */
+    background: #fbaa84;
     color: #333333;
     padding: 3px 5px 3px 7px;
     border-radius: 3px;

@@ -97,7 +97,7 @@
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <img class="img-fluid" v-bind:src="'/images/' + nur_profile.logo" alt style="width: 250px" />
+                                                            <img class="img-fluid" v-bind:src="'/upload/customers/' + nur_profile.logo" alt style="width: 250px" />
                                                             <br>
                                                             <br>
 

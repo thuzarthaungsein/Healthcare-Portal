@@ -51,7 +51,7 @@
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <img class="img-fluid" v-bind:src="'/images/' + hos_profile.logo" alt style="width: 250px" />
+                                                            <img class="img-fluid" v-bind:src="'/upload/customers/' + hos_profile.logo" alt style="width: 250px" />
                                                             <br>
                                                             <br>
                                                             <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
