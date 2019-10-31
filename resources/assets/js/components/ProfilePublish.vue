@@ -1197,17 +1197,17 @@
 
                     <div v-for="hospital in hospitals" :key="hospital.id">
 
-                        <p><strong class="font-weight-bold">休診日:</strong><font>{{hospital.closed_day}}</font> </p>
+                        <p><strong class="font-weight-bold">休診日: </strong><font>{{hospital.closed_day}}</font> </p>
 
                     </div>
 
                 </div>
 
-                <div class="row col-12">
+                <!-- <div class="row col-12">
 
                     <p><span style="color:red;font-weight:bold;font-size:15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p>
 
-                </div>
+                </div> -->
 
                 </div>
 
