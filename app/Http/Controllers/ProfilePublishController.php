@@ -113,13 +113,11 @@ class ProfilePublishController extends Controller
     {
         $sql = "SELECT comments.id,comments.title,comments.email,comments.year,comments.comment, comments.created_at from comments INNER JOIN nursing_profiles ON comments.customer_id= nursing_profiles.customer_id WHERE comments.customer_id = $cusid";
         $comments = DB::select($sql);
-        // foreach ($comments as $cm) {
-        //     $created_date = substr($cm->create_at ,0,9);
-        //     $created_time = substr($cm->create_at ,11,18);
-        //     // $comm->created_date = $created_date;
-        //     // $cm->created_time = $created_time;
-        //     // 2019-10-29 09:07:17
-        // }
+        foreach ($comments as $cm) {
+            $splitTimeStamp = explode(" ",$cm->created_at);
+            $cm->created_date = $splitTimeStamp[0];
+            $cm->created_time = $splitTimeStamp[1];
+        }
         return $comments;
     }
 

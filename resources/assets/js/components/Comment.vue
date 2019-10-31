@@ -31,13 +31,13 @@
                                          </div> -->
 
                                        
-                                        <div class="form-group row">
+                                        <!-- <div class="form-group row">
                                                 <div class="col-sm-4">
                                                 </div>
                                                 <div class="col-sm-8">
                                                      <span v-if="errors.comment" class="error">{{errors.comment}}</span>
                                                 </div>
-                                         </div>
+                                         </div> -->
 
                                           <div class="form-group row">
                                                 <div class="col-sm-4 text-right">
@@ -105,10 +105,11 @@
 
                                           <div class="form-group row">
                                                 <div class="col-sm-4 text-right">
-                                                        <label for ="comment" ><strong> 口コミ内容</strong>  </label>
+                                                        <label for ="comment" ><strong> 口コミ内容<span class="error sp1">必須</span></strong>  </label>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <textarea name="comment" id="comment" class="form-control" cols="50" rows="5" v-model="comments.comment"></textarea>
+                                                     <div v-if="errors.comment" style="color:red;">{{ errors.comment }}</div>
                                                 </div>
                                         </div>
                                         
@@ -134,7 +135,7 @@
                                         <div class="form-group row">
                                             
                                             <div class="col-sm-12 text-center">
-                                                 <router-link class="btn btn-danger all-btn" to="/commentlist" > キャンセル </router-link>
+                                                 <router-link class="btn btn-danger all-btn" to="/profile" > キャンセル </router-link>
                                                  <!-- <button class="btn main-bg-color white all-btn"> 利用規約、個人情報の取り扱いについてに同意して確認する </button> -->
                                                  <!-- <button class="btn main-bg-color white all-btn"> 確認 </button> -->
                                                       <!-- <span :disabled="isDisabled" >確認画面へ進む</span> -->
@@ -163,6 +164,7 @@ export default {
                     title: "",
                     email: "",
                     name:"",
+                    comment:"",
                     phonamene: ""
                 },
 
@@ -205,10 +207,10 @@ export default {
          methods: {
              checkValidate() {
                     if (this.comments.title) {
-                        console.log('exist');
+                        // console.log('exist');
                         this.errors.title = "";
                     } else {
-                        console.log('null');
+                        // console.log('null');
                         this.errors.title = "口コミタイトルが必須です。";
                     }
                     if (this.comments.email) {
@@ -221,10 +223,16 @@ export default {
                     } else {
                         this.errors.name = "お名前が必須です。";
                     }
+                    if (this.comments.comment) {
+                        this.errors.comment = "";
+                    } else {
+                        this.errors.comment = "口コミが必須です。";
+                    }
                     if (
                         !this.errors.title &&
                         !this.errors.email &&
-                        !this.errors.name 
+                        !this.errors.name  &&
+                        !this.errors.comment 
                     ) {
                         this.add();
                     }

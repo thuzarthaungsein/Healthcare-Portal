@@ -757,9 +757,16 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-
-               <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>
-
+                <div class="profile_header col-12">
+                    <h5 style="padding-top:10px;">口コミ {{customer.name}}</h5><div class="comment-ico2">
+                              <a href="/comment" class="comhov">
+                              <i class="far fa-comment"></i>
+                              <span>口コミを追加する</span>
+                              </a>
+                           </div>
+                </div>
+               
+            
                <div class="col-lg-12 col-md-12 col-sm-12">
 
                     <div class="row col-12">
@@ -785,7 +792,7 @@
                                         <i class="fas fa-comment"></i>
 
                                         {{comment.title}}
-                                        {{comment.created_date}}  
+                                        
                                         <!-- {{comment.created_time}}   -->
                                         <!-- {{substr("comment.created_at", 0, 10)}} -->
 
@@ -794,8 +801,11 @@
                                     <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}
 
                                         <small class="card-text">{{comment.year}}</small>
-
+                                      
                                     </h5>
+
+                                    <p>{{comment.created_date}}</p>
+                                    <p>{{comment.created_time}}</p>
 
 
 
@@ -804,12 +814,12 @@
                                 </div>
 
                             </div>
-                            <div class="comment-ico">
+                            <!-- <div class="comment-ico">
                               <a href="/comment">
                               <i class="far fa-comment"></i>
                               <span>口コミを追加する</span>
                               </a>
-                           </div>
+                           </div> -->
 
                         </div>
 
@@ -1489,6 +1499,10 @@ export default {
                 panocurrentOffset: 0,
                 windowSize: 10,
                 paginationFactor:103,
+                  data: { 
+	  str:"Welcome to Canada!",
+	  substr: ""
+  },
 
             };
         },
@@ -2115,6 +2129,19 @@ export default {
  border-radius: 20px;
  margin-top: 20px;
 }
+.comment-ico2 a{
+ font-size: 13px;
+ color: #111;
+ display: inline-block;
+ float: right;
+ border: 1px solid #111;
+ padding: 5px 20px;
+ border-radius: 20px;
+ margin-top: -29px;
+ text-decoration: none;
+}
+a.comhov:hover, a.comhov:active {background: #fbaa84;}
+
 .comment-ico i {
  display: block;
  float: left;
