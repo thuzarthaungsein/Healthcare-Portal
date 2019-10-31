@@ -405,7 +405,7 @@
                           <td>{{hos.name}}</td>
                         </tr>
                           <tr>
-                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールア</td>
+                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
                           <td>{{hos.email}}</td>
                         </tr>                       
                         <tr>
