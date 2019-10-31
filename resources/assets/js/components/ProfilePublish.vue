@@ -783,7 +783,7 @@
                         
                         <div class="row">
 
-                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3">
+                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-20">
 
                                 <img  :src ="'/upload/nursing_profile/' + image.name" style="width:100%;border:7px solid #eee;" class="img-responsive" @click="showLightbox(image.name)"  >
                                
@@ -4051,6 +4051,11 @@ export default {
 
 }
 
+
+.lightbox {
+    z-index: 99999 !important;
+}
+
 .lightbox-image  {
     background-size: unset !important;
 }
@@ -4062,4 +4067,21 @@ export default {
     height: 80% !important;
 }
 
+.lightbox-close {
+    right: 15px !important;
+    font-size: 2rem !important;
+
+}
+.lightbox-arrow svg {
+    width: 40px !important;
+    height: 40px !important;
+    border: 2px solid #ffff;
+    line-height: 40px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.lightbox-arrow {
+    width: 7rem !important;
+}
 </style>

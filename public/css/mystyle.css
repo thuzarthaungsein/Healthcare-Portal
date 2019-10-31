@@ -6299,7 +6299,7 @@ button.confirmed {
 }
 
 #hospital .card-carousel--nav__left,
-.card-carousel--nav__right {
+#hospital .card-carousel--nav__right {
     border-top: 5px solid #4f97d5 !important;
     border-right: 5px solid #4f97d5 !important;
 }
@@ -6537,7 +6537,7 @@ ul.test>li:before {
 }
 
 #fav-history-page .card-carousel--nav__left,
-.card-carousel--nav__right {
+#fav-history-page .card-carousel--nav__right {
     display: inline-block;
     width: 15px;
     height: 15px;
