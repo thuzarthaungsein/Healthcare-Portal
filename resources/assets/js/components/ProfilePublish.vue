@@ -830,6 +830,7 @@
 
     <div v-if="type == 'hospital'" id="hospitalView">
        <!--panorama-->
+                <h5 class="profile-tit"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
                 <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
                         <div class="thumbnail-img" style="padding:0px;border:none;">
                             <div class="card-carousel">
@@ -922,11 +923,9 @@
 
             </div>
 
-            <div class="row ele m-lr-0 p-t-65" id="element1">
+            <div class="row ele m-lr-0 pt-2" id="element1">
 
             <!-- ee-->
-
-             <h5 class="profile_header">病院情報 </h5>
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -1007,7 +1006,7 @@
                         <div class="row m-lr-0">
                             <div class="col-12 pro-heading">
                                 <div class="col-12 pad-free">
-                                    <h5 class="font15rem font-weight-bold"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
+                                    <h5 class="profile_header">病院情報 </h5>
                                 </div>
                                 <table class="table table-bordered">
                                     <tr>
