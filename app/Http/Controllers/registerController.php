@@ -81,7 +81,13 @@ class registerController extends Controller
 
             $image = $request->file('img');
             $getName = time().'.'.$image->getClientOriginalExtension();
-            $image->move('upload/customers/', $getName);
+            if($request->types == 2){
+                $image->move('upload/hospital_profile/', $getName);
+            }
+            else{
+                $image->move('upload/nursing_profile/', $getName);
+            }
+            
             // $dbPath = $destinationPath. '/'.$input['img'];
 
             $customer = new Customer;

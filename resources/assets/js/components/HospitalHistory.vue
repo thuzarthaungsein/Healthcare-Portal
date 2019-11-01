@@ -42,7 +42,7 @@
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <img class="img-fluid" v-bind:src="'/upload/customers/' + hos_profile.logo" alt style="width: 250px" />
+                                                        <img class="img-fluid" v-bind:src="'/upload/hospital_profile/' + hos_profile.logo" alt style="width: 250px" />
                                                         <br>
                                                         <br>
 
