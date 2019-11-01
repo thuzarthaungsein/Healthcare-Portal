@@ -1,23 +1,35 @@
 <template>
-  <div class="search-map card-body" @click="getStateClick" @mouseover="getStateHover">
+<div>
+   <div class="col-md-12" style="border-bottom: 3px solid #ff6117;padding-bottom: 10px; margin-bottom: 10px;">
+     
+            <h5 class="font-weight-bold" style="color:#828282;"><i class="fas fa-map"></i>&nbsp;地図検索</h5></div>
+  <div class="search-map card-body" @click="getStateClick" @mouseover="getStateHover">   
     <div class="row" id="hos">
       <div class="col-md-12">
         <div class="row">
           <div class="info-box"></div>
-          <div class="col-sm-11 col-offset-1 map-wrap" style="margin:0 auto">
+          <div class="col-md-12 col-sm-12 col-md-12 map-wrap" style="margin:0 auto">
             <div class="divisions">
               <div class="row">
                 <div class="col-sm-2 hokkaido-box">
                   <div class="mb-3">                    
-                    <div class="hokkaido-wrap">
-                      <ul>    
+                    <div class="division-box">
+                      <ul class="hokkaido-wrap">    
                         <li class="spanclass">
                          <a href="#" id="1" data-info="Hokkaido" class="path Hokkaido card-text">北海道</a>
-                       </li>                    
-                        <li class="spanclass">
+                       </li> 
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 tohoku-box">
+                  <div class="mb-3">                    
+                    <div class="division-box">
+                      <ul class="multiple-boxa">    
+                        <li class="spanclass" style="margin-top:0px;">
                           <a href="#" id="2" data-info="Aomori" class="path Aomori card-text">青森県</a>
                         </li>
-                        <li class="spanclass">
+                        <li class="spanclass" style="margin-top:0px;">
                           <a href="#" id="3" data-info="Iwate" class="path Iwate card-text">岩手県</a>
                         </li>
                         <li class="spanclass">
@@ -40,12 +52,12 @@
                 <div class="col-sm-2 kanto-box">
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background-color:#71d5cb">関東</div> -->
-                    <div class="division-wrapper">
-                      <ul class="">
-                        <li class="spanclass">
+                    <div class="division-box">
+                      <ul class="multiple-box">
+                        <li class="spanclass" style="margin-top:0px;">
                           <a href="#" id="8" data-info="Ibaraki" class="path Ibaraki card-text">茨城県</a>
                         </li>
-                        <li class="spanclass">
+                        <li class="spanclass" style="margin-top:0px;">
                           <a href="#" id="9" data-info="Tochigi" class="path Tochigi card-text">栃木県</a>
                         </li>
                         <li class="spanclass">
@@ -63,6 +75,14 @@
                         <li class="spanclass">
                           <a href="#" id="14" data-info="Kanagawa" class="path Kanagawa card-text">神奈川県</a>
                         </li>
+                        <li class="spanclass">
+                          <a
+                            href="#"
+                            id="19"
+                            data-info="Yamanashi"
+                            class="path Yamanashi card-text"
+                          >山梨県</a>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -71,7 +91,7 @@
                 <div class="col-sm-3 hokuriku-box">
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background-color:#75b777">北陸</div> -->
-                    <div class="">
+                    <div class="division-box">
                       <ul class="">
                         <li class="spanclass">
                           <a
@@ -95,6 +115,9 @@
                         <li class="spanclass">
                           <a href="#" id="18" data-info="Fukui" class="path Fukui card-text">福井県</a>
                         </li>
+                         <li class="spanclass">
+                          <a href="#" id="20" data-info="Nagano" class="path Nagano card-text">長野県</a>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -103,23 +126,12 @@
                 <div class="col-sm-3 tokai-box">
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div> -->
-                    <div class="">
-                      <ul class="">
-                        <li class="spanclass">
-                          <a
-                            href="#"
-                            id="19"
-                            data-info="Yamanashi"
-                            class="path Yamanashi card-text"
-                          >山梨県</a>
-                        </li>
-                        <li class="spanclass">
-                          <a href="#" id="20" data-info="Nagano" class="path Nagano card-text">長野県</a>
-                        </li>
-                        <li class="spanclass">
+                    <div class="division-box">
+                      <ul class="multiple-boxa">
+                        <li class="spanclass" style="margin-top:0px;">
                           <a href="#" id="21" data-info="Gifu" class="path Gifu card-text">岐阜県</a>
                         </li>
-                        <li class="spanclass">
+                        <li class="spanclass"  style="margin-top:0px;">
                           <a
                             href="#"
                             id="22"
@@ -130,6 +142,9 @@
                         <li class="spanclass">
                           <a href="#" id="23" data-info="Aichi" class="path Aichi card-text">愛知県</a>
                         </li>
+                        <li class="spanclass">
+                          <a href="#" id="24" data-info="Mie" class="path Mie card-text">三重県</a>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -138,15 +153,13 @@
                 <div class="col-sm-4 kinki-box">
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background:#efb838">近畿</div> -->
-                    <div class="">
-                      <ul class="">
-                        <li class="spanclass">
-                          <a href="#" id="24" data-info="Mie" class="path Mie card-text">三重県</a>
-                        </li>
-                        <li class="spanclass">
+                    <div class="division-box">
+                      <ul class="multiple-boxa">
+                        
+                        <li class="spanclass"  style="margin-top:0px;">
                           <a href="#" id="25" data-info="Shiga" class="path Shiga card-text">滋賀県</a>
                         </li>
-                        <li class="spanclass">
+                        <li class="spanclass"  style="margin-top:0px;">
                           <a href="#" id="26" data-info="Kyoto" class="path Kyoto card-text">京都府</a>
                         </li>
                         <li class="spanclass">
@@ -174,7 +187,7 @@
                 <div class="col-sm-3 chugoku-box">
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background:#f58c3f;">中国</div> -->
-                    <div class="">
+                    <div class="division-box">
                       <ul class="">
                         <li class="spanclass">
                           <a
@@ -224,9 +237,9 @@
                 <div class="col-sm-3 shikoku-box">
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background:#f1a296;">四国</div> -->
-                    <div class="">
-                      <ul class="">
-                        <li class="spanclass">
+                    <div class="division-box">
+                      <ul class="multiple-boxa">
+                        <li class="spanclass"  style="margin-top:0px;">
                           <a
                             href="#"
                             id="36"
@@ -234,7 +247,7 @@
                             class="path Tokushima card-text"
                           >徳島県</a>
                         </li>
-                        <li class="spanclass">
+                        <li class="spanclass"  style="margin-top:0px;">
                           <a href="#" id="37" data-info="Kagawa" class="path Kagawa card-text">香川県</a>
                         </li>
                         <li class="spanclass">
@@ -248,10 +261,10 @@
                   </div>
                 </div>
 
-                <div class="col-sm-2 okinawa-box">
+                <div class="col-sm-2 kyushu-box">
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
-                    <div class="">
+                    <div class="division-box">
                       <ul class="">
                         <li class="spanclass">
                           <a
@@ -299,6 +312,17 @@
                             class="path Kagoshima card-text"
                           >鹿児島県</a>
                         </li>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2 okinawa-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
+                    <div class="division-box">
+                      <ul class="">                        
                         <li class="spanclass">
                           <a
                             href="#"
@@ -439,7 +463,7 @@
                           </h5>
                         <div class="clearfix">
                           <p class="job_status">{{job.employment_status}}</p>
-                          <p class="job_id">仕事番号：{{job.jobnum}}</p>
+                          <p class="job_id">求人NO.{{job.jobnum}}</p>
                         </div>
                       </div>
                       <div class="job-body row  clearfix">
@@ -480,7 +504,7 @@
       </div>
 
     </div>
-
+  </div>
   </div>
 </template>
 
@@ -650,7 +674,7 @@ export default {
   stroke: #111;
   stroke-width: 2px;
   stroke-linejoin: round;
-  color: #f27a24 !important;
+  color: #ea4f04 !important;
   font-weight: bold;
 }
 

@@ -12,7 +12,7 @@ $(".path").hover(
       'opacity': '0.5',
       'font-weight':'bold',
       'text-decoration':'underline',
-       'color':'#f27a24',
+       'color':'#ea4f04',
     });
   },
   function(){
