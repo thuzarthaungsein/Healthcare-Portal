@@ -30,7 +30,7 @@
             <p class="record-txt01">表示するデータありません</p>
             <p>表示するデータありません‼新しいデータを作成してください。</p>
             <a href="/joboffercreate" class="main-bg-color create-btn all-btn">
-              <i cl ass="fas fa-plus-circle"></i> 新しい投稿を作成
+              <i cl ass="fas fa-plus-circle"></i> 新しい求人票を作成
             </a>
           </div>
 
@@ -99,9 +99,9 @@
                         <h5 class="joboffer-tit clearfix">
                             <router-link :to="{name: 'job_details', params:{id:job.id}}">{{job.title}} </router-link>
                             <!-- <span class="job_id">jobapplylistcount{{job.count}}</span> -->
-                            <span class="text-orange"><span class="job_count">{{job.count}}数</span></span>
+                            <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
 
-                            <span class="job_id">求人NO.{{job.job_number}}</span>
+                            <span class="job_id">求人番号：{{job.job_number}}</span>
                         </h5>
                     </div>
 
@@ -114,7 +114,7 @@
                                 <router-link :to="{name: 'joboffercreate', params:{id:job.id}}" class="btn edit-borderbtn">編集</router-link>
                             </li>
                             <li>
-                                <router-link :to="{name: 'jobapplylist', params:{id:job.id}}" class="btn confirm-borderbtn confirmed">求人応募一覧へ</router-link>
+                                <router-link :to="{name: 'jobapplylist', params:{id:job.id}}" class="btn confirm-borderbtn confirmed">求人応募一覧ページへ</router-link>
                             </li>
                             <li><a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a></li>
                         </ul>

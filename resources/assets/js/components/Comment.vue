@@ -133,7 +133,7 @@
                                             <div class="col-sm-12 text-center">
                                                  <router-link class="btn btn-danger all-btn" to="/commentlist" > キャンセル </router-link>
                                                  <!-- <button class="btn main-bg-color white all-btn"> 利用規約、個人情報の取り扱いについてに同意して確認する </button> -->
-                                                 <button class="btn main-bg-color white all-btn"> 確認 </button>
+                                                 <button class="btn main-bg-color white all-btn"> 作成する </button>
                                             </div>
                                             
                                         </div>
