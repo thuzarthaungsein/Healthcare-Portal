@@ -287,41 +287,47 @@ export default {
   methods: {
 
      moveCarousel(direction) {
-                        // Find a more elegant way to express the :style. consider using props to make it truly generic
-                        if (direction === 1 && !this.atEndOfList) {
-                            this.currentOffset -= this.paginationFactor;
-                        } else if (direction === -1 && !this.atHeadOfList) {
-                            this.currentOffset += this.paginationFactor;
-                        }
-                    },
+    // Find a more elegant way to express the :style. consider using props to make it truly generic
+        if (direction === 1 && !this.atEndOfList) {
+            this.currentOffset -= this.paginationFactor;
+        } else if (direction === -1 && !this.atHeadOfList) {
+            this.currentOffset += this.paginationFactor;
+        }
+    },
    deleteLocalSto: function(id) {
-                        if (confirm("Are you sure you want to delete?")) {
-                            alert('Delete Successfully!');
-                            var l_sto = this.local_sto;
-                            var l_sto_arr = l_sto.split(",");
-                            var rm_id = id.toString();
-                            var index = l_sto_arr.indexOf(rm_id);
-                            if (index > -1) {
-                                l_sto_arr.splice(index, 1);
-                                $("#nus-his-local").html(l_sto_arr.length);
-                                var new_local = l_sto_arr.toString();
-                                localStorage.setItem('nursing_history', new_local);
-                                this.local_sto = localStorage.getItem("nursing_history");
-                               
-                                if (this.local_sto) {
-                                    this.getAllCustomer(this.local_sto);
-                                } else {
-                                    // window.location.reload();
-                                    this.$router.push({
-                                        name: 'home',
-                                        params: {
-                                            page: 'subtab3'
-                                        }
-                                    });
-                                }
-                            }
+        if (confirm("Are you sure you want to delete?")) {
+            alert('Delete Successfully!');
+            var l_sto = this.local_sto;
+            var l_sto_arr = l_sto.split(",");
+            var rm_id = id.toString();
+            var index = l_sto_arr.indexOf(rm_id);
+            if (index > -1) {
+                l_sto_arr.splice(index, 1);
+                $("#nus-his-local").html(l_sto_arr.length);
+                if(l_sto_arr.length == 0){
+                    $('.his-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
+                }
+                else{
+                    $('.his-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
+                } 
+                var new_local = l_sto_arr.toString();
+                localStorage.setItem('nursing_history', new_local);
+                this.local_sto = localStorage.getItem("nursing_history");
+                
+                if (this.local_sto) {
+                    this.getAllCustomer(this.local_sto);
+                } else {
+                    // window.location.reload();
+                    this.$router.push({
+                        name: 'home',
+                        params: {
+                            page: 'subtab3'
                         }
-                    },
+                    });
+                }
+            }
+        }
+    },
     // changeRoute(){
 
     //     this.$router.push({name:'home', params: {page:'subtab3'}});

@@ -251,7 +251,13 @@
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
-                                $("#hos-his-local").html(l_sto_arr.length);   
+                                $("#hos-his-local").html(l_sto_arr.length);  
+                                if(l_sto_arr.length == 0){
+                                    $('.his-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
+                                }
+                                else{
+                                    $('.his-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
+                                } 
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('hospital_history', new_local);
                                 this.local_sto = localStorage.getItem("hospital_history");

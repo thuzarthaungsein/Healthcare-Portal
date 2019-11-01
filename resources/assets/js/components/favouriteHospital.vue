@@ -262,6 +262,12 @@
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
                                 $("#hos-fav-local").html(l_sto_arr.length); 
+                                if(l_sto_arr.length == 0){
+                                    $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
+                                }
+                                else{
+                                    $('.fav-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
+                                }
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('hospital_fav', new_local);
                                 this.local_sto = localStorage.getItem("hospital_fav");

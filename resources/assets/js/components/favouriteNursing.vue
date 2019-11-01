@@ -505,6 +505,12 @@
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
                                 $("#nus-fav-local").html(l_sto_arr.length); 
+                                if(l_sto_arr.length == 0){
+                                    $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
+                                }
+                                else{
+                                    $('.fav-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
+                                }
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_fav', new_local);
                                 this.local_sto = localStorage.getItem("nursing_fav");
