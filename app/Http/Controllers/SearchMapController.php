@@ -23,7 +23,7 @@ class SearchMapController extends Controller
                     JOIN types AS ty
                     ON c.type_id = ty.id
                     WHERE t.city_id=" . $id . "
-                    group by c.id order BY n.id ASC LIMIT 26 ";
+                   group by c.id order BY n.id ASC LIMIT 26 ";
         $nursing_profile = DB::select($nursing);
     
         $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -534,7 +534,13 @@ class SearchMapController extends Controller
                     }
                 }
             }
-            return response()->json(array("nursing"=>$nus_data,"specialfeature"=>$specialfeature,"medicalacceptance"=>$medicalacceptance,"factype"=>$factype));
+            $city = DB::table('cities')->where('id',$id)->get();
+            return response()->json(array("nursing"=>$nus_data,
+                                          "specialfeature"=>$specialfeature,
+                                          "medicalacceptance"=>$medicalacceptance,
+                                          "factype"=>$factype,
+                                          "city"=>$city
+                                        ));
 
          
 

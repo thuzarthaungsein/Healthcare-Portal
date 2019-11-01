@@ -679,7 +679,8 @@
         specialfeature:[],
         medicalacceptance:[],
         factype:[],
-        selectedcity:''
+        selectedcity:'',
+        citylatlng:[]
 
       }
     },
@@ -729,15 +730,17 @@
           },
         }).then((response)=>{
  
+            
           this.nus_data = response.data.nursing;
           this.specialfeature = response.data.specialfeature;
           this.medicalacceptance = response.data.medicalacceptance;
           this.factype = response.data.factype;
           this.markers = response.data.nursing;
           this.nursingList = response.data.nursing;
+          this.citylatlng = response.data.city
             var mmarker = new Array()
             var item = []
-
+           if(response.data.nursing.length > 0){
             for (var i = 0; i < this.markers.length; i++) {
                 mmarker.push([this.markers[i]['alphabet'], this.markers[i]['latitude'], this.markers[i]['longitude']])
                 item.push(this.markers[i])
@@ -857,8 +860,9 @@
                     ])
                   }
               this.markerHover = [];
+
               var infoWindow = new google.maps.InfoWindow(),marker, i;
-              for (let i = 0; i < this.markers.length; i++) {
+                for (let i = 0; i < this.markers.length; i++) {
                     var beach = this.markers[i]
                     var lats = this.markers[i]['latitude']
                     var lngs = this.markers[i]['longitude']
@@ -874,7 +878,6 @@
                       zoom: 6,
                       title: this.markers[i]['name']
                     });
-                    console.log(marker)
                     google.maps.event.addListener(marker, 'click', (function(marker, i) {
                       return function() {
                         infoWindow.setContent(infoWindowContent[i][0]);
@@ -886,7 +889,51 @@
                       google.maps.event.removeListener(boundsListener);
                     });
                 }
+           }
+           else{
+            var lat = this.citylatlng[0]['latitude']
+            var lng = this.citylatlng[0]['longitude']
+            var theCity = this.citylatlng[0]['city_eng']
+             const result = json.features
+              const coordinates = []
+              for (var i = 0; i < result.length; i++) {
+                if (result[i].Name == theCity) {
+                  coordinates.push(result[i].geometry['coordinates'])
+                }
+              }
+              var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
+              var data = {
+                type: "Feature",
+                geometry: {
+                  "type": "Polygon",
+                  "coordinates": coordinate
+                },
+              };
+              
+              var mapProp = {
+                center: new google.maps.LatLng(lat, lng),
+                zoom: 6,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+              };
+              this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+              this.map.data.addGeoJson(data);
+              this.map.data.setStyle({
+                strokeColor: "red",
+                fillColor: 'red',
+                strokeOpacity: 0.8,
+                fillOpacity: 0.1,
+                strokeWeight: 1
+              })
+           }
+           
+             
+             
+        
+
+            
         })
+          
+          
 
 
       },
