@@ -82,7 +82,7 @@
                 id="birthday"
                 v-model="jobApply.birthday"
               /> -->
-              <date-picker class="box" v-model="jobApply.birthday" valueType="format"  style="margin-left: 11px;"></date-picker>
+              <date-picker class="box date-of-establishment" v-model="jobApply.birthday" id ="datepickerbox" valueType="format"  style="margin-left: 11px;"></date-picker>
             </div>
           </div>
           <div class="form-group m-0 row bd">

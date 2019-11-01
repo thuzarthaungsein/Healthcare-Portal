@@ -33,7 +33,7 @@
                                 </g>
                             </g>
                         </svg>
-                        &nbsp; <span class="font-weight-bold">お気に入り</span>
+                        &nbsp; <span class="font-weight-bold">お気に入りリスト</span>
                     </div>
                 </div>
 
@@ -253,7 +253,7 @@
                             <input type="checkbox" @change="checkAll()" class="check-all-btn" />
                             <span class="checkmark"></span>すべての資料請求にチェックを入れる
                         </label>
-                        <button type="button" class="btn btn-success  float-left" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
+                        <button type="button" class="btn btn-success  float-left" @click="addingMail()" :disabled="isdisable">資料請求する</button>
                     </div>
                 </div>
                 <div style="margin-top: 20px;" id="fav-history-page">
@@ -283,7 +283,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">最近見た施設から削除</button>
+                                                        <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">お気に入りリストから削除</button>
                                                         <label class="btn all-btn res-btn hos-btn">
                                                             <input type="checkbox" value="documentation" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle()">
                                                             <span class="checkmark"></span>資料請求</label>
@@ -291,14 +291,20 @@
                                                 </tr>
                                                 <tr v-if="address_show">
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <div v-if="address_show" style="width:250px;">{{nur_profile.township_name}} {{nur_profile.city_name}}</div>
+                                                        <dl>
+                                                            <dt style="text-align:left;">住所</dt>
+                                                            <dd style="width:250px;">
+                                                                {{nur_profile.township_name}} {{nur_profile.city_name}}
+                                                            </dd>
+                                                        </dl>
+                                                        <!-- <div v-if="address_show" style="width:250px;"></div> -->
                                                     </td>
                                                 </tr>
                                                 <tr v-if="tran_show">
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <dl>
                                                             <dt style="text-align:left;">交通手段</dt>
-                                                            <dd v-if="tran_show" style="width:250px;">
+                                                            <dd style="width:250px;">
                                                                 <p v-html="nur_profile.access"></p>
                                                             </dd>
                                                         </dl>
@@ -342,6 +348,8 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <div class="bd3" style="width:250px;">
                                                             <ul class="fac_container m-t-8 m-b-15 m-l-8">
+                                                                <h6 style="font-weight:bold;text-align:left;">特長</h6>
+                                                                
                                                                 <li v-for="feature in nur_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                             </ul>
                                                         </div>
@@ -387,7 +395,7 @@
 
         </div>
 
-        <button type="button" class="btn btn-success mt-5 float-right" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
+        <button type="button" class="btn btn-success mt-5 float-right" @click="addingMail()" :disabled="isdisable">資料請求する</button>
     </div>
 </template>
 
@@ -496,6 +504,7 @@
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
+                                $("#nus-fav-local").html(l_sto_arr.length); 
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_fav', new_local);
                                 this.local_sto = localStorage.getItem("nursing_fav");
