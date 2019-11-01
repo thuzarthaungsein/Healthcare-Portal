@@ -23,7 +23,7 @@
                             <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
                         </div>
                          -->
-                        
+
                 </div>
 
                 <button v-scroll-to="{ el: '#btn'}" id="btn_click" hidden></button>
@@ -44,11 +44,11 @@
                             <input type="text" name="official-website" class="form-control website col-10 float-right" v-model="nursing_info.website">
                     </div>
                     <div class="form-group form-group-wrapper">
-                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label> 
+                            <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
                                     <span class="galleryadd btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
                                     <span class='changeGalleryLink btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryToggle" >
-                                        <i id="gallery" class="fas fa-sort-down"></i> 
+                                        <i id="gallery" class="fas fa-sort-down"></i>
                                    </span>
                             <div id="changeGalleryLink"  class="col-md-12">
                                     <div class="row" id ="gallery-photo">
@@ -78,7 +78,7 @@
                             <label class="heading-lbl col-2 pad-free">動画</label> <span class="galleryvideo btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryVideoAdd()">
                                     <i class="fas fa-plus-circle"></i> 追加</span>
                                     <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryVideoToggle" >
-                                        <i id="video" class="fas fa-sort-down"></i> 
+                                        <i id="video" class="fas fa-sort-down"></i>
                                    </span>
                             <div id="changeGalleryVideoLink" class="col-md-12">
                                     <div class="row" id="gallery-video">
@@ -103,7 +103,7 @@
                                 <td style="border:none;">
                                         <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
                                         <quill-editor  ref="myQuilEditor" name="feature" class="feature" v-model="nursing_info.feature" @change="onFeatureEditorChange($event)" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"/>
-                                        
+
                                 </td>
                         </tr>
 
@@ -123,12 +123,12 @@
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
                                             <input type="text"  class="form-control col-10 nursing-moving-in-f float-left white-bg-color m-r-10" v-model="nursing_info.moving_in_from"> 円
                                         </div>
-                                       
+
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
                                             <input type="text"  class="form-control col-10 nursing-moving-in-t float-left white-bg-color m-r-10" v-model="nursing_info.moving_in_to"> 円
                                         </div>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="heading-lbl col-2 pad-free">月額費用 <span class="error">*</span></label>
@@ -137,14 +137,14 @@
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
                                             <input type="text"  class="form-control col-10 nursing-per-month-f float-left white-bg-color m-r-10" v-model="nursing_info.per_month_from"> 円
                                         </div>
-                                       
+
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
                                             <input type="text"  class="form-control col-10 nursing-per-month-t float-left white-bg-color m-r-10" v-model="nursing_info.per_month_to"> 円
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">                        
+                            <div class="form-group">
                                 <label class="heading-lbl col-2 pad-free">支払い方法 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                     <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
@@ -157,10 +157,10 @@
                                             <div class="col-md-12 m-t-15 m-b-15">
                                                 <table class="table">
                                                     <tr>
-                                                         
+
                                                     <td colspan="2" class="text-right" style="border:none;!important">
                                                         <span :class="'btn btn all-btn main-bg-color changeLink'+payment.id" style="min-width: 0px;" @click="paymentToggle(payment.id)" >
-                                                            <i :id="'icon' + payment.id" class="fas fa-sort-down"></i> 
+                                                            <i :id="'icon' + payment.id" class="fas fa-sort-down"></i>
                                                         </span>
                                                         <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'payment')">
                                                         <i class="fa fa-trash"></i> 削除</a>
@@ -264,7 +264,7 @@
                                                         <th class="title-lbl"><span>返還金について</span></th>
                                                         <th>&nbsp;</th>
                                                         </tr>
-                                                        <tr>      
+                                                        <tr>
                                                         <th>返還制度</th>
                                                         <th>
                                                                 <input type="text" name="breakdown[]" class="form-control refund-system white-bg-color" v-model="payment.refund_system">
@@ -317,7 +317,7 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">開設年月日</td>
-                                                    
+
                                                     <td >
                                                         <date-picker class="box date-of-establishment" v-model="nursing_info.date_of_establishment" id="datepickerbox" valueType="format" style="margin-left:11px;"></date-picker>
                                                         <!-- <textarea class="form-control white-bg-color date-of-establishment" :options="editorOption" v-model="nursing_info.date_of_establishment"></textarea> -->
@@ -382,7 +382,7 @@
                                             <tr>
                                                     <td class="width15 title-bg">居室設備</td>
                                                     <td ><textarea class="form-control white-bg-color living-room-facilities" :options="editorOption" v-model="nursing_info.living_room_facilities"></textarea></td>
-                                                    
+
                                                         <!-- <td > <quill-editor  class="equipment" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.equipment"/></td> -->
                                             </tr>
                                             <tr>
@@ -406,17 +406,17 @@
                                 <div class="col-10 pad-free float-right ">
                                     <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()">
                                             <i class="fas fa-plus-circle"></i> 加算</span>
-                                              
+
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
-                                        <div class="col-md-12 m-t-30 m-b-20 gallery-area-payment" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                        <div class="col-md-12 m-t-30 m-b-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
                                           
                                             <div class="clearfix" style="margin-bottom:30px;">
                                                    <span :class="'float-right btn all-btn main-bg-color cooperateChangeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
-                                                        <i :id="'cooperate' + cooperate.id" class="fas fa-sort-down"></i> 
-                                                </span>                 
+                                                        <i :id="'cooperate' + cooperate.id" class="fas fa-sort-down"></i>
+                                                </span>
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <label class="col-2 pad-free">名前 :</label>
                                                 <input type="text" class="form-control col-10 float-right cooperate-name white-bg-color" name="co-medical-header[]" v-model="cooperate.name">
@@ -544,10 +544,11 @@
 
                                 <div class="col-md-10 float-right special-feature-toggle-div toggle-div m-t-10">
                                     <div class="row">
-                                        <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
-                                            <label>
-                                                <input type="checkbox"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
+                                        <div v-for="feat in feature_list" :key="feat.id" class="form-check form-check-inline col-sm-3">
+                                            <label  class="form-check-label control control--checkbox" style="padding-left:5px;">
+                                                <input type="checkbox" class="form-check-input"  name="special-features" v-bind:value="feat.id" @click="stationCheck(feat.id)" v-model="feat.checked">
                                                 {{feat.name}}
+                                                 <div class="control__indicator"></div>
                                             </label>
                                         </div>
                                     </div>
@@ -567,7 +568,7 @@
                             <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
                             <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
                                 <div class="col-md-12">
-                                    
+
                                     <GoogleMap :address="customer_info.address" :lat_num='nursing_info.latitude' :lng_num='nursing_info.longitude' v-if="nursing_info.latitude != 0"></GoogleMap>
                                     <GoogleMap :address="customer_info.address" :lat_num='35.6803997' :lng_num='139.76901739' v-if="nursing_info.latitude == 0"></GoogleMap>
                                     <!-- <div class="form-group">
@@ -603,7 +604,7 @@
                                             <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
                                             <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" @change="onAccessEditorChange($event)" v-model="nursing_info.access"/>
                                     </div>
-                                        
+
                                 </div>
                             </div>
                         </td>
@@ -615,7 +616,7 @@
                         <span class="btn secondary-bg-color col-8 offset-2 all-btn m-t-15 pad-10" @click="createProfile()">保存する</span>
                     </div>
                 </div>
-                
+
             </div>
         </form>
     </div>
@@ -695,13 +696,13 @@ export default {
                 access_val: '',
           }
         },
-     
+
         mounted() {
         document.getElementById('btn_click').click();
         },
-        
+
         created(){
-                          
+
                 if(this.type != undefined && this.cusid!= undefined){
                         localStorage.setItem('cusType',this.type);
                         localStorage.setItem('cusId',this.cusid);
@@ -727,7 +728,7 @@ export default {
                         this.nursing_info = response.data;
                         console.log(this.cusid);
                         console.log(response.data);
-                        
+
 
                         if(this.nursing_info.latitude == 0){
                             console.log("0");
@@ -739,7 +740,7 @@ export default {
                             localStorage.setItem('lat_num',this.nursing_info.latitude);
                             localStorage.setItem('lng_num',this.nursing_info.longitude);
                         }
-                        
+
                 });
 
                 this.axios
@@ -799,7 +800,7 @@ export default {
 
         },
         methods: {
-              
+
                 onEditorBlur(quill) {
         console.log('editor blur  !', quill)
       },
@@ -814,7 +815,7 @@ export default {
             nurseFacToggleDiv() {
                     $(".nurse-fac-toggle-div").toggle('medium');
                     this.isRotate1 = !this.isRotate1;
-                    
+
             },
 
             staffToggleDiv() {
@@ -845,7 +846,7 @@ export default {
                             panorama_x.parentNode.removeChild(panorama_x);
                         }
                     },
-        
+
 
             DeltArr(indx,type) {
                     var arr_list = [];
@@ -955,81 +956,81 @@ export default {
                 {
                       var class_by_id = $('#icon'+id).attr('class');
                       if(class_by_id == "fas fa-sort-down animate rotate")
-                      {     
+                      {
                                 $('#icon'+id).removeClass("fas fa-sort-down animate rotate");
-                                $('.changeLink'+id).addClass("fas fa-sort-down");    
-                                $('#changeLink'+id).show('medium');  
+                                $('.changeLink'+id).addClass("fas fa-sort-down");
+                                $('#changeLink'+id).show('medium');
                       }
                       else {
-                         
+
                                 $('#icon'+id).removeClass("fas fa-sort-down");
-                                $('.changeLink'+id).removeClass("fas fa-sort-down");  
-                                $('#icon'+id).addClass("fas fa-sort-down animate rotate");  
-                                $('#changeLink'+id).hide('medium');        
+                                $('.changeLink'+id).removeClass("fas fa-sort-down");
+                                $('#icon'+id).addClass("fas fa-sort-down animate rotate");
+                                $('#changeLink'+id).hide('medium');
                       }
-    
+
                 },
                 galleryToggle()
                 {
 
                       var class_by_id = $('#gallery').attr('class');
-                     
+
                       if(class_by_id == "fas fa-sort-down animate rotate")
-                      {     
+                      {
                                 $('#gallery').removeClass("fas fa-sort-down animate rotate");
-                                $('.changeGalleryLink').addClass("fas fa-sort-down");    
-                                $('#changeGalleryLink').show('medium');  
+                                $('.changeGalleryLink').addClass("fas fa-sort-down");
+                                $('#changeGalleryLink').show('medium');
                                 $('.galleryadd').show();
                       }
                       else {
 
-                              
+
                                 $('#gallery').removeClass("fas fa-sort-down");
-                                $('.changeGalleryLink').removeClass("fas fa-sort-down");  
-                                $('#gallery').addClass("fas fa-sort-down animate rotate");  
-                                $('#changeGalleryLink').hide('medium');   
-                                 $('.galleryadd').show(); 
-                                      $('.galleryadd').hide();    
+                                $('.changeGalleryLink').removeClass("fas fa-sort-down");
+                                $('#gallery').addClass("fas fa-sort-down animate rotate");
+                                $('#changeGalleryLink').hide('medium');
+                                 $('.galleryadd').show();
+                                      $('.galleryadd').hide();
                       }
                 },
                 galleryVideoToggle()
                 {
                        var class_by_id = $('#video').attr('class');
-                      
+
                       if(class_by_id == "fas fa-sort-down animate rotate")
-                      {     
+                      {
                                 $('#video').removeClass("fas fa-sort-down animate rotate");
-                                $('.changeGalleryVideoLink').addClass("fas fa-sort-down");    
-                                $('#changeGalleryVideoLink').show('medium');  
+                                $('.changeGalleryVideoLink').addClass("fas fa-sort-down");
+                                $('#changeGalleryVideoLink').show('medium');
                                  $('.galleryvideo').show();
                       }
                       else {
-                         
+
                                 $('#video').removeClass("fas fa-sort-down");
-                                $('.changeGalleryVideoLink').removeClass("fas fa-sort-down");  
-                                $('#video').addClass("fas fa-sort-down animate rotate");  
-                                $('#changeGalleryVideoLink').hide('medium');    
-                                $('.galleryvideo').hide();    
-                      }  
+                                $('.changeGalleryVideoLink').removeClass("fas fa-sort-down");
+                                $('#video').addClass("fas fa-sort-down animate rotate");
+                                $('#changeGalleryVideoLink').hide('medium');
+                                $('.galleryvideo').hide();
+                      }
                 },
                 cooperateToggle(id)
                 {
                       var class_by_id = $('#cooperate'+id).attr('class');
                       if(class_by_id == "fas fa-sort-down animate rotate")
-                      {     
+                      {
                                 $('#cooperate'+id).removeClass("fas fa-sort-down animate rotate");
-                                $('.cooperateChangeLink'+id).addClass("fas fa-sort-down");    
-                                $('#cooperateChangeLink'+id).show('medium');  
-   
+                                $('.cooperateChangeLink'+id).addClass("fas fa-sort-down");
+                                $('#cooperateChangeLink'+id).show('medium');
+
                       }
                       else {
-                         
+
                                 $('#cooperate'+id).removeClass("fas fa-sort-down");
-                                $('.cooperateChangeLink'+id).removeClass("fas fa-sort-down");  
-                                $('#cooperate'+id).addClass("fas fa-sort-down animate rotate");  
-                                $('#cooperateChangeLink'+id).hide('medium');        
+                                $('.cooperateChangeLink'+id).removeClass("fas fa-sort-down");
+                                $('#cooperate'+id).addClass("fas fa-sort-down animate rotate");
+                                $('#cooperateChangeLink'+id).hide('medium');
                       }
-    
+
                 },
 
             createProfile() {
@@ -1077,7 +1078,7 @@ export default {
                 this.customer_info_push.push({ name:customer_name,email:customer_email,phone:customer_phone,address:customer_address});
 
                 this.staff_info_push.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
-               
+
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
                         var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
@@ -1100,7 +1101,7 @@ export default {
                         }
                         this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
-       
+
                 var panorama = document.getElementsByClassName('gallery-area-panorama');
                 var count = 0;
                 var status = 0;
@@ -1108,7 +1109,7 @@ export default {
                         var preview = document.getElementsByClassName('preview-panorama');
                         if(document.getElementById('preview-panorama'+i)) {
                                 if(status == 0) { var j = i; } else { var j = i+1; }
-                                
+
                         } else {
                                 if(status == 0) { var j = i+1; } else { var j = i+2; }
                                 status = 1;
@@ -1128,15 +1129,15 @@ export default {
                                                         this.errors = error.response.data.errors
                                                 }
                                         })
-                                
-                        } 
+
+                        }
                         else {
                                 var file_name = panorama[count].getElementsByClassName('already-panorama')[0].value;
                                 count = count + 1;
                         }
                         this.panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
                 }
-               
+
                 var video = document.getElementsByClassName('gallery-area-video');
                 for(var i = 0; i< video.length; i++) {
                         this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
@@ -1145,38 +1146,40 @@ export default {
                 var cooperate = document.getElementsByClassName('gallery-area-cooperate');
 
                 for(var i = 0; i< cooperate.length; i++) {
-                        this.cooperate_list.push({subject:cooperate[i].getElementsByClassName('clinical-sub')[0].value,
-                                                name:cooperate[i].getElementsByClassName('cooperate-name')[0].value,
-                                                details:cooperate[i].getElementsByClassName('details')[0].value,
-                                                expense:cooperate[i].getElementsByClassName('expense')[0].value,
-                                                remark:cooperate[i].getElementsByClassName('remark')[0].value});
+                    this.cooperate_list.push({subject:cooperate[i].getElementsByClassName('clinical-sub')[0].value,
+                    name:cooperate[i].getElementsByClassName('cooperate-name')[0].value,
+                    details:cooperate[i].getElementsByClassName('details')[0].value,
+                    expense:cooperate[i].getElementsByClassName('expense')[0].value,
+                    remark:cooperate[i].getElementsByClassName('remark')[0].value});
                 }
 
                 var payment = document.getElementsByClassName('gallery-area-payment');
+                console.log(payment);
                 for(var i = 0; i< payment.length; i++) {
-                        this.payment_list.push({payment_name:payment[i].getElementsByClassName('payment-name')[0].value,
-                                                expense_moving:payment[i].getElementsByClassName('expense-moving')[0].value,
-                                                monthly_fees:payment[i].getElementsByClassName('monthly-fees')[0].value,
-                                                living_room_type:payment[i].getElementsByClassName('living-room-type')[0].value,
-                                                area:payment[i].getElementsByClassName('area')[0].value,
-                                                deposit:payment[i].getElementsByClassName('deposit')[0].value,
-                                                other_use:payment[i].getElementsByClassName('other-use')[0].value,
-                                                rent:payment[i].getElementsByClassName('rent')[0].value,
-                                                admin_expense:payment[i].getElementsByClassName('admin-expense')[0].value,
-                                                food_expense:payment[i].getElementsByClassName('food-expense')[0].value,
-                                                nurse_care_surcharge:payment[i].getElementsByClassName('nurse-care-surcharge')[0].value,
-                                                other_monthly_cost:payment[i].getElementsByClassName('other-monthly-cost')[0].value,
-                                                refund_system:payment[i].getElementsByClassName('refund-system')[0].value,
-                                                depreciation_period:payment[i].getElementsByClassName('depreciation-period')[0].value,
-                                                initial_deprecration:payment[i].getElementsByClassName('initial-deprecration')[0].value,
-                                                other_message_refund:payment[i].getElementsByClassName('other-message-refund')[0].value});
+                    console.log(payment[i].getElementsByClassName('payment-name')[0].value);
+                    this.payment_list.push({payment_name:payment[i].getElementsByClassName('payment-name')[0].value,
+                    expense_moving:payment[i].getElementsByClassName('expense-moving')[0].value,
+                    monthly_fees:payment[i].getElementsByClassName('monthly-fees')[0].value,
+                    living_room_type:payment[i].getElementsByClassName('living-room-type')[0].value,
+                    area:payment[i].getElementsByClassName('area')[0].value,
+                    deposit:payment[i].getElementsByClassName('deposit')[0].value,
+                    other_use:payment[i].getElementsByClassName('other-use')[0].value,
+                    rent:payment[i].getElementsByClassName('rent')[0].value,
+                    admin_expense:payment[i].getElementsByClassName('admin-expense')[0].value,
+                    food_expense:payment[i].getElementsByClassName('food-expense')[0].value,
+                    nurse_care_surcharge:payment[i].getElementsByClassName('nurse-care-surcharge')[0].value,
+                    other_monthly_cost:payment[i].getElementsByClassName('other-monthly-cost')[0].value,
+                    refund_system:payment[i].getElementsByClassName('refund-system')[0].value,
+                    depreciation_period:payment[i].getElementsByClassName('depreciation-period')[0].value,
+                    initial_deprecration:payment[i].getElementsByClassName('initial-deprecration')[0].value,
+                    other_message_refund:payment[i].getElementsByClassName('other-message-refund')[0].value});
                 }
 
 
                var s_features =[];
                         $.each($("input[name='special-features']:checked"), function(){
                             s_features.push($(this).val());
-                        }); 
+                        });
                         this.chek_feature.push({special_feature_id:s_features});
 
                 // var chek_station=[];
@@ -1269,7 +1272,7 @@ export default {
                         this.axios
                                 .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
                                 .then((response) => {
-                                   
+
                                 }).catch(error=>{
 
                                 if(error.response.status == 422){
@@ -1299,7 +1302,7 @@ export default {
                         this.axios
                                 .post(`/api/acceptance/transactions/${this.cusid}`,acceptance)
                                 .then((response) => {
-                        
+
                                 }).catch(error=>{
                                         if(error.response.status == 422) {
                                                 acceptance = 'error';
@@ -1312,7 +1315,7 @@ export default {
                                 this.axios
                                         .post(`/api/feature/update/${this.cusid}`,this.chek_feature)
                                                 .then((response) => {
-                                                        
+
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
                                                   this.chek_feature = 'error';

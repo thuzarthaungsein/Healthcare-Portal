@@ -289,8 +289,8 @@
           </div>
            </div>
 
-          <div class="col-12 hospitalselect"> 
-            <h5 class="profile_header" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>    
+          <div class="col-12 hospitalselect">
+            <h5 class="profile_header" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>
           <table class="table table-bordered col-12">
             <tbody>
               <tr>
@@ -323,14 +323,14 @@
                 <th>
                   フリーワード
                 </th>
-                <td>                 
-                    <input type="text" class="form-control mt-2 mb-2" id="" placeholder="例）施設名、エリア">                 
+                <td>
+                    <input type="text" class="form-control mt-2 mb-2" id="" placeholder="例）施設名、エリア">
                 </td>
               </tr>
               <tr class="toBeToggled1 ShowHide1">
                 <th>特長</th>
                 <td>
-                  <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
+                  <div class="form-check form-check-inline col-sm-2 " v-for="feature in special_features" :key="feature.id">
                     <!-- <label class="form-check-label" > -->
                      <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                       <input  class="form-check-input" type="checkbox" :id="feature.id" v-model="specialfeatureID" :value="feature.id" @click="features($event)">
@@ -375,7 +375,7 @@
             </tbody>
           </table>
           </div>
-       
+
           <div class="col-12">
             <div class="row">
               <div id="job_detail" class="col-md-12 col-sm-12" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
@@ -383,8 +383,8 @@
                   <div class="job-header">
                   <h5 class="hos-title">
                     <router-link :to="{name: 'profile', params: {cusid:hos.customer_id, type: 'hospital'}}" class="pseudolink">{{hos.name}}</router-link>
-                </h5>  
-                  
+                </h5>
+
                 </div>
                 <div class="clearfix m-b-20">
                     <span v-for="(sub,index) in subject" :key="index+'-'+sub.name+'-'+hos.id">
@@ -392,14 +392,14 @@
                       {{sub.name}}
                     </span>
                   </span>
-                  <p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>{{hos.phone}}</p>                     
-                  </div>  
+                  <p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>{{hos.phone}}</p>
+                  </div>
                 <div class="hos-body row clearfix">
                   <div class="col-3 job-img">
                     <img src="/upload/news/nursing.JPG"  alt="img" class="img-fluid">
                   </div>
                   <div class="col-4 job-box">
-                    <table  class="table table-bordered table-sm">                     
+                    <table  class="table table-bordered table-sm">
                         <tr>
                           <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>名前</td>
                           <td>{{hos.name}}</td>
@@ -407,7 +407,7 @@
                           <tr>
                           <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
                           <td>{{hos.email}}</td>
-                        </tr>                       
+                        </tr>
                         <tr>
                           <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>住所</td>
                           <td>{{hos.address}}</td>
@@ -423,8 +423,8 @@
                     <span v-if="spe.customer_id == hos.customer_id" class="feature_list">
                       {{spe.name}}
                     </span>
-                  </span>               
-                <!--end special feature and subject-->  
+                  </span>
+                <!--end special feature and subject-->
                   </div>
                   <div class="col-5">
                     <!--schedule-->
@@ -433,8 +433,8 @@
                     <td v-if="hos.customer_id == time.customer_id" >
                       {{time.mon}} / {{time.tue}} / {{time.wed}} / {{time.thu}} / {{time.fri}} / {{time.sat}} / {{time.sun}} / {{time.part}}
                     </td>
-                  </tr> -->         
-                <table class="table table-bordered">   
+                  </tr> -->
+                <table class="table table-bordered">
                     <thead>
                       <tr class="first-hos-row text-center">
                         <th style="width:10%">日付</th>
@@ -445,7 +445,7 @@
                         <th>金</th>
                         <th>土</th>
                         <th>日</th>
-                        
+
                       </tr>
                     </thead>
                     <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
@@ -459,17 +459,17 @@
                         <td style="width:10%;">{{time.fri}}</td>
                         <td style="width:10%;">{{time.sat}}</td>
                         <td style="width:10%;">{{time.sun}}</td>
-                      
+
                       </tr>
                     </tbody>
                 </table>
                <span> <strong> 休診日：</strong>{{hos.closed_day}}</span>
                <!-- <p><span style="color: red; font-weight: bold; font-size: 15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p> -->
-                <!--end schedule-->  
-                                                
+                <!--end schedule-->
+
                   </div>
                 </div>
-                
+
                 <div class="mt-4 detail-btn text-center"><router-link :to="{name: 'profile', params: {cusid:hos.cus_id, type: 'hospital'}}" class="btn all-btn">詳細を見る</router-link></div>
               </div>
             </div>

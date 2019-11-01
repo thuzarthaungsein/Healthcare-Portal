@@ -157,15 +157,16 @@ export default {
                     hos_his_arr.push(response.data[0].pro_id);
                     hos_his_arr = [...new Set(hos_his_arr)]; 
                     localStorage.setItem("hospital_history", hos_his_arr);       
-                    $("#hos-his-local").html(hos_his_arr.length);        
+                    $("#hos-his-local").html(hos_his_arr.length);  
+                          
                 }
                 else{
                     var hos_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("hospital_history", hos_his_arr);
                     $("#hos-his-local").html(hos_his_arr.length);   
-                    // if(hos_his_arr.length == 0){
-
-                    // }
+                    if(hos_his_arr.length == 0){
+                        
+                    }
                 }
                 if(localStorage.getItem("hospital_fav")){
                     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("hospital_fav") + "]");
