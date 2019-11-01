@@ -4,7 +4,11 @@
 
     <div v-if="type == 'nursing'" id="nursingView">
         <!--panorama-->
-        <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
+        <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
+        
+        <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">        
+            <h4 class="profile-tit"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
+            
             <div class="thumbnail-img" style="padding:0px;border:none;">
                 <div class="card-carousel" style="background:#fff;">
                 <div class="card-img" >
@@ -91,9 +95,8 @@
             </div>
 
 
-
-            <div class="row m-lr-0 ele p-t-65" id="element1">
-                 <h5 class="profile_header">介護情報</h5>
+             
+            <div class="row m-lr-0 ele pt-2"   id="element1">
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -149,7 +152,7 @@
                      <div class="col-sm-7 detail_profile_right">
                         <div class="row col-12 pro-heading">
                              <div class="col-12 pad-free">
-                                 <h5 class="font15rem font-weight-bold"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
+                                <h5 class="profile_header">介護情報</h5>
                              </div>
                              <!-- <div class="col-12">
                                  <h5 class="h_4 font15rem font-weight-bold">{{customer[0].name}}</h5>
@@ -1406,9 +1409,9 @@ $(document).scroll(function() {
   var cur_pos = $(this).scrollTop();
 
   if (cur_pos >= 100) {
-      $('.fixed-nav').css("top" , "210px");
+      $(".fixed-nav").css({"position": "fixed", "top": "210px"});
   } else {
-      $('.fixed-nav').css("top" , "unset");
+       $(".fixed-nav").css({"position": "unset", "top": "unset"});
   }
 
 });
@@ -1883,9 +1886,9 @@ export default {
 }
 
 .nav-content {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
     vertical-align: middle;
     background: #fffff4;
     border: 2px solid #ff9563;
