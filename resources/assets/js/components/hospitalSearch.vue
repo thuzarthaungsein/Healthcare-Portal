@@ -302,11 +302,7 @@
                   <button @click="toggleContent" class="btn col-3 seemore-btn">
                     <i class="fa" aria-hidden="true"></i>
                     <!-- <em>{{city.city_name}}</em> -->
-                    <span id="close"><i class="fas fa-arrow-circle-up"></i> 都道府県を閉じる 
-                    
-                    
-                    
-                    </span>
+                    <span id="close"><i class="fas fa-arrow-circle-up"></i> 市区町村を閉じる</span>
                   </button>
 
                   <div class="toBeToggled" id="toBeToggled">
@@ -371,8 +367,8 @@
               </tr>
               <tr class="text-center">
                 <td colspan="2">
-                  <button type="button" class="main-bg-color create-btn all-btn" style="width:16%;" id="search" name="search" value="検査"  @click="search">
-                  <i class="fas fa-search"></i>&nbsp; 検査 
+                  <button type="button" class="main-bg-color create-btn all-btn" style="width:16%;" id="search" name="search" value="検索"  @click="search">
+                  <i class="fas fa-search"></i>&nbsp; 検索 
                   </button>
                 </td>
               </tr>
@@ -409,7 +405,7 @@
                           <td>{{hos.name}}</td>
                         </tr>
                           <tr>
-                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールア</td>
+                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
                           <td>{{hos.email}}</td>
                         </tr>                       
                         <tr>
@@ -454,7 +450,8 @@
                     </thead>
                     <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
                       <tr v-if="hos.customer_id == time.customer_id" class="text-center">
-                        <td class="second-hos-row" style="width:8%;">{{time.part}}</td>
+                        <td class="second-hos-row" style="width:8%;" v-if="time.part == 'am'">午前</td>
+                        <td class="second-hos-row" style="width:8%;" v-if="time.part == 'pm'">午後</td>
                         <td style="width:10%;">{{time.mon}}</td>
                         <td style="width:10%;">{{time.tue}}</td>
                         <td style="width:10%;">{{time.wed}}</td>
@@ -570,24 +567,24 @@
         if (this.toggleCheck == true) {
           $('#close').empty();
           $("#toBeToggled").slideDown();
-          $('#close').append('<i class="fas fa-arrow-circle-up"></i> 都道府県を閉じる');
+          $('#close').append('<i class="fas fa-arrow-circle-up"></i> 市区町村を閉じる');
 
         } else {
           $('#close').empty();
           $("#toBeToggled").slideUp();
-          $('#close').append('<i class="fas fa-arrow-circle-down"></i> 都道府県を開く');
+          $('#close').append('<i class="fas fa-arrow-circle-down"></i> 市区町村を開く');
         }
       },
       ShowHide1() {
         this.toggleCheck_1 = !this.toggleCheck_1;
         if (this.toggleCheck_1 == true) {
           $('#close2').empty();
-          $(".ShowHide1").slideToggle();
+          $(".ShowHide1").slideDown();
           $('#close2').append('<i class="fas fa-arrow-circle-up"></i> 閉じる');
 
         } else {
           $('#close2').empty();
-          $(".ShowHide1").slideToggle();
+          $(".ShowHide1").slideUp();
           $('#close2').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
         }
       },
@@ -750,7 +747,7 @@
   }
 
   .toBeToggled1 {
-    display: table-row;
+    display: none;
   }
   table>tbody>tr th {
     background-color: #e8e7e7;

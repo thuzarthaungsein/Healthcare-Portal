@@ -409,7 +409,7 @@
                                               
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
-                                        <div class="col-md-12 m-t-30 m-b-20 gallery-area-payment" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
+                                        <div class="col-md-12 m-t-30 m-b-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
                                           
                                             <div class="clearfix" style="margin-bottom:30px;">
                                                    <span :class="'float-right btn all-btn main-bg-color cooperateChangeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
@@ -1145,31 +1145,33 @@ export default {
                 var cooperate = document.getElementsByClassName('gallery-area-cooperate');
 
                 for(var i = 0; i< cooperate.length; i++) {
-                        this.cooperate_list.push({subject:cooperate[i].getElementsByClassName('clinical-sub')[0].value,
-                                                name:cooperate[i].getElementsByClassName('cooperate-name')[0].value,
-                                                details:cooperate[i].getElementsByClassName('details')[0].value,
-                                                expense:cooperate[i].getElementsByClassName('expense')[0].value,
-                                                remark:cooperate[i].getElementsByClassName('remark')[0].value});
+                    this.cooperate_list.push({subject:cooperate[i].getElementsByClassName('clinical-sub')[0].value,
+                    name:cooperate[i].getElementsByClassName('cooperate-name')[0].value,
+                    details:cooperate[i].getElementsByClassName('details')[0].value,
+                    expense:cooperate[i].getElementsByClassName('expense')[0].value,
+                    remark:cooperate[i].getElementsByClassName('remark')[0].value});
                 }
 
                 var payment = document.getElementsByClassName('gallery-area-payment');
+                console.log(payment);
                 for(var i = 0; i< payment.length; i++) {
-                        this.payment_list.push({payment_name:payment[i].getElementsByClassName('payment-name')[0].value,
-                                                expense_moving:payment[i].getElementsByClassName('expense-moving')[0].value,
-                                                monthly_fees:payment[i].getElementsByClassName('monthly-fees')[0].value,
-                                                living_room_type:payment[i].getElementsByClassName('living-room-type')[0].value,
-                                                area:payment[i].getElementsByClassName('area')[0].value,
-                                                deposit:payment[i].getElementsByClassName('deposit')[0].value,
-                                                other_use:payment[i].getElementsByClassName('other-use')[0].value,
-                                                rent:payment[i].getElementsByClassName('rent')[0].value,
-                                                admin_expense:payment[i].getElementsByClassName('admin-expense')[0].value,
-                                                food_expense:payment[i].getElementsByClassName('food-expense')[0].value,
-                                                nurse_care_surcharge:payment[i].getElementsByClassName('nurse-care-surcharge')[0].value,
-                                                other_monthly_cost:payment[i].getElementsByClassName('other-monthly-cost')[0].value,
-                                                refund_system:payment[i].getElementsByClassName('refund-system')[0].value,
-                                                depreciation_period:payment[i].getElementsByClassName('depreciation-period')[0].value,
-                                                initial_deprecration:payment[i].getElementsByClassName('initial-deprecration')[0].value,
-                                                other_message_refund:payment[i].getElementsByClassName('other-message-refund')[0].value});
+                    console.log(payment[i].getElementsByClassName('payment-name')[0].value);
+                    this.payment_list.push({payment_name:payment[i].getElementsByClassName('payment-name')[0].value,
+                    expense_moving:payment[i].getElementsByClassName('expense-moving')[0].value,
+                    monthly_fees:payment[i].getElementsByClassName('monthly-fees')[0].value,
+                    living_room_type:payment[i].getElementsByClassName('living-room-type')[0].value,
+                    area:payment[i].getElementsByClassName('area')[0].value,
+                    deposit:payment[i].getElementsByClassName('deposit')[0].value,
+                    other_use:payment[i].getElementsByClassName('other-use')[0].value,
+                    rent:payment[i].getElementsByClassName('rent')[0].value,
+                    admin_expense:payment[i].getElementsByClassName('admin-expense')[0].value,
+                    food_expense:payment[i].getElementsByClassName('food-expense')[0].value,
+                    nurse_care_surcharge:payment[i].getElementsByClassName('nurse-care-surcharge')[0].value,
+                    other_monthly_cost:payment[i].getElementsByClassName('other-monthly-cost')[0].value,
+                    refund_system:payment[i].getElementsByClassName('refund-system')[0].value,
+                    depreciation_period:payment[i].getElementsByClassName('depreciation-period')[0].value,
+                    initial_deprecration:payment[i].getElementsByClassName('initial-deprecration')[0].value,
+                    other_message_refund:payment[i].getElementsByClassName('other-message-refund')[0].value});
                 }
 
 
