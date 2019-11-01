@@ -12,22 +12,7 @@ class SearchMapController extends Controller
     {
 
 
-        // return $id;
-        $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng , n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
-                  from customers As c  
-                  Join townships As t 
-                  on t.id =  c.townships_id 
-                  Join nursing_profiles As n 
-                  on n.customer_id = c.id 
-                  JOIN cities AS ci
-                  ON t.city_id = ci.id
-                  JOIN types AS ty
-                  ON c.type_id = ty.id
-                  where t.city_id =" . $id . " order BY n.id ASC LIMIT 26";
-        $nus_latlng = DB::select($query);
-
-
-        $nursing = "SELECT n.id as nursing_id, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
+        $nursing = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
                     FROM customers AS c 
                     JOIN townships AS t 
                     ON t.id = c.townships_id 
@@ -40,8 +25,22 @@ class SearchMapController extends Controller
                     WHERE t.city_id=" . $id . "
                     order BY n.id ASC LIMIT 26 ";
         $nursing_profile = DB::select($nursing);
+    
         $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-        $title = $request->title;
+
+        for($i = 0;$i<count($nursing_profile);$i++)
+        {
+            for($j=0;$j<count($alphabet);$j++)
+            {
+                if($i == $j)
+                {
+                    $nursing_profile[$i] =  (array)($nursing_profile[$i]) ;
+                    $nursing_profile[$i]['alphabet']  = $alphabet[$j];
+                   
+                }
+            }
+        }
+
         $mapid = $request->id;
 
         $getCityId          = DB::table('cities')->where('id', $mapid)->select('id')->pluck('id');
@@ -61,7 +60,6 @@ class SearchMapController extends Controller
             'fac_types' => $fac_types,
             'medical_acceptance' => $medical_acceptance,
             'subjects' => $subjects,
-            'nus_latlng' => $nus_latlng,
             'occupations' => $occupations,
             'nursing_profile' => $nursing_profile,
             'alphabet' => $alphabet

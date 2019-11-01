@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="col-12 scrolldiv2 pb-5 tab-content" id="nursing"> 
+        <div class="col-12 scrolldiv2 pb-5 tab-content" id="nursing">
             <div class="row col-12">
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
@@ -253,7 +253,7 @@
                         </label>
                         <button type="button" class="btn btn-success  float-left" @click="addingMail()" :disabled="isdisable">この内容で送信</button>
                     </div>
-                </div>        
+                </div>
                 <div style="margin-top: 20px;" id="fav-history-page">
                     <div class="col-12">
                         <div class="card-carousel-wrapper">
@@ -311,7 +311,7 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <dl>
                                                             <dt style="text-align:left;">入居時の費用</dt>
-                                                            <dd style="width:250px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in}}</strong></dd>
+                                                            <dd style="width:250px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in_from}}円~{{nur_profile.moving_in_to}}円</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -319,7 +319,7 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <dl>
                                                             <dt style="text-align:left;">月額の費用</dt>
-                                                            <dd style="color:#ff6117;font-size:large;width:250px;"><strong>{{nur_profile.per_month}}</strong></dd>
+                                                            <dd style="color:#ff6117;font-size:large;width:250px;"><strong>{{nur_profile.per_month_from}}円~{{nur_profile.per_month_to}}円</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -368,7 +368,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
                                 <div class="nav-content ml-2">
                                    <div class="card-carousel--nav__right"></div>
@@ -413,6 +413,7 @@
                     capacity_show: false,
                     opening_check: false,
                     opening_show: false,
+                    
                     iscompare: false,
                     markers: [{
                         position: {
@@ -431,10 +432,12 @@
                     currentOffset: 0,
                     windowSize: 5,
                     paginationFactor: 267,
-                    disableBtn: false
+                    disableBtn: false,
+                    check:false
                 };
             },
             computed: {
+                
                 atEndOfList() {
                         return this.currentOffset <= (this.paginationFactor * -1) * (this.fav_nursing.length - this.windowSize);
                     },
@@ -509,6 +512,8 @@
                         this.axios
                             .post('/api/nursing_fav/' + local_storage)
                             .then(response => {
+                                console.log(response);
+                                console.log(local_storage);
                                 this.fav_nursing = response.data;
                                 // for (var i = 0; i < this.fav_nursing.length; i++) {
                                 //     var j = this.fav_nursing[i].id;
@@ -545,47 +550,56 @@
                         });
                     },
                     checkAll() {
-                           this.disableBtn = false;
-                       if ($('.check-all-btn').is(":checked")) {
-                           $('.checkbox1').prop("checked", true);
-                           $('.checkbox2').prop("checked", true);
-                       } else {
-                           $('.checkbox1').prop("checked", false);
-                           $('.checkbox2').prop("checked", false);
-                            this.disableBtn = true;
-                       }
-                       for (var i = 0; i < this.fav_nursing.length; i++) {
-                           var j = this.fav_nursing[i].id;
-                           if ($('.check-all-btn').is(":checked")) {
-                               this.document_status[j] = true;
-                               // this.reserv_status[j] = true;
-                           } else {
-                               this.document_status[j] = false;
-                               // this.reserv_status[j] = false;
-                           }
-                       }
-                   },
-                   checkSingle() {
-                       this.disableBtn = false;
-                       for (var i = 0; i < this.fav_nursing.length; i++) {
-                           var j = this.fav_nursing[i].id;
-                           if (this.document_status[j]) {
-                                this.check = true;
-                               $('.check-all-btn').prop("checked", true);
-                               this.disableBtn = false;
-                           }
-                           else  if(!this.document_status[j] && this.check == true) {
-                                 $('.check-all-btn').prop("checked", false);
-                                 this.disableBtn = false;
-                                 this.check = false;
-                           }
-                            else if(!this.document_status[j] && this.check == false){
-                                   $('.check-all-btn').prop("checked", false);
-                                    this.disableBtn = true;
-                                    this.check = false;
-                           }
-                       }
-                   },
+                        this.disableBtn = false;
+                        if ($('.check-all-btn').is(":checked")) {
+                            $('.checkbox1').prop("checked", true);
+                            $('.checkbox2').prop("checked", true);
+                        } else {
+                            $('.checkbox1').prop("checked", false);
+                            $('.checkbox2').prop("checked", false);
+                             this.disableBtn = true;
+                        }
+                        for (var i = 0; i < this.fav_nursing.length; i++) {
+                            var j = this.fav_nursing[i].id;
+                            if ($('.check-all-btn').is(":checked")) {
+                                this.document_status[j] = true;
+                                // this.reserv_status[j] = true;
+                            } else {
+                                this.document_status[j] = false;
+                                // this.reserv_status[j] = false;
+                            }
+                        }
+                    },
+                    checkSingle() {
+
+                        this.disableBtn = false;
+                        for (var i = 0; i < this.fav_nursing.length; i++) {
+                            var j = this.fav_nursing[i].id;
+                            if (this.document_status[j]) {
+                                 
+                                 this.check = true;
+                                $('.check-all-btn').prop("checked", true);
+                                this.disableBtn = false;
+                                
+                            }
+                          
+                            else  if(!this.document_status[j] && this.check == true) {
+                             
+                                  $('.check-all-btn').prop("checked", false);
+                                  this.disableBtn = false;
+                                  this.check = false;
+                            }
+                             
+                             else if(!this.document_status[j] && this.check == false){
+                           
+                                    $('.check-all-btn').prop("checked", false);
+                                     this.disableBtn = true;
+                                     this.check = false;
+                                   
+                                   
+                            }
+                        }
+                    },
                     itemCompare() {
                         $('.mycheck').css('display', 'block');
 

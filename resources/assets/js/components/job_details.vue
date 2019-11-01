@@ -52,7 +52,7 @@
             <div class="col-md-2 col-sm-12 form-left">
               <label><span class="job_ico">&#xa5;</span>給料</label>
             </div>
-            <div class="col-md-10 col-sm-12 form-right">{{jobDetail.salary}}</div>
+            <div class="col-md-10 col-sm-12 form-right">{{jobDetail.salary_type}}: {{jobDetail.salary}} ¥  <span v-if="jobDetail.salary_remark"> ( {{ jobDetail.salary_remark }} ) </span></div>
           </div>
           <div class="form-group m-0 row bd">
             <div class="col-md-2 col-sm-12 form-left">

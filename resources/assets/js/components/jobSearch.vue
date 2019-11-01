@@ -957,7 +957,7 @@
                 <tr class="text-center">
                   <td colspan="2" style="border:none;">
 
-                     <button class="main-bg-color create-btn all-btn" id="search" style="width:16%;" @click="search"><i class="fas fa-search"></i>&nbsp; 検査 </button>
+                     <button class="main-bg-color create-btn all-btn" id="search" style="width:16%;" @click="search"><i class="fas fa-search"></i>&nbsp; 検索 </button>
 
                   </td>
                 </tr>
@@ -1298,9 +1298,7 @@ span:hover::before {
 .toBeToggled1 {
     display: none;
 }
-table{
-  border-top:none !important;
-}
+
 table > tbody > tr th{
   background-color: #eeeeee;
   text-align:right;

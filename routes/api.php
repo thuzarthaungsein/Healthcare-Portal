@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\NursingProfile;
+use App\HospitalProfile;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,22 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->get('/user', function (Request $request) {  
+    if($request->user()->type_id == 2){
+        $lat_lng = HospitalProfile::select('id','latitude','longitude')->where('customer_id', $request->user()->customer_id)->get();
+    }
+    else {
+        $lat_lng = NursingProfile::select('id','latitude','longitude')->where('customer_id', $request->user()->customer_id)->get();
+    }    
+    
+    return response()->json(array("user"=>$request->user(), "lat_lng"=>$lat_lng));
 });
 
 Route::group(['middleware' => ['auth']], function() {
 
 });
+
+
 
 
 
@@ -31,6 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
 
     Route::get('getCity','SearchMapController@getCity');
+    Route::get('profile_view/{cusid}/{type}','ProfilePublishController@getCustomerLatLng');
 
 // public route api end
 
@@ -306,9 +318,11 @@ Route::group(['prefix' => 'comments'], function () {
     Route::post('add', 'CommentController@store');
     Route::get('edit/{id}', 'CommentController@edit');
     Route::get('comment', 'CommentController@index');
-    Route::get('comfirm/{id}','CommentController@confirm');
+    Route::get('confirm/{id}','CommentController@confirm');
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
+    Route::post('search','CommentController@search');
+    Route::get('comment_list','CommentController@list');
 });
 
 Route::group(['prefix' => 'nurse'], function () {
