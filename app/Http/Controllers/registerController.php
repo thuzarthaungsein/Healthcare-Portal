@@ -20,8 +20,8 @@ class registerController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */     
-    
+     */
+
     public function index()
     {   $type = Type::all();
         $cities = DB::table('cities')->get();
@@ -33,7 +33,7 @@ class registerController extends Controller
     {
         $cities = $_GET['cities'];
         $data = DB::table('townships')->select('id','township_name','city_id')->where('city_id',$cities)->get();
-        return response()->json(array('result' => true,'data' => $data),200); 
+        return response()->json(array('result' => true,'data' => $data),200);
     }
     public function getType()
     {
@@ -59,7 +59,7 @@ class registerController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $this->validate($request, [
             'img' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|min:3|max:50',
@@ -152,9 +152,9 @@ class registerController extends Controller
         return view('auth.passwordReset');
     }
     public function insertUesr(Request $request)
-    {	
+    {
         $getEmail = $request->email;
-        
+
         $CheckUserEmail = User::where('email',$getEmail)->select('email')->value('email');
         $checkResetEmail = password_reset::where('email',$getEmail)->select('email')->value('email');
         if(!empty($checkResetEmail)){
@@ -164,7 +164,7 @@ class registerController extends Controller
                 $getUserId = User::where('email',$getEmail)->select('id')->value('id');
                 $getCustomerId = Customer::where('email',$getEmail)->select('id')->value('id');
                 $getTime = Carbon\Carbon::now();
-    
+
                 $data = array([
                     'email' => $getEmail,
                     'user_id' => $getUserId,
@@ -173,9 +173,9 @@ class registerController extends Controller
                 ]);
                 DB::table('password_reset')->insert($data);
                 return back()->with('reset','Check Your email for new password. When admin approved,you can use your password');
-    
-    
-    
+
+
+
             }else{
                 return back()->with('reset','Your Email is not register');
             }
@@ -187,11 +187,11 @@ class registerController extends Controller
         $getReset = DB::table('password_reset_view')->get();
         return response()->json($getReset);
     }
-    
+
     public function approve($id)
     {
         $getEmail = password_reset::where('id',$id)->select('email')->value('email');
-        
+
         $password = str_random(6);
         $hashPass = bcrypt($password);
         $updateUser = array(
@@ -201,7 +201,7 @@ class registerController extends Controller
             'password' => $password,
             'status' => 1
         );
-        
+
         $updateCustomer = array(
             'password' => $hashPass
         );

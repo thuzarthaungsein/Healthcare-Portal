@@ -268,23 +268,27 @@
               <div class="form-group">
                 <label for="neareststation">雇用形態:</label>
                 <br />
-                <label>
+                <label class="control control--radio">
                   <input type="radio" value="契約社員" v-model="joboffer.employmentstatus" />
-                  契約社員 &nbsp;&nbsp;
+                  契約社員 &nbsp;&nbsp;&nbsp;
+                  <div class="control__indicator"></div>
                 </label>
-                <label>
-                  <input type="radio" value="非常勤" v-model="joboffer.employmentstatus" />
-                  非常勤 &nbsp;&nbsp;
+                <label class="control control--radio" >
+                  <input type="radio"  value="非常勤" v-model="joboffer.employmentstatus" />
+                  非常勤 &nbsp;&nbsp;&nbsp;
+                  <div class="control__indicator"></div>
                 </label>
 
-                <label>
+                <label class="control control--radio" >
                   <input type="radio" value="正職員" v-model="joboffer.employmentstatus" />
-                  正職員 &nbsp;&nbsp;
+                  正職員 &nbsp;&nbsp;&nbsp;
+                  <div class="control__indicator"></div>
                 </label>
 
-                <label>
+                <label class="control control--radio">
                   <input type="radio" value="その他" v-model="joboffer.employmentstatus" />
                   その他
+                  <div class="control__indicator"></div>
                 </label>
               </div>
 
