@@ -355,7 +355,7 @@
           </div>
 
           <div class="col-sm-2 col-md-2 align-self-center">
-            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</span>
+            <button class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</button>
           </div>
         </div>
       </div>
@@ -364,13 +364,13 @@
           <div class="col-sm-12 col-md-12">
           <div id="holder" style="position: relative;">
               <div class="overlay standard hidden">&nbsp;</div>
-              
               <div id="mymap" class="select"></div>
             
           </div>
           </div>
         </div>
-       
+
+
         <!-- nursing list -->
         <div class="row" id="nursing-search">
           <div class="card-carousel-wrapper">
@@ -382,20 +382,20 @@
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-               
-                  <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card" v-for="items in nursingList" :id="items.alphabet"  :key="items.nursing_id">
+                  <div   @mouseover="MarkerHover(items.alphabet)" class="card-carousel--card el"  v-for="items in nursingList" :key="items.nursing_id">
                     <div class="MarkerHover" >
+
                       <table class="table">
                         <thead>
                           <tr>
-                            <th class="text-left text-danger">{{items.num_rooms}} </th>
+                            <th class="text-left text-danger">{{items.num_rooms}}</th>
                             <th class="text-right">{{items.date_of_establishment}}</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
                             <td colspan="2" class="text-center">
-                              <div class="item-fav btn btn-sm" >
+                              <div class="item-fav btn btn-sm">
                                 <i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加
                                 <img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|FF0000|000000'" alt="">
                               </div>
@@ -637,7 +637,7 @@
 
             <div class="col-sm-6 left-div-6"></div>
             <div class="col-sm-6 m-b-20">
-                <span class="btn all-btn btn-success" @click="search">検索</span>
+                <input type="button" value="Search" name="search" @click="search">
             </div>
         </div>
 
@@ -726,11 +726,9 @@
     data() {
 
       return {
-        
-        listid : '', 
+
         map: null,
         markers: [],
-        marker:[],
         selectedLocation: null,
         infoBoxOpen: false,
         places: [],
@@ -752,7 +750,6 @@
         paginationFactor: 410,
         nursingList: [],
         alphabet: [],
-        markerHover:[],
         SpecialFeatureID:[],
         MedicalAcceptanceID:[],
         FacTypeID:[],
@@ -862,10 +859,11 @@
               this.special_features = response.data.special_features
               this.fac_types = response.data.fac_types
               this.medical_acceptance = response.data.medical_acceptance
+              this.markers = response.data.nursing_profile;
+
               this.nursingList = response.data.nursing_profile
-              this.markers = response.data.nursing_profile; 
               this.id = id
- 
+
 
               var mmarker = new Array();
               var item = [];
@@ -884,6 +882,7 @@
                   coordinates.push(result[i].geometry['coordinates'])
                 }
               }
+
               var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
               // console.log(coordinates)
               var data = {
@@ -893,155 +892,164 @@
                   "coordinates": coordinate
                 },
               };
-
-
               var mapProp = {
                 center: new google.maps.LatLng(lat, lng),
                 zoom: 6,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
               };
 
-               this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
-                this.map.data.addGeoJson(data);
-                this.map.data.setStyle({
-                  strokeColor: "red",
-                  fillColor: 'red',
-                  strokeOpacity: 0.8,
-                  fillOpacity: 0.1,
-                  strokeWeight: 1
-                })
-                var bounds = new google.maps.LatLngBounds();
-                var markers = mmarker;
-                var infoWindowContent = new Array();
-                for (var i = 0; i < item.length; i++) {
-                    infoWindowContent.push([
-                      '<div id="info_content">' +
-                        '<div class="">' +
-                          '<table class="table">' +
-                            '<thead>' +
-                              '<tr>' +
-                                '<td class="text-left text-danger">' + item[i]['num_rooms'] +
-                                '</td>' +
-                                '<td class="text-right">' + item[i]['date_of_establishment'] +
-                                '</td>' +
-                              '</tr>' +
-                            '</thead>' +
+              var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+              map.data.addGeoJson(data);
+              map.data.setStyle({
+                strokeColor: "red",
+                fillColor: 'red',
+                strokeOpacity: 0.8,
+                fillOpacity: 0.1,
+                strokeWeight: 1
+              })
+
+              var bounds = new google.maps.LatLngBounds();
+              var markers = mmarker;
+              var infoWindowContent = new Array();
+
+              for (var i = 0; i < item.length; i++) {
+                infoWindowContent.push([
+                  '<div id="info_content">' +
+                    '<div class="">' +
+                      '<table class="table">' +
+                        '<thead>' +
+                          '<tr>' +
+                            '<td class="text-left text-danger">' + item[i]['num_rooms'] +
+                            '</td>' +
+                            '<td class="text-right">' + item[i]['date_of_establishment'] +
+                            '</td>' +
+                          '</tr>' +
+                        '</thead>' +
+                        '<tbody>' +
+                          '<tr>' +
+                            '<td colspan="2"><button class="item-fav-infowindow">'+
+                            '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+
+                            '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|FF0000|000000" alt="">'+
+                            '</span> </button></td>' +
+                          '</tr>' +
+                          '<tr>' +
+                          '<td colspan="2" class="text-left">' +
+                            '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
+                            '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right"></i> ' + item[i]['township_name'] + '</span>' +
+                          '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td colspan="2" style="background: linear-gradient(135deg, rgba(255,151,76,1) 0%, rgba(255,92,10,0.59) 100%);">' +
+                            item[i]['type_name'] +
+                            +'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td>' +
+                         '<img src="/images/' + item[i]['logo'] + '" alt="image" width="150px"/>' +
+                        '</td>' +
+                        '<td>' +
+                          '<table class="table table-bordered">' +
                             '<tbody>' +
                               '<tr>' +
-                                '<td colspan="2"><button class="item-fav-infowindow">'+
-                                '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+
-                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|FF0000|000000" alt="">'+
-                                '</span> </button></td>' +
+                                '<td>Address</td>' +
+                                '<td>' + item[i]['address'] + '</td>' +
                               '</tr>' +
-                              '<tr>' +
-                              '<td colspan="2" class="text-left">' +
-                                '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right"></i> ' + item[i]['township_name'] + '</span>' +
-                              '</td>' +
-                            '</tr>' +
                             '<tr>' +
-                                '<td colspan="2" style="background: linear-gradient(135deg, rgba(255,151,76,1) 0%, rgba(255,92,10,0.59) 100%);">' +
-                                item[i]['type_name'] +
-                                +'</td>' +
-                            '</tr>' +
+                              '<td>Phone</td>' +
+                              '<td>' + item[i]['phone'] + '</td>' +
+                              '</tr>' +
                             '<tr>' +
-                            '<td>' +
-                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="150px"/>' +
-                            '</td>' +
-                            '<td>' +
-                              '<table class="table table-bordered">' +
-                                '<tbody>' +
-                                  '<tr>' +
-                                    '<td>Address</td>' +
-                                    '<td>' + item[i]['address'] + '</td>' +
-                                  '</tr>' +
-                                '<tr>' +
-                                  '<td>Phone</td>' +
-                                  '<td>' + item[i]['phone'] + '</td>' +
-                                  '</tr>' +
-                                '<tr>' +
-                                '<td>Website</td>' +
-                                '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
-                                '</tr>' +
-                                '</tbody>' +
-                              '</table>' +
-                            '</td>' +
-                            '</tr>' +
-                            ' <tr>' +
-                            '<td colspan="2">' +
-                              '<div class="row text-center">' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in">Moving In</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month">Per Month</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in-item">' + item[i]['moving_in_to'] + '</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month-item">' + item[i]['per_month_to'] + '</div>' +
-                                '</div>' +
-                              '</div>' +
-                            '</td>' +
+                            '<td>Website</td>' +
+                            '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
                             '</tr>' +
                             '</tbody>' +
                           '</table>' +
-                        '</div>' +
-                      '</div>'
-                    ])
+                        '</td>' +
+                        '</tr>' +
+                        ' <tr>' +
+                        '<td colspan="2">' +
+                          '<div class="row text-center">' +
+                            '<div class="col-sm-6">' +
+                              '<div class="moveing-in">Moving In</div>' +
+                            '</div>' +
+                            '<div class="col-sm-6">' +
+                              '<div class="per-month">Per Month</div>' +
+                            '</div>' +
+                            '<div class="col-sm-6">' +
+                              '<div class="moveing-in-item">' + item[i]['moving_in_to'] + '</div>' +
+                            '</div>' +
+                            '<div class="col-sm-6">' +
+                              '<div class="per-month-item">' + item[i]['per_month_to'] + '</div>' +
+                            '</div>' +
+                          '</div>' +
+                        '</td>' +
+                        '</tr>' +
+                        '</tbody>' +
+                      '</table>' +
+                    '</div>' +
+                  '</div>'
+                ])
+              }
+              const HoverMarkers = [];
+              var infoWindow = new google.maps.InfoWindow(),marker, i;
+              const alphabet = response.data.alphabet;
+              for (i = 0; i < this.markers.length; i++) {
+                  var beach = markers[i]
+                var k = alphabet[i];
+                var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(position);
+                marker = new google.maps.Marker({
+                  position: position,
+                  map: map,
+                  icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + k + '|FF0000|000000',
+                  zoom: 6,
+                  title: markers[i][0]
+                });
+                HoverMarkers.push(marker)
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+                    infoWindow.setContent(infoWindowContent[i][0]);
+                    infoWindow.open(map, marker);
                   }
+                })(marker, i));
 
-                  var infoWindow = new google.maps.InfoWindow(),marker, i;
-                for (let i = 0; i < this.markers.length; i++) {
-                    var beach = this.markers[i]
-                    var lats = this.markers[i]['lat']
-                    var lngs = this.markers[i]['lng']
-                    var img = this.markers[i]['alphabet']
-                    var myLatLng = new google.maps.LatLng(lats, lngs);
-                    var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                (function(_beach,_marker,i){
+                    
+                  $('#A').on('mouseover', function(e){
+            
+                        _marker.setAnimation(google.maps.Animation.BOUNCE);
+                  });
+
+                })(beach,marker,i);
+                google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
                   
-                
-                    marker = new google.maps.Marker({
-                      position: position,
-                      map: this.map,
-                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|FF0000|000000',
-                      zoom: 6,
-                      title: markers[i][0]
-                    });
-
-                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                      return function() {
-                        infoWindow.setContent(infoWindowContent[i][0]);
-                        infoWindow.open(this.map, marker);
-                      }
-                    })(marker, i));
-                    this.markerHover.push(marker)
-                    var boundsListener = google.maps.event.addListener((this.map), 'bounds_changed', function(event) {
-                      google.maps.event.removeListener(boundsListener);
-                    });
-                }
-            })
-        }
+                  return function() {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                    setTimeout(function() {
+                      marker.setAnimation(null);
+                    }, 750);
+                  }
+                })(marker, i));
+                var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+                  google.maps.event.removeListener(boundsListener);
+                });
+                // console.log($('#mapMarker'));
+                $('#mapMarker').src = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + k + "|FF0000|000000' />";
+                // console.log($('#mapMarker').src)
   
+              }
+              
+            })
+        } 
       },
+      MarkerHover(index){
+          console.log(this.markers);
+          marker.setAnimation(google.maps.Animation.BOUNCE);
 
-      mouseover(index) {
-          for (let i = 0; i < this.markerHover.length; i++) {
-            if(this.markers[i]['alphabet'] == index)
-            {
-              this.markerHover[i].setAnimation(google.maps.Animation.BOUNCE);
-            }
-          }
       },
-      mouseleave(index){
-        for (let i = 0; i < this.markerHover.length; i++) {
-            if(this.markers[i]['alphabet'] == index)
-            {
-              this.markerHover[i].setAnimation(null);
-            }
-          }
-    },
+      googleMarker(marker) {
+        console.log(google.maps.Animation.BOUNCE)
+      },
       getCheck(e) {
 
         if (this.townshipID.length > 0) {
