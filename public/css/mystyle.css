@@ -7616,28 +7616,28 @@ ul.test>li:before {
     }
     .hokkaido-box,
     .kanto-box {
-        right: -10%;
+        right: 7%;
         max-width: 165px;
     }
     .tokai-box {
-        right: -10%;
+        right: 7%;
     }
     .shikoku-box {
         right: 22%;
     }
     .okinawa-box {
-        left: -1%;
+        left: 16%;
     }
     .kinki-box,
     .chugoku-box {
-        left: -1%;
+        left: 16%;
     }
     .chugoku-box {
         max-width: 230px;
     }
-    .hokuriku-box {
-        left: 28%;
-    }
+    /* .hokuriku-box {
+        left: 36%;
+    } */
     /* #v-pills-tab li a {
 
 
