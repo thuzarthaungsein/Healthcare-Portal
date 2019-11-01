@@ -2043,9 +2043,11 @@ ul.sub-ul li {
 .pad-10 {
     padding: 10px !important;
 }
-.pad-r-10{
+
+.pad-r-10 {
     padding-right: 10px;
 }
+
 .m-0 {
     margin: 0px;
 }
@@ -6942,8 +6944,11 @@ ul.test>li:before {
     background: #828282;
     color: #fff;
 }
+
+
 /*hospital search*/
-.hos-content{
+
+.hos-content {
     position: relative;
     margin-bottom: 20px;
     padding: 20px 20px 20px 20px;
@@ -6951,19 +6956,21 @@ ul.test>li:before {
     border: 1px solid #63b7ff;
     border-radius: 5px;
 }
-.hos-title{
+
+.hos-title {
     width: 900px;
     padding-right: 10px;
     vertical-align: top;
 }
+
 .hos-title a {
-    color: #63b7ff ;
+    color: #63b7ff;
     letter-spacing: 1px;
     font-weight: bold;
     overflow: hidden;
-    
 }
-.hos_status{
+
+.hos_status {
     float: left;
     padding: 0 5px;
     margin-right: 10px;
@@ -6972,18 +6979,19 @@ ul.test>li:before {
     color: #fff;
     border-radius: 3px;
 }
-.hos_phone{
+
+.hos_phone {
     background: #c40000;
     padding: 5px 15px;
     border-radius: 5px;
     color: #fff!important;
     position: absolute;
     right: 15px;
-    top: 65px;    
-    border: 1px solid #c40000; 
-    
+    top: 65px;
+    border: 1px solid #c40000;
 }
-.circle-phone{
+
+.circle-phone {
     background: #fff;
     width: 25px;
     height: 25px;
@@ -6996,7 +7004,8 @@ ul.test>li:before {
     margin-right: 8px;
     color: #c40000;
 }
-.first-hos-row{
+
+.first-hos-row {
     color: #fff;
     background-color: #a2a7a1;
     border-bottom: 1px solid #ccc;
@@ -7004,19 +7013,23 @@ ul.test>li:before {
     text-align: center;
     padding: 10px;
 }
-.second-hos-row{
+
+.second-hos-row {
     background-color: #eff7ec;
 }
+
 .hos-content .detail-btn .btn {
     width: 16%;
     background: #63b7ff;
     color: #fff;
     padding: 10px;
 }
+
 .hos-body table td:first-child {
-    
     background: #f9f9f9;
 }
+
+
 /* .slick-slider */
 
 .slick-slider {
@@ -7519,7 +7532,35 @@ ul.test>li:before {
 
 /*end for date time picker*/
 
+.pc-none {
+    display: none;
+}
+
 @media only screen and (max-width: 1300px) {
+    .pc-none {
+        display: block;
+    }
+    .pc-block {
+        display: none;
+    }
+    .main-content {
+        width: 100%;
+    }
+    .fixed-ads-fluid {
+        display: flex;
+        width: 100%;
+    }
+    #headerbar {
+        position: relative;
+        top: 17px;
+        margin-left: auto;
+    }
+    #headerbar li {
+        display: inline-block;
+    }
+    .ads-slider {
+        margin: 0 0 20px 0;
+    }
     .adslist-card {
         height: auto;
     }
