@@ -31,7 +31,7 @@
                         </g>
                     </g>
                 </svg>
-                &nbsp; <span class="font-weight-bold">お気に入り</span>
+                &nbsp; <span class="font-weight-bold">お気に入りリスト</span>
             </div>
         </div>
         <div class="row m-0">
@@ -55,7 +55,7 @@
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <img class="profile_wd m-b-15" v-bind:src="'/images/' + hos_profile.logo" alt  />
+                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/customers/' + hos_profile.logo" alt  />
                                                             <br>
                                                             <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
                                                         </td>
@@ -63,7 +63,7 @@
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <p class="profile_wd">
-                                                                <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設から削除</button>
+                                                                <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">お気に入りリストから削除</button>
                                                             </p>
                                                         </td>
                                                     </tr>
@@ -74,13 +74,16 @@
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <div class="profile_wd">{{hos_profile.township_name}}, {{hos_profile.city_name}}</div>
+                                                            <dl>
+                                                                <dt style="text-align:left;">住所</dt>
+                                                                <dd>{{hos_profile.township_name}} {{hos_profile.city_name}}</dd>
+                                                            </dl>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">アクセス</dt>
+                                                                <dt style="text-align:left;">交通アクセス</dt>
                                                                 <dd class="profile_wd" v-html="hos_profile.access"></dd>
                                                             </dl>
                                                         </td>
@@ -97,6 +100,7 @@
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <div class="profile_wd">
                                                                 <ul class="fac_container">
+                                                                    <h6 style="text-align:left;font-weight:bold;">特長</h6>
                                                                     <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                                 </ul>
                                                             </div>
@@ -257,6 +261,7 @@
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
+                                $("#hos-fav-local").html(l_sto_arr.length); 
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('hospital_fav', new_local);
                                 this.local_sto = localStorage.getItem("hospital_fav");

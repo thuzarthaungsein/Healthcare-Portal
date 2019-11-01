@@ -610,9 +610,9 @@
                     </tr>
                 </table>
                 <!-- end table 7 for 公式サイト -->
-                <div style="position:fixed;width:100%;background:rgba(0,0,0,.7);left:0;right:0;bottom:0;padding:0 0 10px 0;">
-                    <div class="row col-2 col-offset-6 mx-auto">
-                        <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
+                <div style="position:fixed;width:100%;background:rgba(0,0,0,.5);left:0;right:0;bottom:0;padding:0 0 10px 0;">
+                    <div class="row col-2 col-offset-5 mx-auto">
+                        <span class="btn secondary-bg-color col-8 offset-2 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
                     </div>
                 </div>
                 

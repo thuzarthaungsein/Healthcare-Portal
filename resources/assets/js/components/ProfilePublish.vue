@@ -61,7 +61,7 @@
             </div> -->
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
-                情報
+                介護情報
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
@@ -93,7 +93,7 @@
 
 
             <div class="row m-lr-0 ele p-t-65" id="element1">
-                 <h5 class="profile_header">情報</h5>
+                 <h5 class="profile_header">介護情報</h5>
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -158,7 +158,7 @@
                                     <tbody>
                                         <tr>
                                             <th width="200" class="custom-bg-color">
-                                                <font>入居時</font>
+                                                <font>入居時費用</font>
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
@@ -170,7 +170,7 @@
                                         </tr>
                                         <tr>
                                             <th width="200" class="custom-bg-color">
-                                                <font>月額</font>
+                                                <font>月額費用</font>
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
@@ -190,7 +190,7 @@
                                         </tr>
                                         <tr>
                                             <th width="200" class="custom-bg-color">
-                                                <font>電話</font>
+                                                <font>電話番号</font>
                                             </th>
                                             <td>
                                                 <font>{{cust.phone}}</font>
@@ -298,7 +298,7 @@
                                         </thead>
 
                                         <tbody>
-                                        <tr v-for="cost in method_payment" :key="cost.id">
+                                        <tr v-for="(cost,index) in method_payment" :key="cost.id" @click="changeBg(cost.id,index)" :class="'cost'+index">
                                             <td>
                                                 <h5 class="method-name">{{cost.payment_name}}</h5>
                                                 <span class="room-type"> {{cost.living_room_type}} </span>
@@ -902,7 +902,7 @@
                 </div> -->
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
-                情報
+                病院情報
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
@@ -923,7 +923,7 @@
 
             <!-- ee-->
 
-             <h5 class="profile_header">情報 </h5>
+             <h5 class="profile_header">病院情報 </h5>
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -1017,7 +1017,7 @@
                                     </tr>
                                     <tr>
                                         <th width="250" class="custom-bg-color">
-                                            <font>電話</font>
+                                            <font>電話番号</font>
                                         </th>
                                         <td>
                                             <font>{{cust.phone}}</font>
@@ -1716,6 +1716,10 @@ export default {
 
         },
         methods: {
+            changeBg(ch,a) {
+                $('.main-cost-table td').css({'background':'transparent'});
+                $('.cost'+a+' td').css({'background':'#ffe9df'});
+            },
             showLightbox: function(imageName) {
                 this.$refs.lightbox.show(imageName);
             },
@@ -2278,7 +2282,8 @@ export default {
 }
 
 .room-type {
-    background: #fdd6c3;
+    /* background: #fdd6c3; */
+    background: #fbaa84;
     color: #333333;
     padding: 3px 5px 3px 7px;
     border-radius: 3px;

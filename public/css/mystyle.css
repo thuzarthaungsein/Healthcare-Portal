@@ -6239,7 +6239,7 @@ button.confirmed {
 
 #nursing .hos-btn,
 #hospital .hos-btn {
-    width: 70%;
+    width: 71%;
     margin: 0 auto;
     margin-bottom: 5px;
 }
@@ -7635,13 +7635,21 @@ ul.test>li:before {
         overflow-x: auto;
     }
 }
+/* nursingSearch */
 
 #info_content table tr td {
     border-top: 0px;
 }
-
-
-/* nursingSearch */
+.search-border-dash{
+    border: 1px dashed #b7dad2;    
+    background: #f4f1eb;
+}
+.nurs-sub-heading{    
+    color: #ff9563;
+    font-weight: bold;
+    font-size: 18px;
+}
+/* end nursingSearch */
 
 
 /*commentform*/
